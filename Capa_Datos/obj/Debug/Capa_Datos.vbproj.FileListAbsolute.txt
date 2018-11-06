@@ -1,0 +1,72 @@
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.exe
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.exe
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\Oscar Merino\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.exe
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\OSISTEMAS\Desktop\Algodon_2017\Sistema_Algodon_2017\Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Operacion.exe
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Datos\obj\Debug\Capa_Datos.pdb

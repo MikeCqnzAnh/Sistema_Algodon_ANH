@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DE26638-6EAD-4D20-B52F-3EED4039A544}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Capa_Entidad</RootNamespace>
+    <AssemblyName>Capa_Entidad</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Capa_Entidad.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Capa_Entidad.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogos\Asociaciones.vb" />
+    <Compile Include="Catalogos\Camiones.vb" />
+    <Compile Include="Catalogos\CastigoLargoFibra.vb" />
+    <Compile Include="Catalogos\CastigoPorQuintal.vb" />
+    <Compile Include="Catalogos\CastigoResistenciaFibra.vb" />
+    <Compile Include="Catalogos\Clientes.vb" />
+    <Compile Include="Catalogos\Colonias.vb" />
+    <Compile Include="Catalogos\Compradores.vb" />
+    <Compile Include="Catalogos\Empleados.vb" />
+    <Compile Include="Catalogos\IncidenciaOperaciones.vb" />
+    <Compile Include="Catalogos\Maquinaria.vb" />
+    <Compile Include="Catalogos\ModalidadesCompra.vb" />
+    <Compile Include="Catalogos\Plantas.vb" />
+    <Compile Include="Catalogos\ProfesionalesFitosanitarios.vb" />
+    <Compile Include="Catalogos\Puestos.vb" />
+    <Compile Include="Catalogos\RangosTemperatura.vb" />
+    <Compile Include="Catalogos\RegimenHidrico.vb" />
+    <Compile Include="Catalogos\Rendimientos.vb" />
+    <Compile Include="Catalogos\Tierras.vb" />
+    <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Catalogos\VariedadesAlgodon.vb" />
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
+    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb" />
+    <Compile Include="Comercializacion\Compras\CompraPacas.vb" />
+    <Compile Include="Comercializacion\Compras\CompraPacasContrato.vb" />
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\ConsultaCastigos.vb" />
+    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb" />
+    <Compile Include="Comercializacion\ContratosAlgodon.vb" />
+    <Compile Include="Comercializacion\ContratosAlgodonCompradores.vb" />
+    <Compile Include="Comercializacion\ContratoSemillas.vb" />
+    <Compile Include="Comercializacion\Ventas\VentaPacas.vb" />
+    <Compile Include="Comercializacion\Ventas\VentaPacasContrato.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Procesos\CapturaBoletasPorLotes.vb" />
+    <Compile Include="Procesos\Etiquetas.vb" />
+    <Compile Include="Procesos\LiquidacionesPorRomaneaje.vb" />
+    <Compile Include="Procesos\OrdenTrabajo.vb" />
+    <Compile Include="Procesos\Produccion.vb" />
+    <Compile Include="Reportes\Reportes.vb" />
+    <Compile Include="Tarjeta.vb" />
+    <Compile Include="Utilerias\ConfiguracionParametros.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administracion\" />
+    <Folder Include="Almacenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
+      <Project>{474d9897-44a4-4125-80d5-a579dd360e5c}</Project>
+      <Name>Capa_Operacion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

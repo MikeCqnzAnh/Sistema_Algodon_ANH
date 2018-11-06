@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{218AEC58-D674-4C85-9BEB-5B87131EF2C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Capa_Presentacion.My.MyApplication</StartupObject>
+    <RootNamespace>Capa_Presentacion</RootNamespace>
+    <AssemblyName>Capa_Presentacion</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Capa_Presentacion.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Capa_Presentacion.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ALGODON_2VDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaBasura.Designer.vb">
+      <DependentUpon>SalidaBasura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaBasura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacas.Designer.vb">
+      <DependentUpon>SalidaPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacasBorra.Designer.vb">
+      <DependentUpon>SalidaPacasBorra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacasBorra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacenes\SalidaSemilla.Designer.vb">
+      <DependentUpon>SalidaSemilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaSemilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Asociaciones.Designer.vb">
+      <DependentUpon>Asociaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Asociaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Camiones.Designer.vb">
+      <DependentUpon>Camiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Camiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CastigoLargoFibra.Designer.vb">
+      <DependentUpon>CastigoLargoFibra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CastigoLargoFibra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CastigoPorQuintal.Designer.vb">
+      <DependentUpon>CastigoPorQuintal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CastigoPorQuintal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CastigoResistenciaFibra.Designer.vb">
+      <DependentUpon>CastigoResistenciaFibra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CastigoResistenciaFibra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ClasificacionPacas.Designer.vb">
+      <DependentUpon>ClasificacionPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClasificacionPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Colonias.Designer.vb">
+      <DependentUpon>Colonias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Colonias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Compradores.Designer.vb">
+      <DependentUpon>Compradores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Compradores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Empleados.Designer.vb">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Folios.Designer.vb">
+      <DependentUpon>Folios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Folios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\IncidenciaOperaciones.Designer.vb">
+      <DependentUpon>IncidenciaOperaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IncidenciaOperaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\LargoFibra.Designer.vb">
+      <DependentUpon>LargoFibra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\LargoFibra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Maquinaria.Designer.vb">
+      <DependentUpon>Maquinaria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Maquinaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ModalidadesCompra.Designer.vb">
+      <DependentUpon>ModalidadesCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ModalidadesCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Municipios.Designer.vb">
+      <DependentUpon>Municipios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Municipios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Plantas.Designer.vb">
+      <DependentUpon>Plantas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Plantas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ProfesionalesFitosanitarios.Designer.vb">
+      <DependentUpon>ProfesionalesFitosanitarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProfesionalesFitosanitarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Puestos.Designer.vb">
+      <DependentUpon>Puestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Puestos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\RangosTemperatura.Designer.vb">
+      <DependentUpon>RangosTemperatura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RangosTemperatura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Rendimientos.Designer.vb">
+      <DependentUpon>Rendimientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Rendimientos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Tierras.Designer.vb">
+      <DependentUpon>Tierras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Tierras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TiposIncidencias.Designer.vb">
+      <DependentUpon>TiposIncidencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TiposIncidencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\VariedadesAlgodon.Designer.vb">
+      <DependentUpon>VariedadesAlgodon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\VariedadesAlgodon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.Designer.vb">
+      <DependentUpon>ClasificacionVentaPaquetes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\AltaPacas.Designer.vb">
+      <DependentUpon>AltaPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\AltaPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ClasificacionPacasCertificado.Designer.vb">
+      <DependentUpon>ClasificacionPacasCertificado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ClasificacionPacasCertificado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.Designer.vb">
+      <DependentUpon>ClasificacionPacasExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPacas.Designer.vb">
+      <DependentUpon>CompraPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPacasContrato.Designer.vb">
+      <DependentUpon>CompraPacasContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPacasContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPago\CompraPago.Designer.vb">
+      <DependentUpon>CompraPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPago\CompraPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\LiquidacionFinal.Designer.vb">
+      <DependentUpon>LiquidacionFinal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\LiquidacionFinal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosLargoFibra.Designer.vb">
+      <DependentUpon>CastigosLargoFibra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosLargoFibra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosMicro.Designer.vb">
+      <DependentUpon>CastigosMicro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosMicro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosResistenciaFibra.Designer.vb">
+      <DependentUpon>CastigosResistenciaFibra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosResistenciaFibra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\ModalidadCompra.Designer.vb">
+      <DependentUpon>ModalidadCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\ModalidadCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\PaquetesHVI.Designer.vb">
+      <DependentUpon>PaquetesHVI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\ContratosAlgodon.Designer.vb">
+      <DependentUpon>ContratosAlgodon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\ContratosAlgodon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\ContratosAlgodonCompradores.Designer.vb">
+      <DependentUpon>ContratosAlgodonCompradores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\ContratosAlgodonCompradores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\ContratoSemillas.Designer.vb">
+      <DependentUpon>ContratoSemillas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\ContratoSemillas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\ModalidadVenta.Designer.vb">
+      <DependentUpon>ModalidadVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\ModalidadVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacasContrato.Designer.vb">
+      <DependentUpon>VentaPacasContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacasContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacas.Designer.vb">
+      <DependentUpon>VentaPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPago\VentaPago.Designer.vb">
+      <DependentUpon>VentaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPago\VentaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaClientes.Designer.vb">
+      <DependentUpon>ConsultaClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCompradores.Designer.vb">
+      <DependentUpon>ConsultaCompradores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCompradores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenTrabajo.Designer.vb">
+      <DependentUpon>ConsultaOrdenTrabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenTrabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaProductores.Designer.vb">
+      <DependentUpon>ConsultaProductores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaProductores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTierras.Designer.vb">
+      <DependentUpon>ConsultaTierras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTierras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTierrasChecks.Designer.vb">
+      <DependentUpon>ConsultaTierrasChecks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTierrasChecks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.vb">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Procesos\BoletasPorLotes.Designer.vb">
+      <DependentUpon>BoletasPorLotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\BoletasPorLotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\CapturaBoletas.Designer.vb">
+      <DependentUpon>CapturaBoletas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\CapturaBoletas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\CapturaBoletasPorLotes.Designer.vb">
+      <DependentUpon>CapturaBoletasPorLotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\CapturaBoletasPorLotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\IncidenciasBoletasPorLotes.Designer.vb">
+      <DependentUpon>IncidenciasBoletasPorLotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\IncidenciasBoletasPorLotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\OrdenTrabajo.Designer.vb">
+      <DependentUpon>OrdenTrabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\OrdenTrabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\Etiquetas.Designer.vb">
+      <DependentUpon>Etiquetas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\Etiquetas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\LiquidacionesPorRomaneaje.Designer.vb">
+      <DependentUpon>LiquidacionesPorRomaneaje.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\LiquidacionesPorRomaneaje.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\Produccion.Designer.vb">
+      <DependentUpon>Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\ProduccionTecladoFijo.Designer.vb">
+      <DependentUpon>ProduccionTecladoFijo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\ProduccionTecladoFijo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\RegimenHidrico.Designer.vb">
+      <DependentUpon>RegimenHidrico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RegimenHidrico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepClasificacion.Designer.vb">
+      <DependentUpon>RepClasificacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepClasificacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepClientes.Designer.vb">
+      <DependentUpon>RepClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\REPORTE HVI DETALLE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>REPORTE HVI DETALLE.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTClasificacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTClasificacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
+      <DependentUpon>RPTReporteClientes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utilerias\ConfiguracionParametros.Designer.vb">
+      <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ConfiguracionParametros.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VarGlob.vb" />
+    <Compile Include="VarGlob2.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Almacenes\SalidaBasura.resx">
+      <DependentUpon>SalidaBasura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\SalidaPacas.resx">
+      <DependentUpon>SalidaPacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\SalidaPacasBorra.resx">
+      <DependentUpon>SalidaPacasBorra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\SalidaSemilla.resx">
+      <DependentUpon>SalidaSemilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Asociaciones.resx">
+      <DependentUpon>Asociaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Camiones.resx">
+      <DependentUpon>Camiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CastigoLargoFibra.resx">
+      <DependentUpon>CastigoLargoFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CastigoPorQuintal.resx">
+      <DependentUpon>CastigoPorQuintal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CastigoResistenciaFibra.resx">
+      <DependentUpon>CastigoResistenciaFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\ClasificacionPacas.resx">
+      <DependentUpon>ClasificacionPacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Colonias.resx">
+      <DependentUpon>Colonias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Compradores.resx">
+      <DependentUpon>Compradores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Empleados.resx">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Folios.resx">
+      <DependentUpon>Folios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\IncidenciaOperaciones.resx">
+      <DependentUpon>IncidenciaOperaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\LargoFibra.resx">
+      <DependentUpon>LargoFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Maquinaria.resx">
+      <DependentUpon>Maquinaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\ModalidadesCompra.resx">
+      <DependentUpon>ModalidadesCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Municipios.resx">
+      <DependentUpon>Municipios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Plantas.resx">
+      <DependentUpon>Plantas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\ProfesionalesFitosanitarios.resx">
+      <DependentUpon>ProfesionalesFitosanitarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Puestos.resx">
+      <DependentUpon>Puestos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\RangosTemperatura.resx">
+      <DependentUpon>RangosTemperatura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Rendimientos.resx">
+      <DependentUpon>Rendimientos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Tierras.resx">
+      <DependentUpon>Tierras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
+      <DependentUpon>TiposIncidencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\VariedadesAlgodon.resx">
+      <DependentUpon>VariedadesAlgodon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.resx">
+      <DependentUpon>ClasificacionVentaPaquetes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\AltaPacas.resx">
+      <DependentUpon>AltaPacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ClasificacionPacasCertificado.resx">
+      <DependentUpon>ClasificacionPacasCertificado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ClasificacionPacasExcel.resx">
+      <DependentUpon>ClasificacionPacasExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\CompraPacas.resx">
+      <DependentUpon>CompraPacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\CompraPacasContrato.resx">
+      <DependentUpon>CompraPacasContrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\CompraPago\CompraPago.resx">
+      <DependentUpon>CompraPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\LiquidacionFinal.resx">
+      <DependentUpon>LiquidacionFinal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosLargoFibra.resx">
+      <DependentUpon>CastigosLargoFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosMicro.resx">
+      <DependentUpon>CastigosMicro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosResistenciaFibra.resx">
+      <DependentUpon>CastigosResistenciaFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\ModalidadCompra.resx">
+      <DependentUpon>ModalidadCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\PaquetesHVI.resx">
+      <DependentUpon>PaquetesHVI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\ContratosAlgodon.resx">
+      <DependentUpon>ContratosAlgodon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\ContratosAlgodonCompradores.resx">
+      <DependentUpon>ContratosAlgodonCompradores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\ContratoSemillas.resx">
+      <DependentUpon>ContratoSemillas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\ModalidadVenta.resx">
+      <DependentUpon>ModalidadVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\VentaPacasContrato.resx">
+      <DependentUpon>VentaPacasContrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\VentaPacas.resx">
+      <DependentUpon>VentaPacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\VentaPago\VentaPago.resx">
+      <DependentUpon>VentaPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaClientes.resx">
+      <DependentUpon>ConsultaClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaCompradores.resx">
+      <DependentUpon>ConsultaCompradores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenTrabajo.resx">
+      <DependentUpon>ConsultaOrdenTrabajo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaProductores.resx">
+      <DependentUpon>ConsultaProductores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaTierras.resx">
+      <DependentUpon>ConsultaTierras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaTierrasChecks.resx">
+      <DependentUpon>ConsultaTierrasChecks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\BoletasPorLotes.resx">
+      <DependentUpon>BoletasPorLotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\CapturaBoletas.resx">
+      <DependentUpon>CapturaBoletas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\CapturaBoletasPorLotes.resx">
+      <DependentUpon>CapturaBoletasPorLotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\IncidenciasBoletasPorLotes.resx">
+      <DependentUpon>IncidenciasBoletasPorLotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\OrdenTrabajo.resx">
+      <DependentUpon>OrdenTrabajo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\Etiquetas.resx">
+      <DependentUpon>Etiquetas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\LiquidacionesPorRomaneaje.resx">
+      <DependentUpon>LiquidacionesPorRomaneaje.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\Produccion.resx">
+      <DependentUpon>Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\ProduccionTecladoFijo.resx">
+      <DependentUpon>ProduccionTecladoFijo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\RegimenHidrico.resx">
+      <DependentUpon>RegimenHidrico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepClasificacion.resx">
+      <DependentUpon>RepClasificacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepClientes.resx">
+      <DependentUpon>RepClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\REPORTE HVI DETALLE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>REPORTE HVI DETALLE.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTClasificacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTClasificacion.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTReporteClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ConfiguracionParametros.resx">
+      <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ALGODON_2VDataSet.xsc">
+      <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ALGODON_2VDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ALGODON_2VDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ALGODON_2VDataSet.xss">
+      <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Datos\Capa_Datos.vbproj">
+      <Project>{07c8185b-0838-4052-993f-a6142e682b21}</Project>
+      <Name>Capa_Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa_Entidad\Capa_Entidad.vbproj">
+      <Project>{3de26638-6ead-4d20-b52f-3eed4039a544}</Project>
+      <Name>Capa_Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.vbproj">
+      <Project>{464320c1-9849-4937-b1eb-371f9d531025}</Project>
+      <Name>Capa_Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
+      <Project>{474d9897-44a4-4125-80d5-a579dd360e5c}</Project>
+      <Name>Capa_Operacion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administracion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BusquedaUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Iconos\if_exit-enter-leave-door-in_2931189.ico" />
+    <Content Include="Iconos\if_multimedia-27_809537.ico" />
+    <Content Include="Iconos\if_new_981081.ico" />
+    <Content Include="Iconos\if_Recyclebin_Close_171530.ico" />
+    <Content Include="Iconos\if_search_322497.ico" />
+    <Content Include="Iconos\logo cotton2 %281%29.ico" />
+    <Content Include="Iconos\logo cotton2.ico" />
+    <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
+    <None Include="Resources\BusquedaUsuario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

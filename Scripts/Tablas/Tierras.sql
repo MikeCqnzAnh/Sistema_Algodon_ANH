@@ -1,0 +1,26 @@
+create table Tierras
+(
+IdTierra int primary key identity(1,1),
+Lote varchar(10),
+Colonia int,
+Propietario int,
+RegistroAlterno varchar(12),
+SuperficieTotal decimal(10,2),
+SuperficieCultivable decimal(10,2),
+LatitudGrados decimal(6,2),
+LatitudHoras  decimal(6,2),
+LatitudMinutos decimal(6,2),
+LongitudGrados decimal(6,2),
+LongitudHoras decimal(6,2),
+LongitudMinutos decimal(6,2),
+NumeroRpp int,
+FolioRpp int,
+LibroRpp int,
+Fecha date,
+TituloAgua varchar(15),
+RegimenHidrico int,
+FechaTituloAgua date,
+IdEstatus int,
+IdUsuarioCreacion int,
+FechaCreacion Datetime
+)

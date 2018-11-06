@@ -1,0 +1,37 @@
+CREATE PROC Sp_ConsultaPacasHviDetalle
+@hvidetalle int
+as
+SELECT CLA.[IdCalculoClasificacion]
+	  ,HVI.[IdHviDet]
+      ,HVI.[IdHviEnc]
+      ,HVI.[LotID]
+      ,HVI.[BaleGroup]
+      ,HVI.[Operator]
+      ,HVI.[Date]
+      ,HVI.[Temperature]
+      ,HVI.[Humidity]
+      ,HVI.[Amount]
+      ,HVI.[UHML]
+      ,HVI.[UI]
+      ,HVI.[Elongation]
+      ,HVI.[SFI]
+      ,HVI.[Maturity]
+      ,HVI.[Grade]
+      ,HVI.[Moist]
+      ,HVI.[Rd]
+      ,HVI.[Plusb]
+      ,HVI.[TrashCount]
+      ,HVI.[TrashArea]
+      ,HVI.[Nep]
+      ,HVI.[UV]
+	  ,CLA.[BaleId]
+      ,CLA.[Mic]
+      ,CLA.[ColorGrade]
+      ,CLA.[TrashId]
+      ,CLA.[Clase]
+      ,CLA.[UHML]
+      ,CLA.[Strength]
+      ,CLA.[SCI]
+  FROM [HVIDetalle] HVI INNER JOIN [CalculoClasificacion] CLA
+  ON HVI.IdHviDet = CLA.IdHviDetalle
+  WHERE [IdHviDet] = @hvidetalle

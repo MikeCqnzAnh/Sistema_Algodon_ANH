@@ -1,0 +1,46 @@
+create procedure sp_ConsultaDetalladaClientes
+--declare
+@IdCliente int --= 1
+as
+select a.IdCliente,
+	   a.Socio,
+	   a.Nombre,
+	   a.IdTipoPersona,
+	   a.RfcFisica,
+	   a.CurpFisica,
+	   a.CalleFisica,
+	   a.NumeroFisica,
+	   a.IdEstadoFisica,
+	   a.IdMunicipioFisica,
+	   a.ColoniaFisica,
+	   a.CelularFisica,
+	   a.TelefonoFisica,
+	   a.CorreoFisica,
+	   a.ApoderadoFisica,
+	   a.FolioActa,
+	   a.IdEstadoActa,
+	   a.FechaActa,
+	   a.NotarioActa,
+	   a.RegistroPublicoActa,
+	   a.NumeroActa,
+	   a.LibroActa,
+	   a.FolioMercantil,
+	   a.RfcApoderado,
+	   a.CurpApoderado,
+	   a.IneApoderado,
+	   a.CalleApoderado,
+	   a.IdEstadoApoderado,
+	   a.IdMunicipioApoderado,
+	   a.TelefonoApoderado,
+	   a.CelularApoderado,
+	   a.CorreoApoderado,
+	   a.IdEstadoMovilizacion,
+	   a.IdMunicipioMovilizacion,
+	   a.Certificado,
+	   a.Superficie,
+	   a.Predio,
+	   a.IdCuentaDe,
+	   a.IdEstatus
+from dbo.Clientes a
+where a.IdEstatus = 1
+and   a.IdCliente = @IdCliente
