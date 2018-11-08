@@ -42,12 +42,33 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExistente
-                    sqlcom1 = New SqlCommand("Sp_ConsultaExistenciaPacaEnPaquete", cnn)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExisteProduccion
+                    sqlcom1 = New SqlCommand("sp_ExistePacaProduccion", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@NumPaca", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExisteHVI
+                    sqlcom1 = New SqlCommand("sp_ExistePacaHVI", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaPlanta
+                    sqlcom1 = New SqlCommand("sp_VerificaPacaPlanta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExistePaquete
+                    sqlcom1 = New SqlCommand("sp_ExistePacaPaquete", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Actuliza.ActualizaIdPaca
                     sqlcom1 = New SqlCommand("Sp_ActualizaIdPaqueteDePaca", cnn)

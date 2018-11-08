@@ -5,15 +5,12 @@ Public Class Clientes
         LlenarCombos()
         Limpiar()
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
-
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Dim EntidadClientes As New Capa_Entidad.Clientes
         Dim NegocioClientes As New Capa_Negocio.Clientes
@@ -65,7 +62,6 @@ Public Class Clientes
         CbCuentaDe.SelectedValue = Tabla.Rows(0).Item("IdCuentaDe")
         Pestañas()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadClientes As New Capa_Entidad.Clientes
         Dim NegocioClientes As New Capa_Negocio.Clientes
@@ -264,11 +260,9 @@ Public Class Clientes
         CbCuentaDe.DisplayMember = "Descripcion"
         CbCuentaDe.SelectedValue = 1
     End Sub
-
     Private Sub CbTipoPersona_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoPersona.SelectionChangeCommitted
         Pestañas()
     End Sub
-
     Private Sub Pestañas()
         If CbTipoPersona.SelectedValue = 2 Then
             TPPersonaFisica.Enabled = False

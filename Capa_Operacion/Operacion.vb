@@ -104,6 +104,12 @@ Namespace Configuracion
         ConsultaModalidadCompra = 39
         ConsultaModalidadVenta = 40
         ConsultaModoVenta = 41
+        'Consulta existencias
+        ConsultaPacaExisteProduccion = 42
+        ConsultaPacaExisteHVI = 43
+        ConsultaPacaPlanta = 44
+        ConsultaPacaExistePaquete = 45
+
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

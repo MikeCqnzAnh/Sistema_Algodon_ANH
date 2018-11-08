@@ -1,6 +1,7 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ClasificacionVentaPaquetes
     Private TablaClasificacionGrid, TablaClasificacionGlobal As New DataTable
+    Private PlantaVerifica As String
     Private Sub ClasificacionVentaPaquetes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargaCombos()
         'Consultar()
@@ -137,16 +138,16 @@ Public Class ClasificacionVentaPaquetes
         End If
     End Sub
     Function VerificaExistenciaPacaEnPaquete(ByVal IdPaca As Integer)
-        Dim ExistePaca As Integer
-        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
-        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
-        Dim Tabla As New DataTable
-        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExistente
-        EntidadClasificacionVentaPaquetes.NumeroPaca = CInt(IIf(TbNoPaca.Text = "", 0, TbNoPaca.Text))
-        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
-        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
-        ExistePaca = Tabla.Rows(0).Item("IdPaqueteEncabezado")
-        Return ExistePaca
+        'Dim ExistePaca As Integer
+        'Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        'Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        'Dim Tabla As New DataTable
+        'EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExisteProduccion
+        'EntidadClasificacionVentaPaquetes.NumeroPaca = CInt(IIf(TbNoPaca.Text = "", 0, TbNoPaca.Text))
+        'NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        'Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        'ExistePaca = Tabla.Rows(0).Item("IdPaqueteEncabezado")
+        'Return ExistePaca
     End Function
     Private Sub PlantaPaca()
 
@@ -155,26 +156,37 @@ Public Class ClasificacionVentaPaquetes
         Select Case e.KeyData
             Case Keys.Enter
                 If TbNoPaca.Text <> "" Then
-                    Dim IdPaquete = VerificaExistenciaPacaEnPaquete(TbNoPaca.Text)
-                    If IdPaquete = 0 Then
-                        InsertaPaca()
-                        TbNoPaca.Text = ""
-                        Guardar()
-                    Else
-                        Dim result As Integer = MessageBox.Show("La paca No. " & TbNoPaca.Text & " Ya existe en el paquete " & IdPaquete & ", ¿Deseas cambiarla al Paquete actual?", "Aviso", MessageBoxButtons.YesNo)
-                        If result = DialogResult.No Then
-
-                        ElseIf result = DialogResult.Yes Then
-                            ActualizaPaca()
-                            InsertaPaca()
-                            Guardar()
-                            'MessageBox.Show("El paquete ha sido actualizado!")
-                        End If
-                        TbNoPaca.Text = ""
+                    If ExistePacaProduccion(TbNoPaca.Text) = False Then
+                        MsgBox("Paca " & TbNoPaca.Text & " no existe en produccion, revisa el ID capturado.")
+                    ElseIf ExistePacaHVI(TbNoPaca.Text) = False Then
+                        MsgBox("Paca " & TbNoPaca.Text & " no existe en HVI, revisa el ID capturado.")
+                    ElseIf VerificaPacaPlanta(TbNoPaca.Text) = False Then
+                        MsgBox("Paca " & TbNoPaca.Text & " pertenece a " & PlantaVerifica & ".")
+                        PlantaVerifica = ""
+                    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True Then
+                        MsgBox("Paca " & TbNoPaca.Text & " existe en paquete X ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?")
                     End If
-                Else
-                    MsgBox("Ingrese el ID de la orden de trabajo...")
-                    Exit Sub
+
+                    '    Dim IdPaquete = VerificaExistenciaPacaEnPaquete(TbNoPaca.Text)
+                    '    If IdPaquete = 0 Then
+                    '        InsertaPaca()
+                    '        TbNoPaca.Text = ""
+                    '        Guardar()
+                    '    Else
+                    '        Dim result As Integer = MessageBox.Show("La paca No. " & TbNoPaca.Text & " Ya existe en el paquete " & IdPaquete & ", ¿Deseas cambiarla al Paquete actual?", "Aviso", MessageBoxButtons.YesNo)
+                    '        If result = DialogResult.No Then
+
+                    '        ElseIf result = DialogResult.Yes Then
+                    '            ActualizaPaca()
+                    '            InsertaPaca()
+                    '            Guardar()
+                    '            'MessageBox.Show("El paquete ha sido actualizado!")
+                    '        End If
+                    '        TbNoPaca.Text = ""
+                    '    End If
+                    'Else
+                    '    MsgBox("Ingrese el ID de la orden de trabajo...")
+                    '    Exit Sub
                 End If
         End Select
         ContarPacas()
@@ -496,8 +508,64 @@ Public Class ClasificacionVentaPaquetes
             Next
         End If
     End Sub
-
     Private Sub BtRevisarClases_Click(sender As Object, e As EventArgs) Handles BtRevisarClases.Click
         IdentificaColor()
     End Sub
+    Function ExistePacaProduccion(ByVal IdPaca As Integer) As Boolean
+        Dim Tabla As New DataTable
+        Dim resultado As Boolean
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExisteProduccion
+        EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        resultado = Tabla.Rows(0).Item("ExistePaca")
+        Return resultado
+    End Function
+    Function ExistePacaHVI(ByVal IdPaca As Integer) As Boolean
+        Dim Tabla As New DataTable
+        Dim resultado As Boolean
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExisteHVI
+        EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        resultado = Tabla.Rows(0).Item("ExistePaca")
+        Return resultado
+    End Function
+    Function VerificaPacaPlanta(ByVal IdPaca As Integer) As Boolean
+        Dim Tabla As New DataTable
+        Dim Resultado As Boolean
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaPlanta
+        EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        If CbPlanta.SelectedValue <> Tabla.Rows(0).Item("IdPlantaOrigen") Then
+            Resultado = False
+        Else
+            PlantaVerifica = Tabla.Rows(0).Item("Descripcion")
+            Resultado = True
+        End If
+        Return Resultado
+    End Function
+    Function ExistePacaPaquete(ByVal IdPaca As Integer) As Boolean
+        Dim Tabla As New DataTable
+        Dim Resultado As Boolean
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExistePaquete
+        EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        If CbPlanta.SelectedValue <> Tabla.Rows(0).Item("ExistePaca") Then
+            Resultado = False
+        Else
+            Resultado = True
+        End If
+        Return Resultado
+    End Function
 End Class
