@@ -148,6 +148,9 @@ Public Class ClasificacionVentaPaquetes
         ExistePaca = Tabla.Rows(0).Item("IdPaqueteEncabezado")
         Return ExistePaca
     End Function
+    Private Sub PlantaPaca()
+
+    End Sub
     Private Sub TbNoPaca_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbNoPaca.KeyDown
         Select Case e.KeyData
             Case Keys.Enter

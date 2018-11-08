@@ -46,3 +46,15 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Entidad\obj\D
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Entidad\obj\Debug\Capa_Entidad.dll
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Entidad\obj\Debug\Capa_Entidad.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Entidad\obj\Debug\Capa_Entidad.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.exe
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbprojResolveAssemblyReference.cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.Resources.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.GenerateResource.Cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.dll
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.xml
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.pdb

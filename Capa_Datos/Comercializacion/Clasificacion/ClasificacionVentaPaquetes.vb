@@ -42,13 +42,6 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
-                    sqlcom1 = New SqlCommand("sp_ConsultaPacasCalculoClasif", cnn)
-                    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    sqlcom1.CommandType = CommandType.StoredProcedure
-                    sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
-                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExistente
                     sqlcom1 = New SqlCommand("Sp_ConsultaExistenciaPacaEnPaquete", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
