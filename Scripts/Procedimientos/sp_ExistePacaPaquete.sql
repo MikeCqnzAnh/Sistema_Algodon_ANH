@@ -3,7 +3,7 @@ create proc sp_ExistePacaPaquete
 as 
 if exists (select  BaleID from CalculoClasificacion where BaleID = @FolioCIA)
 	begin
-		Select 1 ExistePaca
+		Select 1 as ExistePaca, Idpaqueteencabezado from CalculoClasificacion where BaleID = @FolioCIA
 	end
 else
 	begin
