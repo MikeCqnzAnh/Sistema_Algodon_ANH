@@ -445,7 +445,7 @@ Public Class Produccion
             CBPlantaElabora.SelectedValue = Tabla.Rows(0).Item("IdPlantaDestino")
             DtpFechaProduccion.Value = Tabla.Rows(0).Item("Fecha")
             CbTipo.Text = Tabla.Rows(0).Item("Tipo")
-            TbIdProduccion.Text = Tabla.Rows(0).Item("IdCliente")
+            TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
             TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
             TbFolioInicial.Text = Tabla.Rows(0).Item("FolioInicial")
         End If

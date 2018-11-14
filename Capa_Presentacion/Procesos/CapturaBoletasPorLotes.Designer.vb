@@ -33,7 +33,8 @@ Partial Class CapturaBoletasPorLotes
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
         Me.BtAutomatico = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.DgvModulos = New System.Windows.Forms.DataGridView()
+        'Me.DgvModulos = New System.Windows.Forms.DataGridView()
+        Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
         Me.MSMenu.SuspendLayout()
@@ -185,7 +186,7 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GbGenerales As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents DgvModulos As DataGridView
+    Friend WithEvents DgvModulos As DgvPlusCapturaBoletas
     Friend WithEvents TiActualizaDgvModulos As Timer
     Friend WithEvents CbPuertosSeriales As ComboBox
     Friend WithEvents BtAutomatico As Button
@@ -193,4 +194,28 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents LbStatus As Label
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents IncidenciasToolStripMenuItem As ToolStripMenuItem
+
+    Public Class DgvPlusCapturaBoletas
+        Inherits DataGridView
+        Protected Overrides Function ProcessDialogKey(keyData As Keys) As Boolean
+            If keyData = Keys.Enter Then
+                'If Me.CurrentCell.ColumnIndex = Me.ColumnCount - 1 Then
+                CapturaBoletasPorLotes.EditaFila()
+                SendKeys.Send(Chr(Keys.Tab))
+                ' ClasificacionVentaPaquetes.TextBox_PreviewKeyDown()
+                Return True
+                'End If
+            Else
+                Return MyBase.ProcessDialogKey(keyData)
+            End If
+        End Function
+
+        Protected Overrides Sub OnKeyDown(e As KeyEventArgs)
+            If e.KeyData = Keys.Enter Then
+                SendKeys.Send(Chr(Keys.Tab))
+            Else
+                MyBase.OnKeyDown(e)
+            End If
+        End Sub
+    End Class
 End Class

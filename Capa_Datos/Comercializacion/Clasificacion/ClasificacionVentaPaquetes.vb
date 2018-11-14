@@ -139,8 +139,8 @@ Public Class ClasificacionVentaPaquetes
             If EntidadClasificacionVentaPaquetes1.IdPaquete = 0 Then
                 EntidadClasificacionVentaPaquetes1.IdPaquete = cmdGuardar.Parameters("@IdPaquete").Value
             End If
-            If EntidadClasificacionVentaPaquetes1.chkrevisado = False Then
-                For Each MiTableRow As DataRow In EntidadClasificacionVentaPaquetes1.TablaGeneral.Rows
+            'If EntidadClasificacionVentaPaquetes1.chkrevisado = True Then
+            For Each MiTableRow As DataRow In EntidadClasificacionVentaPaquetes1.TablaGeneral.Rows
                     cmdGuardar = New SqlCommand("sp_InsertarClasificacionPacas", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Clear()
@@ -160,7 +160,7 @@ Public Class ClasificacionVentaPaquetes
                     cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompra", MiTableRow("EstatusCompra")))
                     cmdGuardar.ExecuteNonQuery()
                 Next
-            End If
+            'End If
         Catch ex As Exception
         Finally
             cnn.Close()

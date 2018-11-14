@@ -132,19 +132,19 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.Columns("FlagCancelada").ReadOnly = False
         DgvModulos.Columns("FlagRevisada").ReadOnly = False
     End Sub
-    Private Sub DataGridView1_RowEnter(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DgvModulos.CellEnter
+    Private Sub DataGridView1_RowEnter(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DgvModulos.CellEnter, DgvModulos.CellContentClick
         Dim Total, Bruto, Tara As Double
-        Dim IndexCell As Integer = IIf(e.RowIndex > 0, e.RowIndex - 1, e.RowIndex)
-        Bruto = CDbl(DgvModulos.Rows(IndexCell).Cells("Bruto").Value)
-        Tara = CDbl(DgvModulos.Rows(IndexCell).Cells("Tara").Value)
+        'Dim IndexCell As Integer = IIf(e.RowIndex > 0, e.RowIndex - 1, e.RowIndex)
+        Bruto = CDbl(DgvModulos.CurrentRow.Cells("Bruto").Value)
+        Tara = CDbl(DgvModulos.CurrentRow.Cells("Tara").Value)
         If Tara > Bruto Then
             MsgBox("La tara no puede ser mayor al peso Bruto")
-            DgvModulos.Rows(IndexCell).Cells("Total").Value = 0
+            DgvModulos.CurrentRow.Cells("Total").Value = 0
         Else
             Total = Bruto - Tara
-            DgvModulos.Rows(IndexCell).Cells("Total").Value = Total
-            ActualizaPesoModuloManual(IndexCell, DgvModulos.Rows(IndexCell).Cells("IdBoleta").Value, Bruto, Tara, Total, DgvModulos.Rows(IndexCell).Cells("FlagRevisada").Value, DgvModulos.Rows(IndexCell).Cells("FlagCancelada").Value)
-            ActualizaPesoOrdenTrabajo(DgvModulos.Rows(IndexCell).Cells("IdOrdenTrabajo").Value)
+            DgvModulos.CurrentRow.Cells("Total").Value = Total
+            ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, Bruto, Tara, Total, DgvModulos.CurrentRow.Cells("FlagRevisada").Value, DgvModulos.CurrentRow.Cells("FlagCancelada").Value)
+            ActualizaPesoOrdenTrabajo(DgvModulos.CurrentRow.Cells("IdOrdenTrabajo").Value)
         End If
     End Sub
     Private Sub ActualizaPesoOrdenTrabajo(ByVal IdOrdenTrabajo As Integer)
@@ -155,7 +155,7 @@ Public Class CapturaBoletasPorLotes
             NegocioCapturaBoletasPorLotes.ActualizaPesoOrden(EntidadCapturaBoletasPorLotes)
         End If
     End Sub
-    Private Sub ActualizaPesoModuloManual(ByVal IndexCell As Integer, ByVal IdBoleta As Integer, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
+    Private Sub ActualizaPesoModuloManual(ByVal IdBoleta As Integer, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
         Dim EntidadCapturaBoletasPorLotes As New Capa_Entidad.CapturaBoletasPorLotes
         Dim NegocioCapturaBoletasPorLotes As New Capa_Negocio.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes.Idboleta = IdBoleta
@@ -238,6 +238,11 @@ Public Class CapturaBoletasPorLotes
     End Sub
     Private Sub TiActualizaDgvModulos_Tick(sender As Object, e As EventArgs) Handles TiActualizaDgvModulos.Tick
         ConsultaModulos()
+    End Sub
+    Public Sub EditaFila()
+        With DgvModulos
+            .BeginEdit(True)
+        End With
     End Sub
     Private Sub IncidenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IncidenciasToolStripMenuItem.Click
         IncidenciasBoletasPorLotes.ShowDialog()

@@ -341,24 +341,25 @@ Partial Class Produccion
         '
         'TbFolioCIA
         '
-        Me.TbFolioCIA.Location = New System.Drawing.Point(135, 125)
+        Me.TbFolioCIA.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbFolioCIA.Location = New System.Drawing.Point(135, 107)
         Me.TbFolioCIA.Name = "TbFolioCIA"
-        Me.TbFolioCIA.Size = New System.Drawing.Size(121, 20)
+        Me.TbFolioCIA.Size = New System.Drawing.Size(168, 38)
         Me.TbFolioCIA.TabIndex = 47
         '
         'TbKilos
         '
+        Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbKilos.Location = New System.Drawing.Point(135, 151)
-        Me.TbKilos.Multiline = True
         Me.TbKilos.Name = "TbKilos"
-        Me.TbKilos.Size = New System.Drawing.Size(121, 27)
+        Me.TbKilos.Size = New System.Drawing.Size(168, 38)
         Me.TbKilos.TabIndex = 49
         '
         'Label22
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(33, 121)
+        Me.Label22.Location = New System.Drawing.Point(33, 117)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(96, 24)
         Me.Label22.TabIndex = 50
@@ -368,7 +369,7 @@ Partial Class Produccion
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(74, 151)
+        Me.Label24.Location = New System.Drawing.Point(74, 161)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(55, 24)
         Me.Label24.TabIndex = 52
@@ -406,10 +407,10 @@ Partial Class Produccion
         '
         'TbFolioInicial
         '
+        Me.TbFolioInicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbFolioInicial.Location = New System.Drawing.Point(6, 125)
-        Me.TbFolioInicial.Multiline = True
         Me.TbFolioInicial.Name = "TbFolioInicial"
-        Me.TbFolioInicial.Size = New System.Drawing.Size(174, 27)
+        Me.TbFolioInicial.Size = New System.Drawing.Size(174, 29)
         Me.TbFolioInicial.TabIndex = 57
         '
         'CbTipoProducto

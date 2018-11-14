@@ -62,6 +62,7 @@ Public Class LiquidacionesPorRomaneaje
         TbPorcentajeTotal.Text = ""
         TbComentarios.Text = ""
         DgvModulos.DataSource = ""
+        TbTotalBoletas.Text = ""
         ChClaseMicros.Checked = False
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click, ToolStripMenuItem1.Click
@@ -227,7 +228,7 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje.IdUsuarioActualizacion = 1
         EntidadLiquidacionesPorRomaneaje.FechaActualizacion = Now
         NegocioLiquidacionesPorRomaneaje.Upsert(EntidadLiquidacionesPorRomaneaje)
-        TbIdLiquidacion.Text = EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo
+        TbIdLiquidacion.Text = EntidadLiquidacionesPorRomaneaje.IdLiquidacion
         MsgBox("Realizado Correctamente")
     End Sub
 
