@@ -23,6 +23,7 @@ Partial Class ClasificacionVentaPaquetes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbProductos = New System.Windows.Forms.GroupBox()
+        Me.NuPromedioUI = New System.Windows.Forms.NumericUpDown()
         Me.chkfinalizado = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
@@ -52,6 +53,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GbProductos.SuspendLayout()
+        CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDgv.SuspendLayout()
         CType(Me.DgvPacasClasificacion1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,6 +62,7 @@ Partial Class ClasificacionVentaPaquetes
         'GbProductos
         '
         Me.GbProductos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GbProductos.Controls.Add(Me.NuPromedioUI)
         Me.GbProductos.Controls.Add(Me.chkfinalizado)
         Me.GbProductos.Controls.Add(Me.Label8)
         Me.GbProductos.Controls.Add(Me.CbEstatus)
@@ -80,14 +83,25 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbProductos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbProductos.Location = New System.Drawing.Point(0, 24)
         Me.GbProductos.Name = "GbProductos"
-        Me.GbProductos.Size = New System.Drawing.Size(1074, 109)
+        Me.GbProductos.Size = New System.Drawing.Size(1561, 109)
         Me.GbProductos.TabIndex = 0
         Me.GbProductos.TabStop = False
+        '
+        'NuPromedioUI
+        '
+        Me.NuPromedioUI.DecimalPlaces = 2
+        Me.NuPromedioUI.Enabled = False
+        Me.NuPromedioUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NuPromedioUI.Location = New System.Drawing.Point(561, 79)
+        Me.NuPromedioUI.Name = "NuPromedioUI"
+        Me.NuPromedioUI.Size = New System.Drawing.Size(91, 20)
+        Me.NuPromedioUI.TabIndex = 11
+        Me.NuPromedioUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'chkfinalizado
         '
         Me.chkfinalizado.AutoSize = True
-        Me.chkfinalizado.Location = New System.Drawing.Point(320, 70)
+        Me.chkfinalizado.Location = New System.Drawing.Point(320, 82)
         Me.chkfinalizado.Name = "chkfinalizado"
         Me.chkfinalizado.Size = New System.Drawing.Size(118, 17)
         Me.chkfinalizado.TabIndex = 10
@@ -105,15 +119,16 @@ Partial Class ClasificacionVentaPaquetes
         '
         'CbEstatus
         '
+        Me.CbEstatus.Enabled = False
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(320, 43)
+        Me.CbEstatus.Location = New System.Drawing.Point(320, 41)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 8
         '
         'TbIdPaquete
         '
-        Me.TbIdPaquete.Location = New System.Drawing.Point(63, 15)
+        Me.TbIdPaquete.Location = New System.Drawing.Point(63, 13)
         Me.TbIdPaquete.Name = "TbIdPaquete"
         Me.TbIdPaquete.Size = New System.Drawing.Size(100, 20)
         Me.TbIdPaquete.TabIndex = 7
@@ -129,23 +144,29 @@ Partial Class ClasificacionVentaPaquetes
         '
         'TbCantidadPacas
         '
-        Me.TbCantidadPacas.Location = New System.Drawing.Point(561, 39)
+        Me.TbCantidadPacas.Enabled = False
+        Me.TbCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbCantidadPacas.Location = New System.Drawing.Point(561, 41)
         Me.TbCantidadPacas.Name = "TbCantidadPacas"
-        Me.TbCantidadPacas.Size = New System.Drawing.Size(152, 20)
+        Me.TbCantidadPacas.Size = New System.Drawing.Size(91, 20)
         Me.TbCantidadPacas.TabIndex = 5
+        Me.TbCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.Enabled = False
+        Me.TbDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbDescripcion.Location = New System.Drawing.Point(561, 13)
         Me.TbDescripcion.Multiline = True
         Me.TbDescripcion.Name = "TbDescripcion"
-        Me.TbDescripcion.Size = New System.Drawing.Size(152, 20)
+        Me.TbDescripcion.Size = New System.Drawing.Size(91, 20)
         Me.TbDescripcion.TabIndex = 5
+        Me.TbDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CbClases
         '
         Me.CbClases.FormattingEnabled = True
-        Me.CbClases.Location = New System.Drawing.Point(320, 16)
+        Me.CbClases.Location = New System.Drawing.Point(320, 13)
         Me.CbClases.Name = "CbClases"
         Me.CbClases.Size = New System.Drawing.Size(121, 21)
         Me.CbClases.TabIndex = 4
@@ -169,7 +190,7 @@ Partial Class ClasificacionVentaPaquetes
         'BtIgualarClasificacion
         '
         Me.BtIgualarClasificacion.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtIgualarClasificacion.Location = New System.Drawing.Point(826, 16)
+        Me.BtIgualarClasificacion.Location = New System.Drawing.Point(1313, 16)
         Me.BtIgualarClasificacion.Name = "BtIgualarClasificacion"
         Me.BtIgualarClasificacion.Size = New System.Drawing.Size(126, 90)
         Me.BtIgualarClasificacion.TabIndex = 1
@@ -179,7 +200,7 @@ Partial Class ClasificacionVentaPaquetes
         'BtRevisarClases
         '
         Me.BtRevisarClases.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtRevisarClases.Location = New System.Drawing.Point(952, 16)
+        Me.BtRevisarClases.Location = New System.Drawing.Point(1439, 16)
         Me.BtRevisarClases.Name = "BtRevisarClases"
         Me.BtRevisarClases.Size = New System.Drawing.Size(119, 90)
         Me.BtRevisarClases.TabIndex = 1
@@ -189,7 +210,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(447, 42)
+        Me.Label7.Location = New System.Drawing.Point(447, 46)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(99, 13)
         Me.Label7.TabIndex = 0
@@ -198,7 +219,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(447, 19)
+        Me.Label5.Location = New System.Drawing.Point(447, 16)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 0
@@ -207,7 +228,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(250, 19)
+        Me.Label4.Location = New System.Drawing.Point(250, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(33, 13)
         Me.Label4.TabIndex = 0
@@ -225,7 +246,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 44)
+        Me.Label1.Location = New System.Drawing.Point(6, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(37, 13)
         Me.Label1.TabIndex = 0
@@ -236,7 +257,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1074, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1561, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -286,7 +307,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbDgv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDgv.Location = New System.Drawing.Point(0, 133)
         Me.GbDgv.Name = "GbDgv"
-        Me.GbDgv.Size = New System.Drawing.Size(1074, 378)
+        Me.GbDgv.Size = New System.Drawing.Size(1561, 605)
         Me.GbDgv.TabIndex = 66
         Me.GbDgv.TabStop = False
         '
@@ -307,7 +328,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1.RowHeadersVisible = False
         Me.DgvPacasClasificacion1.RowHeadersWidth = 40
         Me.DgvPacasClasificacion1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1068, 359)
+        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1555, 586)
         Me.DgvPacasClasificacion1.TabIndex = 15
         '
         'Sel
@@ -319,7 +340,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1074, 511)
+        Me.ClientSize = New System.Drawing.Size(1561, 738)
         Me.Controls.Add(Me.GbDgv)
         Me.Controls.Add(Me.GbProductos)
         Me.Controls.Add(Me.MenuStrip1)
@@ -331,6 +352,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbProductos.ResumeLayout(False)
         Me.GbProductos.PerformLayout()
+        CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GbDgv.ResumeLayout(False)
@@ -371,6 +393,7 @@ Partial Class ClasificacionVentaPaquetes
 
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents chkfinalizado As CheckBox
+    Friend WithEvents NuPromedioUI As NumericUpDown
 
     Public Class DgvPlus
         Inherits DataGridView

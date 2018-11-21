@@ -31,4 +31,8 @@
         EntidadClasificacionVentaPaquetes1 = EntidadClasificacionVentaPaquetes
         DatosClasificacionVentaPaquetes.UpsertHvi(EntidadClasificacionVentaPaquetes1)
     End Sub
+    Public Overridable Sub Eliminar(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
+        Dim DatosClasificacionVentaPaquetes As New Capa_Datos.ClasificacionVentaPaquetes
+        DatosClasificacionVentaPaquetes.Eliminar(EntidadClasificacionVentaPaquetes)
+    End Sub
 End Class

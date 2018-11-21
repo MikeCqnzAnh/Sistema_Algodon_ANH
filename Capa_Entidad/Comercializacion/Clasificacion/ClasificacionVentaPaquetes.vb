@@ -13,4 +13,5 @@
     Public chkrevisado As Boolean
     Public FlagRevisado As Boolean
     Public IdEstatus As Integer
+    Public Seleccion As Boolean
 End Class

@@ -47,6 +47,7 @@ Namespace Configuracion
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
+        EliminaPacaSeleccionada = 2
         'VentanaBusquedaProducto = 2
         'VentanaBusquedaCliente = 3
         'VentanaBusquedaVenta = 4
@@ -109,7 +110,6 @@ Namespace Configuracion
         ConsultaPacaExisteHVI = 43
         ConsultaPacaPlanta = 44
         ConsultaPacaExistePaquete = 45
-
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -119,6 +119,7 @@ Namespace Configuracion
     End Enum
     Public Enum Actuliza
         ActualizaIdPaca = 1
+        ActualizaSeleccion = 2
     End Enum
 End Namespace
 

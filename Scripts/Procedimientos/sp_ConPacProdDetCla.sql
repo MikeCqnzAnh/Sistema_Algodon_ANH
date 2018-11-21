@@ -1,6 +1,6 @@
-alter procedure sp_ConPacProdDetCla
+CREATE procedure sp_ConPacProdDetCla
 --declare
-@IdProductor int,
+@IdProductor int =1,
 @Seleccionar bit = 0 
 as
 select e.FolioCIA,
@@ -9,7 +9,7 @@ select e.FolioCIA,
 	   c.Descripcion,
 	   a.BaleId,	
 	   e.Kilos,
-	   a.Clase,
+	   a.Grade,
 	   @Seleccionar as Seleccionar
 from [dbo].[CalculoClasificacion] a,
      [dbo].[OrdenTrabajo] b,
@@ -22,6 +22,3 @@ and   b.IdProductor = @Idproductor
 and   a.IdOrdenTrabajo = d.IdOrdenTrabajo
 and   a.BaleId = e.FolioCIA
 and   a.FlagTerminado = 1
-
-
-

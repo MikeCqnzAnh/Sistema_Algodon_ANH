@@ -1,4 +1,4 @@
-CREATE PROC Sp_ConsultaPacasHviDetalle
+alter PROC Sp_ConsultaPacasHviDetalle
 @hvidetalle int
 as
 SELECT CLA.[IdCalculoClasificacion]
@@ -28,7 +28,7 @@ SELECT CLA.[IdCalculoClasificacion]
       ,CLA.[Mic]
       ,CLA.[ColorGrade]
       ,CLA.[TrashId]
-      ,CLA.[Clase]
+      ,CLA.[Grade]
       ,CLA.[UHML]
       ,CLA.[Strength]
       ,CLA.[SCI]
