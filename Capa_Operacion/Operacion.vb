@@ -110,6 +110,8 @@ Namespace Configuracion
         ConsultaPacaExisteHVI = 43
         ConsultaPacaPlanta = 44
         ConsultaPacaExistePaquete = 45
+        ConsultaPacasCantidadDisponible = 46
+        ConsultaPacaFiltro = 47
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

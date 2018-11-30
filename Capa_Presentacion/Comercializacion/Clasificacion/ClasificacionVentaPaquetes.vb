@@ -499,8 +499,8 @@ Public Class ClasificacionVentaPaquetes
             Dim colGrade As New DataGridViewTextBoxColumn
             colGrade.Name = "Grade"
             'colGrade.HeaderText = "No Paca"
-            colGrade.Visible = True
-            colGrade.ReadOnly = True
+            colGrade.Visible = False
+            'colGrade.ReadOnly = True
             DgvPacasClasificacion1.Columns.Insert(15, colGrade)
 
             Dim colMoist As New DataGridViewTextBoxColumn
@@ -762,4 +762,13 @@ Public Class ClasificacionVentaPaquetes
         End If
         Return Resultado
     End Function
+    Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdPaquete.KeyPress, TbNoPaca.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
 End Class

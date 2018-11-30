@@ -11,6 +11,9 @@
     Public PrecioDolar As Double
     Public FacturaVenta As String
     Public NoPacas As Integer
+    Public InicioPaca As Integer
+    Public FinPaca As Integer
+    Public Clase As String
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

@@ -143,7 +143,7 @@ Public Class CapturaBoletasPorLotes
         Else
             Total = Bruto - Tara
             DgvModulos.CurrentRow.Cells("Total").Value = Total
-            ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, Bruto, Tara, Total, DgvModulos.CurrentRow.Cells("FlagRevisada").Value, DgvModulos.CurrentRow.Cells("FlagCancelada").Value)
+            ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, Bruto, Tara, Total, CType(Me.DgvModulos.CurrentRow.Cells("FlagRevisada").EditedFormattedValue, Boolean), CType(Me.DgvModulos.CurrentRow.Cells("FlagCancelada").EditedFormattedValue, Boolean))
             ActualizaPesoOrdenTrabajo(DgvModulos.CurrentRow.Cells("IdOrdenTrabajo").Value)
         End If
     End Sub

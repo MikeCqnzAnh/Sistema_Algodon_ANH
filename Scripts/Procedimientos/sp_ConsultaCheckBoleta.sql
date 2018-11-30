@@ -1,17 +1,7 @@
---alter procedure sp_ConsultaCheckBoleta
-DECLARE
-@IdOrdenTrabajo int = 1 
---as
-select a.FlagTerminado
-from [dbo].[CalculoClasificacion] a
-where a.IdOrdenTrabajo = @IdOrdenTrabajo
-
-
-
-
-SELECT*FROM [dbo].[CalculoClasificacion]
-
-
-UPDATE [dbo].[CalculoClasificacion]
-SET    FlagTerminado = 1
-WHERE  IdOrdenTrabajo = 1
+CREATE procedure sp_ConsultaCheckBoleta
+@IdOrdenTrabajo int
+as
+select isnull(cc.FlagTerminado ,0) as FlagTerminado 
+from ProduccionDetalle pd left join CalculoClasificacion cc 
+on pd.IdOrdenTrabajo = cc.IdOrdenTrabajo and pd.FolioCIA = cc.BaleID
+where cc.IdOrdenTrabajo = @IdOrdenTrabajo

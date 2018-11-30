@@ -34,7 +34,7 @@ Public Class CompraPago
         Dim Word As String = "Total"
         For Each row As DataGridViewRow In DgvResumenPagoPacas.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
-            If (row.Cells("Clase").Value).ToString.Contains(Word) Then
+            If (row.Cells("Grade").Value).ToString.Contains(Word) Then
                 TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
                 TbTotalKilos.Text = Val(TbTotalKilos.Text + CDbl(row.Cells("Kilos").Value))
                 row.DefaultCellStyle.BackColor = Color.Gray
@@ -43,7 +43,6 @@ Public Class CompraPago
             End If
         Next
     End Sub
-
     Private Sub Formatos()
         Dim TotalKilos As Double
         TotalKilos = TbTotalKilos.Text
@@ -53,9 +52,8 @@ Public Class CompraPago
         TbDescuento.Text = FormatCurrency(TbDescuento.Text)
         TbTotal.Text = FormatCurrency(TbTotal.Text)
         TbTipoCambio.Text = FormatCurrency(TbTipoCambio.Text)
-        DgvResumenPagoPacas.Columns("Clase").ReadOnly = True
+        DgvResumenPagoPacas.Columns("Grade").ReadOnly = True
     End Sub
-
     Private Sub PagarItem_Click(sender As Object, e As EventArgs) Handles PagarItem.Click
         Dim opc = MessageBox.Show("¿Estas seguro de cerrar esta compra?", "", MessageBoxButtons.YesNo)
         If opc = DialogResult.Yes Then
@@ -64,7 +62,6 @@ Public Class CompraPago
             Exit Sub
         End If
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
