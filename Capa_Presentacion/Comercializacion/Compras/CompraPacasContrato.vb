@@ -177,11 +177,7 @@ Public Class CompraPacasContrato
             Tabla = EntidadCompraPacasContrato.TablaConsulta
             DgvPacasComprar.Columns.Clear()
             DgvPacasComprar.DataSource = Tabla
-            'Dim colSelPac As New DataGridViewCheckBoxColumn()
-            'colSelPac.Name = "Seleccionar"
-            'colSelPac.FalseValue = False
-            'colSelPac.Visible = True
-            'DgvPacasComprar.Columns.Insert(7, colSelPac)
+
             PropiedadesDgvPacasComprar()
             ConsultaCantidadPacas()
             TotalPacasContrato()
