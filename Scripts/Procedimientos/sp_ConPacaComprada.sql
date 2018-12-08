@@ -1,4 +1,4 @@
-CREATE procedure sp_ConPacProdDetCla
+create procedure sp_ConPacaComprada
 --declare
 @IdProductor int ,
 @Seleccionar bit = 0 
@@ -17,6 +17,4 @@ select pd.FolioCIA,
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 
-		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra  = 1
-
-
+		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra  = 2

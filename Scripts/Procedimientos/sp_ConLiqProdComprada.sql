@@ -1,6 +1,5 @@
-create procedure sp_ConLiqProd
---declare
-@IdProductor int ,
+CREATE procedure sp_ConLiqProdComprada
+@IdProductor int  ,
 @Seleccionar bit = 0 
 as
 select LR.IdLiquidacion,
@@ -16,6 +15,6 @@ select LR.IdLiquidacion,
 		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
-		where cc.FlagTerminado = 1 and lr.IdCliente = @IdProductor 
+		where cc.FlagTerminado = 1 and lr.IdCliente = @IdProductor  
 		group by LR.IdLiquidacion,lr.TotalHueso, lr.TotalSemilla
-		having   count(case when cc.EstatusCompra = 2 then cc.BaleID end) < Count(cc.BaleID)
+		having   count(case when cc.EstatusCompra = 2 then cc.BaleID end) > 0

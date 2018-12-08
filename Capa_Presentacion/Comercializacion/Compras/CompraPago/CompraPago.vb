@@ -24,6 +24,7 @@ Public Class CompraPago
         TbIdProductor.Text = VarGlob2.IdProductor
         TbNombreProductor.Text = VarGlob2.NombreProductor
         TbPrecioQuintal.Text = VarGlob2.PrecioQuintal
+        TbDolares.Text = VarGlob2.SumaDolares
         DgvResumenPagoPacas.Columns.Clear()
         DgvResumenPagoPacas.DataSource = _Tabla
         SumasTotales()

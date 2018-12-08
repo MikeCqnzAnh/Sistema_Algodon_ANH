@@ -102,7 +102,7 @@ Partial Class CompraPago
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(99, 31)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(99, 33)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(100, 20)
         Me.TbPrecioQuintal.TabIndex = 3
@@ -231,7 +231,7 @@ Partial Class CompraPago
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(395, 22)
+        Me.Label8.Location = New System.Drawing.Point(395, 26)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(62, 18)
         Me.Label8.TabIndex = 22
@@ -267,7 +267,7 @@ Partial Class CompraPago
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(395, 60)
+        Me.Label9.Location = New System.Drawing.Point(395, 61)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 18)
         Me.Label9.TabIndex = 26
@@ -277,7 +277,7 @@ Partial Class CompraPago
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(402, 134)
+        Me.Label10.Location = New System.Drawing.Point(407, 134)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 31)
         Me.Label10.TabIndex = 27

@@ -2,7 +2,7 @@
     Public Property _Id As Integer
     Public Property _Nombre As String
     Public Property _Dato As String
-    Public Property _Tabla As DataTable
+    Public Property _Tabla As New DataTable
     Public Property Id() As Integer
         Get
             Return _Id

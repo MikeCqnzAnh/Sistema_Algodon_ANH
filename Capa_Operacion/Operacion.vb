@@ -112,6 +112,8 @@ Namespace Configuracion
         ConsultaPacaExistePaquete = 45
         ConsultaPacasCantidadDisponible = 46
         ConsultaPacaFiltro = 47
+        ConsultaPacaComprada = 48
+        ConsultaLiquidacionesCompras = 49
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
