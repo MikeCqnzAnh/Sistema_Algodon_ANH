@@ -114,6 +114,10 @@ Namespace Configuracion
         ConsultaPacaFiltro = 47
         ConsultaPacaComprada = 48
         ConsultaLiquidacionesCompras = 49
+        ConsultaBaseDatosReciente = 50
+        ConsultaTablas = 51
+        ConsultaProcedimientos = 52
+        ConsultaCreateTable = 53
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -124,6 +128,10 @@ Namespace Configuracion
     Public Enum Actuliza
         ActualizaIdPaca = 1
         ActualizaSeleccion = 2
+    End Enum
+    Public Enum Importa
+        ImportaTabla = 1
+        ImportaProcedimiento = 2
     End Enum
 End Namespace
 

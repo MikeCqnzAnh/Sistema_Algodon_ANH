@@ -5,12 +5,9 @@ Imports System.IO.Ports
 Public Class ConfiguracionParametros
     Private Sub ConfiguracionParametros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiaCampos()
-        llenaCombos()
         GetSerialPortNames()
         GetNameHost()
         ConsultaParametros()
-        ConsultaInstancia()
-        SeleccionaPanel(1)
     End Sub
     Private Sub GetSerialPortNames()
         Dim l As Integer
@@ -51,7 +48,6 @@ Public Class ConfiguracionParametros
         NuCaracterBoletaTara.Value = 0
         NuCaracterBoletaNeto.Value = 0
         NuCaracterPacas.Value = 0
-        CbBaseDatos.SelectedIndex = -1
     End Sub
     Private Sub GetNameHost()
         Dim strHostName As String
@@ -60,18 +56,6 @@ Public Class ConfiguracionParametros
         strIPAddress = Dns.Resolve(strHostName).AddressList(0).ToString()
         TsIpComputadora.Text = strIPAddress
         TsNombrePc.Text = strHostName
-    End Sub
-    Private Sub llenaCombos()
-        Dim tabla As New DataTable
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        tabla = EntidadConfiguracionParametros.TablaConsulta
-        CbBaseDatos.DataSource = tabla
-        CbBaseDatos.ValueMember = "database_id"
-        CbBaseDatos.DisplayMember = "name"
-        CbBaseDatos.SelectedIndex = -1
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
@@ -123,33 +107,5 @@ Public Class ConfiguracionParametros
         NuCaracterBoletaNeto.Value = Tabla.Rows(0).Item("NoCaracterBoletasNeto")
         NuInicialPacas.Value = Tabla.Rows(0).Item("InicialPacas")
         NuCaracterPacas.Value = Tabla.Rows(0).Item("NoCaracteresPacas")
-    End Sub
-    Private Sub ConsultaInstancia()
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaInstancia
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        Tabla = EntidadConfiguracionParametros.TablaConsulta
-        If Tabla.Rows.Count = 0 Then
-            Exit Sub
-        End If
-        TbNombreInstancia.Text = Tabla.Rows(0).Item("NombreInstancia")
-    End Sub
-    Private Sub SeleccionaPanel(ByVal PanelSeleccion As Integer)
-        Select Case PanelSeleccion
-            Case 1
-                PanelParametrosBascula.Visible = True
-                PanelBaseDeDatos.Visible = False
-            Case 2
-                PanelParametrosBascula.Visible = False
-                PanelBaseDeDatos.Visible = True
-        End Select
-    End Sub
-    Private Sub BtParametrosBascula_Click(sender As Object, e As EventArgs) Handles BtParametrosBascula.Click
-        SeleccionaPanel(1)
-    End Sub
-    Private Sub BtBaseDeDatos_Click(sender As Object, e As EventArgs) Handles BtBaseDeDatos.Click
-        SeleccionaPanel(2)
     End Sub
 End Class

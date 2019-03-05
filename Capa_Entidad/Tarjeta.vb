@@ -4,6 +4,7 @@
     Public Property Reporte As Capa_Operacion.Configuracion.Reporte
     Public Property Eliminar As Capa_Operacion.Configuracion.Eliminar
     Public Property LlenaCombo As Capa_Operacion.Configuracion.LlenaCombo
+    Public Property Importa As Capa_Operacion.Configuracion.Importa
     Public Property TablaConsulta As DataTable
     Public Property TablaGeneral As DataTable
     Public Property IdExterno As Integer

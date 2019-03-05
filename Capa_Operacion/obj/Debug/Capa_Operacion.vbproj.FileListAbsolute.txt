@@ -42,9 +42,9 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Deb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.Cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache

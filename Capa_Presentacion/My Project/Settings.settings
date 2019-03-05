@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=MSISTEMAS;Initial Catalog=ALGODON_2V;Persist Security Info=True;User ID=sa;Password=Usuario01</Value>
     </Setting>
+    <Setting Name="Capa_Presentacion_WebServiceBanxico_DgieWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.banxico.org.mx/DgieWSWeb/DgieWS</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

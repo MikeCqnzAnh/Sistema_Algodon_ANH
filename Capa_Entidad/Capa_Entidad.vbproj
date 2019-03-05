@@ -64,6 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso.vb" />
     <Compile Include="Catalogos\Asociaciones.vb" />
     <Compile Include="Catalogos\Camiones.vb" />
     <Compile Include="Catalogos\CastigoLargoFibra.vb" />
@@ -96,6 +97,7 @@
     <Compile Include="Comercializacion\ContratoSemillas.vb" />
     <Compile Include="Comercializacion\Ventas\VentaPacas.vb" />
     <Compile Include="Comercializacion\Ventas\VentaPacasContrato.vb" />
+    <Compile Include="MenuPrincipal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -119,6 +121,9 @@
     <Compile Include="Reportes\Reportes.vb" />
     <Compile Include="Tarjeta.vb" />
     <Compile Include="Utilerias\ConfiguracionParametros.vb" />
+    <Compile Include="Utilerias\CrearEstructura.vb" />
+    <Compile Include="Utilerias\ImportarCatalogos.vb" />
+    <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

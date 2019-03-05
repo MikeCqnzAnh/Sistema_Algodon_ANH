@@ -22,9 +22,6 @@ Partial Class ConfiguracionParametros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.GbOpciones = New System.Windows.Forms.GroupBox()
-        Me.BtBaseDeDatos = New System.Windows.Forms.Button()
-        Me.BtParametrosBascula = New System.Windows.Forms.Button()
         Me.PanelParametrosBascula = New System.Windows.Forms.Panel()
         Me.GbPesoPacas = New System.Windows.Forms.GroupBox()
         Me.NuInicialPacas = New System.Windows.Forms.NumericUpDown()
@@ -62,17 +59,11 @@ Partial Class ConfiguracionParametros
         Me.TsSeparador = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsIpComputadora = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.PanelBaseDeDatos = New System.Windows.Forms.Panel()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.CbBaseDatos = New System.Windows.Forms.ComboBox()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsIdConfiguracion = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.TbNombreInstancia = New System.Windows.Forms.TextBox()
-        Me.GbOpciones.SuspendLayout()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,38 +82,8 @@ Partial Class ConfiguracionParametros
         CType(Me.NuInicialModulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPuerto.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
-        Me.PanelBaseDeDatos.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'GbOpciones
-        '
-        Me.GbOpciones.Controls.Add(Me.BtBaseDeDatos)
-        Me.GbOpciones.Controls.Add(Me.BtParametrosBascula)
-        Me.GbOpciones.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GbOpciones.Location = New System.Drawing.Point(0, 24)
-        Me.GbOpciones.Name = "GbOpciones"
-        Me.GbOpciones.Size = New System.Drawing.Size(200, 577)
-        Me.GbOpciones.TabIndex = 1
-        Me.GbOpciones.TabStop = False
-        '
-        'BtBaseDeDatos
-        '
-        Me.BtBaseDeDatos.Location = New System.Drawing.Point(6, 48)
-        Me.BtBaseDeDatos.Name = "BtBaseDeDatos"
-        Me.BtBaseDeDatos.Size = New System.Drawing.Size(188, 23)
-        Me.BtBaseDeDatos.TabIndex = 0
-        Me.BtBaseDeDatos.Text = "Seleccion De Base De Datos"
-        Me.BtBaseDeDatos.UseVisualStyleBackColor = True
-        '
-        'BtParametrosBascula
-        '
-        Me.BtParametrosBascula.Location = New System.Drawing.Point(6, 19)
-        Me.BtParametrosBascula.Name = "BtParametrosBascula"
-        Me.BtParametrosBascula.Size = New System.Drawing.Size(188, 23)
-        Me.BtParametrosBascula.TabIndex = 0
-        Me.BtParametrosBascula.Text = "Parametros De Bascula"
-        Me.BtParametrosBascula.UseVisualStyleBackColor = True
         '
         'PanelParametrosBascula
         '
@@ -131,9 +92,9 @@ Partial Class ConfiguracionParametros
         Me.PanelParametrosBascula.Controls.Add(Me.GbIdProduccion)
         Me.PanelParametrosBascula.Controls.Add(Me.GbPuerto)
         Me.PanelParametrosBascula.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelParametrosBascula.Location = New System.Drawing.Point(200, 24)
+        Me.PanelParametrosBascula.Location = New System.Drawing.Point(0, 24)
         Me.PanelParametrosBascula.Name = "PanelParametrosBascula"
-        Me.PanelParametrosBascula.Size = New System.Drawing.Size(828, 577)
+        Me.PanelParametrosBascula.Size = New System.Drawing.Size(1028, 577)
         Me.PanelParametrosBascula.TabIndex = 2
         '
         'GbPesoPacas
@@ -146,7 +107,7 @@ Partial Class ConfiguracionParametros
         Me.GbPesoPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbPesoPacas.Location = New System.Drawing.Point(0, 292)
         Me.GbPesoPacas.Name = "GbPesoPacas"
-        Me.GbPesoPacas.Size = New System.Drawing.Size(828, 100)
+        Me.GbPesoPacas.Size = New System.Drawing.Size(1028, 100)
         Me.GbPesoPacas.TabIndex = 11
         Me.GbPesoPacas.TabStop = False
         Me.GbPesoPacas.Text = "Peso De Pacas"
@@ -207,7 +168,7 @@ Partial Class ConfiguracionParametros
         Me.GbPesoProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbPesoProduccion.Location = New System.Drawing.Point(0, 172)
         Me.GbPesoProduccion.Name = "GbPesoProduccion"
-        Me.GbPesoProduccion.Size = New System.Drawing.Size(828, 120)
+        Me.GbPesoProduccion.Size = New System.Drawing.Size(1028, 120)
         Me.GbPesoProduccion.TabIndex = 10
         Me.GbPesoProduccion.TabStop = False
         Me.GbPesoProduccion.Text = "Pesos En Captura De Boletas"
@@ -340,7 +301,7 @@ Partial Class ConfiguracionParametros
         Me.GbIdProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbIdProduccion.Location = New System.Drawing.Point(0, 82)
         Me.GbIdProduccion.Name = "GbIdProduccion"
-        Me.GbIdProduccion.Size = New System.Drawing.Size(828, 90)
+        Me.GbIdProduccion.Size = New System.Drawing.Size(1028, 90)
         Me.GbIdProduccion.TabIndex = 9
         Me.GbIdProduccion.TabStop = False
         Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
@@ -429,7 +390,7 @@ Partial Class ConfiguracionParametros
         Me.GbPuerto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbPuerto.Location = New System.Drawing.Point(0, 0)
         Me.GbPuerto.Name = "GbPuerto"
-        Me.GbPuerto.Size = New System.Drawing.Size(828, 82)
+        Me.GbPuerto.Size = New System.Drawing.Size(1028, 82)
         Me.GbPuerto.TabIndex = 8
         Me.GbPuerto.TabStop = False
         Me.GbPuerto.Text = "Puerto Serial General"
@@ -491,50 +452,6 @@ Partial Class ConfiguracionParametros
         Me.TsIpComputadora.Name = "TsIpComputadora"
         Me.TsIpComputadora.Size = New System.Drawing.Size(0, 17)
         '
-        'PanelBaseDeDatos
-        '
-        Me.PanelBaseDeDatos.Controls.Add(Me.TbNombreInstancia)
-        Me.PanelBaseDeDatos.Controls.Add(Me.Label15)
-        Me.PanelBaseDeDatos.Controls.Add(Me.Label14)
-        Me.PanelBaseDeDatos.Controls.Add(Me.CbBaseDatos)
-        Me.PanelBaseDeDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelBaseDeDatos.Location = New System.Drawing.Point(200, 24)
-        Me.PanelBaseDeDatos.Name = "PanelBaseDeDatos"
-        Me.PanelBaseDeDatos.Size = New System.Drawing.Size(828, 577)
-        Me.PanelBaseDeDatos.TabIndex = 3
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(17, 64)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(79, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Base De Datos"
-        '
-        'CbBaseDatos
-        '
-        Me.CbBaseDatos.FormattingEnabled = True
-        Me.CbBaseDatos.Location = New System.Drawing.Point(99, 61)
-        Me.CbBaseDatos.Name = "CbBaseDatos"
-        Me.CbBaseDatos.Size = New System.Drawing.Size(121, 21)
-        Me.CbBaseDatos.TabIndex = 0
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1028, 24)
-        Me.MenuStrip1.TabIndex = 4
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
-        '
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
@@ -552,30 +469,27 @@ Partial Class ConfiguracionParametros
         Me.TsIdConfiguracion.Name = "TsIdConfiguracion"
         Me.TsIdConfiguracion.Size = New System.Drawing.Size(0, 17)
         '
-        'Label15
+        'MenuStrip1
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(17, 25)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 13)
-        Me.Label15.TabIndex = 2
-        Me.Label15.Text = "Instancia o IP"
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1028, 24)
+        Me.MenuStrip1.TabIndex = 4
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'TbNombreInstancia
+        'GuardarToolStripMenuItem
         '
-        Me.TbNombreInstancia.Location = New System.Drawing.Point(99, 21)
-        Me.TbNombreInstancia.Name = "TbNombreInstancia"
-        Me.TbNombreInstancia.Size = New System.Drawing.Size(121, 20)
-        Me.TbNombreInstancia.TabIndex = 3
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1028, 623)
-        Me.Controls.Add(Me.PanelBaseDeDatos)
         Me.Controls.Add(Me.PanelParametrosBascula)
-        Me.Controls.Add(Me.GbOpciones)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -584,7 +498,6 @@ Partial Class ConfiguracionParametros
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Configuracion De Parametros"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.GbOpciones.ResumeLayout(False)
         Me.PanelParametrosBascula.ResumeLayout(False)
         Me.GbPesoPacas.ResumeLayout(False)
         Me.GbPesoPacas.PerformLayout()
@@ -608,17 +521,12 @@ Partial Class ConfiguracionParametros
         Me.GbPuerto.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        Me.PanelBaseDeDatos.ResumeLayout(False)
-        Me.PanelBaseDeDatos.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents GbOpciones As GroupBox
-    Friend WithEvents BtParametrosBascula As Button
     Friend WithEvents PanelParametrosBascula As Panel
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
@@ -644,10 +552,6 @@ Partial Class ConfiguracionParametros
     Friend WithEvents Label10 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents BtBaseDeDatos As Button
-    Friend WithEvents PanelBaseDeDatos As Panel
-    Friend WithEvents Label14 As Label
-    Friend WithEvents CbBaseDatos As ComboBox
     Friend WithEvents NuInicialPacas As NumericUpDown
     Friend WithEvents NuCaracterPacas As NumericUpDown
     Friend WithEvents NuCaracterBoletaNeto As NumericUpDown
@@ -665,6 +569,4 @@ Partial Class ConfiguracionParametros
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents TsIdConfiguracion As ToolStripStatusLabel
-    Friend WithEvents TbNombreInstancia As TextBox
-    Friend WithEvents Label15 As Label
 End Class

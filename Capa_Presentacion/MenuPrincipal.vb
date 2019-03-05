@@ -1,11 +1,56 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Operacion.Configuracion
+Imports System.Data.SqlClient
 Imports System.Drawing.Drawing2D
-Public Class Menu
+Imports Capa_Presentacion.WebServiceBanxico
+Imports System.Net
+Public Class MenuPrincipal
+    Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ActualizaPrecioDolarBanxico()
+    End Sub
+    Private Function ActualizaPrecioDolarBanxico() As Boolean
+        Try
+            Dim myProxy As New WebProxy("Proxy", 80)
+            Dim UrlBanxico As String = "8.8.8.8"
+            myProxy.Credentials = New NetworkCredential("Usuario", "contraseña")
+            If VerificarConexionURL(UrlBanxico) = True Then
+                Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create("http://www.banxico.org.mx/DgieWSWeb/DgieWS?WSDL"), HttpWebRequest)
+                WebRequest.DefaultWebProxy = httpBanxico.Proxy
+                Dim TipoCambio As New WebServiceBanxico.DgieWS
+                Dim strTipoCambio As String = TipoCambio.tiposDeCambioBanxico
+
+                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("SF60653") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("SF60653") - 1)
+                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("OBS_VALUE=") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("OBS_VALUE=") - 1)
+                TsPrecioDolar.Text = Replace(strTipoCambio.Substring(10, 7), Chr(34), "")
+                Return True
+            Else
+                TsPrecioDolar.Text = 0
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+            TsPrecioDolar.Text = 0
+            Return False
+        End Try
+    End Function
+    Private Function VerificarConexionURL(ByVal mURL As String) As Boolean
+        Try
+            If My.Computer.Network.Ping(mURL, 2000) Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As System.Net.WebException
+            If ex.Status = Net.WebExceptionStatus.NameResolutionFailure Then
+                Return False
+            End If
+            Return False
+        End Try
+    End Function
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Clientes.ShowDialog()
     End Sub
     Private Sub TsSalir_Click(sender As Object, e As EventArgs) Handles TsSalir.Click
-        Close()
+        End
     End Sub
     Private Sub AsociacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsociacionesToolStripMenuItem.Click
         Asociaciones.ShowDialog()
@@ -115,63 +160,58 @@ Public Class Menu
     Private Sub PaquetesParaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaToolStripMenuItem.Click
         ClasificacionVentaPaquetes.ShowDialog()
     End Sub
-
     Private Sub ClasificaciónDePacasConArchivoExcelToolStripMenuItem_Click(sender As Object, e As EventArgs)
         ClasificacionPacasExcel.ShowDialog()
     End Sub
-
     Private Sub ClientesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem1.Click
         RepClientes.ShowDialog()
     End Sub
-
     Private Sub ChequearEtiquetaDePacaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChequearEtiquetaDePacaToolStripMenuItem.Click
         Etiquetas.Show()
     End Sub
-
     Private Sub ConfiguracionDeParametrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosToolStripMenuItem.Click
         ConfiguracionParametros.ShowDialog()
     End Sub
-
     Private Sub SalidaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDePacasToolStripMenuItem.Click
         SalidaPacas.ShowDialog()
     End Sub
     Private Sub SalidaDeSemillaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDeSemillaToolStripMenuItem.Click
         SalidaSemilla.ShowDialog()
     End Sub
-
     Private Sub SalidaDePacasDeBorraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDePacasDeBorraToolStripMenuItem.Click
         SalidaPacasBorra.ShowDialog()
     End Sub
-
     Private Sub SalidaDeBasuraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDeBasuraToolStripMenuItem.Click
         SalidaBasura.ShowDialog()
     End Sub
-
     Private Sub VentaDePacasPorContratoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentaDePacasPorContratoToolStripMenuItem.Click
         VentaPacasContrato.ShowDialog()
     End Sub
-
     Private Sub PaquetesHVIToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaquetesHVIToolStripMenuItem1.Click
         PaquetesHVI.ShowDialog()
     End Sub
-
     Private Sub ClasificaciónDePacasConCertificadoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClasificaciónDePacasConCertificadoToolStripMenuItem1.Click
         ClasificacionPacasCertificado.ShowDialog()
     End Sub
-
     Private Sub ClasificaciónDePacasConArchivoExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Click
         ClasificacionPacasExcel.ShowDialog()
     End Sub
-
     Private Sub ContratosDeAlgodónConProductoresToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeAlgodónConProductoresToolStripMenuItem1.Click
         ContratosAlgodon.ShowDialog()
     End Sub
-
     Private Sub ContratosDeAlgodónConCompradoresToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeAlgodónConCompradoresToolStripMenuItem1.Click
         ContratosAlgodonCompradores.ShowDialog()
     End Sub
-
     Private Sub LiquidacionFinalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiquidacionFinalToolStripMenuItem.Click
         LiquidacionFinal.ShowDialog()
+    End Sub
+    Private Sub SeleccionaBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaBaseDeDatosToolStripMenuItem.Click
+        SeleccionaConexion.ShowDialog()
+    End Sub
+    Private Sub CrearEstructuraToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem1.Click
+        CrearEstructura.ShowDialog()
+    End Sub
+    Private Sub ImportarCatalogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem.Click
+        ImportarCatalogos.ShowDialog()
     End Sub
 End Class

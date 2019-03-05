@@ -92,5 +92,98 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.DgieWS">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.#ctor">
+<remarks/>
+</member>
+<member name="E:Capa_Presentacion.WebServiceBanxico.DgieWS.reservasInternacionalesBanxicoCompleted">
+<remarks/>
+</member>
+<member name="E:Capa_Presentacion.WebServiceBanxico.DgieWS.tasasDeInteresBanxicoCompleted">
+<remarks/>
+</member>
+<member name="E:Capa_Presentacion.WebServiceBanxico.DgieWS.tiposDeCambioBanxicoCompleted">
+<remarks/>
+</member>
+<member name="E:Capa_Presentacion.WebServiceBanxico.DgieWS.udisBanxicoCompleted">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.reservasInternacionalesBanxico">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.reservasInternacionalesBanxicoAsync">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.reservasInternacionalesBanxicoAsync(System.Object)">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tasasDeInteresBanxico">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tasasDeInteresBanxicoAsync">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tasasDeInteresBanxicoAsync(System.Object)">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tiposDeCambioBanxico">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tiposDeCambioBanxicoAsync">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.tiposDeCambioBanxicoAsync(System.Object)">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.udisBanxico">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.udisBanxicoAsync">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.udisBanxicoAsync(System.Object)">
+<remarks/>
+</member>
+<member name="M:Capa_Presentacion.WebServiceBanxico.DgieWS.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.reservasInternacionalesBanxicoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.reservasInternacionalesBanxicoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:Capa_Presentacion.WebServiceBanxico.reservasInternacionalesBanxicoCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.tasasDeInteresBanxicoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.tasasDeInteresBanxicoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:Capa_Presentacion.WebServiceBanxico.tasasDeInteresBanxicoCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.tiposDeCambioBanxicoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.tiposDeCambioBanxicoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:Capa_Presentacion.WebServiceBanxico.tiposDeCambioBanxicoCompletedEventArgs.Result">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.udisBanxicoCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:Capa_Presentacion.WebServiceBanxico.udisBanxicoCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:Capa_Presentacion.WebServiceBanxico.udisBanxicoCompletedEventArgs.Result">
+<remarks/>
+</member>
 </members>
 </doc>

@@ -30,7 +30,7 @@ git config --global --list 				//ver lista de configuraciones
 
 git reset --soft 		//elimina commit sin tocar el codigo
 git reset --mixed 		//
-gut reset -hard 		//elimina commit y elimina el codigo de ese commit
+git reset -hard 		//elimina commit y elimina el codigo de ese commit
 
 git checkout 'nombre rama' ó 'codigo sha de commit //Cambia de rama o regresas a commit ejecutados anteriores
 git checkout -b 'nombre rama'  			   //creamos nueva rama y nos movemos a ella

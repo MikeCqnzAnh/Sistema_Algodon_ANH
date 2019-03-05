@@ -56,6 +56,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -79,6 +80,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso.Designer.vb">
+      <DependentUpon>Acceso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Acceso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ALGODON_2VDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -408,10 +415,10 @@
     <Compile Include="Consultas\ConsultaTierrasChecks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.vb">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <Compile Include="MenuPrincipal.Designer.vb">
+      <DependentUpon>MenuPrincipal.vb</DependentUpon>
     </Compile>
-    <Compile Include="Menu.vb">
+    <Compile Include="MenuPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -525,12 +532,40 @@
     <Compile Include="Utilerias\ConfiguracionParametros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\CrearEstructura.Designer.vb">
+      <DependentUpon>CrearEstructura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\CrearEstructura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilerias\ImportarCatalogos.Designer.vb">
+      <DependentUpon>ImportarCatalogos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ImportarCatalogos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilerias\SeleccionaConexion.Designer.vb">
+      <DependentUpon>SeleccionaConexion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\SeleccionaConexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VarGlob.vb" />
     <Compile Include="VarGlob2.vb" />
+    <Compile Include="Web References\WebServiceBanxico\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Acceso.resx">
+      <DependentUpon>Acceso.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaBasura.resx">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaPacas.resx">
       <DependentUpon>SalidaPacas.vb</DependentUpon>
@@ -691,8 +726,8 @@
     <EmbeddedResource Include="Consultas\ConsultaTierrasChecks.resx">
       <DependentUpon>ConsultaTierrasChecks.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -751,6 +786,15 @@
     <EmbeddedResource Include="Utilerias\ConfiguracionParametros.resx">
       <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\CrearEstructura.resx">
+      <DependentUpon>CrearEstructura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ImportarCatalogos.resx">
+      <DependentUpon>ImportarCatalogos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\SeleccionaConexion.resx">
+      <DependentUpon>SeleccionaConexion.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="ALGODON_2VDataSet.xsc">
@@ -774,6 +818,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Web References\WebServiceBanxico\DgieWS.wsdl" />
+    <None Include="Web References\WebServiceBanxico\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.vbproj">
@@ -812,6 +861,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.banxico.org.mx/DgieWSWeb/DgieWS%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebServiceBanxico\</RelPath>
+      <UpdateFromURL>http://www.banxico.org.mx/DgieWSWeb/DgieWS%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Capa_Presentacion_WebServiceBanxico_DgieWS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -64,6 +64,16 @@ Namespace My
                 Return CType(Me("ALGODON_2V"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://www.banxico.org.mx/DgieWSWeb/DgieWS")>  _
+        Public ReadOnly Property Capa_Presentacion_WebServiceBanxico_DgieWS() As String
+            Get
+                Return CType(Me("Capa_Presentacion_WebServiceBanxico_DgieWS"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
