@@ -27,6 +27,13 @@ Public Class Acceso
                     sqlcom1.Parameters.Clear()
                     'sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadAcceso1.IdProduccion))
                     sqldat1.Fill(EntidadAcceso1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUsuario
+                    sqlcom1 = New SqlCommand("Sp_ConsultaUsuario", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Usuario", EntidadAcceso1.Usuario))
+                    sqldat1.Fill(EntidadAcceso1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

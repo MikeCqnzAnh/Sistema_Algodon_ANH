@@ -36,4 +36,49 @@
             _Tabla = value
         End Set
     End Property
+    Public _IdTipoUsuario As Integer
+    Public Property IdTipoUsuario As Integer
+        Get
+            Return _IdTipoUsuario
+        End Get
+        Set(value As Integer)
+            _IdTipoUsuario = value
+        End Set
+    End Property
+    Public _TipoUsuario As String
+    Public Property TipoUsuario As String
+        Get
+            Return _TipoUsuario
+        End Get
+        Set(value As String)
+            _TipoUsuario = value
+        End Set
+    End Property
+    Public _Usuario As String
+    Public Property Usuario As String
+        Get
+            Return _Usuario
+        End Get
+        Set(value As String)
+            _Usuario = value
+        End Set
+    End Property
+    Public _IdUsuario As Integer
+    Public Property IdUsuario As Integer
+        Get
+            Return _IdUsuario
+        End Get
+        Set(value As Integer)
+            _IdUsuario = value
+        End Set
+    End Property
+    Public _BaseDeDatos As String
+    Public Property BaseDeDatos As String
+        Get
+            Return _BaseDeDatos
+        End Get
+        Set(value As String)
+            _BaseDeDatos = value
+        End Set
+    End Property
 End Module

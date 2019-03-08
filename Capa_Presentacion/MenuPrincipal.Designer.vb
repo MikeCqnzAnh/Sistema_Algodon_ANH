@@ -137,17 +137,17 @@ Partial Class MenuPrincipal
         Me.BorrarPerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RespaldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SeleccionaBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeleccionaBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CrearEstructuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
-        Me.TsBdd = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.SbTipoUsuario = New System.Windows.Forms.ToolStripStatusLabel()
@@ -862,12 +862,6 @@ Partial Class MenuPrincipal
         Me.RespaldosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.RespaldosToolStripMenuItem.Text = "Respaldos"
         '
-        'SeleccionaBaseDeDatosToolStripMenuItem
-        '
-        Me.SeleccionaBaseDeDatosToolStripMenuItem.Name = "SeleccionaBaseDeDatosToolStripMenuItem"
-        Me.SeleccionaBaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.SeleccionaBaseDeDatosToolStripMenuItem.Text = "Selecciona Conexion"
-        '
         'CambioDePerfilDePacasToolStripMenuItem
         '
         Me.CambioDePerfilDePacasToolStripMenuItem.Name = "CambioDePerfilDePacasToolStripMenuItem"
@@ -885,6 +879,12 @@ Partial Class MenuPrincipal
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Name = "EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem"
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Text = "Envio de Mensajes de texto y correos a Productores"
+        '
+        'SeleccionaBaseDeDatosToolStripMenuItem
+        '
+        Me.SeleccionaBaseDeDatosToolStripMenuItem.Name = "SeleccionaBaseDeDatosToolStripMenuItem"
+        Me.SeleccionaBaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.SeleccionaBaseDeDatosToolStripMenuItem.Text = "Selecciona Conexion"
         '
         'ConfiguracionDeParametrosToolStripMenuItem
         '
@@ -920,7 +920,7 @@ Partial Class MenuPrincipal
         'SsBarraEstatus
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TsBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
+        Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
         Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 769)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -928,11 +928,11 @@ Partial Class MenuPrincipal
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
-        'TsBdd
+        'SbBdd
         '
-        Me.TsBdd.Name = "TsBdd"
-        Me.TsBdd.Size = New System.Drawing.Size(28, 17)
-        Me.TsBdd.Text = "Bdd"
+        Me.SbBdd.Name = "SbBdd"
+        Me.SbBdd.Size = New System.Drawing.Size(28, 17)
+        Me.SbBdd.Text = "Bdd"
         '
         'ToolStripStatusLabel2
         '
@@ -1142,7 +1142,7 @@ Partial Class MenuPrincipal
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents SsBarraEstatus As StatusStrip
-    Friend WithEvents TsBdd As ToolStripStatusLabel
+    Friend WithEvents SbBdd As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents SbTipoUsuario As ToolStripStatusLabel

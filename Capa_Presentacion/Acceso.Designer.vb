@@ -72,6 +72,7 @@ Partial Class Acceso
         '
         'TbUsuario
         '
+        Me.TbUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbUsuario.Location = New System.Drawing.Point(269, 94)
         Me.TbUsuario.Name = "TbUsuario"
         Me.TbUsuario.Size = New System.Drawing.Size(168, 20)
@@ -81,6 +82,7 @@ Partial Class Acceso
         '
         Me.TbClave.Location = New System.Drawing.Point(269, 126)
         Me.TbClave.Name = "TbClave"
+        Me.TbClave.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TbClave.Size = New System.Drawing.Size(168, 20)
         Me.TbClave.TabIndex = 1
         '

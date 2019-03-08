@@ -5,7 +5,7 @@ Imports Capa_Presentacion.WebServiceBanxico
 Imports System.Net
 Public Class MenuPrincipal
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ActualizaPrecioDolarBanxico()
+        TipoUsuario()
     End Sub
     Private Function ActualizaPrecioDolarBanxico() As Boolean
         Try
@@ -46,11 +46,28 @@ Public Class MenuPrincipal
             Return False
         End Try
     End Function
+    Private Sub TipoUsuario()
+        SbNombreUsuario.Text = _Usuario
+        SbTipoUsuario.Text = _TipoUsuario
+        SbBdd.Text = _BaseDeDatos
+        ActualizaPrecioDolarBanxico()
+    End Sub
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Clientes.ShowDialog()
     End Sub
     Private Sub TsSalir_Click(sender As Object, e As EventArgs) Handles TsSalir.Click
-        End
+        SqlConnection.ClearAllPools()
+        Me.Close()
+    End Sub
+    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim opc As DialogResult = MsgBox("¿Desea salir de esta aplicación?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+
+        If opc = DialogResult.Yes Then
+            SqlConnection.ClearAllPools()
+            End
+        ElseIf opc = DialogResult.No Then
+            e.Cancel = True
+        End If
     End Sub
     Private Sub AsociacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsociacionesToolStripMenuItem.Click
         Asociaciones.ShowDialog()
