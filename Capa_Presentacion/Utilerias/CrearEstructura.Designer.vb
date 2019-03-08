@@ -44,13 +44,14 @@ Partial Class CrearEstructura
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TbOrigenPassword = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbReciente = New System.Windows.Forms.TextBox()
-        Me.TbAlgodon = New System.Windows.Forms.TextBox()
-        Me.TbYear = New System.Windows.Forms.TextBox()
+        Me.GbCreaBdd = New System.Windows.Forms.GroupBox()
         Me.BtCrearDB = New System.Windows.Forms.Button()
+        Me.TbAlgodon = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TbReciente = New System.Windows.Forms.TextBox()
+        Me.TbYear = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtCrearTablas = New System.Windows.Forms.Button()
         Me.BtCrearProcedimientos = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -66,6 +67,7 @@ Partial Class CrearEstructura
         Me.GbEstableceDatos.SuspendLayout()
         Me.GbDestino.SuspendLayout()
         Me.GbOrigen.SuspendLayout()
+        Me.GbCreaBdd.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GbTablas.SuspendLayout()
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,13 +80,7 @@ Partial Class CrearEstructura
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.GbEstableceDatos)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.TbReciente)
-        Me.Panel1.Controls.Add(Me.TbAlgodon)
-        Me.Panel1.Controls.Add(Me.TbYear)
-        Me.Panel1.Controls.Add(Me.BtCrearDB)
+        Me.Panel1.Controls.Add(Me.GbCreaBdd)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
@@ -96,9 +92,9 @@ Partial Class CrearEstructura
         Me.GbEstableceDatos.Controls.Add(Me.GbDestino)
         Me.GbEstableceDatos.Controls.Add(Me.GbOrigen)
         Me.GbEstableceDatos.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbEstableceDatos.Location = New System.Drawing.Point(460, 0)
+        Me.GbEstableceDatos.Location = New System.Drawing.Point(442, 0)
         Me.GbEstableceDatos.Name = "GbEstableceDatos"
-        Me.GbEstableceDatos.Size = New System.Drawing.Size(916, 274)
+        Me.GbEstableceDatos.Size = New System.Drawing.Size(934, 274)
         Me.GbEstableceDatos.TabIndex = 3
         Me.GbEstableceDatos.TabStop = False
         Me.GbEstableceDatos.Text = "Establece datos de creacion"
@@ -114,8 +110,8 @@ Partial Class CrearEstructura
         Me.GbDestino.Controls.Add(Me.TbDestinoUsuario)
         Me.GbDestino.Controls.Add(Me.Label9)
         Me.GbDestino.Controls.Add(Me.TbDestinoPassword)
-        Me.GbDestino.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbDestino.Location = New System.Drawing.Point(454, 16)
+        Me.GbDestino.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbDestino.Location = New System.Drawing.Point(448, 16)
         Me.GbDestino.Name = "GbDestino"
         Me.GbDestino.Size = New System.Drawing.Size(459, 255)
         Me.GbDestino.TabIndex = 4
@@ -293,67 +289,86 @@ Partial Class CrearEstructura
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "Nombre de usuario:"
         '
-        'Label2
+        'GbCreaBdd
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(106, 121)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(29, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Año:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 20)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(141, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Base de datos mas reciente:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(106, 86)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Nombre:"
-        '
-        'TbReciente
-        '
-        Me.TbReciente.Enabled = False
-        Me.TbReciente.Location = New System.Drawing.Point(159, 17)
-        Me.TbReciente.Name = "TbReciente"
-        Me.TbReciente.Size = New System.Drawing.Size(151, 20)
-        Me.TbReciente.TabIndex = 1
-        '
-        'TbAlgodon
-        '
-        Me.TbAlgodon.Location = New System.Drawing.Point(159, 83)
-        Me.TbAlgodon.Name = "TbAlgodon"
-        Me.TbAlgodon.Size = New System.Drawing.Size(151, 20)
-        Me.TbAlgodon.TabIndex = 1
-        '
-        'TbYear
-        '
-        Me.TbYear.Location = New System.Drawing.Point(159, 118)
-        Me.TbYear.Name = "TbYear"
-        Me.TbYear.Size = New System.Drawing.Size(151, 20)
-        Me.TbYear.TabIndex = 1
+        Me.GbCreaBdd.Controls.Add(Me.BtCrearDB)
+        Me.GbCreaBdd.Controls.Add(Me.TbAlgodon)
+        Me.GbCreaBdd.Controls.Add(Me.Label3)
+        Me.GbCreaBdd.Controls.Add(Me.Label2)
+        Me.GbCreaBdd.Controls.Add(Me.TbReciente)
+        Me.GbCreaBdd.Controls.Add(Me.TbYear)
+        Me.GbCreaBdd.Controls.Add(Me.Label1)
+        Me.GbCreaBdd.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbCreaBdd.Location = New System.Drawing.Point(0, 0)
+        Me.GbCreaBdd.Name = "GbCreaBdd"
+        Me.GbCreaBdd.Size = New System.Drawing.Size(442, 274)
+        Me.GbCreaBdd.TabIndex = 4
+        Me.GbCreaBdd.TabStop = False
         '
         'BtCrearDB
         '
-        Me.BtCrearDB.Location = New System.Drawing.Point(332, 231)
+        Me.BtCrearDB.Location = New System.Drawing.Point(168, 150)
         Me.BtCrearDB.Name = "BtCrearDB"
         Me.BtCrearDB.Size = New System.Drawing.Size(122, 23)
         Me.BtCrearDB.TabIndex = 0
         Me.BtCrearDB.Text = "Crear Base De Datos"
         Me.BtCrearDB.UseVisualStyleBackColor = True
         '
+        'TbAlgodon
+        '
+        Me.TbAlgodon.Location = New System.Drawing.Point(155, 81)
+        Me.TbAlgodon.Name = "TbAlgodon"
+        Me.TbAlgodon.Size = New System.Drawing.Size(151, 20)
+        Me.TbAlgodon.TabIndex = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(21, 26)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(141, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Base de datos mas reciente:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(102, 119)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Año:"
+        '
+        'TbReciente
+        '
+        Me.TbReciente.Enabled = False
+        Me.TbReciente.Location = New System.Drawing.Point(168, 23)
+        Me.TbReciente.Name = "TbReciente"
+        Me.TbReciente.Size = New System.Drawing.Size(151, 20)
+        Me.TbReciente.TabIndex = 1
+        '
+        'TbYear
+        '
+        Me.TbYear.Location = New System.Drawing.Point(155, 116)
+        Me.TbYear.Name = "TbYear"
+        Me.TbYear.Size = New System.Drawing.Size(151, 20)
+        Me.TbYear.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(102, 84)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Nombre:"
+        '
         'BtCrearTablas
         '
-        Me.BtCrearTablas.Location = New System.Drawing.Point(1289, 257)
+        Me.BtCrearTablas.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtCrearTablas.Location = New System.Drawing.Point(1301, 0)
+        Me.BtCrearTablas.MaximumSize = New System.Drawing.Size(75, 23)
+        Me.BtCrearTablas.MinimumSize = New System.Drawing.Size(75, 23)
         Me.BtCrearTablas.Name = "BtCrearTablas"
         Me.BtCrearTablas.Size = New System.Drawing.Size(75, 23)
         Me.BtCrearTablas.TabIndex = 0
@@ -362,7 +377,10 @@ Partial Class CrearEstructura
         '
         'BtCrearProcedimientos
         '
-        Me.BtCrearProcedimientos.Location = New System.Drawing.Point(1227, 212)
+        Me.BtCrearProcedimientos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtCrearProcedimientos.Location = New System.Drawing.Point(1239, 0)
+        Me.BtCrearProcedimientos.MaximumSize = New System.Drawing.Size(137, 23)
+        Me.BtCrearProcedimientos.MinimumSize = New System.Drawing.Size(137, 23)
         Me.BtCrearProcedimientos.Name = "BtCrearProcedimientos"
         Me.BtCrearProcedimientos.Size = New System.Drawing.Size(137, 23)
         Me.BtCrearProcedimientos.TabIndex = 0
@@ -487,13 +505,15 @@ Partial Class CrearEstructura
         Me.Name = "CrearEstructura"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Crear Estructura"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.GbEstableceDatos.ResumeLayout(False)
         Me.GbDestino.ResumeLayout(False)
         Me.GbDestino.PerformLayout()
         Me.GbOrigen.ResumeLayout(False)
         Me.GbOrigen.PerformLayout()
+        Me.GbCreaBdd.ResumeLayout(False)
+        Me.GbCreaBdd.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.GbTablas.ResumeLayout(False)
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -547,4 +567,5 @@ Partial Class CrearEstructura
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtDestinoLogin As Button
     Friend WithEvents BtOrigenLogin As Button
+    Friend WithEvents GbCreaBdd As GroupBox
 End Class

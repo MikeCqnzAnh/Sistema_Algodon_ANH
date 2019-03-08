@@ -19,10 +19,34 @@ Public Class Acceso
         CbBaseDeDatos.SelectedIndex = 0
     End Sub
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
-        Me.Hide()
-        MenuPrincipal.ShowDialog()
+        Try
+            If UsuarioRegistrado(TbUsuario.Text) = True Then
+                Me.Hide()
+                MenuPrincipal.ShowDialog()
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
     Private Sub BtCancelar_Click(sender As Object, e As EventArgs) Handles BtCancelar.Click
         End
     End Sub
+    Private Function UsuarioRegistrado(ByVal Usuario As String) As String
+        Dim EntidadAcceso As New Capa_Entidad.Acceso
+        Dim NegocioAcceso As New Capa_Negocio.Acceso
+        Dim Tabla As New DataTable
+        EntidadAcceso.Usuario = Usuario
+        EntidadAcceso.Consulta = Consulta.ConsultaUsuario
+        NegocioAcceso.Consultar(EntidadAcceso)
+        Tabla = EntidadAcceso.TablaGeneral
+        If Tabla.Rows.Count = 0 Then
+            Exit Function
+        End If
+        Tabla.Rows(0).Item("Usuario")
+        Tabla.Rows(0).Item("Password")
+        Tabla.Rows(0).Item("Validacion")
+        Return Usuario
+    End Function
 End Class

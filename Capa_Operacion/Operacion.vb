@@ -118,6 +118,8 @@ Namespace Configuracion
         ConsultaTablas = 51
         ConsultaProcedimientos = 52
         ConsultaCreateTable = 53
+        ConsultaCreateProcedure = 54
+        ConsultaUsuario = 55
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -132,6 +134,7 @@ Namespace Configuracion
     Public Enum Importa
         ImportaTabla = 1
         ImportaProcedimiento = 2
+        ImportaRegistros = 3
     End Enum
 End Namespace
 

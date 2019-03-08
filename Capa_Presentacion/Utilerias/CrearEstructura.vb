@@ -20,16 +20,19 @@ Public Class CrearEstructura
         End Set
     End Property
     Private Sub CrearEstructura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TbYear.Text = Now.Year + 1
-        TbAlgodon.Text = "ALGODON"
-        BaseReciente()
-        PropiedadesDGV()
-        CargaTabla()
-        'LlenaDgvTablas()
-        LlenaDgvProcedimientos()
+        Nuevo()
+    End Sub
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        Nuevo()
     End Sub
     Private Sub BtCrearDB_Click(sender As Object, e As EventArgs) Handles BtCrearDB.Click
         CrearBDD()
+    End Sub
+    Private Sub BtCrearTablas_Click(sender As Object, e As EventArgs) Handles BtCrearTablas.Click
+        CreaTablas(CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
+    End Sub
+    Private Sub BtCrearProcedimientos_Click(sender As Object, e As EventArgs) Handles BtCrearProcedimientos.Click
+        CreaProcedimientos(CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
     End Sub
     Private Sub CbOrigenDB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CbOrigenInstancia.SelectedIndexChanged
         cargar_listabd(CbOrigenDB, sender, CbOrigenInstancia.Text, TbOrigenUsuario.Text, TbOrigenPassword.Text)
@@ -43,21 +46,8 @@ Public Class CrearEstructura
     Private Sub BtDestinoLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtDestinoLogin.Click
         LLenaComboInstancias(CbDestinoInstancia)
     End Sub
-    Private Sub LlenaDgvTablas()
-        Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
-        Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        Dim Tabla As New DataTable
-        EntidadCrearEstructura.Consulta = Consulta.ConsultaTablas
-        NegocioCrearEstructura.Consultar(EntidadCrearEstructura)
-        DgvTablas.DataSource = EntidadCrearEstructura.TablaConsulta
-    End Sub
-    Private Sub LlenaDgvProcedimientos()
-        Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
-        Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        Dim Tabla As New DataTable
-        EntidadCrearEstructura.Consulta = Consulta.ConsultaProcedimientos
-        NegocioCrearEstructura.Consultar(EntidadCrearEstructura)
-        DgvProcedimientos.DataSource = EntidadCrearEstructura.TablaConsulta
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Close()
     End Sub
     Private Sub BaseReciente()
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
@@ -147,8 +137,31 @@ Public Class CrearEstructura
             ii = ii + 1
         Next
     End Sub
+    Private Sub CargaProcedimientos()
+        DgvProcedimientos.Rows.Clear()
+        Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
+        Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
+        Dim Tabla, Tabla1 As New DataTable
+        EntidadCrearEstructura.Consulta = Consulta.ConsultaProcedimientos
+        NegocioCrearEstructura.Consultar(EntidadCrearEstructura)
+        Tabla = EntidadCrearEstructura.TablaConsulta
+        For i As Integer = 0 To Tabla.Rows.Count - 1
+            DgvProcedimientos.Rows.Add(Tabla.Rows(i).Item("NombreProcedimiento"))
+        Next
+        Dim ii As Integer = 0
+        For Each Fila As DataGridViewRow In DgvProcedimientos.Rows
+            EntidadCrearEstructura.Procedimiento = Fila.Cells(0).Value
+            EntidadCrearEstructura.Consulta = Consulta.ConsultaCreateProcedure
+            NegocioCrearEstructura.Consultar(EntidadCrearEstructura)
+            Tabla1 = EntidadCrearEstructura.TablaGeneral
+            DgvProcedimientos.Item(1, DgvProcedimientos.Rows(ii).Index).Value = Tabla1.Rows(0).Item("Rutina")
+            ii = ii + 1
+        Next
+    End Sub
     Private Sub PropiedadesDGV()
         DgvTablas.Columns.Clear()
+        DgvProcedimientos.Columns.Clear()
+
         If DgvTablas.Columns("NombreTabla") Is Nothing Then
 
             Dim colNombreTabla As New DataGridViewTextBoxColumn
@@ -160,11 +173,21 @@ Public Class CrearEstructura
             colRutina.Name = "Rutina"
             DgvTablas.Columns.Insert(1, colRutina)
         End If
+        If DgvProcedimientos.Columns("NombreProcedimiento") Is Nothing Then
+
+            Dim colNombreProcedimiento As New DataGridViewTextBoxColumn
+            colNombreProcedimiento.Name = "NombreProcedimiento"
+            colNombreProcedimiento.HeaderText = "Nombre de procedimiento"
+            DgvProcedimientos.Columns.Insert(0, colNombreProcedimiento)
+
+            Dim colRutina As New DataGridViewTextBoxColumn
+            colRutina.Name = "Rutina"
+            DgvProcedimientos.Columns.Insert(1, colRutina)
+        End If
     End Sub
     Private Sub CreaTablas(ByVal instancia As String, ByVal BaseDeDatos As String, ByVal usuario As String, ByVal password As String)
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
         Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        Dim Tabla As New DataTable
         For i As Integer = 0 To DgvTablas.Rows.Count - 1
             EntidadCrearEstructura.Instancia = instancia
             EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
@@ -175,11 +198,11 @@ Public Class CrearEstructura
             EntidadCrearEstructura.Importa = Importa.ImportaTabla
             NegocioCrearEstructura.Importa(EntidadCrearEstructura)
         Next
+        MsgBox("Realizado Correctamente")
     End Sub
     Private Sub CreaProcedimientos(ByVal instancia As String, ByVal BaseDeDatos As String, ByVal usuario As String, ByVal password As String)
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
         Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        Dim Tabla As New DataTable
         For i As Integer = 0 To DgvProcedimientos.Rows.Count - 1
             EntidadCrearEstructura.Instancia = instancia
             EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
@@ -190,11 +213,31 @@ Public Class CrearEstructura
             EntidadCrearEstructura.Importa = Importa.ImportaProcedimiento
             NegocioCrearEstructura.Importa(EntidadCrearEstructura)
         Next
+        MsgBox("Realizado Correctamente")
     End Sub
-    Private Sub BtCrearTablas_Click(sender As Object, e As EventArgs) Handles BtCrearTablas.Click
-        CreaTablas(CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
-    End Sub
-    Private Sub BtCrearProcedimientos_Click(sender As Object, e As EventArgs) Handles BtCrearProcedimientos.Click
-        CreaProcedimientos(CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
+    Private Sub Nuevo()
+        TbAlgodon.Text = ""
+        TbReciente.Text = ""
+        TbYear.Text = ""
+        TbOrigenUsuario.Text = ""
+        TbOrigenPassword.Text = ""
+        CbOrigenInstancia.Text = ""
+        CbOrigenInstancia.Items.Clear()
+        CbOrigenDB.Text = ""
+        CbOrigenDB.Items.Clear()
+        TbDestinoUsuario.Text = ""
+        TbDestinoPassword.Text = ""
+        CbDestinoInstancia.Text = ""
+        CbDestinoInstancia.Items.Clear()
+        CbDestinoDB.Text = ""
+        CbDestinoDB.Items.Clear()
+        DgvTablas.Columns.Clear()
+        DgvProcedimientos.Columns.Clear()
+        TbYear.Text = Now.Year + 1
+        TbAlgodon.Text = "ALGODON"
+        BaseReciente()
+        PropiedadesDGV()
+        CargaTabla()
+        CargaProcedimientos()
     End Sub
 End Class
