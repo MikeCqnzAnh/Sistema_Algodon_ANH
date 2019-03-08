@@ -31,4 +31,25 @@ Public Class SeleccionaConexion
         End If
         TbNombreInstancia.Text = Tabla.Rows(0).Item("NombreInstancia")
     End Sub
+
+    Private Sub GuardarActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarActualizarToolStripMenuItem.Click
+        SeleccionaConexion()
+        _BaseDeDatos = CbBaseDatos.Text
+    End Sub
+    Private Sub SeleccionaConexion()
+        Try
+            Dim EntidadSeleccionaConexion As New Capa_Entidad.SeleccionaConexion
+            Dim NegocioSeleccionaConexion As New Capa_Negocio.SeleccionaConexion
+            EntidadSeleccionaConexion.BaseDeDatos = CbBaseDatos.Text
+            EntidadSeleccionaConexion.Conexion = Conexion.ConexionDataBase
+            NegocioSeleccionaConexion.Conexion(EntidadSeleccionaConexion)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            MessageBox.Show("Base de datos actualizada con exito.")
+        End Try
+    End Sub
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Close()
+    End Sub
 End Class

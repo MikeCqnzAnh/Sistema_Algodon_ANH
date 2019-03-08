@@ -224,6 +224,7 @@ Public Class MenuPrincipal
     End Sub
     Private Sub SeleccionaBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaBaseDeDatosToolStripMenuItem.Click
         SeleccionaConexion.ShowDialog()
+        SbBdd.Text = _BaseDeDatos
     End Sub
     Private Sub CrearEstructuraToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem1.Click
         CrearEstructura.ShowDialog()

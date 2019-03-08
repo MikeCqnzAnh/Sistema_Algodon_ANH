@@ -44,6 +44,7 @@ Public Class Acceso
         Dim Tabla As New DataTable
         Dim Resultado As Boolean = False
         EntidadAcceso.Usuario = Usuario
+        EntidadAcceso.BaseDeDatos = CbBaseDeDatos.Text
         EntidadAcceso.Consulta = Consulta.ConsultaUsuario
         NegocioAcceso.Consultar(EntidadAcceso)
         Tabla = EntidadAcceso.TablaConsulta

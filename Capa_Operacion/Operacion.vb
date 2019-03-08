@@ -136,5 +136,9 @@ Namespace Configuracion
         ImportaProcedimiento = 2
         ImportaRegistros = 3
     End Enum
+    Public Enum Conexion
+        ConexionDataBase = 1
+    End Enum
+
 End Namespace
 

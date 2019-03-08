@@ -40,7 +40,7 @@ Public Class ConfiguracionParametros
     Public Overridable Sub Consultar(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
         Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros()
         EntidadConfiguracionParametros1 = EntidadConfiguracionParametros
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionMaster)
         EntidadConfiguracionParametros1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
@@ -48,7 +48,7 @@ Public Class ConfiguracionParametros
             cnn.Open()
             Select Case EntidadConfiguracionParametros1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBaseDatos
-                    sqldat1 = New SqlDataAdapter("Sp_ConsultaBdd", cnn)
+                    sqldat1 = New SqlDataAdapter("SELECT database_id, name FROM sys.databases where name like '%Algodon%'", cnn)
                     sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqlcom1 = New SqlCommand("Sp_ConsultaConfiguracionParametros", cnn)
