@@ -64,6 +64,8 @@ Partial Class ConfiguracionParametros
         Me.TsIdConfiguracion = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TbGross = New System.Windows.Forms.TextBox()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,9 +107,9 @@ Partial Class ConfiguracionParametros
         Me.GbPesoPacas.Controls.Add(Me.Label12)
         Me.GbPesoPacas.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbPesoPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPesoPacas.Location = New System.Drawing.Point(0, 292)
+        Me.GbPesoPacas.Location = New System.Drawing.Point(0, 400)
         Me.GbPesoPacas.Name = "GbPesoPacas"
-        Me.GbPesoPacas.Size = New System.Drawing.Size(1028, 100)
+        Me.GbPesoPacas.Size = New System.Drawing.Size(1028, 174)
         Me.GbPesoPacas.TabIndex = 11
         Me.GbPesoPacas.TabStop = False
         Me.GbPesoPacas.Text = "Peso De Pacas"
@@ -166,9 +168,9 @@ Partial Class ConfiguracionParametros
         Me.GbPesoProduccion.Controls.Add(Me.Label11)
         Me.GbPesoProduccion.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbPesoProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPesoProduccion.Location = New System.Drawing.Point(0, 172)
+        Me.GbPesoProduccion.Location = New System.Drawing.Point(0, 240)
         Me.GbPesoProduccion.Name = "GbPesoProduccion"
-        Me.GbPesoProduccion.Size = New System.Drawing.Size(1028, 120)
+        Me.GbPesoProduccion.Size = New System.Drawing.Size(1028, 160)
         Me.GbPesoProduccion.TabIndex = 10
         Me.GbPesoProduccion.TabStop = False
         Me.GbPesoProduccion.Text = "Pesos En Captura De Boletas"
@@ -289,10 +291,12 @@ Partial Class ConfiguracionParametros
         '
         'GbIdProduccion
         '
+        Me.GbIdProduccion.Controls.Add(Me.TbGross)
         Me.GbIdProduccion.Controls.Add(Me.NuCaracterTransporte)
         Me.GbIdProduccion.Controls.Add(Me.NuInicialTransporte)
         Me.GbIdProduccion.Controls.Add(Me.NuCaracterModulo)
         Me.GbIdProduccion.Controls.Add(Me.NuInicialModulo)
+        Me.GbIdProduccion.Controls.Add(Me.Label14)
         Me.GbIdProduccion.Controls.Add(Me.Label3)
         Me.GbIdProduccion.Controls.Add(Me.Label1)
         Me.GbIdProduccion.Controls.Add(Me.Label4)
@@ -301,7 +305,7 @@ Partial Class ConfiguracionParametros
         Me.GbIdProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbIdProduccion.Location = New System.Drawing.Point(0, 82)
         Me.GbIdProduccion.Name = "GbIdProduccion"
-        Me.GbIdProduccion.Size = New System.Drawing.Size(1028, 90)
+        Me.GbIdProduccion.Size = New System.Drawing.Size(1028, 158)
         Me.GbIdProduccion.TabIndex = 9
         Me.GbIdProduccion.TabStop = False
         Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
@@ -484,6 +488,23 @@ Partial Class ConfiguracionParametros
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(12, 77)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(107, 13)
+        Me.Label14.TabIndex = 3
+        Me.Label14.Text = "Posiciona peso Bruto"
+        '
+        'TbGross
+        '
+        Me.TbGross.Location = New System.Drawing.Point(125, 74)
+        Me.TbGross.Name = "TbGross"
+        Me.TbGross.Size = New System.Drawing.Size(105, 20)
+        Me.TbGross.TabIndex = 6
+        '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -569,4 +590,6 @@ Partial Class ConfiguracionParametros
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents TsIdConfiguracion As ToolStripStatusLabel
+    Friend WithEvents TbGross As TextBox
+    Friend WithEvents Label14 As Label
 End Class
