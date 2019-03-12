@@ -130,6 +130,7 @@
     <Compile Include="Utilerias\ConfiguracionParametros.vb" />
     <Compile Include="Utilerias\CrearEstructura.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.vb" />
+    <Compile Include="Utilerias\Monedas.vb" />
     <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -232,4 +232,8 @@ Public Class MenuPrincipal
     Private Sub ImportarCatalogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem.Click
         ImportarCatalogos.ShowDialog()
     End Sub
+
+    Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
+        Monedas.ShowDialog()
+    End Sub
 End Class

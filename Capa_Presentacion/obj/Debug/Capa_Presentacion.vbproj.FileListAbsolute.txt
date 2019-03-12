@@ -416,3 +416,4 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Monedas.resources

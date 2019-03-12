@@ -66,6 +66,7 @@ Partial Class ConfiguracionParametros
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbGross = New System.Windows.Forms.TextBox()
+        Me.TsIdConf = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -420,7 +421,7 @@ Partial Class ConfiguracionParametros
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.TsNombrePc, Me.TsSeparador, Me.ToolStripStatusLabel2, Me.TsIpComputadora, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.TsIdConfiguracion})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.TsNombrePc, Me.TsSeparador, Me.ToolStripStatusLabel2, Me.TsIpComputadora, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.TsIdConfiguracion, Me.TsIdConf})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 601)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1028, 22)
@@ -504,6 +505,11 @@ Partial Class ConfiguracionParametros
         Me.TbGross.Name = "TbGross"
         Me.TbGross.Size = New System.Drawing.Size(105, 20)
         Me.TbGross.TabIndex = 6
+        '
+        'TsIdConf
+        '
+        Me.TsIdConf.Name = "TsIdConf"
+        Me.TsIdConf.Size = New System.Drawing.Size(0, 17)
         '
         'ConfiguracionParametros
         '
@@ -592,4 +598,5 @@ Partial Class ConfiguracionParametros
     Friend WithEvents TsIdConfiguracion As ToolStripStatusLabel
     Friend WithEvents TbGross As TextBox
     Friend WithEvents Label14 As Label
+    Friend WithEvents TsIdConf As ToolStripStatusLabel
 End Class

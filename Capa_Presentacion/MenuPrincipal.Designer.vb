@@ -158,6 +158,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -839,7 +840,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.MonedasToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -996,6 +997,12 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
+        '
+        'MonedasToolStripMenuItem
+        '
+        Me.MonedasToolStripMenuItem.Name = "MonedasToolStripMenuItem"
+        Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.MonedasToolStripMenuItem.Text = "Monedas"
         '
         'MenuPrincipal
         '
@@ -1157,4 +1164,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ConfiguracionDeBaseDeDatosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CrearEstructuraToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ImportarCatalogosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -40,7 +40,7 @@ Public Class ConfiguracionParametros
     Public Overridable Sub Consultar(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
         Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros()
         EntidadConfiguracionParametros1 = EntidadConfiguracionParametros
-        Dim cnn As New SqlConnection(conexionMaster)
+        Dim cnn As New SqlConnection(conexionPrincipal)
         EntidadConfiguracionParametros1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
