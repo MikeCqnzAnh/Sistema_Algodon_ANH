@@ -42,10 +42,12 @@ Partial Class ConfiguracionParametros
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GbIdProduccion = New System.Windows.Forms.GroupBox()
+        Me.TbGross = New System.Windows.Forms.TextBox()
         Me.NuCaracterTransporte = New System.Windows.Forms.NumericUpDown()
         Me.NuInicialTransporte = New System.Windows.Forms.NumericUpDown()
         Me.NuCaracterModulo = New System.Windows.Forms.NumericUpDown()
         Me.NuInicialModulo = New System.Windows.Forms.NumericUpDown()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -62,11 +64,11 @@ Partial Class ConfiguracionParametros
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsIdConfiguracion = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TsIdConf = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TbGross = New System.Windows.Forms.TextBox()
-        Me.TsIdConf = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -311,6 +313,13 @@ Partial Class ConfiguracionParametros
         Me.GbIdProduccion.TabStop = False
         Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
         '
+        'TbGross
+        '
+        Me.TbGross.Location = New System.Drawing.Point(125, 74)
+        Me.TbGross.Name = "TbGross"
+        Me.TbGross.Size = New System.Drawing.Size(105, 20)
+        Me.TbGross.TabIndex = 6
+        '
         'NuCaracterTransporte
         '
         Me.NuCaracterTransporte.Location = New System.Drawing.Point(743, 39)
@@ -346,6 +355,16 @@ Partial Class ConfiguracionParametros
         Me.NuInicialModulo.Size = New System.Drawing.Size(62, 20)
         Me.NuInicialModulo.TabIndex = 5
         Me.NuInicialModulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(12, 77)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(107, 13)
+        Me.Label14.TabIndex = 3
+        Me.Label14.Text = "Posiciona peso Bruto"
         '
         'Label3
         '
@@ -389,6 +408,8 @@ Partial Class ConfiguracionParametros
         '
         'GbPuerto
         '
+        Me.GbPuerto.Controls.Add(Me.Label16)
+        Me.GbPuerto.Controls.Add(Me.Label15)
         Me.GbPuerto.Controls.Add(Me.Label2)
         Me.GbPuerto.Controls.Add(Me.CbPuertosSeriales)
         Me.GbPuerto.Dock = System.Windows.Forms.DockStyle.Top
@@ -474,6 +495,11 @@ Partial Class ConfiguracionParametros
         Me.TsIdConfiguracion.Name = "TsIdConfiguracion"
         Me.TsIdConfiguracion.Size = New System.Drawing.Size(0, 17)
         '
+        'TsIdConf
+        '
+        Me.TsIdConf.Name = "TsIdConf"
+        Me.TsIdConf.Size = New System.Drawing.Size(0, 17)
+        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem})
@@ -489,27 +515,23 @@ Partial Class ConfiguracionParametros
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
-        'Label14
+        'Label15
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(12, 77)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(107, 13)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Posiciona peso Bruto"
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(433, 20)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(52, 13)
+        Me.Label15.TabIndex = 3
+        Me.Label15.Text = "Label15"
         '
-        'TbGross
+        'Label16
         '
-        Me.TbGross.Location = New System.Drawing.Point(125, 74)
-        Me.TbGross.Name = "TbGross"
-        Me.TbGross.Size = New System.Drawing.Size(105, 20)
-        Me.TbGross.TabIndex = 6
-        '
-        'TsIdConf
-        '
-        Me.TsIdConf.Name = "TsIdConf"
-        Me.TsIdConf.Size = New System.Drawing.Size(0, 17)
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(436, 49)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(52, 13)
+        Me.Label16.TabIndex = 4
+        Me.Label16.Text = "Label16"
         '
         'ConfiguracionParametros
         '
@@ -599,4 +621,6 @@ Partial Class ConfiguracionParametros
     Friend WithEvents TbGross As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents TsIdConf As ToolStripStatusLabel
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label15 As Label
 End Class

@@ -1,11 +1,12 @@
-create table BitacoraSistema
-(
-IdBitacora int identity(1,1) primary key,
-Computadora varchar(30),
-DireccionIP varchar(15),
-IdUsuario int,
-Modulo varchar(50),
-Opcion varchar(20),
-Operacion varchar(100),
-Observaciones varchar(max)
-)
+CREATE TABLE [dbo].[BitacoraSistema](
+	[IdBitacora] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [datetime] null,
+	[Computadora] [varchar](30) NULL,
+	[DireccionIP] [varchar](15) NULL,
+	[IdUsuario] [int] NULL,
+	[Usuario] [Varchar] (15) NULL,
+	[Modulo] [varchar](50) NULL,
+	[Opcion] [varchar](20) NULL,
+	[Operacion] [varchar](100) NULL,
+	[Observaciones] [varchar](max) NULL
+) 

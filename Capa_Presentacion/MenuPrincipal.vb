@@ -7,7 +7,7 @@ Public Class MenuPrincipal
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TipoUsuario()
     End Sub
-    Private Function ActualizaPrecioDolarBanxico() As Boolean
+    Private Sub ObtenerPrecioDolarBanxico()
         Try
             Dim myProxy As New WebProxy("Proxy", 80)
             Dim UrlBanxico As String = "8.8.8.8"
@@ -21,17 +21,26 @@ Public Class MenuPrincipal
                 strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("SF60653") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("SF60653") - 1)
                 strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("OBS_VALUE=") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("OBS_VALUE=") - 1)
                 TsPrecioDolar.Text = Replace(strTipoCambio.Substring(10, 7), Chr(34), "")
-                Return True
+                ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
+            ElseIf _IdTipoUsuario = 1 Then
+                Monedas.ShowDialog()
+                ConsultaTipoCambio()
             Else
                 TsPrecioDolar.Text = 0
-                Return False
             End If
         Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-            TsPrecioDolar.Text = 0
-            Return False
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Exclamation, "Aviso")
+            ConsultaTipoCambio()
         End Try
-    End Function
+    End Sub
+    Private Sub ActualizaPrecioDolar(ByVal TipoDeCambio As Double)
+        Dim tabla As New DataTable
+        Dim EntidadMenuPrincipal As New Capa_Entidad.MenuPrincipal
+        Dim NegocioMenuPrincipal As New Capa_Negocio.MenuPrincipal
+        EntidadMenuPrincipal.TipoDeCambio = TipoDeCambio
+        EntidadMenuPrincipal.Abreviacion = "USD"
+        NegocioMenuPrincipal.Actualizar(EntidadMenuPrincipal)
+    End Sub
     Private Function VerificarConexionURL(ByVal mURL As String) As Boolean
         Try
             If My.Computer.Network.Ping(mURL, 2000) Then
@@ -46,11 +55,40 @@ Public Class MenuPrincipal
             Return False
         End Try
     End Function
+    Private Function VerificaFechaTipoCambio()
+        Dim Resultado As Boolean
+        Dim tabla As New DataTable
+        Dim EntidadMenuPrincipal As New Capa_Entidad.MenuPrincipal
+        Dim NegocioMenuPrincipal As New Capa_Negocio.MenuPrincipal
+
+        EntidadMenuPrincipal.FechaHoy = Now.Date
+        EntidadMenuPrincipal.Abreviacion = "USD"
+        EntidadMenuPrincipal.Consulta = Consulta.ConsultaFechaTipoCambio
+        NegocioMenuPrincipal.Consultar(EntidadMenuPrincipal)
+        tabla = EntidadMenuPrincipal.TablaConsulta
+        Resultado = tabla.Rows(0).Item("Respuesta")
+        Return Resultado
+    End Function
+    Private Sub ConsultaTipoCambio()
+        Dim tabla As New DataTable
+        Dim EntidadMenuPrincipal As New Capa_Entidad.MenuPrincipal
+        Dim NegocioMenuPrincipal As New Capa_Negocio.MenuPrincipal
+
+        EntidadMenuPrincipal.IdMoneda = 2
+        EntidadMenuPrincipal.Consulta = Consulta.ConsultaTipoDeCambio
+        NegocioMenuPrincipal.Consultar(EntidadMenuPrincipal)
+        tabla = EntidadMenuPrincipal.TablaConsulta
+        TsPrecioDolar.Text = tabla.Rows(0).Item("TipoDeCambio")
+    End Sub
     Private Sub TipoUsuario()
         SbNombreUsuario.Text = _Usuario
         SbTipoUsuario.Text = _TipoUsuario
         SbBdd.Text = _BaseDeDatos
-        ActualizaPrecioDolarBanxico()
+        If VerificaFechaTipoCambio() = True Then
+            ObtenerPrecioDolarBanxico()
+        Else
+            ConsultaTipoCambio()
+        End If
     End Sub
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Clientes.ShowDialog()
@@ -235,5 +273,9 @@ Public Class MenuPrincipal
 
     Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
         Monedas.ShowDialog()
+    End Sub
+
+    Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
+        Bitacora.ShowDialog()
     End Sub
 End Class

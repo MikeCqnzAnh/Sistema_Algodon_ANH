@@ -145,6 +145,7 @@ Partial Class MenuPrincipal
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CrearEstructuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -158,7 +159,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -840,7 +841,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.MonedasToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -911,6 +912,12 @@ Partial Class MenuPrincipal
         Me.ImportarCatalogosToolStripMenuItem.Name = "ImportarCatalogosToolStripMenuItem"
         Me.ImportarCatalogosToolStripMenuItem.Size = New System.Drawing.Size(197, 24)
         Me.ImportarCatalogosToolStripMenuItem.Text = "Importar Catalogos"
+        '
+        'MonedasToolStripMenuItem
+        '
+        Me.MonedasToolStripMenuItem.Name = "MonedasToolStripMenuItem"
+        Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.MonedasToolStripMenuItem.Text = "Monedas"
         '
         'TsSalir
         '
@@ -998,11 +1005,11 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'MonedasToolStripMenuItem
+        'BitacoraToolStripMenuItem
         '
-        Me.MonedasToolStripMenuItem.Name = "MonedasToolStripMenuItem"
-        Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.MonedasToolStripMenuItem.Text = "Monedas"
+        Me.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem"
+        Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.BitacoraToolStripMenuItem.Text = "Bitacora"
         '
         'MenuPrincipal
         '
@@ -1165,4 +1172,5 @@ Partial Class MenuPrincipal
     Friend WithEvents CrearEstructuraToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ImportarCatalogosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BitacoraToolStripMenuItem As ToolStripMenuItem
 End Class

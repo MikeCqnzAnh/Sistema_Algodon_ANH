@@ -120,6 +120,8 @@ Namespace Configuracion
         ConsultaCreateTable = 53
         ConsultaCreateProcedure = 54
         ConsultaUsuario = 55
+        ConsultaFechaTipoCambio = 56
+        ConsultaTipoDeCambio = 57
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

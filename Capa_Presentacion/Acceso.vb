@@ -17,7 +17,7 @@ Public Class Acceso
         CbBaseDeDatos.DisplayMember = "name"
         CbBaseDeDatos.SelectedIndex = 0
     End Sub
-    Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
+    Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAccesar.Click
         Login()
     End Sub
     Private Sub TbClave_keydown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbClave.KeyDown
@@ -28,6 +28,7 @@ Public Class Acceso
     Private Sub Login()
         Try
             If UsuarioRegistrado(TbUsuario.Text) = True Then
+                GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
                 Me.Hide()
                 MenuPrincipal.ShowDialog()
             End If
@@ -53,6 +54,7 @@ Public Class Acceso
             Resultado = False
         ElseIf Tabla.Rows(0).Item("Clave").Equals(TbClave.Text) = False Then
             MessageBox.Show("La contraseña ingresada no es correcta, verifique de nuevo.", "Aviso")
+            TbClave.Text = ""
             Resultado = False
         Else
             Resultado = True

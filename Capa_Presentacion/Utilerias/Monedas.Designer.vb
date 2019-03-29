@@ -26,28 +26,32 @@ Partial Class Monedas
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PRegistroMoneda = New System.Windows.Forms.Panel()
         Me.DgvMonedas = New System.Windows.Forms.DataGridView()
         Me.GbDatosMoneda = New System.Windows.Forms.GroupBox()
+        Me.NuTipodecambio = New System.Windows.Forms.NumericUpDown()
+        Me.TbIdMoneda = New System.Windows.Forms.TextBox()
         Me.TbAbreviacion = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TbNombreMoneda = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TbIdMoneda = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.PRegistroMoneda.SuspendLayout()
         CType(Me.DgvMonedas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbDatosMoneda.SuspendLayout()
+        CType(Me.NuTipodecambio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarActualizarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarActualizarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(704, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(917, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -63,6 +67,13 @@ Partial Class Monedas
         Me.GuardarActualizarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
         Me.GuardarActualizarToolStripMenuItem.Text = "Guardar/Actualizar"
         '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        Me.EliminarToolStripMenuItem.Visible = False
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
@@ -75,7 +86,7 @@ Partial Class Monedas
         Me.PRegistroMoneda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PRegistroMoneda.Location = New System.Drawing.Point(0, 118)
         Me.PRegistroMoneda.Name = "PRegistroMoneda"
-        Me.PRegistroMoneda.Size = New System.Drawing.Size(704, 221)
+        Me.PRegistroMoneda.Size = New System.Drawing.Size(917, 221)
         Me.PRegistroMoneda.TabIndex = 1
         '
         'DgvMonedas
@@ -101,40 +112,81 @@ Partial Class Monedas
         Me.DgvMonedas.Name = "DgvMonedas"
         Me.DgvMonedas.RowHeadersVisible = False
         Me.DgvMonedas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvMonedas.Size = New System.Drawing.Size(704, 221)
+        Me.DgvMonedas.Size = New System.Drawing.Size(917, 221)
         Me.DgvMonedas.TabIndex = 1
         '
         'GbDatosMoneda
         '
+        Me.GbDatosMoneda.Controls.Add(Me.NuTipodecambio)
         Me.GbDatosMoneda.Controls.Add(Me.TbIdMoneda)
         Me.GbDatosMoneda.Controls.Add(Me.TbAbreviacion)
         Me.GbDatosMoneda.Controls.Add(Me.Label3)
         Me.GbDatosMoneda.Controls.Add(Me.TbNombreMoneda)
+        Me.GbDatosMoneda.Controls.Add(Me.Label4)
         Me.GbDatosMoneda.Controls.Add(Me.Label2)
         Me.GbDatosMoneda.Controls.Add(Me.Label1)
         Me.GbDatosMoneda.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosMoneda.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosMoneda.Name = "GbDatosMoneda"
-        Me.GbDatosMoneda.Size = New System.Drawing.Size(704, 94)
+        Me.GbDatosMoneda.Size = New System.Drawing.Size(917, 94)
         Me.GbDatosMoneda.TabIndex = 2
         Me.GbDatosMoneda.TabStop = False
         Me.GbDatosMoneda.Text = "Datos"
+        '
+        'NuTipodecambio
+        '
+        Me.NuTipodecambio.DecimalPlaces = 4
+        Me.NuTipodecambio.Location = New System.Drawing.Point(641, 45)
+        Me.NuTipodecambio.Maximum = New Decimal(New Integer() {99, 0, 0, 0})
+        Me.NuTipodecambio.Name = "NuTipodecambio"
+        Me.NuTipodecambio.Size = New System.Drawing.Size(120, 20)
+        Me.NuTipodecambio.TabIndex = 3
+        Me.NuTipodecambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuTipodecambio.ThousandsSeparator = True
+        '
+        'TbIdMoneda
+        '
+        Me.TbIdMoneda.Enabled = False
+        Me.TbIdMoneda.Location = New System.Drawing.Point(105, 19)
+        Me.TbIdMoneda.Name = "TbIdMoneda"
+        Me.TbIdMoneda.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdMoneda.TabIndex = 2
         '
         'TbAbreviacion
         '
         Me.TbAbreviacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbAbreviacion.Location = New System.Drawing.Point(410, 45)
+        Me.TbAbreviacion.MaxLength = 6
         Me.TbAbreviacion.Name = "TbAbreviacion"
         Me.TbAbreviacion.Size = New System.Drawing.Size(100, 20)
         Me.TbAbreviacion.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(21, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "ID:"
         '
         'TbNombreMoneda
         '
         Me.TbNombreMoneda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombreMoneda.Location = New System.Drawing.Point(105, 45)
+        Me.TbNombreMoneda.MaxLength = 50
         Me.TbNombreMoneda.Name = "TbNombreMoneda"
         Me.TbNombreMoneda.Size = New System.Drawing.Size(200, 20)
         Me.TbNombreMoneda.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(552, 48)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(83, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Tipo de cambio:"
         '
         'Label2
         '
@@ -154,28 +206,11 @@ Partial Class Monedas
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre Moneda:"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "ID:"
-        '
-        'TbIdMoneda
-        '
-        Me.TbIdMoneda.Enabled = False
-        Me.TbIdMoneda.Location = New System.Drawing.Point(105, 19)
-        Me.TbIdMoneda.Name = "TbIdMoneda"
-        Me.TbIdMoneda.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdMoneda.TabIndex = 2
-        '
         'Monedas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 339)
+        Me.ClientSize = New System.Drawing.Size(917, 339)
         Me.Controls.Add(Me.PRegistroMoneda)
         Me.Controls.Add(Me.GbDatosMoneda)
         Me.Controls.Add(Me.MenuStrip1)
@@ -189,6 +224,7 @@ Partial Class Monedas
         CType(Me.DgvMonedas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbDatosMoneda.ResumeLayout(False)
         Me.GbDatosMoneda.PerformLayout()
+        CType(Me.NuTipodecambio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -207,4 +243,7 @@ Partial Class Monedas
     Friend WithEvents Label1 As Label
     Friend WithEvents TbIdMoneda As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents NuTipodecambio As NumericUpDown
+    Friend WithEvents Label4 As Label
+    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
 End Class

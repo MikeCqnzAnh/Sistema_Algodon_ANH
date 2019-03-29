@@ -25,7 +25,7 @@ Public Class ConsultaProductores
         DgvConsultaProductores.DataSource = Nothing
     End Sub
 
-    Private Sub DgvConsultaProductores_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultaProductores.CellContentDoubleClick
+    Private Sub DgvConsultaProductores_DoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaProductores.DoubleClick
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
         Dim index As Integer

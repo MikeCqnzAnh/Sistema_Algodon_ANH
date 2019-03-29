@@ -29,7 +29,7 @@ Partial Class Acceso
         Me.CbBaseDeDatos = New System.Windows.Forms.ComboBox()
         Me.TbUsuario = New System.Windows.Forms.TextBox()
         Me.TbClave = New System.Windows.Forms.TextBox()
-        Me.BtAceptar = New System.Windows.Forms.Button()
+        Me.BtAccesar = New System.Windows.Forms.Button()
         Me.BtCancelar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,14 +86,14 @@ Partial Class Acceso
         Me.TbClave.Size = New System.Drawing.Size(168, 20)
         Me.TbClave.TabIndex = 1
         '
-        'BtAceptar
+        'BtAccesar
         '
-        Me.BtAceptar.Location = New System.Drawing.Point(269, 206)
-        Me.BtAceptar.Name = "BtAceptar"
-        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAceptar.TabIndex = 3
-        Me.BtAceptar.Text = "Aceptar"
-        Me.BtAceptar.UseVisualStyleBackColor = True
+        Me.BtAccesar.Location = New System.Drawing.Point(269, 206)
+        Me.BtAccesar.Name = "BtAccesar"
+        Me.BtAccesar.Size = New System.Drawing.Size(75, 23)
+        Me.BtAccesar.TabIndex = 3
+        Me.BtAccesar.Text = "Accesar"
+        Me.BtAccesar.UseVisualStyleBackColor = True
         '
         'BtCancelar
         '
@@ -121,7 +121,7 @@ Partial Class Acceso
         Me.ClientSize = New System.Drawing.Size(471, 274)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BtCancelar)
-        Me.Controls.Add(Me.BtAceptar)
+        Me.Controls.Add(Me.BtAccesar)
         Me.Controls.Add(Me.TbClave)
         Me.Controls.Add(Me.TbUsuario)
         Me.Controls.Add(Me.CbBaseDeDatos)
@@ -143,7 +143,7 @@ Partial Class Acceso
     Friend WithEvents CbBaseDeDatos As ComboBox
     Friend WithEvents TbUsuario As TextBox
     Friend WithEvents TbClave As TextBox
-    Friend WithEvents BtAceptar As Button
+    Friend WithEvents BtAccesar As Button
     Friend WithEvents BtCancelar As Button
     Friend WithEvents PictureBox1 As PictureBox
 End Class

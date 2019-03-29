@@ -118,6 +118,7 @@
     <Compile Include="Procesos\OrdenTrabajo.vb" />
     <Compile Include="Procesos\Produccion.vb" />
     <Compile Include="Reportes\Reportes.vb" />
+    <Compile Include="Utilerias\Bitacora.vb" />
     <Compile Include="Utilerias\ConfiguracionParametros.vb" />
     <Compile Include="Utilerias\CrearEstructura.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.vb" />

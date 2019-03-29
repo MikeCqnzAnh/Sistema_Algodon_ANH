@@ -49,6 +49,34 @@ Public Class Monedas
             EntidadMonedas = EntidadMonedas1
         End Try
     End Sub
+    Public Overridable Sub Eliminar(ByRef EntidadMonedas As Capa_Entidad.Monedas)
+        Dim EntidadMonedas1 As New Capa_Entidad.Monedas()
+        EntidadMonedas1 = EntidadMonedas
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        EntidadMonedas1.TablaConsulta = New DataTable()
+        EntidadMonedas1.TablaGeneral = New DataTable()
+        Dim cmdEliminar As SqlCommand
+        Dim sqldat1 As SqlDataAdapter
+        Try
+            cnn.Open()
+            Select Case EntidadMonedas1.Eliminar
+                Case Capa_Operacion.Configuracion.Eliminar.EliminarRegistro
+                    cmdEliminar = New SqlCommand("Sp_EliminaMoneda", cnn)
+                    cmdEliminar.CommandType = CommandType.StoredProcedure
+                    cmdEliminar.Parameters.Clear()
+                    cmdEliminar.Parameters.Add(New SqlParameter("@IdMoneda", EntidadMonedas1.IdMoneda))
+                    cmdEliminar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadMonedas1.IdEstatus))
+                    cmdEliminar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadMonedas1.IdUsuarioActualizacion))
+                    cmdEliminar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadMonedas1.FechaActualizacion))
+                    cmdEliminar.ExecuteNonQuery()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Aviso")
+        Finally
+            cnn.Close()
+            EntidadMonedas = EntidadMonedas1
+        End Try
+    End Sub
     Public Overridable Sub Upsert(ByRef EntidadMonedas As Capa_Entidad.Monedas)
         Dim EntidadMonedas1 As New Capa_Entidad.Monedas
         EntidadMonedas1 = EntidadMonedas
@@ -61,6 +89,7 @@ Public Class Monedas
             cmdGuardar.Parameters.Add(New SqlParameter("@IdMoneda", EntidadMonedas1.IdMoneda))
             cmdGuardar.Parameters.Add(New SqlParameter("@NombreMoneda", EntidadMonedas1.NombreMoneda))
             cmdGuardar.Parameters.Add(New SqlParameter("@Abreviacion", EntidadMonedas1.Abreviacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@TipoDeCambio", EntidadMonedas1.TipoDeCambio))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadMonedas1.IdEstatus))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadMonedas1.IdUsuarioCreacion))
             cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadMonedas1.FechaCreacion))
@@ -72,6 +101,7 @@ Public Class Monedas
                 EntidadMonedas1.IdMoneda = cmdGuardar.Parameters("@IdMoneda").Value
             End If
         Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.ApplicationModal, "Aviso")
         Finally
             cnn.Close()
             EntidadMonedas = EntidadMonedas1

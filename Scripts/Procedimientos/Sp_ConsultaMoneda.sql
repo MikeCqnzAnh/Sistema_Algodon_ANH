@@ -1,3 +1,3 @@
-Create Procedure Sp_ConsultaMoneda
+create Procedure Sp_ConsultaMoneda
 as
-select * From Moneda
+select * From Moneda where idestatus = 1

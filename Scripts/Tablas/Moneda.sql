@@ -1,9 +1,12 @@
-CREATE TABLE Moneda(
+CREATE TABLE [dbo].[Moneda](
 	[idMoneda] [int] IDENTITY(1,1) NOT NULL,
-	[nombreMoneda] [varchar](12) NULL,
+	[nombreMoneda] [varchar](50) NULL,
 	[Abreviacion] [varchar](6) NULL,
+	[TipoDeCambio] [Decimal](6,4) NULL,
 	[IdEstatus] [int] NULL,
-	[IdUsuarioCreacion] [int] null,
-	[FechaCreacion] [Datetime] null,
-	[IdUsuarioActualizacion] [int] null,
-	[FechaActualizacion] [DateTime] null)
+	[IdUsuarioCreacion] [int] NULL,
+	[FechaCreacion] [datetime] NULL,
+	[IdUsuarioActualizacion] [int] NULL,
+	[FechaActualizacion] [datetime] NULL
+) 
+
