@@ -24,6 +24,7 @@ Public Class Asociaciones
         EntidadAsociaciones.IdUsuarioCreacion = 1
         EntidadAsociaciones.FechaCreacion = Now
         NegocioAsociaciones.Guardar(EntidadAsociaciones)
+        GeneraRegistroBitacora(Me.Text.Clone.ToString, IIf(TbIdAsociacion.Text <> "", "Actualizar", "Guardar"))
         TbIdAsociacion.Text = EntidadAsociaciones.IdAsociacion
         Consultar()
     End Sub
@@ -80,6 +81,7 @@ Public Class Asociaciones
         EntidadAsociaciones.Eliminar = Eliminar.EliminarREgistro
         EntidadAsociaciones.IdAsociacion = TbIdAsociacion.Text
         NegocioAsociaciones.Eliminar(EntidadAsociaciones)
+        GeneraRegistroBitacora(Me.Text.Clone.ToString, EliminarToolStripMenuItem.Text)
         Consultar()
         Limpiar()
         MsgBox("Registro eliminado con éxito", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")

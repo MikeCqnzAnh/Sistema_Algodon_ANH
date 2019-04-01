@@ -19,21 +19,31 @@ Module CargaBitacora
         NegocioBitacora.InsertaBitacora(EntidadBitacora)
     End Sub
     Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String)
+        Dim operacion, observaciones As String
         Try
             Select Case Opcion
-                Case Opcion = "Guardar"
-
-                Case Opcion = "Consultar"
-
-                Case Opcion = "Actualizar"
-
-                Case Opcion = "Abrir Produccion"
-
-                Case Opcion = "Eliminar"
-
+                Case "Guardar"
+                    operacion = "GUARDAR REGISTRO."
+                    observaciones = "EL USUARIO " & Usuario & " GUARDO EL REGISTRO " & "TEST" & "."
+                Case "Consultar"
+                    operacion = "CONSULTAR REGISTRO."
+                    observaciones = "EL USUARIO " & Usuario & " CONSULTO EL REGISTRO " & "TEST" & "."
+                Case "Actualizar"
+                    operacion = "ACTUALIZAR REGISTRO."
+                    observaciones = "EL USUARIO " & Usuario & " ACTUALIZO EL REGISTRO " & "TEST" & "."
+                Case "Abrir Produccion"
+                    operacion = "ABRIR PRODUCCION."
+                    observaciones = "EL USUARIO " & Usuario & " ABRIO LA PRODUCCION CON EL ID " & "TEST" & "."
+                Case "Eliminar"
+                    operacion = "ELIMINAR REGISTRO."
+                    observaciones = "EL USUARIO " & Usuario & " ELIMINO EL REGISTRO " & "TEST" & "."
+                Case "Accesar"
+                    operacion = "INICIAR SESION."
+                    observaciones = "EL USUARIO " & Usuario & " HA INICIADO SESION CON ROL " & TipoUsuario & "."
             End Select
+            InsertaBitacora(Modulo, Opcion, operacion, observaciones)
         Catch ex As Exception
-
+            MsgBox(ex.ToString)
         End Try
     End Sub
 End Module

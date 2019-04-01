@@ -40,6 +40,8 @@ Public Class Acceso
         End
     End Sub
     Private Function UsuarioRegistrado(ByVal Usuario As String) As String
+        Dim Encriptar As New Encriptar
+        Dim ClaveDescifrar As String
         Dim EntidadAcceso As New Capa_Entidad.Acceso
         Dim NegocioAcceso As New Capa_Negocio.Acceso
         Dim Tabla As New DataTable
@@ -49,10 +51,11 @@ Public Class Acceso
         EntidadAcceso.Consulta = Consulta.ConsultaUsuario
         NegocioAcceso.Consultar(EntidadAcceso)
         Tabla = EntidadAcceso.TablaConsulta
+        ClaveDescifrar = Encriptar.DesCifrar(Tabla.Rows(0).Item("Clave").ToString)
         If Tabla.Rows(0).Item("Validacion") = False Then
             MessageBox.Show("El Usuario " & TbUsuario.Text & " no existe, verifique de nuevo.", "Aviso")
             Resultado = False
-        ElseIf Tabla.Rows(0).Item("Clave").Equals(TbClave.Text) = False Then
+        ElseIf ClaveDescifrar.Equals(TbClave.Text) = False Then
             MessageBox.Show("La contraseña ingresada no es correcta, verifique de nuevo.", "Aviso")
             TbClave.Text = ""
             Resultado = False

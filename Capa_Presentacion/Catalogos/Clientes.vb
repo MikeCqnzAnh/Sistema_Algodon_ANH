@@ -61,6 +61,7 @@ Public Class Clientes
         TbPredio.Text = Tabla.Rows(0).Item("Predio")
         CbCuentaDe.SelectedValue = Tabla.Rows(0).Item("IdCuentaDe")
         Pestañas()
+        GeneraRegistroBitacora(Me.Text.Clone.ToString, ConsultarToolStripMenuItem.Text)
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadClientes As New Capa_Entidad.Clientes
@@ -107,8 +108,9 @@ Public Class Clientes
         EntidadClientes.FechaCreacion = Now
         EntidadClientes.IdEstatus = CbEstatus.SelectedValue
         NegocioClientes.Guardar(EntidadClientes)
-        MsgBox("Realizado Correctamente")
+        GeneraRegistroBitacora(Me.Text.Clone.ToString, IIf(TbIdCliente.Text <> "", "Actualizar", "Guardar"))
         TbIdCliente.Text = EntidadClientes.IdCliente
+        MsgBox("Realizado Correctamente")
     End Sub
     Private Sub Limpiar()
         TbIdCliente.Text = ""

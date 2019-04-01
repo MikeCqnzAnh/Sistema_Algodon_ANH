@@ -58,16 +58,18 @@ Public Class Bitacora
             cnn.Open()
             cmdGuardar = New SqlCommand("Sp_InsertaBitacora", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadBitacora1.Fecha))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadBitacora1.Computadora))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadBitacora1.DireccionIP))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadBitacora1.IdUsuario))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadBitacora1.Usuario))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadBitacora1.Modulo))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadBitacora1.Opcion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadBitacora1.Observaciones))
+            cmdGuardar.Parameters.Add(New SqlParameter("@fecha", EntidadBitacora1.Fecha))
+            cmdGuardar.Parameters.Add(New SqlParameter("@computadora", EntidadBitacora1.Computadora))
+            cmdGuardar.Parameters.Add(New SqlParameter("@direccionip", EntidadBitacora1.DireccionIP))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idusuario", EntidadBitacora1.IdUsuario))
+            cmdGuardar.Parameters.Add(New SqlParameter("@usuario", EntidadBitacora1.Usuario))
+            cmdGuardar.Parameters.Add(New SqlParameter("@modulo", EntidadBitacora1.Modulo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@opcion", EntidadBitacora1.Opcion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@operacion", EntidadBitacora1.Operacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Observaciones", EntidadBitacora1.Observaciones))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
+            MsgBox(ex.ToString)
         Finally
             cnn.Close()
             EntidadBitacora = EntidadBitacora1

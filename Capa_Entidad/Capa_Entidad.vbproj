@@ -85,6 +85,7 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Catalogos\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
     <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb" />

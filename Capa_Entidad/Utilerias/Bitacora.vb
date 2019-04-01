@@ -7,7 +7,7 @@
     Public Computadora As String
     Public DireccionIP As String
     Public IdUsuario As Integer
-    Public Usuario As Integer
+    Public Usuario As String
     Public Modulo As String
     Public Opcion As String
     Public Operacion As String

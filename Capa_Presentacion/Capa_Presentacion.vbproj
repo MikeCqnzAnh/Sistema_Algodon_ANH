@@ -284,6 +284,12 @@
     <Compile Include="Catalogos\TiposIncidencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Catalogos\Usuarios.Designer.vb">
+      <DependentUpon>Usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalogos\VariedadesAlgodon.Designer.vb">
       <DependentUpon>VariedadesAlgodon.vb</DependentUpon>
     </Compile>
@@ -575,6 +581,7 @@
     <Compile Include="Utilerias\CrearEstructura.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\Encriptar.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.Designer.vb">
       <DependentUpon>ImportarCatalogos.vb</DependentUpon>
     </Compile>
@@ -687,6 +694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Usuarios.resx">
+      <DependentUpon>Usuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\VariedadesAlgodon.resx">
       <DependentUpon>VariedadesAlgodon.vb</DependentUpon>

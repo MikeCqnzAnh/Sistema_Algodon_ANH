@@ -304,6 +304,8 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\obj\Debug\Capa_Presentacion.LiquidacionFinal.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.config
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.manifest
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.application
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.xml
@@ -339,6 +341,7 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbprojResolveAssemblyReference.cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Acceso.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaBasura.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaPacas.resources
@@ -367,6 +370,7 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Rendimientos.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Tierras.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.TiposIncidencias.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Usuarios.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.VariedadesAlgodon.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ClasificacionVentaPaquetes.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.AltaPacas.resources
@@ -408,18 +412,15 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.RegimenHidrico.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.RepClasificacion.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.RepClientes.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Bitacora.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ConfiguracionParametros.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.CrearEstructura.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ImportarCatalogos.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Monedas.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SeleccionaConexion.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.GenerateResource.Cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe.manifest
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.application
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Monedas.resources
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Bitacora.resources
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.manifest
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.application
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe.manifest
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.application
