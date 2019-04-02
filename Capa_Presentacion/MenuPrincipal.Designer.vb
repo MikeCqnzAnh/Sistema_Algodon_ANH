@@ -146,6 +146,7 @@ Partial Class MenuPrincipal
         Me.CrearEstructuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -159,7 +160,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -178,7 +179,7 @@ Partial Class MenuPrincipal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.ToolStripSeparator3, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.ToolStripSeparator3, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem, Me.UsuariosToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(82, 23)
         Me.CatálogosToolStripMenuItem.Text = "Catálogos"
@@ -919,6 +920,12 @@ Partial Class MenuPrincipal
         Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.MonedasToolStripMenuItem.Text = "Monedas"
         '
+        'BitacoraToolStripMenuItem
+        '
+        Me.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem"
+        Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.BitacoraToolStripMenuItem.Text = "Bitacora"
+        '
         'TsSalir
         '
         Me.TsSalir.Name = "TsSalir"
@@ -1005,11 +1012,11 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'BitacoraToolStripMenuItem
+        'UsuariosToolStripMenuItem
         '
-        Me.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem"
-        Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.BitacoraToolStripMenuItem.Text = "Bitacora"
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
+        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'MenuPrincipal
         '
@@ -1173,4 +1180,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ImportarCatalogosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BitacoraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
 End Class

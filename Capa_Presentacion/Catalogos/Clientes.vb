@@ -23,94 +23,104 @@ Public Class Clientes
         If Tabla.Rows.Count = 0 Then
             Exit Sub
         End If
-        TbIdCliente.Text = Tabla.Rows(0).Item("IdCliente")
-        TbSocio.Text = Tabla.Rows(0).Item("Socio")
-        TbNombre.Text = Tabla.Rows(0).Item("Nombre")
-        CbTipoPersona.SelectedValue = Tabla.Rows(0).Item("IdTipoPersona")
-        CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
-        TbRfcFis.Text = Tabla.Rows(0).Item("RfcFisica")
-        TbCurpFis.Text = Tabla.Rows(0).Item("CurpFisica")
-        TbCalleFis.Text = Tabla.Rows(0).Item("CalleFisica")
-        TbNumeroFis.Text = Tabla.Rows(0).Item("NumeroFisica")
-        CbEstadoFis.SelectedValue = Tabla.Rows(0).Item("IdEstadoFisica")
-        CbMunicipioFis.SelectedValue = Tabla.Rows(0).Item("IdMunicipioFisica")
-        TbColoniaFis.Text = Tabla.Rows(0).Item("ColoniaFisica")
-        TbCelularFis.Text = Tabla.Rows(0).Item("CelularFisica")
-        TbTelefonoFis.Text = Tabla.Rows(0).Item("TelefonoFisica")
-        TbCorreoFis.Text = Tabla.Rows(0).Item("CorreoFisica")
-        TbApoderadoFis.Text = Tabla.Rows(0).Item("ApoderadoFisica")
-        TbFolioActa.Text = Tabla.Rows(0).Item("FolioActa")
-        CbEstadoActa.SelectedValue = Tabla.Rows(0).Item("IdEstadoActa")
-        DtpFechaActa.Value = Tabla.Rows(0).Item("FechaActa")
-        TbNotarioActa.Text = Tabla.Rows(0).Item("NotarioActa")
-        TbRegPubActa.Text = Tabla.Rows(0).Item("RegistroPublicoActa")
-        TbNumeroActa.Text = Tabla.Rows(0).Item("NumeroActa")
-        TbLibroActa.Text = Tabla.Rows(0).Item("LibroActa")
-        TbRfcApoderado.Text = Tabla.Rows(0).Item("RfcApoderado")
-        TbCurpApoderado.Text = Tabla.Rows(0).Item("CurpApoderado")
-        TbIneApoderado.Text = Tabla.Rows(0).Item("IneApoderado")
-        TbCalleApoderado.Text = Tabla.Rows(0).Item("CalleApoderado")
-        CbEstadoApoderado.SelectedValue = Tabla.Rows(0).Item("IdEstadoApoderado")
-        CbMunicipioApoderado.SelectedValue = Tabla.Rows(0).Item("IdMunicipioApoderado")
-        TbTelefonoApoderado.Text = Tabla.Rows(0).Item("TelefonoApoderado")
-        TbCelularApoderado.Text = Tabla.Rows(0).Item("CelularApoderado")
-        CbEstadoMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdEstadoMovilizacion")
-        CbMunicipioMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdMunicipioMovilizacion")
-        TbCertificado.Text = Tabla.Rows(0).Item("Certificado")
-        TbSuperficie.Text = Tabla.Rows(0).Item("Superficie")
-        TbPredio.Text = Tabla.Rows(0).Item("Predio")
-        CbCuentaDe.SelectedValue = Tabla.Rows(0).Item("IdCuentaDe")
-        Pestañas()
-        GeneraRegistroBitacora(Me.Text.Clone.ToString, ConsultarToolStripMenuItem.Text)
+        Try
+            TbIdCliente.Text = Tabla.Rows(0).Item("IdCliente")
+            TbSocio.Text = Tabla.Rows(0).Item("Socio")
+            TbNombre.Text = Tabla.Rows(0).Item("Nombre")
+            CbTipoPersona.SelectedValue = Tabla.Rows(0).Item("IdTipoPersona")
+            CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
+            TbRfcFis.Text = Tabla.Rows(0).Item("RfcFisica")
+            TbCurpFis.Text = Tabla.Rows(0).Item("CurpFisica")
+            TbCalleFis.Text = Tabla.Rows(0).Item("CalleFisica")
+            TbNumeroFis.Text = Tabla.Rows(0).Item("NumeroFisica")
+            CbEstadoFis.SelectedValue = Tabla.Rows(0).Item("IdEstadoFisica")
+            CbMunicipioFis.SelectedValue = Tabla.Rows(0).Item("IdMunicipioFisica")
+            TbColoniaFis.Text = Tabla.Rows(0).Item("ColoniaFisica")
+            TbCelularFis.Text = Tabla.Rows(0).Item("CelularFisica")
+            TbTelefonoFis.Text = Tabla.Rows(0).Item("TelefonoFisica")
+            TbCorreoFis.Text = Tabla.Rows(0).Item("CorreoFisica")
+            TbApoderadoFis.Text = Tabla.Rows(0).Item("ApoderadoFisica")
+            TbFolioActa.Text = Tabla.Rows(0).Item("FolioActa")
+            CbEstadoActa.SelectedValue = Tabla.Rows(0).Item("IdEstadoActa")
+            DtpFechaActa.Value = Tabla.Rows(0).Item("FechaActa")
+            TbNotarioActa.Text = Tabla.Rows(0).Item("NotarioActa")
+            TbRegPubActa.Text = Tabla.Rows(0).Item("RegistroPublicoActa")
+            TbNumeroActa.Text = Tabla.Rows(0).Item("NumeroActa")
+            TbLibroActa.Text = Tabla.Rows(0).Item("LibroActa")
+            TbRfcApoderado.Text = Tabla.Rows(0).Item("RfcApoderado")
+            TbCurpApoderado.Text = Tabla.Rows(0).Item("CurpApoderado")
+            TbIneApoderado.Text = Tabla.Rows(0).Item("IneApoderado")
+            TbCalleApoderado.Text = Tabla.Rows(0).Item("CalleApoderado")
+            CbEstadoApoderado.SelectedValue = Tabla.Rows(0).Item("IdEstadoApoderado")
+            CbMunicipioApoderado.SelectedValue = Tabla.Rows(0).Item("IdMunicipioApoderado")
+            TbTelefonoApoderado.Text = Tabla.Rows(0).Item("TelefonoApoderado")
+            TbCelularApoderado.Text = Tabla.Rows(0).Item("CelularApoderado")
+            CbEstadoMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdEstadoMovilizacion")
+            CbMunicipioMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdMunicipioMovilizacion")
+            TbCertificado.Text = Tabla.Rows(0).Item("Certificado")
+            TbSuperficie.Text = Tabla.Rows(0).Item("Superficie")
+            TbPredio.Text = Tabla.Rows(0).Item("Predio")
+            CbCuentaDe.SelectedValue = Tabla.Rows(0).Item("IdCuentaDe")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, ConsultarToolStripMenuItem.Text, TbIdCliente.Text, TbNombre.Text)
+            Pestañas()
+        End Try
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadClientes As New Capa_Entidad.Clientes
         Dim NegocioClientes As New Capa_Negocio.Clientes
-        EntidadClientes.IdCliente = IIf(TbIdCliente.Text = "", 0, TbIdCliente.Text)
-        EntidadClientes.Socio = TbSocio.Text
-        EntidadClientes.Nombre = TbNombre.Text
-        EntidadClientes.IdTipoPersona = CbTipoPersona.SelectedValue
-        EntidadClientes.RfcFisica = TbRfcFis.Text
-        EntidadClientes.CurpFisica = TbCurpFis.Text
-        EntidadClientes.CalleFisica = TbCalleFis.Text
-        EntidadClientes.NumeroFisica = TbNumeroFis.Text
-        EntidadClientes.IdEstadoFisica = CbEstadoFis.SelectedValue
-        EntidadClientes.IdMunicipioFisica = CbMunicipioFis.SelectedValue
-        EntidadClientes.ColoniaFisica = TbColoniaFis.Text
-        EntidadClientes.CelularFisica = TbCelularFis.Text
-        EntidadClientes.TelefonoFisica = TbTelefonoFis.Text
-        EntidadClientes.CorreoFisica = TbCorreoFis.Text
-        EntidadClientes.ApoderadoFisica = TbApoderadoFis.Text
-        EntidadClientes.FolioActa = TbFolioActa.Text
-        EntidadClientes.IdEstadoActa = CbEstadoActa.SelectedValue
-        EntidadClientes.FechaActa = DtpFechaActa.Value
-        EntidadClientes.NotarioActa = TbNotarioActa.Text
-        EntidadClientes.RegistroPublicoActa = TbRegPubActa.Text
-        EntidadClientes.NumeroActa = TbNumeroActa.Text
-        EntidadClientes.LibroActa = TbLibroActa.Text
-        EntidadClientes.FolioMercantial = TbFolioMercantil.Text
-        EntidadClientes.RfcApoderado = TbRfcApoderado.Text
-        EntidadClientes.CurpApoderado = TbCurpApoderado.Text
-        EntidadClientes.IneApoderado = TbIneApoderado.Text
-        EntidadClientes.CalleApoderado = TbCalleApoderado.Text
-        EntidadClientes.IdEstadoApoderado = CbEstadoApoderado.SelectedValue
-        EntidadClientes.IdMunicipioApoderado = CbMunicipioApoderado.SelectedValue
-        EntidadClientes.TelefonoApoderado = TbTelefonoApoderado.Text
-        EntidadClientes.CelularApoderado = TbCelularApoderado.Text
-        EntidadClientes.CorreoApoderado = TbCorreoApoderado.Text
-        EntidadClientes.IdEstadoMovilizacion = CbEstadoMovilizacion.SelectedValue
-        EntidadClientes.IdMunicipioMovilizacion = CbMunicipioMovilizacion.SelectedValue
-        EntidadClientes.Certificado = TbCertificado.Text
-        EntidadClientes.Superficie = TbSuperficie.Text
-        EntidadClientes.Predio = TbPredio.Text
-        EntidadClientes.IdCuentaDe = CbCuentaDe.SelectedValue
-        EntidadClientes.IdUsuarioCreacion = 1
-        EntidadClientes.FechaCreacion = Now
-        EntidadClientes.IdEstatus = CbEstatus.SelectedValue
-        NegocioClientes.Guardar(EntidadClientes)
-        GeneraRegistroBitacora(Me.Text.Clone.ToString, IIf(TbIdCliente.Text <> "", "Actualizar", "Guardar"))
-        TbIdCliente.Text = EntidadClientes.IdCliente
-        MsgBox("Realizado Correctamente")
+        Try
+            EntidadClientes.IdCliente = IIf(TbIdCliente.Text = "", 0, TbIdCliente.Text)
+            EntidadClientes.Socio = TbSocio.Text
+            EntidadClientes.Nombre = TbNombre.Text
+            EntidadClientes.IdTipoPersona = CbTipoPersona.SelectedValue
+            EntidadClientes.RfcFisica = TbRfcFis.Text
+            EntidadClientes.CurpFisica = TbCurpFis.Text
+            EntidadClientes.CalleFisica = TbCalleFis.Text
+            EntidadClientes.NumeroFisica = TbNumeroFis.Text
+            EntidadClientes.IdEstadoFisica = CbEstadoFis.SelectedValue
+            EntidadClientes.IdMunicipioFisica = CbMunicipioFis.SelectedValue
+            EntidadClientes.ColoniaFisica = TbColoniaFis.Text
+            EntidadClientes.CelularFisica = TbCelularFis.Text
+            EntidadClientes.TelefonoFisica = TbTelefonoFis.Text
+            EntidadClientes.CorreoFisica = TbCorreoFis.Text
+            EntidadClientes.ApoderadoFisica = TbApoderadoFis.Text
+            EntidadClientes.FolioActa = TbFolioActa.Text
+            EntidadClientes.IdEstadoActa = CbEstadoActa.SelectedValue
+            EntidadClientes.FechaActa = DtpFechaActa.Value
+            EntidadClientes.NotarioActa = TbNotarioActa.Text
+            EntidadClientes.RegistroPublicoActa = TbRegPubActa.Text
+            EntidadClientes.NumeroActa = TbNumeroActa.Text
+            EntidadClientes.LibroActa = TbLibroActa.Text
+            EntidadClientes.FolioMercantial = TbFolioMercantil.Text
+            EntidadClientes.RfcApoderado = TbRfcApoderado.Text
+            EntidadClientes.CurpApoderado = TbCurpApoderado.Text
+            EntidadClientes.IneApoderado = TbIneApoderado.Text
+            EntidadClientes.CalleApoderado = TbCalleApoderado.Text
+            EntidadClientes.IdEstadoApoderado = CbEstadoApoderado.SelectedValue
+            EntidadClientes.IdMunicipioApoderado = CbMunicipioApoderado.SelectedValue
+            EntidadClientes.TelefonoApoderado = TbTelefonoApoderado.Text
+            EntidadClientes.CelularApoderado = TbCelularApoderado.Text
+            EntidadClientes.CorreoApoderado = TbCorreoApoderado.Text
+            EntidadClientes.IdEstadoMovilizacion = CbEstadoMovilizacion.SelectedValue
+            EntidadClientes.IdMunicipioMovilizacion = CbMunicipioMovilizacion.SelectedValue
+            EntidadClientes.Certificado = TbCertificado.Text
+            EntidadClientes.Superficie = TbSuperficie.Text
+            EntidadClientes.Predio = TbPredio.Text
+            EntidadClientes.IdCuentaDe = CbCuentaDe.SelectedValue
+            EntidadClientes.IdUsuarioCreacion = 1
+            EntidadClientes.FechaCreacion = Now
+            EntidadClientes.IdEstatus = CbEstatus.SelectedValue
+            NegocioClientes.Guardar(EntidadClientes)
+            TbIdCliente.Text = EntidadClientes.IdCliente
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, IIf(TbIdCliente.Text <> "", "Actualizar", "Guardar"), TbIdCliente.Text, TbNombre.Text)
+            MsgBox("Realizado Correctamente")
+        End Try
     End Sub
     Private Sub Limpiar()
         TbIdCliente.Text = ""

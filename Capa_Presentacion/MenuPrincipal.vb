@@ -278,4 +278,8 @@ Public Class MenuPrincipal
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
         Bitacora.ShowDialog()
     End Sub
+
+    Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
+        Usuarios.ShowDialog()
+    End Sub
 End Class

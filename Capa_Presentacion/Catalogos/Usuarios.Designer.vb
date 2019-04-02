@@ -22,6 +22,7 @@ Partial Class Usuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.TbUsuario = New System.Windows.Forms.TextBox()
         Me.CbTipoUsuario = New System.Windows.Forms.ComboBox()
@@ -35,16 +36,17 @@ Partial Class Usuarios
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
-        Me.DgUsuarios = New System.Windows.Forms.DataGridView()
-        Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TbIdUsuario = New System.Windows.Forms.TextBox()
+        Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
-        CType(Me.DgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(95, 51)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(158, 20)
@@ -52,6 +54,7 @@ Partial Class Usuarios
         '
         'TbUsuario
         '
+        Me.TbUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbUsuario.Location = New System.Drawing.Point(366, 51)
         Me.TbUsuario.Name = "TbUsuario"
         Me.TbUsuario.Size = New System.Drawing.Size(158, 20)
@@ -154,23 +157,6 @@ Partial Class Usuarios
         Me.GbDatos.TabIndex = 4
         Me.GbDatos.TabStop = False
         '
-        'DgUsuarios
-        '
-        Me.DgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgUsuarios.Location = New System.Drawing.Point(0, 154)
-        Me.DgUsuarios.Name = "DgUsuarios"
-        Me.DgUsuarios.Size = New System.Drawing.Size(790, 318)
-        Me.DgUsuarios.TabIndex = 5
-        '
-        'TbIdUsuario
-        '
-        Me.TbIdUsuario.Enabled = False
-        Me.TbIdUsuario.Location = New System.Drawing.Point(95, 19)
-        Me.TbIdUsuario.Name = "TbIdUsuario"
-        Me.TbIdUsuario.Size = New System.Drawing.Size(98, 20)
-        Me.TbIdUsuario.TabIndex = 0
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -180,22 +166,57 @@ Partial Class Usuarios
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "ID:"
         '
+        'TbIdUsuario
+        '
+        Me.TbIdUsuario.Enabled = False
+        Me.TbIdUsuario.Location = New System.Drawing.Point(95, 19)
+        Me.TbIdUsuario.Name = "TbIdUsuario"
+        Me.TbIdUsuario.Size = New System.Drawing.Size(98, 20)
+        Me.TbIdUsuario.TabIndex = 0
+        '
+        'DgvUsuarios
+        '
+        Me.DgvUsuarios.AllowUserToAddRows = False
+        Me.DgvUsuarios.AllowUserToDeleteRows = False
+        Me.DgvUsuarios.AllowUserToOrderColumns = True
+        Me.DgvUsuarios.AllowUserToResizeRows = False
+        Me.DgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvUsuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvUsuarios.Location = New System.Drawing.Point(0, 154)
+        Me.DgvUsuarios.MultiSelect = False
+        Me.DgvUsuarios.Name = "DgvUsuarios"
+        Me.DgvUsuarios.ReadOnly = True
+        Me.DgvUsuarios.RowHeadersVisible = False
+        Me.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvUsuarios.Size = New System.Drawing.Size(790, 318)
+        Me.DgvUsuarios.TabIndex = 5
+        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(790, 472)
-        Me.Controls.Add(Me.DgUsuarios)
+        Me.Controls.Add(Me.DgvUsuarios)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Usuarios"
         Me.Text = "Usuarios"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
-        CType(Me.DgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -216,5 +237,5 @@ Partial Class Usuarios
     Friend WithEvents GbDatos As GroupBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TbIdUsuario As TextBox
-    Friend WithEvents DgUsuarios As DataGridView
+    Friend WithEvents DgvUsuarios As DataGridView
 End Class

@@ -12,7 +12,7 @@ Public Class Usuarios
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadUsuarios1.IdUsuario))
             cmdGuardar.Parameters.Add(New SqlParameter("@Nombre", EntidadUsuarios1.Nombre))
             cmdGuardar.Parameters.Add(New SqlParameter("@Usuario", EntidadUsuarios1.Usuario))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Password", EntidadUsuarios1.Password))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Clave", EntidadUsuarios1.Password))
             cmdGuardar.Parameters.Add(New SqlParameter("@Tipo", EntidadUsuarios1.Tipo))
             cmdGuardar.Parameters("@IdUsuario").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
@@ -20,6 +20,7 @@ Public Class Usuarios
                 EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdUsuario").Value
             End If
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadUsuarios = EntidadUsuarios1
@@ -35,28 +36,29 @@ Public Class Usuarios
         Try
             cnn.Open()
             Select Case EntidadUsuarios1.Consulta
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                '    sqldat1 = New SqlDataAdapter("sp_ConsultaUsuariosBusqueda", cnn)
-                '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaEstado
-                '    sqldat1 = New SqlDataAdapter("sp_ConsultaEstados", cnn)
-                '    sqldat1.Fill(EntidadCompradores1.TablaConsulta)
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
-                '    sqlcom1 = New SqlCommand("sp_ConsultaUsuariosBusqueda", cnn)
-                '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                '    sqlcom1.CommandType = CommandType.StoredProcedure
-                '    sqlcom1.Parameters.Clear()
-                '    sqlcom1.Parameters.Add(New SqlParameter("@NombreLote", EntidadUsuarios1.Lote))
-                '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                '    sqlcom1 = New SqlCommand("sp_ConsultaUsuarios", cnn)
-                '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                '    sqlcom1.CommandType = CommandType.StoredProcedure
-                '    sqlcom1.Parameters.Clear()
-                '    sqlcom1.Parameters.Add(New SqlParameter("@IdTierra", EntidadUsuarios1.IdTierra))
-                '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUsuario
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboTipoUsuario", cnn)
+                    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaUsuarios", cnn)
+                    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
+                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                    '    sqlcom1 = New SqlCommand("sp_ConsultaUsuariosBusqueda", cnn)
+                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    '    sqlcom1.CommandType = CommandType.StoredProcedure
+                    '    sqlcom1.Parameters.Clear()
+                    '    sqlcom1.Parameters.Add(New SqlParameter("@NombreLote", EntidadUsuarios1.Lote))
+                    '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
+                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                    '    sqlcom1 = New SqlCommand("sp_ConsultaUsuarios", cnn)
+                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    '    sqlcom1.CommandType = CommandType.StoredProcedure
+                    '    sqlcom1.Parameters.Clear()
+                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdTierra", EntidadUsuarios1.IdTierra))
+                    '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadUsuarios = EntidadUsuarios1

@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports System.Net.NetworkInformation
 Module CargaBitacora
-    Private Sub InsertaBitacora(ByVal Modulo As String, ByVal Opcion As String, ByVal Operacion As String, ByVal Observaciones As String)
+    Private Sub InsertaBitacora(ByVal Modulo As String, ByVal Opcion As String, ByVal Operacion As String, ByVal Observaciones As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
         Dim EntidadBitacora As New Capa_Entidad.Bitacora
         Dim NegocioBitacora As New Capa_Negocio.Bitacora
         Dim Computadora As String = Dns.GetHostName()
@@ -18,25 +18,25 @@ Module CargaBitacora
         EntidadBitacora.Observaciones = Observaciones
         NegocioBitacora.InsertaBitacora(EntidadBitacora)
     End Sub
-    Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String)
+    Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
         Dim operacion, observaciones As String
         Try
             Select Case Opcion
                 Case "Guardar"
                     operacion = "GUARDAR REGISTRO."
-                    observaciones = "EL USUARIO " & Usuario & " GUARDO EL REGISTRO " & "TEST" & "."
+                    observaciones = "EL USUARIO " & Usuario & " GUARDO EL REGISTRO " & ReferenciaAdicional & " CON EL ID " & IdAdicional & "."
                 Case "Consultar"
                     operacion = "CONSULTAR REGISTRO."
-                    observaciones = "EL USUARIO " & Usuario & " CONSULTO EL REGISTRO " & "TEST" & "."
+                    observaciones = "EL USUARIO " & Usuario & " CONSULTO EL REGISTRO " & ReferenciaAdicional & " CON EL ID " & IdAdicional & "."
                 Case "Actualizar"
                     operacion = "ACTUALIZAR REGISTRO."
-                    observaciones = "EL USUARIO " & Usuario & " ACTUALIZO EL REGISTRO " & "TEST" & "."
+                    observaciones = "EL USUARIO " & Usuario & " ACTUALIZO EL REGISTRO " & ReferenciaAdicional & " CON EL ID " & IdAdicional & "."
                 Case "Abrir Produccion"
                     operacion = "ABRIR PRODUCCION."
-                    observaciones = "EL USUARIO " & Usuario & " ABRIO LA PRODUCCION CON EL ID " & "TEST" & "."
+                    observaciones = "EL USUARIO " & Usuario & " ABRIO LA PRODUCCION CON EL No DE ORDEN " & IdAdicional & " A NOMBRE DEL PRODUCTOR " & ReferenciaAdicional & "."
                 Case "Eliminar"
                     operacion = "ELIMINAR REGISTRO."
-                    observaciones = "EL USUARIO " & Usuario & " ELIMINO EL REGISTRO " & "TEST" & "."
+                    observaciones = "EL USUARIO " & Usuario & " ELIMINO EL REGISTRO " & ReferenciaAdicional & " CON EL ID " & IdAdicional & "."
                 Case "Accesar"
                     operacion = "INICIAR SESION."
                     observaciones = "EL USUARIO " & Usuario & " HA INICIADO SESION CON ROL " & TipoUsuario & "."

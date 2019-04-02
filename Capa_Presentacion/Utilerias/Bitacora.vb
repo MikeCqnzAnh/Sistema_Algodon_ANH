@@ -15,7 +15,11 @@ Public Class Bitacora
         EntidadBitacora.Consulta = Consulta.ConsultaDetallada
         NegocioBitacora.Consultar(EntidadBitacora)
         DgvBitacora.DataSource = EntidadBitacora.TablaConsulta
+        FormatoDGV()
         'InsertaBitacora(Now, My.Computer.Name, Dns.Resolve(My.Computer.Name).AddressList(0).ToString(), _Id, _Usuario, "", "", "", "")
+    End Sub
+    Private Sub FormatoDGV()
+        DgvBitacora.Columns("Observaciones").Width = 600
     End Sub
     Private Sub Bitacora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConsultarBitacora(Now, Now)

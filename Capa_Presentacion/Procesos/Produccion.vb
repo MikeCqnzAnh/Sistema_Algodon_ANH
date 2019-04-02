@@ -385,6 +385,7 @@ Public Class Produccion
                 EntidadProduccion.FechaActualizacion = Now
                 NegocioProduccion.Guardar(EntidadProduccion)
                 TbIdProduccion.Text = EntidadProduccion.IdProduccion
+                GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAbrirProduccion.Text, TbIdOrdenTrabajo.Text, TbNombreProductor.Text)
                 MsgBox("Realizado correctamente", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
                 HabilitarControles()
                 BtAbrirProduccion.Enabled = False
@@ -394,6 +395,7 @@ Public Class Produccion
                 Exit Sub
             End If
         ElseIf TbIdProduccion.Text <> "" And TbIdOrdenTrabajo.Text <> "" Then
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAbrirProduccion.Text, TbIdOrdenTrabajo.Text, TbNombreProductor.Text)
             MsgBox("Ya tiene una producccion con esta orden", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
             HabilitarControles()
             Consultar()
