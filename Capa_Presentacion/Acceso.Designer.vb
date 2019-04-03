@@ -32,6 +32,7 @@ Partial Class Acceso
         Me.BtAccesar = New System.Windows.Forms.Button()
         Me.BtCancelar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.LkCambiarClave = New System.Windows.Forms.LinkLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -114,11 +115,22 @@ Partial Class Acceso
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
+        'LkCambiarClave
+        '
+        Me.LkCambiarClave.AutoSize = True
+        Me.LkCambiarClave.Location = New System.Drawing.Point(306, 252)
+        Me.LkCambiarClave.Name = "LkCambiarClave"
+        Me.LkCambiarClave.Size = New System.Drawing.Size(101, 13)
+        Me.LkCambiarClave.TabIndex = 5
+        Me.LkCambiarClave.TabStop = True
+        Me.LkCambiarClave.Text = "Cambiar contraseña"
+        '
         'Acceso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(471, 274)
+        Me.Controls.Add(Me.LkCambiarClave)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.BtCancelar)
         Me.Controls.Add(Me.BtAccesar)
@@ -146,4 +158,5 @@ Partial Class Acceso
     Friend WithEvents BtAccesar As Button
     Friend WithEvents BtCancelar As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents LkCambiarClave As LinkLabel
 End Class

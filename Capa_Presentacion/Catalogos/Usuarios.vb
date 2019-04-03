@@ -24,6 +24,23 @@ Public Class Usuarios
         CbTipoUsuario.ValueMember = "IdTipo"
         CbTipoUsuario.DisplayMember = "Descripcion"
         CbTipoUsuario.SelectedValue = -1
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = "1"
+        dr("Descripcion") = "Activo"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "2"
+        dr("Descripcion") = "Inactivo"
+        dt.Rows.Add(dr)
+        CbEstatus.DataSource = dt
+        CbEstatus.ValueMember = "Id"
+        CbEstatus.DisplayMember = "Descripcion"
+        CbEstatus.SelectedValue = 1
     End Sub
     Private Sub Guardar()
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
@@ -39,12 +56,12 @@ Public Class Usuarios
             EntidadUsuarios.Password = TbPassword.Text
             EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
             NegocioUsuarios.Guardar(EntidadUsuarios)
-            GeneraRegistroBitacora(Me.Text.Clone.ToString, IIf(TbIdUsuario.Text <> "", "Actualizar", "Guardar"))
             TbIdUsuario.Text = EntidadUsuarios.IdUsuario
             Consultar()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdUsuario.Text, TbNombre.Text)
             MessageBox.Show("Se realizo el proceso correctamente!")
         End Try
     End Sub
@@ -72,6 +89,7 @@ Public Class Usuarios
         TbUsuario.Text = ""
         TbPassword.Text = ""
         CbTipoUsuario.SelectedIndex = -1
+        CbEstatus.SelectedIndex = -1
         Consultar()
     End Sub
     Private Sub DgvUsuarios_DoubleClick(sender As Object, e As EventArgs) Handles DgvUsuarios.DoubleClick

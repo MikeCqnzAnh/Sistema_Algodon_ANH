@@ -22,7 +22,7 @@ Partial Class Usuarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.TbUsuario = New System.Windows.Forms.TextBox()
         Me.CbTipoUsuario = New System.Windows.Forms.ComboBox()
@@ -39,6 +39,8 @@ Partial Class Usuarios
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.CbEstatus = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,6 +142,7 @@ Partial Class Usuarios
         '
         'GbDatos
         '
+        Me.GbDatos.Controls.Add(Me.CbEstatus)
         Me.GbDatos.Controls.Add(Me.Label5)
         Me.GbDatos.Controls.Add(Me.Label1)
         Me.GbDatos.Controls.Add(Me.Label4)
@@ -147,6 +150,7 @@ Partial Class Usuarios
         Me.GbDatos.Controls.Add(Me.TbNombre)
         Me.GbDatos.Controls.Add(Me.Label3)
         Me.GbDatos.Controls.Add(Me.TbUsuario)
+        Me.GbDatos.Controls.Add(Me.Label6)
         Me.GbDatos.Controls.Add(Me.Label2)
         Me.GbDatos.Controls.Add(Me.TbPassword)
         Me.GbDatos.Controls.Add(Me.CbTipoUsuario)
@@ -181,14 +185,14 @@ Partial Class Usuarios
         Me.DgvUsuarios.AllowUserToOrderColumns = True
         Me.DgvUsuarios.AllowUserToResizeRows = False
         Me.DgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvUsuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvUsuarios.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvUsuarios.Location = New System.Drawing.Point(0, 154)
@@ -199,6 +203,23 @@ Partial Class Usuarios
         Me.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvUsuarios.Size = New System.Drawing.Size(790, 318)
         Me.DgvUsuarios.TabIndex = 5
+        '
+        'CbEstatus
+        '
+        Me.CbEstatus.FormattingEnabled = True
+        Me.CbEstatus.Location = New System.Drawing.Point(631, 51)
+        Me.CbEstatus.Name = "CbEstatus"
+        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
+        Me.CbEstatus.TabIndex = 3
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(548, 54)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(45, 13)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "Estatus:"
         '
         'Usuarios
         '
@@ -238,4 +259,6 @@ Partial Class Usuarios
     Friend WithEvents Label5 As Label
     Friend WithEvents TbIdUsuario As TextBox
     Friend WithEvents DgvUsuarios As DataGridView
+    Friend WithEvents CbEstatus As ComboBox
+    Friend WithEvents Label6 As Label
 End Class

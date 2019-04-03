@@ -347,6 +347,7 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaPacas.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaPacasBorra.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaSemilla.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.CambiarClave.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Asociaciones.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Camiones.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.CastigoLargoFibra.resources
@@ -417,6 +418,7 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.CrearEstructura.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ImportarCatalogos.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Monedas.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.RutaDocumentos.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SeleccionaConexion.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.GenerateResource.Cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe.manifest

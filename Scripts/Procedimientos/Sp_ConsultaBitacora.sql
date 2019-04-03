@@ -16,6 +16,7 @@ begin
 		   Observaciones 
 	from BitacoraSistema 
 	where convert(date,fecha) between DATEADD(day,-1, convert(date,getdate())) and convert(date,getdate())
+	order by IdBitacora desc 
 end
 else if @FechaInicio < convert(date,getdate())
 begin
@@ -31,4 +32,5 @@ begin
 		   Observaciones 
 	from BitacoraSistema 
 	where convert(date,fecha) <= @FechaFin and convert(date,fecha) >=  @FechaInicio
+	order by IdBitacora desc 
 end

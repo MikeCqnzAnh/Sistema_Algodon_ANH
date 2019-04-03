@@ -145,6 +145,12 @@
     <Compile Include="Almacenes\SalidaSemilla.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CambiarClave.Designer.vb">
+      <DependentUpon>CambiarClave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarClave.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalogos\Asociaciones.Designer.vb">
       <DependentUpon>Asociaciones.vb</DependentUpon>
     </Compile>
@@ -594,6 +600,12 @@
     <Compile Include="Utilerias\Monedas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\RutaDocumentos.Designer.vb">
+      <DependentUpon>RutaDocumentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\RutaDocumentos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\SeleccionaConexion.Designer.vb">
       <DependentUpon>SeleccionaConexion.vb</DependentUpon>
     </Compile>
@@ -625,6 +637,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaSemilla.resx">
       <DependentUpon>SalidaSemilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambiarClave.resx">
+      <DependentUpon>CambiarClave.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Asociaciones.resx">
       <DependentUpon>Asociaciones.vb</DependentUpon>
@@ -850,6 +865,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Monedas.resx">
       <DependentUpon>Monedas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\RutaDocumentos.resx">
+      <DependentUpon>RutaDocumentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\SeleccionaConexion.resx">
       <DependentUpon>SeleccionaConexion.vb</DependentUpon>

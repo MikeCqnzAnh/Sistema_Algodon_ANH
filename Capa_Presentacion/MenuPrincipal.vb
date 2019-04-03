@@ -282,4 +282,8 @@ Public Class MenuPrincipal
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
+
+    Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
+        RutaDocumentos.ShowDialog()
+    End Sub
 End Class

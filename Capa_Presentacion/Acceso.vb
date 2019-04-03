@@ -68,4 +68,8 @@ Public Class Acceso
 
         Return Resultado
     End Function
+
+    Private Sub LkCambiarClave_Click(sender As Object, e As EventArgs) Handles LkCambiarClave.Click
+        CambiarClave.ShowDialog()
+    End Sub
 End Class
