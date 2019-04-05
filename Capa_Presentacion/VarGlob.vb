@@ -81,4 +81,31 @@
             _BaseDeDatos = value
         End Set
     End Property
+    Public _Instancia As String
+    Public Property Instancia As String
+        Get
+            Return _Instancia
+        End Get
+        Set(value As String)
+            _Instancia = value
+        End Set
+    End Property
+    Public _UsuarioDB As String
+    Public Property UsuarioDB As String
+        Get
+            Return _UsuarioDB
+        End Get
+        Set(value As String)
+            _UsuarioDB = value
+        End Set
+    End Property
+    Public _PasswordDB As String
+    Public Property PasswordDB As String
+        Get
+            Return _PasswordDB
+        End Get
+        Set(value As String)
+            _PasswordDB = value
+        End Set
+    End Property
 End Module

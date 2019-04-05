@@ -4,7 +4,7 @@ Public Class ConfiguraConexionInicial
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
     Private Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        nuevo()
     End Sub
     Private Sub LLenaComboInstancias(ByVal cmb As ComboBox)
         cmb.Items.Clear()
@@ -12,7 +12,7 @@ Public Class ConfiguraConexionInicial
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
         Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
         EntidadCrearEstructura.Consulta = Consulta.ConsultaInstancia
-        NegocioCrearEstructura.Consultar(EntidadCrearEstructura)
+        NegocioCrearEstructura.ConsultarInstancia(EntidadCrearEstructura)
         tabla = EntidadCrearEstructura.TablaConsulta
         For Each rowServidor In tabla.Rows
             If String.IsNullOrEmpty(rowServidor(“InstanceName”).ToString()) Then
@@ -23,34 +23,40 @@ Public Class ConfiguraConexionInicial
         Next
     End Sub
     Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs) Handles BtCreaConexion.Click
-
         Dim fs As FileStream
+        If CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
+            ':::Validamos si la carpeta de ruta existe, si no existe la creamos
+            Try
+                If File.Exists(Ruta & archivo) Then
 
-        ':::Validamos si la carpeta de ruta existe, si no existe la creamos
-        Try
-            If File.Exists(Ruta) Then
+                    ':::Si la carpeta existe creamos o sobreescribios el archivo txt
+                    fs = File.Create(Ruta & archivo)
+                    fs.Close()
+                    BtnSobreescribir_Click()
+                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                Else
 
-                ':::Si la carpeta existe creamos o sobreescribios el archivo txt
-                fs = File.Create(Ruta & archivo)
-                fs.Close()
-                BtnSobreescribir_Click()
-                MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-            Else
+                    ':::Si la carpeta no existe la creamos
+                    Directory.CreateDirectory(Ruta)
 
-                ':::Si la carpeta no existe la creamos
-                Directory.CreateDirectory(Ruta)
+                    ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
+                    fs = File.Create(Ruta & archivo)
+                    fs.Close()
+                    BtnSobreescribir_Click()
+                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                End If
 
-                ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
-                fs = File.Create(Ruta & archivo)
-                fs.Close()
-                BtnSobreescribir_Click()
-                MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-            End If
-
-        Catch ex As Exception
-            MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
-        End Try
-
+            Catch ex As Exception
+                MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+            End Try
+        Else
+            MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
+        End If
+    End Sub
+    Private Sub nuevo()
+        CbOrigenInstancia.SelectedIndex = -1
+        TbOrigenUsuario.Text = ""
+        TbOrigenPassword.Text = ""
     End Sub
     Private Sub BtnSobreescribir_Click()
         ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
@@ -76,23 +82,15 @@ Public Class ConfiguraConexionInicial
 
     End Sub
     Sub LeerArchivo()
-        ':::Creamos nuestro objeto de tipo StreamReader que nos permite leer archivos
         Dim leer As New StreamReader(Ruta & archivo)
-        Dim ArregloCadena() As String
-        ':::Limpiamos nuestro ListBox
-        'ListBoxClientes.Items.Clear()
 
         Try
-            ':::Indicamos mediante un While que mientras no sea el ultimo caracter repita el proceso
             While leer.Peek <> -1
-                ':::Leemos cada linea del archivo TXT
                 Dim linea As String = leer.ReadLine()
-                ':::Validamos que la linea no este vacia
                 If String.IsNullOrEmpty(linea) Then
                     Continue While
                 End If
-                ArregloCadena() = linea.Split(",")
-                ':::Agregramos los registros encontrados
+                Dim ArregloCadena() As String = Split(linea, ",")
 
             End While
 
@@ -101,6 +99,18 @@ Public Class ConfiguraConexionInicial
         Catch ex As Exception
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
         End Try
+    End Sub
+    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If File.Exists(Ruta & archivo) Then
+            e.Cancel = False
+        Else
+            Dim opc As DialogResult = MsgBox("Aun no se configura la conexion inicial, sin ella el sistema no continuara. Dar click en SI para configurar, No para cerrar el sistema.", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Salir")
+            If opc = DialogResult.Yes Then
+                e.Cancel = True
+            ElseIf opc = DialogResult.No Then
+                End
+            End If
+        End If
     End Sub
     'Private Sub BtnGuardarTodo_Click(sender As Object, e As EventArgs) Handles BtnGuardarTodo.Click
     '    ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT

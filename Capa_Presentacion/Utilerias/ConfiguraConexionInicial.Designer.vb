@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ConfiguraConexionInicial
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ConfiguraConexionInicial
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GbOrigen = New System.Windows.Forms.GroupBox()
@@ -31,9 +31,6 @@ Partial Class ConfiguraConexionInicial
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TbOrigenPassword = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TbInstancia = New System.Windows.Forms.TextBox()
-        Me.TbUsuario = New System.Windows.Forms.TextBox()
-        Me.TbClave = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.GbOrigen.SuspendLayout()
         Me.SuspendLayout()
@@ -123,36 +120,12 @@ Partial Class ConfiguraConexionInicial
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "Nombre de usuario:"
         '
-        'TbInstancia
-        '
-        Me.TbInstancia.Location = New System.Drawing.Point(124, 84)
-        Me.TbInstancia.Name = "TbInstancia"
-        Me.TbInstancia.Size = New System.Drawing.Size(185, 20)
-        Me.TbInstancia.TabIndex = 1
-        '
-        'TbUsuario
-        '
-        Me.TbUsuario.Location = New System.Drawing.Point(124, 123)
-        Me.TbUsuario.Name = "TbUsuario"
-        Me.TbUsuario.Size = New System.Drawing.Size(185, 20)
-        Me.TbUsuario.TabIndex = 1
-        '
-        'TbClave
-        '
-        Me.TbClave.Location = New System.Drawing.Point(124, 169)
-        Me.TbClave.Name = "TbClave"
-        Me.TbClave.Size = New System.Drawing.Size(185, 20)
-        Me.TbClave.TabIndex = 1
-        '
         'ConfiguraConexionInicial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(697, 403)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TbClave)
-        Me.Controls.Add(Me.TbUsuario)
-        Me.Controls.Add(Me.TbInstancia)
         Me.Name = "ConfiguraConexionInicial"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Configura la conexion inicial"
@@ -160,7 +133,6 @@ Partial Class ConfiguraConexionInicial
         Me.GbOrigen.ResumeLayout(False)
         Me.GbOrigen.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -173,7 +145,4 @@ Partial Class ConfiguraConexionInicial
     Friend WithEvents Label6 As Label
     Friend WithEvents TbOrigenPassword As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TbInstancia As TextBox
-    Friend WithEvents TbUsuario As TextBox
-    Friend WithEvents TbClave As TextBox
 End Class

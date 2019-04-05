@@ -1,7 +1,11 @@
 ﻿Imports System.Drawing.Drawing2D
+Imports System.IO
 Imports Capa_Operacion.Configuracion
 Public Class Acceso
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
+    Dim archivo As String = "cnn.ini"
     Private Sub Acceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CompruebaConexionInicial()
         TbUsuario.Select()
         llenaCombos()
     End Sub
@@ -24,6 +28,24 @@ Public Class Acceso
         If e.KeyCode = Keys.Enter Then
             Login()
         End If
+    End Sub
+    Private Sub CompruebaConexionInicial()
+        Try
+            If File.Exists(Ruta & archivo) Then
+
+            Else
+                Dim opc As DialogResult = MsgBox("La Conexion inicial no se ha configurado aun y es requerida para continuar, ¿Configurar conexion inicial?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "Aviso")
+
+                If opc = DialogResult.Yes Then
+                    ConfiguraConexionInicial.ShowDialog()
+                ElseIf opc = DialogResult.No Then
+                    End
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+        End Try
     End Sub
     Private Sub Login()
 

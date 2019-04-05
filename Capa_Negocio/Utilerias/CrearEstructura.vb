@@ -11,6 +11,12 @@
         EntidadCrearEstructura1 = EntidadCrearEstructura
         DatosCrearEstructura.ConsultarDB(EntidadCrearEstructura1)
     End Sub
+    Public Overridable Sub ConsultarInstancia(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
+        Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
+        Dim DatosCrearEstructura As New Capa_Datos.CrearEstructura()
+        EntidadCrearEstructura1 = EntidadCrearEstructura
+        DatosCrearEstructura.ConsultarInstancia(EntidadCrearEstructura1)
+    End Sub
     Public Overridable Sub Importa(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
         Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
         Dim DatosCrearEstructura As New Capa_Datos.CrearEstructura()

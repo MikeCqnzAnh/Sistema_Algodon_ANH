@@ -76,6 +76,27 @@ Public Class CrearEstructura
             EntidadCrearEstructura = EntidadCrearEstructura1
         End Try
     End Sub
+    Public Overridable Sub ConsultarInstancia(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
+        Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
+        EntidadCrearEstructura1 = EntidadCrearEstructura
+        EntidadCrearEstructura1.TablaConsulta = New DataTable()
+        'Dim sqlcom1 As SqlCommand
+        'Dim sqldat1 As SqlDataAdapter
+        Try
+            'cnn.Open()
+            Select Case EntidadCrearEstructura1.Consulta
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
+                    Dim servidores As SqlDataSourceEnumerator
+                    servidores = SqlDataSourceEnumerator.Instance
+                    EntidadCrearEstructura1.TablaConsulta = servidores.GetDataSources()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            'cnn.Close()
+            EntidadCrearEstructura = EntidadCrearEstructura1
+        End Try
+    End Sub
     Public Overridable Sub Importa(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
         Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
         EntidadCrearEstructura1 = EntidadCrearEstructura
