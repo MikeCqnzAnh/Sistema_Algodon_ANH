@@ -43,6 +43,7 @@ Public Class Usuarios
         CbEstatus.SelectedValue = 1
     End Sub
     Private Sub Guardar()
+        Dim Encriptar As New Encriptar
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
         Dim NegocioUsuarios As New Capa_Negocio.Usuarios
         If TbNombre.Text = "" Or TbPassword.Text = "" Or TbUsuario.Text = "" Or CbTipoUsuario.Text = "" Then
@@ -53,7 +54,7 @@ Public Class Usuarios
             EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
             EntidadUsuarios.Nombre = TbNombre.Text
             EntidadUsuarios.Usuario = TbUsuario.Text
-            EntidadUsuarios.Password = TbPassword.Text
+            EntidadUsuarios.Password = Encriptar.Encriptar(TbPassword.Text)
             EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
             NegocioUsuarios.Guardar(EntidadUsuarios)
             TbIdUsuario.Text = EntidadUsuarios.IdUsuario
@@ -96,6 +97,12 @@ Public Class Usuarios
         If DgvUsuarios.DataSource Is Nothing Then
             MsgBox("No hay registros disponibles")
         Else
+            TbIdUsuario.Text = ""
+            TbNombre.Text = ""
+            TbUsuario.Text = ""
+            TbPassword.Text = ""
+            CbTipoUsuario.SelectedIndex = -1
+            CbEstatus.SelectedIndex = -1
             Dim index As Integer
             index = DgvUsuarios.CurrentCell.RowIndex
             TbIdUsuario.Text = DgvUsuarios.Rows(index).Cells("IdUsuario").Value

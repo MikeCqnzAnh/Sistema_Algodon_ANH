@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+﻿'Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
 Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load

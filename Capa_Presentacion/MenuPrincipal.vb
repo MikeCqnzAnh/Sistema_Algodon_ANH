@@ -270,20 +270,19 @@ Public Class MenuPrincipal
     Private Sub ImportarCatalogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem.Click
         ImportarCatalogos.ShowDialog()
     End Sub
-
     Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
         Monedas.ShowDialog()
     End Sub
-
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
         Bitacora.ShowDialog()
     End Sub
-
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
-
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
+    End Sub
+    Private Sub ConfiguracionConexionInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionConexionInicialToolStripMenuItem.Click
+        ConfiguraConexionInicial.ShowDialog()
     End Sub
 End Class

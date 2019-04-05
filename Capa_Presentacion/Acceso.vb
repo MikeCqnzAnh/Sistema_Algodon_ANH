@@ -26,6 +26,7 @@ Public Class Acceso
         End If
     End Sub
     Private Sub Login()
+
         Try
             If UsuarioRegistrado(TbUsuario.Text) = True Then
                 GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
@@ -42,6 +43,7 @@ Public Class Acceso
     Private Function UsuarioRegistrado(ByVal Usuario As String) As String
         Dim EntidadAcceso As New Capa_Entidad.Acceso
         Dim NegocioAcceso As New Capa_Negocio.Acceso
+        Dim Encriptar As New Encriptar
         Dim Tabla As New DataTable
         Dim Resultado As Boolean = False
         EntidadAcceso.Usuario = Usuario
@@ -52,20 +54,20 @@ Public Class Acceso
         If Tabla.Rows(0).Item("Validacion") = False Then
             MessageBox.Show("El Usuario " & TbUsuario.Text & " no existe, verifique de nuevo.", "Aviso")
             Resultado = False
-        ElseIf Tabla.Rows(0).Item("Clave").Equals(TbClave.Text) = False Then
+        ElseIf Tabla.Rows(0).Item("Clave").Equals(Encriptar.Encriptar(TbClave.Text)) = False Then
             MessageBox.Show("La contraseña ingresada no es correcta, verifique de nuevo.", "Aviso")
             TbClave.Text = ""
             Resultado = False
         Else
             Resultado = True
         End If
-
-        _BaseDeDatos = CbBaseDeDatos.Text
-        _IdUsuario = Tabla.Rows(0).Item("IdUsuario")
-        _Usuario = Tabla.Rows(0).Item("Usuario")
-        _IdTipoUsuario = Tabla.Rows(0).Item("Tipo")
-        _TipoUsuario = Tabla.Rows(0).Item("Descripcion")
-
+        If Tabla.Rows.Count > 0 Then
+            _BaseDeDatos = CbBaseDeDatos.Text
+            _IdUsuario = Tabla.Rows(0).Item("IdUsuario")
+            _Usuario = Tabla.Rows(0).Item("Usuario")
+            _IdTipoUsuario = Tabla.Rows(0).Item("Tipo")
+            _TipoUsuario = Tabla.Rows(0).Item("Descripcion")
+        End If
         Return Resultado
     End Function
 

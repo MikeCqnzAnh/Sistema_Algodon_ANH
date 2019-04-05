@@ -581,6 +581,12 @@
     <Compile Include="Utilerias\ConfiguracionParametros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\ConfiguraConexionInicial.Designer.vb">
+      <DependentUpon>ConfiguraConexionInicial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ConfiguraConexionInicial.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\CrearEstructura.Designer.vb">
       <DependentUpon>CrearEstructura.vb</DependentUpon>
     </Compile>
@@ -856,6 +862,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\ConfiguracionParametros.resx">
       <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ConfiguraConexionInicial.resx">
+      <DependentUpon>ConfiguraConexionInicial.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\CrearEstructura.resx">
       <DependentUpon>CrearEstructura.vb</DependentUpon>

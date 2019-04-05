@@ -476,7 +476,7 @@ Partial Class RutaDocumentos
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "RutaDocumentos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "RutaDocumentos"
+        Me.Text = "Ruta de Documentos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbUbicacionDocumentos.ResumeLayout(False)
         Me.GbUbicacionDocumentos.PerformLayout()

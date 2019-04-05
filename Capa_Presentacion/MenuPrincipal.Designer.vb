@@ -148,6 +148,7 @@ Partial Class MenuPrincipal
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RutaDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -161,7 +162,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.RutaDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionConexionInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -849,7 +850,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.SeleccionaBaseDeDatosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ConfiguracionConexionInicialToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -932,6 +933,12 @@ Partial Class MenuPrincipal
         Me.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem"
         Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.BitacoraToolStripMenuItem.Text = "Bitacora"
+        '
+        'RutaDeDocumentosToolStripMenuItem
+        '
+        Me.RutaDeDocumentosToolStripMenuItem.Name = "RutaDeDocumentosToolStripMenuItem"
+        Me.RutaDeDocumentosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.RutaDeDocumentosToolStripMenuItem.Text = "Ruta de Documentos"
         '
         'TsSalir
         '
@@ -1019,11 +1026,11 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'RutaDeDocumentosToolStripMenuItem
+        'ConfiguracionConexionInicialToolStripMenuItem
         '
-        Me.RutaDeDocumentosToolStripMenuItem.Name = "RutaDeDocumentosToolStripMenuItem"
-        Me.RutaDeDocumentosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.RutaDeDocumentosToolStripMenuItem.Text = "Ruta de Documentos"
+        Me.ConfiguracionConexionInicialToolStripMenuItem.Name = "ConfiguracionConexionInicialToolStripMenuItem"
+        Me.ConfiguracionConexionInicialToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.ConfiguracionConexionInicialToolStripMenuItem.Text = "Configuracion Conexion Inicial"
         '
         'MenuPrincipal
         '
@@ -1189,4 +1196,5 @@ Partial Class MenuPrincipal
     Friend WithEvents BitacoraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RutaDeDocumentosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionConexionInicialToolStripMenuItem As ToolStripMenuItem
 End Class
