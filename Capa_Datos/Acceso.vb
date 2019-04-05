@@ -7,7 +7,9 @@ Public Class Acceso
         DataBase = EntidadAcceso1.BaseDeDatos
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
+        'Dim cnn As New SqlConnection(conexionPrincipal)
         Dim cnn As New SqlConnection(conexionPrincipal)
+
         Try
             cnn.Open()
             Select Case EntidadAcceso1.Consulta
