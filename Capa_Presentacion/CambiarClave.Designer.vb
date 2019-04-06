@@ -37,7 +37,9 @@ Partial Class CambiarClave
         '
         'TbUsuario
         '
+        Me.TbUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbUsuario.Location = New System.Drawing.Point(161, 28)
+        Me.TbUsuario.MaxLength = 15
         Me.TbUsuario.Name = "TbUsuario"
         Me.TbUsuario.Size = New System.Drawing.Size(174, 20)
         Me.TbUsuario.TabIndex = 0
@@ -45,23 +47,29 @@ Partial Class CambiarClave
         'TbClaveActual
         '
         Me.TbClaveActual.Location = New System.Drawing.Point(161, 73)
+        Me.TbClaveActual.MaxLength = 10
         Me.TbClaveActual.Name = "TbClaveActual"
+        Me.TbClaveActual.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TbClaveActual.Size = New System.Drawing.Size(174, 20)
-        Me.TbClaveActual.TabIndex = 0
+        Me.TbClaveActual.TabIndex = 1
         '
         'TbClaveNueva
         '
         Me.TbClaveNueva.Location = New System.Drawing.Point(161, 119)
+        Me.TbClaveNueva.MaxLength = 10
         Me.TbClaveNueva.Name = "TbClaveNueva"
+        Me.TbClaveNueva.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TbClaveNueva.Size = New System.Drawing.Size(174, 20)
-        Me.TbClaveNueva.TabIndex = 0
+        Me.TbClaveNueva.TabIndex = 2
         '
         'TbClaveConfirma
         '
         Me.TbClaveConfirma.Location = New System.Drawing.Point(161, 165)
+        Me.TbClaveConfirma.MaxLength = 10
         Me.TbClaveConfirma.Name = "TbClaveConfirma"
+        Me.TbClaveConfirma.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TbClaveConfirma.Size = New System.Drawing.Size(174, 20)
-        Me.TbClaveConfirma.TabIndex = 0
+        Me.TbClaveConfirma.TabIndex = 3
         '
         'Label1
         '
@@ -104,7 +112,7 @@ Partial Class CambiarClave
         Me.BtAceptar.Location = New System.Drawing.Point(139, 221)
         Me.BtAceptar.Name = "BtAceptar"
         Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAceptar.TabIndex = 2
+        Me.BtAceptar.TabIndex = 4
         Me.BtAceptar.Text = "Aceptar"
         Me.BtAceptar.UseVisualStyleBackColor = True
         '
@@ -113,18 +121,18 @@ Partial Class CambiarClave
         Me.BtCancelar.Location = New System.Drawing.Point(263, 221)
         Me.BtCancelar.Name = "BtCancelar"
         Me.BtCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.BtCancelar.TabIndex = 2
+        Me.BtCancelar.TabIndex = 5
         Me.BtCancelar.Text = "Cancelar"
         Me.BtCancelar.UseVisualStyleBackColor = True
         '
         'LbConfirmaClave
         '
         Me.LbConfirmaClave.AutoSize = True
-        Me.LbConfirmaClave.Location = New System.Drawing.Point(161, 188)
+        Me.LbConfirmaClave.Location = New System.Drawing.Point(12, 193)
         Me.LbConfirmaClave.Name = "LbConfirmaClave"
         Me.LbConfirmaClave.Size = New System.Drawing.Size(0, 13)
         Me.LbConfirmaClave.TabIndex = 3
-        Me.LbConfirmaClave.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.LbConfirmaClave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CambiarClave
         '
