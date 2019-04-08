@@ -3,6 +3,7 @@ Public Class Usuarios
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenaCombo()
         Nuevo()
+        TbBddActual.Text = BaseDeDatos
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -51,13 +52,23 @@ Public Class Usuarios
             Exit Sub
         End If
         Try
-            EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
-            EntidadUsuarios.Nombre = TbNombre.Text
-            EntidadUsuarios.Usuario = TbUsuario.Text
-            EntidadUsuarios.Password = Encriptar.Encriptar(TbPassword.Text)
-            EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
-            NegocioUsuarios.Guardar(EntidadUsuarios)
-            TbIdUsuario.Text = EntidadUsuarios.IdUsuario
+            Dim tabla As New DataTable
+            Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+            Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+            EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
+            NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+            tabla = EntidadConfiguracionParametros.TablaConsulta
+            For Each Fila As DataRow In tabla.Rows
+                EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
+                EntidadUsuarios.Nombre = TbNombre.Text
+                EntidadUsuarios.Usuario = TbUsuario.Text
+                EntidadUsuarios.Password = Encriptar.Encriptar(TbPassword.Text)
+                EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
+                EntidadUsuarios.BaseDeDatos = Fila("name")
+                NegocioUsuarios.Guardar(EntidadUsuarios)
+                TbIdUsuario.Text = EntidadUsuarios.IdUsuario
+            Next
+            actualizaVariableDbb()
             Consultar()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -65,6 +76,12 @@ Public Class Usuarios
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdUsuario.Text, TbNombre.Text)
             MessageBox.Show("Se realizo el proceso correctamente!")
         End Try
+    End Sub
+    Private Sub actualizaVariableDbb()
+        Dim EntidadUsuarios As New Capa_Entidad.Usuarios
+        Dim NegocioUsuarios As New Capa_Negocio.Usuarios
+        EntidadUsuarios.BaseDeDatos = TbBddActual.Text
+        NegocioUsuarios.ActualizaVariableBdd(EntidadUsuarios)
     End Sub
     Private Sub Consultar()
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
@@ -85,6 +102,7 @@ Public Class Usuarios
         DgvUsuarios.Columns("Tipo").Visible = False
     End Sub
     Private Sub Nuevo()
+        TbBddActual.Text = ""
         TbIdUsuario.Text = ""
         TbNombre.Text = ""
         TbUsuario.Text = ""

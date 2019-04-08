@@ -132,7 +132,7 @@ Partial Class CambiarClave
         Me.LbConfirmaClave.Name = "LbConfirmaClave"
         Me.LbConfirmaClave.Size = New System.Drawing.Size(0, 13)
         Me.LbConfirmaClave.TabIndex = 3
-        Me.LbConfirmaClave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LbConfirmaClave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'CambiarClave
         '

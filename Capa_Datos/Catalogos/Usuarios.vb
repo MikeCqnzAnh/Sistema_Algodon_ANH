@@ -3,6 +3,7 @@ Public Class Usuarios
     Public Overridable Sub Upsert(ByRef EntidadUsuarios As Capa_Entidad.Usuarios)
         Dim EntidadUsuarios1 As New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
+        DataBase = EntidadUsuarios1.BaseDeDatos
         Dim cnn As New SqlConnection(conexionPrincipal)
         Dim cmdGuardar As SqlCommand
         Try
@@ -57,6 +58,21 @@ Public Class Usuarios
                     '    sqlcom1.Parameters.Add(New SqlParameter("@IdTierra", EntidadUsuarios1.IdTierra))
                     '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
             End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            cnn.Close()
+            EntidadUsuarios = EntidadUsuarios1
+        End Try
+    End Sub
+    Public Overridable Sub ActualizaVariableBdd(ByRef EntidadUsuarios As Capa_Entidad.Usuarios)
+        Dim EntidadUsuarios1 = New Capa_Entidad.Usuarios
+        EntidadUsuarios1 = EntidadUsuarios
+        EntidadUsuarios1.TablaConsulta = New DataTable
+        DataBase = EntidadUsuarios1.BaseDeDatos
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Try
+            cnn.Open()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

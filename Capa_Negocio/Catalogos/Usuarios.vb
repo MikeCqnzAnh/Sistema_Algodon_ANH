@@ -10,4 +10,9 @@
         Dim DatosUsuarios As New Capa_Datos.Usuarios
         DatosUsuarios.Consultar(EntidadUsuarios)
     End Sub
+
+    Public Overridable Sub ActualizaVariableBdd(ByRef EntidadUsuarios As Capa_Entidad.Usuarios)
+        Dim DatosUsuarios As New Capa_Datos.Usuarios
+        DatosUsuarios.ActualizaVariableBdd(EntidadUsuarios)
+    End Sub
 End Class

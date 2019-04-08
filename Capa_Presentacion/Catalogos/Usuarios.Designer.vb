@@ -41,6 +41,7 @@ Partial Class Usuarios
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.TbBddActual = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,6 +148,7 @@ Partial Class Usuarios
         Me.GbDatos.Controls.Add(Me.Label5)
         Me.GbDatos.Controls.Add(Me.Label1)
         Me.GbDatos.Controls.Add(Me.Label4)
+        Me.GbDatos.Controls.Add(Me.TbBddActual)
         Me.GbDatos.Controls.Add(Me.TbIdUsuario)
         Me.GbDatos.Controls.Add(Me.TbNombre)
         Me.GbDatos.Controls.Add(Me.Label3)
@@ -222,6 +224,14 @@ Partial Class Usuarios
         Me.DgvUsuarios.Size = New System.Drawing.Size(790, 318)
         Me.DgvUsuarios.TabIndex = 5
         '
+        'TbBddActual
+        '
+        Me.TbBddActual.Enabled = False
+        Me.TbBddActual.Location = New System.Drawing.Point(366, 19)
+        Me.TbBddActual.Name = "TbBddActual"
+        Me.TbBddActual.Size = New System.Drawing.Size(98, 20)
+        Me.TbBddActual.TabIndex = 0
+        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -262,4 +272,5 @@ Partial Class Usuarios
     Friend WithEvents DgvUsuarios As DataGridView
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents TbBddActual As TextBox
 End Class

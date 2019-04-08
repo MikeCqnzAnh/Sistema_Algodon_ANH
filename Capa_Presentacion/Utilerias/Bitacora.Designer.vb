@@ -35,10 +35,12 @@ Partial Class Bitacora
         Me.LimpiarCamposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarBitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PDatos.SuspendLayout()
         CType(Me.DgvBitacora, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbFiltros.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PDatos
@@ -77,11 +79,7 @@ Partial Class Bitacora
         '
         'GbFiltros
         '
-        Me.GbFiltros.Controls.Add(Me.BtConsulta)
-        Me.GbFiltros.Controls.Add(Me.Label2)
-        Me.GbFiltros.Controls.Add(Me.Label1)
-        Me.GbFiltros.Controls.Add(Me.DtFechaFin)
-        Me.GbFiltros.Controls.Add(Me.DtFechaInicio)
+        Me.GbFiltros.Controls.Add(Me.Panel1)
         Me.GbFiltros.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbFiltros.Location = New System.Drawing.Point(0, 24)
         Me.GbFiltros.Name = "GbFiltros"
@@ -91,7 +89,7 @@ Partial Class Bitacora
         '
         'BtConsulta
         '
-        Me.BtConsulta.Location = New System.Drawing.Point(902, 205)
+        Me.BtConsulta.Location = New System.Drawing.Point(314, 133)
         Me.BtConsulta.Name = "BtConsulta"
         Me.BtConsulta.Size = New System.Drawing.Size(75, 23)
         Me.BtConsulta.TabIndex = 2
@@ -101,7 +99,7 @@ Partial Class Bitacora
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(832, 128)
+        Me.Label2.Location = New System.Drawing.Point(244, 56)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 1
@@ -110,7 +108,7 @@ Partial Class Bitacora
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(654, 129)
+        Me.Label1.Location = New System.Drawing.Point(66, 57)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 1
@@ -119,7 +117,7 @@ Partial Class Bitacora
         'DtFechaFin
         '
         Me.DtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaFin.Location = New System.Drawing.Point(873, 122)
+        Me.DtFechaFin.Location = New System.Drawing.Point(285, 50)
         Me.DtFechaFin.Name = "DtFechaFin"
         Me.DtFechaFin.Size = New System.Drawing.Size(104, 20)
         Me.DtFechaFin.TabIndex = 0
@@ -127,7 +125,7 @@ Partial Class Bitacora
         'DtFechaInicio
         '
         Me.DtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaInicio.Location = New System.Drawing.Point(698, 123)
+        Me.DtFechaInicio.Location = New System.Drawing.Point(110, 51)
         Me.DtFechaInicio.Name = "DtFechaInicio"
         Me.DtFechaInicio.Size = New System.Drawing.Size(104, 20)
         Me.DtFechaInicio.TabIndex = 0
@@ -159,6 +157,19 @@ Partial Class Bitacora
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.DtFechaFin)
+        Me.Panel1.Controls.Add(Me.BtConsulta)
+        Me.Panel1.Controls.Add(Me.DtFechaInicio)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(605, 16)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(426, 215)
+        Me.Panel1.TabIndex = 3
+        '
         'Bitacora
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -174,9 +185,10 @@ Partial Class Bitacora
         Me.PDatos.ResumeLayout(False)
         CType(Me.DgvBitacora, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbFiltros.ResumeLayout(False)
-        Me.GbFiltros.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -194,4 +206,5 @@ Partial Class Bitacora
     Friend WithEvents LimpiarCamposToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportarBitacoraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel1 As Panel
 End Class
