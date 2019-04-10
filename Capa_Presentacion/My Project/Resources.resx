@@ -121,9 +121,6 @@
   <data name="BusquedaUsuario1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusquedaUsuario1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Black Icon Package Icon 28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Black Icon Package Icon 28.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="BusquedaUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusquedaUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

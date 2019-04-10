@@ -2,7 +2,7 @@
 Public Class CompraPacasContrato
     Public TablaModalidadCompra, TablacastigoMicros, TablaCastigoLargoFibra, TablaCastigoResistenciaFibra, TablaPacasAgrupadas, TablaPacasCompras As New DataTable
 
-    Private Sub BtModalidadCompra_Click(sender As Object, e As EventArgs) Handles BtModalidadCompra.Click
+    Private Sub BtModalidadCompra_Click(sender As Object, e As EventArgs) Handles BtClasesDif.Click
         ModalidadCompra.ShowDialog()
         TablaModalidadCompra = Tabla
     End Sub
@@ -152,14 +152,14 @@ Public Class CompraPacasContrato
         CbClases.DisplayMember = "ClaveCorta"
         CbClases.SelectedValue = -1
         '---Modalidad De Compra--
-        'Dim Tabla2 As New DataTable
-        'EntidadProduccion.Consulta = Consulta.ConsultaModoCompra
-        'NegocioProduccion.Consultar(EntidadProduccion)
-        'Tabla2 = EntidadProduccion.TablaConsulta
-        'CbModalidadCompra.DataSource = Tabla2
-        'CbModalidadCompra.ValueMember = "IdModoEncabezado"
-        'CbModalidadCompra.DisplayMember = "Descripcion"
-        'CbModalidadCompra.SelectedValue = 11
+        Dim Tabla3 As New DataTable
+        EntidadProduccion.Consulta = Consulta.ConsultaModoCompra
+        NegocioProduccion.Consultar(EntidadProduccion)
+        Tabla3 = EntidadProduccion.TablaConsulta
+        CbModalidadCompra.DataSource = Tabla3
+        CbModalidadCompra.ValueMember = "IdModoEncabezado"
+        CbModalidadCompra.DisplayMember = "Descripcion"
+        CbModalidadCompra.SelectedValue = 11
     End Sub
     Private Sub BtnBuscarProd_Click(sender As Object, e As EventArgs) Handles BtnBuscarProd.Click
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato

@@ -23,6 +23,9 @@ Public Class ConfiguraConexionInicial
         Next
     End Sub
     Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs) Handles BtCreaConexion.Click
+        CreaConexion()
+    End Sub
+    Private Sub CreaConexion()
         Dim fs As FileStream
         If CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
             ':::Validamos si la carpeta de ruta existe, si no existe la creamos
@@ -34,6 +37,7 @@ Public Class ConfiguraConexionInicial
                     fs.Close()
                     BtnSobreescribir_Click()
                     MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    Close()
                 Else
 
                     ':::Si la carpeta no existe la creamos
@@ -44,6 +48,7 @@ Public Class ConfiguraConexionInicial
                     fs.Close()
                     BtnSobreescribir_Click()
                     MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    Close()
                 End If
 
             Catch ex As Exception

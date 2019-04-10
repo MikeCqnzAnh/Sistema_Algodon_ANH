@@ -102,6 +102,7 @@ Public Class ConfiguracionParametros
                     '    sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadConfiguracionParametros = EntidadConfiguracionParametros1
