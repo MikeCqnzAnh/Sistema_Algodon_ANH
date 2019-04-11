@@ -8,8 +8,7 @@ Capa_Entidad/obj
 Capa_Entidad/bin
 Capa_Datos/obj
 Capa_Datos/bin
-.vs/Algodon_ANH/v14/.suo
-
+*.suo
 *.user
 *.suo
 _ReSharper.*
