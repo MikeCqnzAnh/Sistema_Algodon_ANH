@@ -167,6 +167,7 @@ Partial Class Clientes
         '
         'TbIdCliente
         '
+        Me.TbIdCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbIdCliente.Enabled = False
         Me.TbIdCliente.Location = New System.Drawing.Point(124, 3)
         Me.TbIdCliente.Name = "TbIdCliente"
@@ -202,6 +203,7 @@ Partial Class Clientes
         '
         'TbSocio
         '
+        Me.TbSocio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbSocio.Location = New System.Drawing.Point(124, 29)
         Me.TbSocio.Name = "TbSocio"
         Me.TbSocio.Size = New System.Drawing.Size(139, 20)
@@ -209,6 +211,7 @@ Partial Class Clientes
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(124, 55)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(313, 20)
@@ -293,6 +296,7 @@ Partial Class Clientes
         '
         'TbRfcFis
         '
+        Me.TbRfcFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRfcFis.Location = New System.Drawing.Point(107, 14)
         Me.TbRfcFis.Name = "TbRfcFis"
         Me.TbRfcFis.Size = New System.Drawing.Size(210, 20)
@@ -326,6 +330,7 @@ Partial Class Clientes
         '
         'TbCelularFis
         '
+        Me.TbCelularFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCelularFis.Location = New System.Drawing.Point(507, 40)
         Me.TbCelularFis.Name = "TbCelularFis"
         Me.TbCelularFis.Size = New System.Drawing.Size(210, 20)
@@ -378,6 +383,7 @@ Partial Class Clientes
         '
         'TbColoniaFis
         '
+        Me.TbColoniaFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbColoniaFis.Location = New System.Drawing.Point(507, 14)
         Me.TbColoniaFis.Name = "TbColoniaFis"
         Me.TbColoniaFis.Size = New System.Drawing.Size(210, 20)
@@ -412,6 +418,7 @@ Partial Class Clientes
         '
         'TbCurpFis
         '
+        Me.TbCurpFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCurpFis.Location = New System.Drawing.Point(107, 41)
         Me.TbCurpFis.Name = "TbCurpFis"
         Me.TbCurpFis.Size = New System.Drawing.Size(210, 20)
@@ -419,6 +426,7 @@ Partial Class Clientes
         '
         'TbCalleFis
         '
+        Me.TbCalleFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCalleFis.Location = New System.Drawing.Point(107, 68)
         Me.TbCalleFis.Name = "TbCalleFis"
         Me.TbCalleFis.Size = New System.Drawing.Size(210, 20)
@@ -426,6 +434,7 @@ Partial Class Clientes
         '
         'TbApoderadoFis
         '
+        Me.TbApoderadoFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbApoderadoFis.Location = New System.Drawing.Point(507, 118)
         Me.TbApoderadoFis.Name = "TbApoderadoFis"
         Me.TbApoderadoFis.Size = New System.Drawing.Size(280, 20)
@@ -433,6 +442,7 @@ Partial Class Clientes
         '
         'TbNumeroFis
         '
+        Me.TbNumeroFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNumeroFis.Location = New System.Drawing.Point(107, 95)
         Me.TbNumeroFis.Name = "TbNumeroFis"
         Me.TbNumeroFis.Size = New System.Drawing.Size(210, 20)
@@ -440,6 +450,7 @@ Partial Class Clientes
         '
         'TbTelefonoFis
         '
+        Me.TbTelefonoFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTelefonoFis.Location = New System.Drawing.Point(507, 66)
         Me.TbTelefonoFis.Name = "TbTelefonoFis"
         Me.TbTelefonoFis.Size = New System.Drawing.Size(210, 20)
@@ -447,6 +458,7 @@ Partial Class Clientes
         '
         'TbCorreoFis
         '
+        Me.TbCorreoFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.TbCorreoFis.Location = New System.Drawing.Point(507, 92)
         Me.TbCorreoFis.Name = "TbCorreoFis"
         Me.TbCorreoFis.Size = New System.Drawing.Size(280, 20)
@@ -493,6 +505,7 @@ Partial Class Clientes
         '
         'TbCorreoApoderado
         '
+        Me.TbCorreoApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.TbCorreoApoderado.Location = New System.Drawing.Point(288, 16)
         Me.TbCorreoApoderado.Name = "TbCorreoApoderado"
         Me.TbCorreoApoderado.Size = New System.Drawing.Size(146, 20)
@@ -527,6 +540,7 @@ Partial Class Clientes
         '
         'TbCelularApoderado
         '
+        Me.TbCelularApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCelularApoderado.Location = New System.Drawing.Point(80, 200)
         Me.TbCelularApoderado.Name = "TbCelularApoderado"
         Me.TbCelularApoderado.Size = New System.Drawing.Size(148, 20)
@@ -534,6 +548,7 @@ Partial Class Clientes
         '
         'TbTelefonoApoderado
         '
+        Me.TbTelefonoApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTelefonoApoderado.Location = New System.Drawing.Point(80, 174)
         Me.TbTelefonoApoderado.Name = "TbTelefonoApoderado"
         Me.TbTelefonoApoderado.Size = New System.Drawing.Size(148, 20)
@@ -584,6 +599,7 @@ Partial Class Clientes
         '
         'TbCalleApoderado
         '
+        Me.TbCalleApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCalleApoderado.Location = New System.Drawing.Point(80, 94)
         Me.TbCalleApoderado.Name = "TbCalleApoderado"
         Me.TbCalleApoderado.Size = New System.Drawing.Size(148, 20)
@@ -609,6 +625,7 @@ Partial Class Clientes
         '
         'TbIneApoderado
         '
+        Me.TbIneApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbIneApoderado.Location = New System.Drawing.Point(80, 68)
         Me.TbIneApoderado.Name = "TbIneApoderado"
         Me.TbIneApoderado.Size = New System.Drawing.Size(148, 20)
@@ -616,6 +633,7 @@ Partial Class Clientes
         '
         'TbCurpApoderado
         '
+        Me.TbCurpApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCurpApoderado.Location = New System.Drawing.Point(80, 42)
         Me.TbCurpApoderado.Name = "TbCurpApoderado"
         Me.TbCurpApoderado.Size = New System.Drawing.Size(148, 20)
@@ -632,6 +650,7 @@ Partial Class Clientes
         '
         'TbRfcApoderado
         '
+        Me.TbRfcApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRfcApoderado.Location = New System.Drawing.Point(80, 16)
         Me.TbRfcApoderado.Name = "TbRfcApoderado"
         Me.TbRfcApoderado.Size = New System.Drawing.Size(148, 20)
@@ -664,6 +683,7 @@ Partial Class Clientes
         '
         'TbFolioMercantil
         '
+        Me.TbFolioMercantil.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbFolioMercantil.Location = New System.Drawing.Point(329, 19)
         Me.TbFolioMercantil.Name = "TbFolioMercantil"
         Me.TbFolioMercantil.Size = New System.Drawing.Size(126, 20)
@@ -698,6 +718,7 @@ Partial Class Clientes
         '
         'TbLibroActa
         '
+        Me.TbLibroActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbLibroActa.Location = New System.Drawing.Point(104, 176)
         Me.TbLibroActa.Name = "TbLibroActa"
         Me.TbLibroActa.Size = New System.Drawing.Size(139, 20)
@@ -705,6 +726,7 @@ Partial Class Clientes
         '
         'TbNumeroActa
         '
+        Me.TbNumeroActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNumeroActa.Location = New System.Drawing.Point(104, 150)
         Me.TbNumeroActa.Name = "TbNumeroActa"
         Me.TbNumeroActa.Size = New System.Drawing.Size(139, 20)
@@ -721,6 +743,7 @@ Partial Class Clientes
         '
         'TbRegPubActa
         '
+        Me.TbRegPubActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRegPubActa.Location = New System.Drawing.Point(104, 124)
         Me.TbRegPubActa.Name = "TbRegPubActa"
         Me.TbRegPubActa.Size = New System.Drawing.Size(139, 20)
@@ -737,6 +760,7 @@ Partial Class Clientes
         '
         'TbNotarioActa
         '
+        Me.TbNotarioActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNotarioActa.Location = New System.Drawing.Point(104, 98)
         Me.TbNotarioActa.Name = "TbNotarioActa"
         Me.TbNotarioActa.Size = New System.Drawing.Size(139, 20)
@@ -786,6 +810,7 @@ Partial Class Clientes
         '
         'TbFolioActa
         '
+        Me.TbFolioActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbFolioActa.Location = New System.Drawing.Point(104, 19)
         Me.TbFolioActa.Name = "TbFolioActa"
         Me.TbFolioActa.Size = New System.Drawing.Size(139, 20)
@@ -876,6 +901,7 @@ Partial Class Clientes
         '
         'TbPredio
         '
+        Me.TbPredio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPredio.Location = New System.Drawing.Point(510, 49)
         Me.TbPredio.Name = "TbPredio"
         Me.TbPredio.Size = New System.Drawing.Size(210, 20)
@@ -883,6 +909,7 @@ Partial Class Clientes
         '
         'TbSuperficie
         '
+        Me.TbSuperficie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbSuperficie.Location = New System.Drawing.Point(510, 22)
         Me.TbSuperficie.Name = "TbSuperficie"
         Me.TbSuperficie.Size = New System.Drawing.Size(210, 20)
@@ -890,6 +917,7 @@ Partial Class Clientes
         '
         'TbCertificado
         '
+        Me.TbCertificado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCertificado.Location = New System.Drawing.Point(110, 73)
         Me.TbCertificado.Name = "TbCertificado"
         Me.TbCertificado.Size = New System.Drawing.Size(210, 20)

@@ -1,4 +1,5 @@
 ﻿'Imports System.Data.SqlClient
+Imports System.Text.RegularExpressions
 Imports Capa_Operacion.Configuracion
 Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -286,4 +287,122 @@ Public Class Clientes
             TCTipoPersona.SelectedIndex = 0
         End If
     End Sub
-End Class
+    Private Sub TbRfcFis_Leave(sender As Object, e As EventArgs) Handles TbRfcFis.Leave
+
+        If TbRfcFis.Text <> String.Empty Or TbRfcFis.Text = String.Empty Then
+            If Regex.IsMatch(TbRfcFis.Text.Trim, "^([A-Z\s]{4})\d{6}([A-Z\w]{3})$") = False Then
+                MsgBox("El RFC No es Valido")
+                Me.TbRfcFis.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbCurpFis_Leave(sender As Object, e As EventArgs) Handles TbCurpFis.Leave
+        If TbCurpFis.Text <> String.Empty Or TbCurpFis.Text = String.Empty Then
+            If Regex.IsMatch(TbCurpFis.Text.Trim, "^[a-zA-Z]{4,4}[0-9]{6}[a-zA-Z]{6,6}[0-9]{2}$") = False Then
+                MsgBox("La CURP no es Valida")
+                Me.TbCurpFis.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbCorreoFis_Leave(sender As Object, e As EventArgs) Handles TbCorreoFis.Leave
+        If TbCorreoFis.Text <> String.Empty Or TbCorreoFis.Text = String.Empty Then
+            If Regex.IsMatch(TbCorreoFis.Text.Trim, "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$") = False Then
+                MsgBox("Email no Valido")
+                Me.TbCorreoFis.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbNumeroFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNumeroFis.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbCalleFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCalleFis.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbColoniaFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbColoniaFis.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbCelularFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCelularFis.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbTelefonoFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbTelefonoFis.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbApoderadoFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbApoderadoFis.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbRfcApoderado_Leave(sender As Object, e As EventArgs) Handles TbRfcApoderado.Leave
+        If TbRfcApoderado.Text <> String.Empty Or TbRfcApoderado.Text = String.Empty Then
+            If Regex.IsMatch(TbRfcApoderado.Text.Trim, "^([A-Z\s]{4})\d{6}([A-Z\w]{3})$") = False Then
+                MsgBox("El RFC No es Valido")
+                Me.TbRfcApoderado.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbCurpApoderado_Leave(sender As Object, e As EventArgs) Handles TbCurpApoderado.Leave
+        If TbCurpApoderado.Text <> String.Empty Or TbCurpApoderado.Text = String.Empty Then
+            If Regex.IsMatch(TbCurpApoderado.Text.Trim, "^[a-zA-Z]{4,4}[0-9]{6}[a-zA-Z]{6,6}[0-9]{2}$") = False Then
+                MsgBox("La CURP no es Valida")
+                Me.TbCurpApoderado.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbCorreoApoderado_Leave(sender As Object, e As EventArgs) Handles TbCorreoApoderado.Leave
+        If TbCorreoApoderado.Text <> String.Empty Or TbCorreoApoderado.Text = String.Empty Then
+            If Regex.IsMatch(TbCorreoApoderado.Text.Trim, "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$") = False Then
+                MsgBox("Email no Valido")
+                Me.TbCorreoApoderado.Focus()
+            End If
+        End If
+    End Sub
