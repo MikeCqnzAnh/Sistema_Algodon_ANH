@@ -303,6 +303,11 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_2017.V2\Capa_Presentacion\obj\Debug\Capa_Presentacion.LiquidacionFinal.resources
+C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.config
+C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
+C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe
+C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
+C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.config
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.pdb
@@ -413,6 +418,7 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.RepClientes.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Bitacora.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ConfiguracionParametros.resources
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ConfiguraConexionInicial.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.CrearEstructura.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ImportarCatalogos.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Monedas.resources
@@ -422,9 +428,3 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ConfiguraConexionInicial.resources
-C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Presentacion.exe.config
-C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
-C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.exe
-C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.xml
-C:\Users\SISTEMAS_\Desktop\ALGODON\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
