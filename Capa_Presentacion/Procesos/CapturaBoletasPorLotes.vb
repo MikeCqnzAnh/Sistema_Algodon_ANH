@@ -253,6 +253,12 @@ Public Class CapturaBoletasPorLotes
         Else
             Close()
         End If
+    End Sub
+    Private Sub Btcadenaentrada_Click(sender As Object, e As EventArgs) Handles Btcadenaentrada.Click
+        Dim CadenaEntrada As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg INBOUND" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & "." & vbCrLf & vbCrLf & "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg RECALLED" & vbCrLf & "TARE         80 kg" & vbCrLf & "NET           0 kg" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & vbCrLf & "."
+
+    End Sub
+    Private Sub BtcadenaSalida_Click(sender As Object, e As EventArgs) Handles BtcadenaSalida.Click
 
     End Sub
 End Class

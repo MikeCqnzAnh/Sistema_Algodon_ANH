@@ -48,6 +48,10 @@ Public Class ConfiguracionParametros
         NuCaracterBoletaTara.Value = 0
         NuCaracterBoletaNeto.Value = 0
         NuCaracterPacas.Value = 0
+        TbIdSerieBanxico.Text = ""
+        TbPalabraPosicion.Text = ""
+        NuPosicion.Value = 0
+        NuLongitud.Value = 0
     End Sub
     Private Sub GetNameHost()
         Dim strHostName As String
@@ -76,6 +80,13 @@ Public Class ConfiguracionParametros
         EntidadConfiguracionParametros.NoCaracterBoletasNeto = NuCaracterBoletaNeto.Value
         EntidadConfiguracionParametros.InicialPacas = NuInicialPacas.Value
         EntidadConfiguracionParametros.NoCaracteresPacas = NuCaracterPacas.Value
+        EntidadConfiguracionParametros.TextoCadenaPesoModulos = NuInicialBoletaTara.Value
+        EntidadConfiguracionParametros.TextoCadenaPesoPacas = NuCaracterBoletaTara.Value
+        EntidadConfiguracionParametros.IdSerieBanxico = TbIdSerieBanxico.Text
+        EntidadConfiguracionParametros.CampoValorBanxico = TbPalabraPosicion.Text
+        EntidadConfiguracionParametros.PosicionValorBanxico = NuPosicion.Value
+        EntidadConfiguracionParametros.LongitudValorBanxico = NuLongitud.Value
+        EntidadConfiguracionParametros.SitioBanxico = TbSitioBanxico.Text
         NegocioConfiguracionParametros.Guardar(EntidadConfiguracionParametros)
         TsIdConfiguracion.Text = EntidadConfiguracionParametros.IdConfiguracion
         MsgBox("Realizado Correctamente")
@@ -107,5 +118,13 @@ Public Class ConfiguracionParametros
         NuCaracterBoletaNeto.Value = Tabla.Rows(0).Item("NoCaracterBoletasNeto")
         NuInicialPacas.Value = Tabla.Rows(0).Item("InicialPacas")
         NuCaracterPacas.Value = Tabla.Rows(0).Item("NoCaracteresPacas")
+        NuInicialBoletaTara.Value = Tabla.Rows(0).Item("TextoCadenaPesoModulos")
+        NuCaracterBoletaTara.Value = Tabla.Rows(0).Item("TextoCadenaPesoPacas")
+        TbIdSerieBanxico.Text = Tabla.Rows(0).Item("IdSerieBanxico")
+        TbPalabraPosicion.Text = Tabla.Rows(0).Item("CampoValorBanxico")
+        NuPosicion.Value = Tabla.Rows(0).Item("PosicionValorBanxico")
+        NuLongitud.Value = Tabla.Rows(0).Item("LongitudValorBanxico")
+        TbSitioBanxico.Text = Tabla.Rows(0).Item("SitioBanxico")
     End Sub
+
 End Class

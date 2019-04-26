@@ -1,10 +1,12 @@
 ﻿Public Class CompraPacasContrato
     Inherits Tarjeta
-    Public IdCompraContrato As Integer
+    Public IdCompra As Integer
     Public IdContrato As Integer
     Public IdProductor As Integer
     Public IdPlanta As Integer
     Public IdModalidadCompra As Integer
+    Public FechaCompra As DateTime
+    Public TotalPacas As Integer
     Public PacasInicio As Integer
     Public PacasFin As Integer
     Public PrecioQuintal As Double

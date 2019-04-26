@@ -39,6 +39,27 @@ Public Class CompraPacasContrato
             MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+    Private Sub ConfirmarSeleccion()
+
+    End Sub
+    Private Sub Guardar()
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.IdCompra = IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text)
+        EntidadCompraPacasContrato.IdContrato = TbIdContrato.Text
+        EntidadCompraPacasContrato.IdPlanta = CbPlanta.SelectedValue
+        EntidadCompraPacasContrato.IdModalidadCompra = CbModalidadCompra.SelectedValue
+        EntidadCompraPacasContrato.FechaCompra = DtFechaCompra.Value
+        'EntidadCompraPacasContrato.TotalPacas =
+        'EntidadCompraPacasContrato.idMunicipio = CbMunicipio.SelectedValue
+        'EntidadCompraPacasContrato.Telefono = TbTelefono.Text
+        'EntidadCompraPacasContrato.Correo = TbCorreo.Text
+        'EntidadCompraPacasContrato.IdEstatus = CbEstatus.SelectedValue
+        'EntidadCompraPacasContrato.IdUsuarioCreacion = 1
+        'EntidadCompraPacasContrato.FechaCreacion = Now
+        'NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
+        'TbIdComprador.Text = EntidadCompraPacasContrato.IdComprador
+    End Sub
     Private Function DataGridADatatable() As DataTable
         Dim dt As New DataTable
         Dim r As DataRow
@@ -71,7 +92,7 @@ Public Class CompraPacasContrato
         Return PacasMarcadas
     End Function
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
-
+        ConsultaCompraProductor.ShowDialog()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

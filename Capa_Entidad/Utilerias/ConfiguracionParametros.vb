@@ -17,4 +17,12 @@
     Public InicialPacas As Integer
     Public NoCaracteresPacas As Integer
     Public NombreInstancia As String
+    Public TextoCadenaPesoModulos As String
+    Public TextoCadenaPesoPacas As String
+    Public IdSerieBanxico As String
+    Public CampoValorBanxico As String
+    Public PosicionValorBanxico As Integer
+    Public LongitudValorBanxico As Integer
+    Public SitioBanxico As String
+
 End Class

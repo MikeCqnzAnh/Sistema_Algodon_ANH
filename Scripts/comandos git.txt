@@ -42,3 +42,14 @@ git merge 'Rama a absorber' 			   //Fusiona ramas
 
 fast-forward //hace la fucion y se hace cuando se trabaja con archivos diferentes
 Manual Merge //antes de hacer la fusion tiene que pasar por nosotros, normalmente ocurre cuando se tabaja en los mismos archivos o lineas de codigo
+
+Gitignore no funciona
+Dando primeros pasos con git había unos ficheros que me añadía al proyecto y que quería ignorarlos. De ahí que quisiera añadirlos al fichero .gitignore.
+
+Pero no funcionaba porque ya había realizado commits en los que incluía estos ficheros. Tenía que borrar la caché de todos los ficheros de git y después generar ignorando los ficheros que no queremos con los siguientes comandos:
+
+git rm -r --cached .
+git add .
+git commit -m “.gitignore funciona”
+
+

@@ -25,6 +25,13 @@ Public Class ConfiguracionParametros
             cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterBoletasNeto", EntidadConfiguracionParametros1.NoCaracterBoletasNeto))
             cmdGuardar.Parameters.Add(New SqlParameter("@InicialPacas", EntidadConfiguracionParametros1.InicialPacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracteresPacas", EntidadConfiguracionParametros1.NoCaracteresPacas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@TextoCadenaPesoModulos", EntidadConfiguracionParametros1.TextoCadenaPesoModulos))
+            cmdGuardar.Parameters.Add(New SqlParameter("@TextoCadenaPesoPacas", EntidadConfiguracionParametros1.TextoCadenaPesoPacas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionValorBanxico", EntidadConfiguracionParametros1.PosicionValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.LongitudValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.SitioBanxico))
             cmdGuardar.Parameters("@IdConfiguracion").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
             If EntidadConfiguracionParametros1.IdConfiguracion = 0 Then

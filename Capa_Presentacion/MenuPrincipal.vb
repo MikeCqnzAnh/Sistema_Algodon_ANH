@@ -4,7 +4,10 @@ Imports System.Drawing.Drawing2D
 Imports Capa_Presentacion.WebServiceBanxico
 Imports System.Net
 Public Class MenuPrincipal
+    Dim IdSerieBanxico, CampoValorBanxico, SitioBanxico As String
+    Dim PosicionValorBanxico, LongitudValorBanxico As Integer
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ConsultaParametros()
         TipoUsuario()
     End Sub
     Private Sub ObtenerPrecioDolarBanxico()
@@ -13,14 +16,14 @@ Public Class MenuPrincipal
             Dim UrlBanxico As String = "8.8.8.8"
             myProxy.Credentials = New NetworkCredential("Usuario", "contraseña")
             If VerificarConexionURL(UrlBanxico) = True Then
-                Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create("http://www.banxico.org.mx/DgieWSWeb/DgieWS?WSDL"), HttpWebRequest)
+                Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create(RTrim(SitioBanxico)), HttpWebRequest)
                 WebRequest.DefaultWebProxy = httpBanxico.Proxy
                 Dim TipoCambio As New WebServiceBanxico.DgieWS
                 Dim strTipoCambio As String = TipoCambio.tiposDeCambioBanxico
 
-                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("SF60653") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("SF60653") - 1)
-                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf("OBS_VALUE=") + 1, strTipoCambio.Length - strTipoCambio.IndexOf("OBS_VALUE=") - 1)
-                TsPrecioDolar.Text = Replace(strTipoCambio.Substring(10, 7), Chr(34), "")
+                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) - 1)
+                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) - 1)
+                TsPrecioDolar.Text = Replace(strTipoCambio.Substring(PosicionValorBanxico, LongitudValorBanxico), Chr(34), "")
                 ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
             ElseIf _IdTipoUsuario = 1 Then
                 Monedas.ShowDialog()
@@ -90,6 +93,31 @@ Public Class MenuPrincipal
             ConsultaTipoCambio()
         End If
     End Sub
+    Private Sub ConsultaParametros()
+        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        Dim Tabla As New DataTable
+        EntidadConfiguracionParametros.IdConfiguracion = 0
+        EntidadConfiguracionParametros.DireccionIP = GetNameHost()
+        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        Tabla = EntidadConfiguracionParametros.TablaConsulta
+        If Tabla.Rows.Count = 0 Then
+            Exit Sub
+        End If
+        IdSerieBanxico = Tabla.Rows(0).Item("IdSerieBanxico")
+        CampoValorBanxico = Tabla.Rows(0).Item("CampoValorBanxico")
+        PosicionValorBanxico = Tabla.Rows(0).Item("PosicionValorBanxico")
+        LongitudValorBanxico = Tabla.Rows(0).Item("LongitudValorBanxico")
+        SitioBanxico = Tabla.Rows(0).Item("Sitiobanxico")
+    End Sub
+    Private Function GetNameHost()
+        Dim strHostName As String
+        Dim strIPAddress As String
+        strHostName = Dns.GetHostName()
+        strIPAddress = Dns.Resolve(strHostName).AddressList(0).ToString()
+        Return strIPAddress
+    End Function
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Clientes.ShowDialog()
     End Sub
