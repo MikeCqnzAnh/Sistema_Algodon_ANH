@@ -24,36 +24,66 @@ Partial Class ConfiguracionParametros
     Private Sub InitializeComponent()
         Me.PanelParametrosBascula = New System.Windows.Forms.Panel()
         Me.GbPesoPacas = New System.Windows.Forms.GroupBox()
-        Me.NuInicialPacas = New System.Windows.Forms.NumericUpDown()
-        Me.NuCaracterPacas = New System.Windows.Forms.NumericUpDown()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.GbPesoProduccion = New System.Windows.Forms.GroupBox()
-        Me.NuCaracterBoletaNeto = New System.Windows.Forms.NumericUpDown()
-        Me.NuInicialBoletaNeto = New System.Windows.Forms.NumericUpDown()
-        Me.NuInicialBoletaBruto = New System.Windows.Forms.NumericUpDown()
-        Me.NuCaracterBoletaBruto = New System.Windows.Forms.NumericUpDown()
-        Me.NuInicialBoletaTara = New System.Windows.Forms.NumericUpDown()
-        Me.NuCaracterBoletaTara = New System.Windows.Forms.NumericUpDown()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.GbIdProduccion = New System.Windows.Forms.GroupBox()
-        Me.NuCaracterTransporte = New System.Windows.Forms.NumericUpDown()
-        Me.NuInicialTransporte = New System.Windows.Forms.NumericUpDown()
-        Me.NuCaracterModulo = New System.Windows.Forms.NumericUpDown()
-        Me.NuInicialModulo = New System.Windows.Forms.NumericUpDown()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TbPacasIndicadorNeto = New System.Windows.Forms.TextBox()
+        Me.TbPacasIndicadorTara = New System.Windows.Forms.TextBox()
+        Me.TbPacasIndicadorBruto = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.NuPacasCaracterNeto = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.NuPacasPosicionNeto = New System.Windows.Forms.NumericUpDown()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.NuPacasCaracterTara = New System.Windows.Forms.NumericUpDown()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.NuPacasPosicionTara = New System.Windows.Forms.NumericUpDown()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.NuPacasPosicionBruto = New System.Windows.Forms.NumericUpDown()
+        Me.NuPacasCaracterBruto = New System.Windows.Forms.NumericUpDown()
+        Me.GbIdProduccion = New System.Windows.Forms.GroupBox()
+        Me.TbIndicadorID = New System.Windows.Forms.TextBox()
+        Me.TbIndicadorSalida = New System.Windows.Forms.TextBox()
+        Me.TbIndicadorNeto = New System.Windows.Forms.TextBox()
+        Me.TbIndicadorTara = New System.Windows.Forms.TextBox()
+        Me.TbIndicadorBruto = New System.Windows.Forms.TextBox()
+        Me.TbIndicadorEntrada = New System.Windows.Forms.TextBox()
+        Me.NuCaracterNeto = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterSalida = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionNeto = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionSalida = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterTara = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterEntrada = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionTara = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionEntrada = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterBruto = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterId = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionBruto = New System.Windows.Forms.NumericUpDown()
+        Me.NuPosicionID = New System.Windows.Forms.NumericUpDown()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.GbPuerto = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
         Me.GbDatosDolar = New System.Windows.Forms.GroupBox()
+        Me.TbSitioBanxico = New System.Windows.Forms.TextBox()
         Me.TbPalabraPosicion = New System.Windows.Forms.TextBox()
         Me.TbIdSerieBanxico = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -75,328 +105,632 @@ Partial Class ConfiguracionParametros
         Me.TsIdConf = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TbSitioBanxico = New System.Windows.Forms.TextBox()
+        Me.TbIdConfiguracionBanxico = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.NuPosicionModulo = New System.Windows.Forms.NumericUpDown()
+        Me.NuCaracterModulo = New System.Windows.Forms.NumericUpDown()
+        Me.TbIndicadorModulo = New System.Windows.Forms.TextBox()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
-        CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCaracterPacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GbPesoProduccion.SuspendLayout()
-        CType(Me.NuCaracterBoletaNeto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuInicialBoletaNeto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuInicialBoletaBruto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCaracterBoletaBruto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuInicialBoletaTara, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCaracterBoletaTara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasCaracterNeto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasPosicionNeto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasCaracterTara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasPosicionTara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasPosicionBruto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPacasCaracterBruto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbIdProduccion.SuspendLayout()
-        CType(Me.NuCaracterTransporte, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuInicialTransporte, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCaracterModulo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuInicialModulo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterNeto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterSalida, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionNeto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionSalida, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterTara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterEntrada, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionTara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionEntrada, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterBruto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterId, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionBruto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPosicionID, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPuerto.SuspendLayout()
         Me.GbDatosDolar.SuspendLayout()
         CType(Me.NuPosicion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuLongitud, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.NuPosicionModulo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuCaracterModulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelParametrosBascula
         '
         Me.PanelParametrosBascula.Controls.Add(Me.GbPesoPacas)
-        Me.PanelParametrosBascula.Controls.Add(Me.GbPesoProduccion)
         Me.PanelParametrosBascula.Controls.Add(Me.GbIdProduccion)
         Me.PanelParametrosBascula.Controls.Add(Me.GbPuerto)
         Me.PanelParametrosBascula.Controls.Add(Me.GbDatosDolar)
         Me.PanelParametrosBascula.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelParametrosBascula.Location = New System.Drawing.Point(0, 24)
         Me.PanelParametrosBascula.Name = "PanelParametrosBascula"
-        Me.PanelParametrosBascula.Size = New System.Drawing.Size(1071, 712)
+        Me.PanelParametrosBascula.Size = New System.Drawing.Size(1071, 577)
         Me.PanelParametrosBascula.TabIndex = 2
         '
         'GbPesoPacas
         '
-        Me.GbPesoPacas.Controls.Add(Me.NuInicialPacas)
-        Me.GbPesoPacas.Controls.Add(Me.NuCaracterPacas)
-        Me.GbPesoPacas.Controls.Add(Me.Label13)
-        Me.GbPesoPacas.Controls.Add(Me.Label12)
+        Me.GbPesoPacas.Controls.Add(Me.TbPacasIndicadorNeto)
+        Me.GbPesoPacas.Controls.Add(Me.TbPacasIndicadorTara)
+        Me.GbPesoPacas.Controls.Add(Me.TbPacasIndicadorBruto)
+        Me.GbPesoPacas.Controls.Add(Me.Label38)
+        Me.GbPesoPacas.Controls.Add(Me.Label1)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasCaracterNeto)
+        Me.GbPesoPacas.Controls.Add(Me.Label5)
+        Me.GbPesoPacas.Controls.Add(Me.Label35)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasPosicionNeto)
+        Me.GbPesoPacas.Controls.Add(Me.Label36)
+        Me.GbPesoPacas.Controls.Add(Me.Label37)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasCaracterTara)
+        Me.GbPesoPacas.Controls.Add(Me.Label39)
+        Me.GbPesoPacas.Controls.Add(Me.Label40)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasPosicionTara)
+        Me.GbPesoPacas.Controls.Add(Me.Label41)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasPosicionBruto)
+        Me.GbPesoPacas.Controls.Add(Me.NuPacasCaracterBruto)
         Me.GbPesoPacas.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbPesoPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPesoPacas.Location = New System.Drawing.Point(0, 500)
+        Me.GbPesoPacas.Location = New System.Drawing.Point(0, 330)
         Me.GbPesoPacas.Name = "GbPesoPacas"
         Me.GbPesoPacas.Size = New System.Drawing.Size(1071, 174)
         Me.GbPesoPacas.TabIndex = 11
         Me.GbPesoPacas.TabStop = False
         Me.GbPesoPacas.Text = "Peso De Pacas"
         '
-        'NuInicialPacas
+        'TbPacasIndicadorNeto
         '
-        Me.NuInicialPacas.Location = New System.Drawing.Point(130, 41)
-        Me.NuInicialPacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialPacas.Name = "NuInicialPacas"
-        Me.NuInicialPacas.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialPacas.TabIndex = 5
-        Me.NuInicialPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbPacasIndicadorNeto.Location = New System.Drawing.Point(122, 82)
+        Me.TbPacasIndicadorNeto.Name = "TbPacasIndicadorNeto"
+        Me.TbPacasIndicadorNeto.Size = New System.Drawing.Size(105, 20)
+        Me.TbPacasIndicadorNeto.TabIndex = 6
         '
-        'NuCaracterPacas
+        'TbPacasIndicadorTara
         '
-        Me.NuCaracterPacas.Location = New System.Drawing.Point(317, 41)
-        Me.NuCaracterPacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterPacas.Name = "NuCaracterPacas"
-        Me.NuCaracterPacas.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterPacas.TabIndex = 5
-        Me.NuCaracterPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbPacasIndicadorTara.Location = New System.Drawing.Point(122, 56)
+        Me.TbPacasIndicadorTara.Name = "TbPacasIndicadorTara"
+        Me.TbPacasIndicadorTara.Size = New System.Drawing.Size(105, 20)
+        Me.TbPacasIndicadorTara.TabIndex = 6
         '
-        'Label13
+        'TbPacasIndicadorBruto
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(9, 43)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(77, 13)
-        Me.Label13.TabIndex = 3
-        Me.Label13.Text = "Posicion Inicial"
+        Me.TbPacasIndicadorBruto.Location = New System.Drawing.Point(122, 30)
+        Me.TbPacasIndicadorBruto.Name = "TbPacasIndicadorBruto"
+        Me.TbPacasIndicadorBruto.Size = New System.Drawing.Size(105, 20)
+        Me.TbPacasIndicadorBruto.TabIndex = 6
         '
-        'Label12
+        'Label38
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(253, 43)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(58, 13)
-        Me.Label12.TabIndex = 3
-        Me.Label12.Text = "Caracteres"
-        '
-        'GbPesoProduccion
-        '
-        Me.GbPesoProduccion.Controls.Add(Me.NuCaracterBoletaNeto)
-        Me.GbPesoProduccion.Controls.Add(Me.NuInicialBoletaNeto)
-        Me.GbPesoProduccion.Controls.Add(Me.NuInicialBoletaBruto)
-        Me.GbPesoProduccion.Controls.Add(Me.NuCaracterBoletaBruto)
-        Me.GbPesoProduccion.Controls.Add(Me.NuInicialBoletaTara)
-        Me.GbPesoProduccion.Controls.Add(Me.NuCaracterBoletaTara)
-        Me.GbPesoProduccion.Controls.Add(Me.Label7)
-        Me.GbPesoProduccion.Controls.Add(Me.Label8)
-        Me.GbPesoProduccion.Controls.Add(Me.Label10)
-        Me.GbPesoProduccion.Controls.Add(Me.Label6)
-        Me.GbPesoProduccion.Controls.Add(Me.Label9)
-        Me.GbPesoProduccion.Controls.Add(Me.Label11)
-        Me.GbPesoProduccion.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GbPesoProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPesoProduccion.Location = New System.Drawing.Point(0, 340)
-        Me.GbPesoProduccion.Name = "GbPesoProduccion"
-        Me.GbPesoProduccion.Size = New System.Drawing.Size(1071, 160)
-        Me.GbPesoProduccion.TabIndex = 10
-        Me.GbPesoProduccion.TabStop = False
-        Me.GbPesoProduccion.Text = "Pesos En Captura De Boletas"
-        '
-        'NuCaracterBoletaNeto
-        '
-        Me.NuCaracterBoletaNeto.Location = New System.Drawing.Point(317, 74)
-        Me.NuCaracterBoletaNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterBoletaNeto.Name = "NuCaracterBoletaNeto"
-        Me.NuCaracterBoletaNeto.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterBoletaNeto.TabIndex = 5
-        Me.NuCaracterBoletaNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuInicialBoletaNeto
-        '
-        Me.NuInicialBoletaNeto.Location = New System.Drawing.Point(130, 74)
-        Me.NuInicialBoletaNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialBoletaNeto.Name = "NuInicialBoletaNeto"
-        Me.NuInicialBoletaNeto.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialBoletaNeto.TabIndex = 5
-        Me.NuInicialBoletaNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuInicialBoletaBruto
-        '
-        Me.NuInicialBoletaBruto.Location = New System.Drawing.Point(130, 24)
-        Me.NuInicialBoletaBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialBoletaBruto.Name = "NuInicialBoletaBruto"
-        Me.NuInicialBoletaBruto.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialBoletaBruto.TabIndex = 5
-        Me.NuInicialBoletaBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuCaracterBoletaBruto
-        '
-        Me.NuCaracterBoletaBruto.Location = New System.Drawing.Point(317, 24)
-        Me.NuCaracterBoletaBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterBoletaBruto.Name = "NuCaracterBoletaBruto"
-        Me.NuCaracterBoletaBruto.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterBoletaBruto.TabIndex = 5
-        Me.NuCaracterBoletaBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuInicialBoletaTara
-        '
-        Me.NuInicialBoletaTara.Location = New System.Drawing.Point(569, 24)
-        Me.NuInicialBoletaTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialBoletaTara.Name = "NuInicialBoletaTara"
-        Me.NuInicialBoletaTara.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialBoletaTara.TabIndex = 5
-        Me.NuInicialBoletaTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuCaracterBoletaTara
-        '
-        Me.NuCaracterBoletaTara.Location = New System.Drawing.Point(743, 24)
-        Me.NuCaracterBoletaTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterBoletaTara.Name = "NuCaracterBoletaTara"
-        Me.NuCaracterBoletaTara.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterBoletaTara.TabIndex = 5
-        Me.NuCaracterBoletaTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(9, 26)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(105, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Posicion Inicial Bruto"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(679, 26)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 13)
-        Me.Label8.TabIndex = 3
-        Me.Label8.Text = "Caracteres"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(253, 76)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(58, 13)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Caracteres"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(253, 26)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(58, 13)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Caracteres"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(448, 26)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(102, 13)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Posicion Inicial Tara"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(9, 76)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(103, 13)
-        Me.Label11.TabIndex = 3
-        Me.Label11.Text = "Posicion Inicial Neto"
-        '
-        'GbIdProduccion
-        '
-        Me.GbIdProduccion.Controls.Add(Me.NuCaracterTransporte)
-        Me.GbIdProduccion.Controls.Add(Me.NuInicialTransporte)
-        Me.GbIdProduccion.Controls.Add(Me.NuCaracterModulo)
-        Me.GbIdProduccion.Controls.Add(Me.NuInicialModulo)
-        Me.GbIdProduccion.Controls.Add(Me.Label3)
-        Me.GbIdProduccion.Controls.Add(Me.Label1)
-        Me.GbIdProduccion.Controls.Add(Me.Label4)
-        Me.GbIdProduccion.Controls.Add(Me.Label5)
-        Me.GbIdProduccion.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GbIdProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbIdProduccion.Location = New System.Drawing.Point(0, 182)
-        Me.GbIdProduccion.Name = "GbIdProduccion"
-        Me.GbIdProduccion.Size = New System.Drawing.Size(1071, 158)
-        Me.GbIdProduccion.TabIndex = 9
-        Me.GbIdProduccion.TabStop = False
-        Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
-        '
-        'NuCaracterTransporte
-        '
-        Me.NuCaracterTransporte.Location = New System.Drawing.Point(743, 39)
-        Me.NuCaracterTransporte.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterTransporte.Name = "NuCaracterTransporte"
-        Me.NuCaracterTransporte.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterTransporte.TabIndex = 5
-        Me.NuCaracterTransporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuInicialTransporte
-        '
-        Me.NuInicialTransporte.Location = New System.Drawing.Point(569, 39)
-        Me.NuInicialTransporte.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialTransporte.Name = "NuInicialTransporte"
-        Me.NuInicialTransporte.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialTransporte.TabIndex = 5
-        Me.NuInicialTransporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuCaracterModulo
-        '
-        Me.NuCaracterModulo.Location = New System.Drawing.Point(317, 39)
-        Me.NuCaracterModulo.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCaracterModulo.Name = "NuCaracterModulo"
-        Me.NuCaracterModulo.Size = New System.Drawing.Size(62, 20)
-        Me.NuCaracterModulo.TabIndex = 5
-        Me.NuCaracterModulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NuInicialModulo
-        '
-        Me.NuInicialModulo.Location = New System.Drawing.Point(130, 39)
-        Me.NuInicialModulo.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuInicialModulo.Name = "NuInicialModulo"
-        Me.NuInicialModulo.Size = New System.Drawing.Size(62, 20)
-        Me.NuInicialModulo.TabIndex = 5
-        Me.NuInicialModulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 41)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Posicion Inicial Modulo"
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label38.Location = New System.Drawing.Point(9, 85)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(80, 13)
+        Me.Label38.TabIndex = 3
+        Me.Label38.Text = "Indicador Neto:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(679, 41)
+        Me.Label1.Location = New System.Drawing.Point(360, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 13)
+        Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Caracteres"
+        Me.Label1.Text = "No de Caracteres:"
         '
-        'Label4
+        'NuPacasCaracterNeto
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(253, 41)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Caracteres"
+        Me.NuPacasCaracterNeto.Location = New System.Drawing.Point(459, 83)
+        Me.NuPacasCaracterNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasCaracterNeto.Name = "NuPacasCaracterNeto"
+        Me.NuPacasCaracterNeto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasCaracterNeto.TabIndex = 5
+        Me.NuPacasCaracterNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(448, 41)
+        Me.Label5.Location = New System.Drawing.Point(360, 59)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(115, 13)
+        Me.Label5.Size = New System.Drawing.Size(93, 13)
         Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Posicion Inicial Camion"
+        Me.Label5.Text = "No de Caracteres:"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Location = New System.Drawing.Point(9, 33)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(109, 13)
+        Me.Label35.TabIndex = 3
+        Me.Label35.Text = "Indicador Peso Bruto:"
+        '
+        'NuPacasPosicionNeto
+        '
+        Me.NuPacasPosicionNeto.Location = New System.Drawing.Point(292, 83)
+        Me.NuPacasPosicionNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasPosicionNeto.Name = "NuPacasPosicionNeto"
+        Me.NuPacasPosicionNeto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasPosicionNeto.TabIndex = 5
+        Me.NuPacasPosicionNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.Location = New System.Drawing.Point(360, 85)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(93, 13)
+        Me.Label36.TabIndex = 3
+        Me.Label36.Text = "No de Caracteres:"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(9, 59)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(79, 13)
+        Me.Label37.TabIndex = 3
+        Me.Label37.Text = "Indicador Tara:"
+        '
+        'NuPacasCaracterTara
+        '
+        Me.NuPacasCaracterTara.Location = New System.Drawing.Point(459, 57)
+        Me.NuPacasCaracterTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasCaracterTara.Name = "NuPacasCaracterTara"
+        Me.NuPacasCaracterTara.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasCaracterTara.TabIndex = 5
+        Me.NuPacasCaracterTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label39.Location = New System.Drawing.Point(233, 33)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(53, 13)
+        Me.Label39.TabIndex = 3
+        Me.Label39.Text = "Posicion :"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label40.Location = New System.Drawing.Point(233, 59)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(53, 13)
+        Me.Label40.TabIndex = 3
+        Me.Label40.Text = "Posicion :"
+        '
+        'NuPacasPosicionTara
+        '
+        Me.NuPacasPosicionTara.Location = New System.Drawing.Point(292, 57)
+        Me.NuPacasPosicionTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasPosicionTara.Name = "NuPacasPosicionTara"
+        Me.NuPacasPosicionTara.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasPosicionTara.TabIndex = 5
+        Me.NuPacasPosicionTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.Location = New System.Drawing.Point(233, 85)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(53, 13)
+        Me.Label41.TabIndex = 3
+        Me.Label41.Text = "Posicion :"
+        '
+        'NuPacasPosicionBruto
+        '
+        Me.NuPacasPosicionBruto.Location = New System.Drawing.Point(292, 30)
+        Me.NuPacasPosicionBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasPosicionBruto.Name = "NuPacasPosicionBruto"
+        Me.NuPacasPosicionBruto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasPosicionBruto.TabIndex = 5
+        Me.NuPacasPosicionBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPacasCaracterBruto
+        '
+        Me.NuPacasCaracterBruto.Location = New System.Drawing.Point(459, 30)
+        Me.NuPacasCaracterBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPacasCaracterBruto.Name = "NuPacasCaracterBruto"
+        Me.NuPacasCaracterBruto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPacasCaracterBruto.TabIndex = 5
+        Me.NuPacasCaracterBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'GbIdProduccion
+        '
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorID)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorSalida)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorNeto)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorTara)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorBruto)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorModulo)
+        Me.GbIdProduccion.Controls.Add(Me.TbIndicadorEntrada)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterNeto)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterSalida)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionNeto)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionSalida)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterModulo)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterTara)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterEntrada)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionModulo)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionTara)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionEntrada)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterBruto)
+        Me.GbIdProduccion.Controls.Add(Me.NuCaracterId)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionBruto)
+        Me.GbIdProduccion.Controls.Add(Me.NuPosicionID)
+        Me.GbIdProduccion.Controls.Add(Me.Label21)
+        Me.GbIdProduccion.Controls.Add(Me.Label34)
+        Me.GbIdProduccion.Controls.Add(Me.Label33)
+        Me.GbIdProduccion.Controls.Add(Me.Label26)
+        Me.GbIdProduccion.Controls.Add(Me.Label8)
+        Me.GbIdProduccion.Controls.Add(Me.Label32)
+        Me.GbIdProduccion.Controls.Add(Me.Label25)
+        Me.GbIdProduccion.Controls.Add(Me.Label3)
+        Me.GbIdProduccion.Controls.Add(Me.Label20)
+        Me.GbIdProduccion.Controls.Add(Me.Label24)
+        Me.GbIdProduccion.Controls.Add(Me.Label23)
+        Me.GbIdProduccion.Controls.Add(Me.Label31)
+        Me.GbIdProduccion.Controls.Add(Me.Label22)
+        Me.GbIdProduccion.Controls.Add(Me.Label30)
+        Me.GbIdProduccion.Controls.Add(Me.Label28)
+        Me.GbIdProduccion.Controls.Add(Me.Label7)
+        Me.GbIdProduccion.Controls.Add(Me.Label29)
+        Me.GbIdProduccion.Controls.Add(Me.Label27)
+        Me.GbIdProduccion.Controls.Add(Me.Label6)
+        Me.GbIdProduccion.Controls.Add(Me.Label4)
+        Me.GbIdProduccion.Controls.Add(Me.Label19)
+        Me.GbIdProduccion.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbIdProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GbIdProduccion.Location = New System.Drawing.Point(0, 182)
+        Me.GbIdProduccion.Name = "GbIdProduccion"
+        Me.GbIdProduccion.Size = New System.Drawing.Size(1071, 148)
+        Me.GbIdProduccion.TabIndex = 9
+        Me.GbIdProduccion.TabStop = False
+        Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
+        '
+        'TbIndicadorID
+        '
+        Me.TbIndicadorID.Location = New System.Drawing.Point(109, 23)
+        Me.TbIndicadorID.Name = "TbIndicadorID"
+        Me.TbIndicadorID.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorID.TabIndex = 6
+        '
+        'TbIndicadorSalida
+        '
+        Me.TbIndicadorSalida.Location = New System.Drawing.Point(109, 101)
+        Me.TbIndicadorSalida.Name = "TbIndicadorSalida"
+        Me.TbIndicadorSalida.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorSalida.TabIndex = 6
+        '
+        'TbIndicadorNeto
+        '
+        Me.TbIndicadorNeto.Location = New System.Drawing.Point(659, 75)
+        Me.TbIndicadorNeto.Name = "TbIndicadorNeto"
+        Me.TbIndicadorNeto.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorNeto.TabIndex = 6
+        '
+        'TbIndicadorTara
+        '
+        Me.TbIndicadorTara.Location = New System.Drawing.Point(659, 49)
+        Me.TbIndicadorTara.Name = "TbIndicadorTara"
+        Me.TbIndicadorTara.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorTara.TabIndex = 6
+        '
+        'TbIndicadorBruto
+        '
+        Me.TbIndicadorBruto.Location = New System.Drawing.Point(659, 23)
+        Me.TbIndicadorBruto.Name = "TbIndicadorBruto"
+        Me.TbIndicadorBruto.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorBruto.TabIndex = 6
+        '
+        'TbIndicadorEntrada
+        '
+        Me.TbIndicadorEntrada.Location = New System.Drawing.Point(109, 75)
+        Me.TbIndicadorEntrada.Name = "TbIndicadorEntrada"
+        Me.TbIndicadorEntrada.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorEntrada.TabIndex = 6
+        '
+        'NuCaracterNeto
+        '
+        Me.NuCaracterNeto.Location = New System.Drawing.Point(996, 76)
+        Me.NuCaracterNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterNeto.Name = "NuCaracterNeto"
+        Me.NuCaracterNeto.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterNeto.TabIndex = 5
+        Me.NuCaracterNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterSalida
+        '
+        Me.NuCaracterSalida.Location = New System.Drawing.Point(445, 102)
+        Me.NuCaracterSalida.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterSalida.Name = "NuCaracterSalida"
+        Me.NuCaracterSalida.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterSalida.TabIndex = 5
+        Me.NuCaracterSalida.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionNeto
+        '
+        Me.NuPosicionNeto.Location = New System.Drawing.Point(829, 76)
+        Me.NuPosicionNeto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionNeto.Name = "NuPosicionNeto"
+        Me.NuPosicionNeto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionNeto.TabIndex = 5
+        Me.NuPosicionNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionSalida
+        '
+        Me.NuPosicionSalida.Location = New System.Drawing.Point(278, 102)
+        Me.NuPosicionSalida.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionSalida.Name = "NuPosicionSalida"
+        Me.NuPosicionSalida.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionSalida.TabIndex = 5
+        Me.NuPosicionSalida.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterTara
+        '
+        Me.NuCaracterTara.Location = New System.Drawing.Point(996, 50)
+        Me.NuCaracterTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterTara.Name = "NuCaracterTara"
+        Me.NuCaracterTara.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterTara.TabIndex = 5
+        Me.NuCaracterTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterEntrada
+        '
+        Me.NuCaracterEntrada.Location = New System.Drawing.Point(445, 76)
+        Me.NuCaracterEntrada.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterEntrada.Name = "NuCaracterEntrada"
+        Me.NuCaracterEntrada.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterEntrada.TabIndex = 5
+        Me.NuCaracterEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionTara
+        '
+        Me.NuPosicionTara.Location = New System.Drawing.Point(829, 50)
+        Me.NuPosicionTara.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionTara.Name = "NuPosicionTara"
+        Me.NuPosicionTara.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionTara.TabIndex = 5
+        Me.NuPosicionTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionEntrada
+        '
+        Me.NuPosicionEntrada.Location = New System.Drawing.Point(278, 76)
+        Me.NuPosicionEntrada.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionEntrada.Name = "NuPosicionEntrada"
+        Me.NuPosicionEntrada.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionEntrada.TabIndex = 5
+        Me.NuPosicionEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterBruto
+        '
+        Me.NuCaracterBruto.Location = New System.Drawing.Point(996, 23)
+        Me.NuCaracterBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterBruto.Name = "NuCaracterBruto"
+        Me.NuCaracterBruto.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterBruto.TabIndex = 5
+        Me.NuCaracterBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterId
+        '
+        Me.NuCaracterId.Location = New System.Drawing.Point(445, 24)
+        Me.NuCaracterId.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterId.Name = "NuCaracterId"
+        Me.NuCaracterId.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterId.TabIndex = 5
+        Me.NuCaracterId.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionBruto
+        '
+        Me.NuPosicionBruto.Location = New System.Drawing.Point(829, 23)
+        Me.NuPosicionBruto.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionBruto.Name = "NuPosicionBruto"
+        Me.NuPosicionBruto.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionBruto.TabIndex = 5
+        Me.NuPosicionBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuPosicionID
+        '
+        Me.NuPosicionID.Location = New System.Drawing.Point(278, 24)
+        Me.NuPosicionID.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionID.Name = "NuPosicionID"
+        Me.NuPosicionID.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionID.TabIndex = 5
+        Me.NuPosicionID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(9, 26)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(68, 13)
+        Me.Label21.TabIndex = 3
+        Me.Label21.Text = "Indicador ID:"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.Location = New System.Drawing.Point(770, 78)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(53, 13)
+        Me.Label34.TabIndex = 3
+        Me.Label34.Text = "Posicion :"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(770, 52)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(53, 13)
+        Me.Label33.TabIndex = 3
+        Me.Label33.Text = "Posicion :"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(219, 104)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(53, 13)
+        Me.Label26.TabIndex = 3
+        Me.Label26.Text = "Posicion :"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(770, 26)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(53, 13)
+        Me.Label32.TabIndex = 3
+        Me.Label32.Text = "Posicion :"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(219, 78)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(53, 13)
+        Me.Label25.TabIndex = 3
+        Me.Label25.Text = "Posicion :"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(219, 27)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(53, 13)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Posicion :"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(9, 104)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(86, 13)
+        Me.Label20.TabIndex = 3
+        Me.Label20.Text = "Indicador Salida:"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(546, 74)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(80, 13)
+        Me.Label24.TabIndex = 3
+        Me.Label24.Text = "Indicador Neto:"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(546, 52)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(79, 13)
+        Me.Label23.TabIndex = 3
+        Me.Label23.Text = "Indicador Tara:"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(897, 78)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(93, 13)
+        Me.Label31.TabIndex = 3
+        Me.Label31.Text = "No de Caracteres:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(546, 26)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(109, 13)
+        Me.Label22.TabIndex = 3
+        Me.Label22.Text = "Indicador Peso Bruto:"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(897, 52)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(93, 13)
+        Me.Label30.TabIndex = 3
+        Me.Label30.Text = "No de Caracteres:"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.Location = New System.Drawing.Point(346, 103)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(93, 13)
+        Me.Label28.TabIndex = 3
+        Me.Label28.Text = "No de Caracteres:"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.Location = New System.Drawing.Point(897, 26)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(93, 13)
+        Me.Label29.TabIndex = 3
+        Me.Label29.Text = "No de Caracteres:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.Location = New System.Drawing.Point(346, 78)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(93, 13)
+        Me.Label27.TabIndex = 3
+        Me.Label27.Text = "No de Caracteres:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(346, 27)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(93, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "No de Caracteres:"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(9, 78)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(94, 13)
+        Me.Label19.TabIndex = 3
+        Me.Label19.Text = "Indicador Entrada:"
         '
         'GbPuerto
         '
@@ -425,7 +759,7 @@ Partial Class ConfiguracionParametros
         '
         Me.CbPuertosSeriales.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(99, 29)
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(122, 29)
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
         Me.CbPuertosSeriales.Size = New System.Drawing.Size(121, 21)
         Me.CbPuertosSeriales.TabIndex = 1
@@ -434,6 +768,7 @@ Partial Class ConfiguracionParametros
         '
         Me.GbDatosDolar.Controls.Add(Me.TbSitioBanxico)
         Me.GbDatosDolar.Controls.Add(Me.TbPalabraPosicion)
+        Me.GbDatosDolar.Controls.Add(Me.TbIdConfiguracionBanxico)
         Me.GbDatosDolar.Controls.Add(Me.TbIdSerieBanxico)
         Me.GbDatosDolar.Controls.Add(Me.Label17)
         Me.GbDatosDolar.Controls.Add(Me.Label16)
@@ -451,16 +786,23 @@ Partial Class ConfiguracionParametros
         Me.GbDatosDolar.TabStop = False
         Me.GbDatosDolar.Text = "Datos para captura automatica de precio del dolar"
         '
+        'TbSitioBanxico
+        '
+        Me.TbSitioBanxico.Location = New System.Drawing.Point(122, 20)
+        Me.TbSitioBanxico.Name = "TbSitioBanxico"
+        Me.TbSitioBanxico.Size = New System.Drawing.Size(581, 20)
+        Me.TbSitioBanxico.TabIndex = 6
+        '
         'TbPalabraPosicion
         '
-        Me.TbPalabraPosicion.Location = New System.Drawing.Point(122, 45)
+        Me.TbPalabraPosicion.Location = New System.Drawing.Point(122, 72)
         Me.TbPalabraPosicion.Name = "TbPalabraPosicion"
         Me.TbPalabraPosicion.Size = New System.Drawing.Size(105, 20)
         Me.TbPalabraPosicion.TabIndex = 6
         '
         'TbIdSerieBanxico
         '
-        Me.TbIdSerieBanxico.Location = New System.Drawing.Point(122, 19)
+        Me.TbIdSerieBanxico.Location = New System.Drawing.Point(122, 46)
         Me.TbIdSerieBanxico.Name = "TbIdSerieBanxico"
         Me.TbIdSerieBanxico.Size = New System.Drawing.Size(105, 20)
         Me.TbIdSerieBanxico.TabIndex = 6
@@ -469,7 +811,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(238, 22)
+        Me.Label17.Location = New System.Drawing.Point(238, 49)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(115, 13)
         Me.Label17.TabIndex = 3
@@ -479,7 +821,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(238, 48)
+        Me.Label16.Location = New System.Drawing.Point(238, 75)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(58, 13)
         Me.Label16.TabIndex = 3
@@ -487,7 +829,7 @@ Partial Class ConfiguracionParametros
         '
         'NuPosicion
         '
-        Me.NuPosicion.Location = New System.Drawing.Point(359, 20)
+        Me.NuPosicion.Location = New System.Drawing.Point(359, 47)
         Me.NuPosicion.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
         Me.NuPosicion.Name = "NuPosicion"
         Me.NuPosicion.Size = New System.Drawing.Size(62, 20)
@@ -498,7 +840,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(9, 74)
+        Me.Label18.Location = New System.Drawing.Point(9, 23)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(68, 13)
         Me.Label18.TabIndex = 3
@@ -508,7 +850,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(9, 48)
+        Me.Label14.Location = New System.Drawing.Point(9, 75)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(107, 13)
         Me.Label14.TabIndex = 3
@@ -518,7 +860,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(9, 22)
+        Me.Label15.Location = New System.Drawing.Point(9, 49)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(87, 13)
         Me.Label15.TabIndex = 3
@@ -526,7 +868,7 @@ Partial Class ConfiguracionParametros
         '
         'NuLongitud
         '
-        Me.NuLongitud.Location = New System.Drawing.Point(359, 46)
+        Me.NuLongitud.Location = New System.Drawing.Point(359, 73)
         Me.NuLongitud.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
         Me.NuLongitud.Name = "NuLongitud"
         Me.NuLongitud.Size = New System.Drawing.Size(62, 20)
@@ -536,7 +878,7 @@ Partial Class ConfiguracionParametros
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.TsNombrePc, Me.TsSeparador, Me.ToolStripStatusLabel2, Me.TsIpComputadora, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.TsIdConfiguracion, Me.TsIdConf})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 736)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 601)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1071, 22)
         Me.StatusStrip1.TabIndex = 1
@@ -608,18 +950,73 @@ Partial Class ConfiguracionParametros
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
-        'TbSitioBanxico
+        'TbIdConfiguracionBanxico
         '
-        Me.TbSitioBanxico.Location = New System.Drawing.Point(122, 71)
-        Me.TbSitioBanxico.Name = "TbSitioBanxico"
-        Me.TbSitioBanxico.Size = New System.Drawing.Size(581, 20)
-        Me.TbSitioBanxico.TabIndex = 6
+        Me.TbIdConfiguracionBanxico.Location = New System.Drawing.Point(954, 20)
+        Me.TbIdConfiguracionBanxico.Name = "TbIdConfiguracionBanxico"
+        Me.TbIdConfiguracionBanxico.Size = New System.Drawing.Size(105, 20)
+        Me.TbIdConfiguracionBanxico.TabIndex = 6
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(9, 52)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(92, 13)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Indicador Modulo:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(346, 52)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(93, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "No de Caracteres:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(219, 52)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 13)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "Posicion :"
+        '
+        'NuPosicionModulo
+        '
+        Me.NuPosicionModulo.Location = New System.Drawing.Point(278, 50)
+        Me.NuPosicionModulo.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuPosicionModulo.Name = "NuPosicionModulo"
+        Me.NuPosicionModulo.Size = New System.Drawing.Size(62, 20)
+        Me.NuPosicionModulo.TabIndex = 5
+        Me.NuPosicionModulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NuCaracterModulo
+        '
+        Me.NuCaracterModulo.Location = New System.Drawing.Point(445, 50)
+        Me.NuCaracterModulo.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCaracterModulo.Name = "NuCaracterModulo"
+        Me.NuCaracterModulo.Size = New System.Drawing.Size(62, 20)
+        Me.NuCaracterModulo.TabIndex = 5
+        Me.NuCaracterModulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TbIndicadorModulo
+        '
+        Me.TbIndicadorModulo.Location = New System.Drawing.Point(109, 49)
+        Me.TbIndicadorModulo.Name = "TbIndicadorModulo"
+        Me.TbIndicadorModulo.Size = New System.Drawing.Size(105, 20)
+        Me.TbIndicadorModulo.TabIndex = 6
         '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1071, 758)
+        Me.ClientSize = New System.Drawing.Size(1071, 623)
         Me.Controls.Add(Me.PanelParametrosBascula)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -632,22 +1029,26 @@ Partial Class ConfiguracionParametros
         Me.PanelParametrosBascula.ResumeLayout(False)
         Me.GbPesoPacas.ResumeLayout(False)
         Me.GbPesoPacas.PerformLayout()
-        CType(Me.NuInicialPacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCaracterPacas, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GbPesoProduccion.ResumeLayout(False)
-        Me.GbPesoProduccion.PerformLayout()
-        CType(Me.NuCaracterBoletaNeto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuInicialBoletaNeto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuInicialBoletaBruto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCaracterBoletaBruto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuInicialBoletaTara, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCaracterBoletaTara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasCaracterNeto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasPosicionNeto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasCaracterTara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasPosicionTara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasPosicionBruto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPacasCaracterBruto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbIdProduccion.ResumeLayout(False)
         Me.GbIdProduccion.PerformLayout()
-        CType(Me.NuCaracterTransporte, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuInicialTransporte, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCaracterModulo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuInicialModulo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterNeto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterSalida, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionNeto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionSalida, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterTara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterEntrada, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionTara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionEntrada, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterBruto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterId, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionBruto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPosicionID, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbPuerto.ResumeLayout(False)
         Me.GbPuerto.PerformLayout()
         Me.GbDatosDolar.ResumeLayout(False)
@@ -658,6 +1059,8 @@ Partial Class ConfiguracionParametros
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.NuPosicionModulo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuCaracterModulo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -671,34 +1074,13 @@ Partial Class ConfiguracionParametros
     Friend WithEvents TsIpComputadora As ToolStripStatusLabel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents GbPesoProduccion As GroupBox
     Friend WithEvents GbIdProduccion As GroupBox
     Friend WithEvents GbPuerto As GroupBox
     Friend WithEvents Label2 As Label
     Friend WithEvents CbPuertosSeriales As ComboBox
     Friend WithEvents GbPesoPacas As GroupBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents NuInicialPacas As NumericUpDown
-    Friend WithEvents NuCaracterPacas As NumericUpDown
-    Friend WithEvents NuCaracterBoletaNeto As NumericUpDown
-    Friend WithEvents NuInicialBoletaNeto As NumericUpDown
-    Friend WithEvents NuInicialBoletaBruto As NumericUpDown
-    Friend WithEvents NuCaracterBoletaBruto As NumericUpDown
-    Friend WithEvents NuInicialBoletaTara As NumericUpDown
-    Friend WithEvents NuCaracterBoletaTara As NumericUpDown
-    Friend WithEvents NuCaracterTransporte As NumericUpDown
-    Friend WithEvents NuInicialTransporte As NumericUpDown
-    Friend WithEvents NuCaracterModulo As NumericUpDown
-    Friend WithEvents NuInicialModulo As NumericUpDown
+    Friend WithEvents NuCaracterId As NumericUpDown
+    Friend WithEvents NuPosicionID As NumericUpDown
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
@@ -716,4 +1098,61 @@ Partial Class ConfiguracionParametros
     Friend WithEvents GbDatosDolar As GroupBox
     Friend WithEvents Label18 As Label
     Friend WithEvents TbSitioBanxico As TextBox
+    Friend WithEvents TbIndicadorSalida As TextBox
+    Friend WithEvents TbIndicadorEntrada As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents TbIndicadorID As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents TbIndicadorNeto As TextBox
+    Friend WithEvents TbIndicadorTara As TextBox
+    Friend WithEvents TbIndicadorBruto As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents NuCaracterSalida As NumericUpDown
+    Friend WithEvents NuPosicionSalida As NumericUpDown
+    Friend WithEvents NuCaracterEntrada As NumericUpDown
+    Friend WithEvents NuPosicionEntrada As NumericUpDown
+    Friend WithEvents NuCaracterNeto As NumericUpDown
+    Friend WithEvents NuPosicionNeto As NumericUpDown
+    Friend WithEvents NuCaracterTara As NumericUpDown
+    Friend WithEvents NuPosicionTara As NumericUpDown
+    Friend WithEvents NuCaracterBruto As NumericUpDown
+    Friend WithEvents NuPosicionBruto As NumericUpDown
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents TbPacasIndicadorNeto As TextBox
+    Friend WithEvents TbPacasIndicadorTara As TextBox
+    Friend WithEvents TbPacasIndicadorBruto As TextBox
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents NuPacasCaracterNeto As NumericUpDown
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label35 As Label
+    Friend WithEvents NuPacasPosicionNeto As NumericUpDown
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents NuPacasCaracterTara As NumericUpDown
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents NuPacasPosicionTara As NumericUpDown
+    Friend WithEvents Label41 As Label
+    Friend WithEvents NuPacasPosicionBruto As NumericUpDown
+    Friend WithEvents NuPacasCaracterBruto As NumericUpDown
+    Friend WithEvents TbIdConfiguracionBanxico As TextBox
+    Friend WithEvents TbIndicadorModulo As TextBox
+    Friend WithEvents NuCaracterModulo As NumericUpDown
+    Friend WithEvents NuPosicionModulo As NumericUpDown
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
 End Class

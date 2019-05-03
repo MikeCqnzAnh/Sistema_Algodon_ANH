@@ -97,9 +97,7 @@ Public Class MenuPrincipal
         Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
         Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
         Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.IdConfiguracion = 0
-        EntidadConfiguracionParametros.DireccionIP = GetNameHost()
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaExterna
         NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
         Tabla = EntidadConfiguracionParametros.TablaConsulta
         If Tabla.Rows.Count = 0 Then

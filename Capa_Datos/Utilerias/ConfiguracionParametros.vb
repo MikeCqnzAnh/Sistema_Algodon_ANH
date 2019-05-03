@@ -13,25 +13,42 @@ Public Class ConfiguracionParametros
             cmdGuardar.Parameters.Add(New SqlParameter("@NombrePC", EntidadConfiguracionParametros1.NombrePC))
             cmdGuardar.Parameters.Add(New SqlParameter("@DireccionIP", EntidadConfiguracionParametros1.DireccionIP))
             cmdGuardar.Parameters.Add(New SqlParameter("@NombrePuerto", EntidadConfiguracionParametros1.NombrePuerto))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialModulo", EntidadConfiguracionParametros1.InicialModulo))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterModulo", EntidadConfiguracionParametros1.NoCaracterModulo))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialTransporte", EntidadConfiguracionParametros1.InicialTransporte))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterTransporte", EntidadConfiguracionParametros1.NoCaracterTransporte))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialBoletasBruto", EntidadConfiguracionParametros1.InicialBoletasBruto))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterBoletasBruto", EntidadConfiguracionParametros1.NoCaracterBoletasBruto))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialBoletasTara", EntidadConfiguracionParametros1.InicialBoletasTara))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterBoletasTara", EntidadConfiguracionParametros1.NoCaracterBoletasTara))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialBoletasNeto", EntidadConfiguracionParametros1.InicialBoletasNeto))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracterBoletasNeto", EntidadConfiguracionParametros1.NoCaracterBoletasNeto))
-            cmdGuardar.Parameters.Add(New SqlParameter("@InicialPacas", EntidadConfiguracionParametros1.InicialPacas))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoCaracteresPacas", EntidadConfiguracionParametros1.NoCaracteresPacas))
-            cmdGuardar.Parameters.Add(New SqlParameter("@TextoCadenaPesoModulos", EntidadConfiguracionParametros1.TextoCadenaPesoModulos))
-            cmdGuardar.Parameters.Add(New SqlParameter("@TextoCadenaPesoPacas", EntidadConfiguracionParametros1.TextoCadenaPesoPacas))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionValorBanxico", EntidadConfiguracionParametros1.PosicionValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.LongitudValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.SitioBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorID", EntidadConfiguracionParametros1.IndicadorID))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorModulo", EntidadConfiguracionParametros1.IndicadorModulo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorEntrada", EntidadConfiguracionParametros1.IndicadorEntrada))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorSalida", EntidadConfiguracionParametros1.IndicadorSalida))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorBruto", EntidadConfiguracionParametros1.IndicadorPesoBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorTara", EntidadConfiguracionParametros1.IndicadorTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorNeto", EntidadConfiguracionParametros1.IndicadorNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorPacasBruto", EntidadConfiguracionParametros1.IndicadorPacasBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorPacasTara", EntidadConfiguracionParametros1.IndicadorPacasTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IndicadorPacasNeto", EntidadConfiguracionParametros1.IndicadorPacasNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionID", EntidadConfiguracionParametros1.PosicionID))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionModulo", EntidadConfiguracionParametros1.PosicionModulo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionEntrada", EntidadConfiguracionParametros1.PosicionEntradas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionSalida", EntidadConfiguracionParametros1.PosicionSalida))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionBruto", EntidadConfiguracionParametros1.PosicionBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionTara", EntidadConfiguracionParametros1.PosicionTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionNeto", EntidadConfiguracionParametros1.PosicionNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasPosicionBruto", EntidadConfiguracionParametros1.PosicionPacasBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasPosicionTara", EntidadConfiguracionParametros1.PosicionPacasTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasPosicionNeto", EntidadConfiguracionParametros1.PosicionPacasNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterID", EntidadConfiguracionParametros1.NoCaracterID))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterModulo", EntidadConfiguracionParametros1.NoCaracterModulo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterEntrada", EntidadConfiguracionParametros1.NoCaracterEntrada))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterSalida", EntidadConfiguracionParametros1.NoCaracterSalida))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterBruto", EntidadConfiguracionParametros1.NoCaracterBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterTara", EntidadConfiguracionParametros1.NoCaracterTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CaracterNeto", EntidadConfiguracionParametros1.NoCaracterNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterBruto", EntidadConfiguracionParametros1.NoCaracterPacasBruto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterTara", EntidadConfiguracionParametros1.NoCaracterPacasTara))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterNeto", EntidadConfiguracionParametros1.NoCaracterPacasNeto))
+
+            'cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@PosicionValorBanxico", EntidadConfiguracionParametros1.PosicionValorBanxico))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.LongitudValorBanxico))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.SitioBanxico))
             cmdGuardar.Parameters("@IdConfiguracion").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
             If EntidadConfiguracionParametros1.IdConfiguracion = 0 Then
@@ -43,7 +60,33 @@ Public Class ConfiguracionParametros
             EntidadConfiguracionParametros = EntidadConfiguracionParametros1
         End Try
     End Sub
+    Public Overridable Sub UpsertBanxico(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
+        Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros
+        EntidadConfiguracionParametros1 = EntidadConfiguracionParametros
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("Sp_InsertarConfiguracionBanxico", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@Idconfiguracionbanxico", EntidadConfiguracionParametros1.IdConfiguracion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionValorBanxico", EntidadConfiguracionParametros1.PosicionValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.LongitudValorBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@SitioBanxico", EntidadConfiguracionParametros1.SitioBanxico))
 
+            cmdGuardar.Parameters("@IdConfiguracionBanxico").Direction = ParameterDirection.InputOutput
+            cmdGuardar.ExecuteNonQuery()
+            If EntidadConfiguracionParametros1.IdConfiguracion = 0 Then
+                EntidadConfiguracionParametros1.IdConfiguracion = cmdGuardar.Parameters("@IdConfiguracionBanxico").Value
+            End If
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadConfiguracionParametros = EntidadConfiguracionParametros1
+        End Try
+    End Sub
     Public Overridable Sub Consultar(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
         Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros()
         EntidadConfiguracionParametros1 = EntidadConfiguracionParametros
@@ -67,6 +110,9 @@ Public Class ConfiguracionParametros
                     sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
                     sqldat1 = New SqlDataAdapter("Sp_obtieneNombreInstancia", cnn)
+                    sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaConfiguracionBanxico", cnn)
                     sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaMunicipioMovilizacion
                     '    sqlcom1 = New SqlCommand("sp_ConsultaMunicipiosMov", cnn)

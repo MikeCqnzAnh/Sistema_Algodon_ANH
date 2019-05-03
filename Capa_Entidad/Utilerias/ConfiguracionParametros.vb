@@ -4,18 +4,36 @@
     Public NombrePC As String
     Public DireccionIP As String
     Public NombrePuerto As String
-    Public InicialModulo As Integer
+    Public IndicadorID As String
+    Public IndicadorModulo As String
+    Public IndicadorEntrada As String
+    Public IndicadorSalida As String
+    Public IndicadorPesoBruto As String
+    Public IndicadorTara As String
+    Public IndicadorNeto As String
+    Public IndicadorPacasBruto As String
+    Public IndicadorPacasTara As String
+    Public IndicadorPacasNeto As String
+    Public PosicionID As Integer
+    Public PosicionModulo As Integer
+    Public PosicionEntradas As Integer
+    Public PosicionSalida As Integer
+    Public PosicionBruto As Integer
+    Public PosicionTara As Integer
+    Public PosicionNeto As Integer
+    Public PosicionPacasBruto As Integer
+    Public PosicionPacasTara As Integer
+    Public PosicionPacasNeto As Integer
+    Public NoCaracterID As Integer
     Public NoCaracterModulo As Integer
-    Public InicialTransporte As Integer
-    Public NoCaracterTransporte As Integer
-    Public InicialBoletasBruto As Integer
-    Public NoCaracterBoletasBruto As Integer
-    Public InicialBoletasTara As Integer
-    Public NoCaracterBoletasTara As Integer
-    Public InicialBoletasNeto As Integer
-    Public NoCaracterBoletasNeto As Integer
-    Public InicialPacas As Integer
-    Public NoCaracteresPacas As Integer
+    Public NoCaracterEntrada As Integer
+    Public NoCaracterSalida As Integer
+    Public NoCaracterBruto As Integer
+    Public NoCaracterTara As Integer
+    Public NoCaracterNeto As Integer
+    Public NoCaracterPacasBruto As Integer
+    Public NoCaracterPacasTara As Integer
+    Public NoCaracterPacasNeto As Integer
     Public NombreInstancia As String
     Public TextoCadenaPesoModulos As String
     Public TextoCadenaPesoPacas As String
