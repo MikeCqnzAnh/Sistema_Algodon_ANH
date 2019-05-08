@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
+Imports System.Text.RegularExpressions
 Public Class Compradores
     Private Sub Compradores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarCombos()
@@ -105,5 +106,56 @@ Public Class Compradores
         CbEstatus.ValueMember = "Id"
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedValue = 1
+    End Sub
+
+    Private Sub TbNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNombre.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbTelefono.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbRfc_Leave(sender As Object, e As EventArgs) Handles TbRfc.Leave
+        If TbRfc.Text <> String.Empty Or TbRfc.Text = String.Empty Then
+            If Regex.IsMatch(TbRfc.Text.Trim, "^([A-Z\s]{4})\d{6}([A-Z\w]{3})$") = False Then
+                MsgBox("El RFC No es Valido")
+                Me.TbRfc.Focus()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub TbCurp_Leave(sender As Object, e As EventArgs) Handles TbCurp.Leave
+        If TbCurp.Text <> String.Empty Or TbCurp.Text = String.Empty Then
+            If Regex.IsMatch(TbCurp.Text.Trim, "^[a-zA-Z]{4,4}[0-9]{6}[a-zA-Z]{6,6}[0-9]{2}$") = False Then
+                MsgBox("La CURP no es Valida")
+                Me.TbCurp.Focus()
+
+            End If
+        End If
+    End Sub
+
+
+
+    Private Sub TbCorreo_Leave(sender As Object, e As EventArgs) Handles TbCorreo.Leave
+        If TbCorreo.Text <> String.Empty Or TbCorreo.Text = String.Empty Then
+            If Regex.IsMatch(TbCorreo.Text.Trim, "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$") = False Then
+                MsgBox("Email no Valido")
+                Me.TbCorreo.Focus()
+            End If
+        End If
     End Sub
 End Class
