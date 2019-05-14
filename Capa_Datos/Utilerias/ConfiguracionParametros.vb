@@ -43,6 +43,7 @@ Public Class ConfiguracionParametros
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterBruto", EntidadConfiguracionParametros1.NoCaracterPacasBruto))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterTara", EntidadConfiguracionParametros1.NoCaracterPacasTara))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasCaracterNeto", EntidadConfiguracionParametros1.NoCaracterPacasNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PesoMinimoPaca", EntidadConfiguracionParametros1.PesoMinimoPaca))
 
             'cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
             'cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))

@@ -30,7 +30,7 @@ Partial Class Produccion
         Me.TbIdProduccion = New System.Windows.Forms.TextBox()
         Me.CbPlantaOrigen = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CBPlantaElabora = New System.Windows.Forms.ComboBox()
+        Me.CBPlantaDestino = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DtpFechaProduccion = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -82,6 +82,7 @@ Partial Class Produccion
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -156,14 +157,14 @@ Partial Class Produccion
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Planta Origen"
         '
-        'CBPlantaElabora
+        'CBPlantaDestino
         '
-        Me.CBPlantaElabora.Enabled = False
-        Me.CBPlantaElabora.FormattingEnabled = True
-        Me.CBPlantaElabora.Location = New System.Drawing.Point(130, 72)
-        Me.CBPlantaElabora.Name = "CBPlantaElabora"
-        Me.CBPlantaElabora.Size = New System.Drawing.Size(200, 21)
-        Me.CBPlantaElabora.TabIndex = 5
+        Me.CBPlantaDestino.Enabled = False
+        Me.CBPlantaDestino.FormattingEnabled = True
+        Me.CBPlantaDestino.Location = New System.Drawing.Point(130, 72)
+        Me.CBPlantaDestino.Name = "CBPlantaDestino"
+        Me.CBPlantaDestino.Size = New System.Drawing.Size(200, 21)
+        Me.CBPlantaDestino.TabIndex = 5
         '
         'Label3
         '
@@ -239,7 +240,7 @@ Partial Class Produccion
         Me.GbDatosGenerales.Controls.Add(Me.TbIdProduccion)
         Me.GbDatosGenerales.Controls.Add(Me.Label6)
         Me.GbDatosGenerales.Controls.Add(Me.Label2)
-        Me.GbDatosGenerales.Controls.Add(Me.CBPlantaElabora)
+        Me.GbDatosGenerales.Controls.Add(Me.CBPlantaDestino)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
         Me.GbDatosGenerales.Controls.Add(Me.Label3)
         Me.GbDatosGenerales.Controls.Add(Me.CbTipo)
@@ -619,6 +620,7 @@ Partial Class Produccion
         '
         'GbTipoCaptura
         '
+        Me.GbTipoCaptura.Controls.Add(Me.ComboBox1)
         Me.GbTipoCaptura.Controls.Add(Me.RbAutomatico)
         Me.GbTipoCaptura.Controls.Add(Me.RbManual)
         Me.GbTipoCaptura.Controls.Add(Me.Label24)
@@ -690,6 +692,14 @@ Partial Class Produccion
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(182, 24)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 67
+        '
         'Produccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -702,6 +712,7 @@ Partial Class Produccion
         Me.Name = "Produccion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Produccion"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
@@ -732,7 +743,7 @@ Partial Class Produccion
     Friend WithEvents TbIdProduccion As TextBox
     Friend WithEvents CbPlantaOrigen As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents CBPlantaElabora As ComboBox
+    Friend WithEvents CBPlantaDestino As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents DtpFechaProduccion As DateTimePicker
     Friend WithEvents Label4 As Label
@@ -784,4 +795,6 @@ Partial Class Produccion
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

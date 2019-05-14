@@ -65,6 +65,7 @@ Public Class CapturaBoletasPorLotes
     End Sub
     Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
         'While bandera = True
+        Dim Resultado As String = ""
         Dim NoTransporte, IdBoleta As Integer
         Dim Bruto, Tara, Neto As Double
         Dim TipoFlete As String = ""
@@ -86,25 +87,56 @@ Public Class CapturaBoletasPorLotes
             returnStr = "Error: Serial Port read timed out."
         Finally
         End Try
-        If returnStr.Contains("INBOUND") Then
-            NoTransporte = returnStr.Substring(3, 2)
-            IdBoleta = LTrim(returnStr.Substring(6, 5))
-            Bruto = LTrim(returnStr.Substring(20, 10))
+        If returnStr.Contains(IndicadorEntrada) Then
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
             Tara = 0
             Neto = 0
+
             FechaActualizacion = Now
-            TipoFlete = "INBOUND"
+            TipoFlete = IndicadorEntrada
             ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        ElseIf returnStr.Contains("RECALLED") Then
-            NoTransporte = returnStr.Substring(3, 2)
-            IdBoleta = LTrim(returnStr.Substring(6, 5))
-            Bruto = 0
-            Tara = LTrim(returnStr.Substring(48, 11))
-            Neto = LTrim(returnStr.Substring(68, 12))
+        ElseIf returnStr.Contains(IndicadorSalida) Then
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
+            Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
+            Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+
             FechaActualizacion = Now
-            TipoFlete = "RECALLED"
+            TipoFlete = IndicadorSalida
             ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
         End If
+        'If returnStr.Contains("INBOUND") Then
+        '    NoTransporte = returnStr.Substring(3, 2)
+        '    IdBoleta = LTrim(returnStr.Substring(6, 5))
+        '    Bruto = LTrim(returnStr.Substring(20, 10))
+        '    Tara = 0
+        '    Neto = 0
+        '    FechaActualizacion = Now
+        '    TipoFlete = "INBOUND"
+        '    ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+        'ElseIf returnStr.Contains("RECALLED") Then
+        '    NoTransporte = returnStr.Substring(3, 2)
+        '    IdBoleta = LTrim(returnStr.Substring(6, 5))
+        '    Bruto = 0
+        '    Tara = LTrim(returnStr.Substring(48, 11))
+        '    Neto = LTrim(returnStr.Substring(68, 12))
+        '    FechaActualizacion = Now
+        '    TipoFlete = "RECALLED"
+        '    ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+        'End If
     End Sub
     Private Sub propiedadesDgv()
         DgvModulos.Columns("IdPlanta").HeaderText = "ID Planta"
@@ -291,48 +323,48 @@ Public Class CapturaBoletasPorLotes
         strIPAddress = Dns.Resolve(strHostName).AddressList(0).ToString()
         Return strIPAddress
     End Function
-    Private Sub Btcadenaentrada_Click(sender As Object, e As EventArgs) Handles Btcadenaentrada.Click
-        Dim CadenaEntrada As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg INBOUND" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & "."
-        InsertaModulo(CadenaEntrada)
-    End Sub
-    Private Sub BtcadenaSalida_Click(sender As Object, e As EventArgs) Handles BtcadenaSalida.Click
-        Dim CadenaSalida As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg RECALLED" & vbCrLf & "TARE         80 kg" & vbCrLf & "NET           0 kg" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & vbCrLf & "."
-        InsertaModulo(CadenaSalida)
-    End Sub
-    Private Sub InsertaModulo(ByVal returnStr As String)
-        Dim Resultado As String
-        Dim NoTransporte, IdBoleta, Bruto, Tara, Neto, TipoFlete As Integer
-        Dim FechaActualizacion As DateTime
-        If returnStr.Contains(IndicadorEntrada) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+    'Private Sub Btcadenaentrada_Click(sender As Object, e As EventArgs) Handles Btcadenaentrada.Click
+    '    Dim CadenaEntrada As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg INBOUND" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & "."
+    '    InsertaModulo(CadenaEntrada)
+    'End Sub
+    'Private Sub BtcadenaSalida_Click(sender As Object, e As EventArgs) Handles BtcadenaSalida.Click
+    '    Dim CadenaSalida As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg RECALLED" & vbCrLf & "TARE         80 kg" & vbCrLf & "NET           0 kg" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & vbCrLf & "."
+    '    InsertaModulo(CadenaSalida)
+    'End Sub
+    'Private Sub InsertaModulo(ByVal returnStr As String)
+    '    Dim Resultado As String
+    '    Dim NoTransporte, IdBoleta, Bruto, Tara, Neto, TipoFlete As Integer
+    '    Dim FechaActualizacion As DateTime
+    '    If returnStr.Contains(IndicadorEntrada) Then
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+    '        NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+    '        IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
-            Tara = 0
-            Neto = 0
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+    '        Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+    '        Tara = 0
+    '        Neto = 0
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorEntrada
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        ElseIf returnStr.Contains(IndicadorSalida) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+    '        FechaActualizacion = Now
+    '        TipoFlete = IndicadorEntrada
+    '        ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+    '    ElseIf returnStr.Contains(IndicadorSalida) Then
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+    '        NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+    '        IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+    '        Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
-            Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
+    '        Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
-            Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+    '        Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
+    '        Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorSalida
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        End If
-    End Sub
+    '        FechaActualizacion = Now
+    '        TipoFlete = IndicadorSalida
+    '        ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+    '    End If
+    'End Sub
 End Class

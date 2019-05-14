@@ -33,6 +33,7 @@ create procedure Sp_InsertaConfiguracionParametros
 	,@PacasCaracterBruto	[int]
 	,@PacasCaracterTara	[int]
 	,@PacasCaracterNeto	[int]
+	,@PesoMinimoPaca [int]
 
 as
 begin
@@ -71,7 +72,8 @@ using (select @IdConfiguracion
 			,@CaracterNeto
 			,@PacasCaracterBruto
 			,@PacasCaracterTara
-			,@PacasCaracterNeto) 
+			,@PacasCaracterNeto
+			,@PesoMinimoPaca) 
 		as source 
 			(IdConfiguracion
 			,NombrePC
@@ -107,6 +109,7 @@ using (select @IdConfiguracion
 			,PacasCaracterBruto
 			,PacasCaracterTara
 			,PacasCaracterNeto
+			,PesoMinimoPaca
 )
 ON (target.IdConfiguracion = source.IdConfiguracion)
 WHEN MATCHED THEN
@@ -143,6 +146,7 @@ UPDATE SET   NombrePC =	source.NombrePC
 			,PacasCaracterBruto = source.PacasCaracterBruto
 			,PacasCaracterTara = source.PacasCaracterTara
 			,PacasCaracterNeto = source.PacasCaracterNeto
+			,PesoMinimoPaca = source.PesoMinimoPaca
 
 WHEN NOT MATCHED THEN
 INSERT (NombrePC
@@ -178,6 +182,7 @@ INSERT (NombrePC
 		,PacasCaracterBruto
 		,PacasCaracterTara
 		,PacasCaracterNeto
+		,PesoMinimoPaca
 )
 VALUES (source.NombrePC
        ,source.DireccionIP
@@ -212,6 +217,7 @@ VALUES (source.NombrePC
 		,source.PacasCaracterBruto
 		,source.PacasCaracterTara
 		,source.PacasCaracterNeto
+		,source.PesoMinimoPaca
 );
 		SET @IdConfiguracion = SCOPE_IDENTITY()
 END

@@ -1,30 +1,36 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports System.IO.Ports
+Imports System.Net
 Public Class Produccion
+    Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
+    Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
     Dim UltimaSecuencia As Integer
     Dim IdProduccionDetalle As Integer = 0
     Dim FolioCIAReturn As Integer = 0
+    Dim Puerto As String
+    Dim com1 As IO.Ports.SerialPort = Nothing
+    Dim bandera As Boolean = True
+    Dim Salir As Boolean 'True sale del bucle, false sigue
     Private Sub Produccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
+        ConsultaParametros()
         Limpiar()
         TbIdOrdenTrabajo.Select()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
-
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
 
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub Limpiar()
         TbIdProduccion.Text = ""
         TbIdOrdenTrabajo.Text = ""
         CbPlantaOrigen.SelectedValue = 1
-        CBPlantaElabora.SelectedValue = 1
+        CBPlantaDestino.SelectedValue = 1
         CbTipo.SelectedValue = 1
         TbIdProductor.Text = ""
         TbNombreProductor.Text = ""
@@ -39,6 +45,44 @@ Public Class Produccion
         DeshabilitarControles()
         GbTipoCaptura.Enabled = False
         RbManual.Checked = True
+    End Sub
+    Sub Setup_Puerto_Serie()
+        Try
+            With SpCapturaAuto
+                If .IsOpen Then
+
+                    .Close()
+
+                End If
+                .PortName = CbPuertosSeriales.Text
+
+                .BaudRate = 9600 '// 9600 baud rate
+
+                .DataBits = 8 '// 8 data bits
+
+                .StopBits = IO.Ports.StopBits.One '// 1 Stop bit
+
+                .Parity = IO.Ports.Parity.None '
+
+                .DtrEnable = False
+
+                .Handshake = IO.Ports.Handshake.None
+
+                .ReadBufferSize = 4096
+
+                .WriteBufferSize = 2048
+
+                '.ReceivedBytesThreshold = 1
+
+                .WriteTimeout = 500
+
+                .Encoding = System.Text.Encoding.Default
+
+                .Open() ' ABRE EL PUERTO SERIE
+            End With
+        Catch ex As Exception
+            MsgBox("Error al abrir el puerto serial: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
     Private Sub CargarCombos()
         '---Planta Origen--
@@ -57,10 +101,10 @@ Public Class Produccion
         EntidadProduccion.Consulta = Consulta.ConsultaExterna
         NegocioProduccion.Consultar(EntidadProduccion)
         Tabla2 = EntidadProduccion.TablaConsulta
-        CBPlantaElabora.DataSource = Tabla2
-        CBPlantaElabora.ValueMember = "IdPlanta"
-        CBPlantaElabora.DisplayMember = "Descripcion"
-        CBPlantaElabora.SelectedValue = 1
+        CBPlantaDestino.DataSource = Tabla2
+        CBPlantaDestino.ValueMember = "IdPlanta"
+        CBPlantaDestino.DisplayMember = "Descripcion"
+        CBPlantaDestino.SelectedValue = 1
         '--Tipo--    
         Dim dt As DataTable = New DataTable("Tabla")
         dt.Columns.Add("Id")
@@ -118,7 +162,6 @@ Public Class Produccion
         CbTipoProducto.DisplayMember = "Descripcion"
         CbTipoProducto.SelectedValue = 1
     End Sub
-
     Private Sub TbIdOrdenTrabajo_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdOrdenTrabajo.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
@@ -134,7 +177,7 @@ Public Class Produccion
                         MsgBox("La orden de trabajo no existe...")
                         Exit Sub
                     Else
-                        CBPlantaElabora.SelectedValue = Tabla.Rows(0).Item("IdPlantaElabora")
+                        CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
                         TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
                         TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
                         TbModulos.Text = Tabla.Rows(0).Item("Modulos")
@@ -160,7 +203,7 @@ Public Class Produccion
             Case Keys.Enter
                 If TbIdOrdenTrabajo.Text <> "" Then
                     If TbKilos.Text <> "" Or TbFolioCIA.Text <> "" Then
-                        If ConsultarPacaExistente(TbFolioCIA.Text, CBPlantaElabora.SelectedValue) = 1 Then
+                        If ConsultarPacaExistente(TbFolioCIA.Text, CBPlantaDestino.SelectedValue) = 1 Then
                             'MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                             'TbKilos.Text = ""
                             'ActualizarUltimaEtiqueta()
@@ -333,6 +376,8 @@ Public Class Produccion
                                 EntidadProduccion.LargoFibra = 0
                                 EntidadProduccion.ResistenciaFibra = 0
                                 NegocioProduccion.GuardarDetalle(EntidadProduccion)
+                                TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
+                                UpsertFolioInicial(TbFolioCIA.Text)
                                 ActualizarUltimaEtiqueta()
                                 Consultar()
                                 TbFolioCIA.Text = ""
@@ -354,7 +399,7 @@ Public Class Produccion
             MsgBox("Ingrese un folio inicial", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             Exit Sub
         Else
-            UpsertFolioInicial()
+            UpsertFolioInicial(TbFolioInicial.Text)
         End If
         If TbIdProduccion.Text = "" And TbIdOrdenTrabajo.Text <> "" Then
             Dim opc = MessageBox.Show("¿Desea abrir la produccion con esta orden de trabajo?", "", MessageBoxButtons.YesNo)
@@ -364,7 +409,7 @@ Public Class Produccion
                 EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
                 EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
                 EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                EntidadProduccion.IdPlantaDestino = CBPlantaElabora.SelectedValue
+                EntidadProduccion.IdPlantaDestino = CBPlantaDestino.SelectedValue
                 EntidadProduccion.Fecha = DtpFechaProduccion.Value
                 EntidadProduccion.Tipo = CbTipo.Text
                 EntidadProduccion.IdCliente = TbIdProductor.Text
@@ -430,6 +475,8 @@ Public Class Produccion
 
     Private Sub PropiedadesDGV()
         DgvPacas.Columns("IdProduccionDetalle").Visible = False
+        DgvPacas.Columns("IdPlantaOrigen").Visible = False
+        DgvPacas.Columns("IdOrdenTrabajo").Visible = False
     End Sub
     Private Sub ConsultarProduccionPorOrden()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -444,12 +491,12 @@ Public Class Produccion
         Else
             TbIdProduccion.Text = Tabla.Rows(0).Item("IdProduccion")
             CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
-            CBPlantaElabora.SelectedValue = Tabla.Rows(0).Item("IdPlantaDestino")
+            CBPlantaDestino.SelectedValue = Tabla.Rows(0).Item("IdPlantaDestino")
             DtpFechaProduccion.Value = Tabla.Rows(0).Item("Fecha")
             CbTipo.Text = Tabla.Rows(0).Item("Tipo")
             TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
             TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
-            TbFolioInicial.Text = Tabla.Rows(0).Item("FolioInicial")
+            TbFolioInicial.Text = Tabla.Rows(0).Item("Secuencia")
         End If
     End Sub
 
@@ -538,12 +585,12 @@ Public Class Produccion
         End If
     End Sub
 
-    Private Sub UpsertFolioInicial()
+    Private Sub UpsertFolioInicial(ByVal Folio As String)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
         EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-        EntidadProduccion.FolioInicial = Val(TbFolioInicial.Text)
+        EntidadProduccion.FolioInicial = Val(Folio)
         NegocioProduccion.UpsertFolioInicial(EntidadProduccion)
     End Sub
     '--------------------------------------------------------------
@@ -557,7 +604,7 @@ Public Class Produccion
             UltimaSecuencia = Val(TbFolioInicial.Text)
         End If
         TbFolioCIA.Text = UltimaSecuencia
-        If ConsultarPacaExistente(TbFolioCIA.Text, CBPlantaElabora.SelectedValue) = 1 Then
+        If ConsultarPacaExistente(TbFolioCIA.Text, CBPlantaDestino.SelectedValue) = 1 Then
             MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             Dim EntidadProduccion As New Capa_Entidad.Produccion
             Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -692,7 +739,38 @@ Public Class Produccion
             TbKilos.Text = ""
         End If
     End Sub
+    Private Sub ConsultaParametros()
+        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        Dim Tabla As New DataTable
+        EntidadConfiguracionParametros.IdConfiguracion = 0
+        EntidadConfiguracionParametros.DireccionIP = GetNameHost()
+        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        Tabla = EntidadConfiguracionParametros.TablaConsulta
+        If Tabla.Rows.Count = 0 Then
+            Exit Sub
+        End If
+        NombrePuerto = Tabla.Rows(0).Item("NombrePuerto")
+        PesoMinimoPaca = Tabla.Rows(0).Item("PesoMinimoPaca")
+        IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorPacasBruto")
+        IndicadorTara = Tabla.Rows(0).Item("IndicadorPacasTara")
+        IndicadorNeto = Tabla.Rows(0).Item("IndicadorPacasNeto")
+        PosicionPesoBruto = Tabla.Rows(0).Item("PacasPosicionBruto")
+        PosicionTara = Tabla.Rows(0).Item("PacasPosicionTara")
+        PosicionNeto = Tabla.Rows(0).Item("PacasPosicionNeto")
+        CaracterPesoBruto = Tabla.Rows(0).Item("PacasCaracterBruto")
+        CaracterTara = Tabla.Rows(0).Item("PacasCaracterTara")
+        CaracterNeto = Tabla.Rows(0).Item("PacasCaracterNeto")
+    End Sub
+    Private Function GetNameHost()
+        Dim strHostName As String
+        Dim strIPAddress As String
+        strHostName = Dns.GetHostName()
+        strIPAddress = Dns.Resolve(strHostName).AddressList(0).ToString()
+        Return strIPAddress
+    End Function
     Private Sub BtActualizarFolio_Click(sender As Object, e As EventArgs) Handles BtActualizarFolio.Click
-        UpsertFolioInicial()
+        UpsertFolioInicial(TbFolioInicial.Text)
     End Sub
 End Class

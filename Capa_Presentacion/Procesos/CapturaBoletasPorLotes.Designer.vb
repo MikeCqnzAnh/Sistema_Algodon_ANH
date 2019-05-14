@@ -94,6 +94,7 @@ Partial Class CapturaBoletasPorLotes
         Me.BtcadenaSalida.TabIndex = 65
         Me.BtcadenaSalida.Text = "Leer cadena salida"
         Me.BtcadenaSalida.UseVisualStyleBackColor = True
+        Me.BtcadenaSalida.Visible = False
         '
         'Btcadenaentrada
         '
@@ -103,6 +104,7 @@ Partial Class CapturaBoletasPorLotes
         Me.Btcadenaentrada.TabIndex = 65
         Me.Btcadenaentrada.Text = "Leer cadena entrada"
         Me.Btcadenaentrada.UseVisualStyleBackColor = True
+        Me.Btcadenaentrada.Visible = False
         '
         'LbStatus
         '

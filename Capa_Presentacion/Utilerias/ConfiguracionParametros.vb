@@ -68,6 +68,7 @@ Public Class ConfiguracionParametros
         TbPalabraPosicion.Text = ""
         NuPosicion.Value = 0
         NuLongitud.Value = 0
+        NuPesoMinimoPaca.Value = 0
     End Sub
     Private Sub GetNameHost()
         Dim strHostName As String
@@ -118,7 +119,7 @@ Public Class ConfiguracionParametros
         EntidadConfiguracionParametros.NoCaracterPacasBruto = NuPacasCaracterBruto.Value
         EntidadConfiguracionParametros.NoCaracterPacasTara = NuPacasCaracterTara.Value
         EntidadConfiguracionParametros.NoCaracterPacasNeto = NuPacasCaracterNeto.Value
-        'EntidadConfiguracionParametros.TextoCadenaPesoModulos = NuInicialBoletaTara.Value
+        EntidadConfiguracionParametros.PesoMinimoPaca = NuPesoMinimoPaca.Value
         'EntidadConfiguracionParametros.TextoCadenaPesoPacas = NuCaracterBoletaTara.Value
         'EntidadConfiguracionParametros.IdSerieBanxico = TbIdSerieBanxico.Text
         'EntidadConfiguracionParametros.CampoValorBanxico = TbPalabraPosicion.Text
@@ -207,6 +208,7 @@ Public Class ConfiguracionParametros
         NuPacasCaracterBruto.Value = Tabla.Rows(0).Item("PacasCaracterBruto")
         NuPacasCaracterTara.Value = Tabla.Rows(0).Item("PacasCaracterTara")
         NuPacasCaracterNeto.Value = Tabla.Rows(0).Item("PacasCaracterNeto")
+        NuPesoMinimoPaca.Value = Tabla.Rows(0).Item("PesoMinimoPaca")
     End Sub
 
 End Class

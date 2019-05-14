@@ -36,5 +36,6 @@ SELECT [IdConfiguracion]
       ,[PacasCaracterBruto]
       ,[PacasCaracterTara]
       ,[PacasCaracterNeto]
+	  ,[PesoMinimoPaca]
 FROM CONFIGURACIONPARAMETROS
 WHERE DireccionIP = @DireccionIP or idconfiguracion = @IdConfiguracion

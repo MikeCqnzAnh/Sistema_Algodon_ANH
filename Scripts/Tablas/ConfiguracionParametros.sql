@@ -4,6 +4,7 @@ CREATE TABLE [dbo].[ConfiguracionParametros](
 	,[DireccionIP] [varchar](15) NULL
 	,[NombrePuerto] [varchar](6) NULL
 	,[IndicadorID]	[varchar](10)
+	,[IndicadorModulo] [varchar](5)
 	,[IndicadorEntrada]	[varchar](10)
 	,[IndicadorSalida]	[varchar](10)
 	,[IndicadorBruto]	[varchar](10)
@@ -13,6 +14,7 @@ CREATE TABLE [dbo].[ConfiguracionParametros](
 	,[IndicadorPacasTara]	[varchar](10)
 	,[IndicadorPacasNeto]	[varchar](10)
 	,[PosicionID]	[int]
+	,[PosicionModulo] [int]
 	,[PosicionEntrada]	[int]
 	,[PosicionSalida]	[int]
 	,[PosicionBruto]	[int]
@@ -22,6 +24,7 @@ CREATE TABLE [dbo].[ConfiguracionParametros](
 	,[PacasPosicionTara]	[int]
 	,[PacasPosicionNeto]	[int]
 	,[CaracterID]	[int]
+	,[CaracterModulo] [int]
 	,[CaracterEntrada]	[int]
 	,[CaracterSalida]	[int]
 	,[CaracterBruto]	[int]
@@ -30,4 +33,5 @@ CREATE TABLE [dbo].[ConfiguracionParametros](
 	,[PacasCaracterBruto]	[int]
 	,[PacasCaracterTara]	[int]
 	,[PacasCaracterNeto]	[int]
+	,[PesoMinimoPaca] [int]
 	)

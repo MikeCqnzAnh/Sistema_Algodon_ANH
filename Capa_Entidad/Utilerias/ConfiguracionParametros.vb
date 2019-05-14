@@ -37,6 +37,7 @@
     Public NombreInstancia As String
     Public TextoCadenaPesoModulos As String
     Public TextoCadenaPesoPacas As String
+    Public PesoMinimoPaca As Integer
     Public IdSerieBanxico As String
     Public CampoValorBanxico As String
     Public PosicionValorBanxico As Integer
