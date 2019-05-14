@@ -171,6 +171,7 @@ Partial Class Compradores
         '
         'TbCurp
         '
+        Me.TbCurp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCurp.Location = New System.Drawing.Point(107, 98)
         Me.TbCurp.Name = "TbCurp"
         Me.TbCurp.Size = New System.Drawing.Size(169, 20)
@@ -178,6 +179,7 @@ Partial Class Compradores
         '
         'TbRfc
         '
+        Me.TbRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRfc.Location = New System.Drawing.Point(107, 71)
         Me.TbRfc.Name = "TbRfc"
         Me.TbRfc.Size = New System.Drawing.Size(169, 20)
@@ -185,6 +187,7 @@ Partial Class Compradores
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(107, 44)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(236, 20)

@@ -116,6 +116,7 @@ Partial Class Maquinaria
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDescripcion.Location = New System.Drawing.Point(124, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(149, 20)

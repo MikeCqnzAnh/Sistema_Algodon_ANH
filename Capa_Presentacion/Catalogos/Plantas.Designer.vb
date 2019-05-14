@@ -52,6 +52,7 @@ Partial Class Plantas
         '
         'TbIdPlanta
         '
+        Me.TbIdPlanta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbIdPlanta.Enabled = False
         Me.TbIdPlanta.Location = New System.Drawing.Point(124, 19)
         Me.TbIdPlanta.Name = "TbIdPlanta"
@@ -60,6 +61,7 @@ Partial Class Plantas
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDescripcion.Location = New System.Drawing.Point(124, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(149, 20)
@@ -67,6 +69,7 @@ Partial Class Plantas
         '
         'TbRegistro
         '
+        Me.TbRegistro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRegistro.Location = New System.Drawing.Point(124, 71)
         Me.TbRegistro.Name = "TbRegistro"
         Me.TbRegistro.Size = New System.Drawing.Size(100, 20)

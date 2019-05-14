@@ -108,6 +108,7 @@ Partial Class TiposIncidencias
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDescripcion.Location = New System.Drawing.Point(115, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(208, 20)
