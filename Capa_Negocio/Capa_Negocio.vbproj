@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.vb" />
+    <Compile Include="Almacenes\ExistenciaBodegaPacas.vb" />
+    <Compile Include="Catalogos\Almacenes.vb" />
     <Compile Include="Catalogos\Asociaciones.vb" />
     <Compile Include="Catalogos\Camiones.vb" />
     <Compile Include="Catalogos\CastigoLargoFibra.vb" />
@@ -96,11 +98,11 @@
     <Compile Include="Catalogos\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb" />
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacas.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacasContrato.vb" />
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\ConsultaCastigos.vb" />
-    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb" />
+    <Compile Include="Comercializacion\Clasificacion\PaquetesHVI.vb" />
     <Compile Include="Comercializacion\ContratosAlgodon.vb" />
     <Compile Include="Comercializacion\ContratosAlgodonCompradores.vb" />
     <Compile Include="Comercializacion\ContratoSemillas.vb" />
@@ -168,7 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administracion\" />
-    <Folder Include="Almacenes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

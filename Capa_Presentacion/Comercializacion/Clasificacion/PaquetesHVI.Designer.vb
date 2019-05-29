@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ClasificacionPacasExcel
+Partial Class PaquetesHVI
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -27,27 +27,30 @@ Partial Class ClasificacionPacasExcel
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbEstatus = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TbRuta = New System.Windows.Forms.TextBox()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TbPaquete = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DtpFecha = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbIdClasificacionPaquete = New System.Windows.Forms.TextBox()
-        Me.DgvClasificacionPacasExcel = New System.Windows.Forms.DataGridView()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CbClases = New System.Windows.Forms.ComboBox()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CbPlanta = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TbIdPaqueteHVI = New System.Windows.Forms.TextBox()
+        Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
-        CType(Me.DgvClasificacionPacasExcel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(952, 24)
@@ -73,33 +76,53 @@ Partial Class ClasificacionPacasExcel
         '
         'GbDatosGenerales
         '
-        Me.GbDatosGenerales.Controls.Add(Me.CbClases)
-        Me.GbDatosGenerales.Controls.Add(Me.Label2)
+        Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
+        Me.GbDatosGenerales.Controls.Add(Me.Label5)
         Me.GbDatosGenerales.Controls.Add(Me.TbRuta)
         Me.GbDatosGenerales.Controls.Add(Me.BtSeleccionar)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.TbPaquete)
         Me.GbDatosGenerales.Controls.Add(Me.Label3)
         Me.GbDatosGenerales.Controls.Add(Me.DtpFecha)
+        Me.GbDatosGenerales.Controls.Add(Me.Label2)
+        Me.GbDatosGenerales.Controls.Add(Me.CbPlanta)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
-        Me.GbDatosGenerales.Controls.Add(Me.TbIdClasificacionPaquete)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Controls.Add(Me.TbIdPaqueteHVI)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(928, 138)
-        Me.GbDatosGenerales.TabIndex = 2
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(952, 159)
+        Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'CbEstatus
+        '
+        Me.CbEstatus.FormattingEnabled = True
+        Me.CbEstatus.Location = New System.Drawing.Point(271, 98)
+        Me.CbEstatus.Name = "CbEstatus"
+        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
+        Me.CbEstatus.TabIndex = 11
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(223, 101)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(42, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Estatus"
+        '
         'TbRuta
         '
-        Me.TbRuta.Location = New System.Drawing.Point(117, 99)
+        Me.TbRuta.Location = New System.Drawing.Point(117, 126)
         Me.TbRuta.Name = "TbRuta"
         Me.TbRuta.Size = New System.Drawing.Size(805, 20)
         Me.TbRuta.TabIndex = 9
         '
         'BtSeleccionar
         '
-        Me.BtSeleccionar.Location = New System.Drawing.Point(9, 97)
+        Me.BtSeleccionar.Location = New System.Drawing.Point(9, 124)
         Me.BtSeleccionar.Name = "BtSeleccionar"
         Me.BtSeleccionar.Size = New System.Drawing.Size(75, 23)
         Me.BtSeleccionar.TabIndex = 8
@@ -109,7 +132,7 @@ Partial Class ClasificacionPacasExcel
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 74)
+        Me.Label4.Location = New System.Drawing.Point(6, 101)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(47, 13)
         Me.Label4.TabIndex = 7
@@ -117,7 +140,7 @@ Partial Class ClasificacionPacasExcel
         '
         'TbPaquete
         '
-        Me.TbPaquete.Location = New System.Drawing.Point(117, 71)
+        Me.TbPaquete.Location = New System.Drawing.Point(117, 98)
         Me.TbPaquete.Name = "TbPaquete"
         Me.TbPaquete.Size = New System.Drawing.Size(100, 20)
         Me.TbPaquete.TabIndex = 6
@@ -125,7 +148,7 @@ Partial Class ClasificacionPacasExcel
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 51)
+        Me.Label3.Location = New System.Drawing.Point(6, 78)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 5
@@ -133,10 +156,27 @@ Partial Class ClasificacionPacasExcel
         '
         'DtpFecha
         '
-        Me.DtpFecha.Location = New System.Drawing.Point(117, 45)
+        Me.DtpFecha.Location = New System.Drawing.Point(117, 72)
         Me.DtpFecha.Name = "DtpFecha"
         Me.DtpFecha.Size = New System.Drawing.Size(200, 20)
         Me.DtpFecha.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 48)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(37, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Planta"
+        '
+        'CbPlanta
+        '
+        Me.CbPlanta.FormattingEnabled = True
+        Me.CbPlanta.Location = New System.Drawing.Point(117, 45)
+        Me.CbPlanta.Name = "CbPlanta"
+        Me.CbPlanta.Size = New System.Drawing.Size(200, 21)
+        Me.CbPlanta.TabIndex = 2
         '
         'Label1
         '
@@ -147,88 +187,80 @@ Partial Class ClasificacionPacasExcel
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "ID"
         '
-        'TbIdClasificacionPaquete
+        'TbIdPaqueteHVI
         '
-        Me.TbIdClasificacionPaquete.Enabled = False
-        Me.TbIdClasificacionPaquete.Location = New System.Drawing.Point(117, 19)
-        Me.TbIdClasificacionPaquete.Name = "TbIdClasificacionPaquete"
-        Me.TbIdClasificacionPaquete.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdClasificacionPaquete.TabIndex = 0
+        Me.TbIdPaqueteHVI.Enabled = False
+        Me.TbIdPaqueteHVI.Location = New System.Drawing.Point(117, 19)
+        Me.TbIdPaqueteHVI.Name = "TbIdPaqueteHVI"
+        Me.TbIdPaqueteHVI.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdPaqueteHVI.TabIndex = 0
         '
-        'DgvClasificacionPacasExcel
+        'DgvPaquetesHVI
         '
-        Me.DgvClasificacionPacasExcel.AllowUserToAddRows = False
-        Me.DgvClasificacionPacasExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvClasificacionPacasExcel.Location = New System.Drawing.Point(12, 171)
-        Me.DgvClasificacionPacasExcel.Name = "DgvClasificacionPacasExcel"
-        Me.DgvClasificacionPacasExcel.Size = New System.Drawing.Size(928, 417)
-        Me.DgvClasificacionPacasExcel.TabIndex = 3
+        Me.DgvPaquetesHVI.AllowUserToAddRows = False
+        Me.DgvPaquetesHVI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPaquetesHVI.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvPaquetesHVI.Location = New System.Drawing.Point(0, 0)
+        Me.DgvPaquetesHVI.Name = "DgvPaquetesHVI"
+        Me.DgvPaquetesHVI.ReadOnly = True
+        Me.DgvPaquetesHVI.Size = New System.Drawing.Size(952, 417)
+        Me.DgvPaquetesHVI.TabIndex = 2
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Label2
+        'Panel1
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(339, 16)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(33, 13)
-        Me.Label2.TabIndex = 10
-        Me.Label2.Text = "Clase"
+        Me.Panel1.Controls.Add(Me.DgvPaquetesHVI)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 183)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(952, 417)
+        Me.Panel1.TabIndex = 3
         '
-        'CbClases
-        '
-        Me.CbClases.FormattingEnabled = True
-        Me.CbClases.Location = New System.Drawing.Point(384, 13)
-        Me.CbClases.Name = "CbClases"
-        Me.CbClases.Size = New System.Drawing.Size(121, 21)
-        Me.CbClases.TabIndex = 11
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
-        '
-        'ClasificacionPacasExcel
+        'PaquetesHVI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(952, 600)
-        Me.Controls.Add(Me.DgvClasificacionPacasExcel)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.MainMenuStrip = Me.MSMenu
-        Me.Name = "ClasificacionPacasExcel"
+        Me.Name = "PaquetesHVI"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Clasificacion de Pacas (Excel)"
+        Me.Text = "Paquetes HVI"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
-        CType(Me.DgvClasificacionPacasExcel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MSMenu As MenuStrip
-    Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GbDatosGenerales As GroupBox
-    Friend WithEvents TbRuta As TextBox
+    Friend WithEvents MSMenu As System.Windows.Forms.MenuStrip
+    Friend WithEvents NuevoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GuardarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GbDatosGenerales As System.Windows.Forms.GroupBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TbIdPaqueteHVI As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents TbPaquete As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents DtpFecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents CbPlanta As System.Windows.Forms.ComboBox
     Friend WithEvents BtSeleccionar As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TbPaquete As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents DtpFecha As DateTimePicker
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TbIdClasificacionPaquete As TextBox
-    Friend WithEvents DgvClasificacionPacasExcel As DataGridView
+    Friend WithEvents TbRuta As TextBox
+    Friend WithEvents DgvPaquetesHVI As DataGridView
+    Friend WithEvents Label5 As Label
+    Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents CbClases As ComboBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel1 As Panel
 End Class

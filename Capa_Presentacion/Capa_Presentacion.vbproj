@@ -133,6 +133,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Almacenes\ExistenciaBodegaPacas.Designer.vb">
+      <DependentUpon>ExistenciaBodegaPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\ExistenciaBodegaPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Almacenes\SalidaBasura.Designer.vb">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
     </Compile>
@@ -161,6 +167,12 @@
       <DependentUpon>CambiarClave.vb</DependentUpon>
     </Compile>
     <Compile Include="CambiarClave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Almacenes.Designer.vb">
+      <DependentUpon>Almacenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Almacenes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\Asociaciones.Designer.vb">
@@ -296,6 +308,12 @@
     <Compile Include="Catalogos\Tierras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Catalogos\TipoAlmacen.Designer.vb">
+      <DependentUpon>TipoAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoAlmacen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalogos\TiposIncidencias.Designer.vb">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
     </Compile>
@@ -326,16 +344,16 @@
     <Compile Include="Comercializacion\Compras\AltaPacas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasCertificado.Designer.vb">
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasCertificado.Designer.vb">
       <DependentUpon>ClasificacionPacasCertificado.vb</DependentUpon>
     </Compile>
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasCertificado.vb">
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasCertificado.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.Designer.vb">
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.Designer.vb">
       <DependentUpon>ClasificacionPacasExcel.vb</DependentUpon>
     </Compile>
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb">
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comercializacion\Compras\CompraPacas.Designer.vb">
@@ -386,10 +404,10 @@
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\ModalidadCompra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comercializacion\Compras\PaquetesHVI.Designer.vb">
+    <Compile Include="Comercializacion\Clasificacion\PaquetesHVI.Designer.vb">
       <DependentUpon>PaquetesHVI.vb</DependentUpon>
     </Compile>
-    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb">
+    <Compile Include="Comercializacion\Clasificacion\PaquetesHVI.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comercializacion\ContratosAlgodon.Designer.vb">
@@ -624,6 +642,12 @@
     <Compile Include="Utilerias\Monedas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\Respaldos.Designer.vb">
+      <DependentUpon>Respaldos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\Respaldos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\RutaDocumentos.Designer.vb">
       <DependentUpon>RutaDocumentos.vb</DependentUpon>
     </Compile>
@@ -649,6 +673,9 @@
       <DependentUpon>Acceso.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\ExistenciaBodegaPacas.resx">
+      <DependentUpon>ExistenciaBodegaPacas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaBasura.resx">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -664,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarClave.resx">
       <DependentUpon>CambiarClave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\Almacenes.resx">
+      <DependentUpon>Almacenes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Asociaciones.resx">
       <DependentUpon>Asociaciones.vb</DependentUpon>
@@ -731,6 +761,9 @@
     <EmbeddedResource Include="Catalogos\Tierras.resx">
       <DependentUpon>Tierras.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\TipoAlmacen.resx">
+      <DependentUpon>TipoAlmacen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
     </EmbeddedResource>
@@ -746,10 +779,10 @@
     <EmbeddedResource Include="Comercializacion\Compras\AltaPacas.resx">
       <DependentUpon>AltaPacas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Comercializacion\Compras\ClasificacionPacasCertificado.resx">
+    <EmbeddedResource Include="Comercializacion\Clasificacion\ClasificacionPacasCertificado.resx">
       <DependentUpon>ClasificacionPacasCertificado.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Comercializacion\Compras\ClasificacionPacasExcel.resx">
+    <EmbeddedResource Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.resx">
       <DependentUpon>ClasificacionPacasExcel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Compras\CompraPacas.resx">
@@ -776,7 +809,7 @@
     <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\ModalidadCompra.resx">
       <DependentUpon>ModalidadCompra.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Comercializacion\Compras\PaquetesHVI.resx">
+    <EmbeddedResource Include="Comercializacion\Clasificacion\PaquetesHVI.resx">
       <DependentUpon>PaquetesHVI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\ContratosAlgodon.resx">
@@ -895,6 +928,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Monedas.resx">
       <DependentUpon>Monedas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\Respaldos.resx">
+      <DependentUpon>Respaldos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\RutaDocumentos.resx">
       <DependentUpon>RutaDocumentos.vb</DependentUpon>

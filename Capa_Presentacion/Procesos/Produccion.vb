@@ -12,13 +12,16 @@ Public Class Produccion
     Dim bandera As Boolean = True
     Dim Salir As Boolean 'True sale del bucle, false sigue
     Private Sub Produccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Limpiar()
         CargarCombos()
         ConsultaParametros()
-        Limpiar()
         TbIdOrdenTrabajo.Select()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
+        CargarCombos()
+        ConsultaParametros()
+        TbIdOrdenTrabajo.Select()
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
 
@@ -29,6 +32,7 @@ Public Class Produccion
     Private Sub Limpiar()
         TbIdProduccion.Text = ""
         TbIdOrdenTrabajo.Text = ""
+        TbPuertoSerial.Text = ""
         CbPlantaOrigen.SelectedValue = 1
         CBPlantaDestino.SelectedValue = 1
         CbTipo.SelectedValue = 1
@@ -54,7 +58,7 @@ Public Class Produccion
                     .Close()
 
                 End If
-                .PortName = CbPuertosSeriales.Text
+                .PortName = TbPuertoSerial.Text
 
                 .BaudRate = 9600 '// 9600 baud rate
 
@@ -514,6 +518,7 @@ Public Class Produccion
         EntidadProduccion.Consulta = Consulta.ConsultaPacaExistente
         EntidadProduccion.FolioCIA = IIf(RbAutomatico.Checked = True, Val(TbFolioInicial.Text), Val(TbFolioCIA.Text))
         EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+        EntidadProduccion.IdProduccion = TbIdProduccion.Text
         NegocioProduccion.Consultar(EntidadProduccion)
         Tabla = EntidadProduccion.TablaConsulta
         If Tabla.Rows(0).Item("Resultado") = 1 Then
@@ -751,7 +756,7 @@ Public Class Produccion
         If Tabla.Rows.Count = 0 Then
             Exit Sub
         End If
-        NombrePuerto = Tabla.Rows(0).Item("NombrePuerto")
+        TbPuertoSerial.Text = Tabla.Rows(0).Item("NombrePuerto")
         PesoMinimoPaca = Tabla.Rows(0).Item("PesoMinimoPaca")
         IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorPacasBruto")
         IndicadorTara = Tabla.Rows(0).Item("IndicadorPacasTara")

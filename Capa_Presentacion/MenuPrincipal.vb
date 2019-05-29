@@ -286,9 +286,8 @@ Public Class MenuPrincipal
     Private Sub LiquidacionFinalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiquidacionFinalToolStripMenuItem.Click
         LiquidacionFinal.ShowDialog()
     End Sub
-    Private Sub SeleccionaBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaBaseDeDatosToolStripMenuItem.Click
-        SeleccionaConexion.ShowDialog()
-        SbBdd.Text = _BaseDeDatos
+    Private Sub SeleccionaBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
     Private Sub CrearEstructuraToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem1.Click
         CrearEstructura.ShowDialog()
@@ -302,13 +301,69 @@ Public Class MenuPrincipal
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
         Bitacora.ShowDialog()
     End Sub
+    Private Sub SeleccionaConexionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaConexionToolStripMenuItem.Click
+        SeleccionaConexion.ShowDialog()
+        SbBdd.Text = _BaseDeDatos
+    End Sub
+    Private Sub ConexionInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem.Click
+        ConfiguraConexionInicial.ShowDialog()
+    End Sub
+    Private Sub ContratosDeSemillaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeSemillaToolStripMenuItem1.Click
+        ContratoSemillas.ShowDialog()
+    End Sub
+
+    Private Sub LotesDetalleConMódulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub LotesDetalleConMódulosSegundaFormaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub LotesDetalleConMódulosTerceraFormaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub PacasPorClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorClienteToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub PacasEnGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasEnGeneralToolStripMenuItem.Click
+
+    End Sub
+    Private Sub PacasDetalleYAgrupadoPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasDetalleYAgrupadoPorClaseToolStripMenuItem.Click
+
+    End Sub
+    Private Sub RecapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecapToolStripMenuItem.Click
+
+    End Sub
+    Private Sub ReporteDeComprasYVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeComprasYVentasToolStripMenuItem.Click
+
+    End Sub
+    Private Sub AsignarCompradoresAPaquetesHVIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarCompradoresAPaquetesHVIToolStripMenuItem.Click
+
+    End Sub
+    Private Sub RespaldosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldosToolStripMenuItem.Click
+        Respaldos.ShowDialog()
+    End Sub
+    Private Sub ExistenciaEnBodegaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaEnBodegaToolStripMenuItem.Click
+        ExistenciaBodegaPacas.ShowDialog()
+    End Sub
+
+    Private Sub AlmacenesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AlmacenesToolStripMenuItem1.Click
+        Almacenes.ShowDialog()
+    End Sub
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub
-    Private Sub ConfiguracionConexionInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionConexionInicialToolStripMenuItem.Click
+    Private Sub ConfiguracionConexionInicialToolStripMenuItem_Click(sender As Object, e As EventArgs)
         ConfiguraConexionInicial.ShowDialog()
     End Sub
 End Class

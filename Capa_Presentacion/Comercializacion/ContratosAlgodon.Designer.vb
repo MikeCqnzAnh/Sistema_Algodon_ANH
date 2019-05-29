@@ -142,9 +142,10 @@ Partial Class ContratosAlgodon
         Me.GbDatosGenerales.Controls.Add(Me.Label2)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdContratoAlgodon)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1170, 208)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1194, 208)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -598,15 +599,16 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvContratoAlgodon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvContratoAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvContratoAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvContratoAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(12, 241)
+        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 232)
         Me.DgvContratoAlgodon.MultiSelect = False
         Me.DgvContratoAlgodon.Name = "DgvContratoAlgodon"
         Me.DgvContratoAlgodon.ReadOnly = True
         Me.DgvContratoAlgodon.RowHeadersVisible = False
         Me.DgvContratoAlgodon.RowHeadersWidth = 40
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1170, 340)
+        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
         'ContratosAlgodon
@@ -621,6 +623,7 @@ Partial Class ContratosAlgodon
         Me.Name = "ContratosAlgodon"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Contratos de Algodon (Compras)"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
@@ -659,7 +662,6 @@ Partial Class ContratosAlgodon
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TbIdContratoAlgodon As System.Windows.Forms.TextBox
-    Friend WithEvents DgvContratoAlgodon As DataGridView
     Friend WithEvents Label12 As Label
     Friend WithEvents TbTemporada As TextBox
     Friend WithEvents Label13 As Label
@@ -689,4 +691,5 @@ Partial Class ContratosAlgodon
     Friend WithEvents BtGenerar As Button
     Friend WithEvents Label23 As Label
     Friend WithEvents TbO As TextBox
+    Friend WithEvents DgvContratoAlgodon As DataGridView
 End Class

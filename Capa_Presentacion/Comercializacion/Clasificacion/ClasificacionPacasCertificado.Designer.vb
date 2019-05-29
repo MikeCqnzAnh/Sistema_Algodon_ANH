@@ -40,12 +40,12 @@ Partial Class ClasificacionPacasCertificado
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.DgvClasificacionPacasCertificado = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
@@ -200,51 +200,13 @@ Partial Class ClasificacionPacasCertificado
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.Label2)
         Me.GbDatosGenerales.Controls.Add(Me.Label3)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(805, 181)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(829, 181)
         Me.GbDatosGenerales.TabIndex = 13
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(332, 19)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox7.TabIndex = 13
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(247, 22)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 13)
-        Me.Label7.TabIndex = 14
-        Me.Label7.Text = "Clasificacion"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(332, 45)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox8.TabIndex = 15
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(247, 48)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 13)
-        Me.Label8.TabIndex = 16
-        Me.Label8.Text = "Micros"
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(332, 71)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox9.TabIndex = 17
         '
         'Label9
         '
@@ -255,12 +217,52 @@ Partial Class ClasificacionPacasCertificado
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Castigo"
         '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(332, 71)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox9.TabIndex = 17
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(247, 48)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Micros"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(332, 45)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox8.TabIndex = 15
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(247, 22)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(66, 13)
+        Me.Label7.TabIndex = 14
+        Me.Label7.Text = "Clasificacion"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(332, 19)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox7.TabIndex = 13
+        '
         'DgvClasificacionPacasCertificado
         '
         Me.DgvClasificacionPacasCertificado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvClasificacionPacasCertificado.Location = New System.Drawing.Point(12, 214)
+        Me.DgvClasificacionPacasCertificado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvClasificacionPacasCertificado.Location = New System.Drawing.Point(0, 205)
         Me.DgvClasificacionPacasCertificado.Name = "DgvClasificacionPacasCertificado"
-        Me.DgvClasificacionPacasCertificado.Size = New System.Drawing.Size(805, 398)
+        Me.DgvClasificacionPacasCertificado.Size = New System.Drawing.Size(829, 419)
         Me.DgvClasificacionPacasCertificado.TabIndex = 14
         '
         'ClasificacionPacasCertificado
@@ -274,6 +276,7 @@ Partial Class ClasificacionPacasCertificado
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "ClasificacionPacasCertificado"
         Me.Text = "Clasificacion de Pacas con Certificado"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

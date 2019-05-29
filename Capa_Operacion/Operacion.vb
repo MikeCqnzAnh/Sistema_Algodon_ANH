@@ -122,6 +122,7 @@ Namespace Configuracion
         ConsultaUsuario = 55
         ConsultaFechaTipoCambio = 56
         ConsultaTipoDeCambio = 57
+        ConsultaAlmacen = 58
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -132,6 +133,8 @@ Namespace Configuracion
     Public Enum Actuliza
         ActualizaIdPaca = 1
         ActualizaSeleccion = 2
+        ActualizaTipoAlmacen = 3
+        ActualizaAlmacen = 4
     End Enum
     Public Enum Importa
         ImportaTabla = 1

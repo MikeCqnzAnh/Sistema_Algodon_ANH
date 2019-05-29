@@ -251,9 +251,10 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.Controls.Add(Me.TextBox3)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1186, 160)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1205, 160)
         Me.GbDatosGenerales.TabIndex = 19
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -267,15 +268,16 @@ Partial Class SalidaPacas
         Me.DgvCapturaLotes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvCapturaLotes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvCapturaLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCapturaLotes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCapturaLotes.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCapturaLotes.Location = New System.Drawing.Point(12, 193)
+        Me.DgvCapturaLotes.Location = New System.Drawing.Point(0, 184)
         Me.DgvCapturaLotes.MultiSelect = False
         Me.DgvCapturaLotes.Name = "DgvCapturaLotes"
         Me.DgvCapturaLotes.ReadOnly = True
         Me.DgvCapturaLotes.RowHeadersVisible = False
         Me.DgvCapturaLotes.RowHeadersWidth = 40
         Me.DgvCapturaLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1186, 372)
+        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1205, 395)
         Me.DgvCapturaLotes.TabIndex = 20
         '
         'SalidaPacas
@@ -290,6 +292,7 @@ Partial Class SalidaPacas
         Me.Name = "SalidaPacas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Salida de Pacas"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

@@ -75,12 +75,14 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbComentarios = New System.Windows.Forms.GroupBox()
         Me.GbModulos = New System.Windows.Forms.GroupBox()
         Me.DgvModulos = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbResumen.SuspendLayout()
         Me.GbComentarios.SuspendLayout()
         Me.GbModulos.SuspendLayout()
         CType(Me.DgvModulos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -88,7 +90,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1400, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1538, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -143,9 +145,10 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbDatosGenerales.Controls.Add(Me.TbIdOrden)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.CbPlanta)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(429, 220)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(534, 226)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -302,9 +305,10 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbResumen.Controls.Add(Me.TbTotalMerma)
         Me.GbResumen.Controls.Add(Me.TbTotalPluma)
         Me.GbResumen.Controls.Add(Me.TbTotalSemilla)
-        Me.GbResumen.Location = New System.Drawing.Point(447, 27)
+        Me.GbResumen.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbResumen.Location = New System.Drawing.Point(534, 0)
         Me.GbResumen.Name = "GbResumen"
-        Me.GbResumen.Size = New System.Drawing.Size(408, 220)
+        Me.GbResumen.Size = New System.Drawing.Size(468, 226)
         Me.GbResumen.TabIndex = 2
         Me.GbResumen.TabStop = False
         Me.GbResumen.Text = "Resumen"
@@ -340,7 +344,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(293, 130)
+        Me.Label16.Location = New System.Drawing.Point(322, 130)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(31, 13)
         Me.Label16.TabIndex = 13
@@ -349,7 +353,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(379, 130)
+        Me.Label20.Location = New System.Drawing.Point(408, 130)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(15, 13)
         Me.Label20.TabIndex = 16
@@ -358,7 +362,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(379, 104)
+        Me.Label19.Location = New System.Drawing.Point(408, 104)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(15, 13)
         Me.Label19.TabIndex = 16
@@ -367,7 +371,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeTotal
         '
         Me.TbPorcentajeTotal.Enabled = False
-        Me.TbPorcentajeTotal.Location = New System.Drawing.Point(330, 127)
+        Me.TbPorcentajeTotal.Location = New System.Drawing.Point(359, 127)
         Me.TbPorcentajeTotal.Name = "TbPorcentajeTotal"
         Me.TbPorcentajeTotal.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeTotal.TabIndex = 9
@@ -385,7 +389,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(379, 78)
+        Me.Label18.Location = New System.Drawing.Point(408, 78)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(15, 13)
         Me.Label18.TabIndex = 15
@@ -396,14 +400,14 @@ Partial Class LiquidacionesPorRomaneaje
         Me.TbTotalHueso.Enabled = False
         Me.TbTotalHueso.Location = New System.Drawing.Point(264, 23)
         Me.TbTotalHueso.Name = "TbTotalHueso"
-        Me.TbTotalHueso.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalHueso.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalHueso.TabIndex = 3
         Me.TbTotalHueso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(379, 52)
+        Me.Label17.Location = New System.Drawing.Point(408, 52)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(15, 13)
         Me.Label17.TabIndex = 14
@@ -475,7 +479,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeMerma
         '
         Me.TbPorcentajeMerma.Enabled = False
-        Me.TbPorcentajeMerma.Location = New System.Drawing.Point(330, 101)
+        Me.TbPorcentajeMerma.Location = New System.Drawing.Point(359, 101)
         Me.TbPorcentajeMerma.Name = "TbPorcentajeMerma"
         Me.TbPorcentajeMerma.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeMerma.TabIndex = 8
@@ -493,7 +497,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeSemilla
         '
         Me.TbPorcentajeSemilla.Enabled = False
-        Me.TbPorcentajeSemilla.Location = New System.Drawing.Point(330, 75)
+        Me.TbPorcentajeSemilla.Location = New System.Drawing.Point(359, 75)
         Me.TbPorcentajeSemilla.Name = "TbPorcentajeSemilla"
         Me.TbPorcentajeSemilla.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeSemilla.TabIndex = 7
@@ -511,7 +515,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajePluma
         '
         Me.TbPorcentajePluma.Enabled = False
-        Me.TbPorcentajePluma.Location = New System.Drawing.Point(330, 49)
+        Me.TbPorcentajePluma.Location = New System.Drawing.Point(359, 49)
         Me.TbPorcentajePluma.Name = "TbPorcentajePluma"
         Me.TbPorcentajePluma.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajePluma.TabIndex = 6
@@ -522,7 +526,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.TbTotalMerma.Enabled = False
         Me.TbTotalMerma.Location = New System.Drawing.Point(264, 101)
         Me.TbTotalMerma.Name = "TbTotalMerma"
-        Me.TbTotalMerma.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalMerma.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalMerma.TabIndex = 5
         Me.TbTotalMerma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -531,7 +535,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.TbTotalPluma.Enabled = False
         Me.TbTotalPluma.Location = New System.Drawing.Point(264, 49)
         Me.TbTotalPluma.Name = "TbTotalPluma"
-        Me.TbTotalPluma.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalPluma.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalPluma.TabIndex = 3
         Me.TbTotalPluma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -540,24 +544,26 @@ Partial Class LiquidacionesPorRomaneaje
         Me.TbTotalSemilla.Enabled = False
         Me.TbTotalSemilla.Location = New System.Drawing.Point(264, 75)
         Me.TbTotalSemilla.Name = "TbTotalSemilla"
-        Me.TbTotalSemilla.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalSemilla.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalSemilla.TabIndex = 4
         Me.TbTotalSemilla.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbComentarios
         '
-        Me.TbComentarios.Location = New System.Drawing.Point(9, 19)
+        Me.TbComentarios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TbComentarios.Location = New System.Drawing.Point(3, 16)
         Me.TbComentarios.Multiline = True
         Me.TbComentarios.Name = "TbComentarios"
-        Me.TbComentarios.Size = New System.Drawing.Size(828, 215)
+        Me.TbComentarios.Size = New System.Drawing.Size(1002, 165)
         Me.TbComentarios.TabIndex = 3
         '
         'GbComentarios
         '
         Me.GbComentarios.Controls.Add(Me.TbComentarios)
-        Me.GbComentarios.Location = New System.Drawing.Point(12, 253)
+        Me.GbComentarios.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GbComentarios.Location = New System.Drawing.Point(0, 226)
         Me.GbComentarios.Name = "GbComentarios"
-        Me.GbComentarios.Size = New System.Drawing.Size(843, 252)
+        Me.GbComentarios.Size = New System.Drawing.Size(1008, 184)
         Me.GbComentarios.TabIndex = 4
         Me.GbComentarios.TabStop = False
         Me.GbComentarios.Text = "Comentarios"
@@ -565,9 +571,10 @@ Partial Class LiquidacionesPorRomaneaje
         'GbModulos
         '
         Me.GbModulos.Controls.Add(Me.DgvModulos)
-        Me.GbModulos.Location = New System.Drawing.Point(861, 27)
+        Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbModulos.Location = New System.Drawing.Point(1008, 24)
         Me.GbModulos.Name = "GbModulos"
-        Me.GbModulos.Size = New System.Drawing.Size(530, 478)
+        Me.GbModulos.Size = New System.Drawing.Size(530, 410)
         Me.GbModulos.TabIndex = 5
         Me.GbModulos.TabStop = False
         Me.GbModulos.Text = "Modulos"
@@ -581,31 +588,42 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvModulos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvModulos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvModulos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvModulos.Location = New System.Drawing.Point(6, 19)
+        Me.DgvModulos.Location = New System.Drawing.Point(3, 16)
         Me.DgvModulos.MultiSelect = False
         Me.DgvModulos.Name = "DgvModulos"
         Me.DgvModulos.ReadOnly = True
         Me.DgvModulos.RowHeadersVisible = False
         Me.DgvModulos.RowHeadersWidth = 40
         Me.DgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvModulos.Size = New System.Drawing.Size(518, 453)
+        Me.DgvModulos.Size = New System.Drawing.Size(524, 391)
         Me.DgvModulos.TabIndex = 30
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.GbResumen)
+        Me.Panel1.Controls.Add(Me.GbDatosGenerales)
+        Me.Panel1.Controls.Add(Me.GbComentarios)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 24)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1008, 410)
+        Me.Panel1.TabIndex = 6
         '
         'LiquidacionesPorRomaneaje
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1400, 517)
+        Me.ClientSize = New System.Drawing.Size(1538, 434)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GbModulos)
-        Me.Controls.Add(Me.GbComentarios)
-        Me.Controls.Add(Me.GbResumen)
-        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "LiquidacionesPorRomaneaje"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Liquidaciones Por Romaneaje"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
@@ -616,6 +634,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbComentarios.PerformLayout()
         Me.GbModulos.ResumeLayout(False)
         CType(Me.DgvModulos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -674,4 +693,5 @@ Partial Class LiquidacionesPorRomaneaje
     Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbTotalBoletas As TextBox
     Friend WithEvents LbTotalBoletas As Label
+    Friend WithEvents Panel1 As Panel
 End Class

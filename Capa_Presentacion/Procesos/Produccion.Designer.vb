@@ -82,7 +82,7 @@ Partial Class Produccion
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TbPuertoSerial = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -620,7 +620,7 @@ Partial Class Produccion
         '
         'GbTipoCaptura
         '
-        Me.GbTipoCaptura.Controls.Add(Me.ComboBox1)
+        Me.GbTipoCaptura.Controls.Add(Me.TbPuertoSerial)
         Me.GbTipoCaptura.Controls.Add(Me.RbAutomatico)
         Me.GbTipoCaptura.Controls.Add(Me.RbManual)
         Me.GbTipoCaptura.Controls.Add(Me.Label24)
@@ -692,13 +692,13 @@ Partial Class Produccion
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
-        'ComboBox1
+        'TbPuertoSerial
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(182, 24)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 67
+        Me.TbPuertoSerial.Location = New System.Drawing.Point(160, 21)
+        Me.TbPuertoSerial.Name = "TbPuertoSerial"
+        Me.TbPuertoSerial.ReadOnly = True
+        Me.TbPuertoSerial.Size = New System.Drawing.Size(143, 20)
+        Me.TbPuertoSerial.TabIndex = 68
         '
         'Produccion
         '
@@ -796,5 +796,5 @@ Partial Class Produccion
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents TbPuertoSerial As TextBox
 End Class

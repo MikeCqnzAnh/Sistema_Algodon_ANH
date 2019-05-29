@@ -197,6 +197,7 @@ Public Class Produccion
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadProduccion.FolioCIA))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadProduccion.IdPlantaOrigen))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion.IdProduccion))
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaSecuencia
                     sqlcom1 = New SqlCommand("sp_ConsultaSecuencia", cnn)

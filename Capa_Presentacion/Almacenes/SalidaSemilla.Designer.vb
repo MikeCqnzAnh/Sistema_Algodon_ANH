@@ -89,9 +89,10 @@ Partial Class SalidaSemilla
         Me.GbDatosGenerales.Controls.Add(Me.TextBox2)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.TextBox1)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(735, 156)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(759, 156)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -179,9 +180,10 @@ Partial Class SalidaSemilla
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 189)
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 180)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(735, 366)
+        Me.DataGridView1.Size = New System.Drawing.Size(759, 395)
         Me.DataGridView1.TabIndex = 2
         '
         'SalidaSemilla
@@ -196,6 +198,7 @@ Partial Class SalidaSemilla
         Me.Name = "SalidaSemilla"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Salida de Semilla"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

@@ -184,17 +184,22 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
-        TbTotalHueso.Text = Format(Tabla.Rows(0).Item("TotalHueso"), "##,##00.00")
-        TbTotalPluma.Text = Format(Tabla.Rows(0).Item("TotalPluma"), "##,##00.00")
-        TbPorcentajePluma.Text = Tabla.Rows(0).Item("PorcentajePluma")
-        TbPorcentajeSemilla.Text = Tabla.Rows(0).Item("PorcentajeSemilla")
-        TbTotalSemilla.Text = Format(Tabla.Rows(0).Item("TotalSemilla"), "##,##00.00")
-        TbPorcentajeMerma.Text = Tabla.Rows(0).Item("PorcentajeMerma")
-        TbTotalMerma.Text = Format(Tabla.Rows(0).Item("TotalMerma"), "##,##00.00")
-        TbPorcentajeTotal.Text = CInt((CInt(TbPorcentajeMerma.Text) + CInt(TbPorcentajePluma.Text) + CInt(TbPorcentajeSemilla.Text)))
-        TbNumPacas.Text = Tabla.Rows(0).Item("TotalPacas")
-        TbNumBorregos.Text = Tabla.Rows(0).Item("TotalBorregos")
-        TbBorregosPluma.Text = Format(Tabla.Rows(0).Item("TotalPlumaBorregos"), "##,##00.00")
+        Try
+            TbTotalHueso.Text = Format(Tabla.Rows(0).Item("TotalHueso"), "##,##00.00")
+            TbTotalPluma.Text = Format(Tabla.Rows(0).Item("TotalPluma"), "##,##00.00")
+            TbPorcentajePluma.Text = Tabla.Rows(0).Item("PorcentajePluma")
+            TbPorcentajeSemilla.Text = Tabla.Rows(0).Item("PorcentajeSemilla")
+            TbTotalSemilla.Text = Format(Tabla.Rows(0).Item("TotalSemilla"), "##,##00.00")
+            TbPorcentajeMerma.Text = Tabla.Rows(0).Item("PorcentajeMerma")
+            TbTotalMerma.Text = Format(Tabla.Rows(0).Item("TotalMerma"), "##,##00.00")
+            TbPorcentajeTotal.Text = CInt((CInt(TbPorcentajeMerma.Text) + CInt(TbPorcentajePluma.Text) + CInt(TbPorcentajeSemilla.Text)))
+            TbNumPacas.Text = Tabla.Rows(0).Item("TotalPacas")
+            TbNumBorregos.Text = Tabla.Rows(0).Item("TotalBorregos")
+            TbBorregosPluma.Text = Format(Tabla.Rows(0).Item("TotalPlumaBorregos"), "##,##00.00")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click

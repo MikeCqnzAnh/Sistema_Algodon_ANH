@@ -1,8 +1,8 @@
-alter procedure sp_ConsultaOrdenResumen
+create procedure sp_ConsultaOrdenResumen
 --declare
-@IdOrdenTrabajo int --= 2
+@IdOrdenTrabajo int 
 as
-if object_id('tempdb.. ##TablaTemp') > 0
+if object_id('tempdb..##TablaTemp') is not null
   begin
     drop table ##TablaTemp
   end
