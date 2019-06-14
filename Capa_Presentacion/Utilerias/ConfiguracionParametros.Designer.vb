@@ -115,6 +115,7 @@ Partial Class ConfiguracionParametros
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuPacasCaracterNeto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1025,7 +1026,7 @@ Partial Class ConfiguracionParametros
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1071, 24)
@@ -1043,6 +1044,12 @@ Partial Class ConfiguracionParametros
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'ModificarToolStripMenuItem
+        '
+        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.ModificarToolStripMenuItem.Text = "Modificar"
         '
         'ConfiguracionParametros
         '
@@ -1191,4 +1198,5 @@ Partial Class ConfiguracionParametros
     Friend WithEvents Label9 As Label
     Friend WithEvents NuPesoMinimoPaca As NumericUpDown
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificarToolStripMenuItem As ToolStripMenuItem
 End Class

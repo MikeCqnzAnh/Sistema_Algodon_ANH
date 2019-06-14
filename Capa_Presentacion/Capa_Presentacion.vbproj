@@ -320,10 +320,16 @@
     <Compile Include="Catalogos\TiposIncidencias.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalogos\Usuarios.Designer.vb">
+    <Compile Include="Utilerias\TiposUsuario.Designer.vb">
+      <DependentUpon>TiposUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\TiposUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilerias\Usuarios.Designer.vb">
       <DependentUpon>Usuarios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Catalogos\Usuarios.vb">
+    <Compile Include="Utilerias\Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\VariedadesAlgodon.Designer.vb">
@@ -494,6 +500,7 @@
     <Compile Include="Consultas\ConsultaTierrasChecks.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ExportaExcel.vb" />
     <Compile Include="MenuPrincipal.Designer.vb">
       <DependentUpon>MenuPrincipal.vb</DependentUpon>
     </Compile>
@@ -642,10 +649,22 @@
     <Compile Include="Utilerias\Monedas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\ProgramarRespaldos.Designer.vb">
+      <DependentUpon>ProgramarRespaldos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ProgramarRespaldos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\Respaldos.Designer.vb">
       <DependentUpon>Respaldos.vb</DependentUpon>
     </Compile>
     <Compile Include="Utilerias\Respaldos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilerias\RestaurarRespaldo.Designer.vb">
+      <DependentUpon>RestaurarRespaldo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\RestaurarRespaldo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilerias\RutaDocumentos.Designer.vb">
@@ -767,7 +786,10 @@
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Catalogos\Usuarios.resx">
+    <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
+      <DependentUpon>TiposUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\Usuarios.resx">
       <DependentUpon>Usuarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\VariedadesAlgodon.resx">
@@ -929,8 +951,14 @@
     <EmbeddedResource Include="Utilerias\Monedas.resx">
       <DependentUpon>Monedas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ProgramarRespaldos.resx">
+      <DependentUpon>ProgramarRespaldos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Respaldos.resx">
       <DependentUpon>Respaldos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\RestaurarRespaldo.resx">
+      <DependentUpon>RestaurarRespaldo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\RutaDocumentos.resx">
       <DependentUpon>RutaDocumentos.vb</DependentUpon>

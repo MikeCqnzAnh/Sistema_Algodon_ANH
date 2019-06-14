@@ -5,10 +5,10 @@ Public Class Empleados
     End Sub
 
     Private Sub Empleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Limpiar()
         CargarCombos()
         ConsultaEmpleados()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadEmpleados As New Capa_Entidad.Empleados
         Dim NegocioEmpleados As New Capa_Negocio.Empleados
@@ -19,22 +19,22 @@ Public Class Empleados
         EntidadEmpleados.IdUsuarioCreacion = 1
         EntidadEmpleados.FechaCreacion = Now
         NegocioEmpleados.Guardar(EntidadEmpleados)
-        TbIdEmpleado.Text = EntidadEmpleados.IdPuesto
+        TbIdEmpleado.Text = EntidadEmpleados.IdEmpleado
         MsgBox("Realizado Correctamente")
         ConsultaEmpleados()
     End Sub
-
+    Private Sub FormatoDGV()
+        DgvEmpleados.Columns("IdPuesto").Visible = False
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub Limpiar()
         TbIdEmpleado.Text = ""
         TbNombre.Text = ""
-        CbPuesto.SelectedValue = 1
-        CbEstatus.SelectedValue = 1
+        CbPuesto.SelectedIndex = -1
+        CbEstatus.SelectedIndex = -1
     End Sub
-
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
@@ -52,7 +52,7 @@ Public Class Empleados
         CbEstatus.DataSource = dt
         CbEstatus.ValueMember = "Id"
         CbEstatus.DisplayMember = "Descripcion"
-        CbEstatus.SelectedValue = 1
+        CbEstatus.SelectedIndex = -1
         '---------------------------COMBO PUESTO
         Dim EntidadEmpleados As New Capa_Entidad.Empleados
         Dim NegocioEmpleados As New Capa_Negocio.Empleados
@@ -62,7 +62,7 @@ Public Class Empleados
         CbPuesto.DataSource = EntidadEmpleados.TablaConsulta
         CbPuesto.ValueMember = "IdPuesto"
         CbPuesto.DisplayMember = "Descripcion"
-        CbPuesto.SelectedValue = 1
+        CbPuesto.SelectedIndex = -1
     End Sub
 
     Private Sub ConsultaEmpleados()
@@ -73,5 +73,15 @@ Public Class Empleados
         EntidadEmpleados.Consulta = Consulta.ConsultaDetallada
         NegocioEmpleados.Consultar(EntidadEmpleados)
         DgvEmpleados.DataSource = EntidadEmpleados.TablaConsulta
+        FormatoDGV()
+    End Sub
+
+    Private Sub DgvEmpleados_DoubleClick(sender As Object, e As EventArgs) Handles DgvEmpleados.DoubleClick
+        Dim index As Integer
+        index = DgvEmpleados.CurrentCell.RowIndex
+        TbIdEmpleado.Text = DgvEmpleados.Rows(index).Cells("IdEmpleado").Value
+        TbNombre.Text = DgvEmpleados.Rows(index).Cells("Nombre").Value
+        CbPuesto.SelectedValue = DgvEmpleados.Rows(index).Cells("IdPuesto").Value
+        CbEstatus.SelectedValue = DgvEmpleados.Rows(index).Cells("IdEstatus").Value
     End Sub
 End Class

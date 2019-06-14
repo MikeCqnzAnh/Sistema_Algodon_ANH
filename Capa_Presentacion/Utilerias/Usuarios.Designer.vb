@@ -38,10 +38,11 @@ Partial Class Usuarios
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TbBddActual = New System.Windows.Forms.TextBox()
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
-        Me.TbBddActual = New System.Windows.Forms.TextBox()
+        Me.TipoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,7 +118,7 @@ Partial Class Usuarios
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.TipoUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(790, 24)
@@ -181,6 +182,14 @@ Partial Class Usuarios
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "ID:"
         '
+        'TbBddActual
+        '
+        Me.TbBddActual.Enabled = False
+        Me.TbBddActual.Location = New System.Drawing.Point(366, 19)
+        Me.TbBddActual.Name = "TbBddActual"
+        Me.TbBddActual.Size = New System.Drawing.Size(98, 20)
+        Me.TbBddActual.TabIndex = 0
+        '
         'TbIdUsuario
         '
         Me.TbIdUsuario.Enabled = False
@@ -224,13 +233,11 @@ Partial Class Usuarios
         Me.DgvUsuarios.Size = New System.Drawing.Size(790, 318)
         Me.DgvUsuarios.TabIndex = 5
         '
-        'TbBddActual
+        'TipoUsuarioToolStripMenuItem
         '
-        Me.TbBddActual.Enabled = False
-        Me.TbBddActual.Location = New System.Drawing.Point(366, 19)
-        Me.TbBddActual.Name = "TbBddActual"
-        Me.TbBddActual.Size = New System.Drawing.Size(98, 20)
-        Me.TbBddActual.TabIndex = 0
+        Me.TipoUsuarioToolStripMenuItem.Name = "TipoUsuarioToolStripMenuItem"
+        Me.TipoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.TipoUsuarioToolStripMenuItem.Text = "Tipo Usuario"
         '
         'Usuarios
         '
@@ -273,4 +280,5 @@ Partial Class Usuarios
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents TbBddActual As TextBox
+    Friend WithEvents TipoUsuarioToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -378,6 +378,11 @@ Public Class CompraPacasContrato
         TbPacasMarc.Text = Contador
         TbKilosSeleccionados.Text = Kilos
     End Sub
+
+    Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
+
+    End Sub
+
     Private Sub CheckFalse()
         Dim Contador As Integer
         For Contador = 0 To DgvPacasComprar.RowCount - 1

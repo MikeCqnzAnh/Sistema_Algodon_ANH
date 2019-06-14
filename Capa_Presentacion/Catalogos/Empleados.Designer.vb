@@ -27,6 +27,7 @@ Partial Class Empleados
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbPuesto = New System.Windows.Forms.ComboBox()
         Me.LbID = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdEmpleado = New System.Windows.Forms.TextBox()
@@ -35,7 +36,6 @@ Partial Class Empleados
         Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.LbNombre = New System.Windows.Forms.Label()
         Me.DgvEmpleados = New System.Windows.Forms.DataGridView()
-        Me.CbPuesto = New System.Windows.Forms.ComboBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         CType(Me.DgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +84,14 @@ Partial Class Empleados
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'CbPuesto
+        '
+        Me.CbPuesto.FormattingEnabled = True
+        Me.CbPuesto.Location = New System.Drawing.Point(124, 71)
+        Me.CbPuesto.Name = "CbPuesto"
+        Me.CbPuesto.Size = New System.Drawing.Size(186, 21)
+        Me.CbPuesto.TabIndex = 15
+        '
         'LbID
         '
         Me.LbID.AutoSize = True
@@ -129,6 +137,7 @@ Partial Class Empleados
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(124, 45)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(303, 20)
@@ -162,14 +171,6 @@ Partial Class Empleados
         Me.DgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvEmpleados.Size = New System.Drawing.Size(957, 266)
         Me.DgvEmpleados.TabIndex = 17
-        '
-        'CbPuesto
-        '
-        Me.CbPuesto.FormattingEnabled = True
-        Me.CbPuesto.Location = New System.Drawing.Point(124, 71)
-        Me.CbPuesto.Name = "CbPuesto"
-        Me.CbPuesto.Size = New System.Drawing.Size(186, 21)
-        Me.CbPuesto.TabIndex = 15
         '
         'Empleados
         '

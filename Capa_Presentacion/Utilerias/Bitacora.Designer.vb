@@ -26,21 +26,21 @@ Partial Class Bitacora
         Me.PDatos = New System.Windows.Forms.Panel()
         Me.DgvBitacora = New System.Windows.Forms.DataGridView()
         Me.GbFiltros = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DtFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.BtConsulta = New System.Windows.Forms.Button()
+        Me.DtFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DtFechaFin = New System.Windows.Forms.DateTimePicker()
-        Me.DtFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.LimpiarCamposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarBitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PDatos.SuspendLayout()
         CType(Me.DgvBitacora, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbFiltros.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PDatos
@@ -87,6 +87,27 @@ Partial Class Bitacora
         Me.GbFiltros.TabIndex = 1
         Me.GbFiltros.TabStop = False
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.DtFechaFin)
+        Me.Panel1.Controls.Add(Me.BtConsulta)
+        Me.Panel1.Controls.Add(Me.DtFechaInicio)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(605, 16)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(426, 215)
+        Me.Panel1.TabIndex = 3
+        '
+        'DtFechaFin
+        '
+        Me.DtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaFin.Location = New System.Drawing.Point(285, 50)
+        Me.DtFechaFin.Name = "DtFechaFin"
+        Me.DtFechaFin.Size = New System.Drawing.Size(104, 20)
+        Me.DtFechaFin.TabIndex = 0
+        '
         'BtConsulta
         '
         Me.BtConsulta.Location = New System.Drawing.Point(314, 133)
@@ -95,6 +116,14 @@ Partial Class Bitacora
         Me.BtConsulta.TabIndex = 2
         Me.BtConsulta.Text = "Consultar"
         Me.BtConsulta.UseVisualStyleBackColor = True
+        '
+        'DtFechaInicio
+        '
+        Me.DtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaInicio.Location = New System.Drawing.Point(110, 51)
+        Me.DtFechaInicio.Name = "DtFechaInicio"
+        Me.DtFechaInicio.Size = New System.Drawing.Size(104, 20)
+        Me.DtFechaInicio.TabIndex = 0
         '
         'Label2
         '
@@ -113,22 +142,6 @@ Partial Class Bitacora
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Desde"
-        '
-        'DtFechaFin
-        '
-        Me.DtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaFin.Location = New System.Drawing.Point(285, 50)
-        Me.DtFechaFin.Name = "DtFechaFin"
-        Me.DtFechaFin.Size = New System.Drawing.Size(104, 20)
-        Me.DtFechaFin.TabIndex = 0
-        '
-        'DtFechaInicio
-        '
-        Me.DtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaInicio.Location = New System.Drawing.Point(110, 51)
-        Me.DtFechaInicio.Name = "DtFechaInicio"
-        Me.DtFechaInicio.Size = New System.Drawing.Size(104, 20)
-        Me.DtFechaInicio.TabIndex = 0
         '
         'MenuStrip1
         '
@@ -157,19 +170,6 @@ Partial Class Bitacora
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.DtFechaFin)
-        Me.Panel1.Controls.Add(Me.BtConsulta)
-        Me.Panel1.Controls.Add(Me.DtFechaInicio)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(605, 16)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(426, 215)
-        Me.Panel1.TabIndex = 3
-        '
         'Bitacora
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -185,10 +185,10 @@ Partial Class Bitacora
         Me.PDatos.ResumeLayout(False)
         CType(Me.DgvBitacora, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbFiltros.ResumeLayout(False)
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

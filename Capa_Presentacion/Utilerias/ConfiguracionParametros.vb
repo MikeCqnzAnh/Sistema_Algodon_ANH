@@ -166,51 +166,70 @@ Public Class ConfiguracionParametros
         Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
         Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
         Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.IdConfiguracion = IIf(TsIdConfiguracion.Text = "", 0, TsIdConfiguracion.Text)
-        EntidadConfiguracionParametros.DireccionIP = TsIpComputadora.Text
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        Tabla = EntidadConfiguracionParametros.TablaConsulta
-        If Tabla.Rows.Count = 0 Then
-            Exit Sub
-        End If
-        TsIdConfiguracion.Text = Tabla.Rows(0).Item("IdConfiguracion")
-        TsNombrePc.Text = Tabla.Rows(0).Item("NombrePC")
-        TsIpComputadora.Text = Tabla.Rows(0).Item("DireccionIP")
-        CbPuertosSeriales.Text = Tabla.Rows(0).Item("NombrePuerto")
-        TbIndicadorID.Text = Tabla.Rows(0).Item("IndicadorID")
-        TbIndicadorModulo.Text = Tabla.Rows(0).Item("IndicadorModulo")
-        TbIndicadorEntrada.Text = Tabla.Rows(0).Item("IndicadorEntrada")
-        TbIndicadorSalida.Text = Tabla.Rows(0).Item("IndicadorSalida")
-        TbIndicadorBruto.Text = Tabla.Rows(0).Item("IndicadorBruto")
-        TbIndicadorTara.Text = Tabla.Rows(0).Item("IndicadorTara")
-        TbIndicadorNeto.Text = Tabla.Rows(0).Item("IndicadorNeto")
-        TbPacasIndicadorBruto.Text = Tabla.Rows(0).Item("IndicadorPacasBruto")
-        TbPacasIndicadorTara.Text = Tabla.Rows(0).Item("IndicadorPacasTara")
-        TbPacasIndicadorNeto.Text = Tabla.Rows(0).Item("IndicadorPacasNeto")
-        NuPosicionID.Value = Tabla.Rows(0).Item("PosicionID")
-        NuPosicionModulo.Value = Tabla.Rows(0).Item("PosicionModulo")
-        NuPosicionEntrada.Value = Tabla.Rows(0).Item("PosicionEntrada")
-        NuPosicionSalida.Value = Tabla.Rows(0).Item("PosicionSalida")
-        NuPosicionBruto.Value = Tabla.Rows(0).Item("PosicionBruto")
-        NuPosicionTara.Value = Tabla.Rows(0).Item("PosicionTara")
-        NuPosicionNeto.Value = Tabla.Rows(0).Item("PosicionNeto")
-        NuPacasPosicionBruto.Value = Tabla.Rows(0).Item("PacasPosicionBruto")
-        NuPacasPosicionTara.Value = Tabla.Rows(0).Item("PacasPosicionTara")
-        NuPacasPosicionNeto.Value = Tabla.Rows(0).Item("PacasPosicionNeto")
-        NuCaracterId.Value = Tabla.Rows(0).Item("CaracterID")
-        NuCaracterModulo.Value = Tabla.Rows(0).Item("CaracterModulo")
-        NuCaracterEntrada.Value = Tabla.Rows(0).Item("CaracterEntrada")
-        NuCaracterSalida.Value = Tabla.Rows(0).Item("CaracterSalida")
-        NuCaracterBruto.Value = Tabla.Rows(0).Item("CaracterBruto")
-        NuCaracterTara.Value = Tabla.Rows(0).Item("CaracterTara")
-        NuCaracterNeto.Value = Tabla.Rows(0).Item("CaracterNeto")
-        NuPacasCaracterBruto.Value = Tabla.Rows(0).Item("PacasCaracterBruto")
-        NuPacasCaracterTara.Value = Tabla.Rows(0).Item("PacasCaracterTara")
-        NuPacasCaracterNeto.Value = Tabla.Rows(0).Item("PacasCaracterNeto")
-        NuPesoMinimoPaca.Value = Tabla.Rows(0).Item("PesoMinimoPaca")
+        Try
+            EntidadConfiguracionParametros.IdConfiguracion = IIf(TsIdConfiguracion.Text = "", 0, TsIdConfiguracion.Text)
+            EntidadConfiguracionParametros.DireccionIP = TsIpComputadora.Text
+            EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+            NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+            Tabla = EntidadConfiguracionParametros.TablaConsulta
+            If Tabla.Rows.Count = 0 Then
+                Exit Sub
+            End If
+            TsIdConfiguracion.Text = Tabla.Rows(0).Item("IdConfiguracion")
+            TsNombrePc.Text = Tabla.Rows(0).Item("NombrePC")
+            TsIpComputadora.Text = Tabla.Rows(0).Item("DireccionIP")
+            CbPuertosSeriales.Text = Tabla.Rows(0).Item("NombrePuerto")
+            TbIndicadorID.Text = Tabla.Rows(0).Item("IndicadorID")
+            TbIndicadorModulo.Text = Tabla.Rows(0).Item("IndicadorModulo")
+            TbIndicadorEntrada.Text = Tabla.Rows(0).Item("IndicadorEntrada")
+            TbIndicadorSalida.Text = Tabla.Rows(0).Item("IndicadorSalida")
+            TbIndicadorBruto.Text = Tabla.Rows(0).Item("IndicadorBruto")
+            TbIndicadorTara.Text = Tabla.Rows(0).Item("IndicadorTara")
+            TbIndicadorNeto.Text = Tabla.Rows(0).Item("IndicadorNeto")
+            TbPacasIndicadorBruto.Text = Tabla.Rows(0).Item("IndicadorPacasBruto")
+            TbPacasIndicadorTara.Text = Tabla.Rows(0).Item("IndicadorPacasTara")
+            TbPacasIndicadorNeto.Text = Tabla.Rows(0).Item("IndicadorPacasNeto")
+            NuPosicionID.Value = Tabla.Rows(0).Item("PosicionID")
+            NuPosicionModulo.Value = Tabla.Rows(0).Item("PosicionModulo")
+            NuPosicionEntrada.Value = Tabla.Rows(0).Item("PosicionEntrada")
+            NuPosicionSalida.Value = Tabla.Rows(0).Item("PosicionSalida")
+            NuPosicionBruto.Value = Tabla.Rows(0).Item("PosicionBruto")
+            NuPosicionTara.Value = Tabla.Rows(0).Item("PosicionTara")
+            NuPosicionNeto.Value = Tabla.Rows(0).Item("PosicionNeto")
+            NuPacasPosicionBruto.Value = Tabla.Rows(0).Item("PacasPosicionBruto")
+            NuPacasPosicionTara.Value = Tabla.Rows(0).Item("PacasPosicionTara")
+            NuPacasPosicionNeto.Value = Tabla.Rows(0).Item("PacasPosicionNeto")
+            NuCaracterId.Value = Tabla.Rows(0).Item("CaracterID")
+            NuCaracterModulo.Value = Tabla.Rows(0).Item("CaracterModulo")
+            NuCaracterEntrada.Value = Tabla.Rows(0).Item("CaracterEntrada")
+            NuCaracterSalida.Value = Tabla.Rows(0).Item("CaracterSalida")
+            NuCaracterBruto.Value = Tabla.Rows(0).Item("CaracterBruto")
+            NuCaracterTara.Value = Tabla.Rows(0).Item("CaracterTara")
+            NuCaracterNeto.Value = Tabla.Rows(0).Item("CaracterNeto")
+            NuPacasCaracterBruto.Value = Tabla.Rows(0).Item("PacasCaracterBruto")
+            NuPacasCaracterTara.Value = Tabla.Rows(0).Item("PacasCaracterTara")
+            NuPacasCaracterNeto.Value = Tabla.Rows(0).Item("PacasCaracterNeto")
+            NuPesoMinimoPaca.Value = Tabla.Rows(0).Item("PesoMinimoPaca")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            PanelParametrosBascula.Enabled = False
+        End Try
     End Sub
+    Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
+        Dim opc As DialogResult = MsgBox("¿Desea modificar campos al registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
 
+        If opc = DialogResult.Yes Then
+
+            PanelParametrosBascula.Enabled = True
+
+        ElseIf opc = DialogResult.No Then
+
+            PanelParametrosBascula.Enabled = False
+
+        End If
+
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub

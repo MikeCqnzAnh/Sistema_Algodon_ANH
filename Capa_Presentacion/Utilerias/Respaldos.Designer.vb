@@ -23,27 +23,29 @@ Partial Class Respaldos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbOrigen = New System.Windows.Forms.GroupBox()
+        Me.BtSeleccionaRuta = New System.Windows.Forms.Button()
+        Me.BtCancelar = New System.Windows.Forms.Button()
+        Me.BtGenerarRespaldo = New System.Windows.Forms.Button()
+        Me.TbBDD = New System.Windows.Forms.TextBox()
+        Me.TbNombreRespaldo = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TbRutaRespaldo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.CbOrigenDB = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.BtAceptar = New System.Windows.Forms.Button()
-        Me.BtCancelar = New System.Windows.Forms.Button()
         Me.GbOrigen.SuspendLayout()
         Me.SuspendLayout()
         '
         'GbOrigen
         '
+        Me.GbOrigen.Controls.Add(Me.BtSeleccionaRuta)
         Me.GbOrigen.Controls.Add(Me.BtCancelar)
-        Me.GbOrigen.Controls.Add(Me.BtAceptar)
-        Me.GbOrigen.Controls.Add(Me.TextBox1)
+        Me.GbOrigen.Controls.Add(Me.BtGenerarRespaldo)
+        Me.GbOrigen.Controls.Add(Me.TbBDD)
+        Me.GbOrigen.Controls.Add(Me.TbNombreRespaldo)
         Me.GbOrigen.Controls.Add(Me.Label2)
         Me.GbOrigen.Controls.Add(Me.TbRutaRespaldo)
         Me.GbOrigen.Controls.Add(Me.Label1)
         Me.GbOrigen.Controls.Add(Me.Label7)
-        Me.GbOrigen.Controls.Add(Me.CbOrigenDB)
         Me.GbOrigen.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbOrigen.Location = New System.Drawing.Point(0, 0)
         Me.GbOrigen.Name = "GbOrigen"
@@ -51,11 +53,62 @@ Partial Class Respaldos
         Me.GbOrigen.TabIndex = 0
         Me.GbOrigen.TabStop = False
         '
+        'BtSeleccionaRuta
+        '
+        Me.BtSeleccionaRuta.Location = New System.Drawing.Point(425, 141)
+        Me.BtSeleccionaRuta.Name = "BtSeleccionaRuta"
+        Me.BtSeleccionaRuta.Size = New System.Drawing.Size(24, 20)
+        Me.BtSeleccionaRuta.TabIndex = 5
+        Me.BtSeleccionaRuta.Text = "..."
+        Me.BtSeleccionaRuta.UseVisualStyleBackColor = True
+        '
+        'BtCancelar
+        '
+        Me.BtCancelar.Location = New System.Drawing.Point(366, 480)
+        Me.BtCancelar.Name = "BtCancelar"
+        Me.BtCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.BtCancelar.TabIndex = 4
+        Me.BtCancelar.Text = "Cancelar"
+        Me.BtCancelar.UseVisualStyleBackColor = True
+        '
+        'BtGenerarRespaldo
+        '
+        Me.BtGenerarRespaldo.Location = New System.Drawing.Point(255, 480)
+        Me.BtGenerarRespaldo.Name = "BtGenerarRespaldo"
+        Me.BtGenerarRespaldo.Size = New System.Drawing.Size(105, 23)
+        Me.BtGenerarRespaldo.TabIndex = 3
+        Me.BtGenerarRespaldo.Text = "Generar Respaldo"
+        Me.BtGenerarRespaldo.UseVisualStyleBackColor = True
+        '
+        'TbBDD
+        '
+        Me.TbBDD.Enabled = False
+        Me.TbBDD.Location = New System.Drawing.Point(15, 101)
+        Me.TbBDD.Name = "TbBDD"
+        Me.TbBDD.Size = New System.Drawing.Size(162, 20)
+        Me.TbBDD.TabIndex = 2
+        '
+        'TbNombreRespaldo
+        '
+        Me.TbNombreRespaldo.Location = New System.Drawing.Point(15, 217)
+        Me.TbNombreRespaldo.Name = "TbNombreRespaldo"
+        Me.TbNombreRespaldo.Size = New System.Drawing.Size(241, 20)
+        Me.TbNombreRespaldo.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 201)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(105, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Nombre de respaldo:"
+        '
         'TbRutaRespaldo
         '
         Me.TbRutaRespaldo.Location = New System.Drawing.Point(15, 141)
         Me.TbRutaRespaldo.Name = "TbRutaRespaldo"
-        Me.TbRutaRespaldo.Size = New System.Drawing.Size(426, 20)
+        Me.TbRutaRespaldo.Size = New System.Drawing.Size(404, 20)
         Me.TbRutaRespaldo.TabIndex = 1
         '
         'Label1
@@ -76,48 +129,6 @@ Partial Class Respaldos
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Base de datos:"
         '
-        'CbOrigenDB
-        '
-        Me.CbOrigenDB.FormattingEnabled = True
-        Me.CbOrigenDB.Location = New System.Drawing.Point(15, 101)
-        Me.CbOrigenDB.Name = "CbOrigenDB"
-        Me.CbOrigenDB.Size = New System.Drawing.Size(185, 21)
-        Me.CbOrigenDB.TabIndex = 0
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 201)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Nombre de respaldo:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(15, 217)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(241, 20)
-        Me.TextBox1.TabIndex = 2
-        '
-        'BtAceptar
-        '
-        Me.BtAceptar.Location = New System.Drawing.Point(253, 480)
-        Me.BtAceptar.Name = "BtAceptar"
-        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAceptar.TabIndex = 3
-        Me.BtAceptar.Text = "Aceptar"
-        Me.BtAceptar.UseVisualStyleBackColor = True
-        '
-        'BtCancelar
-        '
-        Me.BtCancelar.Location = New System.Drawing.Point(366, 480)
-        Me.BtCancelar.Name = "BtCancelar"
-        Me.BtCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.BtCancelar.TabIndex = 4
-        Me.BtCancelar.Text = "Cancelar"
-        Me.BtCancelar.UseVisualStyleBackColor = True
-        '
         'Respaldos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -135,11 +146,12 @@ Partial Class Respaldos
 
     Friend WithEvents GbOrigen As GroupBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents CbOrigenDB As ComboBox
     Friend WithEvents TbRutaRespaldo As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TbNombreRespaldo As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents BtCancelar As Button
-    Friend WithEvents BtAceptar As Button
+    Friend WithEvents BtGenerarRespaldo As Button
+    Friend WithEvents BtSeleccionaRuta As Button
+    Friend WithEvents TbBDD As TextBox
 End Class

@@ -286,9 +286,6 @@ Public Class MenuPrincipal
     Private Sub LiquidacionFinalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiquidacionFinalToolStripMenuItem.Click
         LiquidacionFinal.ShowDialog()
     End Sub
-    Private Sub SeleccionaBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
     Private Sub CrearEstructuraToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem1.Click
         CrearEstructura.ShowDialog()
     End Sub
@@ -311,51 +308,23 @@ Public Class MenuPrincipal
     Private Sub ContratosDeSemillaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeSemillaToolStripMenuItem1.Click
         ContratoSemillas.ShowDialog()
     End Sub
-
-    Private Sub LotesDetalleConMódulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub LotesDetalleConMódulosSegundaFormaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub LotesDetalleConMódulosTerceraFormaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub PacasPorClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorClienteToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub PacasEnGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasEnGeneralToolStripMenuItem.Click
-
-    End Sub
-    Private Sub PacasDetalleYAgrupadoPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasDetalleYAgrupadoPorClaseToolStripMenuItem.Click
-
-    End Sub
-    Private Sub RecapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecapToolStripMenuItem.Click
-
-    End Sub
-    Private Sub ReporteDeComprasYVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeComprasYVentasToolStripMenuItem.Click
-
-    End Sub
-    Private Sub AsignarCompradoresAPaquetesHVIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarCompradoresAPaquetesHVIToolStripMenuItem.Click
-
-    End Sub
-    Private Sub RespaldosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldosToolStripMenuItem.Click
-        Respaldos.ShowDialog()
-    End Sub
     Private Sub ExistenciaEnBodegaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaEnBodegaToolStripMenuItem.Click
         ExistenciaBodegaPacas.ShowDialog()
     End Sub
-
     Private Sub AlmacenesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AlmacenesToolStripMenuItem1.Click
         Almacenes.ShowDialog()
+    End Sub
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+        RestaurarRespaldo.ShowDialog()
+    End Sub
+    Private Sub RealizarRespaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RealizarRespaldoToolStripMenuItem.Click
+        Respaldos.ShowDialog()
+    End Sub
+    Private Sub RestaurarRespaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestaurarRespaldoToolStripMenuItem.Click
+        RestaurarRespaldo.ShowDialog()
+    End Sub
+    Private Sub ProgramarRespaldoAutomaticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProgramarRespaldoAutomaticoToolStripMenuItem.Click
+        ProgramarRespaldos.ShowDialog()
     End Sub
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()

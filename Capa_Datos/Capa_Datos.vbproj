@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -85,7 +86,7 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
-    <Compile Include="Catalogos\Usuarios.vb" />
+    <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb" />
@@ -126,6 +127,8 @@
     <Compile Include="Utilerias\CrearEstructura.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.vb" />
     <Compile Include="Utilerias\Monedas.vb" />
+    <Compile Include="Utilerias\Respaldos.vb" />
+    <Compile Include="Utilerias\RestaurarRespaldo.vb" />
     <Compile Include="Utilerias\RutaDocumentos.vb" />
     <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>
@@ -161,6 +164,35 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administracion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -63,13 +63,21 @@ Public Class Puestos
         DgvPuestos.DataSource = EntidadPuestos.TablaConsulta
     End Sub
 
-    Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
-        If Char.IsLetter(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-        End If
+    Private Sub DgvPuestos_DoubleClick(sender As Object, e As EventArgs) Handles DgvPuestos.DoubleClick
+        Dim index As Integer
+        index = DgvPuestos.CurrentCell.RowIndex
+        TbIdPuesto.Text = DgvPuestos.Rows(index).Cells("IdPuesto").Value
+        TbDescripcion.Text = DgvPuestos.Rows(index).Cells("Descripcion").Value
+        CbEstatus.SelectedValue = DgvPuestos.Rows(index).Cells("IdEstatus").Value
     End Sub
+
+    'Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
+    '    If Char.IsLetter(e.KeyChar) Then
+    '        e.Handled = False
+    '    ElseIf Char.IsControl(e.KeyChar) Then
+    '        e.Handled = False
+    '    Else
+    '        e.Handled = True
+    '    End If
+    'End Sub
 End Class

@@ -33,6 +33,7 @@ Partial Class CompraPacasContrato
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtCastigoResFibra = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TbIdCompraPaca = New System.Windows.Forms.TextBox()
         Me.TbNoPacas = New System.Windows.Forms.TextBox()
         Me.TbIdProductor = New System.Windows.Forms.TextBox()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
@@ -53,6 +54,10 @@ Partial Class CompraPacasContrato
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.DgvAgrupadasClases = New System.Windows.Forms.DataGridView()
@@ -100,11 +105,6 @@ Partial Class CompraPacasContrato
         Me.TbKilosSeleccionados = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TbIdCompraPaca = New System.Windows.Forms.TextBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
@@ -261,6 +261,15 @@ Partial Class CompraPacasContrato
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 46
         Me.Label6.Text = "No. Pacas"
+        '
+        'TbIdCompraPaca
+        '
+        Me.TbIdCompraPaca.Enabled = False
+        Me.TbIdCompraPaca.Location = New System.Drawing.Point(125, 13)
+        Me.TbIdCompraPaca.Name = "TbIdCompraPaca"
+        Me.TbIdCompraPaca.Size = New System.Drawing.Size(99, 20)
+        Me.TbIdCompraPaca.TabIndex = 17
+        Me.TbIdCompraPaca.UseWaitCursor = True
         '
         'TbNoPacas
         '
@@ -442,6 +451,34 @@ Partial Class CompraPacasContrato
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1399, 24)
         Me.MSMenu.TabIndex = 3
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'ConsultarToolStripMenuItem
+        '
+        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.ConsultarToolStripMenuItem.Text = "Consultar"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'GbCompras
         '
@@ -674,7 +711,7 @@ Partial Class CompraPacasContrato
         Me.TP1LiquidacionesAComprar.Location = New System.Drawing.Point(4, 22)
         Me.TP1LiquidacionesAComprar.Name = "TP1LiquidacionesAComprar"
         Me.TP1LiquidacionesAComprar.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1LiquidacionesAComprar.Size = New System.Drawing.Size(1145, 297)
+        Me.TP1LiquidacionesAComprar.Size = New System.Drawing.Size(1076, 297)
         Me.TP1LiquidacionesAComprar.TabIndex = 0
         Me.TP1LiquidacionesAComprar.Text = "Liquidaciones a Comprar"
         '
@@ -695,7 +732,7 @@ Partial Class CompraPacasContrato
         Me.DgvDatosLiquidacion.RowHeadersVisible = False
         Me.DgvDatosLiquidacion.RowHeadersWidth = 40
         Me.DgvDatosLiquidacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(1139, 291)
+        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(1070, 291)
         Me.DgvDatosLiquidacion.TabIndex = 13
         '
         'TP3PacasAComprar
@@ -705,7 +742,7 @@ Partial Class CompraPacasContrato
         Me.TP3PacasAComprar.Location = New System.Drawing.Point(4, 22)
         Me.TP3PacasAComprar.Name = "TP3PacasAComprar"
         Me.TP3PacasAComprar.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP3PacasAComprar.Size = New System.Drawing.Size(1145, 297)
+        Me.TP3PacasAComprar.Size = New System.Drawing.Size(1076, 297)
         Me.TP3PacasAComprar.TabIndex = 2
         Me.TP3PacasAComprar.Text = "Pacas a Comprar"
         Me.TP3PacasAComprar.UseVisualStyleBackColor = True
@@ -727,7 +764,7 @@ Partial Class CompraPacasContrato
         Me.DgvPacasComprar.RowHeadersVisible = False
         Me.DgvPacasComprar.RowHeadersWidth = 40
         Me.DgvPacasComprar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasComprar.Size = New System.Drawing.Size(1139, 246)
+        Me.DgvPacasComprar.Size = New System.Drawing.Size(1070, 246)
         Me.DgvPacasComprar.TabIndex = 14
         '
         'GbFiltrado
@@ -743,14 +780,14 @@ Partial Class CompraPacasContrato
         Me.GbFiltrado.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbFiltrado.Location = New System.Drawing.Point(3, 3)
         Me.GbFiltrado.Name = "GbFiltrado"
-        Me.GbFiltrado.Size = New System.Drawing.Size(1139, 45)
+        Me.GbFiltrado.Size = New System.Drawing.Size(1070, 45)
         Me.GbFiltrado.TabIndex = 3
         Me.GbFiltrado.TabStop = False
         '
         'BtReiniciaFiltro
         '
         Me.BtReiniciaFiltro.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtReiniciaFiltro.Location = New System.Drawing.Point(1049, 16)
+        Me.BtReiniciaFiltro.Location = New System.Drawing.Point(980, 16)
         Me.BtReiniciaFiltro.MaximumSize = New System.Drawing.Size(87, 23)
         Me.BtReiniciaFiltro.MinimumSize = New System.Drawing.Size(87, 23)
         Me.BtReiniciaFiltro.Name = "BtReiniciaFiltro"
@@ -791,7 +828,7 @@ Partial Class CompraPacasContrato
         Me.TP2LiquidacionesCompradas.Location = New System.Drawing.Point(4, 22)
         Me.TP2LiquidacionesCompradas.Name = "TP2LiquidacionesCompradas"
         Me.TP2LiquidacionesCompradas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP2LiquidacionesCompradas.Size = New System.Drawing.Size(1145, 297)
+        Me.TP2LiquidacionesCompradas.Size = New System.Drawing.Size(1076, 297)
         Me.TP2LiquidacionesCompradas.TabIndex = 1
         Me.TP2LiquidacionesCompradas.Text = "Liquidaciones Compradas"
         Me.TP2LiquidacionesCompradas.UseVisualStyleBackColor = True
@@ -813,7 +850,7 @@ Partial Class CompraPacasContrato
         Me.DgvLiqCompradas.RowHeadersVisible = False
         Me.DgvLiqCompradas.RowHeadersWidth = 40
         Me.DgvLiqCompradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvLiqCompradas.Size = New System.Drawing.Size(1139, 291)
+        Me.DgvLiqCompradas.Size = New System.Drawing.Size(1070, 291)
         Me.DgvLiqCompradas.TabIndex = 14
         '
         'TP4IndividualCompradas
@@ -982,43 +1019,6 @@ Partial Class CompraPacasContrato
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1399, 323)
         Me.Panel3.TabIndex = 6
-        '
-        'NuevoToolStripMenuItem
-        '
-        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
-        '
-        'ConsultarToolStripMenuItem
-        '
-        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
-        Me.ConsultarToolStripMenuItem.Text = "Consultar"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'TbIdCompraPaca
-        '
-        Me.TbIdCompraPaca.Enabled = False
-        Me.TbIdCompraPaca.Location = New System.Drawing.Point(125, 13)
-        Me.TbIdCompraPaca.Name = "TbIdCompraPaca"
-        Me.TbIdCompraPaca.Size = New System.Drawing.Size(99, 20)
-        Me.TbIdCompraPaca.TabIndex = 17
-        Me.TbIdCompraPaca.UseWaitCursor = True
         '
         'Panel4
         '

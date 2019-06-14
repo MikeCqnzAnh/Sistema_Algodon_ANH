@@ -50,7 +50,6 @@ Partial Class MenuPrincipal
         Me.CastigosPorLargosDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CastigosPorResistenciaDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CamionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComercializaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosDeAlgodónConProductoresToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -146,12 +145,16 @@ Partial Class MenuPrincipal
         Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RutaDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RespaldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RealizarRespaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestaurarRespaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeleccionaConexionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CrearEstructuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConexionInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -183,7 +186,7 @@ Partial Class MenuPrincipal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.ToolStripSeparator3, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem, Me.UsuariosToolStripMenuItem})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.ToolStripSeparator3, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(82, 23)
         Me.CatálogosToolStripMenuItem.Text = "Catálogos"
@@ -337,12 +340,6 @@ Partial Class MenuPrincipal
         Me.CamionesToolStripMenuItem.Name = "CamionesToolStripMenuItem"
         Me.CamionesToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
         Me.CamionesToolStripMenuItem.Text = "Camiones"
-        '
-        'UsuariosToolStripMenuItem
-        '
-        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
-        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'ComercializaciónToolStripMenuItem
         '
@@ -868,7 +865,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.RespaldosToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.UsuariosToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -927,11 +924,30 @@ Partial Class MenuPrincipal
         Me.RutaDeDocumentosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.RutaDeDocumentosToolStripMenuItem.Text = "Ruta de Documentos"
         '
-        'RespaldosToolStripMenuItem
+        'ToolStripMenuItem3
         '
-        Me.RespaldosToolStripMenuItem.Name = "RespaldosToolStripMenuItem"
-        Me.RespaldosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.RespaldosToolStripMenuItem.Text = "Respaldos"
+        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RealizarRespaldoToolStripMenuItem, Me.RestaurarRespaldoToolStripMenuItem, Me.ProgramarRespaldoAutomaticoToolStripMenuItem})
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(394, 24)
+        Me.ToolStripMenuItem3.Text = "Respaldos"
+        '
+        'RealizarRespaldoToolStripMenuItem
+        '
+        Me.RealizarRespaldoToolStripMenuItem.Name = "RealizarRespaldoToolStripMenuItem"
+        Me.RealizarRespaldoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.RealizarRespaldoToolStripMenuItem.Text = "Realizar Respaldo"
+        '
+        'RestaurarRespaldoToolStripMenuItem
+        '
+        Me.RestaurarRespaldoToolStripMenuItem.Name = "RestaurarRespaldoToolStripMenuItem"
+        Me.RestaurarRespaldoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.RestaurarRespaldoToolStripMenuItem.Text = "Restaurar Respaldo"
+        '
+        'ProgramarRespaldoAutomaticoToolStripMenuItem
+        '
+        Me.ProgramarRespaldoAutomaticoToolStripMenuItem.Name = "ProgramarRespaldoAutomaticoToolStripMenuItem"
+        Me.ProgramarRespaldoAutomaticoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
+        Me.ProgramarRespaldoAutomaticoToolStripMenuItem.Text = "Programar Respaldo Automatico"
         '
         'ConfiguracionDeBaseDeDatosToolStripMenuItem
         '
@@ -963,6 +979,12 @@ Partial Class MenuPrincipal
         Me.ConexionInicialToolStripMenuItem.Name = "ConexionInicialToolStripMenuItem"
         Me.ConexionInicialToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
         Me.ConexionInicialToolStripMenuItem.Text = "Conexion Inicial"
+        '
+        'UsuariosToolStripMenuItem
+        '
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'TsSalir
         '
@@ -1173,7 +1195,6 @@ Partial Class MenuPrincipal
     Friend WithEvents UtileriasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BorrarPerfilToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BorrarPacasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RespaldosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CambioDePerfilDePacasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CambioDePerfilDeUnProductorAOtroToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem As ToolStripMenuItem
@@ -1211,10 +1232,14 @@ Partial Class MenuPrincipal
     Friend WithEvents ImportarCatalogosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BitacoraToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RutaDeDocumentosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SeleccionaConexionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConexionInicialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciaEnBodegaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlmacenesToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents RealizarRespaldoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RestaurarRespaldoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProgramarRespaldoAutomaticoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
 End Class

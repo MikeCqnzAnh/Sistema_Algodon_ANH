@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Module Conexion
+    Public IpServer As String
     Public UsuarioDB As String
     Public PasswordDB As String
     Public Instancia As String
@@ -17,9 +18,10 @@ Module Conexion
                     Continue While
                 End If
                 Dim ArregloCadena() As String = Split(linea, ",")
-                Instancia = ArregloCadena(0)
-                UsuarioDB = ArregloCadena(1)
-                PasswordDB = ArregloCadena(2)
+                IpServer = ArregloCadena(0)
+                Instancia = ArregloCadena(1)
+                UsuarioDB = ArregloCadena(2)
+                PasswordDB = ArregloCadena(3)
             End While
 
             leer.Close()
@@ -34,6 +36,10 @@ Module Conexion
     End Function
     Public Function conexionMaster()
         Return ("Data Source = MSISTEMAS;Initial Catalog=master;Persist Security Info=True;User ID=sa;Password=Usuario01")
+    End Function
+    Public Function conexionMasterRestaurar()
+        LeerArchivo()
+        Return ("Data Source = " & Instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
     End Function
     Public Function conexionMasterExportarEstructura(ByVal instancia As String, ByVal usuario As String, ByVal password As String)
         Return ("Data Source = " & instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & usuario & ";Password=" & password & "")

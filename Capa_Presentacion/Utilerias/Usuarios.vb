@@ -18,7 +18,7 @@ Public Class Usuarios
         Dim tabla As New DataTable
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
         Dim NegocioUsuarios As New Capa_Negocio.Usuarios
-        EntidadUsuarios.Consulta = Consulta.ConsultaUsuario
+        EntidadUsuarios.Consulta = Consulta.ConsultaTipoUsuario
         NegocioUsuarios.Consultar(EntidadUsuarios)
         tabla = EntidadUsuarios.TablaConsulta
         CbTipoUsuario.DataSource = tabla
@@ -59,6 +59,7 @@ Public Class Usuarios
             NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
             tabla = EntidadConfiguracionParametros.TablaConsulta
             For Each Fila As DataRow In tabla.Rows
+                EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
                 EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
                 EntidadUsuarios.Nombre = TbNombre.Text
                 EntidadUsuarios.Usuario = TbUsuario.Text
@@ -128,5 +129,10 @@ Public Class Usuarios
             TbUsuario.Text = DgvUsuarios.Rows(index).Cells("Usuario").Value
             CbTipoUsuario.SelectedValue = DgvUsuarios.Rows(index).Cells("Tipo").Value
         End If
+    End Sub
+
+    Private Sub TipoUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TipoUsuarioToolStripMenuItem.Click
+        TiposUsuario.ShowDialog()
+        LlenaCombo()
     End Sub
 End Class

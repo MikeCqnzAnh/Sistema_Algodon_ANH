@@ -8,18 +8,32 @@ Public Class Usuarios
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("sp_InsertarUsuario", cnn)
-            cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadUsuarios1.IdUsuario))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Nombre", EntidadUsuarios1.Nombre))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Usuario", EntidadUsuarios1.Usuario))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Clave", EntidadUsuarios1.Password))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Tipo", EntidadUsuarios1.Tipo))
-            cmdGuardar.Parameters("@IdUsuario").Direction = ParameterDirection.InputOutput
-            cmdGuardar.ExecuteNonQuery()
-            If EntidadUsuarios1.IdUsuario = 0 Then
-                EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdUsuario").Value
-            End If
+            Select Case EntidadUsuarios1.Actualiza
+                Case Capa_Operacion.Configuracion.Actuliza.ActualizaUsuario
+                    cmdGuardar = New SqlCommand("sp_InsertarUsuario", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadUsuarios1.IdUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Nombre", EntidadUsuarios1.Nombre))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Usuario", EntidadUsuarios1.Usuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Clave", EntidadUsuarios1.Password))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Tipo", EntidadUsuarios1.Tipo))
+                    cmdGuardar.Parameters("@IdUsuario").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                    If EntidadUsuarios1.IdUsuario = 0 Then
+                        EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdUsuario").Value
+                    End If
+                Case Capa_Operacion.Configuracion.Actuliza.ActualizaTipoUsuario
+                    cmdGuardar = New SqlCommand("sp_InsertarTipoUsuario", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipo", EntidadUsuarios1.Tipo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadUsuarios1.Descripcion))
+                    cmdGuardar.Parameters("@IdTipo").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                    If EntidadUsuarios1.IdUsuario = 0 Then
+                        EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdTipo").Value
+                    End If
+            End Select
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -37,7 +51,7 @@ Public Class Usuarios
         Try
             cnn.Open()
             Select Case EntidadUsuarios1.Consulta
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaUsuario
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaTipoUsuario
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboTipoUsuario", cnn)
                     sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica

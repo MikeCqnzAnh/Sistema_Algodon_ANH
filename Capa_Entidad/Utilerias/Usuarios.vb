@@ -5,4 +5,5 @@
     Public Usuario As String
     Public Password As String
     Public Tipo As Integer
+    Public Descripcion As String
 End Class

@@ -7,7 +7,19 @@ Public Class ImportarCatalogos
         Nuevo()
     End Sub
     Private Sub BtIniciar_Click(sender As Object, e As EventArgs) Handles BtIniciar.Click
-        ImportarRegistros(CbOrigenInstancia.Text, CbOrigenDB.Text, TbOrigenUsuario.Text, TbOrigenPassword.Text, CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
+        If TbOrigenUsuario.Text = "" And TbOrigenPassword.Text = "" And CbOrigenDB.Text = "" And CbOrigenInstancia.Text = "" And TbDestinoUsuario.Text = "" And TbDestinoUsuario.Text = "" And CbDestinoDB.Text = "" And CbDestinoInstancia.Text = "" Then
+            MessageBox.Show("Verifica campos en blanco", "Aviso")
+        Else
+            Me.BtIniciar.Enabled = False
+            Me.BtIniciar.Text = "Importando..."
+            Me.BtIniciar.Refresh()
+            ImportarRegistros(CbOrigenInstancia.Text, CbOrigenDB.Text, TbOrigenUsuario.Text, TbOrigenPassword.Text, CbDestinoInstancia.Text, CbDestinoDB.Text, TbDestinoUsuario.Text, TbDestinoPassword.Text)
+            Me.BtIniciar.Text = "Iniciar importacion."
+            Me.BtIniciar.Enabled = True
+            Me.BtIniciar.Refresh()
+
+
+        End If
     End Sub
     Private Sub CbOrigenDB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CbOrigenInstancia.SelectedIndexChanged
         cargar_listabd(CbOrigenDB, sender, CbOrigenInstancia.Text, TbOrigenUsuario.Text, TbOrigenPassword.Text)
@@ -110,22 +122,29 @@ Public Class ImportarCatalogos
         Dim EntidadImportarCatalogos As New Capa_Entidad.ImportarCatalogos
         Dim NegocioImportarCatalogos As New Capa_Negocio.ImportarCatalogos
         Dim tabla As New DataTable
-        For Each Fila As DataGridViewRow In DgvTablas.Rows
-            If Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) = 0 Then
-                EntidadImportarCatalogos.Campos = GeneraCadenaCampos(Fila.Cells(0).Value)
-                EntidadImportarCatalogos.Table = Fila.Cells(0).Value
-                EntidadImportarCatalogos.InstanciaDestino = InstanciaDestino
-                EntidadImportarCatalogos.InstanciaOrigen = InstanciaOrigen
-                EntidadImportarCatalogos.BaseDeDatosOrigen = BaseDedatosOrigen
-                EntidadImportarCatalogos.BaseDeDatosDestino = BaseDeDatosDestino
-                EntidadImportarCatalogos.PasswordDestino = PasswordDestino
-                EntidadImportarCatalogos.UsuarioDestino = UsuarioDestino
-                EntidadImportarCatalogos.Importa = Importa.ImportaRegistros
-                NegocioImportarCatalogos.Importar(EntidadImportarCatalogos)
-            ElseIf Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) > 0 Then
-                Fila.DefaultCellStyle.BackColor = Color.Yellow
-            End If
-        Next
+        Try
+            For Each Fila As DataGridViewRow In DgvTablas.Rows
+                If Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) = 0 Then
+                    EntidadImportarCatalogos.Campos = GeneraCadenaCampos(Fila.Cells(0).Value)
+                    EntidadImportarCatalogos.Table = Fila.Cells(0).Value
+                    EntidadImportarCatalogos.InstanciaDestino = InstanciaDestino
+                    EntidadImportarCatalogos.InstanciaOrigen = InstanciaOrigen
+                    EntidadImportarCatalogos.BaseDeDatosOrigen = BaseDedatosOrigen
+                    EntidadImportarCatalogos.BaseDeDatosDestino = BaseDeDatosDestino
+                    EntidadImportarCatalogos.PasswordDestino = PasswordDestino
+                    EntidadImportarCatalogos.UsuarioDestino = UsuarioDestino
+                    EntidadImportarCatalogos.Importa = Importa.ImportaRegistros
+                    NegocioImportarCatalogos.Importar(EntidadImportarCatalogos)
+                ElseIf Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) > 0 Then
+                    Fila.DefaultCellStyle.BackColor = Color.Yellow
+                End If
+            Next
+        Catch ex As Exception
+
+        Finally
+            MessageBox.Show("Importacion realizada con exito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
+
     End Sub
     Private Function ValidaRegistrosTabla(ByVal NombreTabla As String, ByVal InstanciaDestino As String, ByVal BaseDeDatosDestino As String, ByVal UsuarioDestino As String, ByVal PasswordDestino As String)
         Dim Resultado As Integer

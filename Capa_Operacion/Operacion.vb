@@ -123,6 +123,7 @@ Namespace Configuracion
         ConsultaFechaTipoCambio = 56
         ConsultaTipoDeCambio = 57
         ConsultaAlmacen = 58
+        ConsultaTipoUsuario = 59
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -135,6 +136,8 @@ Namespace Configuracion
         ActualizaSeleccion = 2
         ActualizaTipoAlmacen = 3
         ActualizaAlmacen = 4
+        ActualizaTipoUsuario = 5
+        ActualizaUsuario = 6
     End Enum
     Public Enum Importa
         ImportaTabla = 1

@@ -22,7 +22,7 @@ Partial Class ImportarCatalogos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BtIniciar = New System.Windows.Forms.Button()
         Me.GbEstableceDatos = New System.Windows.Forms.GroupBox()
         Me.GbDestino = New System.Windows.Forms.GroupBox()
@@ -47,19 +47,19 @@ Partial Class ImportarCatalogos
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GbTablas = New System.Windows.Forms.GroupBox()
         Me.DgvTablas = New System.Windows.Forms.DataGridView()
+        Me.PanelBoton = New System.Windows.Forms.Panel()
+        Me.BtDesmarcar = New System.Windows.Forms.Button()
+        Me.BtMarcarCheck = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BtMarcarCheck = New System.Windows.Forms.Button()
-        Me.PanelBoton = New System.Windows.Forms.Panel()
-        Me.BtDesmarcar = New System.Windows.Forms.Button()
         Me.GbEstableceDatos.SuspendLayout()
         Me.GbDestino.SuspendLayout()
         Me.GbOrigen.SuspendLayout()
         Me.GbTablas.SuspendLayout()
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
         Me.PanelBoton.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'BtIniciar
@@ -292,23 +292,53 @@ Partial Class ImportarCatalogos
         Me.DgvTablas.AllowUserToOrderColumns = True
         Me.DgvTablas.AllowUserToResizeColumns = False
         Me.DgvTablas.AllowUserToResizeRows = False
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvTablas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvTablas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvTablas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvTablas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvTablas.Location = New System.Drawing.Point(3, 16)
         Me.DgvTablas.MultiSelect = False
         Me.DgvTablas.Name = "DgvTablas"
         Me.DgvTablas.RowHeadersVisible = False
-        Me.DgvTablas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DgvTablas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvTablas.Size = New System.Drawing.Size(445, 439)
         Me.DgvTablas.TabIndex = 0
+        '
+        'PanelBoton
+        '
+        Me.PanelBoton.Controls.Add(Me.BtDesmarcar)
+        Me.PanelBoton.Controls.Add(Me.BtMarcarCheck)
+        Me.PanelBoton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PanelBoton.Location = New System.Drawing.Point(448, 16)
+        Me.PanelBoton.Name = "PanelBoton"
+        Me.PanelBoton.Size = New System.Drawing.Size(83, 439)
+        Me.PanelBoton.TabIndex = 4
+        '
+        'BtDesmarcar
+        '
+        Me.BtDesmarcar.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtDesmarcar.Location = New System.Drawing.Point(0, 23)
+        Me.BtDesmarcar.Name = "BtDesmarcar"
+        Me.BtDesmarcar.Size = New System.Drawing.Size(83, 39)
+        Me.BtDesmarcar.TabIndex = 4
+        Me.BtDesmarcar.Text = "Desmarcar Todo"
+        Me.BtDesmarcar.UseVisualStyleBackColor = True
+        '
+        'BtMarcarCheck
+        '
+        Me.BtMarcarCheck.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtMarcarCheck.Location = New System.Drawing.Point(0, 0)
+        Me.BtMarcarCheck.Name = "BtMarcarCheck"
+        Me.BtMarcarCheck.Size = New System.Drawing.Size(83, 23)
+        Me.BtMarcarCheck.TabIndex = 3
+        Me.BtMarcarCheck.Text = "Marcar Todo"
+        Me.BtMarcarCheck.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -331,36 +361,6 @@ Partial Class ImportarCatalogos
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'BtMarcarCheck
-        '
-        Me.BtMarcarCheck.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtMarcarCheck.Location = New System.Drawing.Point(0, 0)
-        Me.BtMarcarCheck.Name = "BtMarcarCheck"
-        Me.BtMarcarCheck.Size = New System.Drawing.Size(83, 23)
-        Me.BtMarcarCheck.TabIndex = 3
-        Me.BtMarcarCheck.Text = "Marcar Todo"
-        Me.BtMarcarCheck.UseVisualStyleBackColor = True
-        '
-        'PanelBoton
-        '
-        Me.PanelBoton.Controls.Add(Me.BtDesmarcar)
-        Me.PanelBoton.Controls.Add(Me.BtMarcarCheck)
-        Me.PanelBoton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PanelBoton.Location = New System.Drawing.Point(448, 16)
-        Me.PanelBoton.Name = "PanelBoton"
-        Me.PanelBoton.Size = New System.Drawing.Size(83, 439)
-        Me.PanelBoton.TabIndex = 4
-        '
-        'BtDesmarcar
-        '
-        Me.BtDesmarcar.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtDesmarcar.Location = New System.Drawing.Point(0, 23)
-        Me.BtDesmarcar.Name = "BtDesmarcar"
-        Me.BtDesmarcar.Size = New System.Drawing.Size(83, 39)
-        Me.BtDesmarcar.TabIndex = 4
-        Me.BtDesmarcar.Text = "Desmarcar Todo"
-        Me.BtDesmarcar.UseVisualStyleBackColor = True
-        '
         'ImportarCatalogos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -382,9 +382,9 @@ Partial Class ImportarCatalogos
         Me.GbOrigen.PerformLayout()
         Me.GbTablas.ResumeLayout(False)
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelBoton.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.PanelBoton.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

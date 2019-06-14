@@ -23,9 +23,12 @@ Public Class ConsultaTierrasChecks
         NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
         DgvConsultaTierrasChecks.DataSource = EntidadContratosAlgodon.TablaConsulta
         TablaLotesDelGrid = EntidadContratosAlgodon.TablaConsulta
-        DgvConsultaTierrasChecks.Columns.Add(chk)
-        chk.HeaderText = "Agregar"
-        chk.Name = "chk"
+        If DgvConsultaTierrasChecks.Columns("chk") Is Nothing Then
+            DgvConsultaTierrasChecks.Columns.Add(chk)
+            chk.HeaderText = "Agregar"
+            chk.Name = "chk"
+        End If
+
     End Sub
 
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click

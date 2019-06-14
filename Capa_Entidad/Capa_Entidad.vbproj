@@ -89,7 +89,7 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
-    <Compile Include="Catalogos\Usuarios.vb" />
+    <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb" />
@@ -130,6 +130,8 @@
     <Compile Include="Utilerias\CrearEstructura.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.vb" />
     <Compile Include="Utilerias\Monedas.vb" />
+    <Compile Include="Utilerias\Respaldos.vb" />
+    <Compile Include="Utilerias\RestaurarRespaldo.vb" />
     <Compile Include="Utilerias\RutaDocumentos.vb" />
     <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>

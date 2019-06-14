@@ -1,4 +1,9 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
+Imports System.Text
+Imports Microsoft.Office.Interop
+Imports Microsoft.SqlServer
+
 Public Class Bitacora
     Public Overridable Sub Consultar(ByRef EntidadBitacora As Capa_Entidad.Bitacora)
         Dim EntidadBitacora1 As New Capa_Entidad.Bitacora()
@@ -11,9 +16,17 @@ Public Class Bitacora
         Try
             cnn.Open()
             Select Case EntidadBitacora1.Consulta
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                '    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacora", cnn)
-                '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                    sqlcom1 = New SqlCommand("Sp_ConsultaBitacora", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Fechainicio", EntidadBitacora1.FechaInicio))
+                    sqlcom1.Parameters.Add(New SqlParameter("@FechaFin", EntidadBitacora1.FechaFin))
+                    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                    '    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacora", cnn)
+                    '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaBaseDatosReciente
                     '    sqldat1 = New SqlDataAdapter("Sp_ConsultaBDreciente", cnn)
                     '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
@@ -27,14 +40,7 @@ Public Class Bitacora
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaProcedimientos
                     '    sqldat1 = New SqlDataAdapter("sp_listaProcedimientos", cnn)
                     '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                    sqlcom1 = New SqlCommand("Sp_ConsultaBitacora", cnn)
-                    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    sqlcom1.CommandType = CommandType.StoredProcedure
-                    sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@Fechainicio", EntidadBitacora1.FechaInicio))
-                    sqlcom1.Parameters.Add(New SqlParameter("@FechaFin", EntidadBitacora1.FechaFin))
-                    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaCreateProcedure
                     '    sqlcom1 = New SqlCommand("sp_GeneraCreateProcedure", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)

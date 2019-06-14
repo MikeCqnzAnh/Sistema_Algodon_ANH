@@ -27,7 +27,7 @@ Public Class ConfiguraConexionInicial
     End Sub
     Private Sub CreaConexion()
         Dim fs As FileStream
-        If CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
+        If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
             ':::Validamos si la carpeta de ruta existe, si no existe la creamos
             Try
                 If File.Exists(Ruta & archivo) Then
@@ -59,6 +59,10 @@ Public Class ConfiguraConexionInicial
         End If
     End Sub
     Private Sub nuevo()
+        TbDireccionIP1.Text = ""
+        TbDireccionIP2.Text = ""
+        TbDireccionIP3.Text = ""
+        TbDireccionIP4.Text = ""
         CbOrigenInstancia.SelectedIndex = -1
         TbOrigenUsuario.Text = ""
         TbOrigenPassword.Text = ""
@@ -66,11 +70,17 @@ Public Class ConfiguraConexionInicial
     Private Sub BtnSobreescribir_Click()
         ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
         Dim escribir As New StreamWriter(Ruta & archivo)
+        Dim DireccionIP As String = ""
         Try
+            DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
             ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine(CbOrigenInstancia.Text + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
+            escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
             escribir.Close()
             ':::Limpiamos los TextBox
+            TbDireccionIP1.Clear()
+            TbDireccionIP2.Clear()
+            TbDireccionIP3.Clear()
+            TbDireccionIP4.Clear()
             TbOrigenPassword.Clear()
             TbOrigenUsuario.Clear()
             CbOrigenInstancia.SelectedIndex = -1
@@ -117,37 +127,16 @@ Public Class ConfiguraConexionInicial
             End If
         End If
     End Sub
-    'Private Sub BtnGuardarTodo_Click(sender As Object, e As EventArgs) Handles BtnGuardarTodo.Click
-    '    ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
-    '    ':::El unico cambio es que agregamos el valor TRUE con el fin de indicar que queremos
-    '    ':::Seguir agregando los registros y no sobreescribirlos
-    '    Dim escribir As New StreamWriter(Ruta & archivo, True)
-    '    Try
-    '        ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-    '        escribir.WriteLine(TxtNombres.Text + "," + TxtApellidos.Text)
-    '        escribir.Close()
-    '        MsgBox("Registro guardado correctamente", MsgBoxStyle.Information, " ")
-    '        TbOrigenPassword.Clear()
-    '        TbOrigenUsuario.Clear()
-    '        CbOrigenInstancia.Items.Clear()
-    '        ':::Llamamos nuestro procedimiento para leer el archivo TXT
-    '        LeerArchivo()
-    '    Catch ex As Exception
-    '        MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-    '    End Try
-    'End Sub
-    'Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-    '    Try
-    '        If File.Exists(Ruta & archivo) Then
-    '            ':::Eliminamos el archivo TXT
-    '            File.Delete(Ruta & archivo)
-    '            MsgBox("Archivo eliminado correctamente", MsgBoxStyle.Information, " ")
-
-    '        Else
-    '            MsgBox("No se encuentra el archivo especificado", MsgBoxStyle.Information, " ")
-    '        End If
-    '    Catch ex As Exception
-    '        MsgBox("Se presento un problema al eliminar el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-    '    End Try
-    'End Sub
+    Private Sub MaskedTextBox1_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP3.GotFocus
+        TbDireccionIP3.SelectAll()
+    End Sub
+    Private Sub MaskedTextBox2_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP2.GotFocus
+        TbDireccionIP2.SelectAll()
+    End Sub
+    Private Sub MaskedTextBox3_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP1.GotFocus
+        TbDireccionIP1.SelectAll()
+    End Sub
+    Private Sub MaskedTextBox4_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP4.GotFocus
+        TbDireccionIP4.SelectAll()
+    End Sub
 End Class

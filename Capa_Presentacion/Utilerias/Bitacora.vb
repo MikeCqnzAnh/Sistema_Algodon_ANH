@@ -2,6 +2,8 @@
 Imports System.Net
 Imports System.Net.NetworkInformation
 Imports System.Management
+Imports Microsoft.Office.Interop
+
 Public Class Bitacora
     Private Sub BtConsulta_Click(sender As Object, e As EventArgs) Handles BtConsulta.Click
         ConsultarBitacora(DtFechaInicio.Value.Date, DtFechaFin.Value.Date)
@@ -36,5 +38,9 @@ Public Class Bitacora
     Private Sub LimpiarCampos()
         DtFechaFin.Value = Now
         DtFechaInicio.Value = Now
+    End Sub
+
+    Private Sub ExportarBitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarBitacoraToolStripMenuItem.Click
+        ExportExcel(DgvBitacora)
     End Sub
 End Class

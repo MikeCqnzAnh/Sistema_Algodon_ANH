@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ExistenciaBodegaPacas
+Partial Class ProgramarRespaldos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -24,15 +24,14 @@ Partial Class ExistenciaBodegaPacas
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'ExistenciaBodegaPacas
+        'ProgramarRespaldos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1185, 670)
-        Me.Name = "ExistenciaBodegaPacas"
+        Me.ClientSize = New System.Drawing.Size(922, 513)
+        Me.Name = "ProgramarRespaldos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Existencia en Bodega"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Text = "Programar Respaldos Automaticos"
         Me.ResumeLayout(False)
 
     End Sub
