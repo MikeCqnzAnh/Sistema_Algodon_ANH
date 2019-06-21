@@ -3,7 +3,6 @@ Public Class Usuarios
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenaCombo()
         Nuevo()
-        TbBddActual.Text = BaseDeDatos
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -65,6 +64,7 @@ Public Class Usuarios
                 EntidadUsuarios.Usuario = TbUsuario.Text
                 EntidadUsuarios.Password = Encriptar.Encriptar(TbPassword.Text)
                 EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
+                EntidadUsuarios.Estatus = CbEstatus.SelectedValue
                 EntidadUsuarios.BaseDeDatos = Fila("name")
                 NegocioUsuarios.Guardar(EntidadUsuarios)
                 TbIdUsuario.Text = EntidadUsuarios.IdUsuario
@@ -103,7 +103,7 @@ Public Class Usuarios
         DgvUsuarios.Columns("Tipo").Visible = False
     End Sub
     Private Sub Nuevo()
-        TbBddActual.Text = ""
+        TbBddActual.Text = BaseDeDatos
         TbIdUsuario.Text = ""
         TbNombre.Text = ""
         TbUsuario.Text = ""
@@ -128,6 +128,7 @@ Public Class Usuarios
             TbNombre.Text = DgvUsuarios.Rows(index).Cells("Nombre").Value
             TbUsuario.Text = DgvUsuarios.Rows(index).Cells("Usuario").Value
             CbTipoUsuario.SelectedValue = DgvUsuarios.Rows(index).Cells("Tipo").Value
+            CbEstatus.SelectedValue = DgvUsuarios.Rows(index).Cells("Estatus").Value
         End If
     End Sub
 

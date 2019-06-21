@@ -320,6 +320,18 @@
     <Compile Include="Catalogos\TiposIncidencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Configuracion\DatosEmpresa.Designer.vb">
+      <DependentUpon>DatosEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\DatosEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTContratoProductor.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTContratoProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
     </Compile>
@@ -785,6 +797,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
+      <DependentUpon>DatosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTContratoProductor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTContratoProductor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
       <DependentUpon>TiposUsuario.vb</DependentUpon>

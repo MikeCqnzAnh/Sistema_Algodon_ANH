@@ -6,4 +6,5 @@
     Public Password As String
     Public Tipo As Integer
     Public Descripcion As String
+    Public Estatus As Integer
 End Class

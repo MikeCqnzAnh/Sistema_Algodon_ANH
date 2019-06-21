@@ -83,7 +83,7 @@ Public Class Acceso
         Else
             Resultado = True
         End If
-        If Tabla.Rows.Count > 0 Then
+        If Tabla.Rows(0).Item("Validacion") = 1 Then
             _BaseDeDatos = CbBaseDeDatos.Text
             _IdUsuario = Tabla.Rows(0).Item("IdUsuario")
             _Usuario = Tabla.Rows(0).Item("Usuario")

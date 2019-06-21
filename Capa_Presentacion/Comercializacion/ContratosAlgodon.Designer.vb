@@ -78,6 +78,7 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
@@ -86,7 +87,7 @@ Partial Class ContratosAlgodon
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1194, 24)
@@ -611,6 +612,12 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
+        'ImprimirToolStripMenuItem
+        '
+        Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
+        Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ImprimirToolStripMenuItem.Text = "Imprimir"
+        '
         'ContratosAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -692,4 +699,5 @@ Partial Class ContratosAlgodon
     Friend WithEvents Label23 As Label
     Friend WithEvents TbO As TextBox
     Friend WithEvents DgvContratoAlgodon As DataGridView
+    Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
 End Class

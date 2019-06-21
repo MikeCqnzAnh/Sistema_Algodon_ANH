@@ -326,6 +326,11 @@ Public Class MenuPrincipal
     Private Sub ProgramarRespaldoAutomaticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProgramarRespaldoAutomaticoToolStripMenuItem.Click
         ProgramarRespaldos.ShowDialog()
     End Sub
+
+    Private Sub DatosDeEmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatosDeEmpresaToolStripMenuItem.Click
+        DatosEmpresa.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

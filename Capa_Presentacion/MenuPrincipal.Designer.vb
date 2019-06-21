@@ -155,6 +155,8 @@ Partial Class MenuPrincipal
         Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConexionInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -177,10 +179,10 @@ Partial Class MenuPrincipal
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MSMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.TsSalir})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(816, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(860, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -986,6 +988,19 @@ Partial Class MenuPrincipal
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
+        'ConfiguracionToolStripMenuItem
+        '
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
+        Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(106, 23)
+        Me.ConfiguracionToolStripMenuItem.Text = "Configuracion"
+        '
+        'DatosDeEmpresaToolStripMenuItem
+        '
+        Me.DatosDeEmpresaToolStripMenuItem.Name = "DatosDeEmpresaToolStripMenuItem"
+        Me.DatosDeEmpresaToolStripMenuItem.Size = New System.Drawing.Size(189, 24)
+        Me.DatosDeEmpresaToolStripMenuItem.Text = "Datos de empresa"
+        '
         'TsSalir
         '
         Me.TsSalir.Name = "TsSalir"
@@ -999,7 +1014,7 @@ Partial Class MenuPrincipal
         Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 521)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(816, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(860, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1056,14 +1071,14 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(301, 15)
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(301, 17)
         Me.ToolStripStatusLabel3.Text = "|                                                                                " &
     "                |"
         '
         'TsPrecioDolar
         '
         Me.TsPrecioDolar.Name = "TsPrecioDolar"
-        Me.TsPrecioDolar.Size = New System.Drawing.Size(22, 15)
+        Me.TsPrecioDolar.Size = New System.Drawing.Size(22, 17)
         Me.TsPrecioDolar.Text = "0.0"
         '
         'ToolStripStatusLabel5
@@ -1079,7 +1094,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(816, 543)
+        Me.ClientSize = New System.Drawing.Size(860, 543)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1242,4 +1257,6 @@ Partial Class MenuPrincipal
     Friend WithEvents RestaurarRespaldoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProgramarRespaldoAutomaticoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DatosDeEmpresaToolStripMenuItem As ToolStripMenuItem
 End Class

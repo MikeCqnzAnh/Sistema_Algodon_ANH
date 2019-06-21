@@ -4,11 +4,9 @@ Public Class Puestos
         CargarCombos()
         ConsultaPuesto()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadPuestos As New Capa_Entidad.Puestos
         Dim NegocioPuestos As New Capa_Negocio.Puestos
@@ -22,7 +20,6 @@ Public Class Puestos
         MsgBox("Realizado Correctamente")
         ConsultaPuesto()
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
@@ -32,7 +29,6 @@ Public Class Puestos
         TbDescripcion.Text = ""
         CbEstatus.SelectedValue = 1
     End Sub
-
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
@@ -52,7 +48,6 @@ Public Class Puestos
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedValue = 1
     End Sub
-
     Private Sub ConsultaPuesto()
         Dim EntidadPuestos As New Capa_Entidad.Puestos
         Dim NegocioPuestos As New Capa_Negocio.Puestos
@@ -62,7 +57,6 @@ Public Class Puestos
         NegocioPuestos.Consultar(EntidadPuestos)
         DgvPuestos.DataSource = EntidadPuestos.TablaConsulta
     End Sub
-
     Private Sub DgvPuestos_DoubleClick(sender As Object, e As EventArgs) Handles DgvPuestos.DoubleClick
         Dim index As Integer
         index = DgvPuestos.CurrentCell.RowIndex
@@ -70,14 +64,4 @@ Public Class Puestos
         TbDescripcion.Text = DgvPuestos.Rows(index).Cells("Descripcion").Value
         CbEstatus.SelectedValue = DgvPuestos.Rows(index).Cells("IdEstatus").Value
     End Sub
-
-    'Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
-    '    If Char.IsLetter(e.KeyChar) Then
-    '        e.Handled = False
-    '    ElseIf Char.IsControl(e.KeyChar) Then
-    '        e.Handled = False
-    '    Else
-    '        e.Handled = True
-    '    End If
-    'End Sub
 End Class

@@ -55,9 +55,15 @@ Partial Class CrearEstructura
         Me.BtCrearTablas = New System.Windows.Forms.Button()
         Me.BtCrearProcedimientos = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.BtDeseleccionTablas = New System.Windows.Forms.Button()
+        Me.BtSeleccionTablas = New System.Windows.Forms.Button()
         Me.GbTablas = New System.Windows.Forms.GroupBox()
         Me.DgvTablas = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.BtDeseleccionProcedimientos = New System.Windows.Forms.Button()
+        Me.BtSeleccionProcedimientos = New System.Windows.Forms.Button()
         Me.GbProcedimientos = New System.Windows.Forms.GroupBox()
         Me.DgvProcedimientos = New System.Windows.Forms.DataGridView()
         Me.MsMenu = New System.Windows.Forms.MenuStrip()
@@ -69,9 +75,11 @@ Partial Class CrearEstructura
         Me.GbOrigen.SuspendLayout()
         Me.GbCreaBdd.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.GbTablas.SuspendLayout()
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        Me.Panel5.SuspendLayout()
         Me.GbProcedimientos.SuspendLayout()
         CType(Me.DgvProcedimientos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MsMenu.SuspendLayout()
@@ -366,7 +374,7 @@ Partial Class CrearEstructura
         'BtCrearTablas
         '
         Me.BtCrearTablas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtCrearTablas.Location = New System.Drawing.Point(1301, 0)
+        Me.BtCrearTablas.Location = New System.Drawing.Point(207, 0)
         Me.BtCrearTablas.MaximumSize = New System.Drawing.Size(75, 23)
         Me.BtCrearTablas.MinimumSize = New System.Drawing.Size(75, 23)
         Me.BtCrearTablas.Name = "BtCrearTablas"
@@ -378,7 +386,7 @@ Partial Class CrearEstructura
         'BtCrearProcedimientos
         '
         Me.BtCrearProcedimientos.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtCrearProcedimientos.Location = New System.Drawing.Point(1239, 0)
+        Me.BtCrearProcedimientos.Location = New System.Drawing.Point(145, 0)
         Me.BtCrearProcedimientos.MaximumSize = New System.Drawing.Size(137, 23)
         Me.BtCrearProcedimientos.MinimumSize = New System.Drawing.Size(137, 23)
         Me.BtCrearProcedimientos.Name = "BtCrearProcedimientos"
@@ -389,13 +397,42 @@ Partial Class CrearEstructura
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.GbTablas)
-        Me.Panel2.Controls.Add(Me.BtCrearTablas)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 298)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1376, 286)
         Me.Panel2.TabIndex = 1
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.BtDeseleccionTablas)
+        Me.Panel4.Controls.Add(Me.BtSeleccionTablas)
+        Me.Panel4.Controls.Add(Me.BtCrearTablas)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(1094, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(282, 286)
+        Me.Panel4.TabIndex = 14
+        '
+        'BtDeseleccionTablas
+        '
+        Me.BtDeseleccionTablas.Location = New System.Drawing.Point(3, 35)
+        Me.BtDeseleccionTablas.Name = "BtDeseleccionTablas"
+        Me.BtDeseleccionTablas.Size = New System.Drawing.Size(91, 37)
+        Me.BtDeseleccionTablas.TabIndex = 13
+        Me.BtDeseleccionTablas.Text = "Desmarcar Todo"
+        Me.BtDeseleccionTablas.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionTablas
+        '
+        Me.BtSeleccionTablas.Location = New System.Drawing.Point(3, 6)
+        Me.BtSeleccionTablas.Name = "BtSeleccionTablas"
+        Me.BtSeleccionTablas.Size = New System.Drawing.Size(91, 23)
+        Me.BtSeleccionTablas.TabIndex = 13
+        Me.BtSeleccionTablas.Text = "Marcar Todo"
+        Me.BtSeleccionTablas.UseVisualStyleBackColor = True
         '
         'GbTablas
         '
@@ -403,7 +440,7 @@ Partial Class CrearEstructura
         Me.GbTablas.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbTablas.Location = New System.Drawing.Point(0, 0)
         Me.GbTablas.Name = "GbTablas"
-        Me.GbTablas.Size = New System.Drawing.Size(1176, 286)
+        Me.GbTablas.Size = New System.Drawing.Size(1094, 286)
         Me.GbTablas.TabIndex = 12
         Me.GbTablas.TabStop = False
         Me.GbTablas.Text = "Tablas a exportar"
@@ -422,22 +459,50 @@ Partial Class CrearEstructura
         Me.DgvTablas.Location = New System.Drawing.Point(3, 16)
         Me.DgvTablas.MultiSelect = False
         Me.DgvTablas.Name = "DgvTablas"
-        Me.DgvTablas.ReadOnly = True
         Me.DgvTablas.RowHeadersVisible = False
         Me.DgvTablas.RowHeadersWidth = 40
         Me.DgvTablas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvTablas.Size = New System.Drawing.Size(1170, 267)
+        Me.DgvTablas.Size = New System.Drawing.Size(1088, 267)
         Me.DgvTablas.TabIndex = 11
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.Panel5)
         Me.Panel3.Controls.Add(Me.GbProcedimientos)
-        Me.Panel3.Controls.Add(Me.BtCrearProcedimientos)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel3.Location = New System.Drawing.Point(0, 584)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1376, 238)
         Me.Panel3.TabIndex = 1
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.BtDeseleccionProcedimientos)
+        Me.Panel5.Controls.Add(Me.BtSeleccionProcedimientos)
+        Me.Panel5.Controls.Add(Me.BtCrearProcedimientos)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel5.Location = New System.Drawing.Point(1094, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(282, 238)
+        Me.Panel5.TabIndex = 14
+        '
+        'BtDeseleccionProcedimientos
+        '
+        Me.BtDeseleccionProcedimientos.Location = New System.Drawing.Point(3, 35)
+        Me.BtDeseleccionProcedimientos.Name = "BtDeseleccionProcedimientos"
+        Me.BtDeseleccionProcedimientos.Size = New System.Drawing.Size(91, 37)
+        Me.BtDeseleccionProcedimientos.TabIndex = 13
+        Me.BtDeseleccionProcedimientos.Text = "Desmarcar Todo"
+        Me.BtDeseleccionProcedimientos.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionProcedimientos
+        '
+        Me.BtSeleccionProcedimientos.Location = New System.Drawing.Point(3, 6)
+        Me.BtSeleccionProcedimientos.Name = "BtSeleccionProcedimientos"
+        Me.BtSeleccionProcedimientos.Size = New System.Drawing.Size(91, 23)
+        Me.BtSeleccionProcedimientos.TabIndex = 13
+        Me.BtSeleccionProcedimientos.Text = "Marcar Todo"
+        Me.BtSeleccionProcedimientos.UseVisualStyleBackColor = True
         '
         'GbProcedimientos
         '
@@ -445,7 +510,7 @@ Partial Class CrearEstructura
         Me.GbProcedimientos.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbProcedimientos.Location = New System.Drawing.Point(0, 0)
         Me.GbProcedimientos.Name = "GbProcedimientos"
-        Me.GbProcedimientos.Size = New System.Drawing.Size(1176, 238)
+        Me.GbProcedimientos.Size = New System.Drawing.Size(1094, 238)
         Me.GbProcedimientos.TabIndex = 12
         Me.GbProcedimientos.TabStop = False
         Me.GbProcedimientos.Text = "Procedimientos a exportar"
@@ -464,11 +529,10 @@ Partial Class CrearEstructura
         Me.DgvProcedimientos.Location = New System.Drawing.Point(3, 16)
         Me.DgvProcedimientos.MultiSelect = False
         Me.DgvProcedimientos.Name = "DgvProcedimientos"
-        Me.DgvProcedimientos.ReadOnly = True
         Me.DgvProcedimientos.RowHeadersVisible = False
         Me.DgvProcedimientos.RowHeadersWidth = 40
         Me.DgvProcedimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvProcedimientos.Size = New System.Drawing.Size(1170, 219)
+        Me.DgvProcedimientos.Size = New System.Drawing.Size(1088, 219)
         Me.DgvProcedimientos.TabIndex = 12
         '
         'MsMenu
@@ -515,9 +579,11 @@ Partial Class CrearEstructura
         Me.GbCreaBdd.ResumeLayout(False)
         Me.GbCreaBdd.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.GbTablas.ResumeLayout(False)
         CType(Me.DgvTablas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
         Me.GbProcedimientos.ResumeLayout(False)
         CType(Me.DgvProcedimientos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MsMenu.ResumeLayout(False)
@@ -568,4 +634,10 @@ Partial Class CrearEstructura
     Friend WithEvents BtDestinoLogin As Button
     Friend WithEvents BtOrigenLogin As Button
     Friend WithEvents GbCreaBdd As GroupBox
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents BtDeseleccionTablas As Button
+    Friend WithEvents BtSeleccionTablas As Button
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents BtDeseleccionProcedimientos As Button
+    Friend WithEvents BtSeleccionProcedimientos As Button
 End Class

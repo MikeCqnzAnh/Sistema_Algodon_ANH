@@ -17,6 +17,7 @@ Public Class Usuarios
                     cmdGuardar.Parameters.Add(New SqlParameter("@Usuario", EntidadUsuarios1.Usuario))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Clave", EntidadUsuarios1.Password))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Tipo", EntidadUsuarios1.Tipo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Estatus", EntidadUsuarios1.Estatus))
                     cmdGuardar.Parameters("@IdUsuario").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
                     If EntidadUsuarios1.IdUsuario = 0 Then

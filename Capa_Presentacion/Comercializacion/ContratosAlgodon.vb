@@ -170,8 +170,7 @@ Public Class ContratosAlgodon
             MsgBox("Ingrese precio de quintal o los puntos")
         End If
     End Sub
-
-    Private Sub DgvContratoAlgodon_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratoAlgodon.CellContentDoubleClick
+    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
         Dim TablaDetalle As New DataTable
@@ -213,4 +212,6 @@ Public Class ContratosAlgodon
     Private Sub InhabilitarBotones()
         BtConsultaLotes.Enabled = False
     End Sub
+
+
 End Class

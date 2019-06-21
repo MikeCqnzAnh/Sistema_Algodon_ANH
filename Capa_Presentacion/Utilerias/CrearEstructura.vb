@@ -172,6 +172,12 @@ Public Class CrearEstructura
             Dim colRutina As New DataGridViewTextBoxColumn
             colRutina.Name = "Rutina"
             DgvTablas.Columns.Insert(1, colRutina)
+
+            Dim colSel As New DataGridViewCheckBoxColumn()
+            colSel.Name = "Sel"
+            colSel.HeaderText = ""
+            colSel.Width = 40
+            DgvTablas.Columns.Insert(2, colSel)
         End If
         If DgvProcedimientos.Columns("NombreProcedimiento") Is Nothing Then
 
@@ -183,37 +189,57 @@ Public Class CrearEstructura
             Dim colRutina As New DataGridViewTextBoxColumn
             colRutina.Name = "Rutina"
             DgvProcedimientos.Columns.Insert(1, colRutina)
+
+            Dim colSel As New DataGridViewCheckBoxColumn()
+            colSel.Name = "Sel"
+            colSel.HeaderText = ""
+            colSel.Width = 40
+            DgvProcedimientos.Columns.Insert(2, colSel)
         End If
     End Sub
     Private Sub CreaTablas(ByVal instancia As String, ByVal BaseDeDatos As String, ByVal usuario As String, ByVal password As String)
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
         Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        For i As Integer = 0 To DgvTablas.Rows.Count - 1
-            EntidadCrearEstructura.Instancia = instancia
-            EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
-            EntidadCrearEstructura.Usuario = usuario
-            EntidadCrearEstructura.Password = password
-            EntidadCrearEstructura.Table = DgvTablas.Rows(i).Cells("NombreTabla").Value
-            EntidadCrearEstructura.Rutina = DgvTablas.Rows(i).Cells("Rutina").Value
-            EntidadCrearEstructura.Importa = Importa.ImportaTabla
-            NegocioCrearEstructura.Importa(EntidadCrearEstructura)
-        Next
-        MsgBox("Realizado Correctamente")
+        Try
+            For Each Fila As DataGridViewRow In DgvTablas.Rows
+                If Fila.Cells(2).Value = True Then
+                    EntidadCrearEstructura.Instancia = instancia
+                    EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
+                    EntidadCrearEstructura.Usuario = usuario
+                    EntidadCrearEstructura.Password = password
+                    EntidadCrearEstructura.Table = Fila.Cells("NombreTabla").Value
+                    EntidadCrearEstructura.Rutina = Fila.Cells("Rutina").Value
+                    EntidadCrearEstructura.Importa = Importa.ImportaTabla
+                    NegocioCrearEstructura.Importa(EntidadCrearEstructura)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            MsgBox("Realizado Correctamente")
+        End Try
     End Sub
     Private Sub CreaProcedimientos(ByVal instancia As String, ByVal BaseDeDatos As String, ByVal usuario As String, ByVal password As String)
         Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
         Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        For i As Integer = 0 To DgvProcedimientos.Rows.Count - 1
-            EntidadCrearEstructura.Instancia = instancia
-            EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
-            EntidadCrearEstructura.Usuario = usuario
-            EntidadCrearEstructura.Password = password
-            EntidadCrearEstructura.Procedimiento = DgvProcedimientos.Rows(i).Cells("NombreProcedimiento").Value
-            EntidadCrearEstructura.Rutina = DgvProcedimientos.Rows(i).Cells("Rutina").Value
-            EntidadCrearEstructura.Importa = Importa.ImportaProcedimiento
-            NegocioCrearEstructura.Importa(EntidadCrearEstructura)
-        Next
-        MsgBox("Realizado Correctamente")
+        Try
+            For Each Fila As DataGridViewRow In DgvProcedimientos.Rows
+                If Fila.Cells(2).Value = True Then
+                    EntidadCrearEstructura.Instancia = instancia
+                    EntidadCrearEstructura.BaseDeDatos = BaseDeDatos
+                    EntidadCrearEstructura.Usuario = usuario
+                    EntidadCrearEstructura.Password = password
+                    EntidadCrearEstructura.Procedimiento = Fila.Cells("NombreProcedimiento").Value
+                    EntidadCrearEstructura.Rutina = Fila.Cells("Rutina").Value
+                    EntidadCrearEstructura.Importa = Importa.ImportaProcedimiento
+                    NegocioCrearEstructura.Importa(EntidadCrearEstructura)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            MsgBox("Realizado Correctamente")
+        End Try
     End Sub
     Private Sub Nuevo()
         TbAlgodon.Text = ""
@@ -239,5 +265,33 @@ Public Class CrearEstructura
         PropiedadesDGV()
         CargaTabla()
         CargaProcedimientos()
+    End Sub
+    Private Sub BtSeleccionTablas_Click(sender As Object, e As EventArgs) Handles BtSeleccionTablas.Click
+        For Each Fila As DataGridViewRow In DgvTablas.Rows
+            If Fila.Cells(2).Value = False Then
+                Fila.Cells(2).Value = True
+            End If
+        Next
+    End Sub
+    Private Sub BtDeseleccionTablas_Click(sender As Object, e As EventArgs) Handles BtDeseleccionTablas.Click
+        For Each Fila As DataGridViewRow In DgvTablas.Rows
+            If Fila.Cells(2).Value = True Then
+                Fila.Cells(2).Value = False
+            End If
+        Next
+    End Sub
+    Private Sub BtSeleccionProcedimientos_Click(sender As Object, e As EventArgs) Handles BtSeleccionProcedimientos.Click
+        For Each Fila As DataGridViewRow In DgvProcedimientos.Rows
+            If Fila.Cells(2).Value = False Then
+                Fila.Cells(2).Value = True
+            End If
+        Next
+    End Sub
+    Private Sub BtDeseleccionProcedimientos_Click(sender As Object, e As EventArgs) Handles BtDeseleccionProcedimientos.Click
+        For Each Fila As DataGridViewRow In DgvProcedimientos.Rows
+            If Fila.Cells(2).Value = True Then
+                Fila.Cells(2).Value = False
+            End If
+        Next
     End Sub
 End Class

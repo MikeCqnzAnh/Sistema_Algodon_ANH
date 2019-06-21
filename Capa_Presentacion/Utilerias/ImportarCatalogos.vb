@@ -121,7 +121,6 @@ Public Class ImportarCatalogos
     Private Sub ImportarRegistros(ByVal InstanciaOrigen As String, ByVal BaseDedatosOrigen As String, ByVal UsuarioOrigen As String, ByVal PasswordOrigen As String, ByVal InstanciaDestino As String, ByVal BaseDeDatosDestino As String, ByVal UsuarioDestino As String, ByVal PasswordDestino As String)
         Dim EntidadImportarCatalogos As New Capa_Entidad.ImportarCatalogos
         Dim NegocioImportarCatalogos As New Capa_Negocio.ImportarCatalogos
-        Dim tabla As New DataTable
         Try
             For Each Fila As DataGridViewRow In DgvTablas.Rows
                 If Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) = 0 Then
@@ -140,11 +139,10 @@ Public Class ImportarCatalogos
                 End If
             Next
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         Finally
             MessageBox.Show("Importacion realizada con exito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
-
     End Sub
     Private Function ValidaRegistrosTabla(ByVal NombreTabla As String, ByVal InstanciaDestino As String, ByVal BaseDeDatosDestino As String, ByVal UsuarioDestino As String, ByVal PasswordDestino As String)
         Dim Resultado As Integer
