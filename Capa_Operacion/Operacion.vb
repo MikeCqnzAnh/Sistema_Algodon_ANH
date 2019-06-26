@@ -44,6 +44,8 @@ Namespace Configuracion
         'AgregaDescuento = 4
         'AgregaCantidad = 5
         'Venta = 5
+        ContratoCompra = 2
+        DatosEmpresa = 3
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

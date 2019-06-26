@@ -89,6 +89,7 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Configuracion\DatosEmpresa.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
@@ -126,7 +127,7 @@
     <Compile Include="Reportes\Reportes.vb" />
     <Compile Include="Tarjeta.vb" />
     <Compile Include="Utilerias\Bitacora.vb" />
-    <Compile Include="Utilerias\ConfiguracionParametros.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametros.vb" />
     <Compile Include="Utilerias\CrearEstructura.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.vb" />
     <Compile Include="Utilerias\Monedas.vb" />

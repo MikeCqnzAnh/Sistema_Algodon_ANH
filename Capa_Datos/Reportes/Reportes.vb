@@ -20,23 +20,19 @@ Public Class Reportes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdAsociacion", EntidadReportes1.IdAsociacion))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaOperadores
-                    '    sqldat1 = New SqlDataAdapter("sp_ConsultaEmpleados", cnn)
-                    '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
-                    '    sqlcom1 = New SqlCommand("sp_ConsultaBasProdDet", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion.IdProduccion))
-                    '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
-                    '    sqlcom1 = New SqlCommand("sp_ConsultaProdPorPorOrden", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion.IdOrdenTrabajo))
-                    '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ContratoCompra
+                    sqlcom1 = New SqlCommand("sp_ConsultaContratosDetalleEmpresa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadReportes1.IdContratoAlgodon))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.DatosEmpresa
+                    sqlcom1 = New SqlCommand("Sp_ConsultaDatosEmpresa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqldat1.Fill(EntidadReportes1.TablaGeneral)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaPaca
                     '    sqlcom1 = New SqlCommand("sp_ConsultaProdPorPorOrden", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)

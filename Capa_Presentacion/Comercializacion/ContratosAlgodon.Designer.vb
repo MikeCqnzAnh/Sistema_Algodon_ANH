@@ -25,6 +25,7 @@ Partial Class ContratosAlgodon
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.BtGenerar = New System.Windows.Forms.Button()
@@ -50,7 +51,6 @@ Partial Class ContratosAlgodon
         Me.TbM = New System.Windows.Forms.TextBox()
         Me.TbMP = New System.Windows.Forms.TextBox()
         Me.TbSM = New System.Windows.Forms.TextBox()
-        Me.BtnBuscarProductor = New System.Windows.Forms.Button()
         Me.TbProductor = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
@@ -78,7 +78,7 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnBuscarProductor = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
@@ -104,6 +104,12 @@ Partial Class ContratosAlgodon
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'ImprimirToolStripMenuItem
+        '
+        Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
+        Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ImprimirToolStripMenuItem.Text = "Imprimir"
         '
         'SalirToolStripMenuItem
         '
@@ -368,15 +374,6 @@ Partial Class ContratosAlgodon
         Me.TbSM.Size = New System.Drawing.Size(100, 20)
         Me.TbSM.TabIndex = 0
         '
-        'BtnBuscarProductor
-        '
-        Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
-        Me.BtnBuscarProductor.Location = New System.Drawing.Point(349, 42)
-        Me.BtnBuscarProductor.Name = "BtnBuscarProductor"
-        Me.BtnBuscarProductor.Size = New System.Drawing.Size(42, 50)
-        Me.BtnBuscarProductor.TabIndex = 27
-        Me.BtnBuscarProductor.UseVisualStyleBackColor = True
-        '
         'TbProductor
         '
         Me.TbProductor.Enabled = False
@@ -612,11 +609,14 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
-        'ImprimirToolStripMenuItem
+        'BtnBuscarProductor
         '
-        Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
-        Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.ImprimirToolStripMenuItem.Text = "Imprimir"
+        Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
+        Me.BtnBuscarProductor.Location = New System.Drawing.Point(349, 42)
+        Me.BtnBuscarProductor.Name = "BtnBuscarProductor"
+        Me.BtnBuscarProductor.Size = New System.Drawing.Size(42, 50)
+        Me.BtnBuscarProductor.TabIndex = 27
+        Me.BtnBuscarProductor.UseVisualStyleBackColor = True
         '
         'ContratosAlgodon
         '

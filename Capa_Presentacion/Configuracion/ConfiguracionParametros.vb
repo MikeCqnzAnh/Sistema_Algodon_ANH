@@ -120,12 +120,6 @@ Public Class ConfiguracionParametros
         EntidadConfiguracionParametros.NoCaracterPacasTara = NuPacasCaracterTara.Value
         EntidadConfiguracionParametros.NoCaracterPacasNeto = NuPacasCaracterNeto.Value
         EntidadConfiguracionParametros.PesoMinimoPaca = NuPesoMinimoPaca.Value
-        'EntidadConfiguracionParametros.TextoCadenaPesoPacas = NuCaracterBoletaTara.Value
-        'EntidadConfiguracionParametros.IdSerieBanxico = TbIdSerieBanxico.Text
-        'EntidadConfiguracionParametros.CampoValorBanxico = TbPalabraPosicion.Text
-        'EntidadConfiguracionParametros.PosicionValorBanxico = NuPosicion.Value
-        'EntidadConfiguracionParametros.LongitudValorBanxico = NuLongitud.Value
-        'EntidadConfiguracionParametros.SitioBanxico = TbSitioBanxico.Text
         NegocioConfiguracionParametros.Guardar(EntidadConfiguracionParametros)
         TsIdConfiguracion.Text = EntidadConfiguracionParametros.IdConfiguracion
         MsgBox("Realizado Correctamente")
@@ -218,17 +212,11 @@ Public Class ConfiguracionParametros
     End Sub
     Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
         Dim opc As DialogResult = MsgBox("¿Desea modificar campos al registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
-
         If opc = DialogResult.Yes Then
-
             PanelParametrosBascula.Enabled = True
-
         ElseIf opc = DialogResult.No Then
-
             PanelParametrosBascula.Enabled = False
-
         End If
-
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

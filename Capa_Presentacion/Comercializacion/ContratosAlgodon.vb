@@ -1,6 +1,7 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ContratosAlgodon
     Public IdCliente As Integer
+
     Private Sub ContratosAlgodon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
         Limpiar()
@@ -212,6 +213,8 @@ Public Class ContratosAlgodon
     Private Sub InhabilitarBotones()
         BtConsultaLotes.Enabled = False
     End Sub
-
-
+    Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
+        Dim ReporteContrato As New RepContratoProductor(TbIdContratoAlgodon.Text)
+        ReporteContrato.ShowDialog()
+    End Sub
 End Class

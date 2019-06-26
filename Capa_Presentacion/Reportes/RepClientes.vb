@@ -15,7 +15,6 @@ Public Class RepClientes
     Private Sub RepClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
     End Sub
-
     Private Sub CargarCombos()
         '--Hace referencia a clientes para no repetir codigo en la capas que traen la misma informacion
         Dim EntidadClientes As New Capa_Entidad.Clientes
@@ -36,7 +35,7 @@ Public Class RepClientes
         Dim Tabla As New DataTable
         Dim ds As New DataSet
         Dim CrReport As RPTReporteClientes = New RPTReporteClientes
-        Dim Ruta As String = "C:\Users\OSISTEMAS\Desktop\Sistema_Algodon\Sistema_Algodon_2017\Algodon_ANH\Capa_Presentacion\Reportes\RPTReporteClientes.rpt"
+        Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTReporteClientes.rpt"
         EntidadReportes.Reporte = Reporte.Clientes
         EntidadReportes.IdAsociacion = CbAsociaciones.SelectedValue
         NegocioReportes.Consultar(EntidadReportes)

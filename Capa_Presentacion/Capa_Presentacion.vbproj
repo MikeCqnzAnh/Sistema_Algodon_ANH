@@ -133,6 +133,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ALGODON_2VDataSet.vb">
+      <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Almacenes\ExistenciaBodegaPacas.Designer.vb">
       <DependentUpon>ExistenciaBodegaPacas.vb</DependentUpon>
     </Compile>
@@ -326,11 +329,22 @@
     <Compile Include="Configuracion\DatosEmpresa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepContratoProductor.Designer.vb">
+      <DependentUpon>RepContratoProductor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepContratoProductor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTContratoBuenaEsperanza.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTContratoBuenaEsperanza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTContratoProductor.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTContratoProductor.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
@@ -630,16 +644,16 @@
     <Compile Include="Utilerias\Bitacora.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\ConfiguracionParametros.Designer.vb">
+    <Compile Include="Configuracion\ConfiguracionParametros.Designer.vb">
       <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
     </Compile>
-    <Compile Include="Utilerias\ConfiguracionParametros.vb">
+    <Compile Include="Configuracion\ConfiguracionParametros.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\ConfiguraConexionInicial.Designer.vb">
+    <Compile Include="Configuracion\ConfiguraConexionInicial.Designer.vb">
       <DependentUpon>ConfiguraConexionInicial.vb</DependentUpon>
     </Compile>
-    <Compile Include="Utilerias\ConfiguraConexionInicial.vb">
+    <Compile Include="Configuracion\ConfiguraConexionInicial.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilerias\CrearEstructura.Designer.vb">
@@ -801,6 +815,13 @@
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
+      <DependentUpon>RepContratoProductor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTContratoBuenaEsperanza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTContratoBuenaEsperanza.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTContratoProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTContratoProductor.vb</LastGenOutput>
@@ -955,10 +976,10 @@
     <EmbeddedResource Include="Utilerias\Bitacora.resx">
       <DependentUpon>Bitacora.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilerias\ConfiguracionParametros.resx">
+    <EmbeddedResource Include="Configuracion\ConfiguracionParametros.resx">
       <DependentUpon>ConfiguracionParametros.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilerias\ConfiguraConexionInicial.resx">
+    <EmbeddedResource Include="Configuracion\ConfiguraConexionInicial.resx">
       <DependentUpon>ConfiguraConexionInicial.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\CrearEstructura.resx">
