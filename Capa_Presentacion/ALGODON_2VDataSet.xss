@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:ConsultaPacasHVI" ZOrder="5" X="557" Y="204" Height="619" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="615" />
     <Shape ID="DesignTable:ContratoCompra" ZOrder="3" X="35" Y="113" Height="486" Width="197" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="482" />
     <Shape ID="DesignTable:DatosEmpresa" ZOrder="2" X="1076" Y="58" Height="448" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="444" />
-    <Shape ID="DesignTable:ContratoCompraEmpresa" ZOrder="1" X="244" Y="1" Height="675" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="690" />
+    <Shape ID="DesignTable:ContratoCompraEmpresa" ZOrder="1" X="244" Y="1" Height="790" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="786" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

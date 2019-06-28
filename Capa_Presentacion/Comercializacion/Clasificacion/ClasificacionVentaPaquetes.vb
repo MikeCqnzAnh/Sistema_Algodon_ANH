@@ -511,8 +511,8 @@ Public Class ClasificacionVentaPaquetes
 
             Dim colMic As New DataGridViewTextBoxColumn
             colMic.Name = "Mic"
-            'colMic.HeaderText = "Micros"
-            colMic.Visible = False
+            colMic.HeaderText = "Micros"
+            'colMic.Visible = False
             DgvPacasClasificacion1.Columns.Insert(17, colMic)
 
             Dim colRd As New DataGridViewTextBoxColumn

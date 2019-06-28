@@ -250,9 +250,6 @@ Public Class MenuPrincipal
     Private Sub ChequearEtiquetaDePacaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChequearEtiquetaDePacaToolStripMenuItem.Click
         Etiquetas.Show()
     End Sub
-    Private Sub ConfiguracionDeParametrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosToolStripMenuItem.Click
-        ConfiguracionParametros.ShowDialog()
-    End Sub
     Private Sub SalidaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDePacasToolStripMenuItem.Click
         SalidaPacas.ShowDialog()
     End Sub
@@ -286,24 +283,11 @@ Public Class MenuPrincipal
     Private Sub LiquidacionFinalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiquidacionFinalToolStripMenuItem.Click
         LiquidacionFinal.ShowDialog()
     End Sub
-    Private Sub CrearEstructuraToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem1.Click
-        CrearEstructura.ShowDialog()
-    End Sub
-    Private Sub ImportarCatalogosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem.Click
-        ImportarCatalogos.ShowDialog()
-    End Sub
     Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
         Monedas.ShowDialog()
     End Sub
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
         Bitacora.ShowDialog()
-    End Sub
-    Private Sub SeleccionaConexionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaConexionToolStripMenuItem.Click
-        SeleccionaConexion.ShowDialog()
-        SbBdd.Text = _BaseDeDatos
-    End Sub
-    Private Sub ConexionInicialToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem.Click
-        ConfiguraConexionInicial.ShowDialog()
     End Sub
     Private Sub ContratosDeSemillaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeSemillaToolStripMenuItem1.Click
         ContratoSemillas.ShowDialog()
@@ -326,11 +310,25 @@ Public Class MenuPrincipal
     Private Sub ProgramarRespaldoAutomaticoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProgramarRespaldoAutomaticoToolStripMenuItem.Click
         ProgramarRespaldos.ShowDialog()
     End Sub
-
     Private Sub DatosDeEmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatosDeEmpresaToolStripMenuItem.Click
         DatosEmpresa.ShowDialog()
     End Sub
-
+    Private Sub ConfiguracionDeParametrosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosToolStripMenuItem1.Click
+        ConfiguracionParametros.ShowDialog()
+    End Sub
+    Private Sub SeleccionaConexionToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SeleccionaConexionToolStripMenuItem1.Click
+        SeleccionaConexion.ShowDialog()
+        SbBdd.Text = _BaseDeDatos
+    End Sub
+    Private Sub CrearEstructuraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem.Click
+        CrearEstructura.ShowDialog()
+    End Sub
+    Private Sub ImportarCatalogosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem1.Click
+        ImportarCatalogos.ShowDialog()
+    End Sub
+    Private Sub ConexionInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem1.Click
+        ConfiguraConexionInicial.ShowDialog()
+    End Sub
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

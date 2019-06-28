@@ -105,25 +105,7 @@ Public Class OrdenTrabajo
     Private Sub TbIdProductor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdProductor.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
-                If TbIdProductor.Text <> "" Then
-                    Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
-                    Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
-                    Dim Tabla As New DataTable
-                    EntidadOrdenTrabajo.Consulta = Consulta.ConsultaProductorId
-                    EntidadOrdenTrabajo.IdProductor = CInt(TbIdProductor.Text)
-                    NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
-                    Tabla = EntidadOrdenTrabajo.TablaConsulta
-                    If Tabla.Rows.Count = 0 Then
-                        MsgBox("El productor no existe")
-                        Exit Sub
-                    Else
-                        TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
-                        TbNombre.Text = Tabla.Rows(0).Item("Nombre")
-                    End If
-                Else
-                    MsgBox("Ingrese el id del productor")
-                    Exit Sub
-                End If
+                ConsultaCliente()
         End Select
     End Sub
     Private Sub ConsultarUltimoRango()
@@ -152,5 +134,29 @@ Public Class OrdenTrabajo
         NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
         Tabla = EntidadOrdenTrabajo.TablaConsulta
         DgvCapturaLotes.DataSource = Tabla
+    End Sub
+    Private Sub ConsultaCliente()
+        If TbIdProductor.Text <> "" Then
+            Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+            Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+            Dim Tabla As New DataTable
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaProductorId
+            EntidadOrdenTrabajo.IdProductor = CInt(TbIdProductor.Text)
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            Tabla = EntidadOrdenTrabajo.TablaConsulta
+            If Tabla.Rows.Count = 0 Then
+                MsgBox("El productor no existe")
+                Exit Sub
+            Else
+                TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
+                TbNombre.Text = Tabla.Rows(0).Item("Nombre")
+            End If
+        Else
+            MsgBox("Ingrese el id del productor")
+            Exit Sub
+        End If
+    End Sub
+    Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
+        ConsultaCliente()
     End Sub
 End Class

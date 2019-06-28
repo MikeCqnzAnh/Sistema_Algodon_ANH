@@ -341,11 +341,6 @@
       <DependentUpon>RPTContratoBuenaEsperanza.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\RPT\RPTContratoProductor.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPTContratoProductor.rpt</DependentUpon>
-    </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
     </Compile>
@@ -821,10 +816,6 @@
     <EmbeddedResource Include="Reportes\RPT\RPTContratoBuenaEsperanza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTContratoBuenaEsperanza.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\RPT\RPTContratoProductor.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPTContratoProductor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
       <DependentUpon>TiposUsuario.vb</DependentUpon>

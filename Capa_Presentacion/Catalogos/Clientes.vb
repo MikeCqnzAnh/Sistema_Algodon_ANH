@@ -30,7 +30,7 @@ Public Class Clientes
             TbNombre.Text = Tabla.Rows(0).Item("Nombre")
             CbTipoPersona.SelectedValue = Tabla.Rows(0).Item("IdTipoPersona")
             CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
-            TbRfcFis.Text = Tabla.Rows(0).Item("RfcFisica")
+            TbRfcFis.Text = Tabla.Rows(0).Item("Rfc")
             TbCurpFis.Text = Tabla.Rows(0).Item("CurpFisica")
             TbCalleFis.Text = Tabla.Rows(0).Item("CalleFisica")
             TbNumeroFis.Text = Tabla.Rows(0).Item("NumeroFisica")
@@ -40,10 +40,10 @@ Public Class Clientes
             TbCelularFis.Text = Tabla.Rows(0).Item("CelularFisica")
             TbTelefonoFis.Text = Tabla.Rows(0).Item("TelefonoFisica")
             TbCorreoFis.Text = Tabla.Rows(0).Item("CorreoFisica")
-            TbApoderadoFis.Text = Tabla.Rows(0).Item("ApoderadoFisica")
+            TbNombreApoderado.Text = Tabla.Rows(0).Item("ApoderadoFisica")
             TbFolioActa.Text = Tabla.Rows(0).Item("FolioActa")
-            CbEstadoActa.SelectedValue = Tabla.Rows(0).Item("IdEstadoActa")
             DtpFechaActa.Value = Tabla.Rows(0).Item("FechaActa")
+            TbFolioMercantil.Text = Tabla.Rows(0).Item("FolioMercantil")
             TbNotarioActa.Text = Tabla.Rows(0).Item("NotarioActa")
             TbRegPubActa.Text = Tabla.Rows(0).Item("RegistroPublicoActa")
             TbNumeroActa.Text = Tabla.Rows(0).Item("NumeroActa")
@@ -51,11 +51,16 @@ Public Class Clientes
             TbRfcApoderado.Text = Tabla.Rows(0).Item("RfcApoderado")
             TbCurpApoderado.Text = Tabla.Rows(0).Item("CurpApoderado")
             TbIneApoderado.Text = Tabla.Rows(0).Item("IneApoderado")
-            TbCalleApoderado.Text = Tabla.Rows(0).Item("CalleApoderado")
-            CbEstadoApoderado.SelectedValue = Tabla.Rows(0).Item("IdEstadoApoderado")
-            CbMunicipioApoderado.SelectedValue = Tabla.Rows(0).Item("IdMunicipioApoderado")
+            TbNumeroMoral.Text = Tabla.Rows(0).Item("NumeroMoral")
+            TbCalleMoral.Text = Tabla.Rows(0).Item("CalleMoral")
+            CbEstadoMoral.SelectedValue = Tabla.Rows(0).Item("IdEstadoMoral")
+            CbMunicipioMoral.SelectedValue = Tabla.Rows(0).Item("IdMunicipioMoral")
+            TbColoniaMoral.Text = Tabla.Rows(0).Item("ColoniaMoral")
+            TbTelefonoMoral.Text = Tabla.Rows(0).Item("TelefonoMoral")
+            TbCelularMoral.Text = Tabla.Rows(0).Item("CelularMoral")
             TbTelefonoApoderado.Text = Tabla.Rows(0).Item("TelefonoApoderado")
             TbCelularApoderado.Text = Tabla.Rows(0).Item("CelularApoderado")
+            TbCorreoApoderado.Text = Tabla.Rows(0).Item("CorreoApoderado")
             CbEstadoMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdEstadoMovilizacion")
             CbMunicipioMovilizacion.SelectedValue = Tabla.Rows(0).Item("IdMunicipioMovilizacion")
             TbCertificado.Text = Tabla.Rows(0).Item("Certificado")
@@ -77,7 +82,7 @@ Public Class Clientes
             EntidadClientes.Socio = TbSocio.Text
             EntidadClientes.Nombre = TbNombre.Text
             EntidadClientes.IdTipoPersona = CbTipoPersona.SelectedValue
-            EntidadClientes.RfcFisica = TbRfcFis.Text
+            EntidadClientes.Rfc = TbRfcFis.Text
             EntidadClientes.CurpFisica = TbCurpFis.Text
             EntidadClientes.CalleFisica = TbCalleFis.Text
             EntidadClientes.NumeroFisica = TbNumeroFis.Text
@@ -87,9 +92,8 @@ Public Class Clientes
             EntidadClientes.CelularFisica = TbCelularFis.Text
             EntidadClientes.TelefonoFisica = TbTelefonoFis.Text
             EntidadClientes.CorreoFisica = TbCorreoFis.Text
-            EntidadClientes.ApoderadoFisica = TbApoderadoFis.Text
+            EntidadClientes.ApoderadoFisica = TbNombreApoderado.Text
             EntidadClientes.FolioActa = TbFolioActa.Text
-            EntidadClientes.IdEstadoActa = CbEstadoActa.SelectedValue
             EntidadClientes.FechaActa = DtpFechaActa.Value
             EntidadClientes.NotarioActa = TbNotarioActa.Text
             EntidadClientes.RegistroPublicoActa = TbRegPubActa.Text
@@ -99,9 +103,13 @@ Public Class Clientes
             EntidadClientes.RfcApoderado = TbRfcApoderado.Text
             EntidadClientes.CurpApoderado = TbCurpApoderado.Text
             EntidadClientes.IneApoderado = TbIneApoderado.Text
-            EntidadClientes.CalleApoderado = TbCalleApoderado.Text
-            EntidadClientes.IdEstadoApoderado = CbEstadoApoderado.SelectedValue
-            EntidadClientes.IdMunicipioApoderado = CbMunicipioApoderado.SelectedValue
+            EntidadClientes.CalleMoral = TbCalleMoral.Text
+            EntidadClientes.NumeroMoral = TbNumeroMoral.Text
+            EntidadClientes.IdEstadoMoral = CbEstadoMoral.SelectedValue
+            EntidadClientes.IdMunicipioMoral = CbMunicipioMoral.SelectedValue
+            EntidadClientes.ColoniaMoral = TbColoniaMoral.Text
+            EntidadClientes.TelefonoMoral = TbTelefonoMoral.Text
+            EntidadClientes.CelularMoral = TbCelularMoral.Text
             EntidadClientes.TelefonoApoderado = TbTelefonoApoderado.Text
             EntidadClientes.CelularApoderado = TbCelularApoderado.Text
             EntidadClientes.CorreoApoderado = TbCorreoApoderado.Text
@@ -138,9 +146,8 @@ Public Class Clientes
         TbCelularFis.Text = ""
         TbTelefonoFis.Text = ""
         TbCorreoFis.Text = ""
-        TbApoderadoFis.Text = ""
+        TbNombreApoderado.Text = ""
         TbFolioActa.Text = ""
-        CbEstadoActa.SelectedValue = 6
         DtpFechaActa.Value = Now
         TbNotarioActa.Text = ""
         TbRegPubActa.Text = ""
@@ -150,9 +157,13 @@ Public Class Clientes
         TbRfcApoderado.Text = ""
         TbCurpApoderado.Text = ""
         TbIneApoderado.Text = ""
-        TbCalleApoderado.Text = ""
-        CbEstadoApoderado.SelectedValue = 6
-        CbMunicipioApoderado.SelectedValue = 1
+        TbCalleMoral.Text = ""
+        TbNumeroMoral.Text = ""
+        TbColoniaMoral.Text = ""
+        CbEstadoMoral.SelectedValue = 6
+        CbMunicipioMoral.SelectedValue = 1
+        TbTelefonoMoral.Text = ""
+        TbColoniaMoral.Text = ""
         TbTelefonoApoderado.Text = ""
         TbCelularApoderado.Text = ""
         TbCorreoApoderado.Text = ""
@@ -218,33 +229,33 @@ Public Class Clientes
         CbMunicipioMovilizacion.DisplayMember = "Descripcion"
         CbMunicipioMovilizacion.SelectedValue = 1
         '---------------------------CONSULTA ESTADOS MORAL
-        Dim tabla6 As New DataTable
-        EntidadClientes.Consulta = Consulta.ConsultaEstadoMoral
-        NegocioClientes.Consultar(EntidadClientes)
-        tabla6 = EntidadClientes.TablaConsulta
-        CbEstadoActa.DataSource = tabla6
-        CbEstadoActa.ValueMember = "IdEstado"
-        CbEstadoActa.DisplayMember = "Descripcion"
-        CbEstadoActa.SelectedValue = 6
+        'Dim tabla6 As New DataTable
+        'EntidadClientes.Consulta = Consulta.ConsultaEstadoMoral
+        'NegocioClientes.Consultar(EntidadClientes)
+        'tabla6 = EntidadClientes.TablaConsulta
+        'CbEstadoActa.DataSource = tabla6
+        'CbEstadoActa.ValueMember = "IdEstado"
+        'CbEstadoActa.DisplayMember = "Descripcion"
+        'CbEstadoActa.SelectedValue = 6
         '---------------------------CONSULTA ESTADO APODERADO
         Dim tabla7 As New DataTable
         EntidadClientes.Consulta = Consulta.ConsultaEstadoApoderado
         NegocioClientes.Consultar(EntidadClientes)
         tabla7 = EntidadClientes.TablaConsulta
-        CbEstadoApoderado.DataSource = tabla7
-        CbEstadoApoderado.ValueMember = "IdEstado"
-        CbEstadoApoderado.DisplayMember = "Descripcion"
-        CbEstadoApoderado.SelectedValue = 6
+        CbEstadoMoral.DataSource = tabla7
+        CbEstadoMoral.ValueMember = "IdEstado"
+        CbEstadoMoral.DisplayMember = "Descripcion"
+        CbEstadoMoral.SelectedValue = 6
         '---------------------------CONSULTA MUNICIPIO APODERADO     
         Dim tabla8 As New DataTable
-        EntidadClientes.IdEstadoApoderado = CbEstadoApoderado.SelectedValue
+        EntidadClientes.IdEstadoMoral = CbEstadoMoral.SelectedValue
         EntidadClientes.Consulta = Consulta.ConsultaMunicipioApoderado
         NegocioClientes.Consultar(EntidadClientes)
         tabla8 = EntidadClientes.TablaConsulta
-        CbMunicipioApoderado.DataSource = tabla8
-        CbMunicipioApoderado.ValueMember = "IdMunicipio"
-        CbMunicipioApoderado.DisplayMember = "Descripcion"
-        CbMunicipioApoderado.SelectedValue = 1
+        CbMunicipioMoral.DataSource = tabla8
+        CbMunicipioMoral.ValueMember = "IdMunicipio"
+        CbMunicipioMoral.DisplayMember = "Descripcion"
+        CbMunicipioMoral.SelectedValue = 1
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
         dt.Columns.Add("Id")
@@ -290,17 +301,16 @@ Public Class Clientes
     Private Sub TbRfcFis_Leave(sender As Object, e As EventArgs) Handles TbRfcFis.Leave
 
         If TbRfcFis.Text <> String.Empty Or TbRfcFis.Text = String.Empty Then
-            If Regex.IsMatch(TbRfcFis.Text.Trim, "^([A-Z\s]{4})\d{6}([A-Z\w]{3})$") = False Then
+            If Regex.IsMatch(TbRfcFis.Text.Trim, "^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$") = False Then
                 MsgBox("El RFC No es Valido")
                 Me.TbRfcFis.Focus()
-
             End If
         End If
     End Sub
 
     Private Sub TbCurpFis_Leave(sender As Object, e As EventArgs) Handles TbCurpFis.Leave
         If TbCurpFis.Text <> String.Empty Or TbCurpFis.Text = String.Empty Then
-            If Regex.IsMatch(TbCurpFis.Text.Trim, "^[a-zA-Z]{4,4}[0-9]{6}[a-zA-Z]{6,6}[0-9]{2}$") = False Then
+            If Regex.IsMatch(TbCurpFis.Text.Trim, "^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$") = False Then
                 MsgBox("La CURP no es Valida")
                 Me.TbCurpFis.Focus()
 
@@ -373,7 +383,7 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub TbApoderadoFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbApoderadoFis.KeyPress
+    Private Sub TbApoderadoFis_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -383,9 +393,9 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub TbRfcApoderado_Leave(sender As Object, e As EventArgs) Handles TbRfcApoderado.Leave
+    Private Sub TbRfcApoderado_Leave(sender As Object, e As EventArgs) Handles TbRfcApoderado.Leave, TbNombreApoderado.Leave
         If TbRfcApoderado.Text <> String.Empty Or TbRfcApoderado.Text = String.Empty Then
-            If Regex.IsMatch(TbRfcApoderado.Text.Trim, "^([A-Z\s]{4})\d{6}([A-Z\w]{3})$") = False Then
+            If Regex.IsMatch(TbRfcApoderado.Text.Trim, "^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$") = False Then
                 MsgBox("El RFC No es Valido")
                 Me.TbRfcApoderado.Focus()
 
@@ -395,7 +405,7 @@ Public Class Clientes
 
     Private Sub TbCurpApoderado_Leave(sender As Object, e As EventArgs) Handles TbCurpApoderado.Leave
         If TbCurpApoderado.Text <> String.Empty Or TbCurpApoderado.Text = String.Empty Then
-            If Regex.IsMatch(TbCurpApoderado.Text.Trim, "^[a-zA-Z]{4,4}[0-9]{6}[a-zA-Z]{6,6}[0-9]{2}$") = False Then
+            If Regex.IsMatch(TbCurpApoderado.Text.Trim, "^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$") = False Then
                 MsgBox("La CURP no es Valida")
                 Me.TbCurpApoderado.Focus()
 

@@ -214,7 +214,12 @@ Public Class ContratosAlgodon
         BtConsultaLotes.Enabled = False
     End Sub
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
-        Dim ReporteContrato As New RepContratoProductor(TbIdContratoAlgodon.Text)
-        ReporteContrato.ShowDialog()
+        If TbIdContratoAlgodon.Text <> "" Then
+            Dim ReporteContrato As New RepContratoProductor(TbIdContratoAlgodon.Text)
+            ReporteContrato.ShowDialog()
+        Else
+            MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
     End Sub
 End Class

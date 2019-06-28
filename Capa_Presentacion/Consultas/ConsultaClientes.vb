@@ -46,8 +46,7 @@ Public Class ConsultaClientes
     Private Sub BtBuscar_Click(sender As Object, e As EventArgs) Handles BtBuscar.Click
         ConsultarClientes()
     End Sub
-
-    Private Sub DgvConsultaClientes_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultaClientes.CellContentDoubleClick
+    Private Sub DgvConsultaClientes_DoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaClientes.DoubleClick
         If DgvConsultaClientes.DataSource Is Nothing Then
             MsgBox("No hay registros disponibles")
         Else

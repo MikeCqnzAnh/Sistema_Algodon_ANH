@@ -141,7 +141,6 @@ Partial Class MenuPrincipal
         Me.CambioDePerfilDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfiguracionDeParametrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonedasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RutaDeDocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -149,14 +148,15 @@ Partial Class MenuPrincipal
         Me.RealizarRespaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestaurarRespaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SeleccionaConexionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CrearEstructuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportarCatalogosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConexionInicialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeleccionaConexionToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CrearEstructuraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportarCatalogosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConexionInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -182,7 +182,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(860, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(1029, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -867,7 +867,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem, Me.UsuariosToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -901,12 +901,6 @@ Partial Class MenuPrincipal
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Name = "EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem"
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Text = "Envio de Mensajes de texto y correos a Productores"
-        '
-        'ConfiguracionDeParametrosToolStripMenuItem
-        '
-        Me.ConfiguracionDeParametrosToolStripMenuItem.Name = "ConfiguracionDeParametrosToolStripMenuItem"
-        Me.ConfiguracionDeParametrosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.ConfiguracionDeParametrosToolStripMenuItem.Text = "Configuracion De Parametros"
         '
         'MonedasToolStripMenuItem
         '
@@ -951,37 +945,6 @@ Partial Class MenuPrincipal
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem.Size = New System.Drawing.Size(277, 24)
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem.Text = "Programar Respaldo Automatico"
         '
-        'ConfiguracionDeBaseDeDatosToolStripMenuItem
-        '
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionaConexionToolStripMenuItem, Me.CrearEstructuraToolStripMenuItem1, Me.ImportarCatalogosToolStripMenuItem, Me.ConexionInicialToolStripMenuItem})
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem.Name = "ConfiguracionDeBaseDeDatosToolStripMenuItem"
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem.Text = "Configuracion De Base De Datos"
-        '
-        'SeleccionaConexionToolStripMenuItem
-        '
-        Me.SeleccionaConexionToolStripMenuItem.Name = "SeleccionaConexionToolStripMenuItem"
-        Me.SeleccionaConexionToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
-        Me.SeleccionaConexionToolStripMenuItem.Text = "Selecciona Conexion"
-        '
-        'CrearEstructuraToolStripMenuItem1
-        '
-        Me.CrearEstructuraToolStripMenuItem1.Name = "CrearEstructuraToolStripMenuItem1"
-        Me.CrearEstructuraToolStripMenuItem1.Size = New System.Drawing.Size(201, 24)
-        Me.CrearEstructuraToolStripMenuItem1.Text = "Crear Estructura"
-        '
-        'ImportarCatalogosToolStripMenuItem
-        '
-        Me.ImportarCatalogosToolStripMenuItem.Name = "ImportarCatalogosToolStripMenuItem"
-        Me.ImportarCatalogosToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
-        Me.ImportarCatalogosToolStripMenuItem.Text = "Importar Catalogos"
-        '
-        'ConexionInicialToolStripMenuItem
-        '
-        Me.ConexionInicialToolStripMenuItem.Name = "ConexionInicialToolStripMenuItem"
-        Me.ConexionInicialToolStripMenuItem.Size = New System.Drawing.Size(201, 24)
-        Me.ConexionInicialToolStripMenuItem.Text = "Conexion Inicial"
-        '
         'UsuariosToolStripMenuItem
         '
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
@@ -990,7 +953,7 @@ Partial Class MenuPrincipal
         '
         'ConfiguracionToolStripMenuItem
         '
-        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(106, 23)
         Me.ConfiguracionToolStripMenuItem.Text = "Configuracion"
@@ -998,8 +961,45 @@ Partial Class MenuPrincipal
         'DatosDeEmpresaToolStripMenuItem
         '
         Me.DatosDeEmpresaToolStripMenuItem.Name = "DatosDeEmpresaToolStripMenuItem"
-        Me.DatosDeEmpresaToolStripMenuItem.Size = New System.Drawing.Size(189, 24)
+        Me.DatosDeEmpresaToolStripMenuItem.Size = New System.Drawing.Size(271, 24)
         Me.DatosDeEmpresaToolStripMenuItem.Text = "Datos de empresa"
+        '
+        'ConfiguracionDeParametrosToolStripMenuItem1
+        '
+        Me.ConfiguracionDeParametrosToolStripMenuItem1.Name = "ConfiguracionDeParametrosToolStripMenuItem1"
+        Me.ConfiguracionDeParametrosToolStripMenuItem1.Size = New System.Drawing.Size(271, 24)
+        Me.ConfiguracionDeParametrosToolStripMenuItem1.Text = "Configuracion de parametros"
+        '
+        'ConfiguracionDeBaseDeDatosToolStripMenuItem1
+        '
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionaConexionToolStripMenuItem1, Me.CrearEstructuraToolStripMenuItem, Me.ImportarCatalogosToolStripMenuItem1, Me.ConexionInicialToolStripMenuItem1})
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Name = "ConfiguracionDeBaseDeDatosToolStripMenuItem1"
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Size = New System.Drawing.Size(271, 24)
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Text = "Configuracion de base de datos"
+        '
+        'SeleccionaConexionToolStripMenuItem1
+        '
+        Me.SeleccionaConexionToolStripMenuItem1.Name = "SeleccionaConexionToolStripMenuItem1"
+        Me.SeleccionaConexionToolStripMenuItem1.Size = New System.Drawing.Size(198, 24)
+        Me.SeleccionaConexionToolStripMenuItem1.Text = "Selecciona conexion"
+        '
+        'CrearEstructuraToolStripMenuItem
+        '
+        Me.CrearEstructuraToolStripMenuItem.Name = "CrearEstructuraToolStripMenuItem"
+        Me.CrearEstructuraToolStripMenuItem.Size = New System.Drawing.Size(198, 24)
+        Me.CrearEstructuraToolStripMenuItem.Text = "Crear estructura"
+        '
+        'ImportarCatalogosToolStripMenuItem1
+        '
+        Me.ImportarCatalogosToolStripMenuItem1.Name = "ImportarCatalogosToolStripMenuItem1"
+        Me.ImportarCatalogosToolStripMenuItem1.Size = New System.Drawing.Size(198, 24)
+        Me.ImportarCatalogosToolStripMenuItem1.Text = "Importar catalogos"
+        '
+        'ConexionInicialToolStripMenuItem1
+        '
+        Me.ConexionInicialToolStripMenuItem1.Name = "ConexionInicialToolStripMenuItem1"
+        Me.ConexionInicialToolStripMenuItem1.Size = New System.Drawing.Size(198, 24)
+        Me.ConexionInicialToolStripMenuItem1.Text = "Conexion inicial"
         '
         'TsSalir
         '
@@ -1011,10 +1011,10 @@ Partial Class MenuPrincipal
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
-        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 521)
+        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 617)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(860, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(1029, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1084,7 +1084,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel5
         '
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 15)
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
         'MenuPrincipal
@@ -1094,7 +1094,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(860, 543)
+        Me.ClientSize = New System.Drawing.Size(1029, 639)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1219,7 +1219,6 @@ Partial Class MenuPrincipal
     Friend WithEvents ClasificacionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PaquetesParaVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PaquetesParaVentaPorRangosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConfiguracionDeParametrosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClasificaciónDePacasConCertificadoToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ClasificaciónDePacasConArchivoExcelToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PaquetesHVIToolStripMenuItem1 As ToolStripMenuItem
@@ -1242,14 +1241,9 @@ Partial Class MenuPrincipal
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents TsPrecioDolar As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
-    Friend WithEvents ConfiguracionDeBaseDeDatosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CrearEstructuraToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ImportarCatalogosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BitacoraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RutaDeDocumentosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SeleccionaConexionToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConexionInicialToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciaEnBodegaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AlmacenesToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
@@ -1259,4 +1253,10 @@ Partial Class MenuPrincipal
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguracionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DatosDeEmpresaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionDeParametrosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ConfiguracionDeBaseDeDatosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents SeleccionaConexionToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents CrearEstructuraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportarCatalogosToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ConexionInicialToolStripMenuItem1 As ToolStripMenuItem
 End Class

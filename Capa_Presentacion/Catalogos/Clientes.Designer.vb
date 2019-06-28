@@ -49,14 +49,12 @@ Partial Class Clientes
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.TbColoniaFis = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TbCurpFis = New System.Windows.Forms.TextBox()
         Me.TbCalleFis = New System.Windows.Forms.TextBox()
-        Me.TbApoderadoFis = New System.Windows.Forms.TextBox()
         Me.TbNumeroFis = New System.Windows.Forms.TextBox()
         Me.TbTelefonoFis = New System.Windows.Forms.TextBox()
         Me.TbCorreoFis = New System.Windows.Forms.TextBox()
@@ -68,12 +66,6 @@ Partial Class Clientes
         Me.Label35 = New System.Windows.Forms.Label()
         Me.TbCelularApoderado = New System.Windows.Forms.TextBox()
         Me.TbTelefonoApoderado = New System.Windows.Forms.TextBox()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.CbMunicipioApoderado = New System.Windows.Forms.ComboBox()
-        Me.CbEstadoApoderado = New System.Windows.Forms.ComboBox()
-        Me.TbCalleApoderado = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.TbIneApoderado = New System.Windows.Forms.TextBox()
@@ -93,8 +85,6 @@ Partial Class Clientes
         Me.TbNotarioActa = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.DtpFechaActa = New System.Windows.Forms.DateTimePicker()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.CbEstadoActa = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TbFolioActa = New System.Windows.Forms.TextBox()
         Me.GbMovilizacion = New System.Windows.Forms.GroupBox()
@@ -113,6 +103,23 @@ Partial Class Clientes
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GbDireccionMoral = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.CbMunicipioMoral = New System.Windows.Forms.ComboBox()
+        Me.CbEstadoMoral = New System.Windows.Forms.ComboBox()
+        Me.TbCalleMoral = New System.Windows.Forms.TextBox()
+        Me.TbNumeroMoral = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.TbTelefonoMoral = New System.Windows.Forms.TextBox()
+        Me.TbCelularMoral = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TbColoniaMoral = New System.Windows.Forms.TextBox()
+        Me.TbNombreApoderado = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.TCTipoPersona.SuspendLayout()
         Me.TPPersonaFisica.SuspendLayout()
@@ -122,6 +129,7 @@ Partial Class Clientes
         Me.GbActaConstitutiva.SuspendLayout()
         Me.GbMovilizacion.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GbDireccionMoral.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -129,7 +137,7 @@ Partial Class Clientes
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(984, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1000, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -171,8 +179,8 @@ Partial Class Clientes
         Me.TbIdCliente.Enabled = False
         Me.TbIdCliente.Location = New System.Drawing.Point(124, 3)
         Me.TbIdCliente.Name = "TbIdCliente"
-        Me.TbIdCliente.Size = New System.Drawing.Size(50, 20)
-        Me.TbIdCliente.TabIndex = 2
+        Me.TbIdCliente.Size = New System.Drawing.Size(104, 20)
+        Me.TbIdCliente.TabIndex = 0
         '
         'Label2
         '
@@ -195,11 +203,11 @@ Partial Class Clientes
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 85)
+        Me.Label4.Location = New System.Drawing.Point(7, 110)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(85, 13)
+        Me.Label4.Size = New System.Drawing.Size(84, 13)
         Me.Label4.TabIndex = 5
-        Me.Label4.Text = "TIpo de persona"
+        Me.Label4.Text = "Tipo de persona"
         '
         'TbSocio
         '
@@ -207,7 +215,7 @@ Partial Class Clientes
         Me.TbSocio.Location = New System.Drawing.Point(124, 29)
         Me.TbSocio.Name = "TbSocio"
         Me.TbSocio.Size = New System.Drawing.Size(139, 20)
-        Me.TbSocio.TabIndex = 6
+        Me.TbSocio.TabIndex = 1
         '
         'TbNombre
         '
@@ -215,26 +223,26 @@ Partial Class Clientes
         Me.TbNombre.Location = New System.Drawing.Point(124, 55)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(313, 20)
-        Me.TbNombre.TabIndex = 7
+        Me.TbNombre.TabIndex = 2
         '
         'CbTipoPersona
         '
         Me.CbTipoPersona.FormattingEnabled = True
-        Me.CbTipoPersona.Location = New System.Drawing.Point(124, 82)
+        Me.CbTipoPersona.Location = New System.Drawing.Point(124, 107)
         Me.CbTipoPersona.Name = "CbTipoPersona"
         Me.CbTipoPersona.Size = New System.Drawing.Size(210, 21)
-        Me.CbTipoPersona.TabIndex = 8
+        Me.CbTipoPersona.TabIndex = 4
         '
         'TCTipoPersona
         '
         Me.TCTipoPersona.Controls.Add(Me.TPPersonaFisica)
         Me.TCTipoPersona.Controls.Add(Me.TPPersonaMoral)
         Me.TCTipoPersona.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TCTipoPersona.Location = New System.Drawing.Point(0, 181)
+        Me.TCTipoPersona.Location = New System.Drawing.Point(0, 193)
         Me.TCTipoPersona.Name = "TCTipoPersona"
         Me.TCTipoPersona.SelectedIndex = 0
-        Me.TCTipoPersona.Size = New System.Drawing.Size(984, 306)
-        Me.TCTipoPersona.TabIndex = 9
+        Me.TCTipoPersona.Size = New System.Drawing.Size(1000, 414)
+        Me.TCTipoPersona.TabIndex = 1
         '
         'TPPersonaFisica
         '
@@ -242,7 +250,7 @@ Partial Class Clientes
         Me.TPPersonaFisica.Location = New System.Drawing.Point(4, 22)
         Me.TPPersonaFisica.Name = "TPPersonaFisica"
         Me.TPPersonaFisica.Padding = New System.Windows.Forms.Padding(3)
-        Me.TPPersonaFisica.Size = New System.Drawing.Size(976, 280)
+        Me.TPPersonaFisica.Size = New System.Drawing.Size(992, 388)
         Me.TPPersonaFisica.TabIndex = 0
         Me.TPPersonaFisica.Text = "Persona Fisica"
         Me.TPPersonaFisica.UseVisualStyleBackColor = True
@@ -251,7 +259,6 @@ Partial Class Clientes
         '
         Me.Panel1.Controls.Add(Me.CbMunicipioFis)
         Me.Panel1.Controls.Add(Me.Label39)
-        Me.Panel1.Controls.Add(Me.TbRfcFis)
         Me.Panel1.Controls.Add(Me.CbEstadoFis)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label10)
@@ -260,35 +267,32 @@ Partial Class Clientes
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.Label7)
-        Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.TbColoniaFis)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.TbCurpFis)
         Me.Panel1.Controls.Add(Me.TbCalleFis)
-        Me.Panel1.Controls.Add(Me.TbApoderadoFis)
         Me.Panel1.Controls.Add(Me.TbNumeroFis)
         Me.Panel1.Controls.Add(Me.TbTelefonoFis)
         Me.Panel1.Controls.Add(Me.TbCorreoFis)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(970, 274)
+        Me.Panel1.Size = New System.Drawing.Size(986, 382)
         Me.Panel1.TabIndex = 10
         '
         'CbMunicipioFis
         '
         Me.CbMunicipioFis.FormattingEnabled = True
-        Me.CbMunicipioFis.Location = New System.Drawing.Point(107, 149)
+        Me.CbMunicipioFis.Location = New System.Drawing.Point(103, 122)
         Me.CbMunicipioFis.Name = "CbMunicipioFis"
         Me.CbMunicipioFis.Size = New System.Drawing.Size(210, 21)
-        Me.CbMunicipioFis.TabIndex = 22
+        Me.CbMunicipioFis.TabIndex = 4
         '
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(10, 156)
+        Me.Label39.Location = New System.Drawing.Point(6, 129)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(52, 13)
         Me.Label39.TabIndex = 21
@@ -297,23 +301,23 @@ Partial Class Clientes
         'TbRfcFis
         '
         Me.TbRfcFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRfcFis.Location = New System.Drawing.Point(107, 14)
+        Me.TbRfcFis.Location = New System.Drawing.Point(124, 81)
         Me.TbRfcFis.Name = "TbRfcFis"
         Me.TbRfcFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbRfcFis.TabIndex = 8
+        Me.TbRfcFis.TabIndex = 3
         '
         'CbEstadoFis
         '
         Me.CbEstadoFis.FormattingEnabled = True
-        Me.CbEstadoFis.Location = New System.Drawing.Point(107, 122)
+        Me.CbEstadoFis.Location = New System.Drawing.Point(103, 95)
         Me.CbEstadoFis.Name = "CbEstadoFis"
         Me.CbEstadoFis.Size = New System.Drawing.Size(210, 21)
-        Me.CbEstadoFis.TabIndex = 20
+        Me.CbEstadoFis.TabIndex = 3
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(10, 129)
+        Me.Label9.Location = New System.Drawing.Point(6, 102)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(40, 13)
         Me.Label9.TabIndex = 4
@@ -334,12 +338,12 @@ Partial Class Clientes
         Me.TbCelularFis.Location = New System.Drawing.Point(507, 40)
         Me.TbCelularFis.Name = "TbCelularFis"
         Me.TbCelularFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbCelularFis.TabIndex = 19
+        Me.TbCelularFis.TabIndex = 6
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 102)
+        Me.Label8.Location = New System.Drawing.Point(6, 75)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 13)
         Me.Label8.TabIndex = 3
@@ -366,20 +370,11 @@ Partial Class Clientes
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 75)
+        Me.Label7.Location = New System.Drawing.Point(6, 48)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Calle"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(406, 121)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 13)
-        Me.Label12.TabIndex = 7
-        Me.Label12.Text = "Apoderado"
         '
         'TbColoniaFis
         '
@@ -387,12 +382,12 @@ Partial Class Clientes
         Me.TbColoniaFis.Location = New System.Drawing.Point(507, 14)
         Me.TbColoniaFis.Name = "TbColoniaFis"
         Me.TbColoniaFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbColoniaFis.TabIndex = 17
+        Me.TbColoniaFis.TabIndex = 5
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(10, 48)
+        Me.Label6.Location = New System.Drawing.Point(6, 21)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(37, 13)
         Me.Label6.TabIndex = 1
@@ -401,7 +396,7 @@ Partial Class Clientes
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 21)
+        Me.Label5.Location = New System.Drawing.Point(7, 84)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(28, 13)
         Me.Label5.TabIndex = 0
@@ -419,34 +414,26 @@ Partial Class Clientes
         'TbCurpFis
         '
         Me.TbCurpFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCurpFis.Location = New System.Drawing.Point(107, 41)
+        Me.TbCurpFis.Location = New System.Drawing.Point(103, 14)
         Me.TbCurpFis.Name = "TbCurpFis"
         Me.TbCurpFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbCurpFis.TabIndex = 9
+        Me.TbCurpFis.TabIndex = 0
         '
         'TbCalleFis
         '
         Me.TbCalleFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCalleFis.Location = New System.Drawing.Point(107, 68)
+        Me.TbCalleFis.Location = New System.Drawing.Point(103, 41)
         Me.TbCalleFis.Name = "TbCalleFis"
         Me.TbCalleFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbCalleFis.TabIndex = 10
-        '
-        'TbApoderadoFis
-        '
-        Me.TbApoderadoFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbApoderadoFis.Location = New System.Drawing.Point(507, 118)
-        Me.TbApoderadoFis.Name = "TbApoderadoFis"
-        Me.TbApoderadoFis.Size = New System.Drawing.Size(280, 20)
-        Me.TbApoderadoFis.TabIndex = 15
+        Me.TbCalleFis.TabIndex = 1
         '
         'TbNumeroFis
         '
         Me.TbNumeroFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNumeroFis.Location = New System.Drawing.Point(107, 95)
+        Me.TbNumeroFis.Location = New System.Drawing.Point(103, 68)
         Me.TbNumeroFis.Name = "TbNumeroFis"
         Me.TbNumeroFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbNumeroFis.TabIndex = 11
+        Me.TbNumeroFis.TabIndex = 2
         '
         'TbTelefonoFis
         '
@@ -454,7 +441,7 @@ Partial Class Clientes
         Me.TbTelefonoFis.Location = New System.Drawing.Point(507, 66)
         Me.TbTelefonoFis.Name = "TbTelefonoFis"
         Me.TbTelefonoFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbTelefonoFis.TabIndex = 13
+        Me.TbTelefonoFis.TabIndex = 7
         '
         'TbCorreoFis
         '
@@ -462,16 +449,17 @@ Partial Class Clientes
         Me.TbCorreoFis.Location = New System.Drawing.Point(507, 92)
         Me.TbCorreoFis.Name = "TbCorreoFis"
         Me.TbCorreoFis.Size = New System.Drawing.Size(280, 20)
-        Me.TbCorreoFis.TabIndex = 14
+        Me.TbCorreoFis.TabIndex = 8
         '
         'TPPersonaMoral
         '
         Me.TPPersonaMoral.Controls.Add(Me.GbApoderado)
+        Me.TPPersonaMoral.Controls.Add(Me.GbDireccionMoral)
         Me.TPPersonaMoral.Controls.Add(Me.GbActaConstitutiva)
         Me.TPPersonaMoral.Location = New System.Drawing.Point(4, 22)
         Me.TPPersonaMoral.Name = "TPPersonaMoral"
         Me.TPPersonaMoral.Padding = New System.Windows.Forms.Padding(3)
-        Me.TPPersonaMoral.Size = New System.Drawing.Size(976, 280)
+        Me.TPPersonaMoral.Size = New System.Drawing.Size(992, 388)
         Me.TPPersonaMoral.TabIndex = 1
         Me.TPPersonaMoral.Text = "Persona Moral"
         Me.TPPersonaMoral.UseVisualStyleBackColor = True
@@ -484,21 +472,18 @@ Partial Class Clientes
         Me.GbApoderado.Controls.Add(Me.Label35)
         Me.GbApoderado.Controls.Add(Me.TbCelularApoderado)
         Me.GbApoderado.Controls.Add(Me.TbTelefonoApoderado)
-        Me.GbApoderado.Controls.Add(Me.Label34)
-        Me.GbApoderado.Controls.Add(Me.Label33)
-        Me.GbApoderado.Controls.Add(Me.Label32)
-        Me.GbApoderado.Controls.Add(Me.CbMunicipioApoderado)
-        Me.GbApoderado.Controls.Add(Me.CbEstadoApoderado)
-        Me.GbApoderado.Controls.Add(Me.TbCalleApoderado)
         Me.GbApoderado.Controls.Add(Me.Label31)
         Me.GbApoderado.Controls.Add(Me.Label30)
         Me.GbApoderado.Controls.Add(Me.TbIneApoderado)
         Me.GbApoderado.Controls.Add(Me.TbCurpApoderado)
+        Me.GbApoderado.Controls.Add(Me.Label32)
         Me.GbApoderado.Controls.Add(Me.Label29)
+        Me.GbApoderado.Controls.Add(Me.TbNombreApoderado)
         Me.GbApoderado.Controls.Add(Me.TbRfcApoderado)
-        Me.GbApoderado.Location = New System.Drawing.Point(486, 9)
+        Me.GbApoderado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GbApoderado.Location = New System.Drawing.Point(495, 3)
         Me.GbApoderado.Name = "GbApoderado"
-        Me.GbApoderado.Size = New System.Drawing.Size(453, 241)
+        Me.GbApoderado.Size = New System.Drawing.Size(494, 142)
         Me.GbApoderado.TabIndex = 1
         Me.GbApoderado.TabStop = False
         Me.GbApoderado.Text = "Apoderado"
@@ -506,15 +491,15 @@ Partial Class Clientes
         'TbCorreoApoderado
         '
         Me.TbCorreoApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
-        Me.TbCorreoApoderado.Location = New System.Drawing.Point(288, 16)
+        Me.TbCorreoApoderado.Location = New System.Drawing.Point(308, 69)
         Me.TbCorreoApoderado.Name = "TbCorreoApoderado"
-        Me.TbCorreoApoderado.Size = New System.Drawing.Size(146, 20)
-        Me.TbCorreoApoderado.TabIndex = 17
+        Me.TbCorreoApoderado.Size = New System.Drawing.Size(148, 20)
+        Me.TbCorreoApoderado.TabIndex = 8
         '
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(244, 19)
+        Me.Label37.Location = New System.Drawing.Point(234, 71)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(38, 13)
         Me.Label37.TabIndex = 16
@@ -523,7 +508,7 @@ Partial Class Clientes
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(6, 203)
+        Me.Label36.Location = New System.Drawing.Point(234, 45)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(39, 13)
         Me.Label36.TabIndex = 15
@@ -532,7 +517,7 @@ Partial Class Clientes
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(6, 177)
+        Me.Label35.Location = New System.Drawing.Point(234, 19)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(49, 13)
         Me.Label35.TabIndex = 14
@@ -541,74 +526,23 @@ Partial Class Clientes
         'TbCelularApoderado
         '
         Me.TbCelularApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCelularApoderado.Location = New System.Drawing.Point(80, 200)
+        Me.TbCelularApoderado.Location = New System.Drawing.Point(308, 42)
         Me.TbCelularApoderado.Name = "TbCelularApoderado"
         Me.TbCelularApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbCelularApoderado.TabIndex = 13
+        Me.TbCelularApoderado.TabIndex = 7
         '
         'TbTelefonoApoderado
         '
         Me.TbTelefonoApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbTelefonoApoderado.Location = New System.Drawing.Point(80, 174)
+        Me.TbTelefonoApoderado.Location = New System.Drawing.Point(308, 16)
         Me.TbTelefonoApoderado.Name = "TbTelefonoApoderado"
         Me.TbTelefonoApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbTelefonoApoderado.TabIndex = 12
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(6, 150)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(52, 13)
-        Me.Label34.TabIndex = 11
-        Me.Label34.Text = "Municipio"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(6, 123)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(40, 13)
-        Me.Label33.TabIndex = 10
-        Me.Label33.Text = "Estado"
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(6, 97)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(30, 13)
-        Me.Label32.TabIndex = 9
-        Me.Label32.Text = "Calle"
-        '
-        'CbMunicipioApoderado
-        '
-        Me.CbMunicipioApoderado.FormattingEnabled = True
-        Me.CbMunicipioApoderado.Location = New System.Drawing.Point(80, 147)
-        Me.CbMunicipioApoderado.Name = "CbMunicipioApoderado"
-        Me.CbMunicipioApoderado.Size = New System.Drawing.Size(148, 21)
-        Me.CbMunicipioApoderado.TabIndex = 8
-        '
-        'CbEstadoApoderado
-        '
-        Me.CbEstadoApoderado.FormattingEnabled = True
-        Me.CbEstadoApoderado.Location = New System.Drawing.Point(80, 120)
-        Me.CbEstadoApoderado.Name = "CbEstadoApoderado"
-        Me.CbEstadoApoderado.Size = New System.Drawing.Size(148, 21)
-        Me.CbEstadoApoderado.TabIndex = 7
-        '
-        'TbCalleApoderado
-        '
-        Me.TbCalleApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCalleApoderado.Location = New System.Drawing.Point(80, 94)
-        Me.TbCalleApoderado.Name = "TbCalleApoderado"
-        Me.TbCalleApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbCalleApoderado.TabIndex = 6
+        Me.TbTelefonoApoderado.TabIndex = 6
         '
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(6, 71)
+        Me.Label31.Location = New System.Drawing.Point(6, 97)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(43, 13)
         Me.Label31.TabIndex = 5
@@ -617,7 +551,7 @@ Partial Class Clientes
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(6, 45)
+        Me.Label30.Location = New System.Drawing.Point(6, 71)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(37, 13)
         Me.Label30.TabIndex = 4
@@ -626,23 +560,23 @@ Partial Class Clientes
         'TbIneApoderado
         '
         Me.TbIneApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbIneApoderado.Location = New System.Drawing.Point(80, 68)
+        Me.TbIneApoderado.Location = New System.Drawing.Point(80, 94)
         Me.TbIneApoderado.Name = "TbIneApoderado"
         Me.TbIneApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbIneApoderado.TabIndex = 3
+        Me.TbIneApoderado.TabIndex = 2
         '
         'TbCurpApoderado
         '
         Me.TbCurpApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCurpApoderado.Location = New System.Drawing.Point(80, 42)
+        Me.TbCurpApoderado.Location = New System.Drawing.Point(80, 68)
         Me.TbCurpApoderado.Name = "TbCurpApoderado"
         Me.TbCurpApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbCurpApoderado.TabIndex = 2
+        Me.TbCurpApoderado.TabIndex = 1
         '
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(6, 19)
+        Me.Label29.Location = New System.Drawing.Point(6, 45)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(28, 13)
         Me.Label29.TabIndex = 1
@@ -651,7 +585,7 @@ Partial Class Clientes
         'TbRfcApoderado
         '
         Me.TbRfcApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRfcApoderado.Location = New System.Drawing.Point(80, 16)
+        Me.TbRfcApoderado.Location = New System.Drawing.Point(80, 42)
         Me.TbRfcApoderado.Name = "TbRfcApoderado"
         Me.TbRfcApoderado.Size = New System.Drawing.Size(148, 20)
         Me.TbRfcApoderado.TabIndex = 0
@@ -670,13 +604,12 @@ Partial Class Clientes
         Me.GbActaConstitutiva.Controls.Add(Me.TbNotarioActa)
         Me.GbActaConstitutiva.Controls.Add(Me.Label22)
         Me.GbActaConstitutiva.Controls.Add(Me.DtpFechaActa)
-        Me.GbActaConstitutiva.Controls.Add(Me.Label21)
-        Me.GbActaConstitutiva.Controls.Add(Me.CbEstadoActa)
         Me.GbActaConstitutiva.Controls.Add(Me.Label20)
         Me.GbActaConstitutiva.Controls.Add(Me.TbFolioActa)
-        Me.GbActaConstitutiva.Location = New System.Drawing.Point(6, 6)
+        Me.GbActaConstitutiva.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GbActaConstitutiva.Location = New System.Drawing.Point(3, 145)
         Me.GbActaConstitutiva.Name = "GbActaConstitutiva"
-        Me.GbActaConstitutiva.Size = New System.Drawing.Size(461, 241)
+        Me.GbActaConstitutiva.Size = New System.Drawing.Size(986, 240)
         Me.GbActaConstitutiva.TabIndex = 0
         Me.GbActaConstitutiva.TabStop = False
         Me.GbActaConstitutiva.Text = "Acta Constitutiva"
@@ -684,15 +617,15 @@ Partial Class Clientes
         'TbFolioMercantil
         '
         Me.TbFolioMercantil.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbFolioMercantil.Location = New System.Drawing.Point(329, 19)
+        Me.TbFolioMercantil.Location = New System.Drawing.Point(82, 71)
         Me.TbFolioMercantil.Name = "TbFolioMercantil"
-        Me.TbFolioMercantil.Size = New System.Drawing.Size(126, 20)
-        Me.TbFolioMercantil.TabIndex = 17
+        Me.TbFolioMercantil.Size = New System.Drawing.Size(139, 20)
+        Me.TbFolioMercantil.TabIndex = 7
         '
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(249, 22)
+        Me.Label28.Location = New System.Drawing.Point(2, 74)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(75, 13)
         Me.Label28.TabIndex = 16
@@ -701,7 +634,7 @@ Partial Class Clientes
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(7, 179)
+        Me.Label27.Location = New System.Drawing.Point(227, 74)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(30, 13)
         Me.Label27.TabIndex = 15
@@ -710,7 +643,7 @@ Partial Class Clientes
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(7, 153)
+        Me.Label25.Location = New System.Drawing.Point(462, 48)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(85, 13)
         Me.Label25.TabIndex = 13
@@ -719,23 +652,23 @@ Partial Class Clientes
         'TbLibroActa
         '
         Me.TbLibroActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbLibroActa.Location = New System.Drawing.Point(104, 176)
+        Me.TbLibroActa.Location = New System.Drawing.Point(317, 71)
         Me.TbLibroActa.Name = "TbLibroActa"
         Me.TbLibroActa.Size = New System.Drawing.Size(139, 20)
-        Me.TbLibroActa.TabIndex = 12
+        Me.TbLibroActa.TabIndex = 6
         '
         'TbNumeroActa
         '
         Me.TbNumeroActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNumeroActa.Location = New System.Drawing.Point(104, 150)
+        Me.TbNumeroActa.Location = New System.Drawing.Point(559, 45)
         Me.TbNumeroActa.Name = "TbNumeroActa"
         Me.TbNumeroActa.Size = New System.Drawing.Size(139, 20)
-        Me.TbNumeroActa.TabIndex = 10
+        Me.TbNumeroActa.TabIndex = 5
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(7, 127)
+        Me.Label24.Location = New System.Drawing.Point(227, 48)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(84, 13)
         Me.Label24.TabIndex = 9
@@ -744,15 +677,15 @@ Partial Class Clientes
         'TbRegPubActa
         '
         Me.TbRegPubActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRegPubActa.Location = New System.Drawing.Point(104, 124)
+        Me.TbRegPubActa.Location = New System.Drawing.Point(317, 45)
         Me.TbRegPubActa.Name = "TbRegPubActa"
         Me.TbRegPubActa.Size = New System.Drawing.Size(139, 20)
-        Me.TbRegPubActa.TabIndex = 8
+        Me.TbRegPubActa.TabIndex = 4
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(7, 101)
+        Me.Label23.Location = New System.Drawing.Point(7, 48)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(69, 13)
         Me.Label23.TabIndex = 7
@@ -761,15 +694,15 @@ Partial Class Clientes
         'TbNotarioActa
         '
         Me.TbNotarioActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNotarioActa.Location = New System.Drawing.Point(104, 98)
+        Me.TbNotarioActa.Location = New System.Drawing.Point(82, 45)
         Me.TbNotarioActa.Name = "TbNotarioActa"
         Me.TbNotarioActa.Size = New System.Drawing.Size(139, 20)
-        Me.TbNotarioActa.TabIndex = 6
+        Me.TbNotarioActa.TabIndex = 3
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(7, 78)
+        Me.Label22.Location = New System.Drawing.Point(227, 22)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(37, 13)
         Me.Label22.TabIndex = 5
@@ -777,27 +710,10 @@ Partial Class Clientes
         '
         'DtpFechaActa
         '
-        Me.DtpFechaActa.Location = New System.Drawing.Point(104, 72)
+        Me.DtpFechaActa.Location = New System.Drawing.Point(317, 19)
         Me.DtpFechaActa.Name = "DtpFechaActa"
         Me.DtpFechaActa.Size = New System.Drawing.Size(139, 20)
-        Me.DtpFechaActa.TabIndex = 4
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(7, 48)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(40, 13)
-        Me.Label21.TabIndex = 3
-        Me.Label21.Text = "Estado"
-        '
-        'CbEstadoActa
-        '
-        Me.CbEstadoActa.FormattingEnabled = True
-        Me.CbEstadoActa.Location = New System.Drawing.Point(104, 45)
-        Me.CbEstadoActa.Name = "CbEstadoActa"
-        Me.CbEstadoActa.Size = New System.Drawing.Size(139, 21)
-        Me.CbEstadoActa.TabIndex = 2
+        Me.DtpFechaActa.TabIndex = 2
         '
         'Label20
         '
@@ -811,7 +727,7 @@ Partial Class Clientes
         'TbFolioActa
         '
         Me.TbFolioActa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbFolioActa.Location = New System.Drawing.Point(104, 19)
+        Me.TbFolioActa.Location = New System.Drawing.Point(82, 19)
         Me.TbFolioActa.Name = "TbFolioActa"
         Me.TbFolioActa.Size = New System.Drawing.Size(139, 20)
         Me.TbFolioActa.TabIndex = 0
@@ -831,10 +747,10 @@ Partial Class Clientes
         Me.GbMovilizacion.Controls.Add(Me.Label15)
         Me.GbMovilizacion.Controls.Add(Me.CbMunicipioMovilizacion)
         Me.GbMovilizacion.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GbMovilizacion.Location = New System.Drawing.Point(0, 487)
+        Me.GbMovilizacion.Location = New System.Drawing.Point(0, 607)
         Me.GbMovilizacion.Name = "GbMovilizacion"
-        Me.GbMovilizacion.Size = New System.Drawing.Size(984, 150)
-        Me.GbMovilizacion.TabIndex = 10
+        Me.GbMovilizacion.Size = New System.Drawing.Size(1000, 125)
+        Me.GbMovilizacion.TabIndex = 2
         Me.GbMovilizacion.TabStop = False
         Me.GbMovilizacion.Text = "Movilizacion de Algodon"
         '
@@ -853,7 +769,7 @@ Partial Class Clientes
         Me.CbEstadoMovilizacion.Location = New System.Drawing.Point(110, 19)
         Me.CbEstadoMovilizacion.Name = "CbEstadoMovilizacion"
         Me.CbEstadoMovilizacion.Size = New System.Drawing.Size(210, 21)
-        Me.CbEstadoMovilizacion.TabIndex = 10
+        Me.CbEstadoMovilizacion.TabIndex = 0
         '
         'Label19
         '
@@ -938,20 +854,20 @@ Partial Class Clientes
         Me.CbMunicipioMovilizacion.Location = New System.Drawing.Point(110, 46)
         Me.CbMunicipioMovilizacion.Name = "CbMunicipioMovilizacion"
         Me.CbMunicipioMovilizacion.Size = New System.Drawing.Size(210, 21)
-        Me.CbMunicipioMovilizacion.TabIndex = 0
+        Me.CbMunicipioMovilizacion.TabIndex = 1
         '
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(124, 109)
+        Me.CbEstatus.Location = New System.Drawing.Point(124, 134)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(210, 21)
-        Me.CbEstatus.TabIndex = 11
+        Me.CbEstatus.TabIndex = 5
         '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(7, 112)
+        Me.Label26.Location = New System.Drawing.Point(7, 137)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(42, 13)
         Me.Label26.TabIndex = 12
@@ -961,6 +877,7 @@ Partial Class Clientes
         '
         Me.Panel2.Controls.Add(Me.TbIdCliente)
         Me.Panel2.Controls.Add(Me.Label26)
+        Me.Panel2.Controls.Add(Me.TbRfcFis)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.CbEstatus)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -969,17 +886,178 @@ Partial Class Clientes
         Me.Panel2.Controls.Add(Me.CbTipoPersona)
         Me.Panel2.Controls.Add(Me.TbSocio)
         Me.Panel2.Controls.Add(Me.TbNombre)
+        Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 24)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(984, 157)
-        Me.Panel2.TabIndex = 13
+        Me.Panel2.Size = New System.Drawing.Size(1000, 169)
+        Me.Panel2.TabIndex = 0
+        '
+        'GbDireccionMoral
+        '
+        Me.GbDireccionMoral.Controls.Add(Me.Label12)
+        Me.GbDireccionMoral.Controls.Add(Me.Label40)
+        Me.GbDireccionMoral.Controls.Add(Me.Label44)
+        Me.GbDireccionMoral.Controls.Add(Me.Label21)
+        Me.GbDireccionMoral.Controls.Add(Me.Label42)
+        Me.GbDireccionMoral.Controls.Add(Me.Label43)
+        Me.GbDireccionMoral.Controls.Add(Me.Label41)
+        Me.GbDireccionMoral.Controls.Add(Me.TbCelularMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbTelefonoMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.CbMunicipioMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.CbEstadoMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbColoniaMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbNumeroMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbCalleMoral)
+        Me.GbDireccionMoral.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbDireccionMoral.Location = New System.Drawing.Point(3, 3)
+        Me.GbDireccionMoral.Name = "GbDireccionMoral"
+        Me.GbDireccionMoral.Size = New System.Drawing.Size(492, 142)
+        Me.GbDireccionMoral.TabIndex = 2
+        Me.GbDireccionMoral.TabStop = False
+        Me.GbDireccionMoral.Text = "Direccion"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(261, 23)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(52, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Municipio"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(7, 97)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(40, 13)
+        Me.Label40.TabIndex = 16
+        Me.Label40.Text = "Estado"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(7, 23)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(30, 13)
+        Me.Label41.TabIndex = 15
+        Me.Label41.Text = "Calle"
+        '
+        'CbMunicipioMoral
+        '
+        Me.CbMunicipioMoral.FormattingEnabled = True
+        Me.CbMunicipioMoral.Location = New System.Drawing.Point(335, 20)
+        Me.CbMunicipioMoral.Name = "CbMunicipioMoral"
+        Me.CbMunicipioMoral.Size = New System.Drawing.Size(148, 21)
+        Me.CbMunicipioMoral.TabIndex = 14
+        '
+        'CbEstadoMoral
+        '
+        Me.CbEstadoMoral.FormattingEnabled = True
+        Me.CbEstadoMoral.Location = New System.Drawing.Point(81, 93)
+        Me.CbEstadoMoral.Name = "CbEstadoMoral"
+        Me.CbEstadoMoral.Size = New System.Drawing.Size(148, 21)
+        Me.CbEstadoMoral.TabIndex = 13
+        '
+        'TbCalleMoral
+        '
+        Me.TbCalleMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbCalleMoral.Location = New System.Drawing.Point(81, 20)
+        Me.TbCalleMoral.Name = "TbCalleMoral"
+        Me.TbCalleMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbCalleMoral.TabIndex = 12
+        '
+        'TbNumeroMoral
+        '
+        Me.TbNumeroMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNumeroMoral.Location = New System.Drawing.Point(81, 44)
+        Me.TbNumeroMoral.Name = "TbNumeroMoral"
+        Me.TbNumeroMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbNumeroMoral.TabIndex = 12
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(7, 47)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(24, 13)
+        Me.Label42.TabIndex = 15
+        Me.Label42.Text = "No."
+        '
+        'TbTelefonoMoral
+        '
+        Me.TbTelefonoMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbTelefonoMoral.Location = New System.Drawing.Point(335, 44)
+        Me.TbTelefonoMoral.Name = "TbTelefonoMoral"
+        Me.TbTelefonoMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbTelefonoMoral.TabIndex = 6
+        '
+        'TbCelularMoral
+        '
+        Me.TbCelularMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbCelularMoral.Location = New System.Drawing.Point(335, 69)
+        Me.TbCelularMoral.Name = "TbCelularMoral"
+        Me.TbCelularMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbCelularMoral.TabIndex = 7
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(261, 47)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(49, 13)
+        Me.Label43.TabIndex = 14
+        Me.Label43.Text = "Telefono"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(261, 72)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(39, 13)
+        Me.Label44.TabIndex = 15
+        Me.Label44.Text = "Celular"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(7, 71)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(42, 13)
+        Me.Label21.TabIndex = 15
+        Me.Label21.Text = "Colonia"
+        '
+        'TbColoniaMoral
+        '
+        Me.TbColoniaMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbColoniaMoral.Location = New System.Drawing.Point(81, 68)
+        Me.TbColoniaMoral.Name = "TbColoniaMoral"
+        Me.TbColoniaMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbColoniaMoral.TabIndex = 12
+        '
+        'TbNombreApoderado
+        '
+        Me.TbNombreApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNombreApoderado.Location = New System.Drawing.Point(80, 16)
+        Me.TbNombreApoderado.Name = "TbNombreApoderado"
+        Me.TbNombreApoderado.Size = New System.Drawing.Size(148, 20)
+        Me.TbNombreApoderado.TabIndex = 0
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(6, 19)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(44, 13)
+        Me.Label32.TabIndex = 1
+        Me.Label32.Text = "Nombre"
         '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 637)
+        Me.ClientSize = New System.Drawing.Size(1000, 732)
         Me.Controls.Add(Me.TCTipoPersona)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GbMovilizacion)
@@ -1004,6 +1082,8 @@ Partial Class Clientes
         Me.GbMovilizacion.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.GbDireccionMoral.ResumeLayout(False)
+        Me.GbDireccionMoral.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1029,14 +1109,12 @@ Partial Class Clientes
     Friend WithEvents Label14 As Label
     Friend WithEvents TbColoniaFis As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents TbApoderadoFis As TextBox
     Friend WithEvents TbCorreoFis As TextBox
     Friend WithEvents TbTelefonoFis As TextBox
     Friend WithEvents TbNumeroFis As TextBox
     Friend WithEvents TbCalleFis As TextBox
     Friend WithEvents TbCurpFis As TextBox
     Friend WithEvents TbRfcFis As TextBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
@@ -1069,18 +1147,10 @@ Partial Class Clientes
     Friend WithEvents TbNotarioActa As TextBox
     Friend WithEvents Label22 As Label
     Friend WithEvents DtpFechaActa As DateTimePicker
-    Friend WithEvents Label21 As Label
-    Friend WithEvents CbEstadoActa As ComboBox
     Friend WithEvents Label20 As Label
     Friend WithEvents TbFolioActa As TextBox
     Friend WithEvents TbFolioMercantil As TextBox
     Friend WithEvents Label28 As Label
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label32 As Label
-    Friend WithEvents CbMunicipioApoderado As ComboBox
-    Friend WithEvents CbEstadoApoderado As ComboBox
-    Friend WithEvents TbCalleApoderado As TextBox
     Friend WithEvents Label31 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents TbIneApoderado As TextBox
@@ -1100,4 +1170,21 @@ Partial Class Clientes
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label26 As Label
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents GbDireccionMoral As GroupBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents TbCelularMoral As TextBox
+    Friend WithEvents TbTelefonoMoral As TextBox
+    Friend WithEvents CbMunicipioMoral As ComboBox
+    Friend WithEvents CbEstadoMoral As ComboBox
+    Friend WithEvents TbNumeroMoral As TextBox
+    Friend WithEvents TbCalleMoral As TextBox
+    Friend WithEvents TbColoniaMoral As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents TbNombreApoderado As TextBox
 End Class

@@ -34,7 +34,7 @@ Public Class OrdenTrabajo
                     cmdGuardar.Parameters.Clear()
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdBoleta", 0))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdOrdenTrabajo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdPlanta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@FechaOrden", EntidadOrdenTrabajo1.FechaCreacion))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Bruto", 0))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Tara", 0))

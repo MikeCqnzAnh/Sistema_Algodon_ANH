@@ -13,7 +13,7 @@ Public Class Clientes
             cmdGuardar.Parameters.Add(New SqlParameter("@Socio", EntidadClientes1.Socio))
             cmdGuardar.Parameters.Add(New SqlParameter("@Nombre", EntidadClientes1.Nombre))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoPersona", EntidadClientes1.IdTipoPersona))
-            cmdGuardar.Parameters.Add(New SqlParameter("RfcFisica", EntidadClientes1.RfcFisica))
+            cmdGuardar.Parameters.Add(New SqlParameter("Rfc", EntidadClientes1.Rfc))
             cmdGuardar.Parameters.Add(New SqlParameter("@CurpFisica", EntidadClientes1.CurpFisica))
             cmdGuardar.Parameters.Add(New SqlParameter("@CalleFisica", EntidadClientes1.CalleFisica))
             cmdGuardar.Parameters.Add(New SqlParameter("@NumeroFisica", EntidadClientes1.NumeroFisica))
@@ -25,7 +25,6 @@ Public Class Clientes
             cmdGuardar.Parameters.Add(New SqlParameter("@CorreoFisica", EntidadClientes1.CorreoFisica))
             cmdGuardar.Parameters.Add(New SqlParameter("@ApoderadoFisica", EntidadClientes1.ApoderadoFisica))
             cmdGuardar.Parameters.Add(New SqlParameter("@FolioActa", EntidadClientes1.FolioActa))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstadoActa", EntidadClientes1.IdEstadoActa))
             cmdGuardar.Parameters.Add(New SqlParameter("@FechaActa", EntidadClientes1.FechaActa))
             cmdGuardar.Parameters.Add(New SqlParameter("@NotarioActa", EntidadClientes1.NotarioActa))
             cmdGuardar.Parameters.Add(New SqlParameter("@RegistroPublicoActa", EntidadClientes1.RegistroPublicoActa))
@@ -35,9 +34,13 @@ Public Class Clientes
             cmdGuardar.Parameters.Add(New SqlParameter("@RfcApoderado", EntidadClientes1.RfcApoderado))
             cmdGuardar.Parameters.Add(New SqlParameter("@CurpApoderado", EntidadClientes1.CurpApoderado))
             cmdGuardar.Parameters.Add(New SqlParameter("@IneApoderado", EntidadClientes1.IneApoderado))
-            cmdGuardar.Parameters.Add(New SqlParameter("@CalleApoderado", EntidadClientes1.CalleApoderado))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstadoApoderado", EntidadClientes1.IdEstadoApoderado))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdMunicipioApoderado", EntidadClientes1.IdMunicipioApoderado))
+            cmdGuardar.Parameters.Add(New SqlParameter("@NumeroMoral", EntidadClientes1.NumeroMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CalleMoral", EntidadClientes1.CalleMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstadoMoral", EntidadClientes1.IdEstadoMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdMunicipioMoral", EntidadClientes1.IdMunicipioMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@ColoniaMoral", EntidadClientes1.ColoniaMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@TelefonoMoral", EntidadClientes1.TelefonoMoral))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CelularMoral", EntidadClientes1.CelularMoral))
             cmdGuardar.Parameters.Add(New SqlParameter("@TelefonoApoderado", EntidadClientes1.TelefonoApoderado))
             cmdGuardar.Parameters.Add(New SqlParameter("@CelularApoderado", EntidadClientes1.CelularApoderado))
             cmdGuardar.Parameters.Add(New SqlParameter("@CorreoApoderado", EntidadClientes1.CorreoApoderado))
@@ -56,6 +59,7 @@ Public Class Clientes
                 EntidadClientes1.IdCliente = cmdGuardar.Parameters("@IdCliente").Value
             End If
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadClientes = EntidadClientes1
@@ -102,7 +106,7 @@ Public Class Clientes
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@IdEstadoApoderado", EntidadClientes1.IdEstadoApoderado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEstadoApoderado", EntidadClientes1.IdEstadoMoral))
                     sqldat1.Fill(EntidadClientes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaAsociaciones
                     sqldat1 = New SqlDataAdapter("sp_ConsultaAsociaciones", cnn)

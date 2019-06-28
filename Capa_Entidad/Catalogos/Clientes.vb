@@ -4,7 +4,7 @@
     Public Socio As String
     Public Nombre As String
     Public IdTipoPersona As Integer
-    Public RfcFisica As String
+    Public Rfc As String
     Public CurpFisica As String
     Public CalleFisica As String
     Public NumeroFisica As String
@@ -16,7 +16,6 @@
     Public CorreoFisica As String
     Public ApoderadoFisica As String
     Public FolioActa As String
-    Public IdEstadoActa As Integer
     Public FechaActa As Date
     Public NotarioActa As String
     Public RegistroPublicoActa As String
@@ -26,9 +25,13 @@
     Public RfcApoderado As String
     Public CurpApoderado As String
     Public IneApoderado As String
-    Public CalleApoderado As String
-    Public IdEstadoApoderado As Integer
-    Public IdMunicipioApoderado As Integer
+    Public CalleMoral As String
+    Public NumeroMoral As String
+    Public ColoniaMoral As String
+    Public IdEstadoMoral As Integer
+    Public IdMunicipioMoral As Integer
+    Public TelefonoMoral As String
+    Public CelularMoral As String
     Public TelefonoApoderado As String
     Public CelularApoderado As String
     Public CorreoApoderado As String
