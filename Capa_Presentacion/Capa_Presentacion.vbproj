@@ -335,10 +335,34 @@
     <Compile Include="Reportes\RepContratoProductor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepLiquidacionRomaneaje.Designer.vb">
+      <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepLiquidacionRomaneaje.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTColumnasEncabezado.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTColumnasEncabezado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTContratoBuenaEsperanza.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTContratoBuenaEsperanza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTLiquidacionRomaneaje.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTLiquidacionRomaneaje.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTLiquidacionRomaneajeDet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
@@ -619,7 +643,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>REPORTE HVI DETALLE.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTClasificacion.vb">
       <AutoGen>True</AutoGen>
@@ -813,9 +836,24 @@
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepLiquidacionRomaneaje.resx">
+      <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTColumnasEncabezado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTColumnasEncabezado.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTContratoBuenaEsperanza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTContratoBuenaEsperanza.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneaje.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTLiquidacionRomaneaje.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTLiquidacionRomaneajeDet.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
       <DependentUpon>TiposUsuario.vb</DependentUpon>

@@ -24,7 +24,7 @@ Public Class RepContratoProductor
         Dim ds As New DataSet
         Dim CrReport As RPTContratoBuenaEsperanza = New RPTContratoBuenaEsperanza
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTContratoBuenaEsperanza.rpt"
-        EntidadReportes.Reporte = Reporte.ContratoCompra
+        EntidadReportes.Reporte = Reporte.ReporteContratoCompra
         EntidadReportes.IdContratoAlgodon = IdContratoAlgodon
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta

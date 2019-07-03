@@ -4,6 +4,7 @@ Public Class Reportes
         Dim EntidadReportes1 As New Capa_Entidad.Reportes
         EntidadReportes1 = EntidadReportes
         EntidadReportes1.TablaConsulta = New DataTable
+        EntidadReportes1.TablaGeneral = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
@@ -13,33 +14,40 @@ Public Class Reportes
                 'Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
                 '    sqldat1 = New SqlDataAdapter("sp_ConsultaPlantas", cnn)
                 '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Reporte.Clientes
+                Case Capa_Operacion.Configuracion.Reporte.ReporteClientes
                     sqlcom1 = New SqlCommand("sp_RepClientes", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdAsociacion", EntidadReportes1.IdAsociacion))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Reporte.ContratoCompra
+                Case Capa_Operacion.Configuracion.Reporte.ReporteContratoCompra
                     sqlcom1 = New SqlCommand("sp_ConsultaContratosDetalleEmpresa", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadReportes1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Reporte.DatosEmpresa
+                Case Capa_Operacion.Configuracion.Reporte.ReporteDatosEmpresa
                     sqlcom1 = New SqlCommand("Sp_ConsultaDatosEmpresa", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqldat1.Fill(EntidadReportes1.TablaGeneral)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaPaca
-                    '    sqlcom1 = New SqlCommand("sp_ConsultaProdPorPorOrden", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion.IdOrdenTrabajo))
-                    '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteLiquidacionRomaneaje
+                    sqlcom1 = New SqlCommand("Sp_ReporteRomaneajeEnc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteLiquidacionRomaneajeDet
+                    sqlcom1 = New SqlCommand("Sp_ReporteRomaneajeDet", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadReportes1.TablaGeneral)
             End Select
         Catch ex As Exception
         Finally

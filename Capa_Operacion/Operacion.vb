@@ -38,14 +38,16 @@ Namespace Configuracion
     '        Cantidad = 5
     '    End Enum
     Public Enum Reporte
-        Clientes = 1
+        ReporteClientes = 1
         'Producto = 2
         'Apartado = 3
         'AgregaDescuento = 4
         'AgregaCantidad = 5
         'Venta = 5
-        ContratoCompra = 2
-        DatosEmpresa = 3
+        ReporteContratoCompra = 2
+        ReporteDatosEmpresa = 3
+        ReporteLiquidacionRomaneaje = 4
+        ReporteLiquidacionRomaneajeDet = 5
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
