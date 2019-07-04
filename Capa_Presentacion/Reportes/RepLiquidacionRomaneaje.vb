@@ -13,9 +13,11 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class RepLiquidacionRomaneaje
     Private IdOrdenTrabajo As Integer
-    Public Sub New(ByVal ID As Integer)
+    Private CheckStatus As Boolean
+    Public Sub New(ByVal ID As Integer, ByVal Check As Boolean)
         InitializeComponent()
         IdOrdenTrabajo = ID
+        CheckStatus = Check
     End Sub
     Private Sub RepLiquidacionRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes
@@ -26,12 +28,14 @@ Public Class RepLiquidacionRomaneaje
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTLiquidacionRomaneaje.rpt"
         EntidadReportes.Reporte = Reporte.ReporteLiquidacionRomaneaje
         EntidadReportes.IdOrdenTrabajo = IdOrdenTrabajo
+        EntidadReportes.CheckStatus = CheckStatus
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)
 
         EntidadReportes.Reporte = Reporte.ReporteLiquidacionRomaneajeDet
         EntidadReportes.IdOrdenTrabajo = IdOrdenTrabajo
+        EntidadReportes.CheckStatus = CheckStatus
         NegocioReportes.Consultar(EntidadReportes)
         TablaGeneral = EntidadReportes.TablaGeneral
         ds.Tables.Add(TablaGeneral)

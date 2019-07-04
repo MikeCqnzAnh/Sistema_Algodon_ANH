@@ -13,9 +13,11 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class RepContratoProductor
     Private IdContratoAlgodon As Integer
+
     Public Sub New(ByVal ID As Integer)
         InitializeComponent()
         IdContratoAlgodon = ID
+
     End Sub
     Private Sub RepContratoProductor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes

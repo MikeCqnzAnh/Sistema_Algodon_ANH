@@ -33,6 +33,7 @@ Partial Class Acceso
         Me.BtCancelar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LkCambiarClave = New System.Windows.Forms.LinkLabel()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -125,6 +126,15 @@ Partial Class Acceso
         Me.LkCambiarClave.TabStop = True
         Me.LkCambiarClave.Text = "Cambiar contraseña"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(397, 9)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "0.0.0.0"
+        '
         'Acceso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -139,6 +149,7 @@ Partial Class Acceso
         Me.Controls.Add(Me.CbBaseDeDatos)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Acceso"
@@ -160,4 +171,5 @@ Partial Class Acceso
     Friend WithEvents BtCancelar As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LkCambiarClave As LinkLabel
+    Friend WithEvents Label4 As Label
 End Class

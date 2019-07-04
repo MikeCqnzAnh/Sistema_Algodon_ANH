@@ -1,7 +1,7 @@
-CREATE procedure sp_ConsultaContratosDetalle
---declare
-@IdContratoAlgodon int 
-as
+--CREATE procedure sp_ConsultaContratosDetalle
+declare
+@IdContratoAlgodon int = 1
+--as
 Declare @Lotes VARCHAR(100)
 SELECT @Lotes = COALESCE(@Lotes + ', ', '') + Lote FROM [dbo].[ContratoCompraDetalle] a, [dbo].[Tierras] b,[dbo].[ContratoCompra] c where a.IdLote = b.IdTierra and a.IdContratoAlgodon = c.IdContratoAlgodon and a.IdContratoAlgodon = @IdContratoAlgodon
 select a.IdContratoAlgodon,

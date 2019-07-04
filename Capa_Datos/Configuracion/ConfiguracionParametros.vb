@@ -99,7 +99,7 @@ Public Class ConfiguracionParametros
             cnn.Open()
             Select Case EntidadConfiguracionParametros1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBaseDatos
-                    sqldat1 = New SqlDataAdapter("SELECT database_id, name FROM sys.databases where name like '%Algodon%'", cnn)
+                    sqldat1 = New SqlDataAdapter("SELECT database_id, name,* FROM sys.databases where name like 'Algodon%' order by   create_date desc", cnn)
                     sqldat1.Fill(EntidadConfiguracionParametros1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqlcom1 = New SqlCommand("Sp_ConsultaConfiguracionParametros", cnn)

@@ -63,6 +63,7 @@ Public Class ConfiguraConexionInicial
         TbDireccionIP2.Text = ""
         TbDireccionIP3.Text = ""
         TbDireccionIP4.Text = ""
+        TbDireccionIP1.Select()
         CbOrigenInstancia.SelectedIndex = -1
         TbOrigenUsuario.Text = ""
         TbOrigenPassword.Text = ""

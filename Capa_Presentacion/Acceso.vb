@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Drawing2D
+﻿Imports System.Deployment.Application
+Imports System.Drawing.Drawing2D
 Imports System.IO
 Imports Capa_Operacion.Configuracion
 Public Class Acceso
@@ -8,6 +9,14 @@ Public Class Acceso
         CompruebaConexionInicial()
         TbUsuario.Select()
         llenaCombos()
+        Versionapp()
+    End Sub
+
+    Public Sub Versionapp()
+
+
+        Label4.Text = "V" & My.Application.Info.Version.ToString
+
     End Sub
     Private Sub llenaCombos()
         Dim tabla As New DataTable

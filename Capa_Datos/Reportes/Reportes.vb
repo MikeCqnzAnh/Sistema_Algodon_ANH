@@ -40,6 +40,7 @@ Public Class Reportes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CheckStatus", EntidadReportes1.CheckStatus))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteLiquidacionRomaneajeDet
                     sqlcom1 = New SqlCommand("Sp_ReporteRomaneajeDet", cnn)
@@ -47,6 +48,7 @@ Public Class Reportes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CheckStatus", EntidadReportes1.CheckStatus))
                     sqldat1.Fill(EntidadReportes1.TablaGeneral)
             End Select
         Catch ex As Exception

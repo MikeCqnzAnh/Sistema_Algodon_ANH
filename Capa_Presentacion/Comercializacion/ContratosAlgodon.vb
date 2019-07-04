@@ -129,7 +129,7 @@ Public Class ContratosAlgodon
         ConsultaProductores.ShowDialog()
         IdCliente = _Id
         TbProductor.Text = _Nombre
-        TbAsociacion.Text = _Dato
+        ' TbAsociacion.Text = _Dato
     End Sub
 
     Private Sub BtConsultaLotes_Click(sender As Object, e As EventArgs) Handles BtConsultaLotes.Click
@@ -157,16 +157,16 @@ Public Class ContratosAlgodon
             EntidadContratosAlgodon.Consulta = Consulta.ConsultaDiferenciales
             NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
             Tabla = EntidadContratosAlgodon.TablaConsulta
-            TbSM.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(0).Item("Diferencial"))
-            TbMP.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbM.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbSLMP.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbSLM.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbLMP.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(5).Item("Diferencial") - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbLM.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(6).Item("Diferencial") - Tabla.Rows(5).Item("Diferencial") - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbSGO.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(7).Item("Diferencial") - Tabla.Rows(6).Item("Diferencial") - Tabla.Rows(5).Item("Diferencial") - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbGO.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(8).Item("Diferencial") - Tabla.Rows(7).Item("Diferencial") - Tabla.Rows(6).Item("Diferencial") - Tabla.Rows(5).Item("Diferencial") - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
-            TbO.Text = CDbl(TbPrecioQuintal.Text - (TbPuntos.Text) - Tabla.Rows(9).Item("Diferencial") - Tabla.Rows(8).Item("Diferencial") - Tabla.Rows(7).Item("Diferencial") - Tabla.Rows(6).Item("Diferencial") - Tabla.Rows(5).Item("Diferencial") - Tabla.Rows(4).Item("Diferencial") - Tabla.Rows(3).Item("Diferencial") - Tabla.Rows(2).Item("Diferencial") - Tabla.Rows(1).Item("Diferencial") - Tabla.Rows(0).Item("Diferencial"))
+            TbSM.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(0).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbMP.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(1).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbM.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(2).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbSLMP.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(3).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbSLM.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(4).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbLMP.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(5).Item("Diferencial") - -TbPrecioQuintal.Text)
+            TbLM.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(6).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbSGO.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(7).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbGO.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(8).Item("Diferencial") - TbPrecioQuintal.Text)
+            TbO.Text = CDbl(Val(TbPuntos.Text) - Tabla.Rows(9).Item("Diferencial") - TbPrecioQuintal.Text)
         Else
             MsgBox("Ingrese precio de quintal o los puntos")
         End If

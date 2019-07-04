@@ -32,7 +32,7 @@ Public Class ConsultaProductores
         index = DgvConsultaProductores.CurrentRow.Index
         _Id = DgvConsultaProductores.Rows(index).Cells("IdCliente").Value.ToString()
         _Nombre = DgvConsultaProductores.Rows(index).Cells("Nombre").Value.ToString()
-        _Dato = DgvConsultaProductores.Rows(index).Cells("Asociacion").Value.ToString()
+        ' _Dato = DgvConsultaProductores.Rows(index).Cells("Asociacion").Value.ToString()
         Close()
     End Sub
 End Class

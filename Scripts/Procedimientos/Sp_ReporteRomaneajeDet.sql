@@ -1,5 +1,6 @@
 Create Procedure Sp_ReporteRomaneajeDet
-@IdOrdenTrabajo as int
+@IdOrdenTrabajo as int,
+@CheckStatus as bit
 as
 select pd.IdOrdenTrabajo
 	  ,pd.IdPlantaOrigen
@@ -26,5 +27,6 @@ select pd.IdOrdenTrabajo
 	  ,cc.SCI
 	  ,cc.Nep
 	  ,cc.UV
+	  ,@CheckStatus as CheckStatus
 from  ProduccionDetalle pd inner join CalculoClasificacion cc on pd.IdOrdenTrabajo = cc.IdOrdenTrabajo and pd.FolioCIA = cc.BaleID
 where pd.IdOrdenTrabajo = @IdOrdenTrabajo

@@ -204,7 +204,7 @@ Public Class LiquidacionesPorRomaneaje
 
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
         If TbIdOrden.Text <> "" Then
-            Dim ReporteLiquidacionRomaneaje As New RepLiquidacionRomaneaje(TbIdOrden.Text)
+            Dim ReporteLiquidacionRomaneaje As New RepLiquidacionRomaneaje(TbIdOrden.Text, ChClaseMicros.CheckState)
             ReporteLiquidacionRomaneaje.ShowDialog()
         Else
             MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)

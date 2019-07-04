@@ -5,6 +5,7 @@ Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarCombos()
         Limpiar()
+        TbSocio.Select()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -329,13 +330,9 @@ Public Class Clientes
     End Sub
 
     Private Sub TbNumeroFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNumeroFis.KeyPress
-        If Char.IsDigit(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-
-        Else
+        If InStr(1, "0123456789.S/Nsn" & Chr(8), e.KeyChar) = 0 Then
             e.Handled = True
+            e.KeyChar = CChar("")
         End If
     End Sub
 
@@ -419,6 +416,13 @@ Public Class Clientes
                 MsgBox("Email no Valido")
                 Me.TbCorreoApoderado.Focus()
             End If
+        End If
+    End Sub
+
+    Private Sub TbNumeroMoral_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNumeroMoral.KeyPress
+        If InStr(1, "0123456789.S/Nsn" & Chr(8), e.KeyChar) = 0 Then
+            e.Handled = True
+            e.KeyChar = CChar("")
         End If
     End Sub
 End Class
