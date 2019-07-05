@@ -8,6 +8,7 @@
     Public Property Conexion As Capa_Operacion.Configuracion.Conexion
     Public Property TablaConsulta As DataTable
     Public Property TablaGeneral As DataTable
+    Public Property TablaOpciones As DataTable
     Public Property IdExterno As Integer
     Public Property IdUsuarioCreacion As Integer
     Public Property FechaCreacion As DateTime

@@ -170,6 +170,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -867,7 +868,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Text = "Utilerias"
@@ -1087,6 +1088,12 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
+        'RolesToolStripMenuItem
+        '
+        Me.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem"
+        Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.RolesToolStripMenuItem.Text = "Roles"
+        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1259,4 +1266,5 @@ Partial Class MenuPrincipal
     Friend WithEvents CrearEstructuraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportarCatalogosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ConexionInicialToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents RolesToolStripMenuItem As ToolStripMenuItem
 End Class

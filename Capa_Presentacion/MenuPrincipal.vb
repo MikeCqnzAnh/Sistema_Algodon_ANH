@@ -329,6 +329,11 @@ Public Class MenuPrincipal
     Private Sub ConexionInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem1.Click
         ConfiguraConexionInicial.ShowDialog()
     End Sub
+
+    Private Sub RolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesToolStripMenuItem.Click
+        Roles.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

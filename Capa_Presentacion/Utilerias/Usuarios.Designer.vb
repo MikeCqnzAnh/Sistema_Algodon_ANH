@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Usuarios
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Usuarios
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TbNombre = New System.Windows.Forms.TextBox()
@@ -34,6 +34,7 @@ Partial Class Usuarios
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TipoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
@@ -42,7 +43,6 @@ Partial Class Usuarios
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
-        Me.TipoUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,7 +121,7 @@ Partial Class Usuarios
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.TipoUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(790, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1162, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -136,6 +136,12 @@ Partial Class Usuarios
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'TipoUsuarioToolStripMenuItem
+        '
+        Me.TipoUsuarioToolStripMenuItem.Name = "TipoUsuarioToolStripMenuItem"
+        Me.TipoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.TipoUsuarioToolStripMenuItem.Text = "Tipo Usuario"
         '
         'SalirToolStripMenuItem
         '
@@ -161,7 +167,7 @@ Partial Class Usuarios
         Me.GbDatos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatos.Location = New System.Drawing.Point(0, 24)
         Me.GbDatos.Name = "GbDatos"
-        Me.GbDatos.Size = New System.Drawing.Size(790, 130)
+        Me.GbDatos.Size = New System.Drawing.Size(1162, 130)
         Me.GbDatos.TabIndex = 4
         Me.GbDatos.TabStop = False
         '
@@ -230,20 +236,14 @@ Partial Class Usuarios
         Me.DgvUsuarios.ReadOnly = True
         Me.DgvUsuarios.RowHeadersVisible = False
         Me.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvUsuarios.Size = New System.Drawing.Size(790, 318)
+        Me.DgvUsuarios.Size = New System.Drawing.Size(1162, 318)
         Me.DgvUsuarios.TabIndex = 5
-        '
-        'TipoUsuarioToolStripMenuItem
-        '
-        Me.TipoUsuarioToolStripMenuItem.Name = "TipoUsuarioToolStripMenuItem"
-        Me.TipoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
-        Me.TipoUsuarioToolStripMenuItem.Text = "Tipo Usuario"
         '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(790, 472)
+        Me.ClientSize = New System.Drawing.Size(1162, 472)
         Me.Controls.Add(Me.DgvUsuarios)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)

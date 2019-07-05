@@ -90,6 +90,7 @@
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
+    <Compile Include="Utilerias\Roles.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />

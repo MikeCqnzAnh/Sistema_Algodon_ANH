@@ -368,6 +368,12 @@
       <DependentUpon>RPTLiquidacionRomaneajeDet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilerias\Roles.Designer.vb">
+      <DependentUpon>Roles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\Roles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
     </Compile>
@@ -857,6 +863,9 @@
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTLiquidacionRomaneajeDet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\Roles.resx">
+      <DependentUpon>Roles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
