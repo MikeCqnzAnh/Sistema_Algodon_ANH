@@ -1,5 +1,7 @@
 ﻿Public Class Roles
     Inherits Tarjeta
-    Public IdMenuEncabezado As Integer
-    Public IdMenuDetalle As Integer
+    Public IdMenuRoles As Integer
+    Public IdPadre As Integer
+    Public Descripcion As String
+    Public IdEstatus As Boolean
 End Class

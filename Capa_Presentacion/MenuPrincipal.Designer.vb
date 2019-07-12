@@ -28,7 +28,6 @@ Partial Class MenuPrincipal
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsociacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompradoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.MunicipiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ColoniasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -76,11 +75,9 @@ Partial Class MenuPrincipal
         Me.CapturaDeBoletasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDeBoletasPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BoletaPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CapturaDeProducciónPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDePacasConTecladoFijoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChequearEtiquetaDePacaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.LiquidacionesPorRomaneajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -149,6 +146,7 @@ Partial Class MenuPrincipal
         Me.RestaurarRespaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -170,7 +168,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -189,7 +186,7 @@ Partial Class MenuPrincipal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.ToolStripSeparator3, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(82, 23)
         Me.CatálogosToolStripMenuItem.Text = "Catálogos"
@@ -211,11 +208,6 @@ Partial Class MenuPrincipal
         Me.CompradoresToolStripMenuItem.Name = "CompradoresToolStripMenuItem"
         Me.CompradoresToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
         Me.CompradoresToolStripMenuItem.Text = "Compradores"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(288, 6)
         '
         'MunicipiosToolStripMenuItem
         '
@@ -478,7 +470,7 @@ Partial Class MenuPrincipal
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.ToolStripSeparator1, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.ToolStripSeparator2, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -509,11 +501,6 @@ Partial Class MenuPrincipal
         Me.BoletaPorLotesToolStripMenuItem.Text = "Boleta por Lotes"
         Me.BoletaPorLotesToolStripMenuItem.Visible = False
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(338, 6)
-        '
         'CapturaDeProducciónPacasToolStripMenuItem
         '
         Me.CapturaDeProducciónPacasToolStripMenuItem.Name = "CapturaDeProducciónPacasToolStripMenuItem"
@@ -532,11 +519,6 @@ Partial Class MenuPrincipal
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Name = "ChequearEtiquetaDePacaToolStripMenuItem"
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Text = "Etiqueta de Paca"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(338, 6)
         '
         'LiquidacionesPorRomaneajeToolStripMenuItem
         '
@@ -952,6 +934,12 @@ Partial Class MenuPrincipal
         Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
+        'RolesToolStripMenuItem
+        '
+        Me.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem"
+        Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.RolesToolStripMenuItem.Text = "Roles"
+        '
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
@@ -1087,12 +1075,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
-        '
-        'RolesToolStripMenuItem
-        '
-        Me.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem"
-        Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
-        Me.RolesToolStripMenuItem.Text = "Roles"
         '
         'MenuPrincipal
         '
@@ -1233,9 +1215,6 @@ Partial Class MenuPrincipal
     Friend WithEvents ContratosDeAlgodónConProductoresToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ContratosDeAlgodónConCompradoresToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ContratosDeSemillaToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents SsBarraEstatus As StatusStrip
     Friend WithEvents SbBdd As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel

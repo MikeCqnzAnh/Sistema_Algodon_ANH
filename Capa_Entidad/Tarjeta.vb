@@ -1,4 +1,6 @@
-﻿Public Class Tarjeta
+﻿Imports System.Windows.Forms
+
+Public Class Tarjeta
     Public Property Actualiza As Capa_Operacion.Configuracion.Actuliza
     Public Property Consulta As Capa_Operacion.Configuracion.Consulta
     Public Property Reporte As Capa_Operacion.Configuracion.Reporte

@@ -43,6 +43,7 @@ Partial Class Usuarios
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.TVRoles = New System.Windows.Forms.TreeView()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -236,8 +237,17 @@ Partial Class Usuarios
         Me.DgvUsuarios.ReadOnly = True
         Me.DgvUsuarios.RowHeadersVisible = False
         Me.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvUsuarios.Size = New System.Drawing.Size(1162, 318)
+        Me.DgvUsuarios.Size = New System.Drawing.Size(750, 318)
         Me.DgvUsuarios.TabIndex = 5
+        '
+        'TVRoles
+        '
+        Me.TVRoles.CheckBoxes = True
+        Me.TVRoles.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TVRoles.Location = New System.Drawing.Point(750, 154)
+        Me.TVRoles.Name = "TVRoles"
+        Me.TVRoles.Size = New System.Drawing.Size(412, 318)
+        Me.TVRoles.TabIndex = 6
         '
         'Usuarios
         '
@@ -245,6 +255,7 @@ Partial Class Usuarios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1162, 472)
         Me.Controls.Add(Me.DgvUsuarios)
+        Me.Controls.Add(Me.TVRoles)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -281,4 +292,5 @@ Partial Class Usuarios
     Friend WithEvents Label6 As Label
     Friend WithEvents TbBddActual As TextBox
     Friend WithEvents TipoUsuarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TVRoles As TreeView
 End Class

@@ -6,9 +6,13 @@ Imports System.Net
 Public Class MenuPrincipal
     Dim IdSerieBanxico, CampoValorBanxico, SitioBanxico As String
     Dim PosicionValorBanxico, LongitudValorBanxico As Integer
+    Public TreeView1 As New TreeNode
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConsultaParametros()
         TipoUsuario()
+    End Sub
+    Private Sub RolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesToolStripMenuItem.Click
+        Roles.ShowDialog()
     End Sub
     Private Sub ObtenerPrecioDolarBanxico()
         Try
@@ -125,7 +129,6 @@ Public Class MenuPrincipal
     End Sub
     Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim opc As DialogResult = MsgBox("¿Desea salir de esta aplicación?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
-
         If opc = DialogResult.Yes Then
             SqlConnection.ClearAllPools()
             End
@@ -329,11 +332,6 @@ Public Class MenuPrincipal
     Private Sub ConexionInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem1.Click
         ConfiguraConexionInicial.ShowDialog()
     End Sub
-
-    Private Sub RolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesToolStripMenuItem.Click
-        Roles.ShowDialog()
-    End Sub
-
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

@@ -1,11 +1,9 @@
-﻿'Imports System.Data.SqlClient
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 Imports Capa_Operacion.Configuracion
 Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarCombos()
         Limpiar()
-        TbSocio.Select()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -177,6 +175,7 @@ Public Class Clientes
         CbCuentaDe.SelectedValue = 1
         TPPersonaFisica.Enabled = True
         TPPersonaMoral.Enabled = False
+        TbSocio.Select()
         TCTipoPersona.SelectedIndex = 0
     End Sub
     Private Sub LlenarCombos()
@@ -191,16 +190,7 @@ Public Class Clientes
         CbEstadoFis.ValueMember = "IdEstado"
         CbEstadoFis.DisplayMember = "Descripcion"
         CbEstadoFis.SelectedValue = 6
-        '---------------------------CONSULTA MUNICIPIOS       
-        Dim tabla2 As New DataTable
-        EntidadClientes.IdEstadoFisica = CbEstadoFis.SelectedValue
-        EntidadClientes.Consulta = Consulta.ConsultaMunicipio
-        NegocioClientes.Consultar(EntidadClientes)
-        tabla2 = EntidadClientes.TablaConsulta
-        CbMunicipioFis.DataSource = tabla2
-        CbMunicipioFis.ValueMember = "IdMunicipio"
-        CbMunicipioFis.DisplayMember = "Descripcion"
-        CbMunicipioFis.SelectedValue = 1
+
         '---------------------------CONSULTA TIPO PERSONA
         Dim tabla3 As New DataTable
         EntidadClientes.Consulta = Consulta.ConsultaTipoPersona
@@ -219,16 +209,7 @@ Public Class Clientes
         CbEstadoMovilizacion.ValueMember = "IdEstado"
         CbEstadoMovilizacion.DisplayMember = "Descripcion"
         CbEstadoMovilizacion.SelectedValue = 6
-        '---------------------------CONSULTA MUNICIPIOS MOVILIZACION       
-        Dim tabla5 As New DataTable
-        EntidadClientes.IdEstadoMovilizacion = CbEstadoMovilizacion.SelectedValue
-        EntidadClientes.Consulta = Consulta.ConsultaMunicipio
-        NegocioClientes.Consultar(EntidadClientes)
-        tabla2 = EntidadClientes.TablaConsulta
-        CbMunicipioMovilizacion.DataSource = tabla2
-        CbMunicipioMovilizacion.ValueMember = "IdMunicipio"
-        CbMunicipioMovilizacion.DisplayMember = "Descripcion"
-        CbMunicipioMovilizacion.SelectedValue = 1
+
         '---------------------------CONSULTA ESTADOS MORAL
         'Dim tabla6 As New DataTable
         'EntidadClientes.Consulta = Consulta.ConsultaEstadoMoral
@@ -247,16 +228,6 @@ Public Class Clientes
         CbEstadoMoral.ValueMember = "IdEstado"
         CbEstadoMoral.DisplayMember = "Descripcion"
         CbEstadoMoral.SelectedValue = 6
-        '---------------------------CONSULTA MUNICIPIO APODERADO     
-        Dim tabla8 As New DataTable
-        EntidadClientes.IdEstadoMoral = CbEstadoMoral.SelectedValue
-        EntidadClientes.Consulta = Consulta.ConsultaMunicipioApoderado
-        NegocioClientes.Consultar(EntidadClientes)
-        tabla8 = EntidadClientes.TablaConsulta
-        CbMunicipioMoral.DataSource = tabla8
-        CbMunicipioMoral.ValueMember = "IdMunicipio"
-        CbMunicipioMoral.DisplayMember = "Descripcion"
-        CbMunicipioMoral.SelectedValue = 1
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
         dt.Columns.Add("Id")
@@ -300,7 +271,6 @@ Public Class Clientes
         End If
     End Sub
     Private Sub TbRfcFis_Leave(sender As Object, e As EventArgs) Handles TbRfcFis.Leave
-
         If TbRfcFis.Text <> String.Empty Or TbRfcFis.Text = String.Empty Then
             If Regex.IsMatch(TbRfcFis.Text.Trim, "^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$") = False Then
                 MsgBox("El RFC No es Valido")
@@ -308,34 +278,28 @@ Public Class Clientes
             End If
         End If
     End Sub
-
     Private Sub TbCurpFis_Leave(sender As Object, e As EventArgs) Handles TbCurpFis.Leave
         If TbCurpFis.Text <> String.Empty Or TbCurpFis.Text = String.Empty Then
             If Regex.IsMatch(TbCurpFis.Text.Trim, "^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$") = False Then
                 MsgBox("La CURP no es Valida")
                 Me.TbCurpFis.Focus()
-
             End If
         End If
     End Sub
-
     Private Sub TbCorreoFis_Leave(sender As Object, e As EventArgs) Handles TbCorreoFis.Leave
         If TbCorreoFis.Text <> String.Empty Or TbCorreoFis.Text = String.Empty Then
             If Regex.IsMatch(TbCorreoFis.Text.Trim, "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$") = False Then
                 MsgBox("Email no Valido")
                 Me.TbCorreoFis.Focus()
-
             End If
         End If
     End Sub
-
     Private Sub TbNumeroFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNumeroFis.KeyPress
         If InStr(1, "0123456789.S/Nsn" & Chr(8), e.KeyChar) = 0 Then
             e.Handled = True
             e.KeyChar = CChar("")
         End If
     End Sub
-
     Private Sub TbCalleFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCalleFis.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
@@ -347,7 +311,6 @@ Public Class Clientes
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbColoniaFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbColoniaFis.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
@@ -359,7 +322,6 @@ Public Class Clientes
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbCelularFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCelularFis.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
@@ -369,7 +331,6 @@ Public Class Clientes
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbTelefonoFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbTelefonoFis.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
@@ -379,7 +340,6 @@ Public Class Clientes
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbApoderadoFis_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
@@ -389,7 +349,6 @@ Public Class Clientes
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbRfcApoderado_Leave(sender As Object, e As EventArgs) Handles TbRfcApoderado.Leave, TbNombreApoderado.Leave
         If TbRfcApoderado.Text <> String.Empty Or TbRfcApoderado.Text = String.Empty Then
             If Regex.IsMatch(TbRfcApoderado.Text.Trim, "^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$") = False Then
@@ -399,17 +358,14 @@ Public Class Clientes
             End If
         End If
     End Sub
-
     Private Sub TbCurpApoderado_Leave(sender As Object, e As EventArgs) Handles TbCurpApoderado.Leave
         If TbCurpApoderado.Text <> String.Empty Or TbCurpApoderado.Text = String.Empty Then
             If Regex.IsMatch(TbCurpApoderado.Text.Trim, "^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$") = False Then
                 MsgBox("La CURP no es Valida")
                 Me.TbCurpApoderado.Focus()
-
             End If
         End If
     End Sub
-
     Private Sub TbCorreoApoderado_Leave(sender As Object, e As EventArgs) Handles TbCorreoApoderado.Leave
         If TbCorreoApoderado.Text <> String.Empty Or TbCorreoApoderado.Text = String.Empty Then
             If Regex.IsMatch(TbCorreoApoderado.Text.Trim, "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$") = False Then
@@ -418,11 +374,52 @@ Public Class Clientes
             End If
         End If
     End Sub
-
     Private Sub TbNumeroMoral_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNumeroMoral.KeyPress
         If InStr(1, "0123456789.S/Nsn" & Chr(8), e.KeyChar) = 0 Then
             e.Handled = True
             e.KeyChar = CChar("")
         End If
+    End Sub
+    Private Sub CbEstadoFis_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbEstadoFis.SelectionChangeCommitted
+        Dim EntidadClientes As New Capa_Entidad.Clientes
+        Dim NegocioClientes As New Capa_Negocio.Clientes
+        '---------------------------CONSULTA MUNICIPIOS       
+        Dim tabla2 As New DataTable
+        EntidadClientes.IdEstadoFisica = CbEstadoFis.SelectedValue
+        EntidadClientes.Consulta = Consulta.ConsultaMunicipio
+        NegocioClientes.Consultar(EntidadClientes)
+        tabla2 = EntidadClientes.TablaConsulta
+        CbMunicipioFis.DataSource = tabla2
+        CbMunicipioFis.ValueMember = "IdMunicipio"
+        CbMunicipioFis.DisplayMember = "Descripcion"
+        CbMunicipioFis.SelectedValue = 1
+    End Sub
+    Private Sub CbEstadoMoral_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbEstadoMoral.SelectionChangeCommitted
+        Dim EntidadClientes As New Capa_Entidad.Clientes
+        Dim NegocioClientes As New Capa_Negocio.Clientes
+        '---------------------------CONSULTA MUNICIPIOS       
+        Dim tabla2 As New DataTable
+        EntidadClientes.IdEstadoFisica = CbEstadoMoral.SelectedValue
+        EntidadClientes.Consulta = Consulta.ConsultaMunicipio
+        NegocioClientes.Consultar(EntidadClientes)
+        tabla2 = EntidadClientes.TablaConsulta
+        CbMunicipioMoral.DataSource = tabla2
+        CbMunicipioMoral.ValueMember = "IdMunicipio"
+        CbMunicipioMoral.DisplayMember = "Descripcion"
+        CbMunicipioMoral.SelectedValue = 1
+    End Sub
+    Private Sub CbEstadoMovilizacion_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbEstadoMovilizacion.SelectionChangeCommitted
+        Dim EntidadClientes As New Capa_Entidad.Clientes
+        Dim NegocioClientes As New Capa_Negocio.Clientes
+        '---------------------------CONSULTA MUNICIPIOS MOVILIZACION       
+        Dim tabla5 As New DataTable
+        EntidadClientes.IdEstadoMovilizacion = CbEstadoMovilizacion.SelectedValue
+        EntidadClientes.Consulta = Consulta.ConsultaMunicipio
+        NegocioClientes.Consultar(EntidadClientes)
+        tabla5 = EntidadClientes.TablaConsulta
+        CbMunicipioMovilizacion.DataSource = tabla5
+        CbMunicipioMovilizacion.ValueMember = "IdMunicipio"
+        CbMunicipioMovilizacion.DisplayMember = "Descripcion"
+        CbMunicipioMovilizacion.SelectedValue = 1
     End Sub
 End Class
