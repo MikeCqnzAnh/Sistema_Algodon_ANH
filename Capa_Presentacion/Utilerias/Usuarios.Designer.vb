@@ -43,10 +43,17 @@ Partial Class Usuarios
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
+        Me.DgvControlTreeview = New System.Windows.Forms.GroupBox()
         Me.TVRoles = New System.Windows.Forms.TreeView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DgvControlTreeview.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TbNombre
@@ -122,7 +129,7 @@ Partial Class Usuarios
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.TipoUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1162, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(924, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -152,6 +159,7 @@ Partial Class Usuarios
         '
         'GbDatos
         '
+        Me.GbDatos.Controls.Add(Me.Button1)
         Me.GbDatos.Controls.Add(Me.CbEstatus)
         Me.GbDatos.Controls.Add(Me.Label5)
         Me.GbDatos.Controls.Add(Me.Label1)
@@ -168,7 +176,7 @@ Partial Class Usuarios
         Me.GbDatos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatos.Location = New System.Drawing.Point(0, 24)
         Me.GbDatos.Name = "GbDatos"
-        Me.GbDatos.Size = New System.Drawing.Size(1162, 130)
+        Me.GbDatos.Size = New System.Drawing.Size(924, 130)
         Me.GbDatos.TabIndex = 4
         Me.GbDatos.TabStop = False
         '
@@ -237,28 +245,81 @@ Partial Class Usuarios
         Me.DgvUsuarios.ReadOnly = True
         Me.DgvUsuarios.RowHeadersVisible = False
         Me.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvUsuarios.Size = New System.Drawing.Size(750, 318)
+        Me.DgvUsuarios.Size = New System.Drawing.Size(530, 366)
         Me.DgvUsuarios.TabIndex = 5
+        '
+        'DgvControlTreeview
+        '
+        Me.DgvControlTreeview.Controls.Add(Me.TVRoles)
+        Me.DgvControlTreeview.Controls.Add(Me.Panel1)
+        Me.DgvControlTreeview.Dock = System.Windows.Forms.DockStyle.Right
+        Me.DgvControlTreeview.Location = New System.Drawing.Point(530, 154)
+        Me.DgvControlTreeview.Name = "DgvControlTreeview"
+        Me.DgvControlTreeview.Size = New System.Drawing.Size(394, 366)
+        Me.DgvControlTreeview.TabIndex = 7
+        Me.DgvControlTreeview.TabStop = False
         '
         'TVRoles
         '
         Me.TVRoles.CheckBoxes = True
-        Me.TVRoles.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TVRoles.Location = New System.Drawing.Point(750, 154)
+        Me.TVRoles.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TVRoles.Location = New System.Drawing.Point(3, 46)
         Me.TVRoles.Name = "TVRoles"
-        Me.TVRoles.Size = New System.Drawing.Size(412, 318)
-        Me.TVRoles.TabIndex = 6
+        Me.TVRoles.Size = New System.Drawing.Size(388, 317)
+        Me.TVRoles.TabIndex = 7
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(3, 16)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(388, 30)
+        Me.Panel1.TabIndex = 8
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(3, 4)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(22, 24)
+        Me.Label8.TabIndex = 0
+        Me.Label8.Tag = "Expander"
+        Me.Label8.Text = "+"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(31, 4)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(17, 24)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Tag = "Contraer"
+        Me.Label7.Text = "-"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(631, 93)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1162, 472)
+        Me.ClientSize = New System.Drawing.Size(924, 520)
         Me.Controls.Add(Me.DgvUsuarios)
-        Me.Controls.Add(Me.TVRoles)
+        Me.Controls.Add(Me.DgvControlTreeview)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MinimumSize = New System.Drawing.Size(940, 559)
         Me.Name = "Usuarios"
         Me.Text = "Usuarios"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -267,6 +328,9 @@ Partial Class Usuarios
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DgvControlTreeview.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -292,5 +356,10 @@ Partial Class Usuarios
     Friend WithEvents Label6 As Label
     Friend WithEvents TbBddActual As TextBox
     Friend WithEvents TipoUsuarioToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DgvControlTreeview As GroupBox
     Friend WithEvents TVRoles As TreeView
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Button1 As Button
 End Class

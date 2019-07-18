@@ -166,55 +166,140 @@ Public Class Usuarios
         LlenaCombo()
     End Sub
     Private Sub TVRoles_AfterCheck(sender As Object, e As TreeViewEventArgs) Handles TVRoles.AfterCheck
-        ' El código sólo se ejecutará si el usuario causó
-        ' el cambio del estado de verificación del nodo.
-        '
         If (e.Action = TreeViewAction.Unknown) Then Return
-
         If (e.Node.Nodes.Count > 0) Then
-            ' Llama al método CheckAllChildNodes, pasando el valor actual
-            ' Chequeado del TreeNode cuyo estado marcado ha cambiado.
             Me.CheckAllChildNodes(e.Node, e.Node.Checked)
-
         Else
-            ' Nodo padre del nodo hijo actual.
             Dim parent As TreeNode = e.Node.Parent
             If (Not parent Is Nothing) Then
-                ' El nodo tiene un nodo padre válido.
-                '
                 If (Not e.Node.Checked) Then
-                    ' El nodo hijo no está marcado; eliminamos la marca de
-                    ' de verificación de su nodo padre.
                     parent.Checked = False
-
                 Else
-                    ' El nodo hijo está marcado; comprobamos si los restantes
-                    ' nodos hijos están marcados para marcar también el
-                    ' nodo padre.
-                    '
                     Dim items As TreeNode() = (From item As TreeNode In parent.Nodes.OfType(Of TreeNode)()
                                                Where item.Checked
                                                Select item).ToArray()
-
                     parent.Checked = (items.Count = parent.Nodes.Count)
-
                 End If
             End If
-
         End If
     End Sub
     Private Sub CheckAllChildNodes(treeNode As TreeNode, nodeChecked As Boolean)
-
-        ' Actualiza de forma recursiva todos los nodos hijos.
-        '
         For Each node As TreeNode In treeNode.Nodes
             node.Checked = nodeChecked
             If (node.Nodes.Count > 0) Then
-                ' Si el node actual tiene nodos hijos, llamar
-                ' recursivamente al método CheckAllChildNodes.
                 Me.CheckAllChildNodes(node, nodeChecked)
             End If
         Next
+    End Sub
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+        TVRoles.ExpandAll()
+    End Sub
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+        TVRoles.CollapseAll()
+    End Sub
+    Private Sub CbTipoUsuario_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoUsuario.SelectionChangeCommitted
 
+    End Sub
+    Private Sub AgregaOpcion()
+        Dim EntidadRoles As New Capa_Entidad.Roles
+        Dim NegocioRoles As New Capa_Negocio.Roles
+        Try
+            'EntidadRoles.IdMenuRoles = IIf(TbIdNodo.Text = "", 0, TbIdNodo.Text)
+            'EntidadRoles.Descripcion = TbNombreNodo.Text
+            'EntidadRoles.IdPadre = TbIdPadre.Text
+            'EntidadRoles.IdEstatus = CkEstatus.CheckState
+            'NegocioRoles.Agregar(EntidadRoles)
+            'TbIdNodo.Text = EntidadRoles.IdMenuRoles
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
+            MsgBox("Realizado Correctamente")
+        End Try
+
+    End Sub
+    Private Sub RecorrerTV()
+        'Se Declara una colección de nodos apartir de tu Treeview
+        'del que se va a recorrer
+        Dim nodes As TreeNodeCollection = TVRoles.Nodes
+        'Se recorren los nodos principales
+        For Each n As TreeNode In nodes
+            'Se Declara un metodo para que recorra los hijos de los principales
+            'Y los hijos de los hijos....Recorrido Total en pocas palabras
+            'Para ello se envía el nodo actual para evaluar si tiene hijos
+            RecorrerNodos(n)
+        Next
+    End Sub
+    Private Sub RecorrerNodos(treeNode As TreeNode)
+        Try
+            'Si el nodo que recibimos tiene hijos se recorrerá
+            'para luego verificar si esta o no checado
+            For Each tn As TreeNode In treeNode.Nodes
+                'Se Verifica si esta marcado...
+                'If tn.Checked = True Then
+                'Si esta marcado mostramos el texto del nodo
+                MessageBox.Show(tn.Tag)
+                'End If
+                'Ahora hago verificacion a los hijos del nodo actual            
+                'Esta iteración no acabara hasta llegar al ultimo nodo principal
+                RecorrerNodos(tn)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+        End Try
+    End Sub
+    Private Sub ObtenerTagTvRoles()
+        If TVRoles.SelectedNode IsNot Nothing Then
+            Dim lineText As String = TVRoles.SelectedNode.Tag
+            Dim ArrayText() As String
+            ArrayText = lineText.Split(",")
+            For Each s In ArrayText
+                'TbIdNodo.Text = ArrayText(0)
+                'TbNombreNodo.Text = ArrayText(1).ToString
+                'TbIdPadre.Text = ArrayText(2)
+                'CkEstatus.Checked = ArrayText(3)
+            Next
+        End If
+
+    End Sub
+    Private Sub PrintRecursive(ByVal n As TreeNode)
+        Dim EntidadRoles As New Capa_Entidad.Roles
+        Dim NegocioRoles As New Capa_Negocio.Roles
+        'System.Diagnostics.Debug.WriteLine(n.Tag) 'Muestra el texto del nodo en la ventana de inmediato
+        'MessageBox.Show(n.Tag) 'Muestra el mismo mensaje por pantalla
+        Dim lineText As String = n.Tag
+        Dim ArrayText() As String
+        ArrayText = lineText.Split(",")
+        Try
+            For Each s In ArrayText
+                EntidadRoles.IdPerfilUsuario = 0
+                EntidadRoles.IdUsuario = TbIdUsuario.Text
+                EntidadRoles.IdNodo = ArrayText(0)
+                EntidadRoles.IdPadre = ArrayText(2)
+                EntidadRoles.IdTipoUsuario = CbTipoUsuario.SelectedValue
+                EntidadRoles.IdEstatus = n.Checked
+                NegocioRoles.Agregar(EntidadRoles)
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+        End Try
+        Dim aNode As TreeNode
+        'Por cada nodo de la raíz
+        For Each aNode In n.Nodes
+            PrintRecursive(aNode)
+        Next
+    End Sub
+
+    Private Sub CallRecursive(ByVal aTreeView As TreeView)
+        Dim n As TreeNode
+        'Por cada raíz
+        For Each n In aTreeView.Nodes
+            PrintRecursive(n)
+        Next
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        CallRecursive(TVRoles)
     End Sub
 End Class

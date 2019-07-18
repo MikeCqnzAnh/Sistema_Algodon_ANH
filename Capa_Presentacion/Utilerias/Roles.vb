@@ -85,7 +85,6 @@ Public Class Roles
         End Try
 
     End Sub
-
     Private Sub TVRoles_AfterCheck(sender As Object, e As TreeViewEventArgs) Handles TVRoles.AfterCheck
         ' El código sólo se ejecutará si el usuario causó
         ' el cambio del estado de verificación del nodo.
@@ -137,5 +136,18 @@ Public Class Roles
             End If
         Next
 
+    End Sub
+
+
+    Private Sub Bt_Click(sender As Object, e As EventArgs) Handles Bt.Click
+        'RecorrerTV()
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        TVRoles.ExpandAll()
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+        TVRoles.CollapseAll()
     End Sub
 End Class
