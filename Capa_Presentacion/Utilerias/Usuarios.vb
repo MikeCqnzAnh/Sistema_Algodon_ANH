@@ -200,24 +200,6 @@ Public Class Usuarios
     Private Sub CbTipoUsuario_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoUsuario.SelectionChangeCommitted
 
     End Sub
-    Private Sub AgregaOpcion()
-        Dim EntidadRoles As New Capa_Entidad.Roles
-        Dim NegocioRoles As New Capa_Negocio.Roles
-        Try
-            'EntidadRoles.IdMenuRoles = IIf(TbIdNodo.Text = "", 0, TbIdNodo.Text)
-            'EntidadRoles.Descripcion = TbNombreNodo.Text
-            'EntidadRoles.IdPadre = TbIdPadre.Text
-            'EntidadRoles.IdEstatus = CkEstatus.CheckState
-            'NegocioRoles.Agregar(EntidadRoles)
-            'TbIdNodo.Text = EntidadRoles.IdMenuRoles
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        Finally
-
-            MsgBox("Realizado Correctamente")
-        End Try
-
-    End Sub
     Private Sub RecorrerTV()
         'Se Declara una colección de nodos apartir de tu Treeview
         'del que se va a recorrer
@@ -248,20 +230,6 @@ Public Class Usuarios
             MessageBox.Show(ex.ToString())
         End Try
     End Sub
-    Private Sub ObtenerTagTvRoles()
-        If TVRoles.SelectedNode IsNot Nothing Then
-            Dim lineText As String = TVRoles.SelectedNode.Tag
-            Dim ArrayText() As String
-            ArrayText = lineText.Split(",")
-            For Each s In ArrayText
-                'TbIdNodo.Text = ArrayText(0)
-                'TbNombreNodo.Text = ArrayText(1).ToString
-                'TbIdPadre.Text = ArrayText(2)
-                'CkEstatus.Checked = ArrayText(3)
-            Next
-        End If
-
-    End Sub
     Private Sub PrintRecursive(ByVal n As TreeNode)
         Dim EntidadRoles As New Capa_Entidad.Roles
         Dim NegocioRoles As New Capa_Negocio.Roles
@@ -273,12 +241,14 @@ Public Class Usuarios
         Try
             For Each s In ArrayText
                 EntidadRoles.IdPerfilUsuario = 0
-                EntidadRoles.IdUsuario = TbIdUsuario.Text
+                EntidadRoles.IdUsuario = 0 'TbIdUsuario.Text
                 EntidadRoles.IdNodo = ArrayText(0)
                 EntidadRoles.IdPadre = ArrayText(2)
                 EntidadRoles.IdTipoUsuario = CbTipoUsuario.SelectedValue
                 EntidadRoles.IdEstatus = n.Checked
+                EntidadRoles.Agrega = Agrega.AgregaRol
                 NegocioRoles.Agregar(EntidadRoles)
+                Exit For
             Next
         Catch ex As Exception
             MsgBox(ex.Message)

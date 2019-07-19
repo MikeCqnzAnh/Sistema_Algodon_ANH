@@ -3,6 +3,7 @@
 Public Class Tarjeta
     Public Property Actualiza As Capa_Operacion.Configuracion.Actuliza
     Public Property Consulta As Capa_Operacion.Configuracion.Consulta
+    Public Property Agrega As Capa_Operacion.Configuracion.Agrega
     Public Property Reporte As Capa_Operacion.Configuracion.Reporte
     Public Property Eliminar As Capa_Operacion.Configuracion.Eliminar
     Public Property LlenaCombo As Capa_Operacion.Configuracion.LlenaCombo

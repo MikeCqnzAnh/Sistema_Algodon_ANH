@@ -22,22 +22,27 @@ Partial Class TiposUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DgvTipoUsuario = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbIdTipo = New System.Windows.Forms.TextBox()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.DgvTipoUsuario = New System.Windows.Forms.DataGridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TVRoles = New System.Windows.Forms.TreeView()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         CType(Me.DgvTipoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -45,7 +50,7 @@ Partial Class TiposUsuario
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(812, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1188, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -73,8 +78,34 @@ Partial Class TiposUsuario
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(303, 24)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(509, 454)
+        Me.Panel1.Size = New System.Drawing.Size(453, 490)
         Me.Panel1.TabIndex = 2
+        '
+        'DgvTipoUsuario
+        '
+        Me.DgvTipoUsuario.AllowUserToAddRows = False
+        Me.DgvTipoUsuario.AllowUserToDeleteRows = False
+        Me.DgvTipoUsuario.AllowUserToOrderColumns = True
+        Me.DgvTipoUsuario.AllowUserToResizeRows = False
+        Me.DgvTipoUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvTipoUsuario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DgvTipoUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvTipoUsuario.Location = New System.Drawing.Point(0, 0)
+        Me.DgvTipoUsuario.MultiSelect = False
+        Me.DgvTipoUsuario.Name = "DgvTipoUsuario"
+        Me.DgvTipoUsuario.ReadOnly = True
+        Me.DgvTipoUsuario.RowHeadersVisible = False
+        Me.DgvTipoUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvTipoUsuario.Size = New System.Drawing.Size(453, 490)
+        Me.DgvTipoUsuario.TabIndex = 6
         '
         'Label1
         '
@@ -118,41 +149,58 @@ Partial Class TiposUsuario
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 24)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(303, 454)
+        Me.Panel2.Size = New System.Drawing.Size(303, 490)
         Me.Panel2.TabIndex = 5
         '
-        'DgvTipoUsuario
+        'Panel3
         '
-        Me.DgvTipoUsuario.AllowUserToAddRows = False
-        Me.DgvTipoUsuario.AllowUserToDeleteRows = False
-        Me.DgvTipoUsuario.AllowUserToOrderColumns = True
-        Me.DgvTipoUsuario.AllowUserToResizeRows = False
-        Me.DgvTipoUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvTipoUsuario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DgvTipoUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvTipoUsuario.Location = New System.Drawing.Point(0, 0)
-        Me.DgvTipoUsuario.MultiSelect = False
-        Me.DgvTipoUsuario.Name = "DgvTipoUsuario"
-        Me.DgvTipoUsuario.ReadOnly = True
-        Me.DgvTipoUsuario.RowHeadersVisible = False
-        Me.DgvTipoUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvTipoUsuario.Size = New System.Drawing.Size(509, 454)
-        Me.DgvTipoUsuario.TabIndex = 6
+        Me.Panel3.Controls.Add(Me.TVRoles)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(756, 24)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(432, 490)
+        Me.Panel3.TabIndex = 7
+        '
+        'TVRoles
+        '
+        Me.TVRoles.CheckBoxes = True
+        Me.TVRoles.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TVRoles.Location = New System.Drawing.Point(19, 20)
+        Me.TVRoles.Name = "TVRoles"
+        Me.TVRoles.Size = New System.Drawing.Size(413, 470)
+        Me.TVRoles.TabIndex = 6
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(19, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(15, 20)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "-"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(0, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(19, 20)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "+"
         '
         'TiposUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(812, 478)
+        Me.ClientSize = New System.Drawing.Size(1188, 514)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -162,9 +210,11 @@ Partial Class TiposUsuario
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.DgvTipoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.DgvTipoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -181,4 +231,8 @@ Partial Class TiposUsuario
     Friend WithEvents TbDescripcion As TextBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents DgvTipoUsuario As DataGridView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents TVRoles As TreeView
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
 End Class

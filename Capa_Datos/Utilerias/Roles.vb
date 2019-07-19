@@ -15,13 +15,13 @@ Public Class Roles
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaMenuRoles", cnn)
                     sqldat1.Fill(EntidadRoles1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                    '    sqlcom1 = New SqlCommand("Sp_ConsultaMenuDetalle", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdMenuEncabezado", EntidadRoles1.IdMenuEncabezado))
-                    '    sqldat1.Fill(EntidadRoles1.TablaGeneral)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                    sqlcom1 = New SqlCommand("Sp_ConsultaRolesPredefinidos", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
+                    sqldat1.Fill(EntidadRoles1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaOpciones
                     '    sqlcom1 = New SqlCommand("Sp_OpcionesSubMenu", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -44,17 +44,43 @@ Public Class Roles
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("Sp_InsertarOpcionRol", cnn)
-            cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdMenuRoles", EntidadRoles1.IdMenuRoles))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadRoles1.Descripcion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdPadre", EntidadRoles1.IdPadre))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadRoles1.IdEstatus))
-            cmdGuardar.Parameters("@IdMenuRoles").Direction = ParameterDirection.InputOutput
-            cmdGuardar.ExecuteNonQuery()
-            If EntidadRoles1.IdMenuRoles = 0 Then
-                EntidadRoles1.IdMenuRoles = cmdGuardar.Parameters("@IdMenuRoles").Value
-            End If
+            Select Case EntidadRoles1.Agrega
+                Case Capa_Operacion.Configuracion.Agrega.AgregOpcion
+                    cmdGuardar = New SqlCommand("Sp_InsertarOpcionRol", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdMenuRoles", EntidadRoles1.IdMenuRoles))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadRoles1.Descripcion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPadre", EntidadRoles1.IdPadre))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadRoles1.IdEstatus))
+                    cmdGuardar.Parameters("@IdMenuRoles").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                    If EntidadRoles1.IdMenuRoles = 0 Then
+                        EntidadRoles1.IdMenuRoles = cmdGuardar.Parameters("@IdMenuRoles").Value
+                    End If
+                Case Capa_Operacion.Configuracion.Agrega.AgregaRol
+                    cmdGuardar = New SqlCommand("Sp_InsertaPerfilUsuario", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPerfilUsuario", EntidadRoles1.IdPerfilUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadRoles1.IdUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdNodo", EntidadRoles1.IdNodo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPadre", EntidadRoles1.IdPadre))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadRoles1.IdEstatus))
+                    'cmdGuardar.Parameters("@IdMenuRoles").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Agrega.AgregaRolPredefinido
+                    cmdGuardar = New SqlCommand("Sp_InsertaPerfilUsuarioPredefinido", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPerfilUsuario", EntidadRoles1.IdPerfilUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadRoles1.IdUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdNodo", EntidadRoles1.IdNodo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPadre", EntidadRoles1.IdPadre))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadRoles1.IdEstatus))
+                    'cmdGuardar.Parameters("@IdMenuRoles").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+            End Select
+
         Catch ex As Exception
         Finally
             cnn.Close()

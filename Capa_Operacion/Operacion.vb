@@ -152,6 +152,10 @@ Namespace Configuracion
     Public Enum Conexion
         ConexionDataBase = 1
     End Enum
-
+    Public Enum Agrega
+        AgregOpcion = 1
+        AgregaRol = 2
+        AgregaRolPredefinido = 3
+    End Enum
 End Namespace
 

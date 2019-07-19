@@ -3,6 +3,7 @@ Imports Capa_Operacion.Configuracion
 Public Class ConfiguraConexionInicial
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
+    Dim archivo2 As String = "cnnPerfiles.ini"
     Private Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         nuevo()
     End Sub
@@ -58,6 +59,47 @@ Public Class ConfiguraConexionInicial
             MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
         End If
     End Sub
+    Private Sub CreaConexionPerfiles()
+        Dim fs As FileStream
+        If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
+            ':::Validamos si la carpeta de ruta existe, si no existe la creamos
+            Try
+                If File.Exists(Ruta & archivo2) Then
+
+                    ':::Si la carpeta existe creamos o sobreescribios el archivo txt
+                    fs = File.Create(Ruta & archivo2)
+                    fs.Close()
+                    BtnSobreescribir_Click()
+                    BtnSobreescribirPerfil()
+                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    Close()
+                Else
+
+                    ':::Si la carpeta no existe la creamos
+                    Directory.CreateDirectory(Ruta)
+
+                    ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
+                    fs = File.Create(Ruta & archivo2)
+                    fs.Close()
+                    BtnSobreescribir_Click()
+                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    Close()
+                End If
+
+            Catch ex As Exception
+                MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+            End Try
+            TbDireccionIP1.Clear()
+            TbDireccionIP2.Clear()
+            TbDireccionIP3.Clear()
+            TbDireccionIP4.Clear()
+            TbOrigenPassword.Clear()
+            TbOrigenUsuario.Clear()
+            CbOrigenInstancia.SelectedIndex = -1
+        Else
+            MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
+        End If
+    End Sub
     Private Sub nuevo()
         TbDireccionIP1.Text = ""
         TbDireccionIP2.Text = ""
@@ -78,13 +120,23 @@ Public Class ConfiguraConexionInicial
             escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
             escribir.Close()
             ':::Limpiamos los TextBox
-            TbDireccionIP1.Clear()
-            TbDireccionIP2.Clear()
-            TbDireccionIP3.Clear()
-            TbDireccionIP4.Clear()
-            TbOrigenPassword.Clear()
-            TbOrigenUsuario.Clear()
-            CbOrigenInstancia.SelectedIndex = -1
+
+            ':::Llamamos nuestro procedimiento para leer el archivo TXT
+            'LeerArchivo()
+        Catch ex As Exception
+            MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
+    Private Sub BtnSobreescribirPerfil()
+        ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
+        Dim escribir As New StreamWriter(Ruta & archivo2)
+        Dim DireccionIP As String = ""
+        Try
+            DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
+            ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
+            escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + "Perfiles" + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
+            escribir.Close()
+            ':::Limpiamos los TextBox
             ':::Llamamos nuestro procedimiento para leer el archivo TXT
             'LeerArchivo()
         Catch ex As Exception

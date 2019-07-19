@@ -75,6 +75,7 @@ Public Class Roles
             EntidadRoles.Descripcion = TbNombreNodo.Text
             EntidadRoles.IdPadre = TbIdPadre.Text
             EntidadRoles.IdEstatus = CkEstatus.CheckState
+            EntidadRoles.Agrega = Agrega.AgregOpcion
             NegocioRoles.Agregar(EntidadRoles)
             TbIdNodo.Text = EntidadRoles.IdMenuRoles
         Catch ex As Exception
