@@ -80,7 +80,7 @@ Public Class Acceso
         EntidadAcceso.Usuario = Usuario
         EntidadAcceso.BaseDeDatos = CbBaseDeDatos.Text
         EntidadAcceso.Consulta = Consulta.ConsultaUsuario
-        NegocioAcceso.Consultar(EntidadAcceso)
+        NegocioAcceso.ConsultarPerfiles(EntidadAcceso)
         Tabla = EntidadAcceso.TablaConsulta
         If Tabla.Rows(0).Item("Validacion") = False Then
             MessageBox.Show("El Usuario " & TbUsuario.Text & " no existe, verifique de nuevo.", "Aviso")

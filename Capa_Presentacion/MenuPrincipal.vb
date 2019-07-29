@@ -6,10 +6,44 @@ Imports System.Net
 Public Class MenuPrincipal
     Dim IdSerieBanxico, CampoValorBanxico, SitioBanxico As String
     Dim PosicionValorBanxico, LongitudValorBanxico As Integer
-    Public TreeView1 As New TreeNode
+    Dim TablaEnc As New DataTable
+    Dim valor As String = ""
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        consultaItems(MSMenu)
         ConsultaParametros()
         TipoUsuario()
+    End Sub
+    Private Sub consultaItems(ByVal MsItem As MenuStrip)
+        llenaTablaMenuRoles()
+        For Each miitem As ToolStripMenuItem In MsItem.Items
+            recorrer(miitem)
+        Next
+    End Sub
+    Private Sub recorrer(ByVal Oneitem As ToolStripMenuItem)
+        For Each otroItem As ToolStripMenuItem In Oneitem.DropDownItems
+            Dim lineText As String = otroItem.Tag
+            Dim ArrayText() As String
+            ArrayText = lineText.Split(",")
+            Try
+                For Each TablaPerfiles As DataRow In TablaEnc.Rows
+                    If TablaPerfiles("IdNodo") = ArrayText(0) And TablaPerfiles("IdPadre") = ArrayText(1) Then
+                        otroItem.Enabled = TablaPerfiles("IdEstatus")
+                    End If
+                Next
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            If otroItem.DropDownItems.Count > 0 Then recorrer(otroItem)
+        Next
+    End Sub
+    Private Sub llenaTablaMenuRoles()
+        Dim EntidadRoles As New Capa_Entidad.Roles
+        Dim NegocioRoles As New Capa_Negocio.Roles
+        EntidadRoles.IdUsuario = IdUsuario
+        EntidadRoles.IdTipoUsuario = IdTipoUsuario
+        EntidadRoles.Consulta = Consulta.ConsultaPerfilUsuario
+        NegocioRoles.Consultar(EntidadRoles)
+        TablaEnc = EntidadRoles.TablaConsulta
     End Sub
     Private Sub RolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesToolStripMenuItem.Click
         Roles.ShowDialog()

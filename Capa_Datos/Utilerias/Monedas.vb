@@ -7,7 +7,7 @@ Public Class Monedas
         Dim cnn As New SqlConnection(conexionPrincipal)
         EntidadMonedas1.TablaConsulta = New DataTable()
         EntidadMonedas1.TablaGeneral = New DataTable()
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try
             cnn.Open()
@@ -56,7 +56,7 @@ Public Class Monedas
         EntidadMonedas1.TablaConsulta = New DataTable()
         EntidadMonedas1.TablaGeneral = New DataTable()
         Dim cmdEliminar As SqlCommand
-        Dim sqldat1 As SqlDataAdapter
+        'Dim sqldat1 As SqlDataAdapter
         Try
             cnn.Open()
             Select Case EntidadMonedas1.Eliminar

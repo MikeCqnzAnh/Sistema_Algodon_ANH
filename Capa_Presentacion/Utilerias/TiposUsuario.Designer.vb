@@ -22,7 +22,9 @@ Partial Class TiposUsuario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TiposUsuario))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,6 +40,7 @@ Partial Class TiposUsuario
         Me.TVRoles = New System.Windows.Forms.TreeView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.StateImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvTipoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,14 +91,14 @@ Partial Class TiposUsuario
         Me.DgvTipoUsuario.AllowUserToOrderColumns = True
         Me.DgvTipoUsuario.AllowUserToResizeRows = False
         Me.DgvTipoUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvTipoUsuario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvTipoUsuario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvTipoUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvTipoUsuario.Location = New System.Drawing.Point(0, 0)
@@ -194,6 +197,15 @@ Partial Class TiposUsuario
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "+"
         '
+        'StateImageList
+        '
+        Me.StateImageList.ImageStream = CType(resources.GetObject("StateImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.StateImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.StateImageList.Images.SetKeyName(0, "StateChecked16.ico")
+        Me.StateImageList.Images.SetKeyName(1, "StateIndeterminate16.ico")
+        Me.StateImageList.Images.SetKeyName(2, "StateNone16.ico")
+        Me.StateImageList.Images.SetKeyName(3, "StateUnchecked16.ico")
+        '
         'TiposUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -235,4 +247,5 @@ Partial Class TiposUsuario
     Friend WithEvents TVRoles As TreeView
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents StateImageList As ImageList
 End Class

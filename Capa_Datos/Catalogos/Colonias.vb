@@ -31,7 +31,7 @@ Public Class Colonias
         Dim EntidadColonias1 = New Capa_Entidad.Colonias
         EntidadColonias1 = EntidadColonias
         EntidadColonias1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

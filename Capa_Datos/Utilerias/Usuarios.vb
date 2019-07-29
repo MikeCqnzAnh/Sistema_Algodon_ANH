@@ -3,8 +3,8 @@ Public Class Usuarios
     Public Overridable Sub Upsert(ByRef EntidadUsuarios As Capa_Entidad.Usuarios)
         Dim EntidadUsuarios1 As New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
-        DataBase = EntidadUsuarios1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        'DataBase = EntidadUsuarios1.BaseDeDatos
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -30,8 +30,8 @@ Public Class Usuarios
                     cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadUsuarios1.Descripcion))
                     cmdGuardar.Parameters("@IdTipo").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
-                    If EntidadUsuarios1.IdUsuario = 0 Then
-                        EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdTipo").Value
+                    If EntidadUsuarios1.Tipo = 0 Then
+                        EntidadUsuarios1.Tipo = cmdGuardar.Parameters("@IdTipo").Value
                     End If
             End Select
 
@@ -46,9 +46,9 @@ Public Class Usuarios
         Dim EntidadUsuarios1 = New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
         EntidadUsuarios1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Try
             cnn.Open()
             Select Case EntidadUsuarios1.Consulta

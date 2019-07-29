@@ -5,9 +5,11 @@ Module Conexion
     Public PasswordDB As String
     Public Instancia As String
     Public DataBase As String
+    Public DatabasePerfiles As String
     Public ccnppl As String
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
+    Dim archivo2 As String = "cnnPerfiles.ini"
     Sub LeerArchivo()
         Dim leer As New StreamReader(Ruta & archivo)
 
@@ -30,9 +32,36 @@ Module Conexion
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
         End Try
     End Sub
+    Sub LeerArchivoPerfiles()
+        Dim leer As New StreamReader(Ruta & archivo2)
+
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadLine()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, ",")
+                IpServer = ArregloCadena(0)
+                Instancia = ArregloCadena(1)
+                DatabasePerfiles = ArregloCadena(2)
+                UsuarioDB = ArregloCadena(3)
+                PasswordDB = ArregloCadena(4)
+            End While
+
+            leer.Close()
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
     Public Function conexionPrincipal()
         LeerArchivo()
         Return ("Data Source = " & Instancia & ";Initial Catalog=" & DataBase & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+    End Function
+    Public Function conexionPerfiles()
+        LeerArchivoPerfiles()
+        Return ("Data Source = " & Instancia & ";Initial Catalog=" & DatabasePerfiles & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
     End Function
     Public Function conexionMaster()
         Return ("Data Source = MSISTEMAS;Initial Catalog=master;Persist Security Info=True;User ID=sa;Password=Usuario01")

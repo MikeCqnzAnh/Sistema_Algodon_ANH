@@ -39,7 +39,6 @@ Partial Class Usuarios
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TbBddActual = New System.Windows.Forms.TextBox()
         Me.TbIdUsuario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DgvUsuarios = New System.Windows.Forms.DataGridView()
@@ -48,7 +47,6 @@ Partial Class Usuarios
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,12 +157,10 @@ Partial Class Usuarios
         '
         'GbDatos
         '
-        Me.GbDatos.Controls.Add(Me.Button1)
         Me.GbDatos.Controls.Add(Me.CbEstatus)
         Me.GbDatos.Controls.Add(Me.Label5)
         Me.GbDatos.Controls.Add(Me.Label1)
         Me.GbDatos.Controls.Add(Me.Label4)
-        Me.GbDatos.Controls.Add(Me.TbBddActual)
         Me.GbDatos.Controls.Add(Me.TbIdUsuario)
         Me.GbDatos.Controls.Add(Me.TbNombre)
         Me.GbDatos.Controls.Add(Me.Label3)
@@ -196,14 +192,6 @@ Partial Class Usuarios
         Me.Label5.Size = New System.Drawing.Size(21, 13)
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "ID:"
-        '
-        'TbBddActual
-        '
-        Me.TbBddActual.Enabled = False
-        Me.TbBddActual.Location = New System.Drawing.Point(366, 19)
-        Me.TbBddActual.Name = "TbBddActual"
-        Me.TbBddActual.Size = New System.Drawing.Size(98, 20)
-        Me.TbBddActual.TabIndex = 0
         '
         'TbIdUsuario
         '
@@ -300,15 +288,6 @@ Partial Class Usuarios
         Me.Label7.Tag = "Contraer"
         Me.Label7.Text = "-"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(631, 93)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,12 +333,10 @@ Partial Class Usuarios
     Friend WithEvents DgvUsuarios As DataGridView
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TbBddActual As TextBox
     Friend WithEvents TipoUsuarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DgvControlTreeview As GroupBox
     Friend WithEvents TVRoles As TreeView
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Button1 As Button
 End Class

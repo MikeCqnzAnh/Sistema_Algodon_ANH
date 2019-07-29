@@ -25,6 +25,14 @@ Public Class ConfiguraConexionInicial
     End Sub
     Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs) Handles BtCreaConexion.Click
         CreaConexion()
+        CreaConexionPerfiles()
+        TbDireccionIP1.Clear()
+        TbDireccionIP2.Clear()
+        TbDireccionIP3.Clear()
+        TbDireccionIP4.Clear()
+        TbOrigenPassword.Clear()
+        TbOrigenUsuario.Clear()
+        CbOrigenInstancia.SelectedIndex = -1
     End Sub
     Private Sub CreaConexion()
         Dim fs As FileStream
@@ -69,7 +77,6 @@ Public Class ConfiguraConexionInicial
                     ':::Si la carpeta existe creamos o sobreescribios el archivo txt
                     fs = File.Create(Ruta & archivo2)
                     fs.Close()
-                    BtnSobreescribir_Click()
                     BtnSobreescribirPerfil()
                     MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
                     Close()
@@ -81,7 +88,7 @@ Public Class ConfiguraConexionInicial
                     ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
                     fs = File.Create(Ruta & archivo2)
                     fs.Close()
-                    BtnSobreescribir_Click()
+                    BtnSobreescribirPerfil()
                     MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
                     Close()
                 End If
@@ -89,13 +96,7 @@ Public Class ConfiguraConexionInicial
             Catch ex As Exception
                 MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
             End Try
-            TbDireccionIP1.Clear()
-            TbDireccionIP2.Clear()
-            TbDireccionIP3.Clear()
-            TbDireccionIP4.Clear()
-            TbOrigenPassword.Clear()
-            TbOrigenUsuario.Clear()
-            CbOrigenInstancia.SelectedIndex = -1
+
         Else
             MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
         End If

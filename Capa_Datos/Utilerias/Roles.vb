@@ -8,7 +8,7 @@ Public Class Roles
         EntidadRoles1.TablaOpciones = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Try
             cnn.Open()
             Select Case EntidadRoles1.Consulta
@@ -20,15 +20,17 @@ Public Class Roles
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdUsuario", EntidadRoles1.IdUsuario))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
                     sqldat1.Fill(EntidadRoles1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaOpciones
-                    '    sqlcom1 = New SqlCommand("Sp_OpcionesSubMenu", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdMenuDetalle", EntidadRoles1.IdMenuDetalle))
-                    '    sqldat1.Fill(EntidadRoles1.TablaOpciones)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPerfilUsuario
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPerfilUsuario", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdUsuario", EntidadRoles1.IdUsuario))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
+                    sqldat1.Fill(EntidadRoles1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -40,7 +42,7 @@ Public Class Roles
     Public Overridable Sub Upsert(ByRef EntidadRoles As Capa_Entidad.Roles)
         Dim EntidadRoles1 As New Capa_Entidad.Roles
         EntidadRoles1 = EntidadRoles
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

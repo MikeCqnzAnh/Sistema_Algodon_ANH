@@ -15,6 +15,7 @@ Public Class Usuarios
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Guardar()
+        RecorreTv(TVRoles)
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Nuevo()
@@ -52,30 +53,24 @@ Public Class Usuarios
         Dim Encriptar As New Encriptar
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
         Dim NegocioUsuarios As New Capa_Negocio.Usuarios
-        If TbNombre.Text = "" Or TbPassword.Text = "" Or TbUsuario.Text = "" Or CbTipoUsuario.Text = "" Then
-            MsgBox("Verificar los campos vacios")
-            Exit Sub
+        If (TbIdUsuario.Text <> "" And TbPassword.Text = "" And TbNombre.Text <> "" And CbTipoUsuario.Text <> "" And CbEstatus.Text <> "") Or (TbIdUsuario.Text <> "" And TbPassword.Text <> "" And TbNombre.Text <> "" And CbTipoUsuario.Text <> "" And CbEstatus.Text <> "") Then
+
+        Else
+            If TbNombre.Text = "" Or TbPassword.Text = "" Or TbUsuario.Text = "" Or CbTipoUsuario.Text = "" Then
+                MsgBox("Verificar los campos vacios")
+                Exit Sub
+            End If
         End If
         Try
-            Dim tabla As New DataTable
-            Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-            Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-            EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
-            NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-            tabla = EntidadConfiguracionParametros.TablaConsulta
-            For Each Fila As DataRow In tabla.Rows
-                EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
-                EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
-                EntidadUsuarios.Nombre = TbNombre.Text
-                EntidadUsuarios.Usuario = TbUsuario.Text
-                EntidadUsuarios.Password = Encriptar.Encriptar(TbPassword.Text)
-                EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
-                EntidadUsuarios.Estatus = CbEstatus.SelectedValue
-                EntidadUsuarios.BaseDeDatos = Fila("name")
-                NegocioUsuarios.Guardar(EntidadUsuarios)
-                TbIdUsuario.Text = EntidadUsuarios.IdUsuario
-            Next
-            actualizaVariableDbb()
+            EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
+            EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
+            EntidadUsuarios.Nombre = TbNombre.Text
+            EntidadUsuarios.Usuario = TbUsuario.Text
+            EntidadUsuarios.Password = IIf(TbPassword.Text <> "", Encriptar.Encriptar(TbPassword.Text), "")
+            EntidadUsuarios.Tipo = CbTipoUsuario.SelectedValue
+            EntidadUsuarios.Estatus = CbEstatus.SelectedValue
+            NegocioUsuarios.Guardar(EntidadUsuarios)
+            TbIdUsuario.Text = EntidadUsuarios.IdUsuario
             Consultar()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -83,12 +78,6 @@ Public Class Usuarios
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdUsuario.Text, TbNombre.Text)
             MessageBox.Show("Se realizo el proceso correctamente!")
         End Try
-    End Sub
-    Private Sub actualizaVariableDbb()
-        Dim EntidadUsuarios As New Capa_Entidad.Usuarios
-        Dim NegocioUsuarios As New Capa_Negocio.Usuarios
-        EntidadUsuarios.BaseDeDatos = TbBddActual.Text
-        NegocioUsuarios.ActualizaVariableBdd(EntidadUsuarios)
     End Sub
     Private Sub Consultar()
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
@@ -109,7 +98,6 @@ Public Class Usuarios
         DgvUsuarios.Columns("Tipo").Visible = False
     End Sub
     Private Sub Nuevo()
-        TbBddActual.Text = BaseDeDatos
         TbIdUsuario.Text = ""
         TbNombre.Text = ""
         TbUsuario.Text = ""
@@ -117,6 +105,8 @@ Public Class Usuarios
         CbTipoUsuario.SelectedIndex = -1
         CbEstatus.SelectedIndex = -1
         Consultar()
+        llenaTablaMenuRoles()
+        CrearNodosDelPadre(0, Nothing)
     End Sub
     Private Sub DgvUsuarios_DoubleClick(sender As Object, e As EventArgs) Handles DgvUsuarios.DoubleClick
         If DgvUsuarios.DataSource Is Nothing Then
@@ -135,6 +125,9 @@ Public Class Usuarios
             TbUsuario.Text = DgvUsuarios.Rows(index).Cells("Usuario").Value
             CbTipoUsuario.SelectedValue = DgvUsuarios.Rows(index).Cells("Tipo").Value
             CbEstatus.SelectedValue = DgvUsuarios.Rows(index).Cells("Estatus").Value
+
+            ConsultaRolPredefinido(TbIdUsuario.Text, CbTipoUsuario.SelectedValue)
+            CallRecursive(TVRoles)
         End If
     End Sub
     Private Sub llenaTablaMenuRoles()
@@ -198,57 +191,79 @@ Public Class Usuarios
         TVRoles.CollapseAll()
     End Sub
     Private Sub CbTipoUsuario_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoUsuario.SelectionChangeCommitted
-
+        ConsultaRolPredefinido(0, CbTipoUsuario.SelectedValue)
+        CallRecursive(TVRoles)
     End Sub
-    Private Sub RecorrerTV()
-        'Se Declara una colección de nodos apartir de tu Treeview
-        'del que se va a recorrer
-        Dim nodes As TreeNodeCollection = TVRoles.Nodes
-        'Se recorren los nodos principales
-        For Each n As TreeNode In nodes
-            'Se Declara un metodo para que recorra los hijos de los principales
-            'Y los hijos de los hijos....Recorrido Total en pocas palabras
-            'Para ello se envía el nodo actual para evaluar si tiene hijos
-            RecorrerNodos(n)
-        Next
-    End Sub
-    Private Sub RecorrerNodos(treeNode As TreeNode)
-        Try
-            'Si el nodo que recibimos tiene hijos se recorrerá
-            'para luego verificar si esta o no checado
-            For Each tn As TreeNode In treeNode.Nodes
-                'Se Verifica si esta marcado...
-                'If tn.Checked = True Then
-                'Si esta marcado mostramos el texto del nodo
-                MessageBox.Show(tn.Tag)
-                'End If
-                'Ahora hago verificacion a los hijos del nodo actual            
-                'Esta iteración no acabara hasta llegar al ultimo nodo principal
-                RecorrerNodos(tn)
-            Next
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-        End Try
-    End Sub
-    Private Sub PrintRecursive(ByVal n As TreeNode)
+    Private Sub ConsultaRolPredefinido(ByVal IdUsuario As Integer, ByVal IdTipoUsuario As Integer)
         Dim EntidadRoles As New Capa_Entidad.Roles
         Dim NegocioRoles As New Capa_Negocio.Roles
-        'System.Diagnostics.Debug.WriteLine(n.Tag) 'Muestra el texto del nodo en la ventana de inmediato
-        'MessageBox.Show(n.Tag) 'Muestra el mismo mensaje por pantalla
+        EntidadRoles.IdUsuario = IdUsuario
+        EntidadRoles.IdTipoUsuario = IdTipoUsuario
+        EntidadRoles.Consulta = Consulta.ConsultaDetallada
+        NegocioRoles.Consultar(EntidadRoles)
+        TablaEnc = EntidadRoles.TablaConsulta
+    End Sub
+    Private Sub RecorreTv(ByVal ATreeView As TreeView)
+        Dim n As TreeNode
+        'Por cada raíz
+        For Each n In ATreeView.Nodes
+            Recursive(n)
+        Next
+    End Sub
+    Private Sub Recursive(ByVal n As TreeNode)
         Dim lineText As String = n.Tag
         Dim ArrayText() As String
         ArrayText = lineText.Split(",")
         Try
-            For Each s In ArrayText
-                EntidadRoles.IdPerfilUsuario = 0
-                EntidadRoles.IdUsuario = 0 'TbIdUsuario.Text
-                EntidadRoles.IdNodo = ArrayText(0)
-                EntidadRoles.IdPadre = ArrayText(2)
-                EntidadRoles.IdTipoUsuario = CbTipoUsuario.SelectedValue
-                EntidadRoles.IdEstatus = n.Checked
-                EntidadRoles.Agrega = Agrega.AgregaRol
-                NegocioRoles.Agregar(EntidadRoles)
-                Exit For
+
+            AgregaOpcion(ArrayText(0), ArrayText(2), n.Checked)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+        End Try
+        Dim aNode As TreeNode
+        'Por cada nodo de la raíz
+        For Each aNode In n.Nodes
+            Recursive(aNode)
+        Next
+    End Sub
+    Private Sub AgregaOpcion(ByVal Nodo As Integer, ByVal NodoPadre As Integer, ByVal Estatus As Boolean)
+
+        Dim EntidadRoles As New Capa_Entidad.Roles
+        Dim NegocioRoles As New Capa_Negocio.Roles
+        Try
+            EntidadRoles.IdPerfilUsuario = 0
+            EntidadRoles.IdUsuario = TbIdUsuario.Text
+            EntidadRoles.IdNodo = Nodo
+            EntidadRoles.IdPadre = NodoPadre
+            EntidadRoles.IdTipoUsuario = CbTipoUsuario.SelectedValue
+            EntidadRoles.IdEstatus = Estatus
+            EntidadRoles.Agrega = Agrega.AgregaRolPredefinido
+            NegocioRoles.Agregar(EntidadRoles)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+
+            'MsgBox("Realizado Correctamente")
+        End Try
+
+    End Sub
+    Private Sub PrintRecursive(ByVal n As TreeNode)
+        'Dim EntidadRoles As New Capa_Entidad.Roles
+        'Dim NegocioRoles As New Capa_Negocio.Roles
+        ''System.Diagnostics.Debug.WriteLine(n.Tag) 'Muestra el texto del nodo en la ventana de inmediato
+        ''MessageBox.Show(n.Tag) 'Muestra el mismo mensaje por pantalla
+        Dim lineText As String = n.Tag
+        Dim ArrayText() As String
+        ArrayText = lineText.Split(",")
+        Try
+            'Dim te As Integer
+            For Each Tb As DataRow In TablaEnc.Rows
+                If ArrayText(0) = Tb("IdNodo") Then
+                    n.Checked = Tb("IdEstatus")
+                End If
+
             Next
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -267,9 +282,5 @@ Public Class Usuarios
         For Each n In aTreeView.Nodes
             PrintRecursive(n)
         Next
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        CallRecursive(TVRoles)
     End Sub
 End Class

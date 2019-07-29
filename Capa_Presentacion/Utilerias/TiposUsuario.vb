@@ -35,6 +35,7 @@ Public Class TiposUsuario
     Private Sub CrearNodosDelPadre(ByVal indicePadre As Integer, ByVal nodePadre As TreeNode)
         Dim dataViewHijos As DataView
         dataViewHijos = New DataView(TablaEnc)
+        'TVRoles.StateImageList = StateImageList()
         dataViewHijos.RowFilter = TablaEnc.Columns("IdPadre").ColumnName + " = " + indicePadre.ToString()
         For Each dataRowCurrent As DataRowView In dataViewHijos
             Dim nuevoNodo As New TreeNode
@@ -53,21 +54,11 @@ Public Class TiposUsuario
             If TbDescripcion.Text <> "" Then
                 Dim EntidadUsuarios As New Capa_Entidad.Usuarios
                 Dim NegocioUsuarios As New Capa_Negocio.Usuarios
-
-                Dim tabla As New DataTable
-                Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-                Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-                EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
-                NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-                tabla = EntidadConfiguracionParametros.TablaConsulta
-                For Each Fila As DataRow In tabla.Rows
-                    EntidadUsuarios.Tipo = IIf(TbIdTipo.Text = "", 0, TbIdTipo.Text)
-                    EntidadUsuarios.Descripcion = TbDescripcion.Text
-                    EntidadUsuarios.BaseDeDatos = Fila("name")
-                    EntidadUsuarios.Actualiza = Actuliza.ActualizaTipoUsuario
-                    NegocioUsuarios.Guardar(EntidadUsuarios)
-                    TbIdTipo.Text = EntidadUsuarios.Tipo
-                Next
+                EntidadUsuarios.Tipo = IIf(TbIdTipo.Text = "", 0, TbIdTipo.Text)
+                EntidadUsuarios.Descripcion = TbDescripcion.Text
+                EntidadUsuarios.Actualiza = Actuliza.ActualizaTipoUsuario
+                NegocioUsuarios.Guardar(EntidadUsuarios)
+                TbIdTipo.Text = EntidadUsuarios.Tipo
                 Consultar()
             Else
                 MessageBox.Show("El campo descripcion no puede estar vacio.", "Aviso")
@@ -115,7 +106,7 @@ Public Class TiposUsuario
         Dim ArrayText() As String
         ArrayText = lineText.Split(",")
         Try
-            Dim te As Integer
+            'Dim te As Integer
             For Each Tb As DataRow In TablaEnc.Rows
                 If ArrayText(0) = Tb("IdNodo") Then
                     n.Checked = Tb("IdEstatus")
@@ -153,7 +144,7 @@ Public Class TiposUsuario
         ArrayText = lineText.Split(",")
         Try
 
-            AgregaOpcion(ArrayText(0), ArrayText(2), ArrayText(3))
+            AgregaOpcion(ArrayText(0), ArrayText(2), n.Checked)
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -196,5 +187,32 @@ Public Class TiposUsuario
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
         TVRoles.CollapseAll()
+    End Sub
+
+    Private Sub TVRoles_AfterCheck(sender As Object, e As TreeViewEventArgs) Handles TVRoles.AfterCheck
+        If (e.Action = TreeViewAction.Unknown) Then Return
+        If (e.Node.Nodes.Count > 0) Then
+            Me.CheckAllChildNodes(e.Node, e.Node.Checked)
+        Else
+            Dim parent As TreeNode = e.Node.Parent
+            If (Not parent Is Nothing) Then
+                If (Not e.Node.Checked) Then
+                    parent.Checked = False
+                Else
+                    Dim items As TreeNode() = (From item As TreeNode In parent.Nodes.OfType(Of TreeNode)()
+                                               Where item.Checked
+                                               Select item).ToArray()
+                    parent.Checked = (items.Count = parent.Nodes.Count)
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub CheckAllChildNodes(treeNode As TreeNode, nodeChecked As Boolean)
+        For Each node As TreeNode In treeNode.Nodes
+            node.Checked = nodeChecked
+            If (node.Nodes.Count > 0) Then
+                Me.CheckAllChildNodes(node, nodeChecked)
+            End If
+        Next
     End Sub
 End Class

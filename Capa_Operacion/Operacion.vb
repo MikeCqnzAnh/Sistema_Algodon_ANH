@@ -129,6 +129,7 @@ Namespace Configuracion
         ConsultaAlmacen = 58
         ConsultaTipoUsuario = 59
         ConsultaOpciones = 60
+        ConsultaPerfilUsuario = 61
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
