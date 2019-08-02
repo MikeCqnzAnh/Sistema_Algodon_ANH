@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.Drawing.Drawing2D
 Imports Capa_Presentacion.WebServiceBanxico
 Imports System.Net
+Imports System.Text.RegularExpressions
 Public Class MenuPrincipal
     Dim IdSerieBanxico, CampoValorBanxico, SitioBanxico As String
     Dim PosicionValorBanxico, LongitudValorBanxico As Integer
@@ -62,6 +63,7 @@ Public Class MenuPrincipal
                 strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) - 1)
                 strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) - 1)
                 TsPrecioDolar.Text = Replace(strTipoCambio.Substring(PosicionValorBanxico, LongitudValorBanxico), Chr(34), "")
+                TsPrecioDolar.Text = Regex.Replace(TsPrecioDolar.Text, "[^0-9.]", "", RegexOptions.None)
                 ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
             ElseIf _IdTipoUsuario = 1 Then
                 Monedas.ShowDialog()

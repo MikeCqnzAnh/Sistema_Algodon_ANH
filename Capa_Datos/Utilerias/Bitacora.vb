@@ -8,7 +8,7 @@ Public Class Bitacora
     Public Overridable Sub Consultar(ByRef EntidadBitacora As Capa_Entidad.Bitacora)
         Dim EntidadBitacora1 As New Capa_Entidad.Bitacora()
         EntidadBitacora1 = EntidadBitacora
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         EntidadBitacora1.TablaConsulta = New DataTable()
         EntidadBitacora1.TablaGeneral = New DataTable()
         Dim sqlcom1 As SqlCommand
@@ -58,7 +58,7 @@ Public Class Bitacora
     Public Overridable Sub InsertaBitacora(ByRef EntidadBitacora As Capa_Entidad.Bitacora)
         Dim EntidadBitacora1 As New Capa_Entidad.Bitacora()
         EntidadBitacora1 = EntidadBitacora
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -73,6 +73,7 @@ Public Class Bitacora
             cmdGuardar.Parameters.Add(New SqlParameter("@opcion", EntidadBitacora1.Opcion))
             cmdGuardar.Parameters.Add(New SqlParameter("@operacion", EntidadBitacora1.Operacion))
             cmdGuardar.Parameters.Add(New SqlParameter("@Observaciones", EntidadBitacora1.Observaciones))
+            cmdGuardar.Parameters.Add(New SqlParameter("@BaseDeDatos", IIf(EntidadBitacora1.BaseDeDatos = Nothing, "Perfiles", EntidadBitacora1.BaseDeDatos)))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.ToString)

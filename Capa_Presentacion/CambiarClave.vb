@@ -12,16 +12,16 @@ Public Class CambiarClave
         Dim Encriptar As New Encriptar
         Dim Tabla1 As New DataTable
         Dim Resultado As Boolean = False
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
-            NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-            tabla = EntidadConfiguracionParametros.TablaConsulta
+        'EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
+        '    NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        '    tabla = EntidadConfiguracionParametros.TablaConsulta
         Try
-            For Each Fila As DataRow In tabla.Rows
-                EntidadAcceso.Usuario = TbUsuario.Text
-                EntidadAcceso.BaseDeDatos = Fila("name")
-                EntidadAcceso.Consulta = Consulta.ConsultaUsuario
-                NegocioAcceso.Consultar(EntidadAcceso)
-                Tabla1 = EntidadAcceso.TablaConsulta
+            'For Each Fila As DataRow In tabla.Rows
+            EntidadAcceso.Usuario = TbUsuario.Text
+            'EntidadAcceso.BaseDeDatos = Fila("name")
+            EntidadAcceso.Consulta = Consulta.ConsultaUsuario
+            NegocioAcceso.ConsultarPerfiles(EntidadAcceso)
+            Tabla1 = EntidadAcceso.TablaConsulta
                 If Tabla1.Rows(0).Item("Validacion") = False Then
                     LbConfirmaClave.Text = "El Usuario " & TbUsuario.Text & " no existe, verifique de nuevo."
                     LbConfirmaClave.ForeColor = Color.Red
@@ -52,9 +52,9 @@ Public Class CambiarClave
                     TbClaveNueva.ForeColor = Color.Black
                     LbConfirmaClave.ForeColor = Color.Black
                     LbConfirmaClave.Text = ""
-                    ActualizarClave(Tabla1.Rows(0).Item("IdUsuario"), Tabla1.Rows(0).Item("Nombre").ToString, Tabla1.Rows(0).Item("Usuario").ToString, TbClaveConfirma.Text, Tabla1.Rows(0).Item("Tipo").ToString, Fila("name").ToString)
-                End If
-            Next
+                ActualizarClave(Tabla1.Rows(0).Item("IdUsuario"), Tabla1.Rows(0).Item("Nombre").ToString, Tabla1.Rows(0).Item("Usuario").ToString, TbClaveConfirma.Text, Tabla1.Rows(0).Item("Tipo").ToString)
+            End If
+            'Next
             MessageBox.Show("Se realizo el proceso correctamente!")
             Close()
         Catch ex As Exception
@@ -73,7 +73,7 @@ Public Class CambiarClave
         LbConfirmaClave.ForeColor = Color.Black
         TbUsuario.ForeColor = Color.Black
     End Sub
-    Private Sub ActualizarClave(ByVal IdUsuario As Integer, ByVal Nombre As String, ByVal Usuario As String, ByVal Password As String, ByVal Tipo As Integer, ByVal BaseDeDatos As String)
+    Private Sub ActualizarClave(ByVal IdUsuario As Integer, ByVal Nombre As String, ByVal Usuario As String, ByVal Password As String, ByVal Tipo As Integer)
         Dim Encriptar As New Encriptar
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
         Dim NegocioUsuarios As New Capa_Negocio.Usuarios
@@ -86,7 +86,7 @@ Public Class CambiarClave
             EntidadUsuarios.Usuario = Usuario
             EntidadUsuarios.Password = Encriptar.Encriptar(Password)
             EntidadUsuarios.Tipo = Tipo
-            EntidadUsuarios.BaseDeDatos = BaseDeDatos
+            'EntidadUsuarios.BaseDeDatos = BaseDeDatos
             EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
             NegocioUsuarios.Guardar(EntidadUsuarios)
             GeneraRegistroBitacora(Me.Text.Clone.ToString, "Actualizar", IdUsuario, Usuario)

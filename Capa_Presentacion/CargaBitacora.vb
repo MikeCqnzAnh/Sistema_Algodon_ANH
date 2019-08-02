@@ -1,7 +1,7 @@
 ﻿Imports System.Net
 Imports System.Net.NetworkInformation
 Module CargaBitacora
-    Private Sub InsertaBitacora(ByVal Modulo As String, ByVal Opcion As String, ByVal Operacion As String, ByVal Observaciones As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
+    Private Sub InsertaBitacora(ByVal Modulo As String, ByVal Opcion As String, ByVal Operacion As String, ByVal Observaciones As String, ByVal BaseDeDatos As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
         Dim EntidadBitacora As New Capa_Entidad.Bitacora
         Dim NegocioBitacora As New Capa_Negocio.Bitacora
         Dim Computadora As String = Dns.GetHostName()
@@ -16,6 +16,7 @@ Module CargaBitacora
         EntidadBitacora.Opcion = Opcion
         EntidadBitacora.Operacion = Operacion
         EntidadBitacora.Observaciones = Observaciones
+        EntidadBitacora.BaseDeDatos = BaseDeDatos
         NegocioBitacora.InsertaBitacora(EntidadBitacora)
     End Sub
     Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
@@ -41,7 +42,7 @@ Module CargaBitacora
                     operacion = "INICIAR SESION."
                     observaciones = "EL USUARIO " & Usuario & " HA INICIADO SESION CON ROL " & TipoUsuario & "."
             End Select
-            InsertaBitacora(Modulo, Opcion, operacion, observaciones)
+            InsertaBitacora(Modulo, Opcion, operacion, observaciones, BaseDeDatos)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

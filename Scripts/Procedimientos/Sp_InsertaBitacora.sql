@@ -7,7 +7,8 @@ Create Procedure Sp_InsertaBitacora
 @Modulo varchar(50),
 @Opcion varchar(20),
 @Operacion varchar(100),
-@Observaciones varchar(max)
+@Observaciones varchar(max),
+@BaseDeDatos varchar(20)
 as
 insert into BitacoraSistema
 (
@@ -19,7 +20,8 @@ usuario,
 modulo,
 opcion,
 operacion,
-observaciones
+observaciones,
+BaseDeDatos
 )
 values
 (
@@ -31,5 +33,6 @@ values
 @Modulo ,
 @Opcion ,
 @Operacion ,
-@Observaciones 
+@Observaciones ,
+@BaseDeDatos
 )
