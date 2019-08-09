@@ -39,11 +39,6 @@ Namespace Configuracion
     '    End Enum
     Public Enum Reporte
         ReporteClientes = 1
-        'Producto = 2
-        'Apartado = 3
-        'AgregaDescuento = 4
-        'AgregaCantidad = 5
-        'Venta = 5
         ReporteContratoCompra = 2
         ReporteDatosEmpresa = 3
         ReporteLiquidacionRomaneaje = 4
@@ -52,12 +47,10 @@ Namespace Configuracion
     Public Enum Eliminar
         EliminarRegistro = 1
         EliminaPacaSeleccionada = 2
-        'VentanaBusquedaProducto = 2
-        'VentanaBusquedaCliente = 3
-        'VentanaBusquedaVenta = 4
-        'VentanaCredito = 5
-        'VentanaContado = 6
-        'VentanaAviso = 7
+    End Enum
+    Public Enum Guardar
+        GuardarCompraPacasEnc = 1
+        GuardarCompraPacasDet = 2
     End Enum
     '    '==============================================================================
     '    Public Class Formato
@@ -130,6 +123,7 @@ Namespace Configuracion
         ConsultaTipoUsuario = 59
         ConsultaOpciones = 60
         ConsultaPerfilUsuario = 61
+        ConsultaCompra = 62
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

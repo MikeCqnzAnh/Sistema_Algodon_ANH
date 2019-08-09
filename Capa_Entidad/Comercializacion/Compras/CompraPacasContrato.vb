@@ -7,12 +7,23 @@
     Public IdModalidadCompra As Integer
     Public FechaCompra As DateTime
     Public TotalPacas As Integer
+    Public Observaciones As String
+    Public CastigoMicros As Double
+    Public CastigoLargoFibra As Double
+    Public CastigoResistenciaFibra As Double
+    Public TotalPesosMx As Double
+    Public TotalDlls As Double
+    Public InteresPesosMx As Double
+    Public InteresDlls As Double
+    Public PrecioQuintal As Double
+    Public PrecioQuintalBorregos As Double
+    Public PrecioDolar As Double
+    Public Descuento As Double
+    Public Total As Double
+    Public IdEstatusCompra As Boolean
     Public PacasInicio As Integer
     Public PacasFin As Integer
-    Public PrecioQuintal As Double
-    Public PrecioDolar As Double
     Public FacturaVenta As String
-    Public NoPacas As Integer
     Public InicioPaca As Integer
     Public FinPaca As Integer
     Public Clase As String

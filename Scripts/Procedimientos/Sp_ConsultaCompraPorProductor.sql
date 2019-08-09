@@ -1,0 +1,26 @@
+Create Procedure Sp_ConsultaCompraPorProductor
+@IdProductor int
+as
+SELECT [IdCompra]
+      ,[IdContratoAlgodon]
+      ,[IdProductor]
+      ,[IdPlanta]
+      ,[IdModalidadCompra]
+      ,[Fecha]
+      ,[TotalPacas]
+      ,[Observaciones]
+      ,[CastigoMicros]
+      ,[CastigoLargoFibra]
+      ,[CastigoResistenciaFibra]
+      ,[TotalPesosMx]
+      ,[TotalDlls]
+      ,[InteresPesosMx]
+      ,[InteresDlls]
+      ,[PrecioQuintal]
+      ,[PrecioQuintalBorregos]
+      ,[PrecioDolar]
+      ,[Descuento]
+      ,[Total]
+      ,[IdEstatusCompra]
+  FROM [dbo].[CompraPacas]
+  where IdProductor = @IdProductor

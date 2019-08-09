@@ -87,7 +87,7 @@ Partial Class CompraPago
         Me.TbTipoCambio.Name = "TbTipoCambio"
         Me.TbTipoCambio.Size = New System.Drawing.Size(145, 29)
         Me.TbTipoCambio.TabIndex = 1
-        Me.TbTipoCambio.Text = "1.00"
+        Me.TbTipoCambio.Text = "0"
         '
         'Label2
         '
@@ -167,6 +167,7 @@ Partial Class CompraPago
         Me.TbTotalPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbTotalPacas.Location = New System.Drawing.Point(9, 55)
         Me.TbTotalPacas.Name = "TbTotalPacas"
+        Me.TbTotalPacas.ReadOnly = True
         Me.TbTotalPacas.Size = New System.Drawing.Size(212, 26)
         Me.TbTotalPacas.TabIndex = 15
         Me.TbTotalPacas.Text = "0"
@@ -186,6 +187,7 @@ Partial Class CompraPago
         Me.TbTotalKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbTotalKilos.Location = New System.Drawing.Point(9, 110)
         Me.TbTotalKilos.Name = "TbTotalKilos"
+        Me.TbTotalKilos.ReadOnly = True
         Me.TbTotalKilos.Size = New System.Drawing.Size(212, 26)
         Me.TbTotalKilos.TabIndex = 17
         Me.TbTotalKilos.Text = "0"
