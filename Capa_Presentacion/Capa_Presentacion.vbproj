@@ -332,6 +332,13 @@
     <Compile Include="Configuracion\DatosEmpresa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaProductorContratoCompras.Designer.vb">
+      <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaProductorContratoCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Reportes\RepContratoProductor.Designer.vb">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </Compile>
@@ -841,6 +848,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
+      <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>

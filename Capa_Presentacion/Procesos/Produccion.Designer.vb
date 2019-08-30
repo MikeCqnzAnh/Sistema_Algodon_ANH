@@ -77,12 +77,14 @@ Partial Class Produccion
         Me.BtAnterior = New System.Windows.Forms.Button()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbTipoCaptura = New System.Windows.Forms.GroupBox()
+        Me.TbPuertoSerial = New System.Windows.Forms.TextBox()
         Me.RbAutomatico = New System.Windows.Forms.RadioButton()
         Me.RbManual = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TbPuertoSerial = New System.Windows.Forms.TextBox()
+        Me.TbTotalPacas = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -451,7 +453,9 @@ Partial Class Produccion
         '
         'GbModulos
         '
+        Me.GbModulos.Controls.Add(Me.TbTotalPacas)
         Me.GbModulos.Controls.Add(Me.TbTotalModulos)
+        Me.GbModulos.Controls.Add(Me.Label9)
         Me.GbModulos.Controls.Add(Me.Label25)
         Me.GbModulos.Controls.Add(Me.TbModulos)
         Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -636,6 +640,14 @@ Partial Class Produccion
         Me.GbTipoCaptura.TabStop = False
         Me.GbTipoCaptura.Text = "Tipo Captura"
         '
+        'TbPuertoSerial
+        '
+        Me.TbPuertoSerial.Location = New System.Drawing.Point(160, 21)
+        Me.TbPuertoSerial.Name = "TbPuertoSerial"
+        Me.TbPuertoSerial.ReadOnly = True
+        Me.TbPuertoSerial.Size = New System.Drawing.Size(143, 20)
+        Me.TbPuertoSerial.TabIndex = 68
+        '
         'RbAutomatico
         '
         Me.RbAutomatico.AutoSize = True
@@ -692,13 +704,22 @@ Partial Class Produccion
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
-        'TbPuertoSerial
+        'TbTotalPacas
         '
-        Me.TbPuertoSerial.Location = New System.Drawing.Point(160, 21)
-        Me.TbPuertoSerial.Name = "TbPuertoSerial"
-        Me.TbPuertoSerial.ReadOnly = True
-        Me.TbPuertoSerial.Size = New System.Drawing.Size(143, 20)
-        Me.TbPuertoSerial.TabIndex = 68
+        Me.TbTotalPacas.Enabled = False
+        Me.TbTotalPacas.Location = New System.Drawing.Point(337, 80)
+        Me.TbTotalPacas.Name = "TbTotalPacas"
+        Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalPacas.TabIndex = 56
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(253, 83)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(78, 13)
+        Me.Label9.TabIndex = 56
+        Me.Label9.Text = "Total de pacas"
         '
         'Produccion
         '
@@ -797,4 +818,6 @@ Partial Class Produccion
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents TbPuertoSerial As TextBox
+    Friend WithEvents TbTotalPacas As TextBox
+    Friend WithEvents Label9 As Label
 End Class

@@ -23,12 +23,12 @@ Partial Class ConsultaCompraProductor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DgvCompras = New System.Windows.Forms.DataGridView()
-        Me.BtConsultar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.TbNombre = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TbIdCompra = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtConsultar = New System.Windows.Forms.Button()
+        Me.DgvCompras = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvCompras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -37,7 +37,7 @@ Partial Class ConsultaCompraProductor
         '
         Me.Panel1.Controls.Add(Me.TbNombre)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.TbIdCompra)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.BtConsultar)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
@@ -46,39 +46,12 @@ Partial Class ConsultaCompraProductor
         Me.Panel1.Size = New System.Drawing.Size(926, 146)
         Me.Panel1.TabIndex = 0
         '
-        'DgvCompras
+        'TbNombre
         '
-        Me.DgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCompras.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvCompras.Location = New System.Drawing.Point(0, 146)
-        Me.DgvCompras.Name = "DgvCompras"
-        Me.DgvCompras.Size = New System.Drawing.Size(926, 372)
-        Me.DgvCompras.TabIndex = 1
-        '
-        'BtConsultar
-        '
-        Me.BtConsultar.Location = New System.Drawing.Point(839, 117)
-        Me.BtConsultar.Name = "BtConsultar"
-        Me.BtConsultar.Size = New System.Drawing.Size(75, 23)
-        Me.BtConsultar.TabIndex = 0
-        Me.BtConsultar.Text = "Consultar"
-        Me.BtConsultar.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Id Compra:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(76, 27)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.TbNombre.Location = New System.Drawing.Point(244, 27)
+        Me.TbNombre.Name = "TbNombre"
+        Me.TbNombre.Size = New System.Drawing.Size(379, 20)
+        Me.TbNombre.TabIndex = 1
         '
         'Label2
         '
@@ -89,12 +62,51 @@ Partial Class ConsultaCompraProductor
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Productor:"
         '
-        'TbNombre
+        'TbIdCompra
         '
-        Me.TbNombre.Location = New System.Drawing.Point(244, 27)
-        Me.TbNombre.Name = "TbNombre"
-        Me.TbNombre.Size = New System.Drawing.Size(100, 20)
-        Me.TbNombre.TabIndex = 2
+        Me.TbIdCompra.Location = New System.Drawing.Point(76, 27)
+        Me.TbIdCompra.Name = "TbIdCompra"
+        Me.TbIdCompra.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdCompra.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(58, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Id Compra:"
+        '
+        'BtConsultar
+        '
+        Me.BtConsultar.Location = New System.Drawing.Point(629, 25)
+        Me.BtConsultar.Name = "BtConsultar"
+        Me.BtConsultar.Size = New System.Drawing.Size(75, 23)
+        Me.BtConsultar.TabIndex = 2
+        Me.BtConsultar.Text = "Consultar"
+        Me.BtConsultar.UseVisualStyleBackColor = True
+        '
+        'DgvCompras
+        '
+        Me.DgvCompras.AllowUserToAddRows = False
+        Me.DgvCompras.AllowUserToDeleteRows = False
+        Me.DgvCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvCompras.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvCompras.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvCompras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCompras.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCompras.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvCompras.Location = New System.Drawing.Point(0, 146)
+        Me.DgvCompras.MultiSelect = False
+        Me.DgvCompras.Name = "DgvCompras"
+        Me.DgvCompras.ReadOnly = True
+        Me.DgvCompras.RowHeadersVisible = False
+        Me.DgvCompras.RowHeadersWidth = 40
+        Me.DgvCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvCompras.Size = New System.Drawing.Size(926, 372)
+        Me.DgvCompras.TabIndex = 14
         '
         'ConsultaCompraProductor
         '
@@ -114,10 +126,10 @@ Partial Class ConsultaCompraProductor
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents DgvCompras As DataGridView
     Friend WithEvents TbNombre As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TbIdCompra As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents BtConsultar As Button
+    Friend WithEvents DgvCompras As DataGridView
 End Class

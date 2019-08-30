@@ -33,6 +33,7 @@ Public Class Produccion
         TbIdProduccion.Text = ""
         TbIdOrdenTrabajo.Text = ""
         TbPuertoSerial.Text = ""
+        TbTotalPacas.Text = ""
         CbPlantaOrigen.SelectedValue = 1
         CBPlantaDestino.SelectedValue = 1
         CbTipo.SelectedValue = 1
@@ -186,6 +187,7 @@ Public Class Produccion
                         TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
                         TbModulos.Text = Tabla.Rows(0).Item("Modulos")
                         TbTotalModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
+                        TbFolioInicial.Text = Tabla.Rows(0).Item("Secuencia")
                         ConsultarProduccionPorOrden()
                         DgvPacas.DataSource = Nothing
                         DeshabilitarControles()
@@ -200,6 +202,7 @@ Public Class Produccion
                     MsgBox("Ingrese el ID de la orden de trabajo...")
                     Exit Sub
                 End If
+                TbTotalPacas.Text = DgvPacas.RowCount
         End Select
     End Sub
     Private Sub TbKilos_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbKilos.KeyDown
@@ -252,6 +255,8 @@ Public Class Produccion
                             Consultar()
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
+                            TbFolioCIA.Select()
+
                             Exit Sub
                         Else
                             ConsultaUltimaSecuencia()
@@ -300,6 +305,7 @@ Public Class Produccion
                                     Consultar()
                                     TbFolioCIA.Text = ""
                                     TbKilos.Text = ""
+                                    TbFolioCIA.Select()
                                 Else
                                     Dim EntidadProduccion As New Capa_Entidad.Produccion
                                     Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -341,6 +347,7 @@ Public Class Produccion
                                     Consultar()
                                     TbFolioCIA.Text = ""
                                     TbKilos.Text = ""
+                                    TbFolioCIA.Select()
                                 End If
                             Else
                                 Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -386,6 +393,8 @@ Public Class Produccion
                                 Consultar()
                                 TbFolioCIA.Text = ""
                                 TbKilos.Text = ""
+                                TbFolioCIA.Select()
+
                             End If
                         End If
                     Else
@@ -396,6 +405,7 @@ Public Class Produccion
                     Exit Sub
                 End If
         End Select
+        TbTotalPacas.Text = DgvPacas.RowCount
     End Sub
     Private Sub BtAbrirProduccion_Click(sender As Object, e As EventArgs) Handles BtAbrirProduccion.Click
         TbFolioInicial.Enabled = True
@@ -500,7 +510,6 @@ Public Class Produccion
             CbTipo.Text = Tabla.Rows(0).Item("Tipo")
             TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
             TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
-            TbFolioInicial.Text = Tabla.Rows(0).Item("Secuencia")
         End If
     End Sub
 

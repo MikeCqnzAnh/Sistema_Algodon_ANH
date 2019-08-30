@@ -42,7 +42,7 @@ Partial Class CompraPago
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TbSubtotal = New System.Windows.Forms.TextBox()
         Me.TbDescuento = New System.Windows.Forms.TextBox()
-        Me.TbTotal = New System.Windows.Forms.TextBox()
+        Me.TbTotalMxn = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GbPagoFinal = New System.Windows.Forms.GroupBox()
@@ -64,6 +64,11 @@ Partial Class CompraPago
         Me.TbCastigoxmicro = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TbIdCompra = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TbIdContrato = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
         Me.MSMenu.SuspendLayout()
@@ -79,7 +84,7 @@ Partial Class CompraPago
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(110, 18)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "TIpo de cambio"
+        Me.Label1.Text = "Tipo de cambio"
         '
         'TbTipoCambio
         '
@@ -88,12 +93,13 @@ Partial Class CompraPago
         Me.TbTipoCambio.Size = New System.Drawing.Size(145, 29)
         Me.TbTipoCambio.TabIndex = 1
         Me.TbTipoCambio.Text = "0"
+        Me.TbTipoCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(7, 34)
+        Me.Label2.Location = New System.Drawing.Point(652, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(89, 16)
         Me.Label2.TabIndex = 2
@@ -102,7 +108,7 @@ Partial Class CompraPago
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(99, 33)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(744, 57)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(100, 20)
         Me.TbPrecioQuintal.TabIndex = 3
@@ -146,10 +152,11 @@ Partial Class CompraPago
         Me.DgvResumenPagoPacas.Location = New System.Drawing.Point(7, 83)
         Me.DgvResumenPagoPacas.MultiSelect = False
         Me.DgvResumenPagoPacas.Name = "DgvResumenPagoPacas"
+        Me.DgvResumenPagoPacas.ReadOnly = True
         Me.DgvResumenPagoPacas.RowHeadersVisible = False
         Me.DgvResumenPagoPacas.RowHeadersWidth = 40
         Me.DgvResumenPagoPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(639, 239)
+        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(867, 338)
         Me.DgvResumenPagoPacas.TabIndex = 13
         '
         'Label4
@@ -171,6 +178,7 @@ Partial Class CompraPago
         Me.TbTotalPacas.Size = New System.Drawing.Size(212, 26)
         Me.TbTotalPacas.TabIndex = 15
         Me.TbTotalPacas.Text = "0"
+        Me.TbTotalPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label5
         '
@@ -191,6 +199,7 @@ Partial Class CompraPago
         Me.TbTotalKilos.Size = New System.Drawing.Size(212, 26)
         Me.TbTotalKilos.TabIndex = 17
         Me.TbTotalKilos.Text = "0"
+        Me.TbTotalKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label6
         '
@@ -220,6 +229,7 @@ Partial Class CompraPago
         Me.TbEfectivo.Size = New System.Drawing.Size(145, 29)
         Me.TbEfectivo.TabIndex = 20
         Me.TbEfectivo.Text = "0"
+        Me.TbEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbDolares
         '
@@ -228,12 +238,13 @@ Partial Class CompraPago
         Me.TbDolares.Size = New System.Drawing.Size(145, 29)
         Me.TbDolares.TabIndex = 21
         Me.TbDolares.Text = "0"
+        Me.TbDolares.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(395, 26)
+        Me.Label8.Location = New System.Drawing.Point(566, 32)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(62, 18)
         Me.Label8.TabIndex = 22
@@ -241,35 +252,38 @@ Partial Class CompraPago
         '
         'TbSubtotal
         '
-        Me.TbSubtotal.Location = New System.Drawing.Point(488, 19)
+        Me.TbSubtotal.Location = New System.Drawing.Point(634, 25)
         Me.TbSubtotal.Name = "TbSubtotal"
-        Me.TbSubtotal.Size = New System.Drawing.Size(145, 29)
+        Me.TbSubtotal.Size = New System.Drawing.Size(227, 29)
         Me.TbSubtotal.TabIndex = 23
         Me.TbSubtotal.Text = "0"
+        Me.TbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbDescuento
         '
-        Me.TbDescuento.Location = New System.Drawing.Point(488, 54)
+        Me.TbDescuento.Location = New System.Drawing.Point(634, 60)
         Me.TbDescuento.Name = "TbDescuento"
-        Me.TbDescuento.Size = New System.Drawing.Size(145, 29)
+        Me.TbDescuento.Size = New System.Drawing.Size(227, 29)
         Me.TbDescuento.TabIndex = 24
         Me.TbDescuento.Text = "0"
+        Me.TbDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbTotal
+        'TbTotalMxn
         '
-        Me.TbTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbTotal.Location = New System.Drawing.Point(488, 134)
-        Me.TbTotal.Multiline = True
-        Me.TbTotal.Name = "TbTotal"
-        Me.TbTotal.Size = New System.Drawing.Size(145, 34)
-        Me.TbTotal.TabIndex = 25
-        Me.TbTotal.Text = "0"
+        Me.TbTotalMxn.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbTotalMxn.Location = New System.Drawing.Point(626, 126)
+        Me.TbTotalMxn.Multiline = True
+        Me.TbTotalMxn.Name = "TbTotalMxn"
+        Me.TbTotalMxn.Size = New System.Drawing.Size(235, 34)
+        Me.TbTotalMxn.TabIndex = 25
+        Me.TbTotalMxn.Text = "0"
+        Me.TbTotalMxn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(395, 61)
+        Me.Label9.Location = New System.Drawing.Point(548, 67)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 18)
         Me.Label9.TabIndex = 26
@@ -279,7 +293,7 @@ Partial Class CompraPago
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(407, 134)
+        Me.Label10.Location = New System.Drawing.Point(545, 126)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(75, 31)
         Me.Label10.TabIndex = 27
@@ -297,7 +311,7 @@ Partial Class CompraPago
         Me.GbPagoFinal.Controls.Add(Me.Label1)
         Me.GbPagoFinal.Controls.Add(Me.Label9)
         Me.GbPagoFinal.Controls.Add(Me.TbTipoCambio)
-        Me.GbPagoFinal.Controls.Add(Me.TbTotal)
+        Me.GbPagoFinal.Controls.Add(Me.TbTotalMxn)
         Me.GbPagoFinal.Controls.Add(Me.Label6)
         Me.GbPagoFinal.Controls.Add(Me.TbDescuento)
         Me.GbPagoFinal.Controls.Add(Me.Label7)
@@ -305,9 +319,9 @@ Partial Class CompraPago
         Me.GbPagoFinal.Controls.Add(Me.Label8)
         Me.GbPagoFinal.Controls.Add(Me.TbDolares)
         Me.GbPagoFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPagoFinal.Location = New System.Drawing.Point(7, 354)
+        Me.GbPagoFinal.Location = New System.Drawing.Point(7, 427)
         Me.GbPagoFinal.Name = "GbPagoFinal"
-        Me.GbPagoFinal.Size = New System.Drawing.Size(639, 174)
+        Me.GbPagoFinal.Size = New System.Drawing.Size(867, 174)
         Me.GbPagoFinal.TabIndex = 28
         Me.GbPagoFinal.TabStop = False
         Me.GbPagoFinal.Text = "Resumen de la compra"
@@ -319,6 +333,7 @@ Partial Class CompraPago
         Me.TbAnticipoDlls.Size = New System.Drawing.Size(146, 29)
         Me.TbAnticipoDlls.TabIndex = 31
         Me.TbAnticipoDlls.Text = "0"
+        Me.TbAnticipoDlls.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label11
         '
@@ -355,7 +370,7 @@ Partial Class CompraPago
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeCompraItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(886, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1119, 24)
         Me.MSMenu.TabIndex = 29
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -400,7 +415,7 @@ Partial Class CompraPago
         Me.GbCastigos.Controls.Add(Me.TbCastigoxmicro)
         Me.GbCastigos.Controls.Add(Me.Label12)
         Me.GbCastigos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbCastigos.Location = New System.Drawing.Point(0, 297)
+        Me.GbCastigos.Location = New System.Drawing.Point(880, 427)
         Me.GbCastigos.Name = "GbCastigos"
         Me.GbCastigos.Size = New System.Drawing.Size(227, 174)
         Me.GbCastigos.TabIndex = 30
@@ -414,6 +429,7 @@ Partial Class CompraPago
         Me.TbCastigoxresistencia.Name = "TbCastigoxresistencia"
         Me.TbCastigoxresistencia.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxresistencia.TabIndex = 5
+        Me.TbCastigoxresistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label14
         '
@@ -432,6 +448,7 @@ Partial Class CompraPago
         Me.TbCastigoxlargo.Name = "TbCastigoxlargo"
         Me.TbCastigoxlargo.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxlargo.TabIndex = 3
+        Me.TbCastigoxlargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label13
         '
@@ -450,6 +467,7 @@ Partial Class CompraPago
         Me.TbCastigoxmicro.Name = "TbCastigoxmicro"
         Me.TbCastigoxmicro.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxmicro.TabIndex = 1
+        Me.TbCastigoxmicro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label12
         '
@@ -464,30 +482,81 @@ Partial Class CompraPago
         'GbDatosGenerales
         '
         Me.GbDatosGenerales.BackColor = System.Drawing.Color.Gainsboro
+        Me.GbDatosGenerales.Controls.Add(Me.Button1)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
-        Me.GbDatosGenerales.Controls.Add(Me.GbCastigos)
         Me.GbDatosGenerales.Controls.Add(Me.TbTotalPacas)
         Me.GbDatosGenerales.Controls.Add(Me.TbTotalKilos)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
         Me.GbDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(652, 57)
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(880, 60)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 471)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 361)
         Me.GbDatosGenerales.TabIndex = 6
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(42, 168)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 31
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
+        'TbIdCompra
+        '
+        Me.TbIdCompra.Enabled = False
+        Me.TbIdCompra.Location = New System.Drawing.Point(99, 31)
+        Me.TbIdCompra.Name = "TbIdCompra"
+        Me.TbIdCompra.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdCompra.TabIndex = 4
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(7, 32)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(70, 16)
+        Me.Label15.TabIndex = 5
+        Me.Label15.Text = "Id Compra"
+        '
+        'TbIdContrato
+        '
+        Me.TbIdContrato.Enabled = False
+        Me.TbIdContrato.Location = New System.Drawing.Point(744, 28)
+        Me.TbIdContrato.Name = "TbIdContrato"
+        Me.TbIdContrato.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdContrato.TabIndex = 4
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(666, 29)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(72, 16)
+        Me.Label16.TabIndex = 5
+        Me.Label16.Text = "Id Contrato"
         '
         'CompraPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(886, 542)
+        Me.ClientSize = New System.Drawing.Size(1119, 611)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.GbPagoFinal)
+        Me.Controls.Add(Me.GbCastigos)
         Me.Controls.Add(Me.DgvResumenPagoPacas)
         Me.Controls.Add(Me.TbNombreProductor)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TbIdContrato)
+        Me.Controls.Add(Me.TbIdCompra)
         Me.Controls.Add(Me.TbIdProductor)
         Me.Controls.Add(Me.TbPrecioQuintal)
         Me.Controls.Add(Me.Label2)
@@ -530,7 +599,7 @@ Partial Class CompraPago
     Friend WithEvents Label8 As Label
     Friend WithEvents TbSubtotal As TextBox
     Friend WithEvents TbDescuento As TextBox
-    Friend WithEvents TbTotal As TextBox
+    Friend WithEvents TbTotalMxn As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents GbPagoFinal As GroupBox
@@ -552,4 +621,9 @@ Partial Class CompraPago
     Friend WithEvents TbCastigoxmicro As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents GbDatosGenerales As GroupBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents TbIdCompra As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TbIdContrato As TextBox
+    Friend WithEvents Label16 As Label
 End Class

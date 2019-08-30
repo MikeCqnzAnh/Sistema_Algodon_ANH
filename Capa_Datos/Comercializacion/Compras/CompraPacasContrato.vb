@@ -45,6 +45,14 @@ Public Class CompraPacasContrato
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", MiTableRow("IdProductor")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdLiquidacion", MiTableRow("IdLiquidacion")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@IdCompraEnc", MiTableRow("IdCompraEnc")))
+
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", MiTableRow("CastigoResistenciaFibra")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", MiTableRow("CastigoMicros")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", MiTableRow("CastigoLargoFibra")))
+
+                        cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompraUpdate", MiTableRow("EstatusCompraUpdate")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompraBusqueda", MiTableRow("EstatusCompraBusqueda")))
                         cmdGuardar.ExecuteNonQuery()
                     Next
             End Select
@@ -64,6 +72,12 @@ Public Class CompraPacasContrato
         Try
             cnn.Open()
             Select Case EntidadCompraPacasContrato1.Consulta
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaProductores
+                    sqlcom1 = New SqlCommand("Sp_ConsultaProductorContratoCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
                     sqlcom1 = New SqlCommand("sp_ConContProd", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -84,6 +98,7 @@ Public Class CompraPacasContrato
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadCompraPacasContrato1.IdProductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadCompraPacasContrato1.IdCompra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPaca
                     sqlcom1 = New SqlCommand("sp_ConPacProdDetCla", cnn)
@@ -98,6 +113,7 @@ Public Class CompraPacasContrato
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadCompraPacasContrato1.IdProductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompraEnc", EntidadCompraPacasContrato1.IdCompra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacasCantidadDisponible
                     sqlcom1 = New SqlCommand("sp_ConsultaDisponibilidadPacas", cnn)
@@ -122,6 +138,35 @@ Public Class CompraPacasContrato
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadCompraPacasContrato1.IdProductor))
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompraPorNombre
+                    sqlcom1 = New SqlCommand("Sp_ConsultaCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadCompraPacasContrato1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadCompraPacasContrato1.NombreProductor))
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoLargoFibra
+                    sqlcom1 = New SqlCommand("Sp_CastigoLargoFibra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@LargoFibra", EntidadCompraPacasContrato1.CastigoLargoFibra))
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMicros
+                    sqlcom1 = New SqlCommand("Sp_CastigoMicros", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Micros", EntidadCompraPacasContrato1.CastigoMicros))
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoResistenciaFibra
+                    sqlcom1 = New SqlCommand("Sp_CastigoResistenciaFibra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@ResistenciaFibra", EntidadCompraPacasContrato1.CastigoResistenciaFibra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
             End Select
         Catch ex As Exception

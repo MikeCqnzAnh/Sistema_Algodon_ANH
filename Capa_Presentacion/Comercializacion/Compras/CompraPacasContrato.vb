@@ -1,5 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class CompraPacasContrato
+    Implements IForm
     Public TablaModalidadCompra, TablacastigoMicros, TablaCastigoLargoFibra, TablaCastigoResistenciaFibra, TablaPacasAgrupadas, TablaPacasCompras As New DataTable
     Private Sub CompraPacasContrato_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CrearTablaPacasAgrupadas()
@@ -12,11 +13,13 @@ Public Class CompraPacasContrato
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Cantidad", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Quintales", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoResistenciaFibra", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoMicros", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoLargoFibra", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioQuintal", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Total", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("TotalDlls", System.Type.GetType("System.Double")))
     End Sub
-
     Private Sub BtModalidadCompra_Click(sender As Object, e As EventArgs) Handles BtClasesDif.Click
         ModalidadCompra.ShowDialog()
         TablaModalidadCompra = Tabla
@@ -38,19 +41,21 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If TbIdProductor.Text = "" Or TbPrecioQuintal.Text = "" Then
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
-        ElseIf ValidaChecksPacas() > 0 Then
+        ElseIf DgvPacasIndCompradas.RowCount > 0 Then
             GuardarCompraEnc()
-            EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
-            EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable()
-            NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
             filtraPacasClases()
             VarGlob2.IdProductor = TbIdProductor.Text
             VarGlob2.NombreProductor = TbNombreProductor.Text
             VarGlob2.PrecioQuintal = TbPrecioQuintal.Text
+            VarGlob2.IdCompra = TbIdCompraPaca.Text
+            VarGlob2.IdContrato = TbIdContrato.Text
+            VarGlob2.IdPlanta = CbPlanta.SelectedValue
+            VarGlob2.IdModalidadCompra = CbModalidadCompra.SelectedValue
 
             _Tabla = Table()
             CompraPago.ShowDialog()
-            ConsultaCompra()
+            'ConsultaCompra()
+            consultaDatosdgv()
         Else
             MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -65,7 +70,7 @@ Public Class CompraPacasContrato
         EntidadCompraPacasContrato.IdPlanta = CbPlanta.SelectedValue
         EntidadCompraPacasContrato.IdModalidadCompra = CbModalidadCompra.SelectedValue
         EntidadCompraPacasContrato.FechaCompra = DtFechaCompra.Value
-        EntidadCompraPacasContrato.TotalPacas = TbPacasMarc.Text
+        EntidadCompraPacasContrato.TotalPacas = 0
         EntidadCompraPacasContrato.Observaciones = ""
         EntidadCompraPacasContrato.CastigoMicros = 0
         EntidadCompraPacasContrato.CastigoLargoFibra = 0
@@ -86,20 +91,32 @@ Public Class CompraPacasContrato
     Private Sub ConfirmarSeleccion()
 
     End Sub
-    Private Function DataGridADatatable() As DataTable
+    Private Function DataGridADatatable(ByVal EstatusCompraUpdate As Integer, ByVal EstatusCompraBusqueda As Integer, ByVal DataGridEnvia As DataGridView, ByVal IdCompraEnc As Integer, Optional valcastigo As Integer = 0) As DataTable
         Dim dt As New DataTable
         Dim r As DataRow
 
-        dt.Columns.Add("IdProductor", Type.GetType("System.String"))
-        dt.Columns.Add("BaleID", Type.GetType("System.String"))
-        dt.Columns.Add("IdLiquidacion", Type.GetType("System.String"))
+        dt.Columns.Add("IdProductor", Type.GetType("System.Int32"))
+        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("IdLiquidacion", Type.GetType("System.Int32"))
+        dt.Columns.Add("IdCompraEnc", Type.GetType("System.Int32"))
+        dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Single"))
+        dt.Columns.Add("CastigoMicros", Type.GetType("System.Single"))
+        dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Single"))
+        dt.Columns.Add("estatuscompraUpdate", Type.GetType("System.Int32"))
+        dt.Columns.Add("estatuscompraBusqueda", Type.GetType("System.Int32"))
 
-        For i = 0 To DgvPacasComprar.Rows.Count - 1
+        For i = 0 To DataGridEnvia.Rows.Count - 1
             r = dt.NewRow
-            If DgvPacasComprar.Item("Seleccionar", i).EditedFormattedValue = True Then
+            If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
                 r("IdProductor") = TbIdProductor.Text
-                r("BaleID") = DgvPacasComprar.Item("BaleID", i).Value.ToString
-                r("IdLiquidacion") = DgvPacasComprar.Item("IdLiquidacion", i).Value.ToString
+                r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
+                r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value.ToString
+                r("IdCompraEnc") = IdCompraEnc
+                r("CastigoResistenciaFibra") = IIf(valcastigo = 0, ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(8, i).Value.ToString), 0)
+                r("CastigoMicros") = IIf(valcastigo = 0, ConsultaCastigoMicros(DataGridEnvia.Item(7, i).Value.ToString), 0)
+                r("CastigoLargoFibra") = IIf(valcastigo = 0, ConsultaCastigoLargoFibra(DataGridEnvia.Item(9, i).Value.ToString), 0)
+                r("estatuscompraUpdate") = EstatusCompraUpdate
+                r("EstatusCompraBusqueda") = EstatusCompraBusqueda
                 dt.Rows.Add(r)
             End If
         Next
@@ -120,6 +137,9 @@ Public Class CompraPacasContrato
                 TablaRenglonAInsertar("Cantidad") = 1
                 TablaRenglonAInsertar("Kilos") = DgvPacasComprar.Rows(i).Cells("Kilos").Value
                 TablaRenglonAInsertar("Quintales") = CDbl(DgvPacasComprar.Rows(i).Cells("Kilos").Value / 46.02)
+                TablaRenglonAInsertar("CastigoResistenciaFibra") = ConsultaCastigoResistenciaFibra(DgvPacasComprar.Rows(i).Cells(8).Value)
+                TablaRenglonAInsertar("CastigoMicros") = ConsultaCastigoMicros(DgvPacasComprar.Rows(i).Cells(7).Value)
+                TablaRenglonAInsertar("CastigoLargoFibra") = ConsultaCastigoLargoFibra(DgvPacasComprar.Rows(i).Cells(9).Value)
                 TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
                 TablaRenglonAInsertar("Total") = DgvPacasComprar.Rows(i).Cells("Kilos").Value
                 TablaRenglonAInsertar("TotalDlls") = Val(CDbl(DgvPacasComprar.Rows(i).Cells("Kilos").Value / 46.02) * CDbl(TbPrecioQuintal.Text))
@@ -137,9 +157,70 @@ Public Class CompraPacasContrato
         Next
         Return valor
     End Function
+    Private Function ValidaCheckContratos()
+        Dim PacasMarcadas As Integer = 0
+        For i As Integer = 0 To DgvContratos.Rows.Count - 1
+            If DgvContratos.Rows(i).Cells("Seleccionar").EditedFormattedValue = True Then
+                PacasMarcadas = PacasMarcadas + 1
+            End If
+        Next
+        Return PacasMarcadas
+    End Function
+    Private Function ConsultaCastigoMicros(ByVal ValMicros As Double)
+        Dim Castigo As Double
+        Dim Tabla As New DataTable
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+        EntidadCompraPacasContrato.CastigoMicros = Math.Round(ValMicros, 2)
+        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        Tabla = EntidadCompraPacasContrato.TablaConsulta
+        Castigo = Tabla.Rows(0).Item("Castigo")
+        Return Castigo
+    End Function
+    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double)
+        Dim Castigo As Double
+        Dim Tabla As New DataTable
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+        EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Round(ValResistenciaFibra, 2)
+        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        Tabla = EntidadCompraPacasContrato.TablaConsulta
+        Castigo = Tabla.Rows(0).Item("Castigo")
+        Return Castigo
+    End Function
+    Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double)
+        Dim Castigo As Double
+        Dim Tabla As New DataTable
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+        EntidadCompraPacasContrato.CastigoLargoFibra = Math.Round(ValLargoFibra, 2)
+        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        Tabla = EntidadCompraPacasContrato.TablaConsulta
+        Castigo = Tabla.Rows(0).Item("Castigo")
+        Return Castigo
+    End Function
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
-        ConsultaCompraProductor.ShowDialog()
+        Dim _ConsultaCompraProductor As New ConsultaCompraProductor
+
+        _ConsultaCompraProductor.MdiParent = Me.MdiParent
+        _ConsultaCompraProductor.Opener = CType(Me, IForm)
+
+        _ConsultaCompraProductor.ShowDialog()
+        ConsultarDatosCompra()
     End Sub
+    Public Function LoadDataGridView(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIDValues
+        For Each row As DataRow In DatatableParam.Rows
+
+            TbIdCompraPaca.Text = row("IdCompra")
+            TbIdProductor.Text = row("IdProductor")
+            TbNombreProductor.Text = row("Nombre")
+        Next
+
+        Return True
+    End Function
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
@@ -148,7 +229,7 @@ Public Class CompraPacasContrato
     End Sub
     Private Sub Nuevo()
         TbIdCompraPaca.Text = ""
-        TbIdProductor.Text = ""
+        TbIdProductor.Text = 0
         TbNombreProductor.Text = ""
         CbPlanta.SelectedValue = 1
         CbClasesPacasAcomprar.SelectedValue = -1
@@ -164,7 +245,6 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.DataSource = Nothing
         DgvAgrupadasCliente.DataSource = Nothing
         DgvAgrupadasClases.DataSource = Nothing
-        DgvCompras.DataSource = Nothing
         DgvContratos.Columns.Clear()
         DgvDatosLiquidacion.Columns.Clear()
         DgvLiqCompradas.Columns.Clear()
@@ -172,7 +252,6 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.Columns.Clear()
         DgvAgrupadasCliente.Columns.Clear()
         DgvAgrupadasClases.Columns.Clear()
-        DgvCompras.Columns.Clear()
         TbPacasContratadas.Text = ""
         TbPacasDisp.Text = ""
         TbPacasCompCont.Text = ""
@@ -233,15 +312,10 @@ Public Class CompraPacasContrato
         cmb.DisplayMember = "ClaveCorta"
         cmb.SelectedValue = -1
     End Sub
-    Private Sub BtnBuscarProd_Click(sender As Object, e As EventArgs) Handles BtnBuscarProd.Click
+    Private Sub ConsultarDatosCompra()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        ConsultaProductores.ShowDialog()
-        TbIdProductor.Text = _Id
-        TbNombreProductor.Text = _Nombre
-        'TbAsociacion.Text = _Dato
         If TbIdProductor.Text = 0 Then
-            TbIdProductor.Text = ""
             MsgBox("Seleccionar a un productor para ver sus contratos", MsgBoxStyle.Exclamation)
         Else
             '---Consultar contratos del productor---
@@ -259,6 +333,7 @@ Public Class CompraPacasContrato
             '---Consultar liquidaciones del productor con compras
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidacionesCompras
             EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
             DgvLiqCompradas.Columns.Clear()
@@ -281,11 +356,12 @@ Public Class CompraPacasContrato
             '---Consultar pacas compradas
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
             EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
             DgvPacasIndCompradas.Columns.Clear()
             DgvPacasIndCompradas.DataSource = Tabla
-
+            PropiedadesDgvPacasIndCompradas()
             '---Consultar las pacas ya clasificadas del productor
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPaca
             EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
@@ -294,7 +370,7 @@ Public Class CompraPacasContrato
             DgvPacasComprar.Columns.Clear()
             DgvPacasComprar.DataSource = Tabla
 
-            ConsultaCompra
+            'ConsultaCompra()
 
             PropiedadesDgvPacasComprar()
             ConsultaCantidadPacas()
@@ -302,22 +378,95 @@ Public Class CompraPacasContrato
             MarcaSeleccionDisponibles()
         End If
     End Sub
-    Private Sub ConsultaCompra()
+    Private Sub consultaDatosdgv()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCompra
-        EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
-        DgvCompras.Columns.Clear()
-        DgvCompras.DataSource = Tabla
-        Dim colSelCon As New DataGridViewCheckBoxColumn()
-        colSelCon.Name = "Seleccionar"
-        colSelCon.FalseValue = False
-        colSelCon.Visible = True
-        DgvCompras.Columns.Insert(21, colSelCon)
-        PropiedadesDgvCompras()
+        If TbIdProductor.Text = 0 Then
+            TbIdProductor.Text = ""
+            MsgBox("Seleccionar a un productor para ver sus contratos", MsgBoxStyle.Exclamation)
+        Else
+            '---Consultar contratos del productor---
+            'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPorId
+            'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            'Tabla = EntidadCompraPacasContrato.TablaConsulta
+            'DgvContratos.Columns.Clear()
+            'DgvContratos.DataSource = Tabla
+            'Dim colSelCon As New DataGridViewCheckBoxColumn()
+            'colSelCon.Name = "Seleccionar"
+            'colSelCon.FalseValue = False
+            'colSelCon.Visible = True
+            'DgvContratos.Columns.Insert(5, colSelCon)
+            '---Consultar liquidaciones del productor con compras
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidacionesCompras
+            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            DgvLiqCompradas.Columns.Clear()
+            DgvLiqCompradas.DataSource = Tabla
+            PropiedadesDgvLiquidacionesCompradas()
+            '---Consultar liquidaciones del productor
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidaciones
+            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            DgvDatosLiquidacion.Columns.Clear()
+            DgvDatosLiquidacion.DataSource = Tabla
+            'Dim colSelLiq As New DataGridViewCheckBoxColumn()
+            'colSelLiq.Name = "Seleccionar"
+            'colSelLiq.FalseValue = False
+            'colSelLiq.Visible = True
+            'DgvDatosLiquidacion.Columns.Insert(6, colSelLiq)
+            PropiedadesDgvLiquidacionesComprar()
+
+            '---Consultar pacas compradas
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
+            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            DgvPacasIndCompradas.Columns.Clear()
+            DgvPacasIndCompradas.DataSource = Tabla
+            PropiedadesDgvPacasIndCompradas()
+            '---Consultar las pacas ya clasificadas del productor
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPaca
+            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            DgvPacasComprar.Columns.Clear()
+            DgvPacasComprar.DataSource = Tabla
+
+            'ConsultaCompra()
+
+            PropiedadesDgvPacasComprar()
+            ConsultaCantidadPacas()
+            TotalPacasContrato()
+            MarcaSeleccionDisponibles()
+        End If
     End Sub
+    Private Sub PropiedadesDgvPacasIndCompradas()
+        DgvPacasIndCompradas.Columns("BaleID").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
+    End Sub
+    'Private Sub ConsultaCompra()
+    '    Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+    '    Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+    '    EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCompra
+    '    EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+    '    NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+    '    Tabla = EntidadCompraPacasContrato.TablaConsulta
+    '    DgvCompras.Columns.Clear()
+    '    DgvCompras.DataSource = Tabla
+    '    Dim colSelCon As New DataGridViewCheckBoxColumn()
+    '    colSelCon.Name = "Seleccionar"
+    '    colSelCon.FalseValue = False
+    '    colSelCon.Visible = True
+    '    DgvCompras.Columns.Insert(21, colSelCon)
+    '    PropiedadesDgvCompras()
+    'End Sub
     Private Sub TotalPacasContrato()
         Dim Pacas As Integer = 0
         For i As Integer = 0 To DgvContratos.Rows.Count - 1
@@ -362,31 +511,32 @@ Public Class CompraPacasContrato
         DgvContratos.Columns("PrecioQuintal").ReadOnly = True
         DgvContratos.Columns("Fecha").ReadOnly = True
     End Sub
-    Private Sub PropiedadesDgvCompras()
-        DgvCompras.Columns("IdCompra").HeaderText = "ID"
-        DgvCompras.Columns("IdContratoAlgodon").HeaderText = "Contrato"
-        DgvCompras.Columns("Fecha").HeaderText = "Fecha"
-        DgvCompras.Columns("IdEstatusCompra").HeaderText = "Estatus"
-        DgvCompras.Columns("IdProductor").Visible = False
-        DgvCompras.Columns("IdModalidadCompra").Visible = False
-        DgvCompras.Columns("Observaciones").Visible = False
-        DgvCompras.Columns("CastigoMicros").Visible = False
-        DgvCompras.Columns("CastigoLargoFibra").Visible = False
-        DgvCompras.Columns("CastigoResistenciaFibra").Visible = False
-        DgvCompras.Columns("TotalPesosMx").Visible = False
-        DgvCompras.Columns("TotalDlls").Visible = False
-        DgvCompras.Columns("InteresPesosMx").Visible = False
-        DgvCompras.Columns("InteresDlls").Visible = False
-        DgvCompras.Columns("PrecioQuintal").Visible = False
-        DgvCompras.Columns("PrecioQuintalBorregos").Visible = False
-        DgvCompras.Columns("Descuento").Visible = False
-        DgvCompras.Columns("Total").Visible = False
-    End Sub
-    Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellContentClick
+    'Private Sub PropiedadesDgvCompras()
+    '    DgvCompras.Columns("IdCompra").HeaderText = "ID"
+    '    DgvCompras.Columns("IdContratoAlgodon").HeaderText = "Contrato"
+    '    DgvCompras.Columns("Fecha").HeaderText = "Fecha"
+    '    DgvCompras.Columns("IdEstatusCompra").HeaderText = "Estatus"
+    '    DgvCompras.Columns("IdProductor").Visible = False
+    '    DgvCompras.Columns("IdModalidadCompra").Visible = False
+    '    DgvCompras.Columns("Observaciones").Visible = False
+    '    DgvCompras.Columns("CastigoMicros").Visible = False
+    '    DgvCompras.Columns("CastigoLargoFibra").Visible = False
+    '    DgvCompras.Columns("CastigoResistenciaFibra").Visible = False
+    '    DgvCompras.Columns("TotalPesosMx").Visible = False
+    '    DgvCompras.Columns("TotalDlls").Visible = False
+    '    DgvCompras.Columns("InteresPesosMx").Visible = False
+    '    DgvCompras.Columns("InteresDlls").Visible = False
+    '    DgvCompras.Columns("PrecioQuintal").Visible = False
+    '    DgvCompras.Columns("PrecioQuintalBorregos").Visible = False
+    '    DgvCompras.Columns("Descuento").Visible = False
+    '    DgvCompras.Columns("Total").Visible = False
+    'End Sub
+    Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellClick
         Dim filaSeleccionada As Integer = DgvContratos.CurrentRow.Index
+        Dim countcheck As Integer = 0
         For Each row As DataGridViewRow In DgvContratos.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
-            If Index = filaSeleccionada Then
+            If Index = filaSeleccionada And DgvContratos.Rows(Index).Cells("Seleccionar").Value = False Then
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = True
                 TbPrecioQuintal.Text = DgvContratos.Rows(Index).Cells("PrecioQuintal").Value
                 TbNoPacas.Text = DgvContratos.Rows(Index).Cells("Pacas").Value
@@ -394,7 +544,13 @@ Public Class CompraPacasContrato
             Else
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = False
             End If
+            If DgvContratos.Rows(Index).Cells("seleccionar").Value = True Then countcheck = countcheck + 1
         Next
+        If countcheck = 0 Then
+            TbPrecioQuintal.Text = ""
+            TbNoPacas.Text = ""
+            TbIdContrato.Text = ""
+        End If
     End Sub
     Private Sub ConsultaCantidadPacas()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
@@ -466,46 +622,111 @@ Public Class CompraPacasContrato
         TbPacasMarc.Text = Contador
         TbKilosSeleccionados.Text = Kilos
     End Sub
-    Private Sub CheckFalse()
+    Private Function CheckFalse()
         Dim Contador As Integer
-        For Contador = 0 To DgvPacasComprar.RowCount - 1
-            If DgvPacasComprar.Rows(Contador).Cells("Seleccionar").Value = Nothing Or DgvPacasComprar.Rows(Contador).Cells("Seleccionar").Value = True Then
-                DgvPacasComprar.Rows(Contador).Cells("Seleccionar").Value = False
+        Dim checkcount As Integer = 0
+        For Contador = 0 To DgvContratos.RowCount - 1
+            If DgvContratos.Rows(Contador).Cells("Seleccionar").Value = True Then
+                checkcount = checkcount + 1
             End If
         Next Contador
-    End Sub
-    Private Sub CuentaPacasMarcadas(sender As Object, e As DataGridViewCellEventArgs)
+        Return checkcount
+    End Function
+    Private Sub CuentaPacasMarcadas(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPacasComprar.CellContentClick
 
     End Sub
 
-    Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
-
+    Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar2.Click
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        If CheckFalse() = 0 Then
+            MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
+        Else
+            EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
+            EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(1, 2, DgvPacasIndCompradas, 0, 1)
+            NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
+            consultaDatosdgv()
+        End If
     End Sub
 
+    Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
+        Dim _ConsultaProductorContratoCompras As New ConsultaProductorContratoCompras
+
+        _ConsultaProductorContratoCompras.MdiParent = Me.MdiParent
+        _ConsultaProductorContratoCompras.Opener = CType(Me, IForm)
+
+        _ConsultaProductorContratoCompras.ShowDialog()
+        ConsultarDatosCompra()
+    End Sub
+    Public Function LoadIdProductor(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIdProductor
+        For Each row As DataRow In DatatableParam.Rows
+
+            TbIdProductor.Text = row("IdProductor")
+            TbNombreProductor.Text = row("Nombre")
+        Next
+
+        Return True
+    End Function
+
+    Private Sub BtSeleccionar_Click_1(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        If TbIdProductor.Text = "" Or TbPrecioQuintal.Text = "" Then
+            MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
+        ElseIf ValidaChecksPacas() > 0 Then
+            GuardarCompraEnc()
+            EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
+            EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(2, 1, DgvPacasComprar, TbIdCompraPaca.Text)
+            NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
+
+            filtraPacasClases()
+            VarGlob2.IdProductor = TbIdProductor.Text
+            VarGlob2.NombreProductor = TbNombreProductor.Text
+            VarGlob2.PrecioQuintal = TbPrecioQuintal.Text
+
+            '_Tabla = Table()
+            'CompraPago.ShowDialog()
+            'ConsultaCompra()
+            consultaDatosdgv()
+        Else
+            MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
     Private Function Table() As DataTable
-        'Dim TablaRenglonAInsertar As DataRow
-        'For ii As Integer = 0 To DgvPacasComprar.Rows.Count - 1
-        '    If DgvPacasComprar.Rows(ii).Cells("Seleccionar").Value = True Then
-        '        'If ValidaChecksDgv() = True Then
-        '        TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
-        '        TablaRenglonAInsertar("Grade") = DgvPacasComprar.Rows(ii).Cells("Grade").Value
-        '        TablaRenglonAInsertar("Cantidad") = 1
-        '        TablaRenglonAInsertar("Kilos") = DgvPacasComprar.Rows(ii).Cells("Kilos").Value
-        '        TablaRenglonAInsertar("Quintales") = CDbl(DgvPacasComprar.Rows(ii).Cells("Kilos").Value / 46.02)
-        '        TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
-        '        TablaRenglonAInsertar("Total") = DgvPacasComprar.Rows(ii).Cells("Kilos").Value
-        '        TablaRenglonAInsertar("TotalDlls") = Val(CDbl(DgvPacasComprar.Rows(ii).Cells("Kilos").Value / 46.02) * CDbl(TbPrecioQuintal.Text))
-        '        TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
-        '    End If
-        'Next
-        'Tabla = TablaModalidadCompra
-        ''
+        Dim TablaRenglonAInsertar As DataRow
+        TablaPacasAgrupadas.Rows.Clear()
+
+        For ii As Integer = 0 To DgvPacasIndCompradas.Rows.Count - 1
+            'If ValidaChecksDgv() = True Then
+            Dim Quintales As Double = Math.Round(CDbl(DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
+            Dim TotalDlls As Double = Quintales * CDbl(TbPrecioQuintal.Text)
+
+            TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
+
+            TablaRenglonAInsertar("Grade") = DgvPacasIndCompradas.Rows(ii).Cells("Grade").Value
+            TablaRenglonAInsertar("Cantidad") = 1
+            TablaRenglonAInsertar("Kilos") = DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value
+            TablaRenglonAInsertar("Quintales") = Math.Round(Quintales, 2)
+            TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(8).Value * Quintales), 2)
+            TablaRenglonAInsertar("CastigoMicros") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 2)
+            TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 2)
+            TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
+            TablaRenglonAInsertar("Total") = DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value
+            TablaRenglonAInsertar("TotalDlls") = Math.Round(TotalDlls, 2)
+            TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
+
+        Next
+        Tabla = TablaModalidadCompra
+
         Dim query = From q In TablaPacasAgrupadas.AsEnumerable() Select q Order By q.Item("Grade")
         Dim dtResultado As New DataTable()
         dtResultado.Columns.Add("Grade")
         dtResultado.Columns.Add("Cantidad")
         dtResultado.Columns.Add("Kilos")
         dtResultado.Columns.Add("Quintales")
+        dtResultado.Columns.Add("CastigoResistenciaFibra")
+        dtResultado.Columns.Add("CastigoMicros")
+        dtResultado.Columns.Add("CastigoLargoFibra")
         dtResultado.Columns.Add("PrecioQuintal")
         dtResultado.Columns.Add("Total")
         dtResultado.Columns.Add("TotalDlls")
@@ -514,43 +735,59 @@ Public Class CompraPacasContrato
         dtCopy.Rows.Add()
         Dim dr As DataRow = dtCopy.NewRow()
         Dim i, value, TotalPacas As Integer
-        Dim TotalQuintales, TotalDolares As Double
+        Dim TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF As Double
         For j As Integer = 0 To dtCopy.Rows.Count - 2
             Dim item = dtCopy.Rows(j)
             Dim Clase = Convert.ToString(item(0))
             Dim Cantidad = Convert.ToInt32(item(1))
             Dim Kilos = Convert.ToDouble(item(2))
             Dim Quintales = Convert.ToString(item(3))
-            Dim TbPrecioQuintalQuintal = Convert.ToInt32(item(4))
-            Dim Total = Convert.ToDouble(item(5))
-            Dim TotalDlls = Convert.ToDouble(item(6))
+            Dim CastigoRF = Convert.ToDouble(item(4))
+            Dim CastigoM = Convert.ToDouble(item(5))
+            Dim CastigoLF = Convert.ToDouble(item(6))
+            Dim TbPrecioQuintalQuintal = Convert.ToInt32(item(7))
+            Dim Total = Convert.ToDouble(item(8))
+            Dim Dlls = Convert.ToDouble(item(9))
             Dim drr As DataRow = dtResultado.NewRow()
             drr.Item(0) = Clase
             drr.Item(1) = Cantidad
             drr.Item(2) = Kilos
             drr.Item(3) = Quintales
-            drr.Item(4) = TbPrecioQuintalQuintal
-            drr.Item(5) = Total
-            drr.Item(6) = Math.Round(TotalDlls, 4)
+            drr.Item(4) = Math.Round(CastigoRF, 2)
+            drr.Item(5) = Math.Round(CastigoM, 2)
+            drr.Item(6) = Math.Round(CastigoLF, 2)
+            drr.Item(7) = TbPrecioQuintalQuintal
+            drr.Item(8) = Math.Round(Total, 2)
+            drr.Item(9) = Math.Round(Dlls, 2)
             dtResultado.ImportRow(item)
             Dim filaSig As String = Convert.ToString(dtCopy.Rows(i + 1).Item(0)) 'fila siguiente
             If (Clase = filaSig) Then 'clase actual es igual a la siguiente zona
                 value += Kilos
                 TotalQuintales += Quintales
+                TotalCastigoLF += CastigoLF
+                TotalCastigoM += CastigoM
+                TotalCastigoRF += CastigoRF
                 TotalPacas += Cantidad
-                TotalDolares += Math.Round(TotalDlls, 4)
+                TotalDolares += Math.Round(Dlls, 2)
             Else 'cuando cambie la clase insertar nueva fila y poner "Total" & Clase
                 drr.Item(0) = "Total " & Clase
                 drr.Item(1) = TotalPacas + Cantidad
                 drr.Item(2) = value + Kilos
                 drr.Item(3) = TotalQuintales + Quintales
-                drr.Item(4) = ""
-                drr.Item(5) = ""
-                drr.Item(6) = TotalDolares + Math.Round(TotalDlls, 4)
+                drr.Item(4) = Math.Round(TotalCastigoRF + CastigoRF, 2)
+                drr.Item(5) = Math.Round(TotalCastigoM + CastigoM, 2)
+                drr.Item(6) = Math.Round(TotalCastigoLF + CastigoLF, 2)
+                drr.Item(7) = ""
+                drr.Item(8) = ""
+                drr.Item(9) = TotalDolares + Math.Round(Dlls, 2)
                 dtResultado.Rows.Add(drr)
                 value = 0
-
+                TotalQuintales = 0
+                TotalCastigoLF = 0
+                TotalCastigoM = 0
+                TotalCastigoRF = 0
                 TotalPacas = 0
+                TotalDolares = 0
             End If
             i += 1 'indice
         Next
@@ -587,11 +824,12 @@ Public Class CompraPacasContrato
         '---Consultar pacas compradas
         EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
         EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+        EntidadCompraPacasContrato.IdCompra = CInt(TbIdCompraPaca.Text)
         NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
         Tabla = EntidadCompraPacasContrato.TablaConsulta
         DgvPacasIndCompradas.Columns.Clear()
         DgvPacasIndCompradas.DataSource = Tabla
-
+        PropiedadesDgvPacasIndCompradas()
         ConsultaCantidadPacas()
         TotalPacasContrato()
         MarcaSeleccionDisponibles()

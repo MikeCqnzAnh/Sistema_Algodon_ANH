@@ -1,6 +1,6 @@
-create procedure sp_ConsultaOrdenResumen
+CREATE procedure sp_ConsultaOrdenResumen
 --declare
-@IdOrdenTrabajo int 
+@IdOrdenTrabajo int
 as
 if object_id('tempdb..##TablaTemp') is not null
   begin
@@ -35,7 +35,9 @@ declare
 set @TotalHueso = (select ISNULL(a.PesoModulos,0) as TotalHueso from [dbo].[OrdenTrabajo] a where a.IdOrdenTrabajo = @IdOrdenTrabajo)
 set @TotalPluma = (select SUM(a.Kilos) as TotalPluma from [dbo].[ProduccionDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo)
 set @PorcentajePluma = ROUND(@TotalPluma/@TotalHueso * 100,0)
-set @PorcentajeSemilla = ISNULL((select Semilla from [dbo].[Rendimientos] where Pluma = @PorcentajePluma),0)
+set @PorcentajeSemilla = ISNULL((select Semilla from [dbo].[Rendimientos] where Pluma = CASE  when @PorcentajeSemilla > (select max(Semilla)as Semilla from Rendimientos) then (select max(Semilla)as Semilla from Rendimientos) 
+																							  when @PorcentajeSemilla < (select min(Semilla)as Semilla from Rendimientos) then (select min(Semilla)as Semilla from Rendimientos)
+																							  else @PorcentajeSemilla end ),0)
 set @TotalSemilla = (@PorcentajeSemilla * @TotalPluma)/ @PorcentajePluma
 set @PorcentajeMerma = (100 - @PorcentajeSemilla - @PorcentajePluma)
 set @TotalMerma = (@TotalHueso - @TotalPluma - @TotalSemilla)

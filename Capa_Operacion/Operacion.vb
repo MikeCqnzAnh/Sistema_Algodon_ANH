@@ -124,6 +124,10 @@ Namespace Configuracion
         ConsultaOpciones = 60
         ConsultaPerfilUsuario = 61
         ConsultaCompra = 62
+        ConsultaCompraPorNombre = 63
+        ConsultaCastigoLargoFibra = 64
+        ConsultaCastigoResistenciaFibra = 65
+        ConsultaCastigoMicros = 66
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

@@ -95,7 +95,6 @@ Public Class ClasificacionVentaPaquetes
     End Sub
     Private Sub CreaTabla()
         TablaClasificacionGrid.Columns.Clear()
-
         TablaClasificacionGrid.Columns.Add(New DataColumn("IdHviDetalle", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("IdOrdenTrabajo", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int32")))
@@ -125,7 +124,6 @@ Public Class ClasificacionVentaPaquetes
         TablaClasificacionGrid.Columns.Add(New DataColumn("UV", System.Type.GetType("System.Double")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("FlagTerminado", System.Type.GetType("System.Boolean")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("EstatusCompra", System.Type.GetType("System.Boolean")))
-
     End Sub
     Private Sub ContarPacas()
         TbCantidadPacas.Text = DgvPacasClasificacion1.Rows.Count
