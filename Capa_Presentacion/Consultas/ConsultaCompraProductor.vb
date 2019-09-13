@@ -48,8 +48,8 @@ Public Class ConsultaCompraProductor
         DgvCompras.Columns("InteresDlls").Visible = False
         DgvCompras.Columns("PrecioQuintal").Visible = False
         DgvCompras.Columns("PrecioQuintalBorregos").Visible = False
-        DgvCompras.Columns("Descuento").Visible = False
-        DgvCompras.Columns("Total").Visible = False
+        DgvCompras.Columns("CastigoDls").Visible = False
+        DgvCompras.Columns("subtotal").Visible = False
     End Sub
     Private Sub LimpiarCampos()
         TbIdCompra.Text = ""

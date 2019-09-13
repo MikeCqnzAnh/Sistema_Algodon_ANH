@@ -19,8 +19,9 @@
     Public PrecioQuintal As Double
     Public PrecioQuintalBorregos As Double
     Public PrecioDolar As Double
-    Public Descuento As Double
-    Public Total As Double
+    Public CastigoDls As Double
+    Public AnticipoDls As Double
+    Public Subtotal As Double
     Public IdEstatusCompra As Boolean
     Public PacasInicio As Integer
     Public PacasFin As Integer

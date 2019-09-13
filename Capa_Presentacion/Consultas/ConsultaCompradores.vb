@@ -24,7 +24,7 @@ Public Class ConsultaCompradores
         NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
         DgvConsultaCompradores.DataSource = EntidadContratosAlgodonCompradores.TablaConsulta
     End Sub
-    Private Sub DgvConsultaCompradores_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultaCompradores.CellContentDoubleClick
+    Private Sub DgvConsultaCompradores_CellContentDoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaCompradores.DoubleClick
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
         Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
         Dim index As Integer

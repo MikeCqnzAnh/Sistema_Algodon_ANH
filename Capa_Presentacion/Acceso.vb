@@ -13,10 +13,7 @@ Public Class Acceso
     End Sub
 
     Public Sub Versionapp()
-
-
         Label4.Text = "V" & My.Application.Info.Version.ToString
-
     End Sub
     Private Sub llenaCombos()
         Dim tabla As New DataTable

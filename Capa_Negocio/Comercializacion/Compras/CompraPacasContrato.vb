@@ -9,4 +9,8 @@
         Dim DatosCompraPacasContrato As New Capa_Datos.CompraPacasContrato
         DatosCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
     End Sub
+    Public Overridable Sub Actualizar(ByRef EntidadCompraPacasContrato As Capa_Entidad.CompraPacasContrato)
+        Dim DatosCompraPacasContrato As New Capa_Datos.CompraPacasContrato
+        DatosCompraPacasContrato.Actualizar(EntidadCompraPacasContrato)
+    End Sub
 End Class

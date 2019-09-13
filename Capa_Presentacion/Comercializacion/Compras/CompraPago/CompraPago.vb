@@ -1,30 +1,5 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class CompraPago
-    Private Sub ChkBEfectivo_CheckedChanged(sender As Object, e As EventArgs) Handles ChkBEfectivo.CheckedChanged
-        If ChkBEfectivo.Checked = True Then
-            TbEfectivo.Enabled = True
-        Else
-            TbEfectivo.Enabled = False
-        End If
-    End Sub
-    Private Sub ChkBDolares_CheckedChanged(sender As Object, e As EventArgs) Handles ChkBDolares.CheckedChanged
-        If ChkBDolares.Checked = True Then
-            TbDolares.Enabled = True
-            TbTipoCambio.Enabled = True
-            TbAnticipoDlls.Enabled = True
-        Else
-            TbDolares.Enabled = False
-            TbTipoCambio.Enabled = False
-            TbAnticipoDlls.Enabled = False
-        End If
-    End Sub
-    Private Sub PropiedadesDgv()
-        DgvResumenPagoPacas.Columns(4).Visible = False
-        DgvResumenPagoPacas.Columns(5).Visible = False
-        DgvResumenPagoPacas.Columns(6).Visible = False
-        DgvResumenPagoPacas.Columns(7).Visible = False
-        DgvResumenPagoPacas.Columns(8).Visible = False
-    End Sub
     Private Sub CompraPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiarControles()
         TbIdProductor.Text = VarGlob2.IdProductor
@@ -36,9 +11,16 @@ Public Class CompraPago
         DgvResumenPagoPacas.DataSource = _Tabla
         PropiedadesDgv()
         SumasTotales()
-        Formatos()
         ConsultaTipoCambio()
         TotalCompra()
+        Formatos()
+    End Sub
+    Private Sub PropiedadesDgv()
+        DgvResumenPagoPacas.Columns(4).Visible = False
+        DgvResumenPagoPacas.Columns(5).Visible = False
+        DgvResumenPagoPacas.Columns(6).Visible = False
+        DgvResumenPagoPacas.Columns(7).Visible = False
+        DgvResumenPagoPacas.Columns(8).Visible = False
     End Sub
     Private Sub LimpiarControles()
         TbPrecioQuintal.Text = 0
@@ -46,11 +28,8 @@ Public Class CompraPago
         TbNombreProductor.Text = ""
         DgvResumenPagoPacas.DataSource = ""
         DgvResumenPagoPacas.Columns.Clear()
-        TbEfectivo.Text = 0
-        TbDolares.Text = 0
         TbTipoCambio.Text = 0
         TbSubtotal.Text = 0
-        TbDescuento.Text = 0
         TbTotalMxn.Text = 0
         TbTotalPacas.Text = 0
         TbTotalKilos.Text = 0
@@ -59,17 +38,16 @@ Public Class CompraPago
         TbCastigoxresistencia.Text = 0
     End Sub
     Private Sub TotalCompra()
-        Dim Dolares As Double = TbDolares.Text
-        Dim TipoCambio As Double = TbTipoCambio.Text
-        Dim SubTotal As Double = TbSubtotal.Text
-        Dim SumaDescuento As Double = CDbl(TbCastigoxlargo.Text) + CDbl(TbCastigoxmicro.Text) + CDbl(TbCastigoxresistencia.Text)
-        Dim Descuento As Double = (SumaDescuento * TipoCambio)
-        Dim Total As Double
-        TbDescuento.Text = Math.Round(Descuento, 2)
-        SubTotal = (Dolares * TipoCambio) - Descuento
-        TbSubtotal.Text = Math.Round(SubTotal, 4)
-        Total = SubTotal - Descuento
-        TbTotalMxn.Text = Math.Round(Total, 4)
+        Dim SubTotal As Double = CDbl(TbSubtotal.Text)
+        Dim TipoCambio As Double = CDbl(TbTipoCambio.Text)
+        Dim CastigoDls As Double = CDbl(TbCastigoxlargo.Text) + CDbl(TbCastigoxmicro.Text) + CDbl(TbCastigoxresistencia.Text)
+        Dim TotalDls As Double
+        Dim AnticipoDls As Double = CDbl(TbAnticipoDlls.Text)
+
+        TbSumaCastigo.Text = CastigoDls
+        TotalDls = SubTotal - CastigoDls - AnticipoDls
+        TbTotalDls.Text = TotalDls
+        TbTotalMxn.Text = Math.Round(TotalDls * TipoCambio, 4)
     End Sub
     Private Sub SumasTotales()
         Dim Word As String = "Total"
@@ -81,7 +59,7 @@ Public Class CompraPago
                 row.DefaultCellStyle.Font = New Font(font, font.Style Or FontStyle.Bold)
                 TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
                 TbTotalKilos.Text = Val(TbTotalKilos.Text + CDbl(row.Cells("Kilos").Value))
-                TbDolares.Text = Val(TbDolares.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
+                TbSubtotal.Text = Val(TbSubtotal.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
                 TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + CDbl(row.Cells("CastigoLargoFibra").Value)
                 TbCastigoxmicro.Text = Val(TbCastigoxmicro.Text) + CDbl(row.Cells("CastigoMicros").Value)
                 TbCastigoxresistencia.Text = Val(TbCastigoxresistencia.Text) + CDbl(row.Cells("CastigoResistenciaFibra").Value)
@@ -103,9 +81,11 @@ Public Class CompraPago
         Dim TotalKilos As Double
         TotalKilos = TbTotalKilos.Text
         TbTotalKilos.Text = String.Format("{0:N0}", TotalKilos)
-        TbEfectivo.Text = FormatCurrency(TbEfectivo.Text)
         TbSubtotal.Text = FormatCurrency(TbSubtotal.Text)
-        TbDescuento.Text = FormatCurrency(TbDescuento.Text)
+        TbSumaCastigo.Text = FormatCurrency(TbSumaCastigo.Text)
+        TbAnticipoDlls.Text = FormatCurrency(TbAnticipoDlls.Text)
+        TbTipoCambio.Text = FormatCurrency(TbTipoCambio.Text)
+        TbTotalDls.Text = FormatCurrency(TbTotalDls.Text)
         TbTotalMxn.Text = FormatCurrency(TbTotalMxn.Text)
         TbTipoCambio.Text = FormatCurrency(TbTipoCambio.Text)
         DgvResumenPagoPacas.Columns("Grade").ReadOnly = True
@@ -125,6 +105,7 @@ Public Class CompraPago
         Dim opc = MessageBox.Show("¿Estas seguro de cerrar esta compra?", "", MessageBoxButtons.YesNo)
         If opc = DialogResult.Yes Then
             GuardarCompraEnc()
+            ActualizaEstatusVenta()
         Else
             Exit Sub
         End If
@@ -144,24 +125,67 @@ Public Class CompraPago
         EntidadCompraPacasContrato.CastigoMicros = TbCastigoxmicro.Text
         EntidadCompraPacasContrato.CastigoLargoFibra = TbCastigoxlargo.Text
         EntidadCompraPacasContrato.CastigoResistenciaFibra = TbCastigoxresistencia.Text
-        EntidadCompraPacasContrato.TotalPesosMx = TbSubtotal.Text
-        EntidadCompraPacasContrato.TotalDlls = TbDolares.Text
         EntidadCompraPacasContrato.InteresPesosMx = 0
         EntidadCompraPacasContrato.InteresDlls = 0
         EntidadCompraPacasContrato.PrecioQuintal = TbPrecioQuintal.Text
         EntidadCompraPacasContrato.PrecioQuintalBorregos = 0
         EntidadCompraPacasContrato.PrecioDolar = TbTipoCambio.Text
-        EntidadCompraPacasContrato.Descuento = TbDescuento.Text
-        EntidadCompraPacasContrato.Total = TbTotalMxn.Text
+        EntidadCompraPacasContrato.Subtotal = TbSubtotal.Text
+        EntidadCompraPacasContrato.CastigoDls = TbSumaCastigo.Text
+        EntidadCompraPacasContrato.AnticipoDls = TbAnticipoDlls.Text
+        EntidadCompraPacasContrato.TotalDlls = TbTotalDls.Text
+        EntidadCompraPacasContrato.TotalPesosMx = TbTotalMxn.Text
         EntidadCompraPacasContrato.IdEstatusCompra = 1
         NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
         TbIdCompra.Text = EntidadCompraPacasContrato.IdCompra
     End Sub
+    Private Sub ActualizaEstatusVenta()
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Actualiza = Actuliza.ActualizaEstatus
+        EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(DgvResumenPagoPacas)
+        NegocioCompraPacasContrato.Actualizar(EntidadCompraPacasContrato)
+    End Sub
+    Private Function DataGridADatatable(ByVal DataGridEnvia As DataGridView) As DataTable
+        Dim dt As New DataTable
+        Dim r As DataRow
+
+        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("IdCompraEnc", Type.GetType("System.Int32"))
+        dt.Columns.Add("EstatusVenta", Type.GetType("System.Int32"))
+
+        For i = 0 To DataGridEnvia.Rows.Count - 1
+            r = dt.NewRow
+            If DataGridEnvia.Item("BaleID", i).Value.ToString <> "" Then
+                r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
+                r("IdCompraEnc") = TbIdCompra.Text
+                r("EstatusVenta") = 1
+                dt.Rows.Add(r)
+            End If
+        Next
+        Return dt
+    End Function
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         _Tabla.Clear()
         Close()
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         FormatoGrid()
+    End Sub
+    Private Sub TbAnticipoDlls_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbAnticipoDlls.KeyPress
+        If e.KeyChar = Convert.ToChar(13) Then
+            Dim SubTotaldls As Double = CDbl(TbSubtotal.Text)
+            Dim CastigoDls As Double = CDbl(TbSumaCastigo.Text)
+            Dim AnticipoDls As Double = CDbl(TbAnticipoDlls.Text)
+            Dim TotalDls As Double = CDbl(TbTotalDls.Text)
+            Dim TipoCambio As Double = CDbl(TbTipoCambio.Text)
+            Dim TotalMxn As Double = CDbl(TbTotalMxn.Text)
+
+            TotalDls = SubTotaldls - AnticipoDls - CastigoDls
+            TotalMxn = TotalDls * TipoCambio
+            TbTotalDls.Text = TotalDls
+            TbTotalMxn.Text = TotalMxn
+            Formatos()
+        End If
     End Sub
 End Class

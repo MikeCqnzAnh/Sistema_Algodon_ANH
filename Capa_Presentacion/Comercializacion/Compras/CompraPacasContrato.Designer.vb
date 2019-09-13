@@ -57,7 +57,6 @@ Partial Class CompraPacasContrato
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LiquidarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
@@ -461,7 +460,7 @@ Partial Class CompraPacasContrato
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.LiquidarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1447, 24)
@@ -478,14 +477,8 @@ Partial Class CompraPacasContrato
         '
         Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(123, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar Compra"
-        '
-        'LiquidarToolStripMenuItem
-        '
-        Me.LiquidarToolStripMenuItem.Name = "LiquidarToolStripMenuItem"
-        Me.LiquidarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.LiquidarToolStripMenuItem.Text = "Liquidar"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
         'ConsultarToolStripMenuItem
         '
@@ -1244,7 +1237,6 @@ Partial Class CompraPacasContrato
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents BtSeleccionar As Button
-    Friend WithEvents LiquidarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel5 As Panel
     Friend WithEvents DgvPacasComprar As DataGridView
     Friend WithEvents BtBuscarProductor As Button

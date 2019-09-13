@@ -6,19 +6,20 @@ Create Procedure Sp_InsertaCompraPacas
 ,@IdModalidadCompra int 
 ,@Fecha datetime
 ,@TotalPacas int
-,@Observaciones varchar(500)
+,@Observaciones varchar(max)
 ,@CastigoMicros float
 ,@CastigoLargoFibra float
 ,@CastigoResistenciaFibra float
-,@TotalPesosMx float
-,@TotalDlls float
 ,@InteresPesosMx float
 ,@InteresDlls float
 ,@PrecioQuintal float
 ,@PrecioQuintalBorregos float
 ,@PrecioDolar float
-,@Descuento float
-,@Total float
+,@subtotal float
+,@CastigoDls float
+,@AnticipoDls float
+,@TotalDlls float
+,@TotalPesosMx float
 ,@IdEstatusCompra int
 as
 begin 
@@ -35,15 +36,16 @@ using (select @IdCompra
 			 ,@CastigoMicros
 			 ,@CastigoLargoFibra
 			 ,@CastigoResistenciaFibra
-			 ,@TotalPesosMx
-			 ,@TotalDlls
 			 ,@InteresPesosMx
 			 ,@InteresDlls
 			 ,@PrecioQuintal
 			 ,@PrecioQuintalBorregos
 			 ,@PrecioDolar
-			 ,@Descuento
-			 ,@Total
+			 ,@subtotal
+			 ,@CastigoDls
+			 ,@AnticipoDls
+			 ,@TotalDlls
+			 ,@TotalPesosMx
 			 ,@IdEstatusCompra )
 as source(IdCompra
 		 ,IdContratoAlgodon
@@ -56,15 +58,16 @@ as source(IdCompra
 		 ,CastigoMicros
 		 ,CastigoLargoFibra
 		 ,CastigoResistenciaFibra
-		 ,TotalPesosMx
-		 ,TotalDlls
 		 ,InteresPesosMx
 		 ,InteresDlls
 		 ,PrecioQuintal
 		 ,PrecioQuintalBorregos
 		 ,PrecioDolar
-		 ,Descuento
-		 ,Total
+		 ,subtotal
+		 ,CastigoDls
+		 ,AnticipoDls
+		 ,TotalDlls
+		 ,TotalPesosMx
 		 ,IdEstatusCompra)
 on (target.IdCompra = source.IdCompra)
 when matched then
@@ -78,15 +81,16 @@ update set IdContratoAlgodon = source.IdContratoAlgodon
 		  ,CastigoMicros = source.CastigoMicros
 		  ,CastigoLargoFibra = source.CastigoLargoFibra
 		  ,CastigoResistenciaFibra = source.CastigoResistenciaFibra
-		  ,TotalPesosMx = source.TotalPesosMx
-		  ,TotalDlls = source.TotalDlls
 		  ,InteresPesosMx = source.InteresPesosMx
 		  ,InteresDlls = source.InteresDlls
 		  ,PrecioQuintal = source.PrecioQuintal
 		  ,PrecioQuintalBorregos = source.PrecioQuintalBorregos
 		  ,PrecioDolar = source.PrecioDolar
-		  ,Descuento = source.Descuento
-		  ,Total = source.Total
+		  ,subtotal = source.subtotal
+		  ,CastigoDls = source.CastigoDls
+		  ,AnticipoDls = source.AnticipoDls
+          ,TotalDlls = source.TotalDlls
+          ,TotalPesosMx = source.TotalPesosMx
 		  ,IdEstatusCompra = source.IdEstatusCompra
 		 when not matched then
  INSERT (   [IdContratoAlgodon]
@@ -99,15 +103,16 @@ update set IdContratoAlgodon = source.IdContratoAlgodon
            ,[CastigoMicros]
            ,[CastigoLargoFibra]
            ,[CastigoResistenciaFibra]
-           ,[TotalPesosMx]
-           ,[TotalDlls]
            ,[InteresPesosMx]
            ,[InteresDlls]
            ,[PrecioQuintal]
            ,[PrecioQuintalBorregos]
            ,[PrecioDolar]
-           ,[Descuento]
-           ,[Total]
+           ,[subtotal]
+           ,[CastigoDls]
+		   ,[AnticipoDls]
+           ,[TotalDlls]
+           ,[TotalPesosMx]
            ,[IdEstatusCompra])
      VALUES
            (source.IdContratoAlgodon
@@ -120,15 +125,16 @@ update set IdContratoAlgodon = source.IdContratoAlgodon
            ,source.CastigoMicros
            ,source.CastigoLargoFibra
            ,source.CastigoResistenciaFibra
-           ,source.TotalPesosMx
-           ,source.TotalDlls
-           ,source.InteresPesosMx
+		   ,source.InteresPesosMx
            ,source.InteresDlls
            ,source.PrecioQuintal
            ,source.PrecioQuintalBorregos
            ,source.PrecioDolar
-           ,source.Descuento
-           ,source.Total
+		   ,source.subtotal
+		   ,source.CastigoDls
+           ,source.AnticipoDls
+           ,source.TotalDlls
+           ,source.TotalPesosMx
            ,source.IdEstatusCompra);
 	set @IdCompra = SCOPE_IDENTITY()
 end

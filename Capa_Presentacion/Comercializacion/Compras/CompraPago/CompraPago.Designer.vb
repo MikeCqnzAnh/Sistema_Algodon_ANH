@@ -35,21 +35,17 @@ Partial Class CompraPago
         Me.TbTotalPacas = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbTotalKilos = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TbEfectivo = New System.Windows.Forms.TextBox()
-        Me.TbDolares = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TbSubtotal = New System.Windows.Forms.TextBox()
-        Me.TbDescuento = New System.Windows.Forms.TextBox()
         Me.TbTotalMxn = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GbPagoFinal = New System.Windows.Forms.GroupBox()
         Me.TbAnticipoDlls = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.ChkBDolares = New System.Windows.Forms.CheckBox()
-        Me.ChkBEfectivo = New System.Windows.Forms.CheckBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.TbTotalDls = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.TbSumaCastigo = New System.Windows.Forms.TextBox()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.PagarItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDePacasItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +60,6 @@ Partial Class CompraPago
         Me.TbCastigoxmicro = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TbIdCompra = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
@@ -80,7 +75,7 @@ Partial Class CompraPago
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 97)
+        Me.Label1.Location = New System.Drawing.Point(695, 110)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(110, 18)
         Me.Label1.TabIndex = 0
@@ -88,8 +83,9 @@ Partial Class CompraPago
         '
         'TbTipoCambio
         '
-        Me.TbTipoCambio.Location = New System.Drawing.Point(143, 95)
+        Me.TbTipoCambio.Location = New System.Drawing.Point(827, 103)
         Me.TbTipoCambio.Name = "TbTipoCambio"
+        Me.TbTipoCambio.ReadOnly = True
         Me.TbTipoCambio.Size = New System.Drawing.Size(145, 29)
         Me.TbTipoCambio.TabIndex = 1
         Me.TbTipoCambio.Text = "0"
@@ -156,7 +152,7 @@ Partial Class CompraPago
         Me.DgvResumenPagoPacas.RowHeadersVisible = False
         Me.DgvResumenPagoPacas.RowHeadersWidth = 40
         Me.DgvResumenPagoPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(867, 338)
+        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(1100, 338)
         Me.DgvResumenPagoPacas.TabIndex = 13
         '
         'Label4
@@ -201,136 +197,76 @@ Partial Class CompraPago
         Me.TbTotalKilos.Text = "0"
         Me.TbTotalKilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(9, 28)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 18)
-        Me.Label6.TabIndex = 18
-        Me.Label6.Text = "Efectivo"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(9, 62)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 18)
-        Me.Label7.TabIndex = 19
-        Me.Label7.Text = "Dolares"
-        '
-        'TbEfectivo
-        '
-        Me.TbEfectivo.Enabled = False
-        Me.TbEfectivo.Location = New System.Drawing.Point(144, 25)
-        Me.TbEfectivo.Name = "TbEfectivo"
-        Me.TbEfectivo.Size = New System.Drawing.Size(145, 29)
-        Me.TbEfectivo.TabIndex = 20
-        Me.TbEfectivo.Text = "0"
-        Me.TbEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TbDolares
-        '
-        Me.TbDolares.Location = New System.Drawing.Point(143, 60)
-        Me.TbDolares.Name = "TbDolares"
-        Me.TbDolares.Size = New System.Drawing.Size(145, 29)
-        Me.TbDolares.TabIndex = 21
-        Me.TbDolares.Text = "0"
-        Me.TbDolares.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(566, 32)
+        Me.Label8.Location = New System.Drawing.Point(104, 32)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 18)
+        Me.Label8.Size = New System.Drawing.Size(88, 18)
         Me.Label8.TabIndex = 22
-        Me.Label8.Text = "Subtotal"
+        Me.Label8.Text = "Subtotal Dls"
         '
         'TbSubtotal
         '
-        Me.TbSubtotal.Location = New System.Drawing.Point(634, 25)
+        Me.TbSubtotal.Location = New System.Drawing.Point(198, 25)
         Me.TbSubtotal.Name = "TbSubtotal"
+        Me.TbSubtotal.ReadOnly = True
         Me.TbSubtotal.Size = New System.Drawing.Size(227, 29)
         Me.TbSubtotal.TabIndex = 23
         Me.TbSubtotal.Text = "0"
         Me.TbSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbDescuento
-        '
-        Me.TbDescuento.Location = New System.Drawing.Point(634, 60)
-        Me.TbDescuento.Name = "TbDescuento"
-        Me.TbDescuento.Size = New System.Drawing.Size(227, 29)
-        Me.TbDescuento.TabIndex = 24
-        Me.TbDescuento.Text = "0"
-        Me.TbDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'TbTotalMxn
         '
         Me.TbTotalMxn.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbTotalMxn.Location = New System.Drawing.Point(626, 126)
+        Me.TbTotalMxn.Location = New System.Drawing.Point(737, 142)
         Me.TbTotalMxn.Multiline = True
         Me.TbTotalMxn.Name = "TbTotalMxn"
+        Me.TbTotalMxn.ReadOnly = True
         Me.TbTotalMxn.Size = New System.Drawing.Size(235, 34)
         Me.TbTotalMxn.TabIndex = 25
         Me.TbTotalMxn.Text = "0"
         Me.TbTotalMxn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(548, 67)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(80, 18)
-        Me.Label9.TabIndex = 26
-        Me.Label9.Text = "Descuento"
-        '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(545, 126)
+        Me.Label10.Location = New System.Drawing.Point(599, 142)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(75, 31)
+        Me.Label10.Size = New System.Drawing.Size(132, 31)
         Me.Label10.TabIndex = 27
-        Me.Label10.Text = "Total"
+        Me.Label10.Text = "Total Mxn"
         '
         'GbPagoFinal
         '
         Me.GbPagoFinal.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.GbPagoFinal.Controls.Add(Me.TbAnticipoDlls)
         Me.GbPagoFinal.Controls.Add(Me.Label11)
-        Me.GbPagoFinal.Controls.Add(Me.ChkBDolares)
-        Me.GbPagoFinal.Controls.Add(Me.ChkBEfectivo)
         Me.GbPagoFinal.Controls.Add(Me.TbSubtotal)
+        Me.GbPagoFinal.Controls.Add(Me.Label18)
         Me.GbPagoFinal.Controls.Add(Me.Label10)
         Me.GbPagoFinal.Controls.Add(Me.Label1)
-        Me.GbPagoFinal.Controls.Add(Me.Label9)
         Me.GbPagoFinal.Controls.Add(Me.TbTipoCambio)
+        Me.GbPagoFinal.Controls.Add(Me.TbTotalDls)
         Me.GbPagoFinal.Controls.Add(Me.TbTotalMxn)
-        Me.GbPagoFinal.Controls.Add(Me.Label6)
-        Me.GbPagoFinal.Controls.Add(Me.TbDescuento)
-        Me.GbPagoFinal.Controls.Add(Me.Label7)
-        Me.GbPagoFinal.Controls.Add(Me.TbEfectivo)
+        Me.GbPagoFinal.Controls.Add(Me.Label17)
         Me.GbPagoFinal.Controls.Add(Me.Label8)
-        Me.GbPagoFinal.Controls.Add(Me.TbDolares)
+        Me.GbPagoFinal.Controls.Add(Me.TbSumaCastigo)
         Me.GbPagoFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbPagoFinal.Location = New System.Drawing.Point(7, 427)
         Me.GbPagoFinal.Name = "GbPagoFinal"
-        Me.GbPagoFinal.Size = New System.Drawing.Size(867, 174)
+        Me.GbPagoFinal.Size = New System.Drawing.Size(1100, 183)
         Me.GbPagoFinal.TabIndex = 28
         Me.GbPagoFinal.TabStop = False
         Me.GbPagoFinal.Text = "Resumen de la compra"
         '
         'TbAnticipoDlls
         '
-        Me.TbAnticipoDlls.Location = New System.Drawing.Point(143, 130)
+        Me.TbAnticipoDlls.Location = New System.Drawing.Point(198, 95)
         Me.TbAnticipoDlls.Name = "TbAnticipoDlls"
-        Me.TbAnticipoDlls.Size = New System.Drawing.Size(146, 29)
+        Me.TbAnticipoDlls.Size = New System.Drawing.Size(228, 29)
         Me.TbAnticipoDlls.TabIndex = 31
         Me.TbAnticipoDlls.Text = "0"
         Me.TbAnticipoDlls.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -339,38 +275,60 @@ Partial Class CompraPago
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(9, 132)
+        Me.Label11.Location = New System.Drawing.Point(103, 102)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(89, 18)
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "Ant. Dolares"
         '
-        'ChkBDolares
+        'Label18
         '
-        Me.ChkBDolares.AutoSize = True
-        Me.ChkBDolares.Checked = True
-        Me.ChkBDolares.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ChkBDolares.Location = New System.Drawing.Point(294, 60)
-        Me.ChkBDolares.Name = "ChkBDolares"
-        Me.ChkBDolares.Size = New System.Drawing.Size(15, 14)
-        Me.ChkBDolares.TabIndex = 29
-        Me.ChkBDolares.UseVisualStyleBackColor = True
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(53, 137)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(122, 31)
+        Me.Label18.TabIndex = 27
+        Me.Label18.Text = "Total Dls"
         '
-        'ChkBEfectivo
+        'TbTotalDls
         '
-        Me.ChkBEfectivo.AutoSize = True
-        Me.ChkBEfectivo.Location = New System.Drawing.Point(295, 27)
-        Me.ChkBEfectivo.Name = "ChkBEfectivo"
-        Me.ChkBEfectivo.Size = New System.Drawing.Size(15, 14)
-        Me.ChkBEfectivo.TabIndex = 28
-        Me.ChkBEfectivo.UseVisualStyleBackColor = True
+        Me.TbTotalDls.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbTotalDls.Location = New System.Drawing.Point(191, 137)
+        Me.TbTotalDls.Multiline = True
+        Me.TbTotalDls.Name = "TbTotalDls"
+        Me.TbTotalDls.ReadOnly = True
+        Me.TbTotalDls.Size = New System.Drawing.Size(235, 34)
+        Me.TbTotalDls.TabIndex = 25
+        Me.TbTotalDls.Text = "0"
+        Me.TbTotalDls.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(67, 67)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(125, 18)
+        Me.Label17.TabIndex = 19
+        Me.Label17.Text = "Castigo (Dolares)"
+        '
+        'TbSumaCastigo
+        '
+        Me.TbSumaCastigo.Location = New System.Drawing.Point(198, 60)
+        Me.TbSumaCastigo.Name = "TbSumaCastigo"
+        Me.TbSumaCastigo.ReadOnly = True
+        Me.TbSumaCastigo.Size = New System.Drawing.Size(227, 29)
+        Me.TbSumaCastigo.TabIndex = 21
+        Me.TbSumaCastigo.Text = "0"
+        Me.TbSumaCastigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'MSMenu
         '
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeCompraItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1119, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1344, 24)
         Me.MSMenu.TabIndex = 29
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -415,9 +373,9 @@ Partial Class CompraPago
         Me.GbCastigos.Controls.Add(Me.TbCastigoxmicro)
         Me.GbCastigos.Controls.Add(Me.Label12)
         Me.GbCastigos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbCastigos.Location = New System.Drawing.Point(880, 427)
+        Me.GbCastigos.Location = New System.Drawing.Point(1113, 427)
         Me.GbCastigos.Name = "GbCastigos"
-        Me.GbCastigos.Size = New System.Drawing.Size(227, 174)
+        Me.GbCastigos.Size = New System.Drawing.Size(227, 183)
         Me.GbCastigos.TabIndex = 30
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Castigos"
@@ -427,6 +385,7 @@ Partial Class CompraPago
         Me.TbCastigoxresistencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbCastigoxresistencia.Location = New System.Drawing.Point(9, 131)
         Me.TbCastigoxresistencia.Name = "TbCastigoxresistencia"
+        Me.TbCastigoxresistencia.ReadOnly = True
         Me.TbCastigoxresistencia.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxresistencia.TabIndex = 5
         Me.TbCastigoxresistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -446,6 +405,7 @@ Partial Class CompraPago
         Me.TbCastigoxlargo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbCastigoxlargo.Location = New System.Drawing.Point(9, 86)
         Me.TbCastigoxlargo.Name = "TbCastigoxlargo"
+        Me.TbCastigoxlargo.ReadOnly = True
         Me.TbCastigoxlargo.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxlargo.TabIndex = 3
         Me.TbCastigoxlargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -465,6 +425,7 @@ Partial Class CompraPago
         Me.TbCastigoxmicro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbCastigoxmicro.Location = New System.Drawing.Point(9, 41)
         Me.TbCastigoxmicro.Name = "TbCastigoxmicro"
+        Me.TbCastigoxmicro.ReadOnly = True
         Me.TbCastigoxmicro.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxmicro.TabIndex = 1
         Me.TbCastigoxmicro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -482,28 +443,17 @@ Partial Class CompraPago
         'GbDatosGenerales
         '
         Me.GbDatosGenerales.BackColor = System.Drawing.Color.Gainsboro
-        Me.GbDatosGenerales.Controls.Add(Me.Button1)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.TbTotalPacas)
         Me.GbDatosGenerales.Controls.Add(Me.TbTotalKilos)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
         Me.GbDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(880, 60)
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(1113, 83)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 361)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 338)
         Me.GbDatosGenerales.TabIndex = 6
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(42, 168)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
         '
         'TbIdCompra
         '
@@ -546,7 +496,7 @@ Partial Class CompraPago
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1119, 611)
+        Me.ClientSize = New System.Drawing.Size(1344, 615)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.GbPagoFinal)
         Me.Controls.Add(Me.GbCastigos)
@@ -592,19 +542,11 @@ Partial Class CompraPago
     Friend WithEvents TbTotalPacas As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents TbTotalKilos As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents TbEfectivo As TextBox
-    Friend WithEvents TbDolares As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents TbSubtotal As TextBox
-    Friend WithEvents TbDescuento As TextBox
     Friend WithEvents TbTotalMxn As TextBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents GbPagoFinal As GroupBox
-    Friend WithEvents ChkBDolares As CheckBox
-    Friend WithEvents ChkBEfectivo As CheckBox
     Friend WithEvents MSMenu As MenuStrip
     Friend WithEvents PagarItem As ToolStripMenuItem
     Friend WithEvents ImpResumenDePacasItem As ToolStripMenuItem
@@ -621,9 +563,12 @@ Partial Class CompraPago
     Friend WithEvents TbCastigoxmicro As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents GbDatosGenerales As GroupBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents TbIdCompra As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents TbIdContrato As TextBox
     Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents TbSumaCastigo As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents TbTotalDls As TextBox
 End Class

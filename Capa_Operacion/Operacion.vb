@@ -51,6 +51,8 @@ Namespace Configuracion
     Public Enum Guardar
         GuardarCompraPacasEnc = 1
         GuardarCompraPacasDet = 2
+        GuardarVentaPacasDet = 3
+        GuardarVentaPacasEnc = 4
     End Enum
     '    '==============================================================================
     '    Public Class Formato
@@ -128,6 +130,7 @@ Namespace Configuracion
         ConsultaCastigoLargoFibra = 64
         ConsultaCastigoResistenciaFibra = 65
         ConsultaCastigoMicros = 66
+        ConsultaLiquidacionesVentas = 67
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -142,6 +145,7 @@ Namespace Configuracion
         ActualizaAlmacen = 4
         ActualizaTipoUsuario = 5
         ActualizaUsuario = 6
+        ActualizaEstatus = 7
     End Enum
     Public Enum Importa
         ImportaTabla = 1

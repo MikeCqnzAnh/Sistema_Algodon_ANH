@@ -22,15 +22,16 @@ Public Class CompraPacasContrato
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", EntidadCompraPacasContrato1.CastigoMicros))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", EntidadCompraPacasContrato1.CastigoLargoFibra))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", EntidadCompraPacasContrato1.CastigoResistenciaFibra))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@TotalPesosMx", EntidadCompraPacasContrato1.TotalPesosMx))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@TotalDlls", EntidadCompraPacasContrato1.TotalDlls))
                     cmdGuardar.Parameters.Add(New SqlParameter("@InteresPesosMx", EntidadCompraPacasContrato1.InteresPesosMx))
                     cmdGuardar.Parameters.Add(New SqlParameter("@InteresDlls", EntidadCompraPacasContrato1.InteresDlls))
                     cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadCompraPacasContrato1.PrecioQuintal))
                     cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintalBorregos", EntidadCompraPacasContrato1.PrecioQuintalBorregos))
                     cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDolar", EntidadCompraPacasContrato1.PrecioDolar))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Descuento", EntidadCompraPacasContrato1.Descuento))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Total", EntidadCompraPacasContrato1.Total))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Subtotal", EntidadCompraPacasContrato1.Subtotal))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoDls", EntidadCompraPacasContrato1.CastigoDls))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@AnticipoDls", EntidadCompraPacasContrato1.AnticipoDls))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@TotalDlls", EntidadCompraPacasContrato1.TotalDlls))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@TotalPesosMx", EntidadCompraPacasContrato1.TotalPesosMx))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatusCompra", EntidadCompraPacasContrato1.IdEstatusCompra))
                     cmdGuardar.Parameters("@IdCompra").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
@@ -175,4 +176,31 @@ Public Class CompraPacasContrato
             EntidadCompraPacasContrato = EntidadCompraPacasContrato1
         End Try
     End Sub
+    Public Overridable Sub Actualizar(ByRef EntidadCompraPacasContrato As Capa_Entidad.CompraPacasContrato)
+        Dim EntidadCompraPacasContrato1 As New Capa_Entidad.CompraPacasContrato
+        EntidadCompraPacasContrato1 = EntidadCompraPacasContrato
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdActualizar As SqlCommand
+        Try
+            cnn.Open()
+            Select Case EntidadCompraPacasContrato1.Actualiza
+                Case Capa_Operacion.Configuracion.Actuliza.ActualizaEstatus
+                    For Each MiTableRow As DataRow In EntidadCompraPacasContrato1.TablaGeneral.Rows
+                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusVentaPaca", cnn)
+                        cmdActualizar.CommandType = CommandType.StoredProcedure
+                        cmdActualizar.Parameters.Clear()
+                        cmdActualizar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
+                        cmdActualizar.Parameters.Add(New SqlParameter("@IdCompraEnc", MiTableRow("IdCompraEnc")))
+                        cmdActualizar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVenta")))
+                        cmdActualizar.ExecuteNonQuery()
+                    Next
+            End Select
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadCompraPacasContrato = EntidadCompraPacasContrato1
+        End Try
+
+    End Sub
+
 End Class
