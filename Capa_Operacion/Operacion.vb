@@ -43,6 +43,7 @@ Namespace Configuracion
         ReporteDatosEmpresa = 3
         ReporteLiquidacionRomaneaje = 4
         ReporteLiquidacionRomaneajeDet = 5
+        ReporteHviDetalle = 6
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -131,6 +132,8 @@ Namespace Configuracion
         ConsultaCastigoResistenciaFibra = 65
         ConsultaCastigoMicros = 66
         ConsultaLiquidacionesVentas = 67
+        ConsultaPacaVendida = 68
+        ConsultaVentaPorNombre = 69
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

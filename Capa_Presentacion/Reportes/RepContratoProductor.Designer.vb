@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class RepContratoProductor
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class RepContratoProductor
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.CRVContratoProductor = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.SuspendLayout()
@@ -34,11 +34,10 @@ Partial Class RepContratoProductor
         Me.CRVContratoProductor.Location = New System.Drawing.Point(0, 0)
         Me.CRVContratoProductor.Name = "CRVContratoProductor"
         Me.CRVContratoProductor.ShowCloseButton = False
-        Me.CRVContratoProductor.ShowCopyButton = False
-        Me.CRVContratoProductor.ShowExportButton = False
         Me.CRVContratoProductor.ShowGroupTreeButton = False
         Me.CRVContratoProductor.ShowLogo = False
         Me.CRVContratoProductor.ShowParameterPanelButton = False
+        Me.CRVContratoProductor.ShowRefreshButton = False
         Me.CRVContratoProductor.Size = New System.Drawing.Size(1100, 598)
         Me.CRVContratoProductor.TabIndex = 0
         Me.CRVContratoProductor.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None

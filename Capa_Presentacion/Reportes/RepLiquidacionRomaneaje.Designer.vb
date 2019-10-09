@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class RepLiquidacionRomaneaje
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,42 +20,32 @@ Partial Class RepLiquidacionRomaneaje
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.CRVLiquidacionRomaneaje = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.CRVLiquidacionRomanea = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.SuspendLayout()
         '
-        'CRVLiquidacionRomaneaje
+        'CRVLiquidacionRomanea
         '
-        Me.CRVLiquidacionRomaneaje.ActiveViewIndex = -1
-        Me.CRVLiquidacionRomaneaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CRVLiquidacionRomaneaje.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CRVLiquidacionRomaneaje.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CRVLiquidacionRomaneaje.Location = New System.Drawing.Point(0, 0)
-        Me.CRVLiquidacionRomaneaje.Name = "CRVLiquidacionRomaneaje"
-        Me.CRVLiquidacionRomaneaje.ShowCloseButton = False
-        Me.CRVLiquidacionRomaneaje.ShowCopyButton = False
-        Me.CRVLiquidacionRomaneaje.ShowExportButton = False
-        Me.CRVLiquidacionRomaneaje.ShowGroupTreeButton = False
-        Me.CRVLiquidacionRomaneaje.ShowLogo = False
-        Me.CRVLiquidacionRomaneaje.ShowParameterPanelButton = False
-        Me.CRVLiquidacionRomaneaje.Size = New System.Drawing.Size(1092, 663)
-        Me.CRVLiquidacionRomaneaje.TabIndex = 1
-        Me.CRVLiquidacionRomaneaje.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        Me.CRVLiquidacionRomanea.ActiveViewIndex = -1
+        Me.CRVLiquidacionRomanea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CRVLiquidacionRomanea.Cursor = System.Windows.Forms.Cursors.Default
+        Me.CRVLiquidacionRomanea.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CRVLiquidacionRomanea.Location = New System.Drawing.Point(0, 0)
+        Me.CRVLiquidacionRomanea.Name = "CRVLiquidacionRomanea"
+        Me.CRVLiquidacionRomanea.Size = New System.Drawing.Size(912, 471)
+        Me.CRVLiquidacionRomanea.TabIndex = 0
         '
         'RepLiquidacionRomaneaje
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1092, 663)
-        Me.Controls.Add(Me.CRVLiquidacionRomaneaje)
+        Me.ClientSize = New System.Drawing.Size(912, 471)
+        Me.Controls.Add(Me.CRVLiquidacionRomanea)
         Me.Name = "RepLiquidacionRomaneaje"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "RepLiquidacionRomaneaje"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents CRVLiquidacionRomaneaje As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents CRVLiquidacionRomanea As CrystalDecisions.Windows.Forms.CrystalReportViewer
 End Class

@@ -30,6 +30,7 @@
     Public FinPaca As Integer
     Public Clase As String
     Public IdEstatusVenta As Integer
+    Public NombreComprador As String
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

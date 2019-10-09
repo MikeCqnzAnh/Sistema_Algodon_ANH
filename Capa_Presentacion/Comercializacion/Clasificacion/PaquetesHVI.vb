@@ -6,8 +6,8 @@ Public Class PaquetesHVI
         'Public Paquete As Integer
         Public NumeroPacas As Integer
         Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
-            ' Call ShowDialog.
-            OpenFileDialog1.FileName = ""
+        'Call ShowDialog.
+        OpenFileDialog1.FileName = ""
             OpenFileDialog1.Filter = "Access Database (*.mdb)|*.mdb| & All Files|*.*"
             Dim result As DialogResult = OpenFileDialog1.ShowDialog()
             If result = DialogResult.OK Then

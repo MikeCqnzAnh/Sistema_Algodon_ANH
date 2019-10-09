@@ -50,6 +50,13 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
                     sqlcom1.Parameters.Add(New SqlParameter("@CheckStatus", EntidadReportes1.CheckStatus))
                     sqldat1.Fill(EntidadReportes1.TablaGeneral)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteHviDetalle
+                    sqlcom1 = New SqlCommand("Sp_ReporteHviDetalle", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadReportes1.IdPaquete))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

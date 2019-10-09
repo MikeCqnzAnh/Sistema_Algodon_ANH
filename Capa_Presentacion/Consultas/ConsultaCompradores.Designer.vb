@@ -32,7 +32,7 @@ Partial Class ConsultaCompradores
         '
         'BtSalir
         '
-        Me.BtSalir.Location = New System.Drawing.Point(352, 14)
+        Me.BtSalir.Location = New System.Drawing.Point(490, 14)
         Me.BtSalir.Name = "BtSalir"
         Me.BtSalir.Size = New System.Drawing.Size(75, 23)
         Me.BtSalir.TabIndex = 20
@@ -41,7 +41,7 @@ Partial Class ConsultaCompradores
         '
         'BtAceptar
         '
-        Me.BtAceptar.Location = New System.Drawing.Point(271, 13)
+        Me.BtAceptar.Location = New System.Drawing.Point(409, 14)
         Me.BtAceptar.Name = "BtAceptar"
         Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
         Me.BtAceptar.TabIndex = 19
@@ -61,7 +61,7 @@ Partial Class ConsultaCompradores
         '
         Me.TbNombre.Location = New System.Drawing.Point(65, 16)
         Me.TbNombre.Name = "TbNombre"
-        Me.TbNombre.Size = New System.Drawing.Size(200, 20)
+        Me.TbNombre.Size = New System.Drawing.Size(338, 20)
         Me.TbNombre.TabIndex = 17
         '
         'DgvConsultaCompradores

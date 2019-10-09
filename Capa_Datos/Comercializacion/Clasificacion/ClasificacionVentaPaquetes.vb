@@ -134,9 +134,11 @@ Public Class ClasificacionVentaPaquetes
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes1.IdPaquete))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes1.IdPlanta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadClasificacionVentaPaquetes1.IdComprador))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdClase", EntidadClasificacionVentaPaquetes1.IdClase))
             cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadClasificacionVentaPaquetes1.CantidadPacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadClasificacionVentaPaquetes1.Descripcion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Entrega", EntidadClasificacionVentaPaquetes1.Entrega))
             cmdGuardar.Parameters.Add(New SqlParameter("@chkrevisado", EntidadClasificacionVentaPaquetes1.chkrevisado))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadClasificacionVentaPaquetes1.IdEstatus))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadClasificacionVentaPaquetes1.IdUsuarioCreacion))

@@ -60,7 +60,17 @@ Public Class ClasificacionVentaPaquetes
         CbClases.ValueMember = "IdClasificacion"
         CbClases.DisplayMember = "ClaveCorta"
         CbClases.SelectedValue = 1
-        '----Estatus
+        '----Compradores
+        Dim EntidadCompradores As New Capa_Entidad.Compradores
+        Dim NegocioCompradores As New Capa_Negocio.Compradores
+        Dim Tabla3 As New DataTable
+        EntidadCompradores.Consulta = Consulta.ConsultaBasica
+        NegocioCompradores.Consultar(EntidadCompradores)
+        Tabla3 = EntidadCompradores.TablaConsulta
+        CbComprador.DataSource = Tabla3
+        CbComprador.ValueMember = "IdComprador"
+        CbComprador.DisplayMember = "Nombre"
+        CbComprador.SelectedIndex = -1
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
         dt.Columns.Add("IdEstatus")
@@ -92,6 +102,8 @@ Public Class ClasificacionVentaPaquetes
         TbCantidadPacas.Text = ""
         NuPromedioUI.Value = 0
         DgvPacasClasificacion1.Enabled = True
+        TbEntrega.Text = ""
+        CbComprador.SelectedIndex = -1
     End Sub
     Private Sub CreaTabla()
         TablaClasificacionGrid.Columns.Clear()
@@ -601,9 +613,11 @@ Public Class ClasificacionVentaPaquetes
         Else
             EntidadClasificacionVentaPaquetes.IdPaquete = IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text)
             EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
+            EntidadClasificacionVentaPaquetes.IdComprador = CbComprador.SelectedValue
             EntidadClasificacionVentaPaquetes.IdClase = CbClases.SelectedValue
             EntidadClasificacionVentaPaquetes.CantidadPacas = TbCantidadPacas.Text
-            EntidadClasificacionVentaPaquetes.Descripcion = TbDescripcion.Text
+            EntidadClasificacionVentaPaquetes.Descripcion = CbClases.Text & "-" & TbIdPaquete.Text
+            EntidadClasificacionVentaPaquetes.Entrega = TbEntrega.Text
             EntidadClasificacionVentaPaquetes.chkrevisado = chkfinalizado.Checked
             EntidadClasificacionVentaPaquetes.IdEstatus = CbEstatus.SelectedValue
             EntidadClasificacionVentaPaquetes.IdUsuarioCreacion = 1
@@ -658,9 +672,11 @@ Public Class ClasificacionVentaPaquetes
             If Tabla.Rows.Count <> 0 Then
                 TbIdPaquete.Text = Tabla.Rows(0).Item("IdPaquete")
                 CbPlanta.SelectedValue = Tabla.Rows(0).Item("IdPlanta")
+                CbComprador.SelectedValue = Tabla.Rows(0).Item("IdComprador")
                 CbClases.SelectedValue = Tabla.Rows(0).Item("IdClase")
                 TbCantidadPacas.Text = Tabla.Rows(0).Item("CantidadPacas")
                 TbDescripcion.Text = Tabla.Rows(0).Item("Descripcion")
+                TbEntrega.Text = Tabla.Rows(0).Item("Entrega")
                 chkfinalizado.Checked = Tabla.Rows(0).Item("chkrevisado")
                 CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
                 EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPorId
@@ -685,11 +701,9 @@ Public Class ClasificacionVentaPaquetes
         desmarcaCheck()
         ContarPacas()
     End Sub
-
     Private Sub chkfinalizado_CheckedChanged(sender As Object, e As EventArgs) Handles chkfinalizado.CheckedChanged
         Dim index As Integer
         If chkfinalizado.Checked = True Then
-
             For Each row As DataGridViewRow In DgvPacasClasificacion1.Rows
                 index = Convert.ToUInt64(row.Index)
                 DgvPacasClasificacion1.Rows(index).Cells("FlagTerminado").Value = True
@@ -701,7 +715,6 @@ Public Class ClasificacionVentaPaquetes
             Next
         End If
     End Sub
-
     Function ExistePacaProduccion(ByVal IdPaca As Integer) As Boolean
         Dim Tabla As New DataTable
         Dim resultado As Boolean
@@ -759,6 +772,77 @@ Public Class ClasificacionVentaPaquetes
             IdPaqueteEncabezadoVerifica = Tabla.Rows(0).Item("IdPaqueteEncabezado")
         End If
         Return Resultado
+    End Function
+
+    Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
+        VarGlob2.TablaExporta = Datagridtotable(DgvPacasClasificacion1)
+        'VarGlob2.DgvExportaExcel.DataSource = DgvPacasClasificacion1
+        RepClasificacion.ShowDialog()
+    End Sub
+
+    Private Function Datagridtotable(ByVal DgvExporta As DataGridView)
+        Dim dt As New DataTable
+        Dim r As DataRow
+
+        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("SCI", Type.GetType("System.Single"))
+        dt.Columns.Add("Grade", Type.GetType("System.String"))
+        dt.Columns.Add("Moist", Type.GetType("System.Single"))
+        dt.Columns.Add("Mic", Type.GetType("System.Single"))
+        dt.Columns.Add("Maturity", Type.GetType("System.Single"))
+        dt.Columns.Add("UHML", Type.GetType("System.Single"))
+        dt.Columns.Add("UI", Type.GetType("System.Single"))
+        dt.Columns.Add("SFI", Type.GetType("System.Single"))
+        dt.Columns.Add("Strength", Type.GetType("System.Single"))
+        dt.Columns.Add("Elongation", Type.GetType("System.Single"))
+        dt.Columns.Add("RD", Type.GetType("System.Single"))
+        dt.Columns.Add("PlusB", Type.GetType("System.Single"))
+        dt.Columns.Add("ColorGrade", Type.GetType("System.String"))
+        dt.Columns.Add("TrashCount", Type.GetType("System.Int32"))
+        dt.Columns.Add("TrashArea", Type.GetType("System.Single"))
+        dt.Columns.Add("TrashID", Type.GetType("System.Int32"))
+        dt.Columns.Add("Amount", Type.GetType("System.Int32"))
+
+        For i = 0 To DgvExporta.Rows.Count - 1
+            r = dt.NewRow
+            r("BaleID") = DgvExporta.Item("BaleID", i).Value.ToString
+            r("SCI") = DgvExporta.Item("SCI", i).Value.ToString
+            r("Grade") = DgvExporta.Item("Grade", i).Value.ToString
+            r("Moist") = DgvExporta.Item("Moist", i).Value.ToString
+            r("Mic") = DgvExporta.Item("Mic", i).Value.ToString
+            r("Maturity") = DgvExporta.Item("Maturity", i).Value.ToString
+            r("UHML") = DgvExporta.Item("UHML", i).Value.ToString
+            r("UI") = DgvExporta.Item("UI", i).Value.ToString
+            r("SFI") = DgvExporta.Item("SFI", i).Value.ToString
+            r("Strength") = DgvExporta.Item("Strength", i).Value.ToString
+            r("Elongation") = DgvExporta.Item("Elongation", i).Value.ToString
+            r("RD") = DgvExporta.Item("RD", i).Value.ToString
+            r("PlusB") = DgvExporta.Item("PlusB", i).Value.ToString
+            r("ColorGrade") = DgvExporta.Item("ColorGrade", i).Value.ToString
+            r("TrashCount") = DgvExporta.Item("TrashCount", i).Value.ToString
+            r("TrashArea") = DgvExporta.Item("TrashArea", i).Value.ToString
+            r("TrashID") = DgvExporta.Item("TrashID", i).Value.ToString
+            r("Amount") = DgvExporta.Item("Amount", i).Value.ToString
+            dt.Rows.Add(r)
+        Next
+        Return dt
+    End Function
+
+    Private Function Clonar_DGV(ByVal pDgv As DataGridView) As DataGridView
+        Dim dg2 As New DataGridView
+        With pDgv
+            For n As Integer = 0 To .ColumnCount - 1
+                dg2.Columns.Insert(n, .Columns(n).Clone)
+            Next
+            For m As Integer = 0 To .Rows.Count - 1
+                dg2.Rows.Add()
+                For n2 As Integer = 0 To .ColumnCount - 1
+                    dg2.Rows(m).Cells(n2).Value = .Rows(m).Cells(n2).Value
+                Next
+            Next
+            dg2.Location = New Point(.Right + 10, .Location.Y)
+        End With
+        Return dg2
     End Function
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdPaquete.KeyPress, TbNoPaca.KeyPress
         If Char.IsDigit(e.KeyChar) Then

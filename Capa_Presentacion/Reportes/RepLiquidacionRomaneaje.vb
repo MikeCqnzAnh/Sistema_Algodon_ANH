@@ -43,6 +43,6 @@ Public Class RepLiquidacionRomaneaje
         CrReport.Load(Ruta)
         CrReport.SetDataSource(ds.Tables("table1"))
         CrReport.Subreports("SubReporteRomaneaje").SetDataSource(ds.Tables("Table2"))
-        CRVLiquidacionRomaneaje.ReportSource = CrReport
+        CRVLiquidacionRomanea.ReportSource = CrReport
     End Sub
 End Class

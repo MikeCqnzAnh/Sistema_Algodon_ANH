@@ -6,5 +6,6 @@
     Public IdLiquidacionRomaneaje As Integer
     Public IdOrdenTrabajo As Integer
     Public CheckStatus As Boolean
+    Public IdPaquete As Integer
     '------------------------------
 End Class

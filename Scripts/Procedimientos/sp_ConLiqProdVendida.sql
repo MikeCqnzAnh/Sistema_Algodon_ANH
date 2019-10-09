@@ -1,20 +1,18 @@
 CREATE procedure sp_ConLiqProdVendida
---declare
+--DECLARE
+@IdVenta int,
 @Seleccionar bit = 0 
 as
 select LR.IdLiquidacion,
-	   lr.TotalHueso,
+	   LR.TotalHueso,
 	   count(cc.BaleID)as PacasCantidad,
 	   count(case when cc.EstatusVenta = 1 then cc.BaleID end)  as PacasDisponibles,
 	   count(case when cc.EstatusVenta = 2 then cc.BaleID end)  as PacasVendidas,
-	   sum(pd.Kilos) as PesoPluma,
+	   sum(isnull(CC.KilosVenta,0)) as PesoPluma,
 	   lr.TotalSemilla,
-	   @Seleccionar as Seleccionar
-		from Produccion pr inner join ProduccionDetalle pd 
-		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
-		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
-		on pd.IdPlantaOrigen = Pl.IdPlanta
-		where cc.FlagTerminado = 1 
+	   @Seleccionar as Seleccionar 
+from liquidacionesporromaneaje LR right join CalculoClasificacion CC
+on LR.IdOrdenTrabajo = CC.IdOrdenTrabajo
+where cc.FlagTerminado = 1 and cc.IdVentaEnc = @IdVenta
 		group by LR.IdLiquidacion,lr.TotalHueso, lr.TotalSemilla
 		having   count(case when cc.EstatusVenta = 2 then cc.BaleID end) > 0

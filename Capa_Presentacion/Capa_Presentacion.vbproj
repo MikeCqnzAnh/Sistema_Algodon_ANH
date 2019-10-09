@@ -88,10 +88,10 @@
     <ApplicationIcon>Iconos\logo cotton2 %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -172,7 +172,7 @@
     <Compile Include="Almacenes\SalidaSemilla.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BanxicoModulo.vb" />
+    <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
     <Compile Include="CambiarClave.Designer.vb">
       <DependentUpon>CambiarClave.vb</DependentUpon>
     </Compile>
@@ -197,7 +197,7 @@
     <Compile Include="Catalogos\Camiones.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CargaBitacora.vb" />
+    <Compile Include="Modulos Funciones\CargaBitacora.vb" />
     <Compile Include="Catalogos\CastigoLargoFibra.Designer.vb">
       <DependentUpon>CastigoLargoFibra.vb</DependentUpon>
     </Compile>
@@ -342,7 +342,14 @@
     <Compile Include="Consultas\ConsultaProductorContratoCompras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaVentas.Designer.vb">
+      <DependentUpon>ConsultaVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Interfaces\IForm.vb" />
+    <Compile Include="Interfaces\IForm1.vb" />
     <Compile Include="Reportes\RepContratoProductor.Designer.vb">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </Compile>
@@ -361,10 +368,28 @@
       <DependentUpon>RPTColumnasEncabezado.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTContratoBE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTContratoBE.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTContratoBuenaEsperanza.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTContratoBuenaEsperanza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTHviDetalle.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTHviDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTClasificacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTClasificacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTLiquidacionRomaneaje.vb">
@@ -377,6 +402,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTLiquidacionRomaneajeDet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTReporteClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilerias\Roles.Designer.vb">
@@ -565,7 +596,7 @@
     <Compile Include="Consultas\ConsultaTierrasChecks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExportaExcel.vb" />
+    <Compile Include="Modulos Funciones\ExportaExcel.vb" />
     <Compile Include="MenuPrincipal.Designer.vb">
       <DependentUpon>MenuPrincipal.vb</DependentUpon>
     </Compile>
@@ -659,23 +690,6 @@
     <Compile Include="Reportes\RepClientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\RPT\REPORTE HVI DETALLE.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>REPORTE HVI DETALLE.rpt</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\RPT\RPTClasificacion.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPTClasificacion.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
-      <DependentUpon>RPTReporteClientes.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Utilerias\Bitacora.Designer.vb">
       <DependentUpon>Bitacora.vb</DependentUpon>
     </Compile>
@@ -743,8 +757,8 @@
     <Compile Include="Utilerias\SeleccionaConexion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VarGlob.vb" />
-    <Compile Include="VarGlob2.vb" />
+    <Compile Include="Modulos Funciones\VarGlob.vb" />
+    <Compile Include="Modulos Funciones\VarGlob2.vb" />
     <Compile Include="Web References\WebServiceBanxico\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -856,6 +870,9 @@
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
+      <DependentUpon>ConsultaVentas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </EmbeddedResource>
@@ -866,9 +883,21 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTColumnasEncabezado.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTContratoBE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTContratoBE.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTContratoBuenaEsperanza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTContratoBuenaEsperanza.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTHviDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTHviDetalle.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTClasificacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTClasificacion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneaje.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -877,6 +906,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTLiquidacionRomaneajeDet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTReporteClientes.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Roles.resx">
       <DependentUpon>Roles.vb</DependentUpon>
@@ -1016,18 +1049,6 @@
     <EmbeddedResource Include="Reportes\RepClientes.resx">
       <DependentUpon>RepClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\RPT\REPORTE HVI DETALLE.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>REPORTE HVI DETALLE.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\RPT\RPTClasificacion.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPTClasificacion.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPTReporteClientes.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Bitacora.resx">
       <DependentUpon>Bitacora.vb</DependentUpon>
     </EmbeddedResource>
@@ -1084,7 +1105,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\WebServiceBanxico\DgieWS.wsdl" />
     <None Include="Web References\WebServiceBanxico\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

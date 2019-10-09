@@ -1,7 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ConsultaCompraProductor
     Private formOpener As IForm
-
     Public Property Opener() As IForm
         Get
             Return formOpener

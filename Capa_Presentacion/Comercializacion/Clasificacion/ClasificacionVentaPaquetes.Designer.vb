@@ -29,13 +29,18 @@ Partial Class ClasificacionVentaPaquetes
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.TbIdPaquete = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TbEntrega = New System.Windows.Forms.TextBox()
         Me.TbCantidadPacas = New System.Windows.Forms.TextBox()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
+        Me.CbComprador = New System.Windows.Forms.ComboBox()
         Me.CbClases = New System.Windows.Forms.ComboBox()
         Me.TbNoPaca = New System.Windows.Forms.TextBox()
         Me.CbPlanta = New System.Windows.Forms.ComboBox()
         Me.BtIgualarClasificacion = New System.Windows.Forms.Button()
         Me.BtRevisarClases = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -46,13 +51,13 @@ Partial Class ClasificacionVentaPaquetes
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimirClasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarPacasSeleccionadasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.GbDgv = New System.Windows.Forms.GroupBox()
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GbProductos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -69,14 +74,18 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbProductos.Controls.Add(Me.CbEstatus)
         Me.GbProductos.Controls.Add(Me.TbIdPaquete)
         Me.GbProductos.Controls.Add(Me.Label6)
+        Me.GbProductos.Controls.Add(Me.TbEntrega)
         Me.GbProductos.Controls.Add(Me.TbCantidadPacas)
         Me.GbProductos.Controls.Add(Me.TbDescripcion)
+        Me.GbProductos.Controls.Add(Me.CbComprador)
         Me.GbProductos.Controls.Add(Me.CbClases)
         Me.GbProductos.Controls.Add(Me.TbNoPaca)
         Me.GbProductos.Controls.Add(Me.CbPlanta)
         Me.GbProductos.Controls.Add(Me.BtIgualarClasificacion)
         Me.GbProductos.Controls.Add(Me.BtRevisarClases)
         Me.GbProductos.Controls.Add(Me.Label3)
+        Me.GbProductos.Controls.Add(Me.Label10)
+        Me.GbProductos.Controls.Add(Me.Label9)
         Me.GbProductos.Controls.Add(Me.Label7)
         Me.GbProductos.Controls.Add(Me.Label5)
         Me.GbProductos.Controls.Add(Me.Label4)
@@ -144,6 +153,15 @@ Partial Class ClasificacionVentaPaquetes
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "ID"
         '
+        'TbEntrega
+        '
+        Me.TbEntrega.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbEntrega.Location = New System.Drawing.Point(722, 41)
+        Me.TbEntrega.Name = "TbEntrega"
+        Me.TbEntrega.Size = New System.Drawing.Size(91, 20)
+        Me.TbEntrega.TabIndex = 5
+        Me.TbEntrega.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'TbCantidadPacas
         '
         Me.TbCantidadPacas.Enabled = False
@@ -164,6 +182,14 @@ Partial Class ClasificacionVentaPaquetes
         Me.TbDescripcion.Size = New System.Drawing.Size(91, 20)
         Me.TbDescripcion.TabIndex = 5
         Me.TbDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CbComprador
+        '
+        Me.CbComprador.FormattingEnabled = True
+        Me.CbComprador.Location = New System.Drawing.Point(722, 12)
+        Me.CbComprador.Name = "CbComprador"
+        Me.CbComprador.Size = New System.Drawing.Size(223, 21)
+        Me.CbComprador.TabIndex = 4
         '
         'CbClases
         '
@@ -208,6 +234,34 @@ Partial Class ClasificacionVentaPaquetes
         Me.BtRevisarClases.TabIndex = 1
         Me.BtRevisarClases.Text = "Revisar Clases De  Paquete"
         Me.BtRevisarClases.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(447, 81)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(65, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Promedio UI"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(658, 16)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(58, 13)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Comprador"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(658, 46)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Entrega"
         '
         'Label7
         '
@@ -256,7 +310,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ImprimirClasesToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1561, 24)
@@ -286,6 +340,12 @@ Partial Class ClasificacionVentaPaquetes
         Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
         Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ImprimirToolStripMenuItem.Text = "Imprimir"
+        '
+        'ImprimirClasesToolStripMenuItem
+        '
+        Me.ImprimirClasesToolStripMenuItem.Name = "ImprimirClasesToolStripMenuItem"
+        Me.ImprimirClasesToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
+        Me.ImprimirClasesToolStripMenuItem.Text = "Imprimir Clases"
         '
         'EliminarPacasSeleccionadasToolStripMenuItem
         '
@@ -337,15 +397,6 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.Sel.HeaderText = "Seleccion"
         Me.Sel.Name = "Sel"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(447, 81)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Promedio UI"
         '
         'ClasificacionVentaPaquetes
         '
@@ -406,6 +457,13 @@ Partial Class ClasificacionVentaPaquetes
     Friend WithEvents chkfinalizado As CheckBox
     Friend WithEvents NuPromedioUI As NumericUpDown
     Friend WithEvents Label3 As Label
+    Friend WithEvents TbEntrega As TextBox
+
+    Friend WithEvents Label9 As Label
+    Friend WithEvents CbComprador As ComboBox
+
+    Friend WithEvents Label10 As Label
+    Friend WithEvents ImprimirClasesToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlus
         Inherits DataGridView

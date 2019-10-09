@@ -54,6 +54,7 @@ Public Class VentaPacasContrato
 
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVentaUpdate")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaBusqueda", MiTableRow("EstatusVentaBusqueda")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@KgAd", MiTableRow("KgAd")))
                         cmdGuardar.ExecuteNonQuery()
                     Next
             End Select
@@ -103,12 +104,33 @@ Public Class VentaPacasContrato
                     sqlcom1.Parameters.Add(New SqlParameter("@PacaFin", EntidadVentaPacasContrato1.FinPaca))
                     sqlcom1.Parameters.Add(New SqlParameter("@Clase", EntidadVentaPacasContrato1.Clase))
                     sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaComprada
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaVendida
                     sqlcom1 = New SqlCommand("sp_ConPacaVendida", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVentaEnc", EntidadVentaPacasContrato1.IdVenta))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacasCantidadDisponible
+                    sqlcom1 = New SqlCommand("sp_ConsultaDisponibilidadPacasVentas", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLiquidacionesVentas
+                    sqlcom1 = New SqlCommand("sp_ConLiqProdVendida", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaVentaPorNombre
+                    sqlcom1 = New SqlCommand("Sp_ConsultaVenta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadVentaPacasContrato1.NombreComprador))
                     sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
             End Select
         Catch ex As Exception

@@ -186,7 +186,7 @@ Public Class CompraPacasContrato
             Select Case EntidadCompraPacasContrato1.Actualiza
                 Case Capa_Operacion.Configuracion.Actuliza.ActualizaEstatus
                     For Each MiTableRow As DataRow In EntidadCompraPacasContrato1.TablaGeneral.Rows
-                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusVentaPaca", cnn)
+                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusPaca", cnn)
                         cmdActualizar.CommandType = CommandType.StoredProcedure
                         cmdActualizar.Parameters.Clear()
                         cmdActualizar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))

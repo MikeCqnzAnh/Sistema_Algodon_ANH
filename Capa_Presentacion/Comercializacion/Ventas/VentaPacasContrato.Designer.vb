@@ -27,30 +27,34 @@ Partial Class VentaPacasContrato
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.DgvContratos = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TbKdAd = New System.Windows.Forms.TextBox()
+        Me.CkKgAdd = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TbIdVentaPaca = New System.Windows.Forms.TextBox()
         Me.BtnBuscarProd = New System.Windows.Forms.Button()
+        Me.TbIdComprador = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.CbPlanta = New System.Windows.Forms.ComboBox()
         Me.TbNoPacas = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
-        Me.BtCastLarFib = New System.Windows.Forms.Button()
+        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.BtCastigoMicros = New System.Windows.Forms.Button()
-        Me.BtCastigoResFibra = New System.Windows.Forms.Button()
-        Me.BtModalidadVenta = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.DtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.TbPrecioQuintal = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.TbNombreComprador = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbHastaPaca = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.DtpFecha = New System.Windows.Forms.DateTimePicker()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.CbPlanta = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbIdComprador = New System.Windows.Forms.TextBox()
-        Me.TbIdVentaPaca = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtModalidadVenta = New System.Windows.Forms.Button()
+        Me.BtCastigoResFibra = New System.Windows.Forms.Button()
+        Me.BtCastigoMicros = New System.Windows.Forms.Button()
+        Me.BtCastLarFib = New System.Windows.Forms.Button()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,8 +67,6 @@ Partial Class VentaPacasContrato
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TbKilosComp = New System.Windows.Forms.TextBox()
         Me.TbPacasComp = New System.Windows.Forms.TextBox()
-        Me.TbPacasMarc = New System.Windows.Forms.TextBox()
-        Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TbPacasCompCont = New System.Windows.Forms.TextBox()
         Me.TbPacasDisp = New System.Windows.Forms.TextBox()
@@ -77,8 +79,6 @@ Partial Class VentaPacasContrato
         Me.DgvAgrupadasCliente = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.TcCompras = New System.Windows.Forms.TabControl()
         Me.TP1LiquidacionesAVender = New System.Windows.Forms.TabPage()
@@ -114,8 +114,8 @@ Partial Class VentaPacasContrato
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TbHastaPacaCompra = New System.Windows.Forms.TextBox()
         Me.GbCompraActual = New System.Windows.Forms.GroupBox()
+        Me.TbPacasMarc = New System.Windows.Forms.TextBox()
         Me.TbKilosSeleccionados = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -124,6 +124,8 @@ Partial Class VentaPacasContrato
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.MSMenu.SuspendLayout()
         Me.GbCompras.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -132,8 +134,6 @@ Partial Class VentaPacasContrato
         Me.GroupBox2.SuspendLayout()
         CType(Me.DgvAgrupadasCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TcCompras.SuspendLayout()
         Me.TP1LiquidacionesAVender.SuspendLayout()
@@ -167,9 +167,9 @@ Partial Class VentaPacasContrato
         '
         Me.GroupBox6.Controls.Add(Me.DgvContratos)
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox6.Location = New System.Drawing.Point(666, 16)
+        Me.GroupBox6.Location = New System.Drawing.Point(749, 16)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(892, 160)
+        Me.GroupBox6.Size = New System.Drawing.Size(809, 160)
         Me.GroupBox6.TabIndex = 2
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Contratos"
@@ -191,7 +191,7 @@ Partial Class VentaPacasContrato
         Me.DgvContratos.RowHeadersVisible = False
         Me.DgvContratos.RowHeadersWidth = 40
         Me.DgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratos.Size = New System.Drawing.Size(886, 141)
+        Me.DgvContratos.Size = New System.Drawing.Size(803, 141)
         Me.DgvContratos.TabIndex = 12
         '
         'GroupBox5
@@ -203,9 +203,76 @@ Partial Class VentaPacasContrato
         Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox5.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(663, 160)
+        Me.GroupBox5.Size = New System.Drawing.Size(746, 160)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.TbKdAd)
+        Me.Panel3.Controls.Add(Me.CkKgAdd)
+        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Controls.Add(Me.TbIdVentaPaca)
+        Me.Panel3.Controls.Add(Me.BtnBuscarProd)
+        Me.Panel3.Controls.Add(Me.TbIdComprador)
+        Me.Panel3.Controls.Add(Me.Label6)
+        Me.Panel3.Controls.Add(Me.CbPlanta)
+        Me.Panel3.Controls.Add(Me.TbNoPacas)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.TbIdContrato)
+        Me.Panel3.Controls.Add(Me.TbDesdePaca)
+        Me.Panel3.Controls.Add(Me.Label12)
+        Me.Panel3.Controls.Add(Me.Label10)
+        Me.Panel3.Controls.Add(Me.Label14)
+        Me.Panel3.Controls.Add(Me.DtpFecha)
+        Me.Panel3.Controls.Add(Me.TbPrecioQuintal)
+        Me.Panel3.Controls.Add(Me.Label11)
+        Me.Panel3.Controls.Add(Me.TbNombreComprador)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.TbHastaPaca)
+        Me.Panel3.Location = New System.Drawing.Point(4, 9)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(595, 151)
+        Me.Panel3.TabIndex = 57
+        '
+        'TbKdAd
+        '
+        Me.TbKdAd.Location = New System.Drawing.Point(507, 82)
+        Me.TbKdAd.Name = "TbKdAd"
+        Me.TbKdAd.Size = New System.Drawing.Size(72, 20)
+        Me.TbKdAd.TabIndex = 57
+        Me.TbKdAd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbKdAd.Visible = False
+        '
+        'CkKgAdd
+        '
+        Me.CkKgAdd.AutoSize = True
+        Me.CkKgAdd.Location = New System.Drawing.Point(507, 58)
+        Me.CkKgAdd.Name = "CkKgAdd"
+        Me.CkKgAdd.Size = New System.Drawing.Size(55, 17)
+        Me.CkKgAdd.TabIndex = 56
+        Me.CkKgAdd.Text = "Kg Ad"
+        Me.CkKgAdd.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "ID Venta"
+        Me.Label1.UseWaitCursor = True
+        '
+        'TbIdVentaPaca
+        '
+        Me.TbIdVentaPaca.Enabled = False
+        Me.TbIdVentaPaca.Location = New System.Drawing.Point(68, 4)
+        Me.TbIdVentaPaca.Name = "TbIdVentaPaca"
+        Me.TbIdVentaPaca.Size = New System.Drawing.Size(99, 20)
+        Me.TbIdVentaPaca.TabIndex = 17
+        Me.TbIdVentaPaca.UseWaitCursor = True
         '
         'BtnBuscarProd
         '
@@ -216,6 +283,14 @@ Partial Class VentaPacasContrato
         Me.BtnBuscarProd.Text = "..."
         Me.BtnBuscarProd.UseVisualStyleBackColor = True
         '
+        'TbIdComprador
+        '
+        Me.TbIdComprador.Enabled = False
+        Me.TbIdComprador.Location = New System.Drawing.Point(68, 30)
+        Me.TbIdComprador.Name = "TbIdComprador"
+        Me.TbIdComprador.Size = New System.Drawing.Size(75, 20)
+        Me.TbIdComprador.TabIndex = 18
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -225,6 +300,14 @@ Partial Class VentaPacasContrato
         Me.Label6.TabIndex = 46
         Me.Label6.Text = "No. Pacas"
         '
+        'CbPlanta
+        '
+        Me.CbPlanta.FormattingEnabled = True
+        Me.CbPlanta.Location = New System.Drawing.Point(68, 56)
+        Me.CbPlanta.Name = "CbPlanta"
+        Me.CbPlanta.Size = New System.Drawing.Size(139, 21)
+        Me.CbPlanta.TabIndex = 20
+        '
         'TbNoPacas
         '
         Me.TbNoPacas.Enabled = False
@@ -232,6 +315,15 @@ Partial Class VentaPacasContrato
         Me.TbNoPacas.Name = "TbNoPacas"
         Me.TbNoPacas.Size = New System.Drawing.Size(202, 20)
         Me.TbNoPacas.TabIndex = 39
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 59)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(37, 13)
+        Me.Label2.TabIndex = 22
+        Me.Label2.Text = "Planta"
         '
         'TbIdContrato
         '
@@ -241,17 +333,13 @@ Partial Class VentaPacasContrato
         Me.TbIdContrato.Size = New System.Drawing.Size(202, 20)
         Me.TbIdContrato.TabIndex = 34
         '
-        'BtCastLarFib
+        'TbDesdePaca
         '
-        Me.BtCastLarFib.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastLarFib.Location = New System.Drawing.Point(69, 69)
-        Me.BtCastLarFib.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastLarFib.MinimumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastLarFib.Name = "BtCastLarFib"
-        Me.BtCastLarFib.Size = New System.Drawing.Size(60, 60)
-        Me.BtCastLarFib.TabIndex = 54
-        Me.BtCastLarFib.Text = "Castigos por largo de fibra"
-        Me.BtCastLarFib.UseVisualStyleBackColor = True
+        Me.TbDesdePaca.Enabled = False
+        Me.TbDesdePaca.Location = New System.Drawing.Point(68, 110)
+        Me.TbDesdePaca.Name = "TbDesdePaca"
+        Me.TbDesdePaca.Size = New System.Drawing.Size(45, 20)
+        Me.TbDesdePaca.TabIndex = 25
         '
         'Label12
         '
@@ -262,41 +350,14 @@ Partial Class VentaPacasContrato
         Me.Label12.TabIndex = 37
         Me.Label12.Text = "Id Contrato"
         '
-        'BtCastigoMicros
+        'Label10
         '
-        Me.BtCastigoMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoMicros.Location = New System.Drawing.Point(3, 69)
-        Me.BtCastigoMicros.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoMicros.MinimumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoMicros.Name = "BtCastigoMicros"
-        Me.BtCastigoMicros.Size = New System.Drawing.Size(60, 60)
-        Me.BtCastigoMicros.TabIndex = 53
-        Me.BtCastigoMicros.Text = "Castigo por micros"
-        Me.BtCastigoMicros.UseVisualStyleBackColor = True
-        '
-        'BtCastigoResFibra
-        '
-        Me.BtCastigoResFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoResFibra.Location = New System.Drawing.Point(69, 3)
-        Me.BtCastigoResFibra.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoResFibra.MinimumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoResFibra.Name = "BtCastigoResFibra"
-        Me.BtCastigoResFibra.Size = New System.Drawing.Size(60, 60)
-        Me.BtCastigoResFibra.TabIndex = 52
-        Me.BtCastigoResFibra.Text = "Castigos por resistencia de fibra"
-        Me.BtCastigoResFibra.UseVisualStyleBackColor = True
-        '
-        'BtModalidadVenta
-        '
-        Me.BtModalidadVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtModalidadVenta.Location = New System.Drawing.Point(3, 3)
-        Me.BtModalidadVenta.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtModalidadVenta.MinimumSize = New System.Drawing.Size(60, 60)
-        Me.BtModalidadVenta.Name = "BtModalidadVenta"
-        Me.BtModalidadVenta.Size = New System.Drawing.Size(60, 60)
-        Me.BtModalidadVenta.TabIndex = 51
-        Me.BtModalidadVenta.Text = "Modalidad de Venta"
-        Me.BtModalidadVenta.UseVisualStyleBackColor = True
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 113)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(59, 13)
+        Me.Label10.TabIndex = 26
+        Me.Label10.Text = "De la paca"
         '
         'Label14
         '
@@ -307,6 +368,14 @@ Partial Class VentaPacasContrato
         Me.Label14.TabIndex = 48
         Me.Label14.Text = "Precio Quintal"
         '
+        'DtpFecha
+        '
+        Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtpFecha.Location = New System.Drawing.Point(68, 84)
+        Me.DtpFecha.Name = "DtpFecha"
+        Me.DtpFecha.Size = New System.Drawing.Size(139, 20)
+        Me.DtpFecha.TabIndex = 29
+        '
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
@@ -315,6 +384,15 @@ Partial Class VentaPacasContrato
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(202, 20)
         Me.TbPrecioQuintal.TabIndex = 44
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(126, 113)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(25, 13)
+        Me.Label11.TabIndex = 28
+        Me.Label11.Text = "A la"
+        '
         'TbNombreComprador
         '
         Me.TbNombreComprador.Enabled = False
@@ -322,6 +400,15 @@ Partial Class VentaPacasContrato
         Me.TbNombreComprador.Name = "TbNombreComprador"
         Me.TbNombreComprador.Size = New System.Drawing.Size(305, 20)
         Me.TbNombreComprador.TabIndex = 39
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(3, 85)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "Fecha"
         '
         'Label5
         '
@@ -340,92 +427,64 @@ Partial Class VentaPacasContrato
         Me.TbHastaPaca.Size = New System.Drawing.Size(45, 20)
         Me.TbHastaPaca.TabIndex = 31
         '
-        'Label4
+        'Panel2
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 85)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
-        Me.Label4.TabIndex = 30
-        Me.Label4.Text = "Fecha"
+        Me.Panel2.Controls.Add(Me.BtModalidadVenta)
+        Me.Panel2.Controls.Add(Me.BtCastigoResFibra)
+        Me.Panel2.Controls.Add(Me.BtCastigoMicros)
+        Me.Panel2.Controls.Add(Me.BtCastLarFib)
+        Me.Panel2.Location = New System.Drawing.Point(605, 13)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(135, 141)
+        Me.Panel2.TabIndex = 56
         '
-        'Label11
+        'BtModalidadVenta
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(126, 113)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(25, 13)
-        Me.Label11.TabIndex = 28
-        Me.Label11.Text = "A la"
+        Me.BtModalidadVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtModalidadVenta.Location = New System.Drawing.Point(3, 3)
+        Me.BtModalidadVenta.MaximumSize = New System.Drawing.Size(60, 60)
+        Me.BtModalidadVenta.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtModalidadVenta.Name = "BtModalidadVenta"
+        Me.BtModalidadVenta.Size = New System.Drawing.Size(60, 60)
+        Me.BtModalidadVenta.TabIndex = 51
+        Me.BtModalidadVenta.Text = "Modalidad de Venta"
+        Me.BtModalidadVenta.UseVisualStyleBackColor = True
         '
-        'DtpFecha
+        'BtCastigoResFibra
         '
-        Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpFecha.Location = New System.Drawing.Point(68, 84)
-        Me.DtpFecha.Name = "DtpFecha"
-        Me.DtpFecha.Size = New System.Drawing.Size(139, 20)
-        Me.DtpFecha.TabIndex = 29
+        Me.BtCastigoResFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtCastigoResFibra.Location = New System.Drawing.Point(69, 3)
+        Me.BtCastigoResFibra.MaximumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoResFibra.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoResFibra.Name = "BtCastigoResFibra"
+        Me.BtCastigoResFibra.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastigoResFibra.TabIndex = 52
+        Me.BtCastigoResFibra.Text = "Castigos por resistencia de fibra"
+        Me.BtCastigoResFibra.UseVisualStyleBackColor = True
         '
-        'Label10
+        'BtCastigoMicros
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 113)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 13)
-        Me.Label10.TabIndex = 26
-        Me.Label10.Text = "De la paca"
+        Me.BtCastigoMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtCastigoMicros.Location = New System.Drawing.Point(3, 69)
+        Me.BtCastigoMicros.MaximumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoMicros.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoMicros.Name = "BtCastigoMicros"
+        Me.BtCastigoMicros.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastigoMicros.TabIndex = 53
+        Me.BtCastigoMicros.Text = "Castigo por micros"
+        Me.BtCastigoMicros.UseVisualStyleBackColor = True
         '
-        'TbDesdePaca
+        'BtCastLarFib
         '
-        Me.TbDesdePaca.Enabled = False
-        Me.TbDesdePaca.Location = New System.Drawing.Point(68, 110)
-        Me.TbDesdePaca.Name = "TbDesdePaca"
-        Me.TbDesdePaca.Size = New System.Drawing.Size(45, 20)
-        Me.TbDesdePaca.TabIndex = 25
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 59)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(37, 13)
-        Me.Label2.TabIndex = 22
-        Me.Label2.Text = "Planta"
-        '
-        'CbPlanta
-        '
-        Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(68, 56)
-        Me.CbPlanta.Name = "CbPlanta"
-        Me.CbPlanta.Size = New System.Drawing.Size(139, 21)
-        Me.CbPlanta.TabIndex = 20
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 7)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "ID Venta"
-        Me.Label1.UseWaitCursor = True
-        '
-        'TbIdComprador
-        '
-        Me.TbIdComprador.Enabled = False
-        Me.TbIdComprador.Location = New System.Drawing.Point(68, 30)
-        Me.TbIdComprador.Name = "TbIdComprador"
-        Me.TbIdComprador.Size = New System.Drawing.Size(75, 20)
-        Me.TbIdComprador.TabIndex = 18
-        '
-        'TbIdVentaPaca
-        '
-        Me.TbIdVentaPaca.Enabled = False
-        Me.TbIdVentaPaca.Location = New System.Drawing.Point(68, 4)
-        Me.TbIdVentaPaca.Name = "TbIdVentaPaca"
-        Me.TbIdVentaPaca.Size = New System.Drawing.Size(99, 20)
-        Me.TbIdVentaPaca.TabIndex = 17
-        Me.TbIdVentaPaca.UseWaitCursor = True
+        Me.BtCastLarFib.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtCastLarFib.Location = New System.Drawing.Point(69, 69)
+        Me.BtCastLarFib.MaximumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastLarFib.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastLarFib.Name = "BtCastLarFib"
+        Me.BtCastLarFib.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastLarFib.TabIndex = 54
+        Me.BtCastLarFib.Text = "Castigos por largo de fibra"
+        Me.BtCastLarFib.UseVisualStyleBackColor = True
         '
         'MSMenu
         '
@@ -476,8 +535,8 @@ Partial Class VentaPacasContrato
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Panel1)
         Me.GroupBox4.Controls.Add(Me.DgvAgrupadasClases)
+        Me.GroupBox4.Controls.Add(Me.Panel1)
         Me.GroupBox4.Controls.Add(Me.Label16)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(378, 16)
@@ -493,8 +552,6 @@ Partial Class VentaPacasContrato
         Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.TbKilosComp)
         Me.Panel1.Controls.Add(Me.TbPacasComp)
-        Me.Panel1.Controls.Add(Me.TbPacasMarc)
-        Me.Panel1.Controls.Add(Me.Label21)
         Me.Panel1.Controls.Add(Me.Label20)
         Me.Panel1.Controls.Add(Me.TbPacasCompCont)
         Me.Panel1.Controls.Add(Me.TbPacasDisp)
@@ -546,26 +603,6 @@ Partial Class VentaPacasContrato
         Me.TbPacasComp.Name = "TbPacasComp"
         Me.TbPacasComp.Size = New System.Drawing.Size(100, 20)
         Me.TbPacasComp.TabIndex = 25
-        '
-        'TbPacasMarc
-        '
-        Me.TbPacasMarc.Enabled = False
-        Me.TbPacasMarc.Location = New System.Drawing.Point(390, 10)
-        Me.TbPacasMarc.Name = "TbPacasMarc"
-        Me.TbPacasMarc.Size = New System.Drawing.Size(100, 20)
-        Me.TbPacasMarc.TabIndex = 24
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label21.Location = New System.Drawing.Point(270, 13)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(100, 13)
-        Me.Label21.TabIndex = 23
-        Me.Label21.Text = "Pacas marcadas"
         '
         'Label20
         '
@@ -630,9 +667,10 @@ Partial Class VentaPacasContrato
         'DgvAgrupadasClases
         '
         Me.DgvAgrupadasClases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvAgrupadasClases.Location = New System.Drawing.Point(6, 16)
+        Me.DgvAgrupadasClases.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvAgrupadasClases.Location = New System.Drawing.Point(3, 16)
         Me.DgvAgrupadasClases.Name = "DgvAgrupadasClases"
-        Me.DgvAgrupadasClases.Size = New System.Drawing.Size(409, 148)
+        Me.DgvAgrupadasClases.Size = New System.Drawing.Size(418, 148)
         Me.DgvAgrupadasClases.TabIndex = 3
         '
         'Label16
@@ -686,44 +724,6 @@ Partial Class VentaPacasContrato
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.BtModalidadVenta)
-        Me.Panel2.Controls.Add(Me.BtCastigoResFibra)
-        Me.Panel2.Controls.Add(Me.BtCastigoMicros)
-        Me.Panel2.Controls.Add(Me.BtCastLarFib)
-        Me.Panel2.Location = New System.Drawing.Point(523, 13)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(135, 141)
-        Me.Panel2.TabIndex = 56
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.TbIdVentaPaca)
-        Me.Panel3.Controls.Add(Me.BtnBuscarProd)
-        Me.Panel3.Controls.Add(Me.TbIdComprador)
-        Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Controls.Add(Me.CbPlanta)
-        Me.Panel3.Controls.Add(Me.TbNoPacas)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.TbIdContrato)
-        Me.Panel3.Controls.Add(Me.TbDesdePaca)
-        Me.Panel3.Controls.Add(Me.Label12)
-        Me.Panel3.Controls.Add(Me.Label10)
-        Me.Panel3.Controls.Add(Me.Label14)
-        Me.Panel3.Controls.Add(Me.DtpFecha)
-        Me.Panel3.Controls.Add(Me.TbPrecioQuintal)
-        Me.Panel3.Controls.Add(Me.Label11)
-        Me.Panel3.Controls.Add(Me.TbNombreComprador)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.TbHastaPaca)
-        Me.Panel3.Location = New System.Drawing.Point(4, 9)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(513, 151)
-        Me.Panel3.TabIndex = 57
-        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.TcCompras)
@@ -755,7 +755,7 @@ Partial Class VentaPacasContrato
         Me.TP1LiquidacionesAVender.Location = New System.Drawing.Point(4, 22)
         Me.TP1LiquidacionesAVender.Name = "TP1LiquidacionesAVender"
         Me.TP1LiquidacionesAVender.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(748, 241)
+        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(635, 241)
         Me.TP1LiquidacionesAVender.TabIndex = 0
         Me.TP1LiquidacionesAVender.Text = "Liquidaciones a Vender"
         '
@@ -776,7 +776,7 @@ Partial Class VentaPacasContrato
         Me.DgvDatosLiquidacion.RowHeadersVisible = False
         Me.DgvDatosLiquidacion.RowHeadersWidth = 40
         Me.DgvDatosLiquidacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(742, 190)
+        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(629, 190)
         Me.DgvDatosLiquidacion.TabIndex = 13
         '
         'GroupBox3
@@ -784,7 +784,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(742, 45)
+        Me.GroupBox3.Size = New System.Drawing.Size(629, 45)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         '
@@ -955,7 +955,7 @@ Partial Class VentaPacasContrato
         Me.TP2LiquidacionesVendidas.Location = New System.Drawing.Point(4, 22)
         Me.TP2LiquidacionesVendidas.Name = "TP2LiquidacionesVendidas"
         Me.TP2LiquidacionesVendidas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(747, 241)
+        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(862, 241)
         Me.TP2LiquidacionesVendidas.TabIndex = 1
         Me.TP2LiquidacionesVendidas.Text = "Liquidaciones Vendidas"
         Me.TP2LiquidacionesVendidas.UseVisualStyleBackColor = True
@@ -977,7 +977,7 @@ Partial Class VentaPacasContrato
         Me.DgvLiqVendidas.RowHeadersVisible = False
         Me.DgvLiqVendidas.RowHeadersWidth = 40
         Me.DgvLiqVendidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvLiqVendidas.Size = New System.Drawing.Size(741, 190)
+        Me.DgvLiqVendidas.Size = New System.Drawing.Size(856, 190)
         Me.DgvLiqVendidas.TabIndex = 14
         '
         'GroupBox7
@@ -985,7 +985,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox7.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(741, 45)
+        Me.GroupBox7.Size = New System.Drawing.Size(856, 45)
         Me.GroupBox7.TabIndex = 15
         Me.GroupBox7.TabStop = False
         '
@@ -1111,8 +1111,8 @@ Partial Class VentaPacasContrato
         'GbCompraActual
         '
         Me.GbCompraActual.BackColor = System.Drawing.SystemColors.Control
+        Me.GbCompraActual.Controls.Add(Me.TbPacasMarc)
         Me.GbCompraActual.Controls.Add(Me.TbKilosSeleccionados)
-        Me.GbCompraActual.Controls.Add(Me.TextBox3)
         Me.GbCompraActual.Controls.Add(Me.Label24)
         Me.GbCompraActual.Controls.Add(Me.Label25)
         Me.GbCompraActual.Controls.Add(Me.TextBox4)
@@ -1125,6 +1125,14 @@ Partial Class VentaPacasContrato
         Me.GbCompraActual.TabStop = False
         Me.GbCompraActual.Text = "Detalles De Compra"
         '
+        'TbPacasMarc
+        '
+        Me.TbPacasMarc.Enabled = False
+        Me.TbPacasMarc.Location = New System.Drawing.Point(103, 25)
+        Me.TbPacasMarc.Name = "TbPacasMarc"
+        Me.TbPacasMarc.Size = New System.Drawing.Size(100, 20)
+        Me.TbPacasMarc.TabIndex = 25
+        '
         'TbKilosSeleccionados
         '
         Me.TbKilosSeleccionados.Enabled = False
@@ -1132,14 +1140,6 @@ Partial Class VentaPacasContrato
         Me.TbKilosSeleccionados.Name = "TbKilosSeleccionados"
         Me.TbKilosSeleccionados.Size = New System.Drawing.Size(100, 20)
         Me.TbKilosSeleccionados.TabIndex = 24
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(103, 25)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 24
         '
         'Label24
         '
@@ -1204,6 +1204,9 @@ Partial Class VentaPacasContrato
         Me.GroupBox6.ResumeLayout(False)
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbCompras.ResumeLayout(False)
@@ -1216,9 +1219,6 @@ Partial Class VentaPacasContrato
         Me.GroupBox2.PerformLayout()
         CType(Me.DgvAgrupadasCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.TcCompras.ResumeLayout(False)
         Me.TP1LiquidacionesAVender.ResumeLayout(False)
@@ -1287,8 +1287,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents Label22 As Label
     Friend WithEvents TbKilosComp As TextBox
     Friend WithEvents TbPacasComp As TextBox
-    Friend WithEvents TbPacasMarc As TextBox
-    Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents TbPacasCompCont As TextBox
     Friend WithEvents TbPacasDisp As TextBox
@@ -1333,9 +1331,11 @@ Partial Class VentaPacasContrato
     Friend WithEvents TbHastaPacaCompra As TextBox
     Friend WithEvents GbCompraActual As GroupBox
     Friend WithEvents TbKilosSeleccionados As TextBox
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents Label26 As Label
+    Friend WithEvents TbPacasMarc As TextBox
+    Friend WithEvents TbKdAd As TextBox
+    Friend WithEvents CkKgAdd As CheckBox
 End Class

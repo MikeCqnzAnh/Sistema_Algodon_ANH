@@ -51,25 +51,26 @@ Public Class MenuPrincipal
     End Sub
     Private Sub ObtenerPrecioDolarBanxico()
         Try
-            Dim myProxy As New WebProxy("Proxy", 80)
-            Dim UrlBanxico As String = "8.8.8.8"
-            myProxy.Credentials = New NetworkCredential("Usuario", "contraseña")
-            If VerificarConexionURL(UrlBanxico) = True Then
-                Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create(RTrim(SitioBanxico)), HttpWebRequest)
-                WebRequest.DefaultWebProxy = httpBanxico.Proxy
-                Dim TipoCambio As New WebServiceBanxico.DgieWS
-                Dim strTipoCambio As String = TipoCambio.tiposDeCambioBanxico
+            'Dim myProxy As New WebProxy("Proxy", 80)
+            'Dim UrlBanxico As String = "8.8.8.8"
+            'myProxy.Credentials = New NetworkCredential("Usuario", "contraseña")
+            'If VerificarConexionURL(UrlBanxico) = True Then
+            '    Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create(RTrim(SitioBanxico)), HttpWebRequest)
+            '    WebRequest.DefaultWebProxy = httpBanxico.Proxy
+            '    Dim TipoCambio As New WebServiceBanxico.DgieWS
+            '    Dim strTipoCambio As String = TipoCambio.tiposDeCambioBanxico
 
-                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) - 1)
-                strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) - 1)
-                TsPrecioDolar.Text = Replace(strTipoCambio.Substring(PosicionValorBanxico, LongitudValorBanxico), Chr(34), "")
-                TsPrecioDolar.Text = Regex.Replace(TsPrecioDolar.Text, "[^0-9.]", "", RegexOptions.None)
-                ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
-            ElseIf _IdTipoUsuario = 1 Then
-                Monedas.ShowDialog()
-                ConsultaTipoCambio()
-            Else
-                TsPrecioDolar.Text = 0
+            '    strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) - 1)
+            '    strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) - 1)
+            '    TsPrecioDolar.Text = Replace(strTipoCambio.Substring(PosicionValorBanxico, LongitudValorBanxico), Chr(34), "")
+            '    TsPrecioDolar.Text = Regex.Replace(TsPrecioDolar.Text, "[^0-9.]", "", RegexOptions.None)
+            '    ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
+            'Else
+            If _IdTipoUsuario = 1 Then
+                    Monedas.ShowDialog()
+                    ConsultaTipoCambio()
+                Else
+                    TsPrecioDolar.Text = 0
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString, MsgBoxStyle.Exclamation, "Aviso")

@@ -115,9 +115,9 @@ Public Class CompraPacasContrato
                 r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
                 r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value.ToString
                 r("IdCompraEnc") = IdCompraEnc
-                r("CastigoResistenciaFibra") = IIf(valcastigo = 0, ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(8, i).Value.ToString, Quintales), 0)
-                r("CastigoMicros") = IIf(valcastigo = 0, ConsultaCastigoMicros(DataGridEnvia.Item(7, i).Value.ToString, Quintales), 0)
-                r("CastigoLargoFibra") = IIf(valcastigo = 0, ConsultaCastigoLargoFibra(DataGridEnvia.Item(9, i).Value.ToString, Quintales), 0)
+                r("CastigoResistenciaFibra") = ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(8, i).Value.ToString, Quintales, valcastigo)
+                r("CastigoMicros") = ConsultaCastigoMicros(DataGridEnvia.Item(7, i).Value.ToString, Quintales, valcastigo)
+                r("CastigoLargoFibra") = ConsultaCastigoLargoFibra(DataGridEnvia.Item(9, i).Value.ToString, Quintales, valcastigo)
                 r("estatuscompraUpdate") = EstatusCompraUpdate
                 r("EstatusCompraBusqueda") = EstatusCompraBusqueda
                 dt.Rows.Add(r)
@@ -129,24 +129,10 @@ Public Class CompraPacasContrato
         MarcaSeleccionDisponibles()
     End Sub
     Private Function ValidaChecksPacas()
-        'TablaPacasAgrupadas.Rows.Clear()
-        'Dim TablaRenglonAInsertar As DataRow
         Dim PacasMarcadas As Integer = 0
         For i As Integer = 0 To DgvPacasComprar.Rows.Count - 1
             If DgvPacasComprar.Rows(i).Cells("Seleccionar").EditedFormattedValue = True Then
                 PacasMarcadas = PacasMarcadas + 1
-                'TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
-                'TablaRenglonAInsertar("Grade") = DgvPacasComprar.Rows(i).Cells("Grade").Value
-                'TablaRenglonAInsertar("Cantidad") = 1
-                'TablaRenglonAInsertar("Kilos") = DgvPacasComprar.Rows(i).Cells("Kilos").Value
-                'TablaRenglonAInsertar("Quintales") = CDbl(DgvPacasComprar.Rows(i).Cells("Kilos").Value / 46.02)
-                'TablaRenglonAInsertar("CastigoResistenciaFibra") = ConsultaCastigoResistenciaFibra(DgvPacasComprar.Rows(i).Cells(8).Value)
-                'TablaRenglonAInsertar("CastigoMicros") = ConsultaCastigoMicros(DgvPacasComprar.Rows(i).Cells(7).Value)
-                'TablaRenglonAInsertar("CastigoLargoFibra") = ConsultaCastigoLargoFibra(DgvPacasComprar.Rows(i).Cells(9).Value)
-                'TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
-                'TablaRenglonAInsertar("Total") = DgvPacasComprar.Rows(i).Cells("Kilos").Value
-                'TablaRenglonAInsertar("TotalDlls") = Val(CDbl(DgvPacasComprar.Rows(i).Cells("Kilos").Value / 46.02) * CDbl(TbPrecioQuintal.Text))
-                'TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
             End If
         Next
         Return PacasMarcadas
@@ -169,41 +155,59 @@ Public Class CompraPacasContrato
         Next
         Return PacasMarcadas
     End Function
-    Private Function ConsultaCastigoMicros(ByVal ValMicros As Double, ByVal Quintales As Double)
+    Private Function ConsultaCastigoMicros(ByVal ValMicros As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
-        EntidadCompraPacasContrato.CastigoMicros = Math.Round(ValMicros, 2)
-        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
-        Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-        Return Castigo
+        If bandera = 0 Then
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+            EntidadCompraPacasContrato.CastigoMicros = Math.Round(ValMicros, 2)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Return Castigo
+        Else
+            Castigo = 0
+            Return Castigo
+        End If
+
     End Function
-    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double)
+    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
-        EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Round(ValResistenciaFibra, 2)
-        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
-        Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-        Return Castigo
+        If bandera = 0 Then
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+            EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Round(ValResistenciaFibra, 2)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Return Castigo
+        Else
+            Castigo = 0
+            Return Castigo
+        End If
+
     End Function
-    Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double, ByVal Quintales As Double)
+    Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
-        EntidadCompraPacasContrato.CastigoLargoFibra = Math.Round(ValLargoFibra, 2)
-        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
-        Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-        Return Castigo
+        If bandera = 0 Then
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+            EntidadCompraPacasContrato.CastigoLargoFibra = Math.Round(ValLargoFibra, 2)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Return Castigo
+        Else
+            Castigo = 0
+            Return Castigo
+        End If
+
     End Function
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Dim _ConsultaCompraProductor As New ConsultaCompraProductor
