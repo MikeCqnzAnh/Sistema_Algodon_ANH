@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports System.IO
+Imports System.Data.OleDb
 Public Class ClasificacionVentaPaquetes
     Private TablaClasificacionGrid, TablaClasificacionGlobal As New DataTable
     Private PlantaVerifica As String
@@ -844,6 +846,83 @@ Public Class ClasificacionVentaPaquetes
         End With
         Return dg2
     End Function
+
+    Private Sub ArchivoAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoAccessToolStripMenuItem.Click
+        Dim RutaPlantilla As String = "C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\Reportes\RPT\BaseHVI.mdb"
+        Dim RutaCopiar As String = "c:\datos\HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
+        If DgvPacasClasificacion1.RowCount > 0 Then
+            If File.Exists(RutaCopiar) Then
+                Dim opc As DialogResult = MsgBox("El Archivo ya existe, ¿Desea reemplazarlo?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+                If opc = DialogResult.Yes Then
+                    File.Copy(RutaPlantilla, RutaCopiar, True)
+                    ExportarExcel(RutaCopiar)
+                ElseIf opc = DialogResult.No Then
+
+                End If
+            Else
+                File.Copy(RutaPlantilla, RutaCopiar, True)
+                ExportarExcel(RutaCopiar)
+            End If
+        Else
+            MsgBox("No hay registros para exportar.")
+        End If
+        'Dim RutaPlantilla As String = Application.StartupPath & "\Reportes\RPT\BaseHVI.mdb"
+    End Sub
+    Private Sub ExportarExcel(ByVal RutaCopiar As String)
+        ':::Declaramos nuestra variable Sql que almacenara nuestra consuta
+        Dim Sql As String = ""
+        Dim Con3 As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source =" & RutaCopiar & "")
+        ':::Usamos un ciclo For Each para recorrer nuestro DataGridView llamado DGTabla
+        For Each Row As DataGridViewRow In DgvPacasClasificacion1.Rows
+            ':::Obtenemos los valores que vamos a pasar a nuestra consulta para ser guardados
+            Dim LotID As String = TbDescripcion.Text
+            Dim BaleID As String = Row.Cells("BaleID").Value
+            Dim BaleGroup As String = Row.Cells("BaleGroup").Value
+            Dim Operator1 As String = "Operator1"
+            Dim Date1 As DateTime = Row.Cells("Date").Value
+            Dim Temperature As Double = Row.Cells("Temperature").Value
+            Dim Humidity As Double = Row.Cells("Humidity").Value
+            Dim Amount As Double = Row.Cells("Amount").Value
+            Dim UHML As Double = Row.Cells("UHML").Value
+            Dim UI As Double = Row.Cells("UI").Value
+            Dim Strength As Double = Row.Cells("Strength").Value
+            Dim Elongation As Double = Row.Cells("Elongation").Value
+            Dim SFI As Double = Row.Cells("SFI").Value
+            Dim Maturity As Double = Row.Cells("Maturity").Value
+            Dim Grade As String = Row.Cells("Grade").Value
+            Dim Moist As Double = Row.Cells("Moist").Value
+            Dim Mic As Double = Row.Cells("Mic").Value
+            Dim Rd As Double = Row.Cells("Rd").Value
+            Dim PlusB As Double = Row.Cells("PlusB").Value
+            Dim ColorGrade As String = Row.Cells("ColorGrade").Value
+            Dim TrashCount As Double = Row.Cells("TrashCount").Value
+            Dim TrashArea As Double = Row.Cells("TrashArea").Value
+            Dim TrashID As Double = Row.Cells("TrashID").Value
+            Dim SCI As Double = Row.Cells("SCI").Value
+            Dim Nep As Double = IIf(IsDBNull(Row.Cells("Nep").Value), 0, Row.Cells("Nep").Value)
+            Dim UV As Double = IIf(IsDBNull(Row.Cells("UV").Value), 0, Row.Cells("UV").Value)
+
+            ':::Creamos nuestra consulta de tipo Insert y le pasamos nuestros valores
+            Sql = "Insert into SystemTestData (LotID, BaleID, BaleGroup, Operator,[Date],Temperature,Humidity,Amount,UHML,UI,Strength,Elongation,SFI,Maturity,Grade,Moist,Mic,Rd,PlusB,ColorGrade,TrashCount,TrashArea,TrashID,SCI,Nep,UV) values ('" & LotID & "', '" & BaleID & "', '" & BaleGroup & "', '" & Operator1 & "', '" & Date1 & "', '" & Temperature & "', '" & Humidity & "', '" & Amount & "', '" & UHML & "', '" & UI & "', '" & Strength & "', '" & Elongation & "', '" & SFI & "', '" & Maturity & "', '" & Grade & "', '" & Moist & "', '" & Mic & "', '" & Rd & "', '" & PlusB & "', '" & ColorGrade & "', '" & TrashCount & "', '" & TrashArea & "', '" & TrashID & "', '" & SCI & "', '" & Nep & "', '" & UV & "')"
+            ':::Llamamos el procedimiento que hemos creado en el modulo y le pasamos el parametro que es la consulta SQL
+
+            Exportar_Access(Sql, Con3)
+        Next
+
+        MsgBox("Registros exportados exitosamente", MsgBoxStyle.Information, "Exportar")
+        'LblTotal.Text = "Total registros exportados: " & DgvPacasClasificacion1.RowCount
+    End Sub
+    Sub Exportar_Access(ByVal Sql As String, ByVal Con3 As OleDbConnection)
+        ':::Declaramos nuestro objeto de tipo OleDbCommand para ejecutar la consulta
+        Dim cmd As New OleDbCommand(Sql, Con3)
+        Try
+            Con3.Open()
+            cmd.ExecuteNonQuery()
+            Con3.Close()
+        Catch ex As Exception
+            MsgBox("No se pueden guardar los registro por: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
+    End Sub
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdPaquete.KeyPress, TbNoPaca.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False

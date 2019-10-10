@@ -58,6 +58,9 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbDgv = New System.Windows.Forms.GroupBox()
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbProductos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -310,7 +313,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ImprimirClasesToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ImprimirClasesToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1561, 24)
@@ -398,6 +401,25 @@ Partial Class ClasificacionVentaPaquetes
         Me.Sel.HeaderText = "Seleccion"
         Me.Sel.Name = "Sel"
         '
+        'ExportarToolStripMenuItem
+        '
+        Me.ExportarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoExcelToolStripMenuItem, Me.ArchivoAccessToolStripMenuItem})
+        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.ExportarToolStripMenuItem.Text = "Exportar"
+        '
+        'ArchivoExcelToolStripMenuItem
+        '
+        Me.ArchivoExcelToolStripMenuItem.Name = "ArchivoExcelToolStripMenuItem"
+        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ArchivoExcelToolStripMenuItem.Text = "Archivo Excel"
+        '
+        'ArchivoAccessToolStripMenuItem
+        '
+        Me.ArchivoAccessToolStripMenuItem.Name = "ArchivoAccessToolStripMenuItem"
+        Me.ArchivoAccessToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ArchivoAccessToolStripMenuItem.Text = "Archivo Access"
+        '
         'ClasificacionVentaPaquetes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -464,6 +486,11 @@ Partial Class ClasificacionVentaPaquetes
 
     Friend WithEvents Label10 As Label
     Friend WithEvents ImprimirClasesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportarToolStripMenuItem As ToolStripMenuItem
+
+    Friend WithEvents ArchivoExcelToolStripMenuItem As ToolStripMenuItem
+
+    Friend WithEvents ArchivoAccessToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlus
         Inherits DataGridView
