@@ -848,7 +848,7 @@ Public Class ClasificacionVentaPaquetes
     End Function
 
     Private Sub ArchivoAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoAccessToolStripMenuItem.Click
-        Dim RutaPlantilla As String = "C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Presentacion\Reportes\RPT\BaseHVI.mdb"
+        Dim RutaPlantilla As String = "\\192.168.10.30\docs_sistemas\RPT_ALGODON\BaseHVI.mdb"
         Dim RutaCopiar As String = "c:\datos\HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
         If DgvPacasClasificacion1.RowCount > 0 Then
             If File.Exists(RutaCopiar) Then

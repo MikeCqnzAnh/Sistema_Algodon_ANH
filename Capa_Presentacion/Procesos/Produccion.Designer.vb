@@ -22,6 +22,7 @@ Partial Class Produccion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,7 +62,9 @@ Partial Class Produccion
         Me.CbOperador = New System.Windows.Forms.ComboBox()
         Me.CbTurno = New System.Windows.Forms.ComboBox()
         Me.GbModulos = New System.Windows.Forms.GroupBox()
+        Me.TbTotalPacas = New System.Windows.Forms.TextBox()
         Me.TbTotalModulos = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TbModulos = New System.Windows.Forms.TextBox()
         Me.BtActivarPrensa = New System.Windows.Forms.Button()
@@ -70,6 +73,7 @@ Partial Class Produccion
         Me.BtImprimir = New System.Windows.Forms.Button()
         Me.BtIncidencias = New System.Windows.Forms.Button()
         Me.GbCapturaAutomatica = New System.Windows.Forms.GroupBox()
+        Me.LbStatus = New System.Windows.Forms.Label()
         Me.GbLotes = New System.Windows.Forms.GroupBox()
         Me.BtFin = New System.Windows.Forms.Button()
         Me.BtInicio = New System.Windows.Forms.Button()
@@ -83,8 +87,10 @@ Partial Class Produccion
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TbTotalPacas = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
+        Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
+        Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -466,6 +472,14 @@ Partial Class Produccion
         Me.GbModulos.TabStop = False
         Me.GbModulos.Text = "Modulos"
         '
+        'TbTotalPacas
+        '
+        Me.TbTotalPacas.Enabled = False
+        Me.TbTotalPacas.Location = New System.Drawing.Point(337, 80)
+        Me.TbTotalPacas.Name = "TbTotalPacas"
+        Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalPacas.TabIndex = 56
+        '
         'TbTotalModulos
         '
         Me.TbTotalModulos.Enabled = False
@@ -473,6 +487,15 @@ Partial Class Produccion
         Me.TbTotalModulos.Name = "TbTotalModulos"
         Me.TbTotalModulos.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalModulos.TabIndex = 56
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(253, 83)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(78, 13)
+        Me.Label9.TabIndex = 56
+        Me.Label9.Text = "Total de pacas"
         '
         'Label25
         '
@@ -495,7 +518,7 @@ Partial Class Produccion
         '
         'BtActivarPrensa
         '
-        Me.BtActivarPrensa.Location = New System.Drawing.Point(6, 19)
+        Me.BtActivarPrensa.Location = New System.Drawing.Point(3, 49)
         Me.BtActivarPrensa.Name = "BtActivarPrensa"
         Me.BtActivarPrensa.Size = New System.Drawing.Size(305, 29)
         Me.BtActivarPrensa.TabIndex = 57
@@ -504,7 +527,7 @@ Partial Class Produccion
         '
         'BtAgregarExcel
         '
-        Me.BtAgregarExcel.Location = New System.Drawing.Point(6, 54)
+        Me.BtAgregarExcel.Location = New System.Drawing.Point(3, 84)
         Me.BtAgregarExcel.Name = "BtAgregarExcel"
         Me.BtAgregarExcel.Size = New System.Drawing.Size(305, 29)
         Me.BtAgregarExcel.TabIndex = 58
@@ -513,14 +536,14 @@ Partial Class Produccion
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(6, 89)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(3, 119)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 59
         '
         'BtImprimir
         '
-        Me.BtImprimir.Location = New System.Drawing.Point(127, 86)
+        Me.BtImprimir.Location = New System.Drawing.Point(124, 116)
         Me.BtImprimir.Name = "BtImprimir"
         Me.BtImprimir.Size = New System.Drawing.Size(184, 23)
         Me.BtImprimir.TabIndex = 60
@@ -529,7 +552,7 @@ Partial Class Produccion
         '
         'BtIncidencias
         '
-        Me.BtIncidencias.Location = New System.Drawing.Point(6, 115)
+        Me.BtIncidencias.Location = New System.Drawing.Point(3, 145)
         Me.BtIncidencias.Name = "BtIncidencias"
         Me.BtIncidencias.Size = New System.Drawing.Size(305, 29)
         Me.BtIncidencias.TabIndex = 61
@@ -538,6 +561,9 @@ Partial Class Produccion
         '
         'GbCapturaAutomatica
         '
+        Me.GbCapturaAutomatica.Controls.Add(Me.Label10)
+        Me.GbCapturaAutomatica.Controls.Add(Me.CbPuertosSeriales)
+        Me.GbCapturaAutomatica.Controls.Add(Me.LbStatus)
         Me.GbCapturaAutomatica.Controls.Add(Me.BtActivarPrensa)
         Me.GbCapturaAutomatica.Controls.Add(Me.BtIncidencias)
         Me.GbCapturaAutomatica.Controls.Add(Me.GbLotes)
@@ -552,15 +578,25 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.TabStop = False
         Me.GbCapturaAutomatica.Text = "Captura de Lotes Automatico"
         '
+        'LbStatus
+        '
+        Me.LbStatus.AutoSize = True
+        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbStatus.Location = New System.Drawing.Point(6, 379)
+        Me.LbStatus.Name = "LbStatus"
+        Me.LbStatus.Size = New System.Drawing.Size(85, 29)
+        Me.LbStatus.TabIndex = 69
+        Me.LbStatus.Text = "Status"
+        '
         'GbLotes
         '
         Me.GbLotes.Controls.Add(Me.BtFin)
         Me.GbLotes.Controls.Add(Me.BtInicio)
         Me.GbLotes.Controls.Add(Me.BtSiguiente)
         Me.GbLotes.Controls.Add(Me.BtAnterior)
-        Me.GbLotes.Location = New System.Drawing.Point(6, 150)
+        Me.GbLotes.Location = New System.Drawing.Point(3, 180)
         Me.GbLotes.Name = "GbLotes"
-        Me.GbLotes.Size = New System.Drawing.Size(310, 104)
+        Me.GbLotes.Size = New System.Drawing.Size(310, 174)
         Me.GbLotes.TabIndex = 63
         Me.GbLotes.TabStop = False
         Me.GbLotes.Text = "Lotes"
@@ -704,22 +740,26 @@ Partial Class Produccion
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
-        'TbTotalPacas
+        'TiActualizaDgvPacas
         '
-        Me.TbTotalPacas.Enabled = False
-        Me.TbTotalPacas.Location = New System.Drawing.Point(337, 80)
-        Me.TbTotalPacas.Name = "TbTotalPacas"
-        Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
-        Me.TbTotalPacas.TabIndex = 56
+        Me.TiActualizaDgvPacas.Interval = 2000
         '
-        'Label9
+        'CbPuertosSeriales
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(253, 83)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(78, 13)
-        Me.Label9.TabIndex = 56
-        Me.Label9.Text = "Total de pacas"
+        Me.CbPuertosSeriales.FormattingEnabled = True
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(96, 22)
+        Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
+        Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 21)
+        Me.CbPuertosSeriales.TabIndex = 58
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 25)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(67, 13)
+        Me.Label10.TabIndex = 70
+        Me.Label10.Text = "Puerto Serial"
         '
         'Produccion
         '
@@ -744,6 +784,7 @@ Partial Class Produccion
         Me.GbModulos.PerformLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbCapturaAutomatica.ResumeLayout(False)
+        Me.GbCapturaAutomatica.PerformLayout()
         Me.GbLotes.ResumeLayout(False)
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbTipoCaptura.ResumeLayout(False)
@@ -820,4 +861,9 @@ Partial Class Produccion
     Friend WithEvents TbPuertoSerial As TextBox
     Friend WithEvents TbTotalPacas As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents LbStatus As Label
+    Friend WithEvents TiActualizaDgvPacas As Timer
+    Friend WithEvents SpCapturaAutomatica As IO.Ports.SerialPort
+    Friend WithEvents CbPuertosSeriales As ComboBox
+    Friend WithEvents Label10 As Label
 End Class

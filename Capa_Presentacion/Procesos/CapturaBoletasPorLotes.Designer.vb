@@ -28,8 +28,6 @@ Partial Class CapturaBoletasPorLotes
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGenerales = New System.Windows.Forms.GroupBox()
-        Me.BtcadenaSalida = New System.Windows.Forms.Button()
-        Me.Btcadenaentrada = New System.Windows.Forms.Button()
         Me.LbStatus = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
@@ -38,6 +36,7 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -72,8 +71,7 @@ Partial Class CapturaBoletasPorLotes
         '
         'GbGenerales
         '
-        Me.GbGenerales.Controls.Add(Me.BtcadenaSalida)
-        Me.GbGenerales.Controls.Add(Me.Btcadenaentrada)
+        Me.GbGenerales.Controls.Add(Me.Label2)
         Me.GbGenerales.Controls.Add(Me.LbStatus)
         Me.GbGenerales.Controls.Add(Me.Label1)
         Me.GbGenerales.Controls.Add(Me.CbPuertosSeriales)
@@ -85,26 +83,6 @@ Partial Class CapturaBoletasPorLotes
         Me.GbGenerales.TabIndex = 30
         Me.GbGenerales.TabStop = False
         Me.GbGenerales.Text = "Datos Generales"
-        '
-        'BtcadenaSalida
-        '
-        Me.BtcadenaSalida.Location = New System.Drawing.Point(712, 23)
-        Me.BtcadenaSalida.Name = "BtcadenaSalida"
-        Me.BtcadenaSalida.Size = New System.Drawing.Size(153, 23)
-        Me.BtcadenaSalida.TabIndex = 65
-        Me.BtcadenaSalida.Text = "Leer cadena salida"
-        Me.BtcadenaSalida.UseVisualStyleBackColor = True
-        Me.BtcadenaSalida.Visible = False
-        '
-        'Btcadenaentrada
-        '
-        Me.Btcadenaentrada.Location = New System.Drawing.Point(499, 22)
-        Me.Btcadenaentrada.Name = "Btcadenaentrada"
-        Me.Btcadenaentrada.Size = New System.Drawing.Size(153, 23)
-        Me.Btcadenaentrada.TabIndex = 65
-        Me.Btcadenaentrada.Text = "Leer cadena entrada"
-        Me.Btcadenaentrada.UseVisualStyleBackColor = True
-        Me.Btcadenaentrada.Visible = False
         '
         'LbStatus
         '
@@ -128,14 +106,14 @@ Partial Class CapturaBoletasPorLotes
         'CbPuertosSeriales
         '
         Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(6, 19)
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(6, 37)
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
         Me.CbPuertosSeriales.Size = New System.Drawing.Size(157, 21)
         Me.CbPuertosSeriales.TabIndex = 62
         '
         'BtAutomatico
         '
-        Me.BtAutomatico.Location = New System.Drawing.Point(169, 19)
+        Me.BtAutomatico.Location = New System.Drawing.Point(169, 37)
         Me.BtAutomatico.Name = "BtAutomatico"
         Me.BtAutomatico.Size = New System.Drawing.Size(147, 50)
         Me.BtAutomatico.TabIndex = 61
@@ -180,6 +158,15 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.TabIndex = 65
+        Me.Label2.Text = "Puerto Serial"
+        '
         'CapturaBoletasPorLotes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,8 +204,7 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents LbStatus As Label
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents IncidenciasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Btcadenaentrada As Button
-    Friend WithEvents BtcadenaSalida As Button
+    Friend WithEvents Label2 As Label
 
     Public Class DgvPlusCapturaBoletas
         Inherits DataGridView

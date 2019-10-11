@@ -16,6 +16,9 @@ Public Class Produccion
         CargarCombos()
         ConsultaParametros()
         TbIdOrdenTrabajo.Select()
+        GetSerialPortNames()
+        CheckForIllegalCrossThreadCalls = False
+        LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
@@ -28,6 +31,43 @@ Public Class Produccion
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
+    End Sub
+    Private Sub GetSerialPortNames()
+        ' muestra COM ports disponibles.
+        Dim l As Integer
+
+        Dim ncom As String
+
+        Try
+
+            CbPuertosSeriales.Items.Clear()
+
+            For Each sp As String In My.Computer.Ports.SerialPortNames
+
+                l = sp.Length
+
+                If ((sp(l - 1) >= "0") And (sp(l - 1) <= "9")) Then
+                    CbPuertosSeriales.Items.Add(sp)
+                Else
+                    'hay una letra al final del COM
+                    ncom = sp.Substring(0, l - 1)
+                    CbPuertosSeriales.Items.Add(ncom)
+                End If
+            Next
+            If CbPuertosSeriales.Items.Count >= 1 Then
+
+                CbPuertosSeriales.Text = CbPuertosSeriales.Items(0)
+                Puerto = CbPuertosSeriales.Items(0)
+            Else
+
+                CbPuertosSeriales.Text = ""
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
     Private Sub Limpiar()
         TbIdProduccion.Text = ""
@@ -575,6 +615,25 @@ Public Class Produccion
         End If
     End Sub
 
+    Private Sub BtActivarPrensa_Click(sender As Object, e As EventArgs) Handles BtActivarPrensa.Click
+        If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
+            TbFolioCIA.Enabled = True
+            TbKilos.Enabled = True
+            TbFolioInicial.Enabled = False
+            TiActualizaDgvPacas.Enabled = True
+            CbPuertosSeriales.Enabled = False
+            LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
+            Setup_Puerto_Serie()
+        Else
+            TbFolioCIA.Enabled = False
+            TbKilos.Enabled = False
+            TbFolioInicial.Enabled = True
+            CbPuertosSeriales.Enabled = True
+            TiActualizaDgvPacas.Enabled = False
+            LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+            SpCapturaAuto.Close()
+        End If
+    End Sub
     Private Sub TbIdOrdenTrabajo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbIdOrdenTrabajo.KeyPress
         If Asc(e.KeyChar) = 13 Then
             TbFolioInicial.Focus()
