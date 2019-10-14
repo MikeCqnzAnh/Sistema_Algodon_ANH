@@ -6,9 +6,6 @@ Public Class CapturaBoletasPorLotes
     Dim IdConfiguracion, PosicionID, PosicionModulo, PosicionEntrada, PosicionSalida, PosicionPesoBruto, PosicionTara, PosicionNeto As Integer
     Dim CaracterID, CaracterModulo, CaracterEntrada, CaracterSalida, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
     Dim Puerto As String
-    Dim com1 As IO.Ports.SerialPort = Nothing
-    Dim bandera As Boolean = True
-    Dim Salir As Boolean 'True sale del bucle, false sigue
     Private Sub CapturaBoletasPorLotes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConsultaModulos()
         ConsultaParametros()
@@ -16,7 +13,7 @@ Public Class CapturaBoletasPorLotes
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
-    Sub Setup_Puerto_Serie()
+    Private Sub Setup_Puerto_Serie()
         Try
             With SpCapturaAuto
                 If .IsOpen Then
@@ -87,37 +84,39 @@ Public Class CapturaBoletasPorLotes
             returnStr = "Error: Serial Port read timed out."
         Finally
         End Try
+        'MsgBox(returnStr)
         If returnStr.Contains(IndicadorEntrada) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+            'NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+            'IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
-            Tara = 0
-            Neto = 0
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+            'Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+            'Tara = 0
+            'Neto = 0
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorEntrada
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+            'FechaActualizacion = Now
+            'TipoFlete = IndicadorEntrada
+            'ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
         ElseIf returnStr.Contains(IndicadorSalida) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+            'NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+            'IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+            'Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
-            Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
+            'Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
-            Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+            'Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
+            'Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorSalida
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+            'FechaActualizacion = Now
+            'TipoFlete = IndicadorSalida
+            'ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
         End If
+        returnStr = ""
         'If returnStr.Contains("INBOUND") Then
         '    NoTransporte = returnStr.Substring(3, 2)
         '    IdBoleta = LTrim(returnStr.Substring(6, 5))

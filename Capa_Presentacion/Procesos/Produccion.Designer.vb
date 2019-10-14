@@ -73,6 +73,8 @@ Partial Class Produccion
         Me.BtImprimir = New System.Windows.Forms.Button()
         Me.BtIncidencias = New System.Windows.Forms.Button()
         Me.GbCapturaAutomatica = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
         Me.LbStatus = New System.Windows.Forms.Label()
         Me.GbLotes = New System.Windows.Forms.GroupBox()
         Me.BtFin = New System.Windows.Forms.Button()
@@ -89,8 +91,6 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
-        Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -571,6 +571,7 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.Controls.Add(Me.BtImprimir)
         Me.GbCapturaAutomatica.Controls.Add(Me.NumericUpDown1)
         Me.GbCapturaAutomatica.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbCapturaAutomatica.Enabled = False
         Me.GbCapturaAutomatica.Location = New System.Drawing.Point(754, 16)
         Me.GbCapturaAutomatica.Name = "GbCapturaAutomatica"
         Me.GbCapturaAutomatica.Size = New System.Drawing.Size(319, 414)
@@ -578,13 +579,30 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.TabStop = False
         Me.GbCapturaAutomatica.Text = "Captura de Lotes Automatico"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 25)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(67, 13)
+        Me.Label10.TabIndex = 70
+        Me.Label10.Text = "Puerto Serial"
+        '
+        'CbPuertosSeriales
+        '
+        Me.CbPuertosSeriales.FormattingEnabled = True
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(96, 22)
+        Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
+        Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 21)
+        Me.CbPuertosSeriales.TabIndex = 58
+        '
         'LbStatus
         '
         Me.LbStatus.AutoSize = True
-        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LbStatus.Location = New System.Drawing.Point(6, 379)
         Me.LbStatus.Name = "LbStatus"
-        Me.LbStatus.Size = New System.Drawing.Size(85, 29)
+        Me.LbStatus.Size = New System.Drawing.Size(51, 16)
         Me.LbStatus.TabIndex = 69
         Me.LbStatus.Text = "Status"
         '
@@ -742,24 +760,10 @@ Partial Class Produccion
         '
         'TiActualizaDgvPacas
         '
-        Me.TiActualizaDgvPacas.Interval = 2000
+        Me.TiActualizaDgvPacas.Interval = 1000
         '
-        'CbPuertosSeriales
+        'SpCapturaAutomatica
         '
-        Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(96, 22)
-        Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
-        Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 21)
-        Me.CbPuertosSeriales.TabIndex = 58
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 25)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 13)
-        Me.Label10.TabIndex = 70
-        Me.Label10.Text = "Puerto Serial"
         '
         'Produccion
         '
@@ -857,7 +861,6 @@ Partial Class Produccion
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents TbPuertoSerial As TextBox
     Friend WithEvents TbTotalPacas As TextBox
     Friend WithEvents Label9 As Label
