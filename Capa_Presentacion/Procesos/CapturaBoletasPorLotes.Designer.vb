@@ -28,6 +28,7 @@ Partial Class CapturaBoletasPorLotes
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGenerales = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.LbStatus = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
@@ -36,7 +37,6 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -83,6 +83,15 @@ Partial Class CapturaBoletasPorLotes
         Me.GbGenerales.TabIndex = 30
         Me.GbGenerales.TabStop = False
         Me.GbGenerales.Text = "Datos Generales"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.TabIndex = 65
+        Me.Label2.Text = "Puerto Serial"
         '
         'LbStatus
         '
@@ -158,19 +167,11 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 21)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
-        Me.Label2.TabIndex = 65
-        Me.Label2.Text = "Puerto Serial"
-        '
         'CapturaBoletasPorLotes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1205, 718)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GbGenerales)

@@ -3,12 +3,15 @@ Imports System.Net.NetworkInformation
 Imports Capa_Operacion.Configuracion
 Imports System.IO.Ports
 Public Class ConfiguracionParametros
+    Dim IndicadorBoton As Integer
     Private Sub ConfiguracionParametros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiaCampos()
         GetSerialPortNames()
         GetNameHost()
         ConsultaParametrosBanxico()
         ConsultaParametros()
+        CheckForIllegalCrossThreadCalls = False
+        LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
     Private Sub GetSerialPortNames()
         Dim l As Integer
@@ -30,6 +33,44 @@ Public Class ConfiguracionParametros
                 CbPuertosSeriales.Text = ""
             End If
         Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub Setup_Puerto_Serie()
+        Try
+            With SpCapturaAuto
+                If .IsOpen Then
+
+                    .Close()
+
+                End If
+                .PortName = CbPuertosSeriales.Text
+
+                .BaudRate = 9600 '// 9600 baud rate
+
+                .DataBits = 8 '// 8 data bits
+
+                .StopBits = IO.Ports.StopBits.One '// 1 Stop bit
+
+                .Parity = IO.Ports.Parity.None '
+
+                .DtrEnable = False
+
+                .Handshake = IO.Ports.Handshake.None
+
+                .ReadBufferSize = 4096
+
+                .WriteBufferSize = 2048
+
+                '.ReceivedBytesThreshold = 1
+
+                .WriteTimeout = 500
+
+                .Encoding = System.Text.Encoding.Default
+
+                .Open() ' ABRE EL PUERTO SERIE
+            End With
+        Catch ex As Exception
+            MsgBox("Error al abrir el puerto serial: " & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
     Private Sub LimpiaCampos()
@@ -220,5 +261,120 @@ Public Class ConfiguracionParametros
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
+    End Sub
+
+    Private Sub BtLimpiar_Click(sender As Object, e As EventArgs) Handles BtLimpiar.Click
+        BtLimpiar.Text = ""
+        TbNeto.Text = ""
+        TbBruto.Text = ""
+        TbTara.Text = ""
+        TbIdCamion.Text = ""
+        TbModulo.Text = ""
+    End Sub
+
+    Private Sub BtTestModulos_Click(sender As Object, e As EventArgs) Handles BtTestModulos.Click
+        If LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
+            IndicadorBoton = 1
+            CbPuertosSeriales.Enabled = False
+            BtTestPacas.Enabled = False
+            LbStatusPuerto.Text = "CAPTURA AUTOMATICA ACTIVADA"
+            Setup_Puerto_Serie()
+        Else
+            BtTestPacas.Enabled = True
+            CbPuertosSeriales.Enabled = True
+            LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+            SpCapturaAuto.Close()
+        End If
+    End Sub
+    Private Sub BtTestPacas_Click(sender As Object, e As EventArgs) Handles BtTestPacas.Click
+        If LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
+            IndicadorBoton = 2
+            CbPuertosSeriales.Enabled = False
+            BtTestModulos.Enabled = False
+            LbStatusPuerto.Text = "CAPTURA AUTOMATICA ACTIVADA"
+            Setup_Puerto_Serie()
+        Else
+            BtTestModulos.Enabled = True
+            CbPuertosSeriales.Enabled = True
+            LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+            SpCapturaAuto.Close()
+        End If
+    End Sub
+    Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
+        'While bandera = True
+        Dim TipoFlete As String = ""
+        Dim returnStr As String = ""
+        Dim FechaActualizacion As DateTime
+        Dim numeroRecorrido As Integer = 0
+        Dim az As String     'utilizada para almacenar los datos que se reciben por el puerto
+        Dim sib As Integer    ' sera utilizada como contador
+        Dim msn(1000) As String
+        Try
+            az = SpCapturaAuto.ReadExisting.Trim
+
+            msn(sib) = az
+
+            returnStr += msn(sib) + " "
+
+            sib = sib + 1
+        Catch ex As TimeoutException
+            returnStr = "Error: Serial Port read timed out."
+        Finally
+        End Try
+        If CbPuertosSeriales.Text <> "" Then
+            TbCadenaPuertoSerial.Text = returnStr
+            'Select Case IndicadorBoton
+            '    Case 1
+            '        CadenaModulosParametros(returnStr)
+            '    Case 2
+            '        CadenaPacasParametros(returnStr)
+            'End Select
+        Else
+            MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
+        End If
+        returnStr = ""
+    End Sub
+    Private Sub CadenaModulosParametros(ByVal returnStr As String)
+        Dim Resultado As String = ""
+        If returnStr.Contains(TbIndicadorEntrada.Text) Then
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorID.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorID.Text)) - 1)
+            TbIdCamion.Text = Resultado.Substring(NuPosicionID.Value, NuCaracterId.Value)
+            TbModulo.Text = RTrim(Resultado.Substring(NuPosicionModulo.Value, NuCaracterModulo.Value))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorBruto.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorBruto.Text)) - 1)
+            TbBruto.Text = LTrim(Resultado.Substring(NuPosicionBruto.Value, NuCaracterBruto.Value))
+            TbTara.Text = 0
+            TbNeto.Text = 0
+        ElseIf returnStr.Contains(TbIndicadorSalida.Text) Then
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorID.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorID.Text)) - 1)
+            TbIdCamion.Text = Resultado.Substring(NuPosicionID.Value, NuCaracterId.Value)
+            TbModulo.Text = RTrim(Resultado.Substring(NuPosicionModulo.Value, NuCaracterModulo.Value))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorBruto.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorBruto.Text)) - 1)
+            TbBruto.Text = LTrim(Resultado.Substring(NuPosicionBruto.Value, NuCaracterBruto.Value))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorTara.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorTara.Text)) - 1)
+            TbTara.Text = LTrim(Resultado.Substring(NuPosicionTara.Value, NuCaracterTara.Value))
+
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbIndicadorNeto.Text)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(TbIndicadorNeto.Text)) - 1)
+            TbNeto.Text = LTrim(Resultado.Substring(NuPosicionTara.Value, NuCaracterTara.Value))
+        End If
+    End Sub
+    Private Sub CadenaPacasParametros(ByVal returnStr As String)
+        Dim Resultado As String = ""
+        If returnStr.Contains(TbPacasIndicadorBruto.Text) Then
+            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)), returnStr.Length - returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)))
+            TbNeto.Text = LTrim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
+        End If
+    End Sub
+
+    Private Sub BtProbarConfiguracion_Click(sender As Object, e As EventArgs) Handles BtProbarConfiguracion.Click
+
+        Select Case IndicadorBoton
+            Case 1
+                CadenaModulosParametros(TbCadenaPuertoSerial.Text)
+            Case 2
+                CadenaPacasParametros(TbCadenaPuertoSerial.Text)
+        End Select
     End Sub
 End Class
