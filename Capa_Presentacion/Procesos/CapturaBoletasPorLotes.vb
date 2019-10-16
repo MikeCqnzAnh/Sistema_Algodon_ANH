@@ -275,10 +275,14 @@ Public Class CapturaBoletasPorLotes
         IncidenciasBoletasPorLotes.ShowDialog()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        If TiActualizaDgvModulos.Enabled = Enabled Then
+        Close()
+    End Sub
+    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If SpCapturaAuto.IsOpen = True Then
             MessageBox.Show("No se puede cerrar la ventana con la funcion de captura automatica activada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            e.Cancel = True
         Else
-            Close()
+            e.Cancel = False
         End If
     End Sub
     Private Sub ConsultaParametros()

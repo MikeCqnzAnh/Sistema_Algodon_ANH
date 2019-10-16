@@ -18,19 +18,27 @@ Public Class Produccion
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
-        Limpiar()
-        CargarCombos()
-        ConsultaParametros()
-        TbIdOrdenTrabajo.Select()
+        If SpCapturaAutomatica.IsOpen = False Then
+            Limpiar()
+            CargarCombos()
+            ConsultaParametros()
+            TbIdOrdenTrabajo.Select()
+        Else
+            MessageBox.Show("La captura automatica esta activada, desactive para continuar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
 
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        If TiActualizaDgvPacas.Enabled = Enabled Then
+        Close()
+    End Sub
+    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If SpCapturaAutomatica.IsOpen = True Then
             MessageBox.Show("No se puede cerrar la ventana con la funcion de captura automatica activada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            e.Cancel = True
         Else
-            Close()
+            e.Cancel = False
         End If
     End Sub
     Private Sub GetSerialPortNames()
@@ -73,7 +81,6 @@ Public Class Produccion
     Private Sub Limpiar()
         TbIdProduccion.Text = ""
         TbIdOrdenTrabajo.Text = ""
-        TbPuertoSerial.Text = ""
         TbTotalPacas.Text = ""
         CbPlantaOrigen.SelectedValue = 1
         CBPlantaDestino.SelectedValue = 1
@@ -91,7 +98,6 @@ Public Class Produccion
         DeshabilitarControles()
         GbCapturaAutomatica.Enabled = False
         GbTipoCaptura.Enabled = False
-        RbManual.Checked = True
     End Sub
     Private Sub Setup_Puerto_Serie()
         Try
@@ -101,7 +107,7 @@ Public Class Produccion
                     .Close()
 
                 End If
-                .PortName = TbPuertoSerial.Text
+                .PortName = CbPuertosSeriales.Text
 
                 '.BaudRate = 9600 '// 9600 baud rate
 
@@ -568,7 +574,7 @@ Public Class Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
         EntidadProduccion.Consulta = Consulta.ConsultaPacaExistente
-        EntidadProduccion.FolioCIA = IIf(RbAutomatico.Checked = True, Val(TbFolioInicial.Text), Val(TbFolioCIA.Text))
+        EntidadProduccion.FolioCIA = IIf(SpCapturaAutomatica.IsOpen = True, Val(TbFolioInicial.Text), Val(TbFolioCIA.Text))
         EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
         EntidadProduccion.IdProduccion = TbIdProduccion.Text
         NegocioProduccion.Consultar(EntidadProduccion)
@@ -881,13 +887,13 @@ Public Class Produccion
         End If
     End Sub
 
-    Private Sub RbAutomatico_CheckedChanged(sender As Object, e As EventArgs) Handles RbAutomatico.CheckedChanged
+    Private Sub RbAutomatico_CheckedChanged(sender As Object, e As EventArgs)
         TbFolioCIA.Enabled = False
         TbKilos.Enabled = False
         TbFolioInicial.Enabled = True
     End Sub
 
-    Private Sub RbManual_CheckedChanged(sender As Object, e As EventArgs) Handles RbManual.CheckedChanged
+    Private Sub RbManual_CheckedChanged(sender As Object, e As EventArgs)
         TbFolioCIA.Enabled = True
         TbKilos.Enabled = True
         TbFolioInicial.Enabled = False
@@ -1065,7 +1071,7 @@ Public Class Produccion
         If Tabla.Rows.Count = 0 Then
             Exit Sub
         End If
-        TbPuertoSerial.Text = Tabla.Rows(0).Item("NombrePuerto")
+        CbPuertosSeriales.Text = Tabla.Rows(0).Item("NombrePuerto")
         PesoMinimoPaca = Tabla.Rows(0).Item("PesoMinimoPaca")
         IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorPacasBruto")
         IndicadorTara = Tabla.Rows(0).Item("IndicadorPacasTara")

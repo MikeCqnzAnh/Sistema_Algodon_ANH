@@ -86,9 +86,6 @@ Partial Class Produccion
         Me.BtAnterior = New System.Windows.Forms.Button()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbTipoCaptura = New System.Windows.Forms.GroupBox()
-        Me.TbPuertoSerial = New System.Windows.Forms.TextBox()
-        Me.RbAutomatico = New System.Windows.Forms.RadioButton()
-        Me.RbManual = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -353,37 +350,37 @@ Partial Class Produccion
         '
         'TbFolioCIA
         '
-        Me.TbFolioCIA.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbFolioCIA.Location = New System.Drawing.Point(135, 107)
+        Me.TbFolioCIA.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbFolioCIA.Location = New System.Drawing.Point(10, 48)
         Me.TbFolioCIA.Name = "TbFolioCIA"
-        Me.TbFolioCIA.Size = New System.Drawing.Size(168, 38)
+        Me.TbFolioCIA.Size = New System.Drawing.Size(242, 44)
         Me.TbFolioCIA.TabIndex = 47
         '
         'TbKilos
         '
-        Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbKilos.Location = New System.Drawing.Point(135, 151)
+        Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbKilos.Location = New System.Drawing.Point(11, 131)
         Me.TbKilos.Name = "TbKilos"
-        Me.TbKilos.Size = New System.Drawing.Size(168, 38)
+        Me.TbKilos.Size = New System.Drawing.Size(241, 44)
         Me.TbKilos.TabIndex = 49
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(33, 117)
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(5, 16)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(96, 24)
+        Me.Label22.Size = New System.Drawing.Size(121, 29)
         Me.Label22.TabIndex = 50
         Me.Label22.Text = "Folio CIA"
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(74, 161)
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(6, 99)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(55, 24)
+        Me.Label24.Size = New System.Drawing.Size(72, 29)
         Me.Label24.TabIndex = 52
         Me.Label24.Text = "Kilos"
         '
@@ -705,9 +702,6 @@ Partial Class Produccion
         '
         'GbTipoCaptura
         '
-        Me.GbTipoCaptura.Controls.Add(Me.TbPuertoSerial)
-        Me.GbTipoCaptura.Controls.Add(Me.RbAutomatico)
-        Me.GbTipoCaptura.Controls.Add(Me.RbManual)
         Me.GbTipoCaptura.Controls.Add(Me.Label24)
         Me.GbTipoCaptura.Controls.Add(Me.TbFolioCIA)
         Me.GbTipoCaptura.Controls.Add(Me.TbKilos)
@@ -719,37 +713,7 @@ Partial Class Produccion
         Me.GbTipoCaptura.Size = New System.Drawing.Size(347, 207)
         Me.GbTipoCaptura.TabIndex = 65
         Me.GbTipoCaptura.TabStop = False
-        Me.GbTipoCaptura.Text = "Tipo Captura"
-        '
-        'TbPuertoSerial
-        '
-        Me.TbPuertoSerial.Location = New System.Drawing.Point(160, 21)
-        Me.TbPuertoSerial.Name = "TbPuertoSerial"
-        Me.TbPuertoSerial.ReadOnly = True
-        Me.TbPuertoSerial.Size = New System.Drawing.Size(143, 20)
-        Me.TbPuertoSerial.TabIndex = 68
-        '
-        'RbAutomatico
-        '
-        Me.RbAutomatico.AutoSize = True
-        Me.RbAutomatico.Location = New System.Drawing.Point(6, 48)
-        Me.RbAutomatico.Name = "RbAutomatico"
-        Me.RbAutomatico.Size = New System.Drawing.Size(78, 17)
-        Me.RbAutomatico.TabIndex = 66
-        Me.RbAutomatico.Text = "Automatico"
-        Me.RbAutomatico.UseVisualStyleBackColor = True
-        '
-        'RbManual
-        '
-        Me.RbManual.AutoSize = True
-        Me.RbManual.Checked = True
-        Me.RbManual.Location = New System.Drawing.Point(6, 22)
-        Me.RbManual.Name = "RbManual"
-        Me.RbManual.Size = New System.Drawing.Size(60, 17)
-        Me.RbManual.TabIndex = 0
-        Me.RbManual.TabStop = True
-        Me.RbManual.Text = "Manual"
-        Me.RbManual.UseVisualStyleBackColor = True
+        Me.GbTipoCaptura.Text = "Captura Peso"
         '
         'GroupBox1
         '
@@ -796,6 +760,7 @@ Partial Class Produccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1076, 792)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
@@ -881,14 +846,11 @@ Partial Class Produccion
     Friend WithEvents DgvPacas As DataGridView
     Friend WithEvents CbTipoProducto As ComboBox
     Friend WithEvents GbTipoCaptura As GroupBox
-    Friend WithEvents RbAutomatico As RadioButton
-    Friend WithEvents RbManual As RadioButton
     Friend WithEvents Label8 As Label
     Friend WithEvents TbFolioInicial As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents TbPuertoSerial As TextBox
     Friend WithEvents TbTotalPacas As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents LbStatus As Label

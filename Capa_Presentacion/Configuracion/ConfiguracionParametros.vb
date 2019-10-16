@@ -260,11 +260,18 @@ Public Class ConfiguracionParametros
         End If
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Close()
+        Me.Close()
     End Sub
-
+    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If SpCapturaAuto.IsOpen = True Then
+            MessageBox.Show("La captura automatica esta activa, desactiva para salir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            e.Cancel = True
+        Else
+            e.Cancel = False
+        End If
+    End Sub
     Private Sub BtLimpiar_Click(sender As Object, e As EventArgs) Handles BtLimpiar.Click
-        BtLimpiar.Text = ""
+        TbCadenaPuertoSerial.Text = ""
         TbNeto.Text = ""
         TbBruto.Text = ""
         TbTara.Text = ""
@@ -310,19 +317,30 @@ Public Class ConfiguracionParametros
         Dim sib As Integer    ' sera utilizada como contador
         Dim msn(1000) As String
         Try
-            az = SpCapturaAuto.ReadExisting.Trim
+            If IndicadorBoton = 1 Then
+                az = SpCapturaAuto.ReadExisting.Trim
 
-            msn(sib) = az
+                msn(sib) = az
 
-            returnStr += msn(sib) + " "
+                returnStr += msn(sib) + " "
 
-            sib = sib + 1
+                sib = sib + 1
+            ElseIf IndicadorBoton = 2 Then
+                az = SpCapturaAuto.ReadLine.Trim
+
+                msn(sib) = az
+
+                returnStr += msn(sib) + " "
+
+                sib = sib + 1
+            End If
+
         Catch ex As TimeoutException
             returnStr = "Error: Serial Port read timed out."
         Finally
         End Try
         If CbPuertosSeriales.Text <> "" Then
-            TbCadenaPuertoSerial.Text = returnStr
+            TbCadenaPuertoSerial.Text += returnStr + vbCrLf
             'Select Case IndicadorBoton
             '    Case 1
             '        CadenaModulosParametros(returnStr)
@@ -364,12 +382,11 @@ Public Class ConfiguracionParametros
         Dim Resultado As String = ""
         If returnStr.Contains(TbPacasIndicadorBruto.Text) Then
             Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)), returnStr.Length - returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)))
-            TbNeto.Text = LTrim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
+            TbBruto.Text = LTrim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
         End If
     End Sub
 
     Private Sub BtProbarConfiguracion_Click(sender As Object, e As EventArgs) Handles BtProbarConfiguracion.Click
-
         Select Case IndicadorBoton
             Case 1
                 CadenaModulosParametros(TbCadenaPuertoSerial.Text)
