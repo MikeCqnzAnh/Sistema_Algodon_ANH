@@ -2,6 +2,8 @@
 Imports System.IO.Ports
 Imports System.Net
 Public Class CapturaBoletasPorLotes
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
+    Dim archivo As String = "config.ini"
     Dim PuertoSerial, IndicadorID, IndicadorEntrada, IndicadorSalida, IndicadorPesoBruto, IndicadorTara, IndicadorNeto As String
     Dim IdConfiguracion, PosicionID, PosicionModulo, PosicionEntrada, PosicionSalida, PosicionPesoBruto, PosicionTara, PosicionNeto As Integer
     Dim CaracterID, CaracterModulo, CaracterEntrada, CaracterSalida, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
@@ -10,6 +12,7 @@ Public Class CapturaBoletasPorLotes
         ConsultaModulos()
         ConsultaParametros()
         GetSerialPortNames()
+        LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
@@ -60,6 +63,11 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.DataSource = EntidadCapturaBoletasPorLotes.TablaConsulta
         propiedadesDgv()
     End Sub
+
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+
+    End Sub
+
     Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
         'While bandera = True
         Dim Resultado As String = ""
@@ -84,58 +92,42 @@ Public Class CapturaBoletasPorLotes
             returnStr = "Error: Serial Port read timed out."
         Finally
         End Try
-        'MsgBox(returnStr)
-        If returnStr.Contains(IndicadorEntrada) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+        Try
+            If returnStr.Contains(IndicadorEntrada) Then
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+                NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+                IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
-            Tara = 0
-            Neto = 0
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+                Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+                Tara = 0
+                Neto = 0
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorEntrada
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        ElseIf returnStr.Contains(IndicadorSalida) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
-            NoTransporte = Resultado.Substring(PosicionID, CaracterID)
-            IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
+                FechaActualizacion = Now
+                TipoFlete = IndicadorEntrada
+                ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+            ElseIf returnStr.Contains(IndicadorSalida) Then
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorID)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorID)) - 1)
+                NoTransporte = Resultado.Substring(PosicionID, CaracterID)
+                IdBoleta = RTrim(Resultado.Substring(PosicionModulo, CaracterModulo))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)) - 1)
+                Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
-            Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorTara)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorTara)) - 1)
+                Tara = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
-            Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
+                Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorNeto)) + 1, returnStr.Length - returnStr.IndexOf(RTrim(IndicadorNeto)) - 1)
+                Neto = LTrim(Resultado.Substring(PosicionTara, CaracterTara))
 
-            FechaActualizacion = Now
-            TipoFlete = IndicadorSalida
-            ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        End If
+                FechaActualizacion = Now
+                TipoFlete = IndicadorSalida
+                ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
         returnStr = ""
-        'If returnStr.Contains("INBOUND") Then
-        '    NoTransporte = returnStr.Substring(3, 2)
-        '    IdBoleta = LTrim(returnStr.Substring(6, 5))
-        '    Bruto = LTrim(returnStr.Substring(20, 10))
-        '    Tara = 0
-        '    Neto = 0
-        '    FechaActualizacion = Now
-        '    TipoFlete = "INBOUND"
-        '    ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        'ElseIf returnStr.Contains("RECALLED") Then
-        '    NoTransporte = returnStr.Substring(3, 2)
-        '    IdBoleta = LTrim(returnStr.Substring(6, 5))
-        '    Bruto = 0
-        '    Tara = LTrim(returnStr.Substring(48, 11))
-        '    Neto = LTrim(returnStr.Substring(68, 12))
-        '    FechaActualizacion = Now
-        '    TipoFlete = "RECALLED"
-        '    ActualizaPesoModuloAutomatico(NoTransporte, IdBoleta, Bruto, Tara, Neto, FechaActualizacion, TipoFlete)
-        'End If
     End Sub
     Private Sub propiedadesDgv()
         DgvModulos.Columns("IdPlanta").HeaderText = "ID Planta"
@@ -251,16 +243,20 @@ Public Class CapturaBoletasPorLotes
         ConsultaModulos()
     End Sub
     Private Sub BtAutomatico_Click(sender As Object, e As EventArgs) Handles BtAutomatico.Click
-        If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
-            TiActualizaDgvModulos.Enabled = True
-            CbPuertosSeriales.Enabled = False
-            LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
-            Setup_Puerto_Serie()
+        If IO.File.Exists(Ruta & archivo) Then
+            If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
+                TiActualizaDgvModulos.Enabled = True
+                CbPuertosSeriales.Enabled = False
+                LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
+                Setup_Puerto_Serie()
+            Else
+                CbPuertosSeriales.Enabled = True
+                TiActualizaDgvModulos.Enabled = False
+                LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+                SpCapturaAuto.Close()
+            End If
         Else
-            CbPuertosSeriales.Enabled = True
-            TiActualizaDgvModulos.Enabled = False
-            LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
-            SpCapturaAuto.Close()
+            MessageBox.Show("No se ha configurado el puerto serial para captura automatica, Contactar al Administrador del sistema para resolverlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Sub TiActualizaDgvModulos_Tick(sender As Object, e As EventArgs) Handles TiActualizaDgvModulos.Tick
@@ -272,7 +268,11 @@ Public Class CapturaBoletasPorLotes
         End With
     End Sub
     Private Sub IncidenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IncidenciasToolStripMenuItem.Click
-        IncidenciasBoletasPorLotes.ShowDialog()
+        If SpCapturaAuto.IsOpen = True Then
+            MessageBox.Show("Desactivar captura automatica para continuar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            IncidenciasBoletasPorLotes.ShowDialog()
+        End If
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -286,38 +286,38 @@ Public Class CapturaBoletasPorLotes
         End If
     End Sub
     Private Sub ConsultaParametros()
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.IdConfiguracion = 0
-        EntidadConfiguracionParametros.DireccionIP = GetNameHost()
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        Tabla = EntidadConfiguracionParametros.TablaConsulta
-        If Tabla.Rows.Count = 0 Then
-            Exit Sub
-        End If
-        PuertoSerial = Tabla.Rows(0).Item("NombrePuerto")
-        IndicadorID = Tabla.Rows(0).Item("IndicadorID")
-        IndicadorEntrada = Tabla.Rows(0).Item("IndicadorEntrada")
-        IndicadorSalida = Tabla.Rows(0).Item("IndicadorSalida")
-        IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorBruto")
-        IndicadorTara = Tabla.Rows(0).Item("IndicadorTara")
-        IndicadorNeto = Tabla.Rows(0).Item("IndicadorNeto")
-        PosicionID = Tabla.Rows(0).Item("PosicionID")
-        PosicionModulo = Tabla.Rows(0).Item("PosicionModulo")
-        PosicionEntrada = Tabla.Rows(0).Item("PosicionEntrada")
-        PosicionSalida = Tabla.Rows(0).Item("PosicionSalida")
-        PosicionPesoBruto = Tabla.Rows(0).Item("PosicionBruto")
-        PosicionTara = Tabla.Rows(0).Item("PosicionTara")
-        PosicionNeto = Tabla.Rows(0).Item("PosicionNeto")
-        CaracterID = Tabla.Rows(0).Item("CaracterID")
-        CaracterModulo = Tabla.Rows(0).Item("CaracterModulo")
-        CaracterEntrada = Tabla.Rows(0).Item("CaracterEntrada")
-        CaracterSalida = Tabla.Rows(0).Item("CaracterSalida")
-        CaracterPesoBruto = Tabla.Rows(0).Item("CaracterBruto")
-        CaracterTara = Tabla.Rows(0).Item("CaracterTara")
-        CaracterNeto = Tabla.Rows(0).Item("CaracterNeto")
+        'Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        'Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        'Dim Tabla As New DataTable
+        'EntidadConfiguracionParametros.IdConfiguracion = 0
+        'EntidadConfiguracionParametros.DireccionIP = GetNameHost()
+        'EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+        'NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        'Tabla = EntidadConfiguracionParametros.TablaConsulta
+        'If Tabla.Rows.Count = 0 Then
+        '    Exit Sub
+        'End If
+        'PuertoSerial = Tabla.Rows(0).Item("NombrePuerto")
+        'IndicadorID = Tabla.Rows(0).Item("IndicadorID")
+        'IndicadorEntrada = Tabla.Rows(0).Item("IndicadorEntrada")
+        'IndicadorSalida = Tabla.Rows(0).Item("IndicadorSalida")
+        'IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorBruto")
+        'IndicadorTara = Tabla.Rows(0).Item("IndicadorTara")
+        'IndicadorNeto = Tabla.Rows(0).Item("IndicadorNeto")
+        'PosicionID = Tabla.Rows(0).Item("PosicionID")
+        'PosicionModulo = Tabla.Rows(0).Item("PosicionModulo")
+        'PosicionEntrada = Tabla.Rows(0).Item("PosicionEntrada")
+        'PosicionSalida = Tabla.Rows(0).Item("PosicionSalida")
+        'PosicionPesoBruto = Tabla.Rows(0).Item("PosicionBruto")
+        'PosicionTara = Tabla.Rows(0).Item("PosicionTara")
+        'PosicionNeto = Tabla.Rows(0).Item("PosicionNeto")
+        'CaracterID = Tabla.Rows(0).Item("CaracterID")
+        'CaracterModulo = Tabla.Rows(0).Item("CaracterModulo")
+        'CaracterEntrada = Tabla.Rows(0).Item("CaracterEntrada")
+        'CaracterSalida = Tabla.Rows(0).Item("CaracterSalida")
+        'CaracterPesoBruto = Tabla.Rows(0).Item("CaracterBruto")
+        'CaracterTara = Tabla.Rows(0).Item("CaracterTara")
+        'CaracterNeto = Tabla.Rows(0).Item("CaracterNeto")
     End Sub
     Private Function GetNameHost()
         Dim strHostName As String
@@ -325,6 +325,59 @@ Public Class CapturaBoletasPorLotes
         strHostName = Dns.GetHostName()
         strIPAddress = Dns.Resolve(strHostName).AddressList(0).ToString()
         Return strIPAddress
+    End Function
+    Private Sub LeerArchivoConfiguracion()
+        If IO.File.Exists(Ruta & archivo) Then
+            ObtenerArchivoConfiguracion()
+        Else
+            MessageBox.Show("No se ha configurado el puerto serial para captura automatica, Contactar al Administrador del sistema para resolverlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New IO.StreamReader(Ruta & archivo)
+
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, vbCrLf)
+                IndicadorID = ObtenerValor(ArregloCadena(0))
+                PosicionID = ObtenerValor(ArregloCadena(1))
+                CaracterID = ObtenerValor(ArregloCadena(2))
+                'TbIndicadorModulo.Text = ObtenerValor(ArregloCadena(3))
+                PosicionModulo = ObtenerValor(ArregloCadena(4))
+                CaracterModulo = ObtenerValor(ArregloCadena(5))
+                IndicadorEntrada = ObtenerValor(ArregloCadena(6))
+                PosicionEntrada = ObtenerValor(ArregloCadena(7))
+                CaracterEntrada = ObtenerValor(ArregloCadena(8))
+                IndicadorSalida = ObtenerValor(ArregloCadena(9))
+                PosicionSalida = ObtenerValor(ArregloCadena(10))
+                CaracterSalida = ObtenerValor(ArregloCadena(11))
+                IndicadorPesoBruto = ObtenerValor(ArregloCadena(12))
+                PosicionPesoBruto = ObtenerValor(ArregloCadena(13))
+                CaracterPesoBruto = ObtenerValor(ArregloCadena(14))
+                IndicadorTara = ObtenerValor(ArregloCadena(15))
+                PosicionTara = ObtenerValor(ArregloCadena(16))
+                CaracterTara = ObtenerValor(ArregloCadena(17))
+                IndicadorNeto = ObtenerValor(ArregloCadena(18))
+                PosicionNeto = ObtenerValor(ArregloCadena(19))
+                CaracterNeto = ObtenerValor(ArregloCadena(20))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+            End While
+
+            leer.Close()
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
+    Private Function ObtenerValor(ByVal cadena As String)
+        Dim Resultado As String
+        Dim ArregloCadena() As String = Split(cadena, "=")
+        Resultado = ArregloCadena(1)
+        Return Resultado
     End Function
     'Private Sub Btcadenaentrada_Click(sender As Object, e As EventArgs) Handles Btcadenaentrada.Click
     '    Dim CadenaEntrada As String = "ID 11.11111" & vbCrLf & vbCrLf & "GROSS        80 kg INBOUND" & vbCrLf & vbCrLf & "11/04/2019 04:02PM" & vbCrLf & "."

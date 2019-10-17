@@ -696,8 +696,6 @@ Public Class Produccion
         Catch ex As Exception
             MsgBox(ex)
         End Try
-
-
         returnStr = ""
     End Sub
     Private Sub ActualizaPesoModuloAutomatico(ByVal FolioCIA As Integer, ByVal Bruto As Double, ByVal FechaActualizacion As DateTime)
