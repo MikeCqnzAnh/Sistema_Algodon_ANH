@@ -3,13 +3,17 @@ Imports System.Net.NetworkInformation
 Imports Capa_Operacion.Configuracion
 Imports System.IO.Ports
 Public Class ConfiguracionParametros
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
+    Dim archivo As String = "config.ini"
+    Dim EncabezadoModulos, EncabezadoPacas As String
     Dim IndicadorBoton As Integer
     Private Sub ConfiguracionParametros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiaCampos()
         GetSerialPortNames()
         GetNameHost()
         ConsultaParametrosBanxico()
-        ConsultaParametros()
+        'ConsultaParametros()
+        LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
         LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
@@ -32,6 +36,7 @@ Public Class ConfiguracionParametros
             Else
                 CbPuertosSeriales.Text = ""
             End If
+            CbPuertosSeriales.SelectedIndex = -1
         Catch ex As Exception
         End Try
     End Sub
@@ -120,8 +125,13 @@ Public Class ConfiguracionParametros
         TsNombrePc.Text = strHostName
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        GuardarConfiguracionParametrosBanxico()
-        GuardaConfiguracionParametros()
+        If SpCapturaAuto.IsOpen = False Then
+            GuardarConfiguracionParametrosBanxico()
+            'GuardaConfiguracionParametros()
+            CreaArchivoConfiguracion()
+        Else
+            MessageBox.Show("Desactivar captura automatica para guardar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
     Private Sub GuardaConfiguracionParametros()
         Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
@@ -394,4 +404,109 @@ Public Class ConfiguracionParametros
                 CadenaPacasParametros(TbCadenaPuertoSerial.Text)
         End Select
     End Sub
+    Private Sub CreaArchivoConfiguracion()
+        Dim fs As IO.FileStream
+        ':::Validamos si la carpeta de ruta existe, si no existe la creamos
+        Try
+            If IO.File.Exists(Ruta & archivo) Then
+
+                ':::Si la carpeta existe creamos o sobreescribios el archivo txt
+                fs = IO.File.Create(Ruta & archivo)
+                fs.Close()
+                SobreEscribirConfiguracion()
+            Else
+                ':::Si la carpeta no existe la creamos
+                IO.Directory.CreateDirectory(Ruta)
+
+                ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
+                fs = IO.File.Create(Ruta & archivo)
+                fs.Close()
+                SobreEscribirConfiguracion()
+            End If
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+        Finally
+            PanelParametrosBascula.Enabled = False
+        End Try
+    End Sub
+    Private Sub SobreEscribirConfiguracion()
+        ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
+        Dim escribir As New IO.StreamWriter(Ruta & archivo)
+        Dim DireccionIP As String = ""
+        Try
+
+            ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
+            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text)
+            escribir.Close()
+            ':::Limpiamos los TextBox
+            ':::Llamamos nuestro procedimiento para leer el archivo TXT
+            'LeerArchivo()
+        Catch ex As Exception
+            MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
+    Private Sub LeerArchivoConfiguracion()
+        If IO.File.Exists(Ruta & archivo) Then
+            ObtenerArchivoConfiguracion()
+        Else
+            CreaArchivoConfiguracion()
+        End If
+    End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New IO.StreamReader(Ruta & archivo)
+
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, vbCrLf)
+                TbIndicadorID.Text = ObtenerValor(ArregloCadena(0))
+                NuPosicionID.Value = ObtenerValor(ArregloCadena(1))
+                NuCaracterId.Value = ObtenerValor(ArregloCadena(2))
+                TbIndicadorModulo.Text = ObtenerValor(ArregloCadena(3))
+                NuPosicionModulo.Value = ObtenerValor(ArregloCadena(4))
+                NuCaracterModulo.Value = ObtenerValor(ArregloCadena(5))
+                TbIndicadorEntrada.Text = ObtenerValor(ArregloCadena(6))
+                NuPosicionEntrada.Value = ObtenerValor(ArregloCadena(7))
+                NuCaracterEntrada.Value = ObtenerValor(ArregloCadena(8))
+                TbIndicadorSalida.Text = ObtenerValor(ArregloCadena(9))
+                NuPosicionSalida.Value = ObtenerValor(ArregloCadena(10))
+                NuCaracterSalida.Value = ObtenerValor(ArregloCadena(11))
+                TbIndicadorBruto.Text = ObtenerValor(ArregloCadena(12))
+                NuPosicionBruto.Value = ObtenerValor(ArregloCadena(13))
+                NuCaracterBruto.Value = ObtenerValor(ArregloCadena(14))
+                TbIndicadorTara.Text = ObtenerValor(ArregloCadena(15))
+                NuPosicionTara.Value = ObtenerValor(ArregloCadena(16))
+                NuCaracterTara.Value = ObtenerValor(ArregloCadena(17))
+                TbIndicadorNeto.Text = ObtenerValor(ArregloCadena(18))
+                NuPosicionNeto.Value = ObtenerValor(ArregloCadena(19))
+                NuCaracterNeto.Value = ObtenerValor(ArregloCadena(20))
+                NuPesoMinimoPaca.Value = ObtenerValor(ArregloCadena(21))
+                TbPacasIndicadorBruto.Text = ObtenerValor(ArregloCadena(22))
+                NuPacasPosicionBruto.Value = ObtenerValor(ArregloCadena(23))
+                NuPacasCaracterBruto.Value = ObtenerValor(ArregloCadena(24))
+                TbPacasIndicadorTara.Text = ObtenerValor(ArregloCadena(25))
+                NuPacasPosicionTara.Value = ObtenerValor(ArregloCadena(26))
+                NuPacasCaracterTara.Value = ObtenerValor(ArregloCadena(27))
+                TbPacasIndicadorNeto.Text = ObtenerValor(ArregloCadena(28))
+                NuPacasPosicionNeto.Value = ObtenerValor(ArregloCadena(29))
+                NuPacasCaracterNeto.Value = ObtenerValor(ArregloCadena(30))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+            End While
+
+            leer.Close()
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
+    Private Function ObtenerValor(ByVal cadena As String)
+        Dim Resultado As String
+        Dim ArregloCadena() As String = Split(cadena, "=")
+        Resultado = ArregloCadena(1)
+        Return Resultado
+    End Function
 End Class

@@ -23,9 +23,9 @@ Partial Class Produccion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -110,7 +110,7 @@ Partial Class Produccion
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1076, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1146, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -409,7 +409,7 @@ Partial Class Produccion
         Me.GbDatosProduccion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDatosProduccion.Location = New System.Drawing.Point(465, 16)
         Me.GbDatosProduccion.Name = "GbDatosProduccion"
-        Me.GbDatosProduccion.Size = New System.Drawing.Size(261, 207)
+        Me.GbDatosProduccion.Size = New System.Drawing.Size(331, 207)
         Me.GbDatosProduccion.TabIndex = 54
         Me.GbDatosProduccion.TabStop = False
         Me.GbDatosProduccion.Text = "Datos de Produccion"
@@ -467,7 +467,7 @@ Partial Class Produccion
         Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GbModulos.Location = New System.Drawing.Point(3, 223)
         Me.GbModulos.Name = "GbModulos"
-        Me.GbModulos.Size = New System.Drawing.Size(1070, 109)
+        Me.GbModulos.Size = New System.Drawing.Size(1140, 109)
         Me.GbModulos.TabIndex = 55
         Me.GbModulos.TabStop = False
         Me.GbModulos.Text = "Modulos"
@@ -513,12 +513,13 @@ Partial Class Produccion
         Me.TbModulos.Location = New System.Drawing.Point(3, 16)
         Me.TbModulos.Multiline = True
         Me.TbModulos.Name = "TbModulos"
-        Me.TbModulos.Size = New System.Drawing.Size(1064, 58)
+        Me.TbModulos.Size = New System.Drawing.Size(1134, 58)
         Me.TbModulos.TabIndex = 0
         '
         'BtActivarPrensa
         '
-        Me.BtActivarPrensa.Location = New System.Drawing.Point(3, 49)
+        Me.BtActivarPrensa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtActivarPrensa.Location = New System.Drawing.Point(12, 76)
         Me.BtActivarPrensa.Name = "BtActivarPrensa"
         Me.BtActivarPrensa.Size = New System.Drawing.Size(305, 29)
         Me.BtActivarPrensa.TabIndex = 57
@@ -527,7 +528,7 @@ Partial Class Produccion
         '
         'BtAgregarExcel
         '
-        Me.BtAgregarExcel.Location = New System.Drawing.Point(3, 84)
+        Me.BtAgregarExcel.Location = New System.Drawing.Point(11, 111)
         Me.BtAgregarExcel.Name = "BtAgregarExcel"
         Me.BtAgregarExcel.Size = New System.Drawing.Size(305, 29)
         Me.BtAgregarExcel.TabIndex = 58
@@ -536,14 +537,14 @@ Partial Class Produccion
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(3, 119)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(11, 146)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 59
         '
         'BtImprimir
         '
-        Me.BtImprimir.Location = New System.Drawing.Point(124, 116)
+        Me.BtImprimir.Location = New System.Drawing.Point(132, 143)
         Me.BtImprimir.Name = "BtImprimir"
         Me.BtImprimir.Size = New System.Drawing.Size(184, 23)
         Me.BtImprimir.TabIndex = 60
@@ -552,7 +553,7 @@ Partial Class Produccion
         '
         'BtIncidencias
         '
-        Me.BtIncidencias.Location = New System.Drawing.Point(3, 145)
+        Me.BtIncidencias.Location = New System.Drawing.Point(11, 172)
         Me.BtIncidencias.Name = "BtIncidencias"
         Me.BtIncidencias.Size = New System.Drawing.Size(305, 29)
         Me.BtIncidencias.TabIndex = 61
@@ -563,7 +564,6 @@ Partial Class Produccion
         '
         Me.GbCapturaAutomatica.Controls.Add(Me.Label10)
         Me.GbCapturaAutomatica.Controls.Add(Me.CbPuertosSeriales)
-        Me.GbCapturaAutomatica.Controls.Add(Me.LbStatus)
         Me.GbCapturaAutomatica.Controls.Add(Me.BtActivarPrensa)
         Me.GbCapturaAutomatica.Controls.Add(Me.BtIncidencias)
         Me.GbCapturaAutomatica.Controls.Add(Me.GbLotes)
@@ -572,9 +572,9 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.Controls.Add(Me.NumericUpDown1)
         Me.GbCapturaAutomatica.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbCapturaAutomatica.Enabled = False
-        Me.GbCapturaAutomatica.Location = New System.Drawing.Point(754, 16)
+        Me.GbCapturaAutomatica.Location = New System.Drawing.Point(807, 16)
         Me.GbCapturaAutomatica.Name = "GbCapturaAutomatica"
-        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(319, 414)
+        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 414)
         Me.GbCapturaAutomatica.TabIndex = 62
         Me.GbCapturaAutomatica.TabStop = False
         Me.GbCapturaAutomatica.Text = "Captura de Lotes Automatico"
@@ -582,29 +582,35 @@ Partial Class Produccion
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 25)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(11, 23)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(67, 13)
+        Me.Label10.Size = New System.Drawing.Size(88, 50)
         Me.Label10.TabIndex = 70
-        Me.Label10.Text = "Puerto Serial"
+        Me.Label10.Text = "Puerto " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Serial"
         '
         'CbPuertosSeriales
         '
+        Me.CbPuertosSeriales.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(96, 22)
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(105, 37)
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
-        Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 21)
+        Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 33)
         Me.CbPuertosSeriales.TabIndex = 58
         '
         'LbStatus
         '
+        Me.LbStatus.AutoEllipsis = True
         Me.LbStatus.AutoSize = True
-        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbStatus.Location = New System.Drawing.Point(6, 379)
+        Me.LbStatus.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LbStatus.Location = New System.Drawing.Point(3, 16)
         Me.LbStatus.Name = "LbStatus"
-        Me.LbStatus.Size = New System.Drawing.Size(51, 16)
+        Me.LbStatus.Size = New System.Drawing.Size(561, 31)
         Me.LbStatus.TabIndex = 69
-        Me.LbStatus.Text = "Status"
+        Me.LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+        Me.LbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GbLotes
         '
@@ -612,9 +618,9 @@ Partial Class Produccion
         Me.GbLotes.Controls.Add(Me.BtInicio)
         Me.GbLotes.Controls.Add(Me.BtSiguiente)
         Me.GbLotes.Controls.Add(Me.BtAnterior)
-        Me.GbLotes.Location = New System.Drawing.Point(3, 180)
+        Me.GbLotes.Location = New System.Drawing.Point(7, 235)
         Me.GbLotes.Name = "GbLotes"
-        Me.GbLotes.Size = New System.Drawing.Size(310, 174)
+        Me.GbLotes.Size = New System.Drawing.Size(310, 83)
         Me.GbLotes.TabIndex = 63
         Me.GbLotes.TabStop = False
         Me.GbLotes.Text = "Lotes"
@@ -663,41 +669,41 @@ Partial Class Produccion
         Me.DgvPacas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvPacas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPacas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvPacas.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvPacas.DefaultCellStyle = DataGridViewCellStyle5
         Me.DgvPacas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPacas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvPacas.Location = New System.Drawing.Point(3, 16)
+        Me.DgvPacas.Location = New System.Drawing.Point(3, 47)
         Me.DgvPacas.MultiSelect = False
         Me.DgvPacas.Name = "DgvPacas"
         Me.DgvPacas.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvPacas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvPacas.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(745, 395)
+        Me.DgvPacas.Size = New System.Drawing.Size(798, 364)
         Me.DgvPacas.TabIndex = 64
         '
         'GbTipoCaptura
@@ -708,7 +714,7 @@ Partial Class Produccion
         Me.GbTipoCaptura.Controls.Add(Me.Label22)
         Me.GbTipoCaptura.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbTipoCaptura.Enabled = False
-        Me.GbTipoCaptura.Location = New System.Drawing.Point(726, 16)
+        Me.GbTipoCaptura.Location = New System.Drawing.Point(796, 16)
         Me.GbTipoCaptura.Name = "GbTipoCaptura"
         Me.GbTipoCaptura.Size = New System.Drawing.Size(347, 207)
         Me.GbTipoCaptura.TabIndex = 65
@@ -718,10 +724,11 @@ Partial Class Produccion
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.DgvPacas)
+        Me.GroupBox1.Controls.Add(Me.LbStatus)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(751, 414)
+        Me.GroupBox1.Size = New System.Drawing.Size(804, 414)
         Me.GroupBox1.TabIndex = 66
         Me.GroupBox1.TabStop = False
         '
@@ -732,7 +739,7 @@ Partial Class Produccion
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 359)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1076, 433)
+        Me.GroupBox2.Size = New System.Drawing.Size(1146, 433)
         Me.GroupBox2.TabIndex = 67
         Me.GroupBox2.TabStop = False
         '
@@ -745,7 +752,7 @@ Partial Class Produccion
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(0, 24)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1076, 335)
+        Me.GroupBox3.Size = New System.Drawing.Size(1146, 335)
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
@@ -761,7 +768,7 @@ Partial Class Produccion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1076, 792)
+        Me.ClientSize = New System.Drawing.Size(1146, 792)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.MSMenu)
@@ -786,6 +793,7 @@ Partial Class Produccion
         Me.GbTipoCaptura.ResumeLayout(False)
         Me.GbTipoCaptura.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)

@@ -2,6 +2,8 @@
 Imports System.IO.Ports
 Imports System.Net
 Public Class Produccion
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
+    Dim archivo As String = "config.ini"
     Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
     Dim UltimaSecuencia As Integer
@@ -11,9 +13,10 @@ Public Class Produccion
     Private Sub Produccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpiar()
         CargarCombos()
+        GetSerialPortNames()
+        LeerArchivoConfiguracion()
         ConsultaParametros()
         TbIdOrdenTrabajo.Select()
-        GetSerialPortNames()
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
@@ -21,14 +24,12 @@ Public Class Produccion
         If SpCapturaAutomatica.IsOpen = False Then
             Limpiar()
             CargarCombos()
+            LeerArchivoConfiguracion()
             ConsultaParametros()
             TbIdOrdenTrabajo.Select()
         Else
             MessageBox.Show("La captura automatica esta activada, desactive para continuar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
-    End Sub
-    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
-
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -540,6 +541,7 @@ Public Class Produccion
         DgvPacas.Columns("IdProduccionDetalle").Visible = False
         DgvPacas.Columns("IdPlantaOrigen").Visible = False
         DgvPacas.Columns("IdOrdenTrabajo").Visible = False
+        DgvPacas.Columns("IdProduccion").Visible = False
     End Sub
     Private Sub ConsultarProduccionPorOrden()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -625,26 +627,32 @@ Public Class Produccion
     End Sub
 
     Private Sub BtActivarPrensa_Click(sender As Object, e As EventArgs) Handles BtActivarPrensa.Click
-        If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
-            ConsultaUltimaSecuencia()
-            TbFolioCIA.Text = UltimaSecuencia
-            TbFolioCIA.Enabled = False
-            TbKilos.Enabled = False
-            TbFolioInicial.Enabled = False
-            TiActualizaDgvPacas.Enabled = True
-            CbPuertosSeriales.Enabled = False
-            GbDatosProduccion.Enabled = False
-            LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
-            Setup_Puerto_Serie()
+        If IO.File.Exists(Ruta & archivo) Then
+            If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
+                ConsultaUltimaSecuencia()
+                TbFolioCIA.Text = UltimaSecuencia
+                TbFolioCIA.Enabled = False
+                TbKilos.Enabled = False
+                TbFolioInicial.Enabled = False
+                TiActualizaDgvPacas.Enabled = True
+                CbPuertosSeriales.Enabled = False
+                GbDatosProduccion.Enabled = False
+                LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
+                BtActivarPrensa.Text = "Desactivar Lectura de Prensa"
+                Setup_Puerto_Serie()
+            Else
+                GbDatosProduccion.Enabled = True
+                TbFolioCIA.Enabled = True
+                TbKilos.Enabled = True
+                TbFolioInicial.Enabled = True
+                CbPuertosSeriales.Enabled = True
+                TiActualizaDgvPacas.Enabled = False
+                LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+                BtActivarPrensa.Text = "Activar Lectura de Prensa"
+                SpCapturaAutomatica.Close()
+            End If
         Else
-            GbDatosProduccion.Enabled = True
-            TbFolioCIA.Enabled = True
-            TbKilos.Enabled = True
-            TbFolioInicial.Enabled = True
-            CbPuertosSeriales.Enabled = True
-            TiActualizaDgvPacas.Enabled = False
-            LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
-            SpCapturaAutomatica.Close()
+            MessageBox.Show("No se ha configurado el puerto serial para captura automatica, Contactar al Administrador del sistema para resolverlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
     Private Sub TiActualizaDgvPacas__Tick(sender As Object, e As EventArgs) Handles TiActualizaDgvPacas.Tick
@@ -653,8 +661,7 @@ Public Class Produccion
     Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAutomatica.DataReceived
         'While bandera = True
         Dim Resultado As String = ""
-        Dim NoTransporte, IdBoleta As Integer
-        Dim Bruto, Tara, Neto As Double
+        Dim Bruto
         Dim TipoFlete As String = ""
         Dim returnStr As String = ""
         Dim FechaActualizacion As DateTime
@@ -674,13 +681,23 @@ Public Class Produccion
             returnStr = "Error: Serial Port read timed out."
         Finally
         End Try
-        If returnStr.Contains(IndicadorPesoBruto) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)), returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)))
-            Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
-            TbKilos.Text = Bruto
-            FechaActualizacion = Now
-            ActualizaPesoModuloAutomatico(TbFolioCIA.Text, Bruto, FechaActualizacion)
-        End If
+        Try
+            If IndicadorPesoBruto <> "" Then
+                If returnStr.Contains(IndicadorPesoBruto) Then
+                    Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)), returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)))
+                    Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
+                    TbKilos.Text = Bruto
+                    FechaActualizacion = Now
+                    ActualizaPesoModuloAutomatico(TbFolioCIA.Text, Bruto, FechaActualizacion)
+                End If
+            Else
+                MessageBox.Show("Campo indicador de peso vacio, continuar con captura manual." & vbCrLf & " Si el problema continuna contactar al Administrador del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
+
+
         returnStr = ""
     End Sub
     Private Sub ActualizaPesoModuloAutomatico(ByVal FolioCIA As Integer, ByVal Bruto As Double, ByVal FechaActualizacion As DateTime)
@@ -886,25 +903,21 @@ Public Class Produccion
             TbFolioInicial.Focus()
         End If
     End Sub
-
     Private Sub RbAutomatico_CheckedChanged(sender As Object, e As EventArgs)
         TbFolioCIA.Enabled = False
         TbKilos.Enabled = False
         TbFolioInicial.Enabled = True
     End Sub
-
     Private Sub RbManual_CheckedChanged(sender As Object, e As EventArgs)
         TbFolioCIA.Enabled = True
         TbKilos.Enabled = True
         TbFolioInicial.Enabled = False
     End Sub
-
     Private Sub TbFolioInicial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbFolioInicial.KeyPress
         If Asc(e.KeyChar) = 13 Then
             BtAbrirProduccion.Focus()
         End If
     End Sub
-
     Private Sub UpsertFolioInicial(ByVal Folio As String)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -1059,29 +1072,68 @@ Public Class Produccion
             TbKilos.Text = ""
         End If
     End Sub
-    Private Sub ConsultaParametros()
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.IdConfiguracion = 0
-        EntidadConfiguracionParametros.DireccionIP = GetNameHost()
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        Tabla = EntidadConfiguracionParametros.TablaConsulta
-        If Tabla.Rows.Count = 0 Then
-            Exit Sub
+    Private Sub LeerArchivoConfiguracion()
+        If IO.File.Exists(Ruta & archivo) Then
+            ObtenerArchivoConfiguracion()
+        Else
+            MessageBox.Show("No se ha configurado el puerto serial para captura automatica, Contactar al Administrador del sistema para resolverlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-        CbPuertosSeriales.Text = Tabla.Rows(0).Item("NombrePuerto")
-        PesoMinimoPaca = Tabla.Rows(0).Item("PesoMinimoPaca")
-        IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorPacasBruto")
-        IndicadorTara = Tabla.Rows(0).Item("IndicadorPacasTara")
-        IndicadorNeto = Tabla.Rows(0).Item("IndicadorPacasNeto")
-        PosicionPesoBruto = Tabla.Rows(0).Item("PacasPosicionBruto")
-        PosicionTara = Tabla.Rows(0).Item("PacasPosicionTara")
-        PosicionNeto = Tabla.Rows(0).Item("PacasPosicionNeto")
-        CaracterPesoBruto = Tabla.Rows(0).Item("PacasCaracterBruto")
-        CaracterTara = Tabla.Rows(0).Item("PacasCaracterTara")
-        CaracterNeto = Tabla.Rows(0).Item("PacasCaracterNeto")
+    End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New IO.StreamReader(Ruta & archivo)
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, vbCrLf)
+                PesoMinimoPaca = ObtenerValor(ArregloCadena(21))
+                IndicadorPesoBruto = ObtenerValor(ArregloCadena(22))
+                PosicionPesoBruto = ObtenerValor(ArregloCadena(23))
+                CaracterPesoBruto = ObtenerValor(ArregloCadena(24))
+                IndicadorTara = ObtenerValor(ArregloCadena(25))
+                PosicionTara = ObtenerValor(ArregloCadena(26))
+                CaracterTara = ObtenerValor(ArregloCadena(27))
+                IndicadorNeto = ObtenerValor(ArregloCadena(28))
+                PosicionNeto = ObtenerValor(ArregloCadena(29))
+                CaracterNeto = ObtenerValor(ArregloCadena(30))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+            End While
+            leer.Close()
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
+    End Sub
+    Private Function ObtenerValor(ByVal cadena As String)
+        Dim Resultado As String
+        Dim ArregloCadena() As String = Split(cadena, "=")
+        Resultado = ArregloCadena(1)
+        Return Resultado
+    End Function
+    Private Sub ConsultaParametros()
+        'Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        'Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        'Dim Tabla As New DataTable
+        'EntidadConfiguracionParametros.IdConfiguracion = 0
+        'EntidadConfiguracionParametros.DireccionIP = GetNameHost()
+        'EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBasica
+        'NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        'Tabla = EntidadConfiguracionParametros.TablaConsulta
+        'If Tabla.Rows.Count = 0 Then
+        '    Exit Sub
+        'End If
+        'CbPuertosSeriales.Text = Tabla.Rows(0).Item("NombrePuerto")
+        'PesoMinimoPaca = Tabla.Rows(0).Item("PesoMinimoPaca")
+        'IndicadorPesoBruto = Tabla.Rows(0).Item("IndicadorPacasBruto")
+        'IndicadorTara = Tabla.Rows(0).Item("IndicadorPacasTara")
+        'IndicadorNeto = Tabla.Rows(0).Item("IndicadorPacasNeto")
+        'PosicionPesoBruto = Tabla.Rows(0).Item("PacasPosicionBruto")
+        'PosicionTara = Tabla.Rows(0).Item("PacasPosicionTara")
+        'PosicionNeto = Tabla.Rows(0).Item("PacasPosicionNeto")
+        'CaracterPesoBruto = Tabla.Rows(0).Item("PacasCaracterBruto")
+        'CaracterTara = Tabla.Rows(0).Item("PacasCaracterTara")
+        'CaracterNeto = Tabla.Rows(0).Item("PacasCaracterNeto")
     End Sub
     Private Function GetNameHost()
         Dim strHostName As String

@@ -136,6 +136,7 @@ Partial Class ConfiguracionParametros
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPruebaSerial.SuspendLayout()
         Me.GbResultado.SuspendLayout()
@@ -168,6 +169,7 @@ Partial Class ConfiguracionParametros
         CType(Me.NuLongitud, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelParametrosBascula
@@ -209,7 +211,7 @@ Partial Class ConfiguracionParametros
         '
         'GbResultado
         '
-        Me.GbResultado.Controls.Add(Me.BtProbarConfiguracion)
+        Me.GbResultado.Controls.Add(Me.Panel1)
         Me.GbResultado.Controls.Add(Me.Label42)
         Me.GbResultado.Controls.Add(Me.Label13)
         Me.GbResultado.Controls.Add(Me.Label12)
@@ -230,10 +232,11 @@ Partial Class ConfiguracionParametros
         '
         'BtProbarConfiguracion
         '
+        Me.BtProbarConfiguracion.Dock = System.Windows.Forms.DockStyle.Left
         Me.BtProbarConfiguracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtProbarConfiguracion.Location = New System.Drawing.Point(6, 221)
+        Me.BtProbarConfiguracion.Location = New System.Drawing.Point(0, 0)
         Me.BtProbarConfiguracion.Name = "BtProbarConfiguracion"
-        Me.BtProbarConfiguracion.Size = New System.Drawing.Size(140, 33)
+        Me.BtProbarConfiguracion.Size = New System.Drawing.Size(140, 44)
         Me.BtProbarConfiguracion.TabIndex = 1
         Me.BtProbarConfiguracion.Text = "Probar Configuracion"
         Me.BtProbarConfiguracion.UseVisualStyleBackColor = True
@@ -1269,6 +1272,15 @@ Partial Class ConfiguracionParametros
         'SpCapturaAuto
         '
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.BtProbarConfiguracion)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(3, 213)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(435, 44)
+        Me.Panel1.TabIndex = 2
+        '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1324,6 +1336,7 @@ Partial Class ConfiguracionParametros
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1441,4 +1454,5 @@ Partial Class ConfiguracionParametros
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents BtProbarConfiguracion As Button
+    Friend WithEvents Panel1 As Panel
 End Class

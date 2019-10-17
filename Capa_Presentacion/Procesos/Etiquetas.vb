@@ -7,8 +7,30 @@ Public Class Etiquetas
     Private Sub Etiquetas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarCombos()
         Limpiar()
+        Centrar(PControles)
     End Sub
+    Private Sub Centrar(ByVal Objeto As Object)
 
+        ' Centrar un Formulario ...  
+        If TypeOf Objeto Is Form Then
+            Dim frm As Form = CType(Objeto, Form)
+            With Screen.PrimaryScreen.WorkingArea ' Dimensiones de la pantalla sin el TaskBar  
+                frm.Top = (.Height - frm.Height) \ 2
+                frm.Left = (.Width - frm.Width) \ 2
+            End With
+
+            ' Centrar un control dentro del contenedor  
+        Else
+            ' referencia al control  
+            Dim c As Control = CType(Objeto, Control)
+
+            'le  establece el top y el Left dentro del Parent  
+            With c
+                .Top = (.Parent.ClientSize.Height - c.Height) \ 2
+                .Left = (.Parent.ClientSize.Width - c.Width) \ 2
+            End With
+        End If
+    End Sub
     Private Sub ConsultarUltimaPaca()
         'Dim EntidadEtiquetas As New Capa_Entidad.Etiquetas
         'Dim NegocioEtiquetas As New Capa_Negocio.Etiquetas
@@ -47,7 +69,7 @@ Public Class Etiquetas
         CbPlanta.SelectedIndex = -1
     End Sub
 
-    Private Sub TbEtiquetaActual_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbEtiquetaActual.KeyDown
+    Private Sub TbEtiquetaActual_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbEtiquetaActual.KeyDown, TbEtiquetaSiguiente.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
                 If ConsultarPacaExistente(TbEtiquetaActual.Text, IdPlantaOrigen) = 1 Then
