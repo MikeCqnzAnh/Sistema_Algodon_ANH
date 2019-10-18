@@ -206,6 +206,7 @@ Public Class ConfiguracionParametros
         NuPosicion.Value = Tabla.Rows(0).Item("PosicionValorBanxico")
         NuLongitud.Value = Tabla.Rows(0).Item("LongitudValorBanxico")
         TbSitioBanxico.Text = Tabla.Rows(0).Item("SitioBanxico")
+        PanelParametrosBascula.Enabled = False
     End Sub
     Private Sub ConsultaParametros()
         Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
@@ -351,12 +352,6 @@ Public Class ConfiguracionParametros
         End Try
         If CbPuertosSeriales.Text <> "" Then
             TbCadenaPuertoSerial.Text += returnStr + vbCrLf
-            'Select Case IndicadorBoton
-            '    Case 1
-            '        CadenaModulosParametros(returnStr)
-            '    Case 2
-            '        CadenaPacasParametros(returnStr)
-            'End Select
         Else
             MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
         End If
