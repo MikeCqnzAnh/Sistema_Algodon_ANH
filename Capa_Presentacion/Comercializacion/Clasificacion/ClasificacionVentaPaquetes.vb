@@ -848,18 +848,22 @@ Public Class ClasificacionVentaPaquetes
     End Function
 
     Private Sub ArchivoAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoAccessToolStripMenuItem.Click
-        Dim RutaPlantilla As String = "\\192.168.10.30\docs_sistemas\RPT_ALGODON\BaseHVI.mdb"
-        Dim RutaCopiar As String = "c:\datos\HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
+        Dim RutaPlantilla As String = My.Computer.FileSystem.CurrentDirectory & "\Reportes\RPT\BaseHVI.mdb"
+        'Dim RutaPlantilla As String = "\\192.168.10.30\docs_sistemas\RPT_ALGODON\BaseHVI.mdb"
+        Dim RutaCarpeta As String = "C:\datos\"
+        Dim RutaCopiar As String = RutaCarpeta & "HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
         If DgvPacasClasificacion1.RowCount > 0 Then
             If File.Exists(RutaCopiar) Then
                 Dim opc As DialogResult = MsgBox("El Archivo ya existe, ¿Desea reemplazarlo?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
                 If opc = DialogResult.Yes Then
+                    IO.Directory.CreateDirectory(RutaCarpeta)
                     File.Copy(RutaPlantilla, RutaCopiar, True)
                     ExportarExcel(RutaCopiar)
                 ElseIf opc = DialogResult.No Then
 
                 End If
             Else
+                IO.Directory.CreateDirectory(RutaCarpeta)
                 File.Copy(RutaPlantilla, RutaCopiar, True)
                 ExportarExcel(RutaCopiar)
             End If

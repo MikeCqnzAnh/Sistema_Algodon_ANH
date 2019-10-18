@@ -1147,6 +1147,9 @@
     <Content Include="Iconos\logo cotton2 %281%29.ico" />
     <Content Include="Iconos\logo cotton2.ico" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
+    <Content Include="Reportes\RPT\BaseHVI.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\BusquedaUsuario1.png" />
   </ItemGroup>
   <ItemGroup>
