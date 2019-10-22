@@ -10,7 +10,7 @@ declare
   
 if not exists (select idplantaorigen   
 			   from [FolioEtiqueta]   
-			   where IdplantaOrigen = @IdPlantaOrigen )  
+			   where IdplantaOrigen = @IdPlantaOrigen )  and @IdPlantaOrigen > 0
 begin  
   INSERT INTO [FolioEtiqueta] (Etiqueta,Secuencia,IdPlantaOrigen,Observacion)   
   values (@Etiqueta,@Etiqueta+1,@IdPlantaOrigen,'')  

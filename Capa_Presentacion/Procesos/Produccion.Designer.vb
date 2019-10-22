@@ -78,12 +78,12 @@ Partial Class Produccion
         Me.GbCapturaAutomatica = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
-        Me.LbStatus = New System.Windows.Forms.Label()
         Me.GbLotes = New System.Windows.Forms.GroupBox()
         Me.BtFin = New System.Windows.Forms.Button()
         Me.BtInicio = New System.Windows.Forms.Button()
         Me.BtSiguiente = New System.Windows.Forms.Button()
         Me.BtAnterior = New System.Windows.Forms.Button()
+        Me.LbStatus = New System.Windows.Forms.Label()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbTipoCaptura = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -91,6 +91,8 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
+        Me.CkLeersaco = New System.Windows.Forms.CheckBox()
+        Me.TiActualizaFolioInicial = New System.Windows.Forms.Timer(Me.components)
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -257,7 +259,7 @@ Partial Class Produccion
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbDatosGenerales.Location = New System.Drawing.Point(3, 16)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(462, 207)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(462, 211)
         Me.GbDatosGenerales.TabIndex = 15
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -350,25 +352,27 @@ Partial Class Produccion
         '
         'TbFolioCIA
         '
-        Me.TbFolioCIA.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbFolioCIA.Location = New System.Drawing.Point(10, 48)
+        Me.TbFolioCIA.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbFolioCIA.Location = New System.Drawing.Point(6, 46)
+        Me.TbFolioCIA.MaxLength = 10
         Me.TbFolioCIA.Name = "TbFolioCIA"
-        Me.TbFolioCIA.Size = New System.Drawing.Size(242, 44)
+        Me.TbFolioCIA.Size = New System.Drawing.Size(283, 62)
         Me.TbFolioCIA.TabIndex = 47
         '
         'TbKilos
         '
-        Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbKilos.Location = New System.Drawing.Point(11, 131)
+        Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbKilos.Location = New System.Drawing.Point(6, 143)
+        Me.TbKilos.MaxLength = 10
         Me.TbKilos.Name = "TbKilos"
-        Me.TbKilos.Size = New System.Drawing.Size(241, 44)
+        Me.TbKilos.Size = New System.Drawing.Size(283, 62)
         Me.TbKilos.TabIndex = 49
         '
         'Label22
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(5, 16)
+        Me.Label22.Location = New System.Drawing.Point(6, 12)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(121, 29)
         Me.Label22.TabIndex = 50
@@ -378,7 +382,7 @@ Partial Class Produccion
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(6, 99)
+        Me.Label24.Location = New System.Drawing.Point(1, 111)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(72, 29)
         Me.Label24.TabIndex = 52
@@ -409,7 +413,7 @@ Partial Class Produccion
         Me.GbDatosProduccion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDatosProduccion.Location = New System.Drawing.Point(465, 16)
         Me.GbDatosProduccion.Name = "GbDatosProduccion"
-        Me.GbDatosProduccion.Size = New System.Drawing.Size(331, 207)
+        Me.GbDatosProduccion.Size = New System.Drawing.Size(256, 211)
         Me.GbDatosProduccion.TabIndex = 54
         Me.GbDatosProduccion.TabStop = False
         Me.GbDatosProduccion.Text = "Datos de Produccion"
@@ -465,7 +469,7 @@ Partial Class Produccion
         Me.GbModulos.Controls.Add(Me.Label25)
         Me.GbModulos.Controls.Add(Me.TbModulos)
         Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GbModulos.Location = New System.Drawing.Point(3, 223)
+        Me.GbModulos.Location = New System.Drawing.Point(3, 227)
         Me.GbModulos.Name = "GbModulos"
         Me.GbModulos.Size = New System.Drawing.Size(1140, 109)
         Me.GbModulos.TabIndex = 55
@@ -574,7 +578,7 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.Enabled = False
         Me.GbCapturaAutomatica.Location = New System.Drawing.Point(807, 16)
         Me.GbCapturaAutomatica.Name = "GbCapturaAutomatica"
-        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 414)
+        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 410)
         Me.GbCapturaAutomatica.TabIndex = 62
         Me.GbCapturaAutomatica.TabStop = False
         Me.GbCapturaAutomatica.Text = "Captura de Lotes Automatico"
@@ -597,20 +601,6 @@ Partial Class Produccion
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
         Me.CbPuertosSeriales.Size = New System.Drawing.Size(212, 33)
         Me.CbPuertosSeriales.TabIndex = 58
-        '
-        'LbStatus
-        '
-        Me.LbStatus.AutoEllipsis = True
-        Me.LbStatus.AutoSize = True
-        Me.LbStatus.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LbStatus.Location = New System.Drawing.Point(3, 16)
-        Me.LbStatus.Name = "LbStatus"
-        Me.LbStatus.Size = New System.Drawing.Size(561, 31)
-        Me.LbStatus.TabIndex = 69
-        Me.LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
-        Me.LbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GbLotes
         '
@@ -661,6 +651,20 @@ Partial Class Produccion
         Me.BtAnterior.Text = "Anterior"
         Me.BtAnterior.UseVisualStyleBackColor = True
         '
+        'LbStatus
+        '
+        Me.LbStatus.AutoEllipsis = True
+        Me.LbStatus.AutoSize = True
+        Me.LbStatus.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LbStatus.Location = New System.Drawing.Point(3, 16)
+        Me.LbStatus.Name = "LbStatus"
+        Me.LbStatus.Size = New System.Drawing.Size(561, 31)
+        Me.LbStatus.TabIndex = 69
+        Me.LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+        Me.LbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'DgvPacas
         '
         Me.DgvPacas.AllowUserToAddRows = False
@@ -703,20 +707,21 @@ Partial Class Produccion
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(798, 364)
+        Me.DgvPacas.Size = New System.Drawing.Size(798, 360)
         Me.DgvPacas.TabIndex = 64
         '
         'GbTipoCaptura
         '
+        Me.GbTipoCaptura.Controls.Add(Me.CkLeersaco)
         Me.GbTipoCaptura.Controls.Add(Me.Label24)
         Me.GbTipoCaptura.Controls.Add(Me.TbFolioCIA)
         Me.GbTipoCaptura.Controls.Add(Me.TbKilos)
         Me.GbTipoCaptura.Controls.Add(Me.Label22)
         Me.GbTipoCaptura.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbTipoCaptura.Enabled = False
-        Me.GbTipoCaptura.Location = New System.Drawing.Point(796, 16)
+        Me.GbTipoCaptura.Location = New System.Drawing.Point(721, 16)
         Me.GbTipoCaptura.Name = "GbTipoCaptura"
-        Me.GbTipoCaptura.Size = New System.Drawing.Size(347, 207)
+        Me.GbTipoCaptura.Size = New System.Drawing.Size(422, 211)
         Me.GbTipoCaptura.TabIndex = 65
         Me.GbTipoCaptura.TabStop = False
         Me.GbTipoCaptura.Text = "Captura Peso"
@@ -728,7 +733,7 @@ Partial Class Produccion
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(804, 414)
+        Me.GroupBox1.Size = New System.Drawing.Size(804, 410)
         Me.GroupBox1.TabIndex = 66
         Me.GroupBox1.TabStop = False
         '
@@ -737,9 +742,9 @@ Partial Class Produccion
         Me.GroupBox2.Controls.Add(Me.GroupBox1)
         Me.GroupBox2.Controls.Add(Me.GbCapturaAutomatica)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 359)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 363)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1146, 433)
+        Me.GroupBox2.Size = New System.Drawing.Size(1146, 429)
         Me.GroupBox2.TabIndex = 67
         Me.GroupBox2.TabStop = False
         '
@@ -752,7 +757,7 @@ Partial Class Produccion
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(0, 24)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(1146, 335)
+        Me.GroupBox3.Size = New System.Drawing.Size(1146, 339)
         Me.GroupBox3.TabIndex = 68
         Me.GroupBox3.TabStop = False
         '
@@ -762,6 +767,21 @@ Partial Class Produccion
         '
         'SpCapturaAutomatica
         '
+        '
+        'CkLeersaco
+        '
+        Me.CkLeersaco.AutoSize = True
+        Me.CkLeersaco.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CkLeersaco.Location = New System.Drawing.Point(295, 19)
+        Me.CkLeersaco.Name = "CkLeersaco"
+        Me.CkLeersaco.Size = New System.Drawing.Size(121, 28)
+        Me.CkLeersaco.TabIndex = 53
+        Me.CkLeersaco.Text = "Leer saco"
+        Me.CkLeersaco.UseVisualStyleBackColor = True
+        '
+        'TiActualizaFolioInicial
+        '
+        Me.TiActualizaFolioInicial.Interval = 1000
         '
         'Produccion
         '
@@ -866,4 +886,6 @@ Partial Class Produccion
     Friend WithEvents SpCapturaAutomatica As IO.Ports.SerialPort
     Friend WithEvents CbPuertosSeriales As ComboBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents CkLeersaco As CheckBox
+    Friend WithEvents TiActualizaFolioInicial As Timer
 End Class

@@ -11,11 +11,24 @@ Public Class ConfiguracionParametros
         LimpiaCampos()
         GetSerialPortNames()
         GetNameHost()
+        CargaCombos()
         ConsultaParametrosBanxico()
         'ConsultaParametros()
         LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
         LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+    End Sub
+    Private Sub CargaCombos()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.Consulta = Consulta.ConsultaExterna
+        NegocioProduccion.Consultar(EntidadProduccion)
+        Tabla = EntidadProduccion.TablaConsulta
+        CbPlantaElabora.DataSource = Tabla
+        CbPlantaElabora.ValueMember = "IdPlanta"
+        CbPlantaElabora.DisplayMember = "Descripcion"
+        CbPlantaElabora.SelectedValue = 0
     End Sub
     Private Sub GetSerialPortNames()
         Dim l As Integer
@@ -115,6 +128,7 @@ Public Class ConfiguracionParametros
         NuPosicion.Value = 0
         NuLongitud.Value = 0
         NuPesoMinimoPaca.Value = 0
+        CbPlantaElabora.SelectedValue = 0
     End Sub
     Private Sub GetNameHost()
         Dim strHostName As String
@@ -432,7 +446,7 @@ Public Class ConfiguracionParametros
         Try
 
             ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text)
+            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text & vbCrLf & "PlantaElabora=" & CbPlantaElabora.SelectedValue)
             escribir.Close()
             ':::Limpiamos los TextBox
             ':::Llamamos nuestro procedimiento para leer el archivo TXT
@@ -490,6 +504,7 @@ Public Class ConfiguracionParametros
                 NuPacasPosicionNeto.Value = ObtenerValor(ArregloCadena(29))
                 NuPacasCaracterNeto.Value = ObtenerValor(ArregloCadena(30))
                 CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+                CbPlantaElabora.SelectedValue = ObtenerValor(ArregloCadena(32))
             End While
 
             leer.Close()

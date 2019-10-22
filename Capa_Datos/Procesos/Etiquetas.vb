@@ -27,6 +27,13 @@ Public Class Etiquetas
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadEtiquetas1.IdProduccion))
                     sqldat1.Fill(EntidadEtiquetas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaEstatusLeerEtiqueta
+                    sqlcom1 = New SqlCommand("Sp_ConsultaEstatusEtiqueta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadEtiquetas1.IdPlantaOrigen))
+                    sqldat1.Fill(EntidadEtiquetas1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally
@@ -42,15 +49,31 @@ Public Class Etiquetas
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("sp_ActualizarEtiqueta", cnn)
+            cmdGuardar = New SqlCommand("sp_ActualizaEscaneoEtiqueta", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadEtiquetas1.IdPlanta))
-            cmdGuardar.Parameters.Add(New SqlParameter("@EtiquetaActual", EntidadEtiquetas1.Etiqueta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadEtiquetas1.IdPlantaOrigen))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Etiqueta", EntidadEtiquetas1.Etiqueta))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
         Finally
             cnn.Close()
             EntidadEtiquetas = EntidadEtiquetas1
         End Try
+        'Dim EntidadEtiquetas1 As New Capa_Entidad.Etiquetas
+        'EntidadEtiquetas1 = EntidadEtiquetas
+        'Dim cnn As New SqlConnection(conexionPrincipal)
+        'Dim cmdGuardar As SqlCommand
+        'Try
+        '    cnn.Open()
+        '    cmdGuardar = New SqlCommand("sp_ActualizarEtiqueta", cnn)
+        '    cmdGuardar.CommandType = CommandType.StoredProcedure
+        '    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadEtiquetas1.IdPlanta))
+        '    cmdGuardar.Parameters.Add(New SqlParameter("@EtiquetaActual", EntidadEtiquetas1.Etiqueta))
+        '    cmdGuardar.ExecuteNonQuery()
+        'Catch ex As Exception
+        'Finally
+        '    cnn.Close()
+        '    EntidadEtiquetas = EntidadEtiquetas1
+        'End Try
     End Sub
 End Class

@@ -19,6 +19,7 @@ Public Class Produccion
         TbIdOrdenTrabajo.Select()
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+        ActualizaEstatusLeerEtiqueta()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If SpCapturaAutomatica.IsOpen = False Then
@@ -27,12 +28,26 @@ Public Class Produccion
             LeerArchivoConfiguracion()
             ConsultaParametros()
             TbIdOrdenTrabajo.Select()
+            ActualizaEstatusLeerEtiqueta()
         Else
             MessageBox.Show("La captura automatica esta activada, desactive para continuar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
+    Private Sub TbEtiquetaActual_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdOrdenTrabajo.KeyPress, TbFolioInicial.KeyPress, TbFolioCIA.KeyPress, TbKilos.KeyPress
+        If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        ActualizaEstadoLeerSaco()
         Close()
+    End Sub
+    Private Sub ActualizaEstadoLeerSaco()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+        EntidadProduccion.LeerEtiqueta = False
+        NegocioProduccion.UpsertLeerEtiqueta(EntidadProduccion)
     End Sub
     Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If SpCapturaAutomatica.IsOpen = True Then
@@ -149,7 +164,7 @@ Public Class Produccion
         CbPlantaOrigen.DataSource = Tabla
         CbPlantaOrigen.ValueMember = "IdPlanta"
         CbPlantaOrigen.DisplayMember = "Descripcion"
-        CbPlantaOrigen.SelectedValue = 1
+        CbPlantaOrigen.SelectedValue = 0
         '---Planta Elabora--        
         Dim Tabla2 As New DataTable
         EntidadProduccion.Consulta = Consulta.ConsultaExterna
@@ -231,7 +246,7 @@ Public Class Produccion
                         MsgBox("La orden de trabajo no existe...")
                         Exit Sub
                     Else
-                        CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
+                        'CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
                         TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
                         TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
                         TbModulos.Text = Tabla.Rows(0).Item("Modulos")
@@ -555,7 +570,7 @@ Public Class Produccion
             TbIdProduccion.Text = ""
         Else
             TbIdProduccion.Text = Tabla.Rows(0).Item("IdProduccion")
-            CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
+            'CbPlantaOrigen.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
             CBPlantaDestino.SelectedValue = Tabla.Rows(0).Item("IdPlantaDestino")
             DtpFechaProduccion.Value = Tabla.Rows(0).Item("Fecha")
             CbTipo.Text = Tabla.Rows(0).Item("Tipo")
@@ -591,14 +606,15 @@ Public Class Produccion
     End Function
 
     Private Sub ActualizarUltimaEtiqueta()
-        Dim EntidadProduccion As New Capa_Entidad.Produccion
-        Dim NegocioProduccion As New Capa_Negocio.Produccion
-        Dim Tabla As New DataTable
-        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-        EntidadProduccion.FolioCIA = TbFolioCIA.Text
-        NegocioProduccion.GuardarEtiqueta(EntidadProduccion)
+        If CkLeersaco.CheckState = False Then
+            Dim EntidadProduccion As New Capa_Entidad.Produccion
+            Dim NegocioProduccion As New Capa_Negocio.Produccion
+            Dim Tabla As New DataTable
+            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+            EntidadProduccion.FolioCIA = TbFolioCIA.Text
+            NegocioProduccion.GuardarEtiqueta(EntidadProduccion)
+        End If
     End Sub
-
     Private Sub ConsultaUltimaSecuencia()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -610,7 +626,7 @@ Public Class Produccion
         If Tabla.Rows.Count = 0 Then
             UltimaSecuencia = 1
         Else
-            UltimaSecuencia = Tabla.Rows(0).Item("Secuencia")
+            UltimaSecuencia = Tabla.Rows(0).Item("etiqueta")
         End If
     End Sub
 
@@ -637,6 +653,7 @@ Public Class Produccion
                 TiActualizaDgvPacas.Enabled = True
                 CbPuertosSeriales.Enabled = False
                 GbDatosProduccion.Enabled = False
+                CkLeersaco.Checked = True
                 LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
                 BtActivarPrensa.Text = "Desactivar Lectura de Prensa"
                 Setup_Puerto_Serie()
@@ -647,6 +664,7 @@ Public Class Produccion
                 TbFolioInicial.Enabled = True
                 CbPuertosSeriales.Enabled = True
                 TiActualizaDgvPacas.Enabled = False
+                CkLeersaco.Checked = False
                 LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
                 BtActivarPrensa.Text = "Activar Lectura de Prensa"
                 SpCapturaAutomatica.Close()
@@ -911,6 +929,17 @@ Public Class Produccion
         TbKilos.Enabled = True
         TbFolioInicial.Enabled = False
     End Sub
+
+    Private Sub CkLeersaco_CheckedChanged(sender As Object, e As EventArgs) Handles CkLeersaco.CheckedChanged
+        ActualizaEstatusLeerEtiqueta()
+    End Sub
+    Private Sub ActualizaEstatusLeerEtiqueta()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+        EntidadProduccion.LeerEtiqueta = CkLeersaco.CheckState
+        NegocioProduccion.UpsertLeerEtiqueta(EntidadProduccion)
+    End Sub
     Private Sub TbFolioInicial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbFolioInicial.KeyPress
         If Asc(e.KeyChar) = 13 Then
             BtAbrirProduccion.Focus()
@@ -1097,6 +1126,7 @@ Public Class Produccion
                 PosicionNeto = ObtenerValor(ArregloCadena(29))
                 CaracterNeto = ObtenerValor(ArregloCadena(30))
                 CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(32))
             End While
             leer.Close()
         Catch ex As Exception

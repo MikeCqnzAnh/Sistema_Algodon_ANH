@@ -113,6 +113,7 @@ Public Class ImportarCatalogos
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@InstanciaOrigen", EntidadImportarCatalogos1.InstanciaOrigen))
                     sqlcom1.Parameters.Add(New SqlParameter("@BaseDeDatosOrigen", EntidadImportarCatalogos1.BaseDeDatosOrigen))
                     sqlcom1.Parameters.Add(New SqlParameter("@BaseDeDatosDestino", EntidadImportarCatalogos1.BaseDeDatosDestino))
                     sqlcom1.Parameters.Add(New SqlParameter("@NombreTabla", EntidadImportarCatalogos1.Table))

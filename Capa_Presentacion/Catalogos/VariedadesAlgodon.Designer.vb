@@ -27,12 +27,12 @@ Partial Class VariedadesAlgodon
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.TbIdVariedadAlgodon = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.LbHasta = New System.Windows.Forms.Label()
         Me.LbDe = New System.Windows.Forms.Label()
-        Me.CbEstatus = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvVariedadesAlgodon = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
@@ -44,7 +44,7 @@ Partial Class VariedadesAlgodon
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(449, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1002, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -76,10 +76,18 @@ Partial Class VariedadesAlgodon
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(449, 110)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1002, 110)
         Me.GbDatosGenerales.TabIndex = 5
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'CbEstatus
+        '
+        Me.CbEstatus.FormattingEnabled = True
+        Me.CbEstatus.Location = New System.Drawing.Point(75, 73)
+        Me.CbEstatus.Name = "CbEstatus"
+        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
+        Me.CbEstatus.TabIndex = 8
         '
         'TbDescripcion
         '
@@ -96,6 +104,15 @@ Partial Class VariedadesAlgodon
         Me.TbIdVariedadAlgodon.Name = "TbIdVariedadAlgodon"
         Me.TbIdVariedadAlgodon.Size = New System.Drawing.Size(83, 20)
         Me.TbIdVariedadAlgodon.TabIndex = 6
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 76)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Estatus"
         '
         'LbHasta
         '
@@ -115,23 +132,6 @@ Partial Class VariedadesAlgodon
         Me.LbDe.TabIndex = 4
         Me.LbDe.Text = "ID"
         '
-        'CbEstatus
-        '
-        Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(75, 73)
-        Me.CbEstatus.Name = "CbEstatus"
-        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 8
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 76)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(42, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Estatus"
-        '
         'DgvVariedadesAlgodon
         '
         Me.DgvVariedadesAlgodon.AllowUserToAddRows = False
@@ -141,7 +141,7 @@ Partial Class VariedadesAlgodon
         Me.DgvVariedadesAlgodon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvVariedadesAlgodon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvVariedadesAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvVariedadesAlgodon.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DgvVariedadesAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvVariedadesAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.DgvVariedadesAlgodon.Location = New System.Drawing.Point(0, 134)
         Me.DgvVariedadesAlgodon.MultiSelect = False
@@ -150,14 +150,14 @@ Partial Class VariedadesAlgodon
         Me.DgvVariedadesAlgodon.RowHeadersVisible = False
         Me.DgvVariedadesAlgodon.RowHeadersWidth = 40
         Me.DgvVariedadesAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvVariedadesAlgodon.Size = New System.Drawing.Size(449, 276)
+        Me.DgvVariedadesAlgodon.Size = New System.Drawing.Size(1002, 429)
         Me.DgvVariedadesAlgodon.TabIndex = 17
         '
         'VariedadesAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(449, 415)
+        Me.ClientSize = New System.Drawing.Size(1002, 563)
         Me.Controls.Add(Me.DgvVariedadesAlgodon)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
@@ -165,6 +165,7 @@ Partial Class VariedadesAlgodon
         Me.Name = "VariedadesAlgodon"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Variedades de Algodon"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

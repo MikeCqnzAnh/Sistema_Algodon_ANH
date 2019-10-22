@@ -53,4 +53,5 @@ Public Class Produccion
     Public ClavePaqueteHVI As Integer
     Public LargoFibra As Double
     Public ResistenciaFibra As Double
+    Public LeerEtiqueta As Boolean
 End Class

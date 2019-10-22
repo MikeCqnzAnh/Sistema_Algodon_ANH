@@ -63,11 +63,9 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.DataSource = EntidadCapturaBoletasPorLotes.TablaConsulta
         propiedadesDgv()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
 
     End Sub
-
     Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
         'While bandera = True
         Dim Resultado As String = ""

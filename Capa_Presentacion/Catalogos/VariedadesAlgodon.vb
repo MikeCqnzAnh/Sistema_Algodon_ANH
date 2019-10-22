@@ -56,4 +56,8 @@ Public Class VariedadesAlgodon
     Private Sub DgvProfesionales_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvVariedadesAlgodon.CellContentClick
 
     End Sub
+
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        limpiar()
+    End Sub
 End Class

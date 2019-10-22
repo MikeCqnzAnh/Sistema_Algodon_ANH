@@ -27,6 +27,7 @@ Partial Class ConfiguracionParametros
         Me.GbPruebaSerial = New System.Windows.Forms.GroupBox()
         Me.TbCadenaPuertoSerial = New System.Windows.Forms.TextBox()
         Me.GbResultado = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtProbarConfiguracion = New System.Windows.Forms.Button()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -136,10 +137,12 @@ Partial Class ConfiguracionParametros
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CbPlantaElabora = New System.Windows.Forms.ComboBox()
+        Me.Label43 = New System.Windows.Forms.Label()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPruebaSerial.SuspendLayout()
         Me.GbResultado.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.GbPesoPacas.SuspendLayout()
         CType(Me.NuPacasCaracterNeto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuPacasPosicionNeto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,7 +172,6 @@ Partial Class ConfiguracionParametros
         CType(Me.NuLongitud, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelParametrosBascula
@@ -229,6 +231,15 @@ Partial Class ConfiguracionParametros
         Me.GbResultado.TabIndex = 13
         Me.GbResultado.TabStop = False
         Me.GbResultado.Text = "Resultado"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.BtProbarConfiguracion)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(3, 213)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(435, 44)
+        Me.Panel1.TabIndex = 2
         '
         'BtProbarConfiguracion
         '
@@ -1077,22 +1088,24 @@ Partial Class ConfiguracionParametros
         '
         'GbPuerto
         '
+        Me.GbPuerto.Controls.Add(Me.Label43)
+        Me.GbPuerto.Controls.Add(Me.CbPlantaElabora)
         Me.GbPuerto.Controls.Add(Me.Label2)
         Me.GbPuerto.Controls.Add(Me.CbPuertosSeriales)
         Me.GbPuerto.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbPuerto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPuerto.Location = New System.Drawing.Point(776, 16)
+        Me.GbPuerto.Location = New System.Drawing.Point(735, 16)
         Me.GbPuerto.Name = "GbPuerto"
-        Me.GbPuerto.Size = New System.Drawing.Size(385, 81)
+        Me.GbPuerto.Size = New System.Drawing.Size(426, 81)
         Me.GbPuerto.TabIndex = 1
         Me.GbPuerto.TabStop = False
-        Me.GbPuerto.Text = "Puerto Serial General"
+        Me.GbPuerto.Text = "Configuraciones Generales"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 32)
+        Me.Label2.Location = New System.Drawing.Point(225, 34)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(70, 13)
         Me.Label2.TabIndex = 0
@@ -1102,9 +1115,9 @@ Partial Class ConfiguracionParametros
         '
         Me.CbPuertosSeriales.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(122, 29)
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(301, 30)
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
-        Me.CbPuertosSeriales.Size = New System.Drawing.Size(121, 21)
+        Me.CbPuertosSeriales.Size = New System.Drawing.Size(84, 21)
         Me.CbPuertosSeriales.TabIndex = 0
         '
         'TbIdSerieBanxico
@@ -1272,14 +1285,24 @@ Partial Class ConfiguracionParametros
         'SpCapturaAuto
         '
         '
-        'Panel1
+        'CbPlantaElabora
         '
-        Me.Panel1.Controls.Add(Me.BtProbarConfiguracion)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(3, 213)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(435, 44)
-        Me.Panel1.TabIndex = 2
+        Me.CbPlantaElabora.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbPlantaElabora.FormattingEnabled = True
+        Me.CbPlantaElabora.Location = New System.Drawing.Point(91, 29)
+        Me.CbPlantaElabora.Name = "CbPlantaElabora"
+        Me.CbPlantaElabora.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlantaElabora.TabIndex = 0
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(6, 33)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(79, 13)
+        Me.Label43.TabIndex = 0
+        Me.Label43.Text = "Planta Elabora:"
         '
         'ConfiguracionParametros
         '
@@ -1301,6 +1324,7 @@ Partial Class ConfiguracionParametros
         Me.GbPruebaSerial.PerformLayout()
         Me.GbResultado.ResumeLayout(False)
         Me.GbResultado.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.GbPesoPacas.ResumeLayout(False)
         Me.GbPesoPacas.PerformLayout()
         CType(Me.NuPacasCaracterNeto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1336,7 +1360,6 @@ Partial Class ConfiguracionParametros
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1455,4 +1478,6 @@ Partial Class ConfiguracionParametros
     Friend WithEvents Label10 As Label
     Friend WithEvents BtProbarConfiguracion As Button
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label43 As Label
+    Friend WithEvents CbPlantaElabora As ComboBox
 End Class

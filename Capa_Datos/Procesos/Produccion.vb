@@ -119,7 +119,27 @@ Public Class Produccion
             EntidadProduccion = EntidadProduccion1
         End Try
     End Sub
-
+    Public Overridable Sub UpsertActualizaEtiqueta(ByRef EntidadProduccion As Capa_Entidad.Produccion)
+        Dim EntidadProduccion1 As New Capa_Entidad.Produccion
+        EntidadProduccion1 = EntidadProduccion
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("sp_ConsultaUltimaEtiqueta", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadProduccion1.IdPlantaOrigen))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Etiqueta", EntidadProduccion1.FolioCIA))
+            cmdGuardar.ExecuteNonQuery()
+            'If EntidadProduccion1.IdProduccion = 0 Then
+            '    EntidadProduccion1.IdProduccion = cmdGuardar.Parameters("@IdProduccion").Value
+            'End If
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadProduccion = EntidadProduccion1
+        End Try
+    End Sub
     Public Overridable Sub UpsertFolioInicial(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         EntidadProduccion1 = EntidadProduccion
@@ -141,7 +161,27 @@ Public Class Produccion
             EntidadProduccion = EntidadProduccion1
         End Try
     End Sub
-
+    Public Overridable Sub UpsertLeerEtiqueta(ByRef EntidadProduccion As Capa_Entidad.Produccion)
+        Dim EntidadProduccion1 As New Capa_Entidad.Produccion
+        EntidadProduccion1 = EntidadProduccion
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("Sp_ActualizaEstadoLeerEtiqueta", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadProduccion1.IdPlantaOrigen))
+            cmdGuardar.Parameters.Add(New SqlParameter("@LeerEtiqueta", EntidadProduccion1.LeerEtiqueta))
+            cmdGuardar.ExecuteNonQuery()
+            'If EntidadProduccion1.IdProduccion = 0 Then
+            '    EntidadProduccion1.IdProduccion = cmdGuardar.Parameters("@IdProduccion").Value
+            'End If
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadProduccion = EntidadProduccion1
+        End Try
+    End Sub
     Public Overridable Sub Consultar(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         EntidadProduccion1 = EntidadProduccion
