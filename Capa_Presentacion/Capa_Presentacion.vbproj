@@ -404,6 +404,12 @@
       <DependentUpon>RPTLiquidacionRomaneajeDet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTModulosPorProductor.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTModulosPorProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -906,6 +912,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTLiquidacionRomaneajeDet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTModulosPorProductor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTModulosPorProductor.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
