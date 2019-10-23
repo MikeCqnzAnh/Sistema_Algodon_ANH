@@ -7,6 +7,7 @@ Public Class Produccion
     Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
     Dim UltimaSecuencia As Integer
+    Dim SecuenciaCompara As Integer
     Dim IdProduccionDetalle As Integer = 0
     Dim FolioCIAReturn As Integer = 0
     Dim Puerto As String
@@ -251,7 +252,6 @@ Public Class Produccion
                         TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
                         TbModulos.Text = Tabla.Rows(0).Item("Modulos")
                         TbTotalModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
-                        TbFolioInicial.Text = Tabla.Rows(0).Item("Secuencia")
                         ConsultarProduccionPorOrden()
                         DgvPacas.DataSource = Nothing
                         DeshabilitarControles()
@@ -261,6 +261,7 @@ Public Class Produccion
                         If TbIdProduccion.Text <> "" Then
                             Consultar()
                         End If
+                        ConsultaUltimaSecuencia()
                     End If
                 Else
                     MsgBox("Ingrese el ID de la orden de trabajo...")
@@ -316,18 +317,20 @@ Public Class Produccion
                             EntidadProduccion.ResistenciaFibra = 0
                             NegocioProduccion.GuardarDetalle(EntidadProduccion)
                             ActualizarUltimaEtiqueta()
+                            ConsultaUltimaSecuencia()
+                            TbFolioCIA.Text = SecuenciaCompara
                             Consultar()
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
-                            TbFolioCIA.Select()
+                            TbKilos.Select()
 
                             Exit Sub
                         Else
                             ConsultaUltimaSecuencia()
-                            If TbFolioCIA.Text <> UltimaSecuencia Then
-                                Dim opc = MessageBox.Show("El folio no coincide, ¿Desea reemplazarlo por el consecutivo" + " " + CStr(UltimaSecuencia) + " " + "siguiente?", "Aviso", MessageBoxButtons.YesNo)
+                            If TbFolioCIA.Text <> SecuenciaCompara Then
+                                Dim opc = MessageBox.Show("El folio no coincide, ¿Desea reemplazarlo por el consecutivo" + " " + CStr(SecuenciaCompara) + " " + "siguiente?", "Aviso", MessageBoxButtons.YesNo)
                                 If opc = DialogResult.Yes Then
-                                    TbFolioCIA.Text = UltimaSecuencia
+                                    TbFolioCIA.Text = SecuenciaCompara
                                     Dim EntidadProduccion As New Capa_Entidad.Produccion
                                     Dim NegocioProduccion As New Capa_Negocio.Produccion
                                     EntidadProduccion.IdProduccionDetalle = 0
@@ -369,7 +372,10 @@ Public Class Produccion
                                     Consultar()
                                     TbFolioCIA.Text = ""
                                     TbKilos.Text = ""
-                                    TbFolioCIA.Select()
+                                    ConsultaUltimaSecuencia()
+                                    TbFolioCIA.Text = SecuenciaCompara
+                                    TbKilos.Select()
+
                                 Else
                                     Dim EntidadProduccion As New Capa_Entidad.Produccion
                                     Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -411,7 +417,9 @@ Public Class Produccion
                                     Consultar()
                                     TbFolioCIA.Text = ""
                                     TbKilos.Text = ""
-                                    TbFolioCIA.Select()
+                                    ConsultaUltimaSecuencia()
+                                    TbFolioCIA.Text = SecuenciaCompara
+                                    TbKilos.Select()
                                 End If
                             Else
                                 Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -457,7 +465,9 @@ Public Class Produccion
                                 Consultar()
                                 TbFolioCIA.Text = ""
                                 TbKilos.Text = ""
-                                TbFolioCIA.Select()
+                                ConsultaUltimaSecuencia()
+                                TbFolioCIA.Text = SecuenciaCompara
+                                TbKilos.Select()
 
                             End If
                         End If
@@ -525,6 +535,8 @@ Public Class Produccion
             Consultar()
             BtAbrirProduccion.Enabled = False
             BtCerrarProduccion.Enabled = True
+            TbFolioCIA.Text = TbFolioInicial.Text
+            TbKilos.Select()
         ElseIf TbIdProduccion.Text = "" And TbIdOrdenTrabajo.Text = "" Then
             MsgBox("No se puede abrir produccion sin una orden de trabajo activa", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
         End If
@@ -627,6 +639,8 @@ Public Class Produccion
             UltimaSecuencia = 1
         Else
             UltimaSecuencia = Tabla.Rows(0).Item("etiqueta")
+            SecuenciaCompara = Tabla.Rows(0).Item("Secuencia")
+            TbFolioInicial.Text = Tabla.Rows(0).Item("Secuencia")
         End If
     End Sub
 
@@ -646,25 +660,25 @@ Public Class Produccion
         If IO.File.Exists(Ruta & archivo) Then
             If LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA" Then
                 ConsultaUltimaSecuencia()
-                TbFolioCIA.Text = UltimaSecuencia
+                TbFolioCIA.Text = SecuenciaCompara
                 TbFolioCIA.Enabled = False
-                TbKilos.Enabled = False
+                ' TbKilos.Enabled = False
                 TbFolioInicial.Enabled = False
                 TiActualizaDgvPacas.Enabled = True
                 CbPuertosSeriales.Enabled = False
                 GbDatosProduccion.Enabled = False
-                CkLeersaco.Checked = True
+                'CkLeersaco.Checked = True
                 LbStatus.Text = "CAPTURA AUTOMATICA ACTIVADA"
                 BtActivarPrensa.Text = "Desactivar Lectura de Prensa"
                 Setup_Puerto_Serie()
             Else
                 GbDatosProduccion.Enabled = True
                 TbFolioCIA.Enabled = True
-                TbKilos.Enabled = True
+                ' TbKilos.Enabled = True
                 TbFolioInicial.Enabled = True
                 CbPuertosSeriales.Enabled = True
                 TiActualizaDgvPacas.Enabled = False
-                CkLeersaco.Checked = False
+                ' CkLeersaco.Checked = False
                 LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
                 BtActivarPrensa.Text = "Activar Lectura de Prensa"
                 SpCapturaAutomatica.Close()
@@ -763,7 +777,7 @@ Public Class Produccion
                     ActualizarUltimaEtiqueta()
                     TbFolioCIA.Text = ""
                     TbKilos.Text = ""
-                    TbFolioCIA.Select()
+                    TbKilos.Select()
 
                     Exit Sub
                 Else
@@ -812,7 +826,7 @@ Public Class Produccion
                             ActualizarUltimaEtiqueta()
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
-                            TbFolioCIA.Select()
+                            TbKilos.Select()
                         Else
                             Dim EntidadProduccion As New Capa_Entidad.Produccion
                             Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -853,7 +867,7 @@ Public Class Produccion
                             NegocioProduccion.GuardarDetalle(EntidadProduccion)
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
-                            TbFolioCIA.Select()
+                            TbKilos.Select()
                         End If
                     Else
                         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -899,7 +913,7 @@ Public Class Produccion
 
                         TbFolioCIA.Text = ""
                         TbKilos.Text = ""
-                        TbFolioCIA.Select()
+                        TbKilos.Select()
 
                     End If
                 End If
@@ -911,7 +925,7 @@ Public Class Produccion
             Exit Sub
         End If
         TbTotalPacas.Text = DgvPacas.RowCount
-        TbFolioCIA.Text = UltimaSecuencia
+        'TbFolioCIA.Text = UltimaSecuencia
         TbFolioCIA.Text = TbFolioInicial.Text
     End Sub
     Private Sub TbIdOrdenTrabajo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbIdOrdenTrabajo.KeyPress

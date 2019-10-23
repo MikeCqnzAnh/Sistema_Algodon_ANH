@@ -44,6 +44,7 @@ Namespace Configuracion
         ReporteLiquidacionRomaneaje = 4
         ReporteLiquidacionRomaneajeDet = 5
         ReporteHviDetalle = 6
+        ReporteLotesPorModulo = 7
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

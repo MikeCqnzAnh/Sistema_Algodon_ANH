@@ -37,7 +37,6 @@ Public Class RepClientes
         Dim CrReport As RPTReporteClientes = New RPTReporteClientes
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTReporteClientes.rpt"
         EntidadReportes.Reporte = Reporte.ReporteClientes
-        EntidadReportes.IdAsociacion = CbAsociaciones.SelectedValue
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)

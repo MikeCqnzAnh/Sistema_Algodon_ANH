@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.14.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.15.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -360,6 +360,12 @@
       <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepLiquidacionRomaneaje.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepLotesPorModulo.Designer.vb">
+      <DependentUpon>RepLotesPorModulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepLotesPorModulo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTColumnasEncabezado.vb">
@@ -884,6 +890,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepLiquidacionRomaneaje.resx">
       <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepLotesPorModulo.resx">
+      <DependentUpon>RepLotesPorModulo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTColumnasEncabezado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -1147,7 +1147,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(96, 17)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(95, 17)
         Me.ToolStripStatusLabel2.Text = ": BASE DE DATOS"
         '
         'ToolStripStatusLabel1
@@ -1159,7 +1159,7 @@ Partial Class MenuPrincipal
         'SbTipoUsuario
         '
         Me.SbTipoUsuario.Name = "SbTipoUsuario"
-        Me.SbTipoUsuario.Size = New System.Drawing.Size(74, 17)
+        Me.SbTipoUsuario.Size = New System.Drawing.Size(73, 17)
         Me.SbTipoUsuario.Text = "Tipo Usuario"
         '
         'TsSeparador
@@ -1204,7 +1204,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel5
         '
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
         'MenuPrincipal
