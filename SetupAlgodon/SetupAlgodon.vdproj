@@ -262,12 +262,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0E2B3D083B6EF729812A388058D55C3D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -287,6 +281,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_481760F72CD129734314AEC03F387AFE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1242,15 +1242,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{3D88E0D3-F9B0-48D9-B667-3B401917119B}"
-        "PackageCode" = "8:{E51DD008-D330-402E-972F-911A314F0764}"
+        "ProductCode" = "8:{D75F1608-DD99-46C2-BA00-FB17AB700BB4}"
+        "PackageCode" = "8:{CDD69CA0-9391-4A7A-BB73-5910F12AD29F}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.15"
+        "ProductVersion" = "8:1.0.17"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -569,6 +569,10 @@ Public Class Produccion
         DgvPacas.Columns("IdPlantaOrigen").Visible = False
         DgvPacas.Columns("IdOrdenTrabajo").Visible = False
         DgvPacas.Columns("IdProduccion").Visible = False
+        DgvPacas.Columns("FolioCIA").ReadOnly = True
+        DgvPacas.Columns("Tipo").ReadOnly = True
+        DgvPacas.Columns("Kilos").ReadOnly = True
+        DgvPacas.Columns("Fecha").ReadOnly = True
     End Sub
     Private Sub ConsultarProduccionPorOrden()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -954,6 +958,41 @@ Public Class Produccion
         EntidadProduccion.LeerEtiqueta = CkLeersaco.CheckState
         NegocioProduccion.UpsertLeerEtiqueta(EntidadProduccion)
     End Sub
+
+    'Private Sub DgvPacas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPacas.CellContentClick
+    '    For i As Integer = 0 To DgvPacas.Rows.Count() - 1
+    '        Dim c As Boolean
+    '        c = DgvPacas.Rows(i).Cells(0).Value
+    '        ' if the checkbox cell is checked
+    '        If c = True Then
+    '            c = False
+    '            ' if not
+    '        Else
+    '            c = True
+    '        End If
+    '    Next
+    'End Sub
+
+    Private Sub BtEliminarPacas_Click(sender As Object, e As EventArgs) Handles BtEliminarPacas.Click
+        Dim opc As DialogResult = MsgBox("¿Eliminar pacas seleccionadas?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Eliminar Pacas Seleccionadas")
+        If opc = DialogResult.Yes Then
+            Try
+                For i As Integer = 0 To DgvPacas.Rows.Count() - 1
+                    Dim c As Boolean = DgvPacas.Rows(i).Cells(0).Value
+
+                    If c = True Then
+                        GeneraRegistroBitacora(Me.Text.Clone.ToString, BtEliminarPacas.Text, DgvPacas.Rows(i).Cells("FolioCIA").Value, DgvPacas.Rows(i).Cells("Kilos").Value & " KGs DEL PRODUCTOR " & TbNombreProductor.Text & " CON LA ORDEN No " & TbIdOrdenTrabajo.Text & " EN PLANTA " & CbPlantaOrigen.Text)
+                        EliminaPaca(DgvPacas.Rows(i).Cells("FolioCIA").Value, TbIdOrdenTrabajo.Text)
+                    End If
+                Next
+            Catch ex As Exception
+                MsgBox(ex)
+            Finally
+                Consultar()
+            End Try
+        End If
+    End Sub
+
     Private Sub TbFolioInicial_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbFolioInicial.KeyPress
         If Asc(e.KeyChar) = 13 Then
             BtAbrirProduccion.Focus()
@@ -966,6 +1005,15 @@ Public Class Produccion
         EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
         EntidadProduccion.FolioInicial = Val(Folio)
         NegocioProduccion.UpsertFolioInicial(EntidadProduccion)
+    End Sub
+    Private Sub EliminaPaca(ByVal FolioCIA As Integer, ByVal IdOrdenTrabajo As Integer)
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.Eliminar = Eliminar.EliminaPacaSeleccionada
+        EntidadProduccion.FolioCIA = FolioCIA
+        EntidadProduccion.IdOrdenTrabajo = IdOrdenTrabajo
+        NegocioProduccion.EliminarPaca(EntidadProduccion)
     End Sub
     '--------------------------------------------------------------
     '--------------------------------------------------------------

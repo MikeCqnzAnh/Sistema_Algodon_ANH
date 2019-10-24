@@ -41,6 +41,9 @@ Module CargaBitacora
                 Case "Accesar"
                     operacion = "INICIAR SESION."
                     observaciones = "EL USUARIO " & Usuario & " HA INICIADO SESION CON ROL " & TipoUsuario & "."
+                Case "Eliminar Pacas Seleccionadas"
+                    operacion = "ELIMINAR PACA."
+                    observaciones = "EL USUARIO " & Usuario & " ELIMINO LA PACA CON EL FOLIO " & IdAdicional & " CON PESO DE " & ReferenciaAdicional & "."
             End Select
             InsertaBitacora(Modulo, Opcion, operacion, observaciones, BaseDeDatos)
         Catch ex As Exception

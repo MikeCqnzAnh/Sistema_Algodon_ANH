@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Produccion
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,12 @@ Partial Class Produccion
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -92,7 +92,8 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
-        Me.TiActualizaFolioInicial = New System.Windows.Forms.Timer(Me.components)
+        Me.CkPaca = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.BtEliminarPacas = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -567,6 +568,7 @@ Partial Class Produccion
         '
         'GbCapturaAutomatica
         '
+        Me.GbCapturaAutomatica.Controls.Add(Me.BtEliminarPacas)
         Me.GbCapturaAutomatica.Controls.Add(Me.Label10)
         Me.GbCapturaAutomatica.Controls.Add(Me.CbPuertosSeriales)
         Me.GbCapturaAutomatica.Controls.Add(Me.BtActivarPrensa)
@@ -674,37 +676,37 @@ Partial Class Produccion
         Me.DgvPacas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvPacas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPacas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvPacas.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DgvPacas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CkPaca})
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvPacas.DefaultCellStyle = DataGridViewCellStyle11
         Me.DgvPacas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPacas.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.DgvPacas.Location = New System.Drawing.Point(3, 47)
         Me.DgvPacas.MultiSelect = False
         Me.DgvPacas.Name = "DgvPacas"
-        Me.DgvPacas.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvPacas.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvPacas.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -780,9 +782,27 @@ Partial Class Produccion
         'SpCapturaAutomatica
         '
         '
-        'TiActualizaFolioInicial
+        'CkPaca
         '
-        Me.TiActualizaFolioInicial.Interval = 1000
+        Me.CkPaca.FalseValue = "False"
+        Me.CkPaca.FillWeight = 50.0!
+        Me.CkPaca.HeaderText = "Sel"
+        Me.CkPaca.Name = "CkPaca"
+        Me.CkPaca.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CkPaca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.CkPaca.TrueValue = "True"
+        '
+        'BtEliminarPacas
+        '
+        Me.BtEliminarPacas.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.BtEliminarPacas.Location = New System.Drawing.Point(3, 384)
+        Me.BtEliminarPacas.MaximumSize = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.MinimumSize = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.Name = "BtEliminarPacas"
+        Me.BtEliminarPacas.Size = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.TabIndex = 71
+        Me.BtEliminarPacas.Text = "Eliminar Pacas Seleccionadas"
+        Me.BtEliminarPacas.UseVisualStyleBackColor = True
         '
         'Produccion
         '
@@ -888,5 +908,6 @@ Partial Class Produccion
     Friend WithEvents CbPuertosSeriales As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents CkLeersaco As CheckBox
-    Friend WithEvents TiActualizaFolioInicial As Timer
+    Friend WithEvents CkPaca As DataGridViewCheckBoxColumn
+    Friend WithEvents BtEliminarPacas As Button
 End Class

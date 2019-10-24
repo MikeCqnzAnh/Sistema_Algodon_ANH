@@ -182,6 +182,27 @@ Public Class Produccion
             EntidadProduccion = EntidadProduccion1
         End Try
     End Sub
+    Public Overridable Sub Eliminar(ByRef EntidadProduccion As Capa_Entidad.Produccion)
+        Dim EntidadProduccion1 As New Capa_Entidad.Produccion
+        EntidadProduccion1 = EntidadProduccion
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            Select Case EntidadProduccion1.Eliminar
+                Case Capa_Operacion.Configuracion.Eliminar.EliminaPacaSeleccionada
+                    cmdGuardar = New SqlCommand("Sp_EliminaPacasSeleccionadas", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FolioCIA", EntidadProduccion1.FolioCIA))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion1.IdOrdenTrabajo))
+                    cmdGuardar.ExecuteNonQuery()
+            End Select
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadProduccion = EntidadProduccion1
+        End Try
+    End Sub
     Public Overridable Sub Consultar(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         EntidadProduccion1 = EntidadProduccion
