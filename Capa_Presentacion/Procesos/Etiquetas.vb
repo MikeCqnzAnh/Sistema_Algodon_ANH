@@ -347,4 +347,8 @@ Public Class Etiquetas
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
+
+    Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarToolStripMenuItem.Click
+        ConsultaUltimaSecuencia()
+    End Sub
 End Class

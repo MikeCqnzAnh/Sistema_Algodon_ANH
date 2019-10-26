@@ -45,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_430BB5E02F51417F9A58B1691376446E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_481760F72CD129734314AEC03F387AFE"
         "OwnerKey" = "8:_4A47BE1DB22FF2497214F999A17975C8"
         "MsmSig" = "8:_UNDEFINED"
@@ -233,6 +239,12 @@
         {
         "MsmKey" = "8:_F2A874EB0D0677E6927C7C016007D6B5"
         "OwnerKey" = "8:_C1367A5CFCAE61F2E80251E06627F4EB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FACF2A3D3162494BBE200CA29BCCE888"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -509,6 +521,26 @@
             {
             "SourcePath" = "8:..\\Capa_Presentacion\\Reportes\\RPT\\BaseHVI.mdb"
             "TargetName" = "8:BaseHVI.mdb"
+            "Tag" = "8:"
+            "Folder" = "8:_DD30591E817643398C9EE1E51917F499"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_430BB5E02F51417F9A58B1691376446E"
+            {
+            "SourcePath" = "8:..\\Capa_Presentacion\\Reportes\\RPT\\RPTPacasPorLotes.rpt"
+            "TargetName" = "8:RPTPacasPorLotes.rpt"
             "Tag" = "8:"
             "Folder" = "8:_DD30591E817643398C9EE1E51917F499"
             "Condition" = "8:"
@@ -1113,6 +1145,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FACF2A3D3162494BBE200CA29BCCE888"
+            {
+            "SourcePath" = "8:..\\Capa_Presentacion\\Reportes\\RPT\\RPTPacasPorLotes.vb"
+            "TargetName" = "8:RPTPacasPorLotes.vb"
+            "Tag" = "8:"
+            "Folder" = "8:_DD30591E817643398C9EE1E51917F499"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FB42B4CA5588C7BD5083A86CC14349A8"
             {
             "AssemblyRegister" = "3:1"
@@ -1242,15 +1294,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{D75F1608-DD99-46C2-BA00-FB17AB700BB4}"
-        "PackageCode" = "8:{CDD69CA0-9391-4A7A-BB73-5910F12AD29F}"
+        "ProductCode" = "8:{4664DAD5-AA76-400E-9FF1-8FDEF107C2E0}"
+        "PackageCode" = "8:{918E8B02-E293-41A3-93EE-D70740510D89}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.17"
+        "ProductVersion" = "8:1.0.19"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

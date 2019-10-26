@@ -374,6 +374,10 @@ Public Class MenuPrincipal
         RepLotesPorModulo.ShowDialog()
     End Sub
 
+    Private Sub PacasPorLotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorLotesToolStripMenuItem.Click
+        RepPacasPorLotes.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

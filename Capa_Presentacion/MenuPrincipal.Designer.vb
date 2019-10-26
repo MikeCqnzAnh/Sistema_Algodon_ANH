@@ -93,6 +93,7 @@ Partial Class MenuPrincipal
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PacasPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -662,7 +663,7 @@ Partial Class MenuPrincipal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem1, Me.SalidaDeSemillaToolStripMenuItem1, Me.SalidaDePacasDeBorraToolStripMenuItem1, Me.SalidaDeBasuraToolStripMenuItem1, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem1, Me.SalidaDeSemillaToolStripMenuItem1, Me.SalidaDePacasDeBorraToolStripMenuItem1, Me.SalidaDeBasuraToolStripMenuItem1, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ReportesToolStripMenuItem.Tag = "67,0"
@@ -681,6 +682,13 @@ Partial Class MenuPrincipal
         Me.LotesDetalleConMódulosToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.LotesDetalleConMódulosToolStripMenuItem.Tag = "69,67"
         Me.LotesDetalleConMódulosToolStripMenuItem.Text = "Lotes (Detalle con Módulos)"
+        '
+        'PacasPorLotesToolStripMenuItem
+        '
+        Me.PacasPorLotesToolStripMenuItem.Name = "PacasPorLotesToolStripMenuItem"
+        Me.PacasPorLotesToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
+        Me.PacasPorLotesToolStripMenuItem.Tag = "239,67"
+        Me.PacasPorLotesToolStripMenuItem.Text = "Pacas Por Lotes"
         '
         'LotesDetalleConMódulosSegundaFormaToolStripMenuItem
         '
@@ -1377,4 +1385,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ImportarCatalogosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ConexionInicialToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RolesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PacasPorLotesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -31,8 +31,9 @@ Partial Class Etiquetas
         Me.TbEtiquetaSiguiente = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PControles = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.PControles = New System.Windows.Forms.Panel()
+        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.PControles.SuspendLayout()
@@ -40,7 +41,7 @@ Partial Class Etiquetas
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ActualizarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1109, 24)
@@ -119,17 +120,6 @@ Partial Class Etiquetas
         Me.Panel1.Size = New System.Drawing.Size(1109, 66)
         Me.Panel1.TabIndex = 16
         '
-        'PControles
-        '
-        Me.PControles.Controls.Add(Me.TbEtiquetaSiguiente)
-        Me.PControles.Controls.Add(Me.TbEtiquetaActual)
-        Me.PControles.Controls.Add(Me.Label6)
-        Me.PControles.Controls.Add(Me.Label2)
-        Me.PControles.Location = New System.Drawing.Point(38, 115)
-        Me.PControles.Name = "PControles"
-        Me.PControles.Size = New System.Drawing.Size(573, 424)
-        Me.PControles.TabIndex = 17
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -138,6 +128,23 @@ Partial Class Etiquetas
         Me.Label5.Size = New System.Drawing.Size(51, 13)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "ID Planta"
+        '
+        'PControles
+        '
+        Me.PControles.Controls.Add(Me.TbEtiquetaSiguiente)
+        Me.PControles.Controls.Add(Me.TbEtiquetaActual)
+        Me.PControles.Controls.Add(Me.Label6)
+        Me.PControles.Controls.Add(Me.Label2)
+        Me.PControles.Location = New System.Drawing.Point(38, 115)
+        Me.PControles.Name = "PControles"
+        Me.PControles.Size = New System.Drawing.Size(576, 424)
+        Me.PControles.TabIndex = 17
+        '
+        'ActualizarToolStripMenuItem
+        '
+        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
+        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.ActualizarToolStripMenuItem.Text = "Actualizar"
         '
         'Etiquetas
         '
@@ -175,4 +182,5 @@ Partial Class Etiquetas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents PControles As Panel
     Friend WithEvents Label5 As Label
+    Friend WithEvents ActualizarToolStripMenuItem As ToolStripMenuItem
 End Class
