@@ -52,15 +52,15 @@ Partial Class ClasificacionVentaPaquetes
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirClasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarPacasSeleccionadasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.GbDgv = New System.Windows.Forms.GroupBox()
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbProductos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -237,6 +237,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.BtRevisarClases.TabIndex = 1
         Me.BtRevisarClases.Text = "Revisar Clases De  Paquete"
         Me.BtRevisarClases.UseVisualStyleBackColor = True
+        Me.BtRevisarClases.Visible = False
         '
         'Label3
         '
@@ -350,6 +351,25 @@ Partial Class ClasificacionVentaPaquetes
         Me.ImprimirClasesToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
         Me.ImprimirClasesToolStripMenuItem.Text = "Imprimir Clases"
         '
+        'ExportarToolStripMenuItem
+        '
+        Me.ExportarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoExcelToolStripMenuItem, Me.ArchivoAccessToolStripMenuItem})
+        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.ExportarToolStripMenuItem.Text = "Exportar"
+        '
+        'ArchivoExcelToolStripMenuItem
+        '
+        Me.ArchivoExcelToolStripMenuItem.Name = "ArchivoExcelToolStripMenuItem"
+        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ArchivoExcelToolStripMenuItem.Text = "Archivo Excel"
+        '
+        'ArchivoAccessToolStripMenuItem
+        '
+        Me.ArchivoAccessToolStripMenuItem.Name = "ArchivoAccessToolStripMenuItem"
+        Me.ArchivoAccessToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ArchivoAccessToolStripMenuItem.Text = "Archivo Access"
+        '
         'EliminarPacasSeleccionadasToolStripMenuItem
         '
         Me.EliminarPacasSeleccionadasToolStripMenuItem.Name = "EliminarPacasSeleccionadasToolStripMenuItem"
@@ -400,25 +420,6 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.Sel.HeaderText = "Seleccion"
         Me.Sel.Name = "Sel"
-        '
-        'ExportarToolStripMenuItem
-        '
-        Me.ExportarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoExcelToolStripMenuItem, Me.ArchivoAccessToolStripMenuItem})
-        Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
-        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
-        Me.ExportarToolStripMenuItem.Text = "Exportar"
-        '
-        'ArchivoExcelToolStripMenuItem
-        '
-        Me.ArchivoExcelToolStripMenuItem.Name = "ArchivoExcelToolStripMenuItem"
-        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.ArchivoExcelToolStripMenuItem.Text = "Archivo Excel"
-        '
-        'ArchivoAccessToolStripMenuItem
-        '
-        Me.ArchivoAccessToolStripMenuItem.Name = "ArchivoAccessToolStripMenuItem"
-        Me.ArchivoAccessToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.ArchivoAccessToolStripMenuItem.Text = "Archivo Access"
         '
         'ClasificacionVentaPaquetes
         '

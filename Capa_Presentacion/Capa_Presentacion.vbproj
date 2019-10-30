@@ -368,11 +368,23 @@
     <Compile Include="Reportes\RepLotesPorModulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPacasDetalleAgrupadoPorClase.Designer.vb">
+      <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPacasDetalleAgrupadoPorClase.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPacasPorLotes.Designer.vb">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepPacasPorLotes.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTAgrupadoPorClase.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTAgrupadoPorClase.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTColumnasEncabezado.vb">
       <AutoGen>True</AutoGen>
@@ -420,6 +432,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTModulosPorProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPacasDetallado.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPacasDetallado.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTPacasPorLotes.vb">
@@ -906,8 +924,15 @@
     <EmbeddedResource Include="Reportes\RepLotesPorModulo.resx">
       <DependentUpon>RepLotesPorModulo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPacasDetalleAgrupadoPorClase.resx">
+      <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasPorLotes.resx">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTAgrupadoPorClase.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTAgrupadoPorClase.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTColumnasEncabezado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -940,6 +965,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTModulosPorProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTModulosPorProductor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPacasDetallado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPacasDetallado.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPacasPorLotes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -1,4 +1,4 @@
-alter procedure sp_InsertarPaquetesHVIEnc
+Create procedure sp_InsertarPaquetesHVIEnc
 @IdHviEnc int output,
 @CantidadPacas int,
 @IdPlanta int,
@@ -12,16 +12,52 @@ as
 begin 
 set nocount on
 merge [dbo].[HVIEncabezado] as target
-using (select @IdHviEnc,@CantidadPacas,@IdPlanta,@Fecha,@IdEstatus,@IdUsuarioCreacion,@FechaCreacion,@IdUsuarioActualizacion,@FechaActualizacion) AS SOURCE (IdHviEnc,CantidadPacas,IdPlanta,Fecha,IdEstatus,IdUsuarioCreacion,FechaCreacion,IdUsuarioActualizacion,FechaActualizacion)
+using (select @IdHviEnc,
+			  @CantidadPacas,
+			  @IdPlanta,
+			  @Fecha,
+			  @IdEstatus,
+			  @IdUsuarioCreacion,
+			  @FechaCreacion,
+			  @IdUsuarioActualizacion,
+			  @FechaActualizacion) 
+			  AS SOURCE (
+			  IdHviEnc,
+			  CantidadPacas,
+			  IdPlanta,
+			  Fecha,
+			  IdEstatus,
+			  IdUsuarioCreacion,
+			  FechaCreacion,
+			  IdUsuarioActualizacion,
+			  FechaActualizacion)
 ON (target.IdHviEnc = SOURCE.IdHviEnc)
 WHEN MATCHED THEN
 UPDATE SET 
+		   CantidadPacas = source.CantidadPacas,
+	       --IdPlanta = source.IdPlanta,
+		   Fecha = source.Fecha,
 		   IdEstatus = source.IdEstatus,
 		   IdUsuarioCreacion = source.IdUsuarioCreacion,
 		   FechaCreacion = source.FechaCreacion
 WHEN NOT MATCHED THEN
-INSERT (CantidadPacas,IdPlanta,Fecha,IdEstatus,IdUsuarioCreacion,FechaCreacion,IdUsuarioActualizacion,FechaActualizacion)
-        VALUES (source.CantidadPacas,source.IdPlanta,source.Fecha,source.IdEstatus,source.IdUsuarioCreacion,source.FechaCreacion,source.IdUsuarioActualizacion,source.FechaActualizacion);
+INSERT (CantidadPacas,
+	    IdPlanta,
+		Fecha,
+		IdEstatus,
+		IdUsuarioCreacion,
+		FechaCreacion,
+		IdUsuarioActualizacion,
+		FechaActualizacion)
+        VALUES (
+		source.CantidadPacas,
+		source.IdPlanta,
+		source.Fecha,
+		source.IdEstatus,
+		source.IdUsuarioCreacion,
+		source.FechaCreacion,
+		source.IdUsuarioActualizacion,
+		source.FechaActualizacion);
 		SET @IdHviEnc = SCOPE_IDENTITY()
 		END
 RETURN @IdHviEnc

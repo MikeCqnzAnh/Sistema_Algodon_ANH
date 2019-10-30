@@ -3,6 +3,7 @@
     Public IdClasificacion As Integer
     Public NumeroPaca As Integer
     Public TrashId As Integer
+    Public LotID As Integer
     Public GradoColor As String
     '------
     Public IdPaquete As Integer

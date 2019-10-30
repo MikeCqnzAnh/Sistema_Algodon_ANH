@@ -7,6 +7,7 @@
     Public IdPaquete As Integer
     Public Ruta As String
     Public IdEstatus As Integer
+    Public LotId As Integer
     'HVI Detalle
     Public TablaGlobal As DataTable
 End Class

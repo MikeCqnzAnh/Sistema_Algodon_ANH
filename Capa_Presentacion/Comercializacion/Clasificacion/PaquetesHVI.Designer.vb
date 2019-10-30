@@ -194,6 +194,7 @@ Partial Class PaquetesHVI
         Me.TbIdPaqueteHVI.Name = "TbIdPaqueteHVI"
         Me.TbIdPaqueteHVI.Size = New System.Drawing.Size(100, 20)
         Me.TbIdPaqueteHVI.TabIndex = 0
+        Me.TbIdPaqueteHVI.Visible = False
         '
         'DgvPaquetesHVI
         '

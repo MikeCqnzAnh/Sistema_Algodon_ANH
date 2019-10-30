@@ -55,6 +55,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaPlanta
                     sqlcom1 = New SqlCommand("sp_VerificaPacaPlanta", cnn)
@@ -78,6 +79,14 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Add(New SqlParameter("@BaleID", EntidadClasificacionVentaPaquetes.NumeroPaca))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqlcom1.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPaqueteExisteHVI
+                    sqlcom1 = New SqlCommand("sp_ExistePaqueteHVI", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes.LotID))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally
@@ -120,8 +129,6 @@ Public Class ClasificacionVentaPaquetes
             cnn.Close()
             EntidadClasificacionVentaPaquetes = EntidadClasificacionVentaPaquetes1
         End Try
-
-
     End Sub
     Public Overridable Sub Upsert(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes

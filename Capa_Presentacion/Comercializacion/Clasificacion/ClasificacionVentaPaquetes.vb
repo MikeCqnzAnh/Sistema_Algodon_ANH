@@ -10,6 +10,13 @@ Public Class ClasificacionVentaPaquetes
         propiedadesDgv1()
         CreaTabla()
         Limpiar()
+        RevisaUsuario()
+    End Sub
+    Private Sub RevisaUsuario()
+        If TipoUsuario = "ANALISTA LB" Then
+            DgvPacasClasificacion1.ReadOnly = True
+            BtIgualarClasificacion.Visible = False
+        End If
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Guardar()
@@ -396,10 +403,10 @@ Public Class ClasificacionVentaPaquetes
         Dim ContadorColor As Integer
         For Each fila As DataGridViewRow In DgvPacasClasificacion1.Rows
             If fila.Cells(15).Value.ToString <> CbClases.Text Then
-                fila.DefaultCellStyle.BackColor = Color.Red
+                'fila.DefaultCellStyle.BackColor = Color.Red
                 ContadorColor = ContadorColor + 1
             Else
-                fila.DefaultCellStyle.BackColor = Color.White
+                '  fila.DefaultCellStyle.BackColor = Color.White
                 ContadorColor = ContadorColor + 0
             End If
         Next
@@ -600,10 +607,13 @@ Public Class ClasificacionVentaPaquetes
         End If
     End Sub
     Private Sub EliminarPacasSeleccionadasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarPacasSeleccionadasToolStripMenuItem.Click
-        MarcaSeleccion()
-        EliminarRegistro()
-        Consultar()
-        Guardar()
+        Dim opc As DialogResult = MsgBox("¿Desea eliminar pacas seleccionadas?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+        If opc = DialogResult.Yes Then
+            MarcaSeleccion()
+            EliminarRegistro()
+            Consultar()
+            Guardar()
+        End If
     End Sub
     Private Sub Guardar()
         'If DgvPacasClasificacion11.RowCount > 0 Then
@@ -736,6 +746,7 @@ Public Class ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExisteHVI
         EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
         resultado = Tabla.Rows(0).Item("ExistePaca")
