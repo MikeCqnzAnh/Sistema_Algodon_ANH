@@ -925,7 +925,7 @@ Public Class ClasificacionVentaPaquetes
         Dim RutaPlantilla As String = My.Computer.FileSystem.CurrentDirectory & "\Reportes\RPT\BaseHVI.mdb"
         'Dim RutaPlantilla As String = "\\192.168.10.30\docs_sistemas\RPT_ALGODON\BaseHVI.mdb"
         Dim RutaCarpeta As String = "C:\datos\"
-        Dim RutaCopiar As String = RutaCarpeta & "HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
+        Dim RutaCopiar As String = RutaCarpeta & CbPlanta.SelectedValue & "_" & "HVI_" & CbClases.Text & "_" & TbIdPaquete.Text & ".mdb"
         If DgvPacasClasificacion1.RowCount > 0 Then
             If File.Exists(RutaCopiar) Then
                 Dim opc As DialogResult = MsgBox("El Archivo ya existe, ¿Desea reemplazarlo?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")

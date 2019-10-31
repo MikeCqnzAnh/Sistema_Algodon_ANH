@@ -27,14 +27,18 @@ Public Class PaquetesHVI
             Dim vReturn(1) As String
             If DgvPaquetesHVI.DataSource IsNot Nothing And TbPaquete.Text <> "" Then
                 vReturn = ExistePaqueteHVI(TbPaquete.Text)
-                If vReturn(0) = True Then
+                If vReturn(0) = True And vReturn(1) = TbIdPaqueteHVI.Text Then
                     Dim opc As DialogResult = MsgBox("Este paquete ya existe en HVI,¿Desea reemplazar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
                     If opc = DialogResult.Yes Then
                         TbIdPaqueteHVI.Text = vReturn(1)
                         Guardar()
+                        BtSeleccionar.Enabled = False
                     End If
+                ElseIf vReturn(0) = True And vReturn(1) <> TbIdPaqueteHVI.Text Then
+                    MsgBox("El paquete No " & TbPaquete.Text & " ya existe en la planta " & CbPlanta.Text & " y no es posible actualizar.")
                 Else
                     Guardar()
+                    BtSeleccionar.Enabled = False
                 End If
             Else
                 MsgBox("Por favor, cargar la base de datos de access.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
@@ -46,6 +50,7 @@ Public Class PaquetesHVI
     Private Sub Limpiar()
         TbIdPaqueteHVI.Text = ""
         CbPlanta.SelectedIndex = -1
+        NuCantidadPacas.Value = 0
         DtpFecha.Value = Now
         TbPaquete.Text = ""
         TbRuta.Text = ""
@@ -160,7 +165,7 @@ Public Class PaquetesHVI
             Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
             Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
             EntidadPaquetesHVI.IdPaqueteHVI = IIf(TbIdPaqueteHVI.Text = "", 0, TbIdPaqueteHVI.Text)
-            EntidadPaquetesHVI.LotId = IIf(TbPaquete.Text = "", 0, TbPaquete.Text)
+            EntidadPaquetesHVI.LotId = TbPaquete.Text
             EntidadPaquetesHVI.NumeroPacas = NumeroPacas
             EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
             EntidadPaquetesHVI.Fecha = DtpFecha.Value
@@ -180,11 +185,12 @@ Public Class PaquetesHVI
     End Sub
     Private Sub ContarFilas()
         NumeroPacas = DgvPaquetesHVI.RowCount
+        NuCantidadPacas.Value = NumeroPacas
     End Sub
     Private Sub TbPaquete_KeyDown(sender As Object, e As KeyEventArgs) Handles TbPaquete.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
-                If TbPaquete.Text <> "" Then
+                If TbPaquete.Text <> "" And CbPlanta.Text <> "" Then
                     Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
                     Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
                     EntidadPaquetesHVI.Consulta = Consulta.ConsultaDetallada
@@ -193,12 +199,18 @@ Public Class PaquetesHVI
                     NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
                     TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
                     DgvPaquetesHVI.DataSource = TablaPaquetesHVIGlobal
-                    BtSeleccionar.Enabled = False
+                    PropiedadesDGV()
+                    'BtSeleccionar.Enabled = False
+                    If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
+                    ContarFilas()
                 Else
-                    MsgBox("Por favor, ingrese el ID del paquete", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+                    MsgBox("El campo Paquete y Planta no pueden ir vacios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                     Exit Sub
                 End If
         End Select
+    End Sub
+    Private Sub PropiedadesDGV()
+        DgvPaquetesHVI.Columns("IdHVIenc").Visible = False
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

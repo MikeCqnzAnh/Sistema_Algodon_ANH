@@ -34,16 +34,21 @@ using (select @IdHviEnc,
 			  FechaCreacion,
 			  IdUsuarioActualizacion,
 			  FechaActualizacion)
-ON (target.LotID = SOURCE.LotID and 
-	target.IdPlanta = SOURCE.IdPlanta)
+ON ((target.IdHviEnc = SOURCE.IdHVIenc and
+	target.LotID = SOURCE.LotID and
+	target.Idplanta <> SOURCE.idplanta )or (target.IdHviEnc = SOURCE.IdHVIenc and
+	target.LotID = SOURCE.LotID and
+	target.Idplanta = SOURCE.idplanta ))
 WHEN MATCHED THEN
 UPDATE SET 
 		   CantidadPacas = source.CantidadPacas,
-	       --IdPlanta = source.IdPlanta,
+	       IdPlanta = source.IdPlanta,
 		   Fecha = source.Fecha,
 		   IdEstatus = source.IdEstatus,
 		   IdUsuarioCreacion = source.IdUsuarioCreacion,
-		   FechaCreacion = source.FechaCreacion
+		   FechaCreacion = source.FechaCreacion,
+		   IdUsuarioActualizacion = source.IdUsuarioActualizacion,
+           FechaActualizacion = source.FechaActualizacion
 WHEN NOT MATCHED THEN
 INSERT (LotID,
 		CantidadPacas,
