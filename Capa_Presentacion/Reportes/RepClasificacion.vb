@@ -13,6 +13,12 @@ Imports System.Drawing
 Imports System.Windows.Forms
 Imports System.IO
 Public Class RepClasificacion
+    Dim IdPaquete, IdPlanta As Integer
+    Public Sub New(ByVal Idpaq As Integer, ByVal IdPla As Integer)
+        InitializeComponent()
+        IdPaquete = Idpaq
+        IdPlanta = IdPla
+    End Sub
     Private Sub RepClasificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
@@ -21,7 +27,8 @@ Public Class RepClasificacion
         Dim CrReport As RPTHviDetalle = New RPTHviDetalle
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTHviDetalle.rpt"
         EntidadReportes.Reporte = Reporte.ReporteHviDetalle
-        EntidadReportes.IdPaquete = 1
+        EntidadReportes.IdPaquete = IdPaquete
+        EntidadReportes.IdPlanta = IdPlanta
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)

@@ -1,4 +1,4 @@
-Create procedure sp_ConsultaPaqueteEncabezadoDetalle
+CREATE procedure sp_ConsultaPaqueteEncabezadoDetalle
 @IdPaquete int 
 as
 select a.IdPaquete,

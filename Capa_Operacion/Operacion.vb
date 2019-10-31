@@ -138,6 +138,7 @@ Namespace Configuracion
         ConsultaVentaPorNombre = 69
         ConsultaEstatusLeerEtiqueta = 70
         ConsultaPaqueteExisteHVI = 71
+        ConsultaPaqueteExisteClasificacion = 72
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

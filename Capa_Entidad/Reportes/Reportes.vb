@@ -7,5 +7,6 @@
     Public IdOrdenTrabajo As Integer
     Public CheckStatus As Boolean
     Public IdPaquete As Integer
+    Public IdPlanta As Integer
     '------------------------------
 End Class

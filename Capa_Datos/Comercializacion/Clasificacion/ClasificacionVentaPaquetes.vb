@@ -19,6 +19,8 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@NumPaca", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes.LotID))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaClasesDetalle
                     sqlcom1 = New SqlCommand("sp_SeleccionClase", cnn)
@@ -48,6 +50,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExisteHVI
                     sqlcom1 = New SqlCommand("sp_ExistePacaHVI", cnn)
@@ -63,6 +66,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaExistePaquete
                     sqlcom1 = New SqlCommand("sp_ExistePacaPaquete", cnn)
@@ -70,6 +74,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Actuliza.ActualizaIdPaca
                     sqlcom1 = New SqlCommand("Sp_ActualizaIdPaqueteDePaca", cnn)
@@ -81,6 +86,14 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.ExecuteNonQuery()
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPaqueteExisteHVI
                     sqlcom1 = New SqlCommand("sp_ExistePaqueteHVI", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes.LotID))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPaqueteExisteClasificacion
+                    sqlcom1 = New SqlCommand("sp_ExistePaqueteClasificacion", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
@@ -140,6 +153,7 @@ Public Class ClasificacionVentaPaquetes
             cmdGuardar = New SqlCommand("sp_InsertarPaqueteEncabezado", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes1.IdPaquete))
+            cmdGuardar.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes1.LotID))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes1.IdPlanta))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadClasificacionVentaPaquetes1.IdComprador))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdClase", EntidadClasificacionVentaPaquetes1.IdClase))
@@ -181,6 +195,8 @@ Public Class ClasificacionVentaPaquetes
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdHviDetalle", MiTableRow("IdHviDetalle")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", MiTableRow("IdOrdenTrabajo")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", MiTableRow("IdPlantaOrigen")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes1.LotID))
                 cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@Operator", MiTableRow("Operator")))
@@ -208,8 +224,6 @@ Public Class ClasificacionVentaPaquetes
                 cmdGuardar.Parameters.Add(New SqlParameter("@UV", MiTableRow("UV")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@FlagTerminado", MiTableRow("FlagTerminado")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompra", MiTableRow("EstatusCompra")))
-
-
 
                 cmdGuardar.ExecuteNonQuery()
                 Next

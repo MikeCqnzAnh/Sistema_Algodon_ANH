@@ -1,5 +1,6 @@
 create table PaqueteEncabezado (
 IdPaquete int not null primary key identity(1,1),
+FolioID int,
 IdPlanta int,
 idComprador int,
 IdClase int,

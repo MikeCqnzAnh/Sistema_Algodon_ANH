@@ -1,6 +1,7 @@
 create procedure sp_ConsultaPaquetesHVIDet
 --declare
-@IdPaquete int-- = 2
+@IdPaquete int,
+@IdPlanta int
 as
 select a.LotID,
        a.BaleID,
@@ -29,4 +30,4 @@ select a.LotID,
 	   a.Nep,
 	   a.UV
 from dbo.HVIDetalle a
-where a.LotID = @IdPaquete
+where a.LotID = @IdPaquete and a.IdPlanta = @Idplanta

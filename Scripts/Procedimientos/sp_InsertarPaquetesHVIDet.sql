@@ -1,4 +1,4 @@
-Create procedure sp_InsertarPaquetesHVIDet
+CREATE procedure sp_InsertarPaquetesHVIDet
 @IdHviDet int,
 @IdHviEnc int,
 @IdPlanta int,
@@ -91,8 +91,7 @@ using (select @IdHviDet
 			,SCI
 			,Nep
 			,UV)
-ON (target.IdHviEnc = SOURCE.IdHviEnc and 
-	target.IdPlanta = source.IdPlanta and
+ON (target.IdPlanta = source.IdPlanta and
 	target.baleid = source.baleid)
 WHEN MATCHED THEN
 UPDATE SET 

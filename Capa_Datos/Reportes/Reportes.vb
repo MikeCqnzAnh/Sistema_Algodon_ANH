@@ -55,6 +55,7 @@ Public Class Reportes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadReportes1.IdPaquete))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadReportes1.IdPlanta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteLotesPorModulo
                     sqlcom1 = New SqlCommand("Sp_ReporteModulosPorLote", cnn)

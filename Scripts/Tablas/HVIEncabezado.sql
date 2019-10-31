@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[HVIEncabezado](
-	[IdHviEnc] [int] IDENTITY(1,1) NOT NULL,
-	[LotID] [Int] null,
+	[IdHviEnc] [int] primary key IDENTITY(1,1) NOT NULL,
+	[LotID] [int] NULL,
 	[CantidadPacas] [int] NULL,
 	[IdPlanta] [int] NULL,
 	[Fecha] [datetime] NULL,
@@ -8,5 +8,5 @@ CREATE TABLE [dbo].[HVIEncabezado](
 	[IdUsuarioCreacion] [int] NULL,
 	[FechaCreacion] [datetime] NULL,
 	[IdUsuarioActualizacion] [int] NULL,
-	[FechaActualizacion] [datetime] NULL,
- ) 
+	[FechaActualizacion] [datetime] NULL
+) 

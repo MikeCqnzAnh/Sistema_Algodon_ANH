@@ -1,5 +1,6 @@
 Create procedure sp_InsertarPaquetesHVIEnc
 @IdHviEnc int output,
+@LotID int,
 @CantidadPacas int,
 @IdPlanta int,
 @Fecha datetime,
@@ -13,6 +14,7 @@ begin
 set nocount on
 merge [dbo].[HVIEncabezado] as target
 using (select @IdHviEnc,
+			  @LotID,
 			  @CantidadPacas,
 			  @IdPlanta,
 			  @Fecha,
@@ -23,6 +25,7 @@ using (select @IdHviEnc,
 			  @FechaActualizacion) 
 			  AS SOURCE (
 			  IdHviEnc,
+			  LotID,
 			  CantidadPacas,
 			  IdPlanta,
 			  Fecha,
@@ -31,7 +34,8 @@ using (select @IdHviEnc,
 			  FechaCreacion,
 			  IdUsuarioActualizacion,
 			  FechaActualizacion)
-ON (target.IdHviEnc = SOURCE.IdHviEnc)
+ON (target.LotID = SOURCE.LotID and 
+	target.IdPlanta = SOURCE.IdPlanta)
 WHEN MATCHED THEN
 UPDATE SET 
 		   CantidadPacas = source.CantidadPacas,
@@ -41,7 +45,8 @@ UPDATE SET
 		   IdUsuarioCreacion = source.IdUsuarioCreacion,
 		   FechaCreacion = source.FechaCreacion
 WHEN NOT MATCHED THEN
-INSERT (CantidadPacas,
+INSERT (LotID,
+		CantidadPacas,
 	    IdPlanta,
 		Fecha,
 		IdEstatus,
@@ -50,6 +55,7 @@ INSERT (CantidadPacas,
 		IdUsuarioActualizacion,
 		FechaActualizacion)
         VALUES (
+		source.LotID,
 		source.CantidadPacas,
 		source.IdPlanta,
 		source.Fecha,

@@ -6,6 +6,7 @@ CREATE TABLE [dbo].[CalculoClasificacion](
 	[IdHviDetalle] [int]  NULL,
 	[IdOrdenTrabajo] [int]  NULL,
 	[IdPlantaOrigen] [int]  null,
+	[LotID] [int] null,
 	[BaleID] [int] NULL,
 	[BaleGroup] [varchar](5) NULL,
 	[Operator] [varchar](25) NULL,

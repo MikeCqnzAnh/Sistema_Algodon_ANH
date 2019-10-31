@@ -1,4 +1,4 @@
-create PROC sp_SeleccionPacaClasificacion
+Create Procedure sp_SeleccionPacaClasificacion
 @IdPaquete int,
 @BaleID int,
 @Seleccion bit

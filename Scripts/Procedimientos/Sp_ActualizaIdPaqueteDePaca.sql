@@ -1,7 +1,8 @@
-create proc Sp_ActualizaIdPaqueteDePaca
+Create procedure Sp_ActualizaIdPaqueteDePaca
 @IdPaquete int,
+@IdPlanta int,
 @BaleId int
 as
 update CalculoClasificacion
-set IdPaqueteEncabezado = @IdPaquete
-where BaleId = @BaleId
+set LotID = @IdPaquete
+where BaleId = @BaleId and IdPlantaOrigen = @IdPlanta 

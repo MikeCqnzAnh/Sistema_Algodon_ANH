@@ -412,7 +412,7 @@ Partial Class MenuPrincipal
         Me.PaquetesHVIToolStripMenuItem1.Name = "PaquetesHVIToolStripMenuItem1"
         Me.PaquetesHVIToolStripMenuItem1.Size = New System.Drawing.Size(328, 24)
         Me.PaquetesHVIToolStripMenuItem1.Tag = "32,31"
-        Me.PaquetesHVIToolStripMenuItem1.Text = "Paquetes HVI"
+        Me.PaquetesHVIToolStripMenuItem1.Text = "Carga de paquetes HVI"
         '
         'PaquetesParaVentaToolStripMenuItem
         '

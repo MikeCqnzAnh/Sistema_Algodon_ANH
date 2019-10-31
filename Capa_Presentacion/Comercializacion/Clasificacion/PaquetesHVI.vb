@@ -23,25 +23,29 @@ Public Class PaquetesHVI
         Limpiar()
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        Dim vReturn(1) As String
-        If DgvPaquetesHVI.DataSource IsNot Nothing And TbPaquete.Text <> "" Then
-            vReturn = ExistePaqueteHVI(TbPaquete.Text)
-            If vReturn(0) = True Then
-                Dim opc As DialogResult = MsgBox("Este paquete ya existe en HVI,¿Desea reemplazar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
-                If opc = DialogResult.Yes Then
-                    TbIdPaqueteHVI.Text = vReturn(1)
+        If CbPlanta.Text <> "" Then
+            Dim vReturn(1) As String
+            If DgvPaquetesHVI.DataSource IsNot Nothing And TbPaquete.Text <> "" Then
+                vReturn = ExistePaqueteHVI(TbPaquete.Text)
+                If vReturn(0) = True Then
+                    Dim opc As DialogResult = MsgBox("Este paquete ya existe en HVI,¿Desea reemplazar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+                    If opc = DialogResult.Yes Then
+                        TbIdPaqueteHVI.Text = vReturn(1)
+                        Guardar()
+                    End If
+                Else
                     Guardar()
                 End If
             Else
-                Guardar()
+                MsgBox("Por favor, cargar la base de datos de access.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             End If
         Else
-            MsgBox("Por favor, cargar la base de datos de access.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            MsgBox("Campo Planta es requerido para continuar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
     End Sub
     Private Sub Limpiar()
         TbIdPaqueteHVI.Text = ""
-        CbPlanta.SelectedValue = 1
+        CbPlanta.SelectedIndex = -1
         DtpFecha.Value = Now
         TbPaquete.Text = ""
         TbRuta.Text = ""
@@ -185,6 +189,7 @@ Public Class PaquetesHVI
                     Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
                     EntidadPaquetesHVI.Consulta = Consulta.ConsultaDetallada
                     EntidadPaquetesHVI.IdPaquete = TbPaquete.Text
+                    EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
                     NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
                     TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
                     DgvPaquetesHVI.DataSource = TablaPaquetesHVIGlobal

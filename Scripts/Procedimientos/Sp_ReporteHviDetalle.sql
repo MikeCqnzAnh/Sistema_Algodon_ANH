@@ -1,5 +1,6 @@
-Create Procedure Sp_ReporteHviDetalle
-@IdPaquete int
+CREATE Procedure Sp_ReporteHviDetalle
+@IdPaquete int,
+@IdPlantaOrigen int
 as
 select   b.IdPaquete
         ,b.IdPlanta
@@ -35,13 +36,12 @@ select   b.IdPaquete
 		,a.FlagTerminado
 		,a.IdHviDetalle
 		,a.IdOrdenTrabajo
-		,(Select top 1 colorgrade From CalculoClasificacion where IdPaqueteEncabezado = 1 Group By colorgrade Having Count(*) > 1) as TrCntRep
-		,(Select top 1 TrashID From CalculoClasificacion where IdPaqueteEncabezado = 1 Group By TrashID Having Count(*) > 1) as TrIDRep
+		,(Select top 1 colorgrade From CalculoClasificacion where IdPaquete = @IdPaquete and IdPlantaOrigen  = @IdplantaOrigen Group By colorgrade Having Count(*) > 1) as TrCntRep
+		,(Select top 1 TrashID From CalculoClasificacion where IdPaquete = @IdPaquete and IdPlantaOrigen  = @IdplantaOrigen  Group By TrashID Having Count(*) > 1) as TrIDRep
 from CalculoClasificacion a inner join PaqueteEncabezado b 
-						 on a.IdPaqueteEncabezado = b.IdPaquete
+						 on a.IdPaqueteEncabezado = b.IdPaquete and a.IdPlantaOrigen = b.IdPlanta
 						 inner join ClasesClasificacion c 
 						 on b.IdClase = c.idClasificacion
 							inner join Compradores d 
 						 on b.idComprador = d.IdComprador
-where b.IdPaquete = @IdPaquete
-
+where b.IdPaquete = @IdPaquete and b.IdPlanta = @IdPlantaOrigen

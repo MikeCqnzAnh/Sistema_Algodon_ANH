@@ -1,8 +1,10 @@
-CREATE procedure [dbo].[sp_InsertarClasificacionPacas]
+Create procedure [dbo].[sp_InsertarClasificacionPacas]
 @IdCalculoClasificacion int,
 @IdPaqueteEncabezado int,
 @IdHviDetalle int,
 @IdOrdenTrabajo int,
+@IdPlantaOrigen int,
+@LotID int,
 @BaleID int ,
 @BaleGroup varchar(5) ,
 @Operator varchar(25) ,
@@ -38,6 +40,8 @@ merge [dbo].[CalculoClasificacion] as target
 				@IdPaqueteEncabezado,
 				@IdHviDetalle,
 				@IdOrdenTrabajo,
+				@IdPlantaOrigen,
+				@LotID,
 				@BaleID  ,
 				@BaleGroup  ,
 				@Operator ,
@@ -70,6 +74,8 @@ merge [dbo].[CalculoClasificacion] as target
 				IdPaqueteEncabezado,
 				IdHviDetalle,
 				IdOrdenTrabajo,
+				IdPlantaOrigen,
+				LotID,
 				BaleID  ,
 				BaleGroup  ,
 				Operator ,
@@ -97,7 +103,7 @@ merge [dbo].[CalculoClasificacion] as target
 				UV  ,
 				FlagTerminado,
 				EstatusCompra)
-ON (target.BaleId = SOURCE.BaleId)
+ON (target.BaleId = SOURCE.BaleId and target.IdPaqueteEncabezado = SOURCE.IdPaqueteEncabezado and target.IdPlantaOrigen = SOURCE.IdPlantaOrigen)
 WHEN MATCHED THEN
 UPDATE SET 
 				BaleGroup  = source.BaleGroup ,
@@ -131,6 +137,8 @@ WHEN NOT MATCHED THEN
 INSERT (IdPaqueteEncabezado
 		,IdHviDetalle
 		,IdOrdenTrabajo
+		,IdPlantaOrigen
+		,LotID
 		,BaleId
 		,BaleGroup
 		,Operator
@@ -162,6 +170,8 @@ INSERT (IdPaqueteEncabezado
 		(source.IdPaqueteEncabezado
 		,source.IdHviDetalle
 		,source.IdOrdenTrabajo
+		,source.IdPlantaOrigen
+		,source.LotID
 		,source.BaleId
 		,source.BaleGroup
 		,source.Operator

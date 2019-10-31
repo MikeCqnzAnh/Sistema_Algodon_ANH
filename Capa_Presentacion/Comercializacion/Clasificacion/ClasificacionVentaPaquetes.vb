@@ -103,12 +103,12 @@ Public Class ClasificacionVentaPaquetes
         TbIdPaquete.Enabled = True
         TbIdPaquete.Focus()
         TbNoPaca.Text = ""
-        CbPlanta.SelectedValue = 1
-        CbClases.SelectedValue = 1
+        CbPlanta.SelectedIndex = -1
+        CbClases.SelectedIndex = -1
         CbEstatus.SelectedValue = 1
         chkfinalizado.Checked = False
         TbDescripcion.Text = ""
-        TbCantidadPacas.Text = ""
+        NuCantidadPacas.Value = 0
         NuPromedioUI.Value = 0
         DgvPacasClasificacion1.Enabled = True
         TbEntrega.Text = ""
@@ -118,6 +118,8 @@ Public Class ClasificacionVentaPaquetes
         TablaClasificacionGrid.Columns.Clear()
         TablaClasificacionGrid.Columns.Add(New DataColumn("IdHviDetalle", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("IdOrdenTrabajo", System.Type.GetType("System.Int32")))
+        TablaClasificacionGrid.Columns.Add(New DataColumn("IdPlantaOrigen", System.Type.GetType("System.Int32")))
+        TablaClasificacionGrid.Columns.Add(New DataColumn("LotID", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("BaleGroup", System.Type.GetType("System.String")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("Operator", System.Type.GetType("System.String")))
@@ -147,7 +149,7 @@ Public Class ClasificacionVentaPaquetes
         TablaClasificacionGrid.Columns.Add(New DataColumn("EstatusCompra", System.Type.GetType("System.Boolean")))
     End Sub
     Private Sub ContarPacas()
-        TbCantidadPacas.Text = DgvPacasClasificacion1.Rows.Count
+        NuCantidadPacas.Value = DgvPacasClasificacion1.Rows.Count
     End Sub
     Private Sub GeneraPromedioUI()
         Dim Index As Integer
@@ -174,6 +176,8 @@ Public Class ClasificacionVentaPaquetes
 
             rengloninsertar("IdHviDetalle") = DgvPacasClasificacion1.Rows(index).Cells("IdHviDetalle").Value
             rengloninsertar("IdOrdenTrabajo") = DgvPacasClasificacion1.Rows(index).Cells("IdOrdenTrabajo").Value
+            rengloninsertar("IdPlantaOrigen") = DgvPacasClasificacion1.Rows(index).Cells("IdPlantaOrigen").Value
+            rengloninsertar("LotID") = DgvPacasClasificacion1.Rows(index).Cells("LotID").Value
             rengloninsertar("BaleID") = DgvPacasClasificacion1.Rows(index).Cells("BaleID").Value
             rengloninsertar("BaleGroup") = DgvPacasClasificacion1.Rows(index).Cells("BaleGroup").Value
             rengloninsertar("Operator") = DgvPacasClasificacion1.Rows(index).Cells("Operator").Value
@@ -246,27 +250,27 @@ Public Class ClasificacionVentaPaquetes
                     ElseIf ExistePacaHVI(TbNoPaca.Text) = False Then
                         MsgBox("Paca " & TbNoPaca.Text & " no existe en HVI, revisa el ID capturado.")
                         TbNoPaca.Text = ""
-                    ElseIf VerificaPacaPlanta(TbNoPaca.Text) = True Then
-                        Dim resultPlanta As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " pertenece a " & PlantaVerifica & "¿Deseas moverla a planta actual seleccionada?.", "Aviso", MessageBoxButtons.YesNo)
-                        If resultPlanta = DialogResult.Yes Then
-                            If ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
-                                Dim resultPaca As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & " ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
-                                If resultPaca = DialogResult.Yes Then
-                                    ActualizaPaca()
-                                    InsertaPaca()
-                                    Guardar()
-                                    'MessageBox.Show("El paquete ha sido actualizado!")
-                                    TbNoPaca.Text = ""
-                                ElseIf resultPaca = DialogResult.No Then
-                                    TbNoPaca.Text = ""
-                                End If
-                            ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
-                                MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
-                                TbNoPaca.Text = ""
-                            End If
-                        ElseIf resultPlanta = DialogResult.No Then
-                            TbNoPaca.Text = ""
-                        End If
+                    ElseIf VerificaPacaPlanta(TbNoPaca.Text) = False Then
+                        MessageBox.Show("Paca No " & TbNoPaca.Text & " no pertenece a planta " & CbPlanta.Text & ".", "Aviso")
+                        'If resultPlanta = DialogResult.Yes Then
+                        '    If ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
+                        '        Dim resultPaca As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & " ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
+                        '        If resultPaca = DialogResult.Yes Then
+                        '            ActualizaPaca()
+                        '            InsertaPaca()
+                        '            Guardar()
+                        '            'MessageBox.Show("El paquete ha sido actualizado!")
+                        '            TbNoPaca.Text = ""
+                        '        ElseIf resultPaca = DialogResult.No Then
+                        '            TbNoPaca.Text = ""
+                        '        End If
+                        '    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
+                        '        MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
+                        '        TbNoPaca.Text = ""
+                        '    End If
+                        'ElseIf resultPlanta = DialogResult.No Then
+                        '    TbNoPaca.Text = ""
+                        'End If
                     ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
                         Dim result As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & "  ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
                         If result = DialogResult.Yes Then
@@ -294,14 +298,24 @@ Public Class ClasificacionVentaPaquetes
                 End If
         End Select
     End Sub
-    Private Sub TbIdPaquete_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdPaquete.KeyDown
+    Private Sub TbLotID_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdPaquete.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
                 If TbIdPaquete.Text <> "" Then
+                    'Dim vReturn(1) As String
+                    'vReturn = ExistePaqueteClasificacion(TbIdPaquete.Text)
+                    'If vReturn(0) = False Then
+                    '    TbIdPaquete.Enabled = False
+                    '    Guardar()
+                    '    Consultar()
+                    '    TbNoPaca.Text = ""
+                    '    TbNoPaca.Focus()
+                    'Else
                     TbIdPaquete.Enabled = False
-                    Consultar()
-                    TbNoPaca.Text = ""
-                    TbNoPaca.Focus()
+                        Consultar()
+                        TbNoPaca.Text = ""
+                        TbNoPaca.Focus()
+                    'End If
                 Else
                     MsgBox("Ingrese el ID del paquete...")
                     Exit Sub
@@ -309,6 +323,21 @@ Public Class ClasificacionVentaPaquetes
         End Select
         ContarPacas()
     End Sub
+    Private Function ExistePaqueteClasificacion(ByVal LotID As String)
+        Dim Tabla As New DataTable
+        'Dim Resultado As Boolean
+        Dim vReturn(1) As String
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPaqueteExisteClasificacion
+        EntidadClasificacionVentaPaquetes.LotID = LotID
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        vReturn(0) = Tabla.Rows(0).Item("ExistePaquete")
+        vReturn(1) = Tabla.Rows(0).Item("LotID")
+        Return vReturn
+    End Function
     Private Sub ActualizaPaca()
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
@@ -325,12 +354,14 @@ Public Class ClasificacionVentaPaquetes
         Dim VerificaDuplicado As Boolean
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPaca
         EntidadClasificacionVentaPaquetes.NumeroPaca = CInt(IIf(TbNoPaca.Text = "", 0, TbNoPaca.Text))
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
+        EntidadClasificacionVentaPaquetes.LotID = CInt(IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text))
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
         If Tabla.Rows.Count = 0 Then
             MsgBox("La paca no se encuentra en la base de datos HVI.")
         ElseIf VerificaPacaRepetida(VerificaDuplicado) = False Then
-            DgvPacasClasificacion1.Rows.Add(Tabla.Rows(0).Item("IdHviDetalle"), Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
+            DgvPacasClasificacion1.Rows.Add(Tabla.Rows(0).Item("IdHviDetalle"), Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(0).Item("LotID"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
         Else
             MsgBox("El numero de paca ya se encuentra registrado.")
         End If
@@ -351,7 +382,7 @@ Public Class ClasificacionVentaPaquetes
         If Tabla.Rows.Count = 0 Then
             MsgBox("La paca no se encuentra en la base de datos HVI.")
         ElseIf VerificaPacaRepetida(VerificaDuplicado) = False Then
-            DgvPacasClasificacion1.Rows.Add(Tabla.Rows(0).Item("IdHviDetalle"), Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
+            DgvPacasClasificacion1.Rows.Add(Tabla.Rows(0).Item("IdHviDetalle"), Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(0).Item("LotID"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
         Else
             MsgBox("El numero de paca ya se encuentra registrado.")
         End If
@@ -438,171 +469,183 @@ Public Class ClasificacionVentaPaquetes
             colIdOrdenTrabajo.Visible = False
             DgvPacasClasificacion1.Columns.Insert(1, colIdOrdenTrabajo)
 
+            Dim colIdPlantaOrigen As New DataGridViewTextBoxColumn
+            colIdPlantaOrigen.Name = "IdPlantaOrigen"
+            colIdPlantaOrigen.HeaderText = "IdPlantaOrigen"
+            colIdPlantaOrigen.Visible = False
+            DgvPacasClasificacion1.Columns.Insert(2, colIdPlantaOrigen)
+
+            Dim colLotID As New DataGridViewTextBoxColumn
+            colLotID.Name = "LotID"
+            colLotID.HeaderText = "No Paquete"
+            colLotID.Visible = False
+            DgvPacasClasificacion1.Columns.Insert(3, colLotID)
+
             Dim colBaleID As New DataGridViewTextBoxColumn
             colBaleID.Name = "BaleID"
             colBaleID.HeaderText = "No Paca"
             colBaleID.ReadOnly = True
-            DgvPacasClasificacion1.Columns.Insert(2, colBaleID)
+            DgvPacasClasificacion1.Columns.Insert(4, colBaleID)
 
             Dim colBaleGroup As New DataGridViewTextBoxColumn
             colBaleGroup.Name = "BaleGroup"
             'colBaleGroup.HeaderText = "No Paca"
             colBaleGroup.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(3, colBaleGroup)
+            DgvPacasClasificacion1.Columns.Insert(5, colBaleGroup)
 
             Dim colOperator As New DataGridViewTextBoxColumn
             colOperator.Name = "Operator"
             'colBaleGroup.HeaderText = "No Paca"
             colOperator.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(4, colOperator)
+            DgvPacasClasificacion1.Columns.Insert(6, colOperator)
 
             Dim colDate As New DataGridViewTextBoxColumn
             colDate.Name = "Date"
             colDate.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(5, colDate)
+            DgvPacasClasificacion1.Columns.Insert(7, colDate)
 
             Dim colTemperature As New DataGridViewTextBoxColumn
             colTemperature.Name = "Temperature"
             'colTemperature.HeaderText = "No Paca"
             colTemperature.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(6, colTemperature)
+            DgvPacasClasificacion1.Columns.Insert(8, colTemperature)
 
             Dim colHumidity As New DataGridViewTextBoxColumn
             colHumidity.Name = "Humidity"
             'colHumidity.HeaderText = "No Paca"
             colHumidity.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(7, colHumidity)
+            DgvPacasClasificacion1.Columns.Insert(9, colHumidity)
 
             Dim colAmount As New DataGridViewTextBoxColumn
             colAmount.Name = "Amount"
             'colAmount.HeaderText = "No Paca"
             colAmount.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(8, colAmount)
+            DgvPacasClasificacion1.Columns.Insert(10, colAmount)
 
             Dim colUHML As New DataGridViewTextBoxColumn
             colUHML.Name = "UHML"
             colUHML.HeaderText = "UHML"
             colUHML.ReadOnly = False
-            DgvPacasClasificacion1.Columns.Insert(9, colUHML)
+            DgvPacasClasificacion1.Columns.Insert(11, colUHML)
 
             Dim colUI As New DataGridViewTextBoxColumn
             colUI.Name = "UI"
             'colUI.HeaderText = "No Paca"
             colUI.ReadOnly = True
-            DgvPacasClasificacion1.Columns.Insert(10, colUI)
+            DgvPacasClasificacion1.Columns.Insert(12, colUI)
 
             Dim colStrength As New DataGridViewTextBoxColumn
             colStrength.Name = "Strength"
             colStrength.HeaderText = "Resistencia"
             colStrength.ReadOnly = False
-            DgvPacasClasificacion1.Columns.Insert(11, colStrength)
+            DgvPacasClasificacion1.Columns.Insert(13, colStrength)
 
             Dim colElongation As New DataGridViewTextBoxColumn
             colElongation.Name = "Elongation"
             'colElongation.HeaderText = "No Paca"
             colElongation.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(12, colElongation)
+            DgvPacasClasificacion1.Columns.Insert(14, colElongation)
 
             Dim colSFI As New DataGridViewTextBoxColumn
             colSFI.Name = "SFI"
             'colSFI.HeaderText = "No Paca"
             colSFI.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(13, colSFI)
+            DgvPacasClasificacion1.Columns.Insert(15, colSFI)
 
             Dim colMaturity As New DataGridViewTextBoxColumn
             colMaturity.Name = "Maturity"
             'colMaturity.HeaderText = "No Paca"
             colMaturity.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(14, colMaturity)
+            DgvPacasClasificacion1.Columns.Insert(16, colMaturity)
 
             Dim colGrade As New DataGridViewTextBoxColumn
             colGrade.Name = "Grade"
             'colGrade.HeaderText = "No Paca"
             colGrade.Visible = False
             'colGrade.ReadOnly = True
-            DgvPacasClasificacion1.Columns.Insert(15, colGrade)
+            DgvPacasClasificacion1.Columns.Insert(17, colGrade)
 
             Dim colMoist As New DataGridViewTextBoxColumn
             colMoist.Name = "Moist"
             'colMoist.HeaderText = "No Paca"
             colMoist.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(16, colMoist)
+            DgvPacasClasificacion1.Columns.Insert(18, colMoist)
 
             Dim colMic As New DataGridViewTextBoxColumn
             colMic.Name = "Mic"
             colMic.HeaderText = "Micros"
             'colMic.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(17, colMic)
+            DgvPacasClasificacion1.Columns.Insert(19, colMic)
 
             Dim colRd As New DataGridViewTextBoxColumn
             colRd.Name = "Rd"
             'colRd.HeaderText = "No Paca"
             colRd.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(18, colRd)
+            DgvPacasClasificacion1.Columns.Insert(20, colRd)
 
             Dim colPlusb As New DataGridViewTextBoxColumn
             colPlusb.Name = "Plusb"
             'colPlusb.HeaderText = "No Paca"
             colPlusb.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(19, colPlusb)
+            DgvPacasClasificacion1.Columns.Insert(21, colPlusb)
 
             Dim colColorGrade As New DataGridViewTextBoxColumn
             colColorGrade.Name = "ColorGrade"
             colColorGrade.HeaderText = "Color Grade"
             colColorGrade.ReadOnly = False
-            DgvPacasClasificacion1.Columns.Insert(20, colColorGrade)
+            DgvPacasClasificacion1.Columns.Insert(22, colColorGrade)
 
             Dim colTrashCount As New DataGridViewTextBoxColumn
             colTrashCount.Name = "TrashCount"
             'colTrashCount.HeaderText = "No Paca"
             colTrashCount.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(21, colTrashCount)
+            DgvPacasClasificacion1.Columns.Insert(23, colTrashCount)
 
             Dim colTrashArea As New DataGridViewTextBoxColumn
             colTrashArea.Name = "TrashArea"
             'colTrashArea.HeaderText = "No Paca"
             colTrashArea.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(22, colTrashArea)
+            DgvPacasClasificacion1.Columns.Insert(24, colTrashArea)
 
             Dim colTrashID As New DataGridViewTextBoxColumn
             colTrashID.Name = "TrashID"
             colTrashID.HeaderText = "Trash ID"
             colTrashID.ReadOnly = False
-            DgvPacasClasificacion1.Columns.Insert(23, colTrashID)
+            DgvPacasClasificacion1.Columns.Insert(25, colTrashID)
 
             Dim colSCI As New DataGridViewTextBoxColumn
             colSCI.Name = "SCI"
             'colSCI.HeaderText = "No Paca"
             colSCI.ReadOnly = True
-            DgvPacasClasificacion1.Columns.Insert(24, colSCI)
+            DgvPacasClasificacion1.Columns.Insert(26, colSCI)
 
             Dim colNep As New DataGridViewTextBoxColumn
             colNep.Name = "Nep"
             'colNep.HeaderText = "No Paca"
             colNep.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(25, colNep)
+            DgvPacasClasificacion1.Columns.Insert(27, colNep)
 
             Dim colUV As New DataGridViewTextBoxColumn
             colUV.Name = "UV"
             'colUV.HeaderText = "No Paca"
             colUV.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(26, colUV)
+            DgvPacasClasificacion1.Columns.Insert(28, colUV)
 
             Dim colFlagTerminado As New DataGridViewCheckBoxColumn
             colFlagTerminado.Name = "FlagTerminado"
             'colFlagTerminado.HeaderText = "No Paca"
             colFlagTerminado.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(27, colFlagTerminado)
+            DgvPacasClasificacion1.Columns.Insert(29, colFlagTerminado)
 
             Dim colEstatusCompra As New DataGridViewCheckBoxColumn
             colEstatusCompra.Name = "EstatusCompra"
             'colEstatusCompra.HeaderText = "No Paca"
             colEstatusCompra.Visible = False
-            DgvPacasClasificacion1.Columns.Insert(28, colEstatusCompra)
+            DgvPacasClasificacion1.Columns.Insert(30, colEstatusCompra)
 
             Dim colSel As New DataGridViewCheckBoxColumn()
             colSel.Name = "Sel"
-            DgvPacasClasificacion1.Columns.Insert(29, colSel)
+            DgvPacasClasificacion1.Columns.Insert(31, colSel)
 
         End If
     End Sub
@@ -618,31 +661,39 @@ Public Class ClasificacionVentaPaquetes
     Private Sub Guardar()
         'If DgvPacasClasificacion11.RowCount > 0 Then
         'If TbIdPaquete.Text <> "" Then
-        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
-        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
-        If IdentificaColor() > 0 And chkfinalizado.Checked = True Then
-            MsgBox("Por favor, verificar que los datos esten correctos.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+        If CbPlanta.Text <> "" And CbClases.Text <> "" Then
+            Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+            Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+            If IdentificaColor() > 0 And chkfinalizado.Checked = True Then
+                MsgBox("Por favor, verificar que los datos esten correctos.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            Else
+                EntidadClasificacionVentaPaquetes.IdPaquete = IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text)
+                EntidadClasificacionVentaPaquetes.LotID = 0
+                EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
+                EntidadClasificacionVentaPaquetes.IdComprador = CbComprador.SelectedValue
+                EntidadClasificacionVentaPaquetes.IdClase = CbClases.SelectedValue
+                EntidadClasificacionVentaPaquetes.CantidadPacas = NuCantidadPacas.Value
+                EntidadClasificacionVentaPaquetes.Descripcion = CbClases.Text & "-" & TbIdPaquete.Text
+                EntidadClasificacionVentaPaquetes.Entrega = TbEntrega.Text
+                EntidadClasificacionVentaPaquetes.chkrevisado = chkfinalizado.Checked
+                EntidadClasificacionVentaPaquetes.IdEstatus = CbEstatus.SelectedValue
+                EntidadClasificacionVentaPaquetes.IdUsuarioCreacion = 1
+                EntidadClasificacionVentaPaquetes.FechaCreacion = Now
+                EntidadClasificacionVentaPaquetes.IdUsuarioActualizacion = 1
+                EntidadClasificacionVentaPaquetes.FechaActualizacion = Now
+                DataGridViewToTable()
+                EntidadClasificacionVentaPaquetes.TablaGeneral = TablaClasificacionGlobal
+                NegocioClasificacionVentaPaquetes.GuardarTablas(EntidadClasificacionVentaPaquetes)
+                TbIdPaquete.Text = EntidadClasificacionVentaPaquetes.IdPaquete
+                TbDescripcion.Text = CbClases.Text & "-" & TbIdPaquete.Text
+                'MsgBox("Paquete guardado con exito.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
+                'DgvPacasClasificacion11.Enabled = False
+            End If
         Else
-            EntidadClasificacionVentaPaquetes.IdPaquete = IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text)
-            EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
-            EntidadClasificacionVentaPaquetes.IdComprador = CbComprador.SelectedValue
-            EntidadClasificacionVentaPaquetes.IdClase = CbClases.SelectedValue
-            EntidadClasificacionVentaPaquetes.CantidadPacas = TbCantidadPacas.Text
-            EntidadClasificacionVentaPaquetes.Descripcion = CbClases.Text & "-" & TbIdPaquete.Text
-            EntidadClasificacionVentaPaquetes.Entrega = TbEntrega.Text
-            EntidadClasificacionVentaPaquetes.chkrevisado = chkfinalizado.Checked
-            EntidadClasificacionVentaPaquetes.IdEstatus = CbEstatus.SelectedValue
-            EntidadClasificacionVentaPaquetes.IdUsuarioCreacion = 1
-            EntidadClasificacionVentaPaquetes.FechaCreacion = Now
-            EntidadClasificacionVentaPaquetes.IdUsuarioActualizacion = 1
-            EntidadClasificacionVentaPaquetes.FechaActualizacion = Now
-            DataGridViewToTable()
-            EntidadClasificacionVentaPaquetes.TablaGeneral = TablaClasificacionGlobal
-            NegocioClasificacionVentaPaquetes.GuardarTablas(EntidadClasificacionVentaPaquetes)
-            TbIdPaquete.Text = EntidadClasificacionVentaPaquetes.IdPaquete
-            'MsgBox("Paquete guardado con exito.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
-            'DgvPacasClasificacion11.Enabled = False
+            MsgBox("Los campos Planta y Clase son requeridos para crear un paquete nuevo.")
+            TbIdPaquete.Select()
         End If
+
         'Else
         '    MsgBox("El campo No Paca esta vacio, no se puede guardar informacion!", MsgBoxStyle.Information, "Aviso")
         'End If
@@ -686,7 +737,7 @@ Public Class ClasificacionVentaPaquetes
                 CbPlanta.SelectedValue = Tabla.Rows(0).Item("IdPlanta")
                 CbComprador.SelectedValue = Tabla.Rows(0).Item("IdComprador")
                 CbClases.SelectedValue = Tabla.Rows(0).Item("IdClase")
-                TbCantidadPacas.Text = Tabla.Rows(0).Item("CantidadPacas")
+                NuCantidadPacas.Value = Tabla.Rows(0).Item("CantidadPacas")
                 TbDescripcion.Text = Tabla.Rows(0).Item("Descripcion")
                 TbEntrega.Text = Tabla.Rows(0).Item("Entrega")
                 chkfinalizado.Checked = Tabla.Rows(0).Item("chkrevisado")
@@ -696,7 +747,7 @@ Public Class ClasificacionVentaPaquetes
                 NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
                 Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
                 For i As Integer = 0 To Tabla.Rows.Count - 1
-                    DgvPacasClasificacion1.Rows.Add(Tabla.Rows(i).Item("IdHviDetalle"), Tabla.Rows(i).Item("IdOrdenTrabajo"), Tabla.Rows(i).Item("BaleID"), Tabla.Rows(i).Item("BaleGroup"), Tabla.Rows(i).Item("Operator"), Tabla.Rows(i).Item("Date"), Tabla.Rows(i).Item("Temperature"), Tabla.Rows(i).Item("Humidity"), Tabla.Rows(i).Item("Amount"), Tabla.Rows(i).Item("UHML"), Tabla.Rows(i).Item("UI"), Tabla.Rows(i).Item("Strength"), Tabla.Rows(i).Item("Elongation"), Tabla.Rows(i).Item("SFI"), Tabla.Rows(i).Item("Maturity"), Tabla.Rows(i).Item("Grade"), Tabla.Rows(i).Item("Moist"), Tabla.Rows(i).Item("Mic"), Tabla.Rows(i).Item("Rd"), Tabla.Rows(i).Item("Plusb"), Tabla.Rows(i).Item("ColorGrade"), Tabla.Rows(i).Item("TrashCount"), Tabla.Rows(i).Item("TrashArea"), Tabla.Rows(i).Item("TrashID"), Tabla.Rows(i).Item("SCI"), Tabla.Rows(i).Item("Nep"), Tabla.Rows(i).Item("UV"), Tabla.Rows(i).Item("FlagTerminado"))
+                    DgvPacasClasificacion1.Rows.Add(Tabla.Rows(i).Item("IdHviDetalle"), Tabla.Rows(i).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(i).Item("lotID"), Tabla.Rows(i).Item("BaleID"), Tabla.Rows(i).Item("BaleGroup"), Tabla.Rows(i).Item("Operator"), Tabla.Rows(i).Item("Date"), Tabla.Rows(i).Item("Temperature"), Tabla.Rows(i).Item("Humidity"), Tabla.Rows(i).Item("Amount"), Tabla.Rows(i).Item("UHML"), Tabla.Rows(i).Item("UI"), Tabla.Rows(i).Item("Strength"), Tabla.Rows(i).Item("Elongation"), Tabla.Rows(i).Item("SFI"), Tabla.Rows(i).Item("Maturity"), Tabla.Rows(i).Item("Grade"), Tabla.Rows(i).Item("Moist"), Tabla.Rows(i).Item("Mic"), Tabla.Rows(i).Item("Rd"), Tabla.Rows(i).Item("Plusb"), Tabla.Rows(i).Item("ColorGrade"), Tabla.Rows(i).Item("TrashCount"), Tabla.Rows(i).Item("TrashArea"), Tabla.Rows(i).Item("TrashID"), Tabla.Rows(i).Item("SCI"), Tabla.Rows(i).Item("Nep"), Tabla.Rows(i).Item("UV"), Tabla.Rows(i).Item("FlagTerminado"))
                 Next
             Else
                 MsgBox("No se encontraron registros con esos criterios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
@@ -734,6 +785,7 @@ Public Class ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExisteProduccion
         EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
         resultado = Tabla.Rows(0).Item("ExistePaca")
@@ -752,23 +804,26 @@ Public Class ClasificacionVentaPaquetes
         resultado = Tabla.Rows(0).Item("ExistePaca")
         Return resultado
     End Function
-    Function VerificaPacaPlanta(ByVal IdPaca As Integer) As Boolean
+    Private Function VerificaPacaPlanta(ByVal IdPaca As Integer) As String
         Dim Tabla As New DataTable
-        Dim Resultado As Boolean
+        'Dim Resultado As Boolean
+        Dim vReturn(1) As String
         PlantaVerifica = ""
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaPlanta
         EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
-        If CbPlanta.SelectedValue <> Tabla.Rows(0).Item("IdPlantaOrigen") Then
-            Resultado = True
-            PlantaVerifica = Tabla.Rows(0).Item("Descripcion")
-        Else
-            Resultado = False
-        End If
-        Return Resultado
+        'If Tabla.Rows(0).Item("ExistePacaPlanta") = False Then
+        'Resultado = True
+        vReturn(0) = Tabla.Rows(0).Item("ExistePacaPlanta")
+        vReturn(1) = Tabla.Rows(0).Item("IdPlanta")
+        'Else
+        '    Resultado = False
+        'End If
+        Return vReturn(0)
     End Function
     Function ExistePacaPaquete(ByVal IdPaca As Integer) As Boolean
         Dim Tabla As New DataTable
@@ -778,11 +833,12 @@ Public Class ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacaExistePaquete
         EntidadClasificacionVentaPaquetes.NumeroPaca = IdPaca
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
         If CBool(Tabla.Rows(0).Item("ExistePaca")) = True Then
             Resultado = True
-            IdPaqueteEncabezadoVerifica = Tabla.Rows(0).Item("IdPaqueteEncabezado")
+            IdPaqueteEncabezadoVerifica = Tabla.Rows(0).Item("LotID")
         End If
         Return Resultado
     End Function
@@ -790,13 +846,19 @@ Public Class ClasificacionVentaPaquetes
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
         VarGlob2.TablaExporta = Datagridtotable(DgvPacasClasificacion1)
         'VarGlob2.DgvExportaExcel.DataSource = DgvPacasClasificacion1
-        RepClasificacion.ShowDialog()
+        If TbIdPaquete.Text <> "" Then
+            Dim ReporteClasificacion As New RepClasificacion(TbIdPaquete.Text, CbPlanta.SelectedValue)
+            ReporteClasificacion.ShowDialog()
+        Else
+            MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Private Function Datagridtotable(ByVal DgvExporta As DataGridView)
         Dim dt As New DataTable
         Dim r As DataRow
 
+        dt.Columns.Add("LotID", Type.GetType("System.Int32"))
         dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
         dt.Columns.Add("SCI", Type.GetType("System.Single"))
         dt.Columns.Add("Grade", Type.GetType("System.String"))
@@ -818,6 +880,7 @@ Public Class ClasificacionVentaPaquetes
 
         For i = 0 To DgvExporta.Rows.Count - 1
             r = dt.NewRow
+            r("LotID") = DgvExporta.Item("LotID", i).Value.ToString
             r("BaleID") = DgvExporta.Item("BaleID", i).Value.ToString
             r("SCI") = DgvExporta.Item("SCI", i).Value.ToString
             r("Grade") = DgvExporta.Item("Grade", i).Value.ToString
@@ -938,7 +1001,7 @@ Public Class ClasificacionVentaPaquetes
             MsgBox("No se pueden guardar los registro por: " & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
-    Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdPaquete.KeyPress, TbNoPaca.KeyPress
+    Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbNoPaca.KeyPress, TbIdPaquete.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then

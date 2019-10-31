@@ -130,6 +130,7 @@ Public Class PaquetesHVI
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadPaquetesHVI1.IdPaquete))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
             End Select
         Catch ex As Exception
