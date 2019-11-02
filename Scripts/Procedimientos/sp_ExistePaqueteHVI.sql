@@ -1,10 +1,9 @@
-create procedure sp_ExistePaqueteHVI
-@LotID int ,
-@IdPlanta int
+CREATE procedure sp_ExistePaqueteHVI
+@LotID int 
 as 
-if exists (select lotID from HVIEncabezado where IdPlanta = @IdPlanta and lotID = @LotID)
+if exists (select lotID from HVIEncabezado where  lotID = @LotID)
 	begin
-		Select 1 ExistePaquete,IdHviEnc from HVIEncabezado where IdPlanta = @IdPlanta and lotID = @LotID 
+		Select 1 ExistePaquete,IdHviEnc from HVIEncabezado where  lotID = @LotID 
 	end
 else
 	begin

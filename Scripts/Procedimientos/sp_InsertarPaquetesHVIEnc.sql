@@ -34,10 +34,9 @@ using (select @IdHviEnc,
 			  FechaCreacion,
 			  IdUsuarioActualizacion,
 			  FechaActualizacion)
-ON ((target.IdHviEnc = SOURCE.IdHVIenc and
-	target.LotID = SOURCE.LotID and
-	target.Idplanta <> SOURCE.idplanta )or (target.IdHviEnc = SOURCE.IdHVIenc and
-	target.LotID = SOURCE.LotID and
+ON((target.LotID = SOURCE.LotID and
+	target.Idplanta <> SOURCE.idplanta )or 
+   (target.LotID = SOURCE.LotID and
 	target.Idplanta = SOURCE.idplanta ))
 WHEN MATCHED THEN
 UPDATE SET 

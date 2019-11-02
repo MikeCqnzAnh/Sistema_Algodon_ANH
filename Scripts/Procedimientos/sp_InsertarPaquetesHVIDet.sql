@@ -91,12 +91,25 @@ using (select @IdHviDet
 			,SCI
 			,Nep
 			,UV)
-ON ((target.IdHVIenc = source.IdHVIenc and
-	target.baleid = source.baleid and
-	target.idplanta <> source.idplanta) or 
-	(target.IdHVIenc = source.IdHVIenc and
-	target.baleid = source.baleid and
-	target.idplanta = source.idplanta))
+ON ((target.LotID = source.LotID and
+	 target.BaleID = source.BaleID and
+	 target.idplanta <> source.idplanta and 
+	 target.[Date] <> source.[Date]) or 
+
+	(target.LotID = source.LotID and
+	 target.BaleID = source.BaleID and
+	 target.idplanta = source.idplanta and 
+	 target.[Date] <> source.[Date]) or
+
+	 (target.LotID = source.LotID and
+	 target.BaleID = source.BaleID and
+	 target.idplanta <> source.idplanta and 
+	 target.[Date] <> source.[Date]) or 
+
+	 (target.LotID = source.LotID and
+	 target.BaleID = source.BaleID and
+	 target.idplanta = source.idplanta and 
+	 target.[Date] = source.[Date]))
 WHEN MATCHED THEN
 UPDATE SET 
 		   IdPlanta = source.IdPlanta,

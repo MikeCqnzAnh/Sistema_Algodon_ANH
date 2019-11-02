@@ -1,13 +1,13 @@
-CREATE proc sp_consultaClasesCalculo
+Create proc sp_consultaClasesCalculo
 --DECLARE
 @NumPaca int ,
 @IdPlanta int,
-@LotID int
+@IdPaquete int
 as
 if @NumPaca = 0
 	begin
 		select
-			 hd.[IdPlanta] as IdPlantaOrigen
+		     hd.[IdPlanta] as IdPlantaOrigen
 			,Hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -40,10 +40,10 @@ if @NumPaca = 0
 		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
-  		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta and hd.LotID = @LotID
+  		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta
 		order by BaleID asc
 	end
-else if exists (select baleid from CalculoClasificacion where BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and LotID = @LotID)
+else if exists (select baleid from CalculoClasificacion where BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete)
 	begin
 		select 
 		     [IdPlantaOrigen]
@@ -77,8 +77,7 @@ else if exists (select baleid from CalculoClasificacion where BaleId = @NumPaca 
 			,IdHviDetalle 
 			,IdOrdenTrabajo
 		from CalculoClasificacion 
-		where  BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and LotID = @LotID
-		order by BaleID asc
+		where  BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete
 	end
 else
 	begin
@@ -116,6 +115,6 @@ else
 		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
-		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta and hd.LotID = @LotID
-		order by BaleID asc
+		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta 
+			order by BaleID asc
 end

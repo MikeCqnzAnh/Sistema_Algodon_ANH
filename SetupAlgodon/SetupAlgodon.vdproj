@@ -473,11 +473,6 @@
             "AssemblyAsmDisplayName" = "8:Capa_Negocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0E2B3D083B6EF729812A388058D55C3D"
-                    {
-                    "Name" = "8:Capa_Negocio.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Negocio.dll"
             "TargetName" = "8:"
@@ -564,11 +559,6 @@
             "AssemblyAsmDisplayName" = "8:Capa_Operacion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_481760F72CD129734314AEC03F387AFE"
-                    {
-                    "Name" = "8:Capa_Operacion.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Operacion.exe"
             "TargetName" = "8:"
@@ -626,11 +616,6 @@
             "AssemblyAsmDisplayName" = "8:Capa_Entidad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_4A47BE1DB22FF2497214F999A17975C8"
-                    {
-                    "Name" = "8:Capa_Entidad.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Entidad.dll"
             "TargetName" = "8:"
@@ -1172,11 +1157,6 @@
             "AssemblyAsmDisplayName" = "8:Capa_Datos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_FB42B4CA5588C7BD5083A86CC14349A8"
-                    {
-                    "Name" = "8:Capa_Datos.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Datos.dll"
             "TargetName" = "8:"
@@ -1294,15 +1274,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{FFF4995F-9EBB-4F83-B579-1154CFD8CE11}"
-        "PackageCode" = "8:{C25E072D-82F1-4350-8513-314DE76CC381}"
+        "ProductCode" = "8:{6B691F59-50D4-42F9-A891-41073ED77ADF}"
+        "PackageCode" = "8:{C1F7F230-4D72-47D7-A6CB-C5233B1C7BDE}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.20"
+        "ProductVersion" = "8:1.0.22"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

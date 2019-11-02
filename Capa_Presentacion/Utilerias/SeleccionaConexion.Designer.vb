@@ -34,6 +34,7 @@ Partial Class SeleccionaConexion
         '
         'TbNombreInstancia
         '
+        Me.TbNombreInstancia.Enabled = False
         Me.TbNombreInstancia.Location = New System.Drawing.Point(217, 95)
         Me.TbNombreInstancia.Name = "TbNombreInstancia"
         Me.TbNombreInstancia.Size = New System.Drawing.Size(121, 20)

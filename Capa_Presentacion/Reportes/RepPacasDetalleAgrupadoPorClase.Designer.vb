@@ -352,7 +352,9 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "RepPacasDetalleAgrupadoPorClase"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Reporte de Pacas Detallado"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)

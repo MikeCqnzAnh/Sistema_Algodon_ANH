@@ -13,6 +13,9 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class RepLotesPorModulo
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
+        Consultar()
+    End Sub
+    Private Sub Consultar()
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
         Dim Tabla As New DataTable
@@ -28,5 +31,11 @@ Public Class RepLotesPorModulo
         CrReport.SetDataSource(ds.Tables("table1"))
         CrLotesPorModulo.ReportSource = CrReport
         CrLotesPorModulo.Show()
+    End Sub
+    Private Sub TbIdOrdenTrabajo_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdOrdenTrabajo.KeyDown
+        Select Case e.KeyData
+            Case Keys.Enter
+                Consultar()
+        End Select
     End Sub
 End Class

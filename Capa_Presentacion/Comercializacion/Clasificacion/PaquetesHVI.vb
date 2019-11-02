@@ -16,14 +16,14 @@ Public Class PaquetesHVI
                 TbRuta.Text = path
                 AbrirBaseDatosAccess()
                 Inhabilitar()
-                ContarFilas()
-            End If
+            NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
+        End If
         End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        If CbPlanta.Text <> "" Then
+        If CbPlanta.Text <> "" Or TbPaquete.Text <> "" Then
             Dim vReturn(1) As String
             If DgvPaquetesHVI.DataSource IsNot Nothing And TbPaquete.Text <> "" Then
                 vReturn = ExistePaqueteHVI(TbPaquete.Text)
@@ -35,7 +35,7 @@ Public Class PaquetesHVI
                         BtSeleccionar.Enabled = False
                     End If
                 ElseIf vReturn(0) = True And vReturn(1) <> TbIdPaqueteHVI.Text Then
-                    MsgBox("El paquete No " & TbPaquete.Text & " ya existe en la planta " & CbPlanta.Text & " y no es posible actualizar.")
+                    MsgBox("El paquete No " & TbPaquete.Text & " ya existe y no es posible actualizar.")
                 Else
                     Guardar()
                     BtSeleccionar.Enabled = False
@@ -44,7 +44,7 @@ Public Class PaquetesHVI
                 MsgBox("Por favor, cargar la base de datos de access.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             End If
         Else
-            MsgBox("Campo Planta es requerido para continuar.", MsgBoxStyle.Exclamation, "Aviso")
+            MsgBox("Campo Planta y Paquete es requerido para continuar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
     End Sub
     Private Sub Limpiar()
@@ -105,10 +105,13 @@ Public Class PaquetesHVI
         da = New OleDbDataAdapter(cm)
         da.Fill(ds)
         dt = ds.Tables(0)
+        Dim miView As DataView = New DataView(dt)
+        miView.Sort = "BaleID asc"
         DgvPaquetesHVI.DataSource = dt
         TablaPaquetesHVIGlobal = dt
         TbPaquete.Text = dt.Rows(0).Item("LotID")
         bbdd.Close()
+        'DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
     Private Sub Inhabilitar()
         'TbPaquete.Enabled = False
@@ -157,16 +160,16 @@ Public Class PaquetesHVI
         Return vReturn
     End Function
     Private Sub Habilitar()
-            TbPaquete.Enabled = True
-            BtSeleccionar.Enabled = True
-        End Sub
+        TbPaquete.Enabled = True
+        BtSeleccionar.Enabled = True
+    End Sub
     Private Sub Guardar()
         Try
             Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
             Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
             EntidadPaquetesHVI.IdPaqueteHVI = IIf(TbIdPaqueteHVI.Text = "", 0, TbIdPaqueteHVI.Text)
             EntidadPaquetesHVI.LotId = TbPaquete.Text
-            EntidadPaquetesHVI.NumeroPacas = NumeroPacas
+            EntidadPaquetesHVI.NumeroPacas = IIf(NuCantidadPacas.Value > NumeroPacas, NuCantidadPacas.Value, NumeroPacas)
             EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
             EntidadPaquetesHVI.Fecha = DtpFecha.Value
             EntidadPaquetesHVI.IdEstatus = CbEstatus.SelectedValue
@@ -180,37 +183,48 @@ Public Class PaquetesHVI
         Catch ex As Exception
             MsgBox(ex)
         Finally
+            NumeroPacas = 0
             MsgBox("Guardado con exito!")
         End Try
     End Sub
     Private Sub ContarFilas()
+        NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
         NumeroPacas = DgvPaquetesHVI.RowCount
-        NuCantidadPacas.Value = NumeroPacas
     End Sub
     Private Sub TbPaquete_KeyDown(sender As Object, e As KeyEventArgs) Handles TbPaquete.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
-                If TbPaquete.Text <> "" And CbPlanta.Text <> "" Then
-                    Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
-                    Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
-                    EntidadPaquetesHVI.Consulta = Consulta.ConsultaDetallada
-                    EntidadPaquetesHVI.IdPaquete = TbPaquete.Text
-                    EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
-                    NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
-                    TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
-                    DgvPaquetesHVI.DataSource = TablaPaquetesHVIGlobal
-                    PropiedadesDGV()
-                    'BtSeleccionar.Enabled = False
-                    If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
-                    ContarFilas()
+                Dim vReturn(1) As String
+                If TbPaquete.Text <> "" Then
+                    vReturn = ExistePaqueteHVI(TbPaquete.Text)
+                    If vReturn(0) = False And vReturn(1) = False Then
+                        MsgBox("El paquete consultado no se encuentra registrado!", MsgBoxStyle.Information, "Aviso")
+                    Else
+                        Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
+                        Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+                        EntidadPaquetesHVI.Consulta = Consulta.ConsultaDetallada
+                        EntidadPaquetesHVI.IdPaquete = TbPaquete.Text
+                        'EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
+                        NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
+                        TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
+                        DgvPaquetesHVI.DataSource = TablaPaquetesHVIGlobal
+                        PropiedadesDGV()
+                        'BtSeleccionar.Enabled = False
+                        If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
+                        If DgvPaquetesHVI.RowCount > 0 Then CbPlanta.SelectedValue = DgvPaquetesHVI.Rows(0).Cells("IdPlanta").Value
+                        ContarFilas()
+                    End If
+
                 Else
-                    MsgBox("El campo Paquete y Planta no pueden ir vacios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+                    MsgBox("El campo Paquete no puede ir vacios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                     Exit Sub
                 End If
         End Select
     End Sub
     Private Sub PropiedadesDGV()
         DgvPaquetesHVI.Columns("IdHVIenc").Visible = False
+        DgvPaquetesHVI.Columns("IdPlanta").Visible = False
+        DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

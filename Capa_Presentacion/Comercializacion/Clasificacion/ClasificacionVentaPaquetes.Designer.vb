@@ -98,7 +98,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbProductos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbProductos.Location = New System.Drawing.Point(0, 24)
         Me.GbProductos.Name = "GbProductos"
-        Me.GbProductos.Size = New System.Drawing.Size(1561, 126)
+        Me.GbProductos.Size = New System.Drawing.Size(1561, 206)
         Me.GbProductos.TabIndex = 0
         Me.GbProductos.TabStop = False
         '
@@ -107,7 +107,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.NuPromedioUI.DecimalPlaces = 2
         Me.NuPromedioUI.Enabled = False
         Me.NuPromedioUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuPromedioUI.Location = New System.Drawing.Point(75, 95)
+        Me.NuPromedioUI.Location = New System.Drawing.Point(774, 53)
         Me.NuPromedioUI.Name = "NuPromedioUI"
         Me.NuPromedioUI.Size = New System.Drawing.Size(91, 20)
         Me.NuPromedioUI.TabIndex = 11
@@ -116,7 +116,7 @@ Partial Class ClasificacionVentaPaquetes
         'chkfinalizado
         '
         Me.chkfinalizado.AutoSize = True
-        Me.chkfinalizado.Location = New System.Drawing.Point(276, 98)
+        Me.chkfinalizado.Location = New System.Drawing.Point(909, 55)
         Me.chkfinalizado.Name = "chkfinalizado"
         Me.chkfinalizado.Size = New System.Drawing.Size(118, 17)
         Me.chkfinalizado.TabIndex = 10
@@ -126,7 +126,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(675, 55)
+        Me.Label8.Location = New System.Drawing.Point(483, 55)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(42, 13)
         Me.Label8.TabIndex = 9
@@ -136,32 +136,34 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.CbEstatus.Enabled = False
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(723, 51)
+        Me.CbEstatus.Location = New System.Drawing.Point(547, 52)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 8
         '
         'TbIdPaquete
         '
-        Me.TbIdPaquete.Location = New System.Drawing.Point(968, 14)
+        Me.TbIdPaquete.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbIdPaquete.Location = New System.Drawing.Point(166, 91)
         Me.TbIdPaquete.MaxLength = 10
         Me.TbIdPaquete.Name = "TbIdPaquete"
-        Me.TbIdPaquete.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdPaquete.Size = New System.Drawing.Size(275, 44)
         Me.TbIdPaquete.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(911, 17)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(2, 94)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(47, 13)
+        Me.Label6.Size = New System.Drawing.Size(142, 37)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Paquete"
         '
         'TbEntrega
         '
         Me.TbEntrega.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbEntrega.Location = New System.Drawing.Point(578, 52)
+        Me.TbEntrega.Location = New System.Drawing.Point(337, 52)
         Me.TbEntrega.Name = "TbEntrega"
         Me.TbEntrega.Size = New System.Drawing.Size(91, 20)
         Me.TbEntrega.TabIndex = 5
@@ -181,7 +183,7 @@ Partial Class ClasificacionVentaPaquetes
         'CbComprador
         '
         Me.CbComprador.FormattingEnabled = True
-        Me.CbComprador.Location = New System.Drawing.Point(578, 11)
+        Me.CbComprador.Location = New System.Drawing.Point(547, 11)
         Me.CbComprador.Name = "CbComprador"
         Me.CbComprador.Size = New System.Drawing.Size(223, 21)
         Me.CbComprador.TabIndex = 4
@@ -189,17 +191,17 @@ Partial Class ClasificacionVentaPaquetes
         'CbClases
         '
         Me.CbClases.FormattingEnabled = True
-        Me.CbClases.Location = New System.Drawing.Point(387, 12)
+        Me.CbClases.Location = New System.Drawing.Point(337, 11)
         Me.CbClases.Name = "CbClases"
         Me.CbClases.Size = New System.Drawing.Size(121, 21)
         Me.CbClases.TabIndex = 4
         '
         'TbNoPaca
         '
-        Me.TbNoPaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbNoPaca.Location = New System.Drawing.Point(968, 40)
+        Me.TbNoPaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbNoPaca.Location = New System.Drawing.Point(166, 150)
         Me.TbNoPaca.Name = "TbNoPaca"
-        Me.TbNoPaca.Size = New System.Drawing.Size(181, 35)
+        Me.TbNoPaca.Size = New System.Drawing.Size(275, 44)
         Me.TbNoPaca.TabIndex = 3
         '
         'CbPlanta
@@ -215,7 +217,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.BtIgualarClasificacion.Dock = System.Windows.Forms.DockStyle.Right
         Me.BtIgualarClasificacion.Location = New System.Drawing.Point(1313, 16)
         Me.BtIgualarClasificacion.Name = "BtIgualarClasificacion"
-        Me.BtIgualarClasificacion.Size = New System.Drawing.Size(126, 107)
+        Me.BtIgualarClasificacion.Size = New System.Drawing.Size(126, 187)
         Me.BtIgualarClasificacion.TabIndex = 1
         Me.BtIgualarClasificacion.Text = "Igualar Clasificacion"
         Me.BtIgualarClasificacion.UseVisualStyleBackColor = True
@@ -225,7 +227,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.BtRevisarClases.Dock = System.Windows.Forms.DockStyle.Right
         Me.BtRevisarClases.Location = New System.Drawing.Point(1439, 16)
         Me.BtRevisarClases.Name = "BtRevisarClases"
-        Me.BtRevisarClases.Size = New System.Drawing.Size(119, 107)
+        Me.BtRevisarClases.Size = New System.Drawing.Size(119, 187)
         Me.BtRevisarClases.TabIndex = 1
         Me.BtRevisarClases.Text = "Revisar Clases De  Paquete"
         Me.BtRevisarClases.UseVisualStyleBackColor = True
@@ -234,7 +236,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 97)
+        Me.Label3.Location = New System.Drawing.Point(705, 55)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 13)
         Me.Label3.TabIndex = 0
@@ -243,7 +245,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(514, 15)
+        Me.Label10.Location = New System.Drawing.Point(483, 15)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 0
@@ -253,7 +255,7 @@ Partial Class ClasificacionVentaPaquetes
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(514, 55)
+        Me.Label9.Location = New System.Drawing.Point(273, 55)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(44, 13)
         Me.Label9.TabIndex = 0
@@ -262,11 +264,12 @@ Partial Class ClasificacionVentaPaquetes
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(273, 55)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(738, 153)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(99, 13)
+        Me.Label7.Size = New System.Drawing.Size(154, 37)
         Me.Label7.TabIndex = 0
-        Me.Label7.Text = "Cantidad De Pacas"
+        Me.Label7.Text = "Cantidad"
         '
         'Label5
         '
@@ -289,9 +292,10 @@ Partial Class ClasificacionVentaPaquetes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(911, 55)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(2, 157)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.Size = New System.Drawing.Size(158, 37)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "No. Paca"
         '
@@ -382,9 +386,9 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.GbDgv.Controls.Add(Me.DgvPacasClasificacion1)
         Me.GbDgv.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GbDgv.Location = New System.Drawing.Point(0, 150)
+        Me.GbDgv.Location = New System.Drawing.Point(0, 230)
         Me.GbDgv.Name = "GbDgv"
-        Me.GbDgv.Size = New System.Drawing.Size(1561, 588)
+        Me.GbDgv.Size = New System.Drawing.Size(1561, 508)
         Me.GbDgv.TabIndex = 66
         Me.GbDgv.TabStop = False
         '
@@ -402,10 +406,9 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1.Location = New System.Drawing.Point(3, 16)
         Me.DgvPacasClasificacion1.MultiSelect = False
         Me.DgvPacasClasificacion1.Name = "DgvPacasClasificacion1"
-        Me.DgvPacasClasificacion1.RowHeadersVisible = False
         Me.DgvPacasClasificacion1.RowHeadersWidth = 40
         Me.DgvPacasClasificacion1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1555, 569)
+        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1555, 489)
         Me.DgvPacasClasificacion1.TabIndex = 15
         '
         'Sel
@@ -416,11 +419,11 @@ Partial Class ClasificacionVentaPaquetes
         'NuCantidadPacas
         '
         Me.NuCantidadPacas.Enabled = False
-        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuCantidadPacas.Location = New System.Drawing.Point(387, 52)
+        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NuCantidadPacas.Location = New System.Drawing.Point(909, 145)
         Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NuCantidadPacas.Name = "NuCantidadPacas"
-        Me.NuCantidadPacas.Size = New System.Drawing.Size(121, 20)
+        Me.NuCantidadPacas.Size = New System.Drawing.Size(184, 49)
         Me.NuCantidadPacas.TabIndex = 11
         Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '

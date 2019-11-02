@@ -379,7 +379,7 @@ Public Class MenuPrincipal
     End Sub
 
     Private Sub PacasDetalleYAgrupadoPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasDetalleYAgrupadoPorClaseToolStripMenuItem.Click
-
+        RepPacasDetalleAgrupadoPorClase.ShowDialog()
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click

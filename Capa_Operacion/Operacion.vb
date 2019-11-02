@@ -46,6 +46,7 @@ Namespace Configuracion
         ReporteHviDetalle = 6
         ReporteLotesPorModulo = 7
         ReportePacasPorLote = 8
+        ReportePacasDetalleAgrupadoPorClase = 9
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
