@@ -23,6 +23,7 @@ Partial Class ClasificacionVentaPaquetes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbProductos = New System.Windows.Forms.GroupBox()
+        Me.NuCantidadPacas = New System.Windows.Forms.NumericUpDown()
         Me.NuPromedioUI = New System.Windows.Forms.NumericUpDown()
         Me.chkfinalizado = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -50,7 +51,8 @@ Partial Class ClasificacionVentaPaquetes
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImprimirClasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimirClasesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImprimirHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,13 +62,17 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbDgv = New System.Windows.Forms.GroupBox()
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.NuCantidadPacas = New System.Windows.Forms.NumericUpDown()
+        Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
+        Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
+        Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
+        Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbProductos.SuspendLayout()
+        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.GbDgv.SuspendLayout()
         CType(Me.DgvPacasClasificacion1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbSeleccionarTodasPacas.SuspendLayout()
         Me.SuspendLayout()
         '
         'GbProductos
@@ -101,6 +107,17 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbProductos.Size = New System.Drawing.Size(1561, 206)
         Me.GbProductos.TabIndex = 0
         Me.GbProductos.TabStop = False
+        '
+        'NuCantidadPacas
+        '
+        Me.NuCantidadPacas.Enabled = False
+        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NuCantidadPacas.Location = New System.Drawing.Point(909, 145)
+        Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
+        Me.NuCantidadPacas.Name = "NuCantidadPacas"
+        Me.NuCantidadPacas.Size = New System.Drawing.Size(184, 49)
+        Me.NuCantidadPacas.TabIndex = 11
+        Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'NuPromedioUI
         '
@@ -310,7 +327,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ImprimirClasesToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1561, 24)
@@ -337,21 +354,28 @@ Partial Class ClasificacionVentaPaquetes
         '
         'ImprimirToolStripMenuItem
         '
+        Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirClasesToolStripMenuItem1, Me.ImprimirHVIToolStripMenuItem})
         Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
         Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ImprimirToolStripMenuItem.Text = "Imprimir"
         '
-        'ImprimirClasesToolStripMenuItem
+        'ImprimirClasesToolStripMenuItem1
         '
-        Me.ImprimirClasesToolStripMenuItem.Name = "ImprimirClasesToolStripMenuItem"
-        Me.ImprimirClasesToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
-        Me.ImprimirClasesToolStripMenuItem.Text = "Imprimir Clases"
+        Me.ImprimirClasesToolStripMenuItem1.Name = "ImprimirClasesToolStripMenuItem1"
+        Me.ImprimirClasesToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
+        Me.ImprimirClasesToolStripMenuItem1.Text = "Imprimir Clases"
+        '
+        'ImprimirHVIToolStripMenuItem
+        '
+        Me.ImprimirHVIToolStripMenuItem.Name = "ImprimirHVIToolStripMenuItem"
+        Me.ImprimirHVIToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.ImprimirHVIToolStripMenuItem.Text = "Imprimir HVI"
         '
         'ExportarToolStripMenuItem
         '
         Me.ExportarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoExcelToolStripMenuItem, Me.ArchivoAccessToolStripMenuItem})
         Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
-        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.ExportarToolStripMenuItem.Text = "Exportar"
         '
         'ArchivoExcelToolStripMenuItem
@@ -388,7 +412,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbDgv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDgv.Location = New System.Drawing.Point(0, 230)
         Me.GbDgv.Name = "GbDgv"
-        Me.GbDgv.Size = New System.Drawing.Size(1561, 508)
+        Me.GbDgv.Size = New System.Drawing.Size(1460, 508)
         Me.GbDgv.TabIndex = 66
         Me.GbDgv.TabStop = False
         '
@@ -408,7 +432,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1.Name = "DgvPacasClasificacion1"
         Me.DgvPacasClasificacion1.RowHeadersWidth = 40
         Me.DgvPacasClasificacion1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1555, 489)
+        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1454, 489)
         Me.DgvPacasClasificacion1.TabIndex = 15
         '
         'Sel
@@ -416,16 +440,42 @@ Partial Class ClasificacionVentaPaquetes
         Me.Sel.HeaderText = "Seleccion"
         Me.Sel.Name = "Sel"
         '
-        'NuCantidadPacas
+        'GbSeleccionarTodasPacas
         '
-        Me.NuCantidadPacas.Enabled = False
-        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuCantidadPacas.Location = New System.Drawing.Point(909, 145)
-        Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
-        Me.NuCantidadPacas.Name = "NuCantidadPacas"
-        Me.NuCantidadPacas.Size = New System.Drawing.Size(184, 49)
-        Me.NuCantidadPacas.TabIndex = 11
-        Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.GbSeleccionarTodasPacas.Controls.Add(Me.BtDeseleccionarTodo)
+        Me.GbSeleccionarTodasPacas.Controls.Add(Me.BtSeleccionarTodo)
+        Me.GbSeleccionarTodasPacas.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbSeleccionarTodasPacas.Location = New System.Drawing.Point(1460, 230)
+        Me.GbSeleccionarTodasPacas.Name = "GbSeleccionarTodasPacas"
+        Me.GbSeleccionarTodasPacas.Size = New System.Drawing.Size(101, 508)
+        Me.GbSeleccionarTodasPacas.TabIndex = 67
+        Me.GbSeleccionarTodasPacas.TabStop = False
+        '
+        'BtSeleccionarTodo
+        '
+        Me.BtSeleccionarTodo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtSeleccionarTodo.Location = New System.Drawing.Point(3, 16)
+        Me.BtSeleccionarTodo.Name = "BtSeleccionarTodo"
+        Me.BtSeleccionarTodo.Size = New System.Drawing.Size(95, 38)
+        Me.BtSeleccionarTodo.TabIndex = 0
+        Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
+        Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
+        '
+        'BtDeseleccionarTodo
+        '
+        Me.BtDeseleccionarTodo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtDeseleccionarTodo.Location = New System.Drawing.Point(3, 54)
+        Me.BtDeseleccionarTodo.Name = "BtDeseleccionarTodo"
+        Me.BtDeseleccionarTodo.Size = New System.Drawing.Size(95, 41)
+        Me.BtDeseleccionarTodo.TabIndex = 1
+        Me.BtDeseleccionarTodo.Text = "Deseleccionar Todo"
+        Me.BtDeseleccionarTodo.UseVisualStyleBackColor = True
+        '
+        'ModificarToolStripMenuItem
+        '
+        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.ModificarToolStripMenuItem.Text = "Modificar"
         '
         'ClasificacionVentaPaquetes
         '
@@ -433,6 +483,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1561, 738)
         Me.Controls.Add(Me.GbDgv)
+        Me.Controls.Add(Me.GbSeleccionarTodasPacas)
         Me.Controls.Add(Me.GbProductos)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -443,12 +494,13 @@ Partial Class ClasificacionVentaPaquetes
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbProductos.ResumeLayout(False)
         Me.GbProductos.PerformLayout()
+        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GbDgv.ResumeLayout(False)
         CType(Me.DgvPacasClasificacion1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GbSeleccionarTodasPacas.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -492,13 +544,20 @@ Partial Class ClasificacionVentaPaquetes
     Friend WithEvents CbComprador As ComboBox
 
     Friend WithEvents Label10 As Label
-    Friend WithEvents ImprimirClasesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportarToolStripMenuItem As ToolStripMenuItem
 
     Friend WithEvents ArchivoExcelToolStripMenuItem As ToolStripMenuItem
 
     Friend WithEvents ArchivoAccessToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NuCantidadPacas As NumericUpDown
+    Friend WithEvents ImprimirClasesToolStripMenuItem1 As ToolStripMenuItem
+
+    Friend WithEvents ImprimirHVIToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GbSeleccionarTodasPacas As GroupBox
+    Friend WithEvents BtDeseleccionarTodo As Button
+
+    Friend WithEvents BtSeleccionarTodo As Button
+    Friend WithEvents ModificarToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlus
         Inherits DataGridView

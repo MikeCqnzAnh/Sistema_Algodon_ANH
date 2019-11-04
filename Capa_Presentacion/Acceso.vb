@@ -103,7 +103,6 @@ Public Class Acceso
         End Try
     End Sub
     Private Sub Login()
-
         Try
             If UsuarioRegistrado(TbUsuario.Text) = True Then
                 GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)

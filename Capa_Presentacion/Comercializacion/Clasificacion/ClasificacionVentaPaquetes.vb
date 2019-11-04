@@ -258,45 +258,45 @@ Public Class ClasificacionVentaPaquetes
                     '    TbNoPaca.Text = ""
                     'Else
                     If ExistePacaHVI(TbNoPaca.Text) = False Then
-                            MsgBox("Paca " & TbNoPaca.Text & " no existe en HVI, revisa el ID capturado.")
-                            TbNoPaca.Text = ""
-                        ElseIf VerificaPacaPlanta(TbNoPaca.Text) = False Then
-                            MessageBox.Show("Paca No " & TbNoPaca.Text & " no pertenece a planta " & CbPlanta.Text & ".", "Aviso")
-                            'If resultPlanta = DialogResult.Yes Then
-                            '    If ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
-                            '        Dim resultPaca As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & " ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
-                            '        If resultPaca = DialogResult.Yes Then
-                            '            ActualizaPaca()
-                            '            InsertaPaca()
-                            '            Guardar()
-                            '            'MessageBox.Show("El paquete ha sido actualizado!")
-                            '            TbNoPaca.Text = ""
-                            '        ElseIf resultPaca = DialogResult.No Then
-                            '            TbNoPaca.Text = ""
-                            '        End If
-                            '    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
-                            '        MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
-                            '        TbNoPaca.Text = ""
-                            '    End If
-                            'ElseIf resultPlanta = DialogResult.No Then
-                            '    TbNoPaca.Text = ""
-                            'End If
-                        ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
-                            Dim result As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & "  ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
-                            If result = DialogResult.Yes Then
-                                ActualizaPaca()
-                                InsertaPaca()
-                                Guardar()
-                                ' MessageBox.Show("El paquete ha sido actualizado!")
-                                TbNoPaca.Text = ""
-                            ElseIf result = DialogResult.No Then
-                                TbNoPaca.Text = ""
-                            End If
-                        ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
-                            MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
-                            TbNoPaca.Text = ""
-                        Else
+                        MsgBox("Paca " & TbNoPaca.Text & " no existe en HVI, revisa el ID capturado.")
+                        TbNoPaca.Text = ""
+                    ElseIf VerificaPacaPlanta(TbNoPaca.Text) = False Then
+                        MessageBox.Show("Paca No " & TbNoPaca.Text & " no pertenece a planta " & CbPlanta.Text & ".", "Aviso")
+                        'If resultPlanta = DialogResult.Yes Then
+                        '    If ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
+                        '        Dim resultPaca As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & " ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
+                        '        If resultPaca = DialogResult.Yes Then
+                        '            ActualizaPaca()
+                        '            InsertaPaca()
+                        '            Guardar()
+                        '            'MessageBox.Show("El paquete ha sido actualizado!")
+                        '            TbNoPaca.Text = ""
+                        '        ElseIf resultPaca = DialogResult.No Then
+                        '            TbNoPaca.Text = ""
+                        '        End If
+                        '    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
+                        '        MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
+                        '        TbNoPaca.Text = ""
+                        '    End If
+                        'ElseIf resultPlanta = DialogResult.No Then
+                        '    TbNoPaca.Text = ""
+                        'End If
+                    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
+                        Dim result As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & "  ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
+                        If result = DialogResult.Yes Then
+                            ActualizaPaca()
                             InsertaPaca()
+                            Guardar()
+                            ' MessageBox.Show("El paquete ha sido actualizado!")
+                            TbNoPaca.Text = ""
+                        ElseIf result = DialogResult.No Then
+                            TbNoPaca.Text = ""
+                        End If
+                    ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text = IdPaqueteEncabezadoVerifica Then
+                        MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
+                        TbNoPaca.Text = ""
+                    Else
+                        InsertaPaca()
                         Guardar()
                         TbNoPaca.Text = ""
                     End If
@@ -322,9 +322,9 @@ Public Class ClasificacionVentaPaquetes
                     '    TbNoPaca.Focus()
                     'Else
                     TbIdPaquete.Enabled = False
-                        Consultar()
-                        TbNoPaca.Text = ""
-                        TbNoPaca.Focus()
+                    Consultar()
+                    TbNoPaca.Text = ""
+                    TbNoPaca.Focus()
                     'End If
                 Else
                     MsgBox("Ingrese el ID del paquete...")
@@ -422,6 +422,9 @@ Public Class ClasificacionVentaPaquetes
         End With
     End Sub
     Private Sub verificaChecks(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPacasClasificacion1.CellContentClick
+        MarcarPacas()
+    End Sub
+    Private Sub MarcarPacas()
         Dim Contador As Integer
         For Contador = 0 To DgvPacasClasificacion1.RowCount - 1
             If DgvPacasClasificacion1.Rows(Contador).Selected Then
@@ -1012,6 +1015,28 @@ Public Class ClasificacionVentaPaquetes
             MsgBox("No se pueden guardar los registro por: " & ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
+
+    Private Sub BtSeleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtSeleccionarTodo.Click
+        Dim Contador As Integer
+        For Contador = 0 To DgvPacasClasificacion1.RowCount - 1
+            'If DgvPacasClasificacion1.Rows(Contador).Selected Then
+            'If DgvPacasClasificacion1.Rows(Contador).Cells("Sel").Value = False Then
+            DgvPacasClasificacion1.Rows(Contador).Cells("Sel").Value = True
+            '    ElseIf DgvPacasClasificacion1.Rows(Contador).Cells("Sel").Value = True Then
+            '        DgvPacasClasificacion1.Rows(Contador).Cells("Sel").Value = False
+            '    End If
+            'End If
+            DgvPacasClasificacion1.Rows(Contador).Selected = False
+        Next Contador
+    End Sub
+    Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
+        desmarcaCheck()
+    End Sub
+
+    Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
+        'VerificaUsuario.ShowDialog()
+    End Sub
+
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbNoPaca.KeyPress, TbIdPaquete.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False

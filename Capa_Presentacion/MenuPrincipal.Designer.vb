@@ -148,6 +148,7 @@ Partial Class MenuPrincipal
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -696,6 +697,7 @@ Partial Class MenuPrincipal
         Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Tag = "0,0"
         Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Text = "Lotes (Detalle con Módulos Segunda Forma)"
+        Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem.Visible = False
         '
         'LotesDetalleConMódulosTerceraFormaToolStripMenuItem
         '
@@ -703,6 +705,7 @@ Partial Class MenuPrincipal
         Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Tag = "0,0"
         Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Text = "Lotes (Detalle con Módulos Tercera Forma)"
+        Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem.Visible = False
         '
         'ResumenDeLiquidacionesToolStripMenuItem
         '
@@ -966,7 +969,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.ToolStripMenuItem1, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Tag = "107,0"
@@ -1071,6 +1074,13 @@ Partial Class MenuPrincipal
         Me.RolesToolStripMenuItem.Tag = "121,107"
         Me.RolesToolStripMenuItem.Text = "Roles"
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(394, 24)
+        Me.ToolStripMenuItem1.Tag = "240,107"
+        Me.ToolStripMenuItem1.Text = "Clave Autorizacion"
+        '
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
@@ -1155,7 +1165,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(95, 17)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(96, 17)
         Me.ToolStripStatusLabel2.Text = ": BASE DE DATOS"
         '
         'ToolStripStatusLabel1
@@ -1167,7 +1177,7 @@ Partial Class MenuPrincipal
         'SbTipoUsuario
         '
         Me.SbTipoUsuario.Name = "SbTipoUsuario"
-        Me.SbTipoUsuario.Size = New System.Drawing.Size(73, 17)
+        Me.SbTipoUsuario.Size = New System.Drawing.Size(74, 17)
         Me.SbTipoUsuario.Text = "Tipo Usuario"
         '
         'TsSeparador
@@ -1212,7 +1222,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel5
         '
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
         'MenuPrincipal
@@ -1386,4 +1396,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ConexionInicialToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents RolesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PacasPorLotesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class

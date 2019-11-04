@@ -17,21 +17,26 @@ Public Class RepPacasPorLotes
     End Sub
 
     Private Sub Consultar()
-        Dim EntidadReportes As New Capa_Entidad.Reportes
-        Dim NegocioReportes As New Capa_Negocio.Reportes
-        Dim Tabla As New DataTable
-        Dim ds As New DataSet
-        Dim CrReport As RPTPacasPorLotes = New RPTPacasPorLotes
-        Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTPacasPorLotes.rpt"
-        EntidadReportes.Reporte = Reporte.ReportePacasPorLote
-        EntidadReportes.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-        NegocioReportes.Consultar(EntidadReportes)
-        Tabla = EntidadReportes.TablaConsulta
-        ds.Tables.Add(Tabla)
-        CrReport.Load(Ruta)
-        CrReport.SetDataSource(ds.Tables("table1"))
-        CRVPacasPorLotes.ReportSource = CrReport
-        CRVPacasPorLotes.Show()
+        If TbIdOrdenTrabajo.Text = "" Then
+            MsgBox("El campo Lote es requerido.", MsgBoxStyle.Information, "Aviso")
+        Else
+            Dim EntidadReportes As New Capa_Entidad.Reportes
+            Dim NegocioReportes As New Capa_Negocio.Reportes
+            Dim Tabla As New DataTable
+            Dim ds As New DataSet
+            Dim CrReport As RPTPacasPorLotes = New RPTPacasPorLotes
+            Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTPacasPorLotes.rpt"
+            EntidadReportes.Reporte = Reporte.ReportePacasPorLote
+            EntidadReportes.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
+            NegocioReportes.Consultar(EntidadReportes)
+            Tabla = EntidadReportes.TablaConsulta
+            ds.Tables.Add(Tabla)
+            CrReport.Load(Ruta)
+            CrReport.SetDataSource(ds.Tables("table1"))
+            CRVPacasPorLotes.ReportSource = CrReport
+            CRVPacasPorLotes.Show()
+        End If
+
     End Sub
 
     Private Sub TbIdOrdenTrabajo_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdOrdenTrabajo.KeyDown

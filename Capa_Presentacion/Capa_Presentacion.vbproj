@@ -452,6 +452,12 @@
       <DependentUpon>RPTReporteClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilerias\ClaveAutorizacion.Designer.vb">
+      <DependentUpon>ClaveAutorizacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ClaveAutorizacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\Roles.Designer.vb">
       <DependentUpon>Roles.vb</DependentUpon>
     </Compile>
@@ -801,6 +807,12 @@
     </Compile>
     <Compile Include="Modulos Funciones\VarGlob.vb" />
     <Compile Include="Modulos Funciones\VarGlob2.vb" />
+    <Compile Include="Utilerias\VerificaAutorizacion.Designer.vb">
+      <DependentUpon>VerificaAutorizacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\VerificaAutorizacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Web References\WebServiceBanxico\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -978,6 +990,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTReporteClientes.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ClaveAutorizacion.resx">
+      <DependentUpon>ClaveAutorizacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Roles.resx">
       <DependentUpon>Roles.vb</DependentUpon>
     </EmbeddedResource>
@@ -1148,6 +1163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\SeleccionaConexion.resx">
       <DependentUpon>SeleccionaConexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\VerificaAutorizacion.resx">
+      <DependentUpon>VerificaAutorizacion.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,3 @@
-create table TipoUsuario
-(
-IdTipo int primary key identity(1,1),
-Descripcion varchar(15)
-)
+CREATE TABLE [dbo].[TipoUsuario](
+	[IdTipo] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](40) NULL)

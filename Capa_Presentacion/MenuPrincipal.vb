@@ -382,6 +382,10 @@ Public Class MenuPrincipal
         RepPacasDetalleAgrupadoPorClase.ShowDialog()
     End Sub
 
+    Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        ClaveAutorizacion.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
