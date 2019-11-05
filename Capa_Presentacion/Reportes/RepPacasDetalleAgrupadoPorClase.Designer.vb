@@ -23,31 +23,31 @@ Partial Class RepPacasDetalleAgrupadoPorClase
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
-        Me.CbPlantaDestino = New System.Windows.Forms.ComboBox()
-        Me.CbPlantaOrigen = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TbIdCliente = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.BtConsultaCliente = New System.Windows.Forms.Button()
-        Me.TbNombreCliente = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CbOrdenProduccion = New System.Windows.Forms.ComboBox()
-        Me.CkQuemadas = New System.Windows.Forms.CheckBox()
-        Me.CkSinComprar = New System.Windows.Forms.CheckBox()
-        Me.CkSinVender = New System.Windows.Forms.CheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TbHastaPaca = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TbPredio = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.CbClases = New System.Windows.Forms.ComboBox()
-        Me.CbVariedad = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.BtDetallado = New System.Windows.Forms.Button()
         Me.BtAgrupadoPorClase = New System.Windows.Forms.Button()
+        Me.BtDetallado = New System.Windows.Forms.Button()
+        Me.CkSinVender = New System.Windows.Forms.CheckBox()
+        Me.CkSinComprar = New System.Windows.Forms.CheckBox()
+        Me.CkQuemadas = New System.Windows.Forms.CheckBox()
+        Me.BtConsultaCliente = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TbNombreCliente = New System.Windows.Forms.TextBox()
+        Me.TbHastaPaca = New System.Windows.Forms.TextBox()
+        Me.TbPredio = New System.Windows.Forms.TextBox()
+        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
+        Me.TbIdCliente = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CbOrdenProduccion = New System.Windows.Forms.ComboBox()
+        Me.CbVariedad = New System.Windows.Forms.ComboBox()
+        Me.CbClases = New System.Windows.Forms.ComboBox()
+        Me.CbPlantaOrigen = New System.Windows.Forms.ComboBox()
+        Me.CbPlantaDestino = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,108 +90,23 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.GbDatos.TabIndex = 0
         Me.GbDatos.TabStop = False
         '
-        'CbPlantaDestino
+        'BtAgrupadoPorClase
         '
-        Me.CbPlantaDestino.FormattingEnabled = True
-        Me.CbPlantaDestino.Location = New System.Drawing.Point(13, 34)
-        Me.CbPlantaDestino.Name = "CbPlantaDestino"
-        Me.CbPlantaDestino.Size = New System.Drawing.Size(121, 21)
-        Me.CbPlantaDestino.TabIndex = 0
+        Me.BtAgrupadoPorClase.Location = New System.Drawing.Point(15, 461)
+        Me.BtAgrupadoPorClase.Name = "BtAgrupadoPorClase"
+        Me.BtAgrupadoPorClase.Size = New System.Drawing.Size(137, 29)
+        Me.BtAgrupadoPorClase.TabIndex = 6
+        Me.BtAgrupadoPorClase.Text = "Agrupado por Clase"
+        Me.BtAgrupadoPorClase.UseVisualStyleBackColor = True
         '
-        'CbPlantaOrigen
+        'BtDetallado
         '
-        Me.CbPlantaOrigen.FormattingEnabled = True
-        Me.CbPlantaOrigen.Location = New System.Drawing.Point(161, 34)
-        Me.CbPlantaOrigen.Name = "CbPlantaOrigen"
-        Me.CbPlantaOrigen.Size = New System.Drawing.Size(121, 21)
-        Me.CbPlantaOrigen.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(158, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Planta Origen :"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 18)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Planta Destino :"
-        '
-        'TbIdCliente
-        '
-        Me.TbIdCliente.Location = New System.Drawing.Point(13, 74)
-        Me.TbIdCliente.Name = "TbIdCliente"
-        Me.TbIdCliente.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdCliente.TabIndex = 2
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 58)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(45, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Cliente :"
-        '
-        'BtConsultaCliente
-        '
-        Me.BtConsultaCliente.Location = New System.Drawing.Point(119, 72)
-        Me.BtConsultaCliente.Name = "BtConsultaCliente"
-        Me.BtConsultaCliente.Size = New System.Drawing.Size(33, 23)
-        Me.BtConsultaCliente.TabIndex = 4
-        Me.BtConsultaCliente.Text = "..."
-        Me.BtConsultaCliente.UseVisualStyleBackColor = True
-        '
-        'TbNombreCliente
-        '
-        Me.TbNombreCliente.Location = New System.Drawing.Point(158, 74)
-        Me.TbNombreCliente.Name = "TbNombreCliente"
-        Me.TbNombreCliente.Size = New System.Drawing.Size(203, 20)
-        Me.TbNombreCliente.TabIndex = 2
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 106)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(114, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Orden de Produccion :"
-        '
-        'CbOrdenProduccion
-        '
-        Me.CbOrdenProduccion.FormattingEnabled = True
-        Me.CbOrdenProduccion.Location = New System.Drawing.Point(13, 122)
-        Me.CbOrdenProduccion.Name = "CbOrdenProduccion"
-        Me.CbOrdenProduccion.Size = New System.Drawing.Size(121, 21)
-        Me.CbOrdenProduccion.TabIndex = 0
-        '
-        'CkQuemadas
-        '
-        Me.CkQuemadas.AutoSize = True
-        Me.CkQuemadas.Location = New System.Drawing.Point(6, 170)
-        Me.CkQuemadas.Name = "CkQuemadas"
-        Me.CkQuemadas.Size = New System.Drawing.Size(135, 17)
-        Me.CkQuemadas.TabIndex = 5
-        Me.CkQuemadas.Text = "Imprimir solo quemadas"
-        Me.CkQuemadas.UseVisualStyleBackColor = True
-        '
-        'CkSinComprar
-        '
-        Me.CkSinComprar.AutoSize = True
-        Me.CkSinComprar.Location = New System.Drawing.Point(147, 170)
-        Me.CkSinComprar.Name = "CkSinComprar"
-        Me.CkSinComprar.Size = New System.Drawing.Size(83, 17)
-        Me.CkSinComprar.TabIndex = 5
-        Me.CkSinComprar.Text = "Sin Comprar"
-        Me.CkSinComprar.UseVisualStyleBackColor = True
+        Me.BtDetallado.Location = New System.Drawing.Point(15, 432)
+        Me.BtDetallado.Name = "BtDetallado"
+        Me.BtDetallado.Size = New System.Drawing.Size(137, 23)
+        Me.BtDetallado.TabIndex = 6
+        Me.BtDetallado.Text = "Detallado"
+        Me.BtDetallado.UseVisualStyleBackColor = True
         '
         'CkSinVender
         '
@@ -203,21 +118,34 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.CkSinVender.Text = "Sin Vender"
         Me.CkSinVender.UseVisualStyleBackColor = True
         '
-        'Label5
+        'CkSinComprar
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 211)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(71, 13)
-        Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Desde paca :"
+        Me.CkSinComprar.AutoSize = True
+        Me.CkSinComprar.Location = New System.Drawing.Point(147, 170)
+        Me.CkSinComprar.Name = "CkSinComprar"
+        Me.CkSinComprar.Size = New System.Drawing.Size(83, 17)
+        Me.CkSinComprar.TabIndex = 5
+        Me.CkSinComprar.Text = "Sin Comprar"
+        Me.CkSinComprar.UseVisualStyleBackColor = True
         '
-        'TbDesdePaca
+        'CkQuemadas
         '
-        Me.TbDesdePaca.Location = New System.Drawing.Point(87, 208)
-        Me.TbDesdePaca.Name = "TbDesdePaca"
-        Me.TbDesdePaca.Size = New System.Drawing.Size(89, 20)
-        Me.TbDesdePaca.TabIndex = 2
+        Me.CkQuemadas.AutoSize = True
+        Me.CkQuemadas.Location = New System.Drawing.Point(6, 170)
+        Me.CkQuemadas.Name = "CkQuemadas"
+        Me.CkQuemadas.Size = New System.Drawing.Size(135, 17)
+        Me.CkQuemadas.TabIndex = 5
+        Me.CkQuemadas.Text = "Imprimir solo quemadas"
+        Me.CkQuemadas.UseVisualStyleBackColor = True
+        '
+        'BtConsultaCliente
+        '
+        Me.BtConsultaCliente.Location = New System.Drawing.Point(122, 72)
+        Me.BtConsultaCliente.Name = "BtConsultaCliente"
+        Me.BtConsultaCliente.Size = New System.Drawing.Size(33, 23)
+        Me.BtConsultaCliente.TabIndex = 4
+        Me.BtConsultaCliente.Text = "..."
+        Me.BtConsultaCliente.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -228,28 +156,14 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Hasta :"
         '
-        'TbHastaPaca
+        'Label9
         '
-        Me.TbHastaPaca.Location = New System.Drawing.Point(240, 208)
-        Me.TbHastaPaca.Name = "TbHastaPaca"
-        Me.TbHastaPaca.Size = New System.Drawing.Size(89, 20)
-        Me.TbHastaPaca.TabIndex = 2
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 237)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(43, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Predio :"
-        '
-        'TbPredio
-        '
-        Me.TbPredio.Location = New System.Drawing.Point(87, 234)
-        Me.TbPredio.Name = "TbPredio"
-        Me.TbPredio.Size = New System.Drawing.Size(100, 20)
-        Me.TbPredio.TabIndex = 2
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(12, 290)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(55, 13)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "Variedad :"
         '
         'Label8
         '
@@ -260,13 +174,104 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.Label8.TabIndex = 3
         Me.Label8.Text = "Clase :"
         '
-        'CbClases
+        'Label7
         '
-        Me.CbClases.FormattingEnabled = True
-        Me.CbClases.Location = New System.Drawing.Point(87, 260)
-        Me.CbClases.Name = "CbClases"
-        Me.CbClases.Size = New System.Drawing.Size(121, 21)
-        Me.CbClases.TabIndex = 0
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 237)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(43, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Predio :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(10, 211)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 13)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Desde paca :"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(10, 106)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(114, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Orden de Produccion :"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 58)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(45, 13)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Cliente :"
+        '
+        'TbNombreCliente
+        '
+        Me.TbNombreCliente.Location = New System.Drawing.Point(161, 74)
+        Me.TbNombreCliente.Name = "TbNombreCliente"
+        Me.TbNombreCliente.ReadOnly = True
+        Me.TbNombreCliente.Size = New System.Drawing.Size(200, 20)
+        Me.TbNombreCliente.TabIndex = 2
+        '
+        'TbHastaPaca
+        '
+        Me.TbHastaPaca.Location = New System.Drawing.Point(240, 208)
+        Me.TbHastaPaca.Name = "TbHastaPaca"
+        Me.TbHastaPaca.Size = New System.Drawing.Size(89, 20)
+        Me.TbHastaPaca.TabIndex = 2
+        '
+        'TbPredio
+        '
+        Me.TbPredio.Location = New System.Drawing.Point(87, 234)
+        Me.TbPredio.Name = "TbPredio"
+        Me.TbPredio.Size = New System.Drawing.Size(100, 20)
+        Me.TbPredio.TabIndex = 2
+        '
+        'TbDesdePaca
+        '
+        Me.TbDesdePaca.Location = New System.Drawing.Point(87, 208)
+        Me.TbDesdePaca.Name = "TbDesdePaca"
+        Me.TbDesdePaca.Size = New System.Drawing.Size(89, 20)
+        Me.TbDesdePaca.TabIndex = 2
+        '
+        'TbIdCliente
+        '
+        Me.TbIdCliente.Location = New System.Drawing.Point(13, 74)
+        Me.TbIdCliente.MaxLength = 10
+        Me.TbIdCliente.Name = "TbIdCliente"
+        Me.TbIdCliente.Size = New System.Drawing.Size(103, 20)
+        Me.TbIdCliente.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(10, 18)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(82, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Planta Destino :"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(158, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Planta Origen :"
+        '
+        'CbOrdenProduccion
+        '
+        Me.CbOrdenProduccion.FormattingEnabled = True
+        Me.CbOrdenProduccion.Location = New System.Drawing.Point(13, 122)
+        Me.CbOrdenProduccion.Name = "CbOrdenProduccion"
+        Me.CbOrdenProduccion.Size = New System.Drawing.Size(121, 21)
+        Me.CbOrdenProduccion.TabIndex = 0
         '
         'CbVariedad
         '
@@ -276,32 +281,29 @@ Partial Class RepPacasDetalleAgrupadoPorClase
         Me.CbVariedad.Size = New System.Drawing.Size(121, 21)
         Me.CbVariedad.TabIndex = 0
         '
-        'Label9
+        'CbClases
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 290)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(55, 13)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Variedad :"
+        Me.CbClases.FormattingEnabled = True
+        Me.CbClases.Location = New System.Drawing.Point(87, 260)
+        Me.CbClases.Name = "CbClases"
+        Me.CbClases.Size = New System.Drawing.Size(121, 21)
+        Me.CbClases.TabIndex = 0
         '
-        'BtDetallado
+        'CbPlantaOrigen
         '
-        Me.BtDetallado.Location = New System.Drawing.Point(15, 432)
-        Me.BtDetallado.Name = "BtDetallado"
-        Me.BtDetallado.Size = New System.Drawing.Size(137, 23)
-        Me.BtDetallado.TabIndex = 6
-        Me.BtDetallado.Text = "Detallado"
-        Me.BtDetallado.UseVisualStyleBackColor = True
+        Me.CbPlantaOrigen.FormattingEnabled = True
+        Me.CbPlantaOrigen.Location = New System.Drawing.Point(161, 34)
+        Me.CbPlantaOrigen.Name = "CbPlantaOrigen"
+        Me.CbPlantaOrigen.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlantaOrigen.TabIndex = 0
         '
-        'BtAgrupadoPorClase
+        'CbPlantaDestino
         '
-        Me.BtAgrupadoPorClase.Location = New System.Drawing.Point(15, 461)
-        Me.BtAgrupadoPorClase.Name = "BtAgrupadoPorClase"
-        Me.BtAgrupadoPorClase.Size = New System.Drawing.Size(137, 29)
-        Me.BtAgrupadoPorClase.TabIndex = 6
-        Me.BtAgrupadoPorClase.Text = "Agrupado por Clase"
-        Me.BtAgrupadoPorClase.UseVisualStyleBackColor = True
+        Me.CbPlantaDestino.FormattingEnabled = True
+        Me.CbPlantaDestino.Location = New System.Drawing.Point(13, 34)
+        Me.CbPlantaDestino.Name = "CbPlantaDestino"
+        Me.CbPlantaDestino.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlantaDestino.TabIndex = 0
         '
         'MenuStrip1
         '

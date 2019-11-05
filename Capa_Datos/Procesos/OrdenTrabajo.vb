@@ -92,6 +92,13 @@ Public Class OrdenTrabajo
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqldat1 = New SqlDataAdapter("sp_ConsultaBasicaOrdenes", cnn)
                     sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenesDeTrabajo
+                    sqlcom1 = New SqlCommand("Sp_LlenaComboOrdenTrabajo", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadOrdenTrabajo1.IdProductor))
+                    sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

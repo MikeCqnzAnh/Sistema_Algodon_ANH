@@ -32,6 +32,7 @@ Public Class Acceso
                     sqldat1.Fill(EntidadAcceso1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadAcceso = EntidadAcceso1
@@ -73,10 +74,40 @@ Public Class Acceso
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@Usuario", EntidadAcceso1.Usuario))
-
+                    sqldat1.Fill(EntidadAcceso1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaClaveAutorizacion
+                    sqlcom1 = New SqlCommand("Sp_ConsultaClaveAutorizacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Usuario", EntidadAcceso1.Usuario))
                     sqldat1.Fill(EntidadAcceso1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
+        Finally
+            cnn.Close()
+            EntidadAcceso = EntidadAcceso1
+        End Try
+    End Sub
+    Public Overridable Sub ActualizarPerfiles(ByRef EntidadAcceso As Capa_Entidad.Acceso)
+        Dim EntidadAcceso1 As New Capa_Entidad.Acceso
+        EntidadAcceso1 = EntidadAcceso
+        EntidadAcceso1.TablaConsulta = New DataTable
+        DataBase = EntidadAcceso1.BaseDeDatos
+        Dim cmdGuardar As SqlCommand
+        'Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
+        Try
+            cnn.Open()
+            Select Case EntidadAcceso1.Actualiza
+                Case Capa_Operacion.Configuracion.Actuliza.ActualizaClaveAutorizacion
+                    cmdGuardar = New SqlCommand("Sp_ActualizaClaveActualizacion", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.ExecuteNonQuery()
+            End Select
+        Catch ex As Exception
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadAcceso = EntidadAcceso1

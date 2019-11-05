@@ -6430,6 +6430,8 @@ Partial Public Class ALGODON_2VDataSet
     Partial Public Class ReportePacasPorClasesDataTable
         Inherits Global.System.Data.TypedTableBase(Of ReportePacasPorClasesRow)
         
+        Private columnNombre As Global.System.Data.DataColumn
+        
         Private columnClase As Global.System.Data.DataColumn
         
         Private columnPacas As Global.System.Data.DataColumn
@@ -6472,6 +6474,14 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre
+            End Get
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -6542,9 +6552,9 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportePacasPorClasesRow(ByVal Clase As String, ByVal Pacas As Integer, ByVal Kilos As Double, ByVal Quintales As Double) As ReportePacasPorClasesRow
+        Public Overloads Function AddReportePacasPorClasesRow(ByVal Nombre As String, ByVal Clase As String, ByVal Pacas As Integer, ByVal Kilos As Integer, ByVal Quintales As Double) As ReportePacasPorClasesRow
             Dim rowReportePacasPorClasesRow As ReportePacasPorClasesRow = CType(Me.NewRow,ReportePacasPorClasesRow)
-            Dim columnValuesArray() As Object = New Object() {Clase, Pacas, Kilos, Quintales}
+            Dim columnValuesArray() As Object = New Object() {Nombre, Clase, Pacas, Kilos, Quintales}
             rowReportePacasPorClasesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReportePacasPorClasesRow)
             Return rowReportePacasPorClasesRow
@@ -6567,6 +6577,7 @@ Partial Public Class ALGODON_2VDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnNombre = MyBase.Columns("Nombre")
             Me.columnClase = MyBase.Columns("Clase")
             Me.columnPacas = MyBase.Columns("Pacas")
             Me.columnKilos = MyBase.Columns("Kilos")
@@ -6576,11 +6587,13 @@ Partial Public Class ALGODON_2VDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
             Me.columnClase = New Global.System.Data.DataColumn("Clase", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnClase)
             Me.columnPacas = New Global.System.Data.DataColumn("Pacas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPacas)
-            Me.columnKilos = New Global.System.Data.DataColumn("Kilos", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnKilos = New Global.System.Data.DataColumn("Kilos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKilos)
             Me.columnQuintales = New Global.System.Data.DataColumn("Quintales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuintales)
@@ -13040,6 +13053,21 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacasPorClases.NombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre' de la tabla 'ReportePacasPorClases' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacasPorClases.NombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Clase() As String
             Get
                 Try 
@@ -13070,10 +13098,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Kilos() As Double
+        Public Property Kilos() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableReportePacasPorClases.KilosColumn),Double)
+                    Return CType(Me(Me.tableReportePacasPorClases.KilosColumn),Integer)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Kilos' de la tabla 'ReportePacasPorClases' es DBNull.", e)
                 End Try
@@ -13098,6 +13126,18 @@ Partial Public Class ALGODON_2VDataSet
                 Me(Me.tableReportePacasPorClases.QuintalesColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNombreNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacasPorClases.NombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNombreNull()
+            Me(Me.tableReportePacasPorClases.NombreColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _

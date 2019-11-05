@@ -140,6 +140,8 @@ Namespace Configuracion
         ConsultaEstatusLeerEtiqueta = 70
         ConsultaPaqueteExisteHVI = 71
         ConsultaPaqueteExisteClasificacion = 72
+        ConsultaClaveAutorizacion = 73
+        ConsultaOrdenesDeTrabajo = 74
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -155,6 +157,7 @@ Namespace Configuracion
         ActualizaTipoUsuario = 5
         ActualizaUsuario = 6
         ActualizaEstatus = 7
+        ActualizaClaveAutorizacion = 8
     End Enum
     Public Enum Importa
         ImportaTabla = 1

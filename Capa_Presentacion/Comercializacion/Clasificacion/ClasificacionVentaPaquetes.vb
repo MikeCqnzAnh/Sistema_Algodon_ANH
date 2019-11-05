@@ -219,30 +219,37 @@ Public Class ClasificacionVentaPaquetes
         TablaClasificacionGlobal = TablaClasificacionGrid
     End Sub
     Private Sub TextBox_PreviewKeyDown(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DgvPacasClasificacion1.CellEndEdit
+
         Dim GradoColor As String = Convert.ToString(DgvPacasClasificacion1.CurrentRow.Cells("ColorGrade").Value)
         Dim TrashId As Integer = DgvPacasClasificacion1.CurrentRow.Cells("TrashID").Value
         Dim ResultadoSCI As Integer = 0
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         Dim Tabla2 As New DataTable
-        DgvPacasClasificacion1.CurrentRow.Cells("SCI").Value = CalculaSCI(ResultadoSCI)
-        If GradoColor <> "" And TrashId <> 0 Then
-            EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaClasesDetalle
-            EntidadClasificacionVentaPaquetes.GradoColor = GradoColor
-            EntidadClasificacionVentaPaquetes.TrashId = TrashId
-            NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
-            Tabla2 = EntidadClasificacionVentaPaquetes.TablaConsulta
-            If Tabla2.Rows.Count = 0 Then
-                MsgBox("Verifica los valores de Grado Color y TrashID", MsgBoxStyle.Exclamation)
-                Exit Sub
+        Try
+            DgvPacasClasificacion1.CurrentRow.Cells("SCI").Value = CalculaSCI(ResultadoSCI)
+            If GradoColor <> "" And TrashId <> 0 Then
+                EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaClasesDetalle
+                EntidadClasificacionVentaPaquetes.GradoColor = GradoColor
+                EntidadClasificacionVentaPaquetes.TrashId = TrashId
+                NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+                Tabla2 = EntidadClasificacionVentaPaquetes.TablaConsulta
+                If Tabla2.Rows.Count = 0 Then
+                    MsgBox("Verifica los valores de Grado Color y TrashID", MsgBoxStyle.Exclamation)
+                    Exit Sub
+                Else
+                    DgvPacasClasificacion1.CurrentRow.Cells("Grade").Value = Tabla2.Rows(0).Item("ClaveCorta")
+                    IdentificaColor()
+                    Exit Sub
+                End If
             Else
-                DgvPacasClasificacion1.CurrentRow.Cells("Grade").Value = Tabla2.Rows(0).Item("ClaveCorta")
-                IdentificaColor()
                 Exit Sub
             End If
-        Else
-            Exit Sub
-        End If
+        Catch ex As Exception
+            MsgBox(ex)
+        Finally
+            Guardar()
+        End Try
     End Sub
     Private Function CalculaSCI(ByVal ResultadoSCI As Integer)
         ResultadoSCI = -414.67 + 2.9 * DgvPacasClasificacion1.CurrentRow.Cells("Strength").Value - 9.32 * DgvPacasClasificacion1.CurrentRow.Cells("Mic").Value + 49.17 * DgvPacasClasificacion1.CurrentRow.Cells("UHML").Value + 4.74 * DgvPacasClasificacion1.CurrentRow.Cells("UI").Value + 0.65 * DgvPacasClasificacion1.CurrentRow.Cells("RD").Value + 0.36 * DgvPacasClasificacion1.CurrentRow.Cells("PLUSB").Value
@@ -858,14 +865,7 @@ Public Class ClasificacionVentaPaquetes
     End Function
 
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
-        VarGlob2.TablaExporta = Datagridtotable(DgvPacasClasificacion1)
-        'VarGlob2.DgvExportaExcel.DataSource = DgvPacasClasificacion1
-        If TbIdPaquete.Text <> "" Then
-            Dim ReporteClasificacion As New RepClasificacion(TbIdPaquete.Text, CbPlanta.SelectedValue)
-            ReporteClasificacion.ShowDialog()
-        Else
-            MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+
     End Sub
 
     Private Function Datagridtotable(ByVal DgvExporta As DataGridView)
@@ -1035,6 +1035,17 @@ Public Class ClasificacionVentaPaquetes
 
     Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
         'VerificaUsuario.ShowDialog()
+    End Sub
+
+    Private Sub ImprimirHVIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirHVIToolStripMenuItem.Click
+        VarGlob2.TablaExporta = Datagridtotable(DgvPacasClasificacion1)
+        'VarGlob2.DgvExportaExcel.DataSource = DgvPacasClasificacion1
+        If TbIdPaquete.Text <> "" Then
+            Dim ReporteClasificacion As New RepClasificacion(TbIdPaquete.Text, CbPlanta.SelectedValue)
+            ReporteClasificacion.ShowDialog()
+        Else
+            MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbNoPaca.KeyPress, TbIdPaquete.KeyPress

@@ -50,6 +50,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirClasesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,9 +64,8 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1 = New Capa_Presentacion.ClasificacionVentaPaquetes.DgvPlus()
         Me.Sel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
-        Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
-        Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
         Me.GbProductos.SuspendLayout()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -352,6 +352,12 @@ Partial Class ClasificacionVentaPaquetes
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.BuscarToolStripMenuItem.Text = "Consultar"
         '
+        'ModificarToolStripMenuItem
+        '
+        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
+        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.ModificarToolStripMenuItem.Text = "Modificar"
+        '
         'ImprimirToolStripMenuItem
         '
         Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirClasesToolStripMenuItem1, Me.ImprimirHVIToolStripMenuItem})
@@ -375,7 +381,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.ExportarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoExcelToolStripMenuItem, Me.ArchivoAccessToolStripMenuItem})
         Me.ExportarToolStripMenuItem.Name = "ExportarToolStripMenuItem"
-        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.ExportarToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.ExportarToolStripMenuItem.Text = "Exportar"
         '
         'ArchivoExcelToolStripMenuItem
@@ -451,16 +457,6 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbSeleccionarTodasPacas.TabIndex = 67
         Me.GbSeleccionarTodasPacas.TabStop = False
         '
-        'BtSeleccionarTodo
-        '
-        Me.BtSeleccionarTodo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtSeleccionarTodo.Location = New System.Drawing.Point(3, 16)
-        Me.BtSeleccionarTodo.Name = "BtSeleccionarTodo"
-        Me.BtSeleccionarTodo.Size = New System.Drawing.Size(95, 38)
-        Me.BtSeleccionarTodo.TabIndex = 0
-        Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
-        Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
-        '
         'BtDeseleccionarTodo
         '
         Me.BtDeseleccionarTodo.Dock = System.Windows.Forms.DockStyle.Top
@@ -471,11 +467,15 @@ Partial Class ClasificacionVentaPaquetes
         Me.BtDeseleccionarTodo.Text = "Deseleccionar Todo"
         Me.BtDeseleccionarTodo.UseVisualStyleBackColor = True
         '
-        'ModificarToolStripMenuItem
+        'BtSeleccionarTodo
         '
-        Me.ModificarToolStripMenuItem.Name = "ModificarToolStripMenuItem"
-        Me.ModificarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.ModificarToolStripMenuItem.Text = "Modificar"
+        Me.BtSeleccionarTodo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtSeleccionarTodo.Location = New System.Drawing.Point(3, 16)
+        Me.BtSeleccionarTodo.Name = "BtSeleccionarTodo"
+        Me.BtSeleccionarTodo.Size = New System.Drawing.Size(95, 38)
+        Me.BtSeleccionarTodo.TabIndex = 0
+        Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
+        Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
         '
         'ClasificacionVentaPaquetes
         '
@@ -567,7 +567,7 @@ Partial Class ClasificacionVentaPaquetes
                 ClasificacionVentaPaquetes.EditaFila()
                 SendKeys.Send(Chr(Keys.Tab))
                 ' ClasificacionVentaPaquetes.TextBox_PreviewKeyDown()
-                Return True
+                    Return True
                 'End If
             Else
                 Return MyBase.ProcessDialogKey(keyData)

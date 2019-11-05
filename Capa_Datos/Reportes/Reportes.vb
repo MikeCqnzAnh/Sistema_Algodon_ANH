@@ -83,6 +83,33 @@ Public Class Reportes
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
+        Finally
+            cnn.Close()
+            EntidadReportes = EntidadReportes1
+        End Try
+    End Sub
+    Public Overridable Sub ConsultaCombos(ByRef EntidadReportes As Capa_Entidad.Reportes)
+        Dim EntidadReportes1 As New Capa_Entidad.Reportes
+        EntidadReportes1 = EntidadReportes
+        EntidadReportes1.TablaConsulta = New DataTable
+        EntidadReportes1.TablaGeneral = New DataTable
+        Dim sqlcom1 As SqlCommand
+        Dim sqldat1 As SqlDataAdapter
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Try
+            cnn.Open()
+            Select Case EntidadReportes1.Reporte
+                Case Capa_Operacion.Configuracion.Reporte.ReportePacasPorLote
+                    sqlcom1 = New SqlCommand("Sp_LlenaComboOrdenTrabajo", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+            End Select
+        Catch ex As Exception
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadReportes = EntidadReportes1

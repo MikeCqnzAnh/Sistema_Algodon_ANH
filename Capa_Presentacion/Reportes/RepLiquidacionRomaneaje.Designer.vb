@@ -33,8 +33,15 @@ Partial Class RepLiquidacionRomaneaje
         Me.CRVLiquidacionRomanea.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CRVLiquidacionRomanea.Location = New System.Drawing.Point(0, 0)
         Me.CRVLiquidacionRomanea.Name = "CRVLiquidacionRomanea"
+        Me.CRVLiquidacionRomanea.ShowCloseButton = False
+        Me.CRVLiquidacionRomanea.ShowCopyButton = False
+        Me.CRVLiquidacionRomanea.ShowGroupTreeButton = False
+        Me.CRVLiquidacionRomanea.ShowLogo = False
+        Me.CRVLiquidacionRomanea.ShowParameterPanelButton = False
+        Me.CRVLiquidacionRomanea.ShowRefreshButton = False
         Me.CRVLiquidacionRomanea.Size = New System.Drawing.Size(912, 471)
         Me.CRVLiquidacionRomanea.TabIndex = 0
+        Me.CRVLiquidacionRomanea.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'RepLiquidacionRomaneaje
         '

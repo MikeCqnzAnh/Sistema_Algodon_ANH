@@ -29,27 +29,27 @@ Partial Class ClaveAutorizacion
         '
         'TbClave
         '
-        Me.TbClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbClave.Location = New System.Drawing.Point(212, 99)
+        Me.TbClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbClave.Location = New System.Drawing.Point(232, 103)
         Me.TbClave.MaxLength = 4
         Me.TbClave.Name = "TbClave"
-        Me.TbClave.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TbClave.Size = New System.Drawing.Size(219, 49)
+        Me.TbClave.ReadOnly = True
+        Me.TbClave.Size = New System.Drawing.Size(219, 80)
         Me.TbClave.TabIndex = 5
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(82, 102)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 106)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(124, 42)
+        Me.Label2.Size = New System.Drawing.Size(214, 73)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Clave:"
         '
         'BtActualizarClave
         '
-        Me.BtActualizarClave.Location = New System.Drawing.Point(437, 118)
+        Me.BtActualizarClave.Location = New System.Drawing.Point(457, 153)
         Me.BtActualizarClave.Name = "BtActualizarClave"
         Me.BtActualizarClave.Size = New System.Drawing.Size(35, 30)
         Me.BtActualizarClave.TabIndex = 6
@@ -67,7 +67,8 @@ Partial Class ClaveAutorizacion
         Me.MaximumSize = New System.Drawing.Size(551, 335)
         Me.MinimumSize = New System.Drawing.Size(551, 335)
         Me.Name = "ClaveAutorizacion"
-        Me.Text = "ClaveAutorizacion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Clave de Autorizacion"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

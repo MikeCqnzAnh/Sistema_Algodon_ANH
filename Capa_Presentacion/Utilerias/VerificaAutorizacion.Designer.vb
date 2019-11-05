@@ -23,7 +23,6 @@ Partial Class VerificaAutorizacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.BtCancelar = New System.Windows.Forms.Button()
-        Me.BtActualizarClave = New System.Windows.Forms.Button()
         Me.BtAccesar = New System.Windows.Forms.Button()
         Me.TbClave = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -31,25 +30,16 @@ Partial Class VerificaAutorizacion
         '
         'BtCancelar
         '
-        Me.BtCancelar.Location = New System.Drawing.Point(285, 179)
+        Me.BtCancelar.Location = New System.Drawing.Point(346, 180)
         Me.BtCancelar.Name = "BtCancelar"
         Me.BtCancelar.Size = New System.Drawing.Size(75, 23)
         Me.BtCancelar.TabIndex = 12
         Me.BtCancelar.Text = "Cancelar"
         Me.BtCancelar.UseVisualStyleBackColor = True
         '
-        'BtActualizarClave
-        '
-        Me.BtActualizarClave.Location = New System.Drawing.Point(427, 113)
-        Me.BtActualizarClave.Name = "BtActualizarClave"
-        Me.BtActualizarClave.Size = New System.Drawing.Size(35, 30)
-        Me.BtActualizarClave.TabIndex = 10
-        Me.BtActualizarClave.Text = "..."
-        Me.BtActualizarClave.UseVisualStyleBackColor = True
-        '
         'BtAccesar
         '
-        Me.BtAccesar.Location = New System.Drawing.Point(192, 179)
+        Me.BtAccesar.Location = New System.Drawing.Point(253, 180)
         Me.BtAccesar.Name = "BtAccesar"
         Me.BtAccesar.Size = New System.Drawing.Size(75, 23)
         Me.BtAccesar.TabIndex = 11
@@ -82,7 +72,6 @@ Partial Class VerificaAutorizacion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(535, 296)
         Me.Controls.Add(Me.BtCancelar)
-        Me.Controls.Add(Me.BtActualizarClave)
         Me.Controls.Add(Me.BtAccesar)
         Me.Controls.Add(Me.TbClave)
         Me.Controls.Add(Me.Label2)
@@ -96,7 +85,6 @@ Partial Class VerificaAutorizacion
     End Sub
 
     Friend WithEvents BtCancelar As Button
-    Friend WithEvents BtActualizarClave As Button
     Friend WithEvents BtAccesar As Button
     Friend WithEvents TbClave As TextBox
     Friend WithEvents Label2 As Label
