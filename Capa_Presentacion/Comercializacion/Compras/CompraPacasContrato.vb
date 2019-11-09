@@ -44,6 +44,7 @@ Public Class CompraPacasContrato
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
         ElseIf DgvPacasIndCompradas.RowCount > 0 Then
             GuardarCompraEnc()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
             filtraPacasClases()
             VarGlob2.IdProductor = TbIdProductor.Text
             VarGlob2.NombreProductor = TbNombreProductor.Text

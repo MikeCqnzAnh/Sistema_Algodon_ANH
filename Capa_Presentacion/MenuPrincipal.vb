@@ -279,7 +279,7 @@ Public Class MenuPrincipal
         PaquetesHVI.ShowDialog()
     End Sub
     Private Sub PaquetesParaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaToolStripMenuItem.Click
-        ClasificacionVentaPaquetes.ShowDialog()
+        VentaClasificacion.ShowDialog()
     End Sub
     Private Sub ClasificaciónDePacasConArchivoExcelToolStripMenuItem_Click(sender As Object, e As EventArgs)
         ClasificacionPacasExcel.ShowDialog()
@@ -384,6 +384,14 @@ Public Class MenuPrincipal
 
     Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         ClaveAutorizacion.ShowDialog()
+    End Sub
+
+    Private Sub PaquetesParaVentaPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaPorRangosToolStripMenuItem.Click
+        VentaClasificacion.ShowDialog()
+    End Sub
+
+    Private Sub PacasFaltantesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasFaltantesToolStripMenuItem.Click
+        RepPacasFaltantes.ShowDialog()
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click

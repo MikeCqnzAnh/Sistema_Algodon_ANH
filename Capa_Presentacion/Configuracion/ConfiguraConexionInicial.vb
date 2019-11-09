@@ -45,7 +45,7 @@ Public Class ConfiguraConexionInicial
                     fs = File.Create(Ruta & archivo)
                     fs.Close()
                     BtnSobreescribir_Click()
-                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
                     Close()
                 Else
 
@@ -56,7 +56,7 @@ Public Class ConfiguraConexionInicial
                     fs = File.Create(Ruta & archivo)
                     fs.Close()
                     BtnSobreescribir_Click()
-                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+                    'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
                     Close()
                 End If
 

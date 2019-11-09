@@ -11,5 +11,7 @@
     Public CheckStatus As Boolean
     Public IdPaquete As Integer
     Public IdPlanta As Integer
+    Public PacaInicial As Integer
+    Public PacaFinal As Integer
     '------------------------------
 End Class

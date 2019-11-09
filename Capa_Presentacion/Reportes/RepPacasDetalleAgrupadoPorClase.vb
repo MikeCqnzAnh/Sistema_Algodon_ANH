@@ -13,15 +13,25 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class RepPacasDetalleAgrupadoPorClase
     Private Sub RepPacasDetalleAgrupadoPorClase_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Limpiar()
         CargaCombos()
+    End Sub
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        Limpiar()
     End Sub
     Private Sub BtDetallado_Click(sender As Object, e As EventArgs) Handles BtDetallado.Click
 
     End Sub
     Private Sub Limpiar()
+
         CbPlantaDestino.SelectedIndex = -1
         CbPlantaOrigen.SelectedIndex = -1
         TbIdCliente.Text = ""
+        TbNombreCliente.Text = ""
+        CbOrdenProduccion.DataSource = Nothing
+        CbOrdenProduccion.Items.Clear()
+        CbClases.SelectedIndex = -1
+
     End Sub
     Private Sub BtConsultaCliente_Click(sender As Object, e As EventArgs) Handles BtConsultaCliente.Click
         ConsultarClienteBoton()
@@ -128,22 +138,20 @@ Public Class RepPacasDetalleAgrupadoPorClase
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
         Dim Tabla As New DataTable
         'ConsultaClientes.ShowDialog()
-        EntidadOrdenTrabajo.IdProductor = TbIdCliente.Text
-        EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrdenesDeTrabajo
-        NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
-        Tabla = EntidadOrdenTrabajo.TablaConsulta
-        CbOrdenProduccion.DataSource = Tabla
-        CbOrdenProduccion.DataSource = Tabla
-        CbOrdenProduccion.ValueMember = "IdOrdenTrabajo"
-        CbOrdenProduccion.DisplayMember = "IdOrdenTrabajo"
-        CbOrdenProduccion.SelectedValue = 0
+        If TbIdCliente.Text <> "" Then
+            EntidadOrdenTrabajo.IdProductor = TbIdCliente.Text
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrdenesDeTrabajo
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            Tabla = EntidadOrdenTrabajo.TablaConsulta
+            CbOrdenProduccion.DataSource = Tabla
+            CbOrdenProduccion.DataSource = Tabla
+            CbOrdenProduccion.ValueMember = "IdOrdenTrabajo"
+            CbOrdenProduccion.DisplayMember = "IdOrdenTrabajo"
+            CbOrdenProduccion.SelectedValue = 0
+        End If
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
-    End Sub
-
-    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
-
     End Sub
 End Class

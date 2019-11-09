@@ -23,7 +23,7 @@ Partial Class VerificaAutorizacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.BtCancelar = New System.Windows.Forms.Button()
-        Me.BtAccesar = New System.Windows.Forms.Button()
+        Me.BtAceptar = New System.Windows.Forms.Button()
         Me.TbClave = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -37,14 +37,14 @@ Partial Class VerificaAutorizacion
         Me.BtCancelar.Text = "Cancelar"
         Me.BtCancelar.UseVisualStyleBackColor = True
         '
-        'BtAccesar
+        'BtAceptar
         '
-        Me.BtAccesar.Location = New System.Drawing.Point(253, 180)
-        Me.BtAccesar.Name = "BtAccesar"
-        Me.BtAccesar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAccesar.TabIndex = 11
-        Me.BtAccesar.Text = "Accesar"
-        Me.BtAccesar.UseVisualStyleBackColor = True
+        Me.BtAceptar.Location = New System.Drawing.Point(253, 180)
+        Me.BtAceptar.Name = "BtAceptar"
+        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtAceptar.TabIndex = 11
+        Me.BtAceptar.Text = "Aceptar"
+        Me.BtAceptar.UseVisualStyleBackColor = True
         '
         'TbClave
         '
@@ -72,12 +72,13 @@ Partial Class VerificaAutorizacion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(535, 296)
         Me.Controls.Add(Me.BtCancelar)
-        Me.Controls.Add(Me.BtAccesar)
+        Me.Controls.Add(Me.BtAceptar)
         Me.Controls.Add(Me.TbClave)
         Me.Controls.Add(Me.Label2)
         Me.MaximumSize = New System.Drawing.Size(551, 335)
         Me.MinimumSize = New System.Drawing.Size(551, 335)
         Me.Name = "VerificaAutorizacion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "VerificaAutorizacion"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -85,7 +86,7 @@ Partial Class VerificaAutorizacion
     End Sub
 
     Friend WithEvents BtCancelar As Button
-    Friend WithEvents BtAccesar As Button
+    Friend WithEvents BtAceptar As Button
     Friend WithEvents TbClave As TextBox
     Friend WithEvents Label2 As Label
 End Class

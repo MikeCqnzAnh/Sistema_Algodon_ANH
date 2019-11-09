@@ -172,6 +172,12 @@
     <Compile Include="Almacenes\SalidaSemilla.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.Designer.vb">
+      <DependentUpon>VentaClasificacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
     <Compile Include="CambiarClave.Designer.vb">
       <DependentUpon>CambiarClave.vb</DependentUpon>
@@ -374,6 +380,12 @@
     <Compile Include="Reportes\RepPacasDetalleAgrupadoPorClase.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPacasFaltantes.Designer.vb">
+      <DependentUpon>RepPacasFaltantes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPacasFaltantes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPacasPorLotes.Designer.vb">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
     </Compile>
@@ -438,6 +450,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTPacasDetallado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPacasFaltantes.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPacasFaltantes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTPacasPorLotes.vb">
@@ -918,6 +936,9 @@
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Clasificacion\VentaClasificacion.resx">
+      <DependentUpon>VentaClasificacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
     </EmbeddedResource>
@@ -938,6 +959,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasDetalleAgrupadoPorClase.resx">
       <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPacasFaltantes.resx">
+      <DependentUpon>RepPacasFaltantes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasPorLotes.resx">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
@@ -981,6 +1005,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTPacasDetallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasDetallado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPacasFaltantes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPacasFaltantes.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPacasPorLotes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

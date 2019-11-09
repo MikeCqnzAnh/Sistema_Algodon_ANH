@@ -128,13 +128,15 @@ Public Class LiquidacionesPorRomaneaje
                     Exit Sub
                 End If
             Next
-            VerificarBoletasTerminadas()
-            If Bandera = False Then
-                MsgBox("Revisar las pacas y los pesos, registros incompletos, o no se encuentran registros para esta orden", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
-                Exit Sub
-            Else
-                Guardar()
-            End If
+            Guardar()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+            'VerificarBoletasTerminadas()
+            'If Bandera = False Then
+            '    MsgBox("Revisar las pacas y los pesos, registros incompletos, o no se encuentran registros para esta orden", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            '    Exit Sub
+            'Else
+
+            'End If
         End If
     End Sub
 
@@ -203,7 +205,7 @@ Public Class LiquidacionesPorRomaneaje
     End Sub
 
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
-        If TbIdOrden.Text <> "" Then
+        If TbIdOrden.Text <> "" And TbIdLiquidacion.Text <> "" Then
             Dim ReporteLiquidacionRomaneaje As New RepLiquidacionRomaneaje(TbIdOrden.Text, ChClaseMicros.CheckState)
             ReporteLiquidacionRomaneaje.ShowDialog()
         Else

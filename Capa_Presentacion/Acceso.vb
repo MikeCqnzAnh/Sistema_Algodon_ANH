@@ -17,7 +17,7 @@ Public Class Acceso
         Dim PasswordDB As String
         Dim Instancia As String
         Dim DataBase As String
-        Dim DatabasePerfiles As String
+        Dim DataBasePerfiles As String
         Dim ccnppl As String
         Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
         Dim archivo As String = "cnn.ini"

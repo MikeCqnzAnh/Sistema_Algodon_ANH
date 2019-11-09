@@ -291,9 +291,9 @@ Public Class ClasificacionVentaPaquetes
                     ElseIf ExistePacaPaquete(TbNoPaca.Text) = True And TbIdPaquete.Text <> IdPaqueteEncabezadoVerifica Then
                         Dim result As Integer = MessageBox.Show("Paca " & TbNoPaca.Text & " existe en paquete " & IdPaqueteEncabezadoVerifica & "  ¿Desea moverla a paquete " & TbIdPaquete.Text & " actual?", "Aviso", MessageBoxButtons.YesNo)
                         If result = DialogResult.Yes Then
-                            ActualizaPaca()
+                            'ActualizaPaca()
                             InsertaPaca()
-                            Guardar()
+                            'Guardar()
                             ' MessageBox.Show("El paquete ha sido actualizado!")
                             TbNoPaca.Text = ""
                         ElseIf result = DialogResult.No Then
@@ -304,7 +304,7 @@ Public Class ClasificacionVentaPaquetes
                         TbNoPaca.Text = ""
                     Else
                         InsertaPaca()
-                        Guardar()
+                        'Guardar()
                         TbNoPaca.Text = ""
                     End If
                 Else
@@ -384,7 +384,7 @@ Public Class ClasificacionVentaPaquetes
         End If
         DgvPacasClasificacion1.Sort(DgvPacasClasificacion1.Columns("BaleID"), System.ComponentModel.ListSortDirection.Descending)
         ContarPacas()
-        IdentificaColor()
+        'IdentificaColor()
         GeneraPromedioUI()
     End Sub
     Private Sub IgualaClases()
@@ -872,6 +872,7 @@ Public Class ClasificacionVentaPaquetes
         Dim dt As New DataTable
         Dim r As DataRow
 
+        dt.Columns.Clear()
         dt.Columns.Add("LotID", Type.GetType("System.Int32"))
         dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
         dt.Columns.Add("SCI", Type.GetType("System.Single"))
@@ -946,21 +947,21 @@ Public Class ClasificacionVentaPaquetes
                 If opc = DialogResult.Yes Then
                     IO.Directory.CreateDirectory(RutaCarpeta)
                     File.Copy(RutaPlantilla, RutaCopiar, True)
-                    ExportarExcel(RutaCopiar)
+                    ExportarAccess(RutaCopiar)
                 ElseIf opc = DialogResult.No Then
 
                 End If
             Else
                 IO.Directory.CreateDirectory(RutaCarpeta)
                 File.Copy(RutaPlantilla, RutaCopiar, True)
-                ExportarExcel(RutaCopiar)
+                ExportarAccess(RutaCopiar)
             End If
         Else
             MsgBox("No hay registros para exportar.")
         End If
         'Dim RutaPlantilla As String = Application.StartupPath & "\Reportes\RPT\BaseHVI.mdb"
     End Sub
-    Private Sub ExportarExcel(ByVal RutaCopiar As String)
+    Private Sub ExportarAccess(ByVal RutaCopiar As String)
         ':::Declaramos nuestra variable Sql que almacenara nuestra consuta
         Dim Sql As String = ""
         Dim Con3 As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source =" & RutaCopiar & "")
@@ -1046,6 +1047,10 @@ Public Class ClasificacionVentaPaquetes
         Else
             MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+
+    Private Sub ArchivoExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoExcelToolStripMenuItem.Click
+
     End Sub
 
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbNoPaca.KeyPress, TbIdPaquete.KeyPress

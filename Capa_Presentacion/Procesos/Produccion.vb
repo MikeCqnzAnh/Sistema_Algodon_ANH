@@ -97,6 +97,7 @@ Public Class Produccion
     Private Sub Limpiar()
         TbIdProduccion.Text = ""
         TbIdOrdenTrabajo.Text = ""
+        TbIdOrdenTrabajo.Enabled = True
         TbTotalPacas.Text = ""
         CBPlantaDestino.SelectedValue = 1
         CbTipo.SelectedValue = 1
@@ -256,6 +257,7 @@ Public Class Produccion
                         BtAbrirProduccion.Enabled = True
                         BtCerrarProduccion.Enabled = False
                         TbFolioInicial.Enabled = True
+                        TbIdOrdenTrabajo.Enabled = False
                         If TbIdProduccion.Text <> "" Then
                             Consultar()
                         End If

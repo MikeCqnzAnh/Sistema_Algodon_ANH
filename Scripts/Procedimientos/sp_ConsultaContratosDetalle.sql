@@ -1,7 +1,7 @@
---CREATE procedure sp_ConsultaContratosDetalle
-declare
-@IdContratoAlgodon int = 1
---as
+CREATE procedure sp_ConsultaContratosDetalle
+--declare
+@IdContratoAlgodon int 
+as
 Declare @Lotes VARCHAR(100)
 SELECT @Lotes = COALESCE(@Lotes + ', ', '') + Lote FROM [dbo].[ContratoCompraDetalle] a, [dbo].[Tierras] b,[dbo].[ContratoCompra] c where a.IdLote = b.IdTierra and a.IdContratoAlgodon = c.IdContratoAlgodon and a.IdContratoAlgodon = @IdContratoAlgodon
 select a.IdContratoAlgodon,
@@ -9,11 +9,11 @@ select a.IdContratoAlgodon,
        b.Nombre,
 	   b.RfcApoderado,
 	   b.Rfc,
-	   c.IdAsociacion,
-	   c.Descripcion,
+	   isnull(c.IdAsociacion,0) as IdAsociacion,
+	   isnull(c.Descripcion,'') as Descripcion,
 	   a.Pacas,
 	   a.SuperficieComprometida,
-	   @Lotes as Lotes,
+	   isnull(@Lotes,'') as Lotes,
 	   a.PrecioQuintal,
 	   a.Puntos,
 	   a.FechaLiquidacion,
@@ -31,12 +31,8 @@ select a.IdContratoAlgodon,
 	   a.PrecioGO,
 	   a.PrecioO,
 	   a.IdEstatus
-from [dbo].[ContratoCompra] a,
-	 [dbo].[Clientes] b,
-     [dbo].[Asociaciones] c
-	 --[dbo].[ContratoCompraDetalle] d,
-	 --[dbo].[Tierras] e
-where a.IdProductor = b.IdCliente
-and   b.IdCuentaDe = c.IdAsociacion
-and   a.IdContratoAlgodon = @IdContratoAlgodon
+from [dbo].[ContratoCompra] a inner join  [dbo].[Clientes] b on a.IdProductor = b.IdCliente
+							  left join  [dbo].[Asociaciones] c on b.IdCuentaDe = c.IdAsociacion
+	
+where a.IdContratoAlgodon = @IdContratoAlgodon
 and   a.IdEstatus = 1

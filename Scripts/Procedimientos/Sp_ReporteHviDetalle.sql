@@ -1,11 +1,12 @@
-CREATE Procedure Sp_ReporteHviDetalle
+Create Procedure Sp_ReporteHviDetalle
+--declare
 @IdPaquete int,
-@IdPlantaOrigen int
+@IdPlantaOrigen int 
 as
 select   b.IdPaquete
         ,b.IdPlanta
-	    ,b.IdComprador
-		,d.Nombre
+	    ,isnull(b.IdComprador,0) as IdComprador
+		,isnull(d.Nombre,'') as Nombre
 	    ,b.Descripcion
 	    ,b.CantidadPacas
 		,a.[BaleID]
@@ -42,6 +43,7 @@ from CalculoClasificacion a inner join PaqueteEncabezado b
 						 on a.IdPaqueteEncabezado = b.IdPaquete and a.IdPlantaOrigen = b.IdPlanta
 						 inner join ClasesClasificacion c 
 						 on b.IdClase = c.idClasificacion
-							inner join Compradores d 
+							left join Compradores d 
 						 on b.idComprador = d.IdComprador
 where b.IdPaquete = @IdPaquete and b.IdPlanta = @IdPlantaOrigen
+order by a.[BaleID]

@@ -14,7 +14,7 @@
         Dim Tabla As New DataTable
         Dim Resultado As Boolean = False
         EntidadAcceso.Usuario = Usuario
-        EntidadAcceso.BaseDeDatos = "Perfiles"
+        EntidadAcceso.BaseDeDatosPerfiles = "Perfiles"
         EntidadAcceso.Consulta = Consulta.ConsultaClaveAutorizacion
         NegocioAcceso.ConsultarPerfiles(EntidadAcceso)
         Tabla = EntidadAcceso.TablaConsulta
@@ -27,7 +27,7 @@
         Dim Tabla As New DataTable
         Dim Resultado As Boolean = False
         EntidadAcceso.Usuario = Usuario
-        EntidadAcceso.BaseDeDatos = "Perfiles"
+        EntidadAcceso.BaseDeDatosPerfiles = "Perfiles"
         EntidadAcceso.Actualiza = Actuliza.ActualizaClaveAutorizacion
         NegocioAcceso.ActualizaPerfiles(EntidadAcceso)
     End Sub

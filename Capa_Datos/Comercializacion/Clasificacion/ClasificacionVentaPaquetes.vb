@@ -269,6 +269,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
+                    sqlcom1.Parameters.Add(New SqlParameter("@BaleID", EntidadClasificacionVentaPaquetes.BaleID))
                     sqlcom1.ExecuteNonQuery()
             End Select
 
@@ -280,3 +281,4 @@ Public Class ClasificacionVentaPaquetes
         End Try
     End Sub
 End Class
+

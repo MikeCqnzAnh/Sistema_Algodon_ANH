@@ -20,4 +20,5 @@ Public Class Tarjeta
     Public Property FechaActualizacion As DateTime
     Public Property DescripcionConsulta As String
     Public Property BaseDeDatos As String
+    Public Property BaseDeDatosPerfiles As String
 End Class

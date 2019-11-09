@@ -136,6 +136,7 @@ Partial Class MenuPrincipal
         Me.UtileriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -148,7 +149,6 @@ Partial Class MenuPrincipal
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -182,7 +182,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1029, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(1215, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -989,6 +989,13 @@ Partial Class MenuPrincipal
         Me.BorrarPacasToolStripMenuItem.Tag = "109,107"
         Me.BorrarPacasToolStripMenuItem.Text = "Borrar Pacas"
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(394, 24)
+        Me.ToolStripMenuItem1.Tag = "240,107"
+        Me.ToolStripMenuItem1.Text = "Clave Autorizacion"
+        '
         'CambioDePerfilDePacasToolStripMenuItem
         '
         Me.CambioDePerfilDePacasToolStripMenuItem.Name = "CambioDePerfilDePacasToolStripMenuItem"
@@ -1074,13 +1081,6 @@ Partial Class MenuPrincipal
         Me.RolesToolStripMenuItem.Tag = "121,107"
         Me.RolesToolStripMenuItem.Text = "Roles"
         '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(394, 24)
-        Me.ToolStripMenuItem1.Tag = "240,107"
-        Me.ToolStripMenuItem1.Text = "Clave Autorizacion"
-        '
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
@@ -1149,10 +1149,10 @@ Partial Class MenuPrincipal
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
-        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 617)
+        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 628)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(1029, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(1215, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1165,26 +1165,26 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(96, 17)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(95, 17)
         Me.ToolStripStatusLabel2.Text = ": BASE DE DATOS"
         '
         'ToolStripStatusLabel1
         '
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(94, 17)
-        Me.ToolStripStatusLabel1.Text = "|                           |"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(67, 17)
+        Me.ToolStripStatusLabel1.Text = "|                  |"
         '
         'SbTipoUsuario
         '
         Me.SbTipoUsuario.Name = "SbTipoUsuario"
-        Me.SbTipoUsuario.Size = New System.Drawing.Size(74, 17)
+        Me.SbTipoUsuario.Size = New System.Drawing.Size(73, 17)
         Me.SbTipoUsuario.Text = "Tipo Usuario"
         '
         'TsSeparador
         '
         Me.TsSeparador.Name = "TsSeparador"
-        Me.TsSeparador.Size = New System.Drawing.Size(94, 17)
-        Me.TsSeparador.Text = "|                           |"
+        Me.TsSeparador.Size = New System.Drawing.Size(70, 17)
+        Me.TsSeparador.Text = "|                   |"
         '
         'SbNombreUsuario
         '
@@ -1209,9 +1209,8 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(301, 17)
-        Me.ToolStripStatusLabel3.Text = "|                                                                                " &
-    "                |"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(241, 17)
+        Me.ToolStripStatusLabel3.Text = "|                                                                            |"
         '
         'TsPrecioDolar
         '
@@ -1222,7 +1221,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel5
         '
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(114, 17)
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
         'MenuPrincipal
@@ -1232,7 +1231,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(1029, 639)
+        Me.ClientSize = New System.Drawing.Size(1215, 650)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True

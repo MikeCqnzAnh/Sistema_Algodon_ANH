@@ -159,4 +159,8 @@ Public Class OrdenTrabajo
     Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
         ConsultaCliente()
     End Sub
+
+    Private Sub DgvCapturaLotes_DoubleClick(sender As Object, e As EventArgs) Handles DgvCapturaLotes.DoubleClick
+
+    End Sub
 End Class

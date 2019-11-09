@@ -5,6 +5,7 @@
     Public TrashId As Integer
     Public LotID As Integer
     Public GradoColor As String
+    Public BaleID As Integer
     '------
     Public IdPaquete As Integer
     Public IdComprador As Integer

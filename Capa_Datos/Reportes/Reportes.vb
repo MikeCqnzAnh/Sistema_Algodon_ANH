@@ -81,6 +81,15 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdClase", EntidadReportes1.IdClase))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenProduccion", EntidadReportes1.IdOrdenProduccion))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReportePacasFaltantes
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPacasFaltantes", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@RangoInicial", EntidadReportes1.PacaInicial))
+                    sqlcom1.Parameters.Add(New SqlParameter("@RangoFinal", EntidadReportes1.PacaFinal))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex)

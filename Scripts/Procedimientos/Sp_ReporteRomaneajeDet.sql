@@ -1,32 +1,38 @@
 Create Procedure Sp_ReporteRomaneajeDet
-@IdOrdenTrabajo as int,
-@CheckStatus as bit
+--declare
+@IdOrdenTrabajo as int ,
+@CheckStatus as bit 
 as
 select pd.IdOrdenTrabajo
 	  ,pd.IdPlantaOrigen
 	  ,pd.FolioCIA as EtiquetaPaca
 	  ,pd.kilos 
-	  ,cc.Temperature
-	  ,cc.Humidity
-	  ,cc.Amount
-	  ,cc.UHML
-	  ,cc.UI
-	  ,cc.Strength
-	  ,cc.Elongation
-	  ,cc.SFI
-	  ,cc.Maturity
-	  ,cc.Grade
-	  ,cc.Moist
-	  ,cc.Mic
-	  ,cc.Rd
-	  ,cc.Plusb
-	  ,cc.ColorGrade
-	  ,cc.TrashCount
-	  ,cc.TrashArea
-	  ,cc.TrashID
-	  ,cc.SCI
-	  ,cc.Nep
-	  ,cc.UV
+	  ,HD.Temperature
+	  ,HD.Humidity
+	  ,HD.Amount
+	  ,HD.UHML
+	  ,HD.UI
+	  ,HD.Strength
+	  ,HD.Elongation
+	  ,HD.SFI
+	  ,HD.Maturity
+	  ,isnull(CC.CLAVECORTA,'S/C') AS Grade
+	  ,HD.Moist
+	  ,HD.Mic
+	  ,HD.Rd
+	  ,HD.Plusb
+	  ,HD.ColorGrade
+	  ,HD.TrashCount
+	  ,HD.TrashArea
+	  ,HD.TrashID
+	  ,HD.SCI
+	  ,HD.Nep
+	  ,HD.UV
 	  ,@CheckStatus as CheckStatus
-from  ProduccionDetalle pd inner join CalculoClasificacion cc on pd.IdOrdenTrabajo = cc.IdOrdenTrabajo and pd.FolioCIA = cc.BaleID
+FROM HVIDetalle HD right JOIN PRODUCCIONDETALLE PD ON HD.BALEID = PD.FolioCIA AND HD.IdPlanta = PD.IdPlantaOrigen
+							left join Produccion Pr on pd.idproduccion = pr.idproduccion
+							left join clientes cl on pr.IdCliente = cl.IdCliente
+							left join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
+							left join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
 where pd.IdOrdenTrabajo = @IdOrdenTrabajo
+		

@@ -44,6 +44,12 @@ Module CargaBitacora
                 Case "Eliminar Pacas Seleccionadas"
                     operacion = "ELIMINAR PACA."
                     observaciones = "EL USUARIO " & Usuario & " ELIMINO LA PACA CON EL FOLIO " & IdAdicional & " CON PESO DE " & ReferenciaAdicional & "."
+                Case "Eliminar Pacas Clasificacion"
+                    operacion = "ELIMINAR PACA."
+                    observaciones = "EL USUARIO " & Usuario & " ELIMINO LA PACA CON EL FOLIO " & IdAdicional & " CON LAS SIGUIENTES CARACTERISTICAS :  " & ReferenciaAdicional & "."
+                Case "Modificar"
+                    operacion = "MODIFICAR REGISTRO"
+                    observaciones = "EL USUARIO " & Usuario & " MODIFICO EL PAQUETE " & IdAdicional & "."
             End Select
             InsertaBitacora(Modulo, Opcion, operacion, observaciones, BaseDeDatos)
         Catch ex As Exception

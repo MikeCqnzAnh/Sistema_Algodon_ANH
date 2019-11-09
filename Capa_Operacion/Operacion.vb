@@ -47,6 +47,7 @@ Namespace Configuracion
         ReporteLotesPorModulo = 7
         ReportePacasPorLote = 8
         ReportePacasDetalleAgrupadoPorClase = 9
+        ReportePacasFaltantes = 10
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

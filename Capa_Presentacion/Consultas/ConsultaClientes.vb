@@ -10,28 +10,8 @@ Public Class ConsultaClientes
         End Set
     End Property
     Private Sub ConsultaClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'LlenarCombos()
         ConsultarClientes()
     End Sub
-
-    'Private Sub LlenarCombos()
-    '    Dim tabla1 As New DataTable
-    '    Dim EntidadClientes As New Capa_Entidad.Clientes
-    '    Dim NegocioClientes As New Capa_Negocio.Clientes
-    '    EntidadClientes.Consulta = Consulta.ConsultaTipoPersona
-    '    NegocioClientes.Consultar(EntidadClientes)
-    '    tabla1 = EntidadClientes.TablaConsulta
-    '    Dim dr As DataRow
-    '    dr = tabla1.NewRow()
-    '    dr("IdTipoPersona") = "3"
-    '    dr("Descripcion") = "Todos"
-    '    tabla1.Rows.Add(dr)
-    '    CbTIpoPersona.DataSource = tabla1
-    '    CbTIpoPersona.ValueMember = "IdTipoPersona"
-    '    CbTIpoPersona.DisplayMember = "Descripcion"
-    '    CbTIpoPersona.SelectedValue = 3
-    'End Sub
-
     Private Sub ConsultarClientes()
         Dim tabla2 As New DataTable
         Dim EntidadClientes As New Capa_Entidad.Clientes
@@ -58,4 +38,9 @@ Public Class ConsultaClientes
         End If
     End Sub
 
+    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ConsultarClientes()
+        End If
+    End Sub
 End Class

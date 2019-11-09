@@ -48,6 +48,8 @@ Partial Class RepLiquidacionRomaneaje
         Me.ClientSize = New System.Drawing.Size(912, 471)
         Me.Controls.Add(Me.CRVLiquidacionRomanea)
         Me.Name = "RepLiquidacionRomaneaje"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
