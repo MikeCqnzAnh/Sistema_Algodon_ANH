@@ -64,6 +64,8 @@ Partial Class CompraPago
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TbCastigoxUI = New System.Windows.Forms.TextBox()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
         Me.MSMenu.SuspendLayout()
@@ -152,7 +154,7 @@ Partial Class CompraPago
         Me.DgvResumenPagoPacas.RowHeadersVisible = False
         Me.DgvResumenPagoPacas.RowHeadersWidth = 40
         Me.DgvResumenPagoPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(1100, 338)
+        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(1100, 326)
         Me.DgvResumenPagoPacas.TabIndex = 13
         '
         'Label4
@@ -255,9 +257,9 @@ Partial Class CompraPago
         Me.GbPagoFinal.Controls.Add(Me.Label8)
         Me.GbPagoFinal.Controls.Add(Me.TbSumaCastigo)
         Me.GbPagoFinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPagoFinal.Location = New System.Drawing.Point(7, 427)
+        Me.GbPagoFinal.Location = New System.Drawing.Point(7, 415)
         Me.GbPagoFinal.Name = "GbPagoFinal"
-        Me.GbPagoFinal.Size = New System.Drawing.Size(1100, 183)
+        Me.GbPagoFinal.Size = New System.Drawing.Size(1100, 195)
         Me.GbPagoFinal.TabIndex = 28
         Me.GbPagoFinal.TabStop = False
         Me.GbPagoFinal.Text = "Resumen de la compra"
@@ -370,12 +372,14 @@ Partial Class CompraPago
         Me.GbCastigos.Controls.Add(Me.Label14)
         Me.GbCastigos.Controls.Add(Me.TbCastigoxlargo)
         Me.GbCastigos.Controls.Add(Me.Label13)
+        Me.GbCastigos.Controls.Add(Me.TbCastigoxUI)
         Me.GbCastigos.Controls.Add(Me.TbCastigoxmicro)
+        Me.GbCastigos.Controls.Add(Me.Label6)
         Me.GbCastigos.Controls.Add(Me.Label12)
         Me.GbCastigos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbCastigos.Location = New System.Drawing.Point(1113, 427)
+        Me.GbCastigos.Location = New System.Drawing.Point(1113, 415)
         Me.GbCastigos.Name = "GbCastigos"
-        Me.GbCastigos.Size = New System.Drawing.Size(227, 183)
+        Me.GbCastigos.Size = New System.Drawing.Size(227, 195)
         Me.GbCastigos.TabIndex = 30
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Castigos"
@@ -383,7 +387,7 @@ Partial Class CompraPago
         'TbCastigoxresistencia
         '
         Me.TbCastigoxresistencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxresistencia.Location = New System.Drawing.Point(9, 131)
+        Me.TbCastigoxresistencia.Location = New System.Drawing.Point(9, 166)
         Me.TbCastigoxresistencia.Name = "TbCastigoxresistencia"
         Me.TbCastigoxresistencia.ReadOnly = True
         Me.TbCastigoxresistencia.Size = New System.Drawing.Size(212, 22)
@@ -394,7 +398,7 @@ Partial Class CompraPago
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(6, 115)
+        Me.Label14.Location = New System.Drawing.Point(6, 150)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(151, 13)
         Me.Label14.TabIndex = 4
@@ -403,7 +407,7 @@ Partial Class CompraPago
         'TbCastigoxlargo
         '
         Me.TbCastigoxlargo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxlargo.Location = New System.Drawing.Point(9, 86)
+        Me.TbCastigoxlargo.Location = New System.Drawing.Point(9, 121)
         Me.TbCastigoxlargo.Name = "TbCastigoxlargo"
         Me.TbCastigoxlargo.ReadOnly = True
         Me.TbCastigoxlargo.Size = New System.Drawing.Size(212, 22)
@@ -414,7 +418,7 @@ Partial Class CompraPago
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(6, 70)
+        Me.Label13.Location = New System.Drawing.Point(6, 105)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(124, 13)
         Me.Label13.TabIndex = 2
@@ -423,7 +427,7 @@ Partial Class CompraPago
         'TbCastigoxmicro
         '
         Me.TbCastigoxmicro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxmicro.Location = New System.Drawing.Point(9, 41)
+        Me.TbCastigoxmicro.Location = New System.Drawing.Point(9, 76)
         Me.TbCastigoxmicro.Name = "TbCastigoxmicro"
         Me.TbCastigoxmicro.ReadOnly = True
         Me.TbCastigoxmicro.Size = New System.Drawing.Size(212, 22)
@@ -434,7 +438,7 @@ Partial Class CompraPago
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(6, 25)
+        Me.Label12.Location = New System.Drawing.Point(6, 60)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(109, 15)
         Me.Label12.TabIndex = 0
@@ -450,7 +454,7 @@ Partial Class CompraPago
         Me.GbDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbDatosGenerales.Location = New System.Drawing.Point(1113, 83)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 338)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(227, 326)
         Me.GbDatosGenerales.TabIndex = 6
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -490,6 +494,26 @@ Partial Class CompraPago
         Me.Label16.Size = New System.Drawing.Size(72, 16)
         Me.Label16.TabIndex = 5
         Me.Label16.Text = "Id Contrato"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(6, 22)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(138, 15)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Castigo por uniformidad"
+        '
+        'TbCastigoxUI
+        '
+        Me.TbCastigoxUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbCastigoxUI.Location = New System.Drawing.Point(9, 38)
+        Me.TbCastigoxUI.Name = "TbCastigoxUI"
+        Me.TbCastigoxUI.ReadOnly = True
+        Me.TbCastigoxUI.Size = New System.Drawing.Size(212, 22)
+        Me.TbCastigoxUI.TabIndex = 1
+        Me.TbCastigoxUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CompraPago
         '
@@ -571,4 +595,6 @@ Partial Class CompraPago
     Friend WithEvents TbSumaCastigo As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents TbTotalDls As TextBox
+    Friend WithEvents TbCastigoxUI As TextBox
+    Friend WithEvents Label6 As Label
 End Class

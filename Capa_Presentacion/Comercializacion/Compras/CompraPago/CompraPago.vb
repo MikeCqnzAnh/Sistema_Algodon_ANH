@@ -9,7 +9,7 @@ Public Class CompraPago
         TbIdContrato.Text = VarGlob2.IdContrato
         DgvResumenPagoPacas.Columns.Clear()
         DgvResumenPagoPacas.DataSource = _Tabla
-        PropiedadesDgv()
+        'PropiedadesDgv()
         SumasTotales()
         ConsultaTipoCambio()
         TotalCompra()
@@ -40,7 +40,7 @@ Public Class CompraPago
     Private Sub TotalCompra()
         Dim SubTotal As Double = CDbl(TbSubtotal.Text)
         Dim TipoCambio As Double = CDbl(TbTipoCambio.Text)
-        Dim CastigoDls As Double = CDbl(TbCastigoxlargo.Text) + CDbl(TbCastigoxmicro.Text) + CDbl(TbCastigoxresistencia.Text)
+        Dim CastigoDls As Double = CDbl(TbCastigoxlargo.Text) + CDbl(TbCastigoxmicro.Text) + CDbl(TbCastigoxresistencia.Text) + CDbl(TbCastigoxUI.Text)
         Dim TotalDls As Double
         Dim AnticipoDls As Double = CDbl(TbAnticipoDlls.Text)
 
@@ -60,6 +60,7 @@ Public Class CompraPago
                 TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
                 TbTotalKilos.Text = Val(TbTotalKilos.Text + CDbl(row.Cells("Kilos").Value))
                 TbSubtotal.Text = Val(TbSubtotal.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
+                TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + CDbl(row.Cells("CastigoUniformidad").Value)
                 TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + CDbl(row.Cells("CastigoLargoFibra").Value)
                 TbCastigoxmicro.Text = Val(TbCastigoxmicro.Text) + CDbl(row.Cells("CastigoMicros").Value)
                 TbCastigoxresistencia.Text = Val(TbCastigoxresistencia.Text) + CDbl(row.Cells("CastigoResistenciaFibra").Value)

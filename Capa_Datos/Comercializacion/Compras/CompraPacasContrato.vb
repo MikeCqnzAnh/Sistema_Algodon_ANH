@@ -49,6 +49,7 @@ Public Class CompraPacasContrato
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdLiquidacion", MiTableRow("IdLiquidacion")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdCompraEnc", MiTableRow("IdCompraEnc")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDls", MiTableRow("PrecioDls")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@TipoCambio", MiTableRow("TipoCambio")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMxn", MiTableRow("PrecioMxn")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", MiTableRow("CastigoResistenciaFibra")))
