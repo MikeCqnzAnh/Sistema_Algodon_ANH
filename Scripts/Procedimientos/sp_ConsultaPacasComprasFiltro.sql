@@ -9,74 +9,94 @@ as
 if @Clase <> '' and @PacaIni > 0 and @PacaFin > 0
 begin 
 select pd.FolioCIA,
-	   cc.IdOrdenTrabajo,
-	   LR.IdLiquidacion,
+	   hvid.IdOrdenTrabajo,
+	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
-	   cc.BaleID,
+	   HviD.IdPlantaOrigen,
+	   hvid.BaleID,
 	   pd.Kilos,
-	   cc.Grade,
+	   Hvid.quintales,
+	   hvid.Grade,
+	   hvid.UI as Uniformidad,
+	   hvid.Mic as Micros,
+	   hvid.Strength as Resistencia,
+	   hvid.UHML as Largo,
 	   @Seleccionar as Seleccionar
-		from Produccion pr inner join ProduccionDetalle pd 
-		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
-		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
-		on pd.IdPlantaOrigen = Pl.IdPlanta
+		from Produccion pr inner join ProduccionDetalle pd on pr.IdProduccion = pd.IdProduccion 
+					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID 
+						   right join liquidacionesporromaneaje LR on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo 
+						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 
-		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra = 1 and
-			  cc.BaleID between @PacaIni and @PacaFin and cc.Grade = @Clase
+		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra = 1 and
+			  hvid.BaleID between @PacaIni and @PacaFin and hvid.Grade = @Clase
 end
 else if @Clase = '' and @PacaIni > 0 and @PacaFin > 0
 begin
 select pd.FolioCIA,
-	   cc.IdOrdenTrabajo,
-	   LR.IdLiquidacion,
+	   hvid.IdOrdenTrabajo,
+	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
-	   cc.BaleID,
+	   HviD.IdPlantaOrigen,
+	   hvid.BaleID,
 	   pd.Kilos,
-	   cc.Grade,
+	   Hvid.quintales,
+	   hvid.Grade,
+	   hvid.UI as Uniformidad,
+	   hvid.Mic as Micros,
+	   hvid.Strength as Resistencia,
+	   hvid.UHML as Largo,
 	   @Seleccionar as Seleccionar
-		from Produccion pr inner join ProduccionDetalle pd 
-		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
-		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
-		on pd.IdPlantaOrigen = Pl.IdPlanta
+		from Produccion pr inner join ProduccionDetalle pd on pr.IdProduccion = pd.IdProduccion 
+					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID 
+						   right join liquidacionesporromaneaje LR on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo 
+						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 
-		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra = 1 and
-			  cc.BaleID between @PacaIni and @PacaFin 
+		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra = 1 and
+			  hvid.BaleID between @PacaIni and @PacaFin 
 end
 else if @Clase <> '' and @PacaIni = 0 and @PacaFin = 0
 begin
-		select pd.FolioCIA,
-	   cc.IdOrdenTrabajo,
-	   LR.IdLiquidacion,
+select pd.FolioCIA,
+	   hvid.IdOrdenTrabajo,
+	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
-	   cc.BaleID,
+	   HviD.IdPlantaOrigen,
+	   hvid.BaleID,
 	   pd.Kilos,
-	   cc.Grade,
+	   Hvid.quintales,
+	   hvid.Grade,
+	   hvid.UI as Uniformidad,
+	   hvid.Mic as Micros,
+	   hvid.Strength as Resistencia,
+	   hvid.UHML as Largo,
 	   @Seleccionar as Seleccionar
-		from Produccion pr inner join ProduccionDetalle pd 
-		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
-		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
-		on pd.IdPlantaOrigen = Pl.IdPlanta
+		from Produccion pr inner join ProduccionDetalle pd on pr.IdProduccion = pd.IdProduccion 
+					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID 
+						   right join liquidacionesporromaneaje LR on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo 
+						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 
-		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra = 1 and cc.Grade = @Clase
+		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra = 1 and hvid.Grade = @Clase
 end
 else if @Clase = '' and @PacaIni = 0 and @PacaFin = 0
 begin
-		select pd.FolioCIA,
-	   cc.IdOrdenTrabajo,
-	   LR.IdLiquidacion,
+select pd.FolioCIA,
+	   hvid.IdOrdenTrabajo,
+	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
-	   cc.BaleID,
+	   HviD.IdPlantaOrigen,
+	   hvid.BaleID,
 	   pd.Kilos,
-	   cc.Grade,
+	   Hvid.quintales,
+	   hvid.Grade,
+	   hvid.UI as Uniformidad,
+	   hvid.Mic as Micros,
+	   hvid.Strength as Resistencia,
+	   hvid.UHML as Largo,
 	   @Seleccionar as Seleccionar
-		from Produccion pr inner join ProduccionDetalle pd 
-		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
-		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
-		on pd.IdPlantaOrigen = Pl.IdPlanta
+		from Produccion pr inner join ProduccionDetalle pd on pr.IdProduccion = pd.IdProduccion 
+					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID 
+						   right join liquidacionesporromaneaje LR on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo 
+						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 
-		where pr.IdCliente = @IdProductor and cc.FlagTerminado =1 and cc.EstatusCompra = 1
+		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra = 1
 end

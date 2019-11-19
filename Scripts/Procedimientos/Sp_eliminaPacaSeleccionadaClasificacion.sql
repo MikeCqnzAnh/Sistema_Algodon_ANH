@@ -1,5 +1,6 @@
 CREATE proc Sp_eliminaPacaSeleccionadaClasificacion
-@IdPaquete int
+@IdPaquete int,
+@BaleID int
 as
 delete CalculoClasificacion 
-where IdPaqueteEncabezado = @IdPaquete and Seleccion = 1
+where IdPaqueteEncabezado = @IdPaquete and baleid = @baleid

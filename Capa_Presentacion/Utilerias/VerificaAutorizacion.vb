@@ -1,6 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class VerificaAutorizacion
-    Private _VerificaAutorizacion As Boolean
+    Private _VerificaAutorizacion As Boolean = False
 
     Public Property VerificaAutorizacion() As Boolean
         Get
@@ -20,7 +20,7 @@ Public Class VerificaAutorizacion
         Dim EntidadAcceso As New Capa_Entidad.Acceso
         Dim NegocioAcceso As New Capa_Negocio.Acceso
         Dim Tabla As New DataTable
-        Dim Valor As Integer = TbClave.Text
+        Dim Valor As Integer = Val(TbClave.Text)
         EntidadAcceso.Usuario = Usuario
         'EntidadAcceso.BaseDeDatosPerfiles = "Perfiles"
         EntidadAcceso.Consulta = Consulta.ConsultaClaveAutorizacion
@@ -46,6 +46,11 @@ Public Class VerificaAutorizacion
     End Sub
     Private Sub BtAccesar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
         ConsultaClaveAutorizacion()
+        Me.Close()
+    End Sub
+
+    Private Sub BtCancelar_Click(sender As Object, e As EventArgs) Handles BtCancelar.Click
+        _VerificaAutorizacion = False
         Me.Close()
     End Sub
 End Class

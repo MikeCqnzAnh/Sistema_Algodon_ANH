@@ -29,7 +29,7 @@ Public Class PaquetesHVI
                     cmdGuardar.Parameters.Clear()
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdHviDet", 0))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdHviEnc", EntidadPaquetesHVI1.IdPaqueteHVI))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadPaquetesHVI1.IdPlanta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@LotID", MiTableRow("LotID")))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
@@ -65,7 +65,7 @@ Public Class PaquetesHVI
                     cmdGuardar.Parameters.Clear()
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdHviDet", 0))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdHviEnc", EntidadPaquetesHVI1.IdPaqueteHVI))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadPaquetesHVI1.IdPlanta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@LotID", MiTableRow("LotID")))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
@@ -96,9 +96,30 @@ Public Class PaquetesHVI
                 Next
             End If
         Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadPaquetesHVI = EntidadPaquetesHVI1
+        End Try
+    End Sub
+    Public Overridable Sub UpsertIdOrden(ByRef EntidadPaquetesHVI As Capa_Entidad.PaquetesHVI)
+        Dim EntidadPaquetesHVI1 As New Capa_Entidad.PaquetesHVI
+        EntidadPaquetesHVI1 = EntidadPaquetesHVI
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("Sp_ActualizaIdOrdenTrabajoPaqueteHVI", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", EntidadPaquetesHVI1.BaleID))
+            cmdGuardar.ExecuteNonQuery()
+        Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
+        Finally
+            cnn.Close()
         End Try
     End Sub
     Public Overridable Sub Consultar(ByRef EntidadPaquetesHVI As Capa_Entidad.PaquetesHVI)
@@ -134,6 +155,8 @@ Public Class PaquetesHVI
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
             End Select
         Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadPaquetesHVI = EntidadPaquetesHVI1

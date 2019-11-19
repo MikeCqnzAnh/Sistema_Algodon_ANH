@@ -180,12 +180,26 @@ Public Class PaquetesHVI
             EntidadPaquetesHVI.TablaGlobal = TablaPaquetesHVIGlobal
             NegocioPaquetesHVI.Guardar(EntidadPaquetesHVI)
             TbIdPaqueteHVI.Text = EntidadPaquetesHVI.IdPaqueteHVI
+            ObtieneOrdentrabajoPaca()
         Catch ex As Exception
             MsgBox(ex)
         Finally
             NumeroPacas = 0
             MsgBox("Guardado con exito!")
         End Try
+    End Sub
+    Private Sub ObtieneOrdentrabajoPaca()
+        If DgvPaquetesHVI.Rows.Count > 0 Then
+            For Each Fila As DataGridViewRow In DgvPaquetesHVI.Rows
+                If Not Fila Is Nothing Then
+                    Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
+                    Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+                    EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
+                    EntidadPaquetesHVI.BaleID = Fila.Cells("BaleID").Value
+                    NegocioPaquetesHVI.GuardarIdOrden(EntidadPaquetesHVI)
+                End If
+            Next
+        End If
     End Sub
     Private Sub ContarFilas()
         NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
@@ -211,7 +225,7 @@ Public Class PaquetesHVI
                         PropiedadesDGV()
                         'BtSeleccionar.Enabled = False
                         If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
-                        If DgvPaquetesHVI.RowCount > 0 Then CbPlanta.SelectedValue = DgvPaquetesHVI.Rows(0).Cells("IdPlanta").Value
+                        If DgvPaquetesHVI.RowCount > 0 Then CbPlanta.SelectedValue = DgvPaquetesHVI.Rows(0).Cells("IdPlantaOrigen").Value
                         ContarFilas()
                     End If
 
@@ -223,7 +237,7 @@ Public Class PaquetesHVI
     End Sub
     Private Sub PropiedadesDGV()
         DgvPaquetesHVI.Columns("IdHVIenc").Visible = False
-        DgvPaquetesHVI.Columns("IdPlanta").Visible = False
+        DgvPaquetesHVI.Columns("IdPlantaOrigen").Visible = False
         DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

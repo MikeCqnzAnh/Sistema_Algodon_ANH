@@ -1,6 +1,11 @@
 Create Procedure Sp_CastigoLargoFibra
-@LargoFibra as float
+--declare
+@LargoFibra  float
 as
+declare 
+@Lenght int
+set @Lenght =(select LenghtNDS from LargosFibraEquivalente where @LargoFibra >=  Rango1 and @LargoFibra <=  Rango2)
+
 select Castigo 
 from LargosDeFibra
-where @LargoFibra between  Rango1 and Rango2
+where @Lenght between  Rango1 and Rango2

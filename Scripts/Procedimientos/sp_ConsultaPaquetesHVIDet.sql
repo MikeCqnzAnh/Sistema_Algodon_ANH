@@ -1,9 +1,9 @@
-create procedure sp_ConsultaPaquetesHVIDet
+CREATE procedure sp_ConsultaPaquetesHVIDet
 --declare
 @IdPaquete int
 as
 select a.IdHviEnc,
-	   a.IdPlanta,
+	   a.IdPlantaOrigen,
 	   a.LotID,
        a.BaleID,
 	   a.BaleGroup,

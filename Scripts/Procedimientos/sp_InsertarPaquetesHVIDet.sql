@@ -1,7 +1,7 @@
-Create procedure sp_InsertarPaquetesHVIDet
+CREATE procedure sp_InsertarPaquetesHVIDet
 @IdHviDet int,
 @IdHviEnc int,
-@IdPlanta int,
+@IdPlantaOrigen int,
 @LotID int,
 @BaleID int,
 @BaleGroup varchar(5),
@@ -16,7 +16,7 @@ Create procedure sp_InsertarPaquetesHVIDet
 @Elongation float,
 @SFI float,
 @Maturity float,
-@Grade float,
+@Grade varchar(6),
 @Moist float,
 @Mic float,
 @Rd float,
@@ -34,7 +34,7 @@ set nocount on
 merge [dbo].[HVIDetalle] as target
 using (select @IdHviDet
 			 ,@IdHviEnc
-			 ,@IdPlanta
+			 ,@IdPlantaOrigen
 			 ,@LotID
 			 ,@BaleID
 			 ,@BaleGroup
@@ -64,7 +64,7 @@ using (select @IdHviDet
 			 AS SOURCE (
 			 IdHviDet
 			,IdHviEnc
-			,IdPlanta
+			,IdPlantaOrigen
 			,LotID
 			,BaleID
 			,BaleGroup
@@ -93,26 +93,26 @@ using (select @IdHviDet
 			,UV)
 ON ((target.LotID = source.LotID and
 	 target.BaleID = source.BaleID and
-	 target.idplanta <> source.idplanta and 
+	 target.IdPlantaOrigen <> source.IdPlantaOrigen and 
 	 target.[Date] <> source.[Date]) or 
 
 	(target.LotID = source.LotID and
 	 target.BaleID = source.BaleID and
-	 target.idplanta = source.idplanta and 
+	 target.IdPlantaOrigen = source.IdPlantaOrigen and 
 	 target.[Date] <> source.[Date]) or
 
 	 (target.LotID = source.LotID and
 	 target.BaleID = source.BaleID and
-	 target.idplanta <> source.idplanta and 
+	 target.IdPlantaOrigen <> source.IdPlantaOrigen and 
 	 target.[Date] <> source.[Date]) or 
 
 	 (target.LotID = source.LotID and
 	 target.BaleID = source.BaleID and
-	 target.idplanta = source.idplanta and 
+	 target.IdPlantaOrigen = source.IdPlantaOrigen and 
 	 target.[Date] = source.[Date]))
 WHEN MATCHED THEN
 UPDATE SET 
-		   IdPlanta = source.IdPlanta,
+		   IdPlantaOrigen = source.IdPlantaOrigen,
 		   LotID = source.LotID,
 		   BaleID = source.BaleID,
 		   BaleGroup = source.BaleGroup,
@@ -141,7 +141,7 @@ UPDATE SET
 		   UV = source.UV
 WHEN NOT MATCHED THEN
 INSERT (IdHviEnc
-	   ,IdPlanta
+	   ,IdPlantaOrigen
 	   ,LotID
 	   ,BaleID
 	   ,BaleGroup
@@ -170,7 +170,7 @@ INSERT (IdHviEnc
 	   ,UV)
         VALUES (
 		source.IdHviEnc
-	   ,source.IdPlanta
+	   ,source.IdPlantaOrigen
 	   ,source.LotID
 	   ,source.BaleID
 	   ,source.BaleGroup

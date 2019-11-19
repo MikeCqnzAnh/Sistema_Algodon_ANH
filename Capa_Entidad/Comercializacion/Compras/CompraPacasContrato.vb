@@ -9,6 +9,7 @@
     Public FechaCompra As DateTime
     Public TotalPacas As Integer
     Public Observaciones As String
+    Public CastigoUniformidad As Double
     Public CastigoMicros As Double
     Public CastigoLargoFibra As Double
     Public CastigoResistenciaFibra As Double

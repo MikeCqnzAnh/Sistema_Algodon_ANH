@@ -7,7 +7,6 @@ alter procedure sp_InsertarProduccion
 @IdCliente int,
 @Fecha datetime,
 @IdEstatus int,
-
 @TotalHueso float,
 @Pacas int,
 @PlumaPacas float,
@@ -19,7 +18,6 @@ alter procedure sp_InsertarProduccion
 @PorcentajePluma float,
 @PorcentajeSemilla float,
 @PorcentajeMerma float,
-
 @IdUsuarioCreacion int,
 @FechaCreacion datetime,
 @IdUsuarioActualizacion int,
@@ -54,6 +52,17 @@ PorcentajeMerma,IdUsuarioCreacion,FechaCreacion,IdUsuarioActualizacion,FechaActu
 ON (target.IdProduccion = source.IdProduccion)
 WHEN MATCHED THEN
 UPDATE SET 
+			TotalHueso = source.TotalHueso,
+			Pacas = source.Pacas,
+			PlumaPacas = source.PlumaPacas,
+			PlumaBorregos = source.PlumaBorregos,
+			Pluma = source.Pluma,
+			Semilla = source.Semilla,
+			Merma = source.Merma,
+			Borra = source.Borra,
+			PorcentajePluma = source.PorcentajePluma,
+			PorcentajeSemilla = source.PorcentajeSemilla,
+			PorcentajeMerma = source.PorcentajeMerma,
 		   IdUsuarioCreacion = source.IdUsuarioCreacion,
 		   FechaCreacion = source.FechaCreacion
 WHEN NOT MATCHED THEN

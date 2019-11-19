@@ -20,7 +20,7 @@ Public Class RepPacasDetalleAgrupadoPorClase
         Limpiar()
     End Sub
     Private Sub BtDetallado_Click(sender As Object, e As EventArgs) Handles BtDetallado.Click
-
+        ConsultarDetallado()
     End Sub
     Private Sub Limpiar()
 
@@ -38,7 +38,7 @@ Public Class RepPacasDetalleAgrupadoPorClase
         CargaComboOrdenTrabajo()
     End Sub
     Private Sub BtAgrupadoPorClase_Click(sender As Object, e As EventArgs) Handles BtAgrupadoPorClase.Click
-        Consultar()
+        ConsultarAgrupado()
     End Sub
     Private Sub TbIdCliente_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdCliente.KeyDown
         Select Case e.KeyData
@@ -70,7 +70,7 @@ Public Class RepPacasDetalleAgrupadoPorClase
         CbClases.DisplayMember = "ClaveCorta"
         CbClases.SelectedValue = 0
     End Sub
-    Private Sub Consultar()
+    Private Sub ConsultarAgrupado()
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
         Dim Tabla As New DataTable
@@ -78,6 +78,31 @@ Public Class RepPacasDetalleAgrupadoPorClase
         Dim CrReport As RPTAgrupadoPorClase = New RPTAgrupadoPorClase
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTAgrupadoPorClase.rpt"
         EntidadReportes.Reporte = Reporte.ReportePacasDetalleAgrupadoPorClase
+        EntidadReportes.IdProductor = IIf(TbIdCliente.Text = "", 0, TbIdCliente.Text)
+        EntidadReportes.IdPlanta = CbPlantaOrigen.SelectedValue
+        EntidadReportes.IdClase = CbClases.SelectedValue
+        EntidadReportes.IdOrdenProduccion = CbOrdenProduccion.SelectedValue
+        NegocioReportes.Consultar(EntidadReportes)
+        Tabla = EntidadReportes.TablaConsulta
+        If Tabla.Rows.Count > 0 Then
+            ds.Tables.Add(Tabla)
+            CrReport.Load(Ruta)
+            CrReport.SetDataSource(ds.Tables("table1"))
+            CRVRepPacasDetallado.ReportSource = CrReport
+            CRVRepPacasDetallado.Show()
+        Else
+            MsgBox("No hay registros con los parametros aplicados!!", MsgBoxStyle.Exclamation)
+        End If
+
+    End Sub
+    Private Sub ConsultarDetallado()
+        Dim EntidadReportes As New Capa_Entidad.Reportes
+        Dim NegocioReportes As New Capa_Negocio.Reportes
+        Dim Tabla As New DataTable
+        Dim ds As New DataSet
+        Dim CrReport As RPTDetalladoPacas = New RPTDetalladoPacas
+        Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTDetalladoPacas.rpt"
+        EntidadReportes.Reporte = Reporte.ReportePacasDetallado
         EntidadReportes.IdProductor = IIf(TbIdCliente.Text = "", 0, TbIdCliente.Text)
         EntidadReportes.IdPlanta = CbPlantaOrigen.SelectedValue
         EntidadReportes.IdClase = CbClases.SelectedValue

@@ -94,6 +94,8 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TbTotalKilos = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -465,7 +467,9 @@ Partial Class Produccion
         '
         'GbModulos
         '
+        Me.GbModulos.Controls.Add(Me.TbTotalKilos)
         Me.GbModulos.Controls.Add(Me.TbTotalPacas)
+        Me.GbModulos.Controls.Add(Me.Label11)
         Me.GbModulos.Controls.Add(Me.TbTotalModulos)
         Me.GbModulos.Controls.Add(Me.Label9)
         Me.GbModulos.Controls.Add(Me.Label25)
@@ -481,7 +485,7 @@ Partial Class Produccion
         'TbTotalPacas
         '
         Me.TbTotalPacas.Enabled = False
-        Me.TbTotalPacas.Location = New System.Drawing.Point(337, 80)
+        Me.TbTotalPacas.Location = New System.Drawing.Point(291, 80)
         Me.TbTotalPacas.Name = "TbTotalPacas"
         Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalPacas.TabIndex = 56
@@ -497,7 +501,7 @@ Partial Class Produccion
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(253, 83)
+        Me.Label9.Location = New System.Drawing.Point(207, 83)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(78, 13)
         Me.Label9.TabIndex = 56
@@ -804,6 +808,23 @@ Partial Class Produccion
         'SpCapturaAutomatica
         '
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(397, 83)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(71, 13)
+        Me.Label11.TabIndex = 56
+        Me.Label11.Text = "Total de Kilos"
+        '
+        'TbTotalKilos
+        '
+        Me.TbTotalKilos.Enabled = False
+        Me.TbTotalKilos.Location = New System.Drawing.Point(481, 80)
+        Me.TbTotalKilos.Name = "TbTotalKilos"
+        Me.TbTotalKilos.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalKilos.TabIndex = 56
+        '
         'Produccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -910,4 +931,6 @@ Partial Class Produccion
     Friend WithEvents CkLeersaco As CheckBox
     Friend WithEvents CkPaca As DataGridViewCheckBoxColumn
     Friend WithEvents BtEliminarPacas As Button
+    Friend WithEvents TbTotalKilos As TextBox
+    Friend WithEvents Label11 As Label
 End Class

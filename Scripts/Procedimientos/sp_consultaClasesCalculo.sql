@@ -7,7 +7,7 @@ as
 if @NumPaca = 0
 	begin
 		select
-		     hd.[IdPlanta] as IdPlantaOrigen
+		     hd.[IdPlantaOrigen]
 			,Hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -35,54 +35,53 @@ if @NumPaca = 0
 			,hd.[Nep]
 			,hd.[UV]
 			,0 as FlagTerminado
-			,Hd.IdHviDet as 'IdHviDetalle'
 			,Pd.IdOrdenTrabajo
 		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
-  		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta
+  		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta
 		order by BaleID asc
 	end
-else if exists (select baleid from CalculoClasificacion where BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete)
-	begin
-		select 
-		     [IdPlantaOrigen]
-			,[LotID]
-			,[BaleID]
-			,[BaleGroup]
-			,[Operator]
-			,[Date]
-			,[Temperature]
-			,[Humidity]
-			,[Amount]
-			,[UHML]
-			,[UI]
-			,[Strength]
-			,[Elongation]
-			,[SFI]
-			,[Maturity]
-			,[Grade]
-			,[Moist]
-			,[Mic]
-			,[Rd]
-			,[Plusb]
-			,[ColorGrade]
-			,[TrashCount]
-			,[TrashArea]
-			,[TrashID]
-			,[SCI]
-			,[Nep]
-			,[UV]
-			,FlagTerminado
-			,IdHviDetalle 
-			,IdOrdenTrabajo
-		from CalculoClasificacion 
-		where  BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete
-	end
+--else if exists (select baleid from CalculoClasificacion where BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete)
+--	begin
+--		select 
+--		     [IdPlantaOrigen]
+--			,[LotID]
+--			,[BaleID]
+--			,[BaleGroup]
+--			,[Operator]
+--			,[Date]
+--			,[Temperature]
+--			,[Humidity]
+--			,[Amount]
+--			,[UHML]
+--			,[UI]
+--			,[Strength]
+--			,[Elongation]
+--			,[SFI]
+--			,[Maturity]
+--			,[Grade]
+--			,[Moist]
+--			,[Mic]
+--			,[Rd]
+--			,[Plusb]
+--			,[ColorGrade]
+--			,[TrashCount]
+--			,[TrashArea]
+--			,[TrashID]
+--			,[SCI]
+--			,[Nep]
+--			,[UV]
+--			,FlagTerminado
+--			,IdHviDetalle 
+--			,IdOrdenTrabajo
+--		from CalculoClasificacion 
+--		where  BaleId = @NumPaca and IdPlantaOrigen = @IdPlanta and IdPaqueteEncabezado = @IdPaquete
+--	end
 else
 	begin
 		select
-		     Hd.[IdPlanta]  as IdPlantaOrigen
+		     Hd.[IdPlantaOrigen]
 			,hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -110,11 +109,10 @@ else
 			,hd.[Nep]
 			,hd.[UV]
 			,0 as FlagTerminado
-			,Hd.IdHviDet AS 'IdHviDetalle'
 			,Pd.IdOrdenTrabajo
 		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
-		where Pd.FolioCIA = @NumPaca and hd.IdPlanta = @IdPlanta 
+		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta 
 			order by BaleID asc
 end

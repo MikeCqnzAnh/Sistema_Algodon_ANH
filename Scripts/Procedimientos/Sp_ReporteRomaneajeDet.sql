@@ -1,4 +1,4 @@
-Create Procedure Sp_ReporteRomaneajeDet
+CREATE Procedure Sp_ReporteRomaneajeDet
 --declare
 @IdOrdenTrabajo as int ,
 @CheckStatus as bit 
@@ -35,4 +35,5 @@ FROM HVIDetalle HD right JOIN PRODUCCIONDETALLE PD ON HD.BALEID = PD.FolioCIA AN
 							left join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 							left join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
 where pd.IdOrdenTrabajo = @IdOrdenTrabajo
+order by hd.BaleID
 		
