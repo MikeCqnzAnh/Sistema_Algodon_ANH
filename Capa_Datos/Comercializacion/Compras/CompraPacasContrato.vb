@@ -52,10 +52,10 @@ Public Class CompraPacasContrato
                         cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@TipoCambio", MiTableRow("TipoCambio")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMxn", MiTableRow("PrecioMxn")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoUniformidad", MiTableRow("CastigoUniformidad")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", MiTableRow("CastigoResistenciaFibra")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", MiTableRow("CastigoMicros")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", MiTableRow("CastigoLargoFibra")))
-
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompraUpdate", MiTableRow("EstatusCompraUpdate")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompraBusqueda", MiTableRow("EstatusCompraBusqueda")))
                         cmdGuardar.ExecuteNonQuery()
@@ -179,6 +179,13 @@ Public Class CompraPacasContrato
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@Uniformidad", EntidadCompraPacasContrato1.CastigoUniformidad))
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaIdCompraPaca
+                    sqlcom1 = New SqlCommand("Sp_ConsultaCompraPacas", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadCompraPacasContrato1.IdCompra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
             End Select
         Catch ex As Exception

@@ -100,6 +100,20 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdClase", EntidadReportes1.IdClase))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenProduccion", EntidadReportes1.IdOrdenProduccion))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteCompraPacasResumen
+                    sqlcom1 = New SqlCommand("Sp_ReporteCompraPacaResumen", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteCompraPacasDetallado
+                    sqlcom1 = New SqlCommand("Sp_ReporteCompraPacaDetalle", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex)

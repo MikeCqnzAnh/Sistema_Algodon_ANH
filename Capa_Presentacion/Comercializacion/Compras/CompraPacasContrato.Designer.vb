@@ -282,6 +282,7 @@ Partial Class CompraPacasContrato
         '
         'CbModalidadCompra
         '
+        Me.CbModalidadCompra.Enabled = False
         Me.CbModalidadCompra.FormattingEnabled = True
         Me.CbModalidadCompra.Location = New System.Drawing.Point(120, 118)
         Me.CbModalidadCompra.Name = "CbModalidadCompra"

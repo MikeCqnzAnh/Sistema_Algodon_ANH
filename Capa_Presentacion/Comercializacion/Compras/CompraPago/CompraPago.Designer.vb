@@ -57,15 +57,15 @@ Partial Class CompraPago
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbCastigoxlargo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.TbCastigoxUI = New System.Windows.Forms.TextBox()
         Me.TbCastigoxmicro = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.TbIdCompra = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TbCastigoxUI = New System.Windows.Forms.TextBox()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
         Me.MSMenu.SuspendLayout()
@@ -424,6 +424,16 @@ Partial Class CompraPago
         Me.Label13.TabIndex = 2
         Me.Label13.Text = "Castigo por largo de fibra"
         '
+        'TbCastigoxUI
+        '
+        Me.TbCastigoxUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbCastigoxUI.Location = New System.Drawing.Point(9, 38)
+        Me.TbCastigoxUI.Name = "TbCastigoxUI"
+        Me.TbCastigoxUI.ReadOnly = True
+        Me.TbCastigoxUI.Size = New System.Drawing.Size(212, 22)
+        Me.TbCastigoxUI.TabIndex = 1
+        Me.TbCastigoxUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'TbCastigoxmicro
         '
         Me.TbCastigoxmicro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -433,6 +443,16 @@ Partial Class CompraPago
         Me.TbCastigoxmicro.Size = New System.Drawing.Size(212, 22)
         Me.TbCastigoxmicro.TabIndex = 1
         Me.TbCastigoxmicro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(6, 22)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(138, 15)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Castigo por uniformidad"
         '
         'Label12
         '
@@ -494,26 +514,6 @@ Partial Class CompraPago
         Me.Label16.Size = New System.Drawing.Size(72, 16)
         Me.Label16.TabIndex = 5
         Me.Label16.Text = "Id Contrato"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 22)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(138, 15)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Castigo por uniformidad"
-        '
-        'TbCastigoxUI
-        '
-        Me.TbCastigoxUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxUI.Location = New System.Drawing.Point(9, 38)
-        Me.TbCastigoxUI.Name = "TbCastigoxUI"
-        Me.TbCastigoxUI.ReadOnly = True
-        Me.TbCastigoxUI.Size = New System.Drawing.Size(212, 22)
-        Me.TbCastigoxUI.TabIndex = 1
-        Me.TbCastigoxUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CompraPago
         '

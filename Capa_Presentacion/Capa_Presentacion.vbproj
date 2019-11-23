@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.25.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.27.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -356,6 +356,18 @@
     </Compile>
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
+    <Compile Include="Reportes\RepCompraPacasDetallado.Designer.vb">
+      <DependentUpon>RepCompraPacasDetallado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepCompraPacasDetallado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepCompraPacasResumen.Designer.vb">
+      <DependentUpon>RepCompraPacasResumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepCompraPacasResumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepContratoProductor.Designer.vb">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </Compile>
@@ -971,6 +983,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepCompraPacasDetallado.resx">
+      <DependentUpon>RepCompraPacasDetallado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepCompraPacasResumen.resx">
+      <DependentUpon>RepCompraPacasResumen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>

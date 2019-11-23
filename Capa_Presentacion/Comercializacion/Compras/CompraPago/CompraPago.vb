@@ -36,6 +36,7 @@ Public Class CompraPago
         TbCastigoxlargo.Text = 0
         TbCastigoxmicro.Text = 0
         TbCastigoxresistencia.Text = 0
+        TbCastigoxUI.Text = 0
     End Sub
     Private Sub TotalCompra()
         Dim SubTotal As Double = CDbl(TbSubtotal.Text)
@@ -187,6 +188,24 @@ Public Class CompraPago
             TbTotalDls.Text = TotalDls
             TbTotalMxn.Text = TotalMxn
             Formatos()
+        End If
+    End Sub
+
+    Private Sub ImpResumenDePacasItem_Click(sender As Object, e As EventArgs) Handles ImpResumenDePacasItem.Click
+        If TbIdCompra.Text <> "" Then
+            Dim ReporteCompraPacasResumen As New RepCompraPacasResumen(TbIdCompra.Text)
+            ReporteCompraPacasResumen.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ImpDetallesDeCompraItem_Click(sender As Object, e As EventArgs) Handles ImpDetallesDeCompraItem.Click
+        If TbIdCompra.Text <> "" Then
+            Dim ReporteCompraPacasDetallado As New RepCompraPacasDetallado(TbIdCompra.Text)
+            ReporteCompraPacasDetallado.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 End Class

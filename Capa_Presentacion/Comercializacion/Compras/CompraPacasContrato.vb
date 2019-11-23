@@ -21,7 +21,7 @@ Public Class CompraPacasContrato
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoResistenciaFibra", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoMicros", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoLargoFibra", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioClase", System.Type.GetType("System.Int32")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioClase", System.Type.GetType("System.Single")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Total", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("TotalDlls", System.Type.GetType("System.Double")))
     End Sub
@@ -138,7 +138,7 @@ Public Class CompraPacasContrato
         dt.Columns.Add("IdProductor", Type.GetType("System.Int32"))
         dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
         dt.Columns.Add("Quintales", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioClase", Type.GetType("System.Int32"))
+        dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
         dt.Columns.Add("IdPlantaOrigen", Type.GetType("System.Int32"))
         dt.Columns.Add("IdLiquidacion", Type.GetType("System.Int32"))
         dt.Columns.Add("IdCompraEnc", Type.GetType("System.Int32"))
@@ -159,17 +159,17 @@ Public Class CompraPacasContrato
                 r("IdProductor") = TbIdProductor.Text
                 r("IdPlantaOrigen") = DataGridEnvia.Item("IdPlantaOrigen", i).Value.ToString
                 r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
-                r("Quintales") = Quintales
+                r("Quintales") = Math.Truncate(Quintales * 10000) / 10000
                 r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
                 r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value.ToString
                 r("IdCompraEnc") = IdCompraEnc
-                r("PrecioDls") = Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
+                r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
                 r("TipoCambio") = 0
                 r("PrecioMxn") = 0
-                r("CastigoUniformidad") = ConsultaCastigoUniformidad(DataGridEnvia.Item("Uniformidad", i).Value.ToString, Quintales, valcastigo)
-                r("CastigoResistenciaFibra") = ConsultaCastigoResistenciaFibra(DataGridEnvia.Item("Resistencia", i).Value.ToString, Quintales, valcastigo)
-                r("CastigoMicros") = ConsultaCastigoMicros(DataGridEnvia.Item("Micros", i).Value.ToString, Quintales, valcastigo)
-                r("CastigoLargoFibra") = ConsultaCastigoLargoFibra(DataGridEnvia.Item("Largo", i).Value.ToString, Quintales, valcastigo)
+                r("CastigoUniformidad") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
                 r("estatuscompraUpdate") = EstatusCompraUpdate
                 r("EstatusCompraBusqueda") = EstatusCompraBusqueda
                 dt.Rows.Add(r)
@@ -269,7 +269,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
-            EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValUniformidad * 100) / 100
+            EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
             Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
@@ -295,6 +295,7 @@ Public Class CompraPacasContrato
             TbIdCompraPaca.Text = row("IdCompra")
             TbIdProductor.Text = row("IdProductor")
             TbNombreProductor.Text = row("Nombre")
+
         Next
 
         Return True
@@ -455,6 +456,38 @@ Public Class CompraPacasContrato
             ConsultaCantidadPacas()
             TotalPacasContrato()
             MarcaSeleccionDisponibles()
+            SeleccionaContratoConsultado()
+        End If
+    End Sub
+    Private Sub SeleccionaContratoConsultado()
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        If TbIdCompraPaca.Text <> "" Then
+            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaIdCompraPaca
+            EntidadCompraPacasContrato.IdCompra = CInt(TbIdCompraPaca.Text)
+            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            Tabla = EntidadCompraPacasContrato.TablaConsulta
+            If DgvContratos.Rows.Count > 0 Then
+                For Each Fila As DataGridViewRow In DgvContratos.Rows
+                    If Tabla.Rows(0).Item("IdContratoAlgodon").ToString = Fila.Cells("IdContratoAlgodon").Value.ToString Then
+                        Fila.Cells("Seleccionar").Value = True
+                        TbIdContrato.Text = Fila.Cells("IdContratoAlgodon").Value
+                        TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
+                        TbNoPacas.Text = Fila.Cells("Pacas").Value
+                        CbModalidadCompra.SelectedValue = Fila.Cells("IdModalidadCompra").Value
+                        PrecioSM = -1 * Fila.Cells("PrecioSM").Value
+                        PrecioMP = -1 * Fila.Cells("PrecioMP").Value
+                        PrecioM = -1 * Fila.Cells("PrecioM").Value
+                        PrecioSLMP = -1 * Fila.Cells("PrecioSLMP").Value
+                        PrecioSLM = -1 * Fila.Cells("PrecioSLM").Value
+                        PrecioLMP = -1 * Fila.Cells("PrecioLMP").Value
+                        PrecioLM = -1 * Fila.Cells("PrecioLM").Value
+                        PrecioSGO = -1 * Fila.Cells("PrecioSGO").Value
+                        PrecioGO = -1 * Fila.Cells("PrecioGO").Value
+                        PrecioO = -1 * Fila.Cells("PrecioO").Value
+                    End If
+                Next
+            End If
         End If
     End Sub
     Private Sub consultaDatosdgv()
@@ -524,12 +557,7 @@ Public Class CompraPacasContrato
             MarcaSeleccionDisponibles()
         End If
     End Sub
-    Private Sub PropiedadesDgvPacasIndCompradas()
-        DgvPacasIndCompradas.Columns("BaleID").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
-    End Sub
+
     'Private Sub ConsultaCompra()
     '    Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
     '    Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
@@ -557,23 +585,32 @@ Public Class CompraPacasContrato
 
     Private Sub PropiedadesDgvPacasComprar()
         DgvPacasComprar.Columns("IdOrdenTrabajo").Visible = False
-        DgvPacasComprar.Columns("IdLiquidacion").Visible = True
-        DgvPacasComprar.Columns("Descripcion").ReadOnly = True
-        DgvPacasComprar.Columns("BaleId").ReadOnly = True
+
+        DgvPacasComprar.Columns("PrecioClase").Visible = False
+        DgvPacasComprar.Columns("PrecioDls").Visible = False
+        DgvPacasComprar.Columns("TipoCambio").Visible = False
+        DgvPacasComprar.Columns("PrecioMxn").Visible = False
         DgvPacasComprar.Columns("FolioCIA").Visible = False
         DgvPacasComprar.Columns("Descripcion").Visible = False
+
+        DgvPacasComprar.Columns("IdLiquidacion").ReadOnly = True
+        DgvPacasComprar.Columns("IdPlantaOrigen").ReadOnly = True
+        DgvPacasComprar.Columns("Descripcion").ReadOnly = True
+        DgvPacasComprar.Columns("BaleId").ReadOnly = True
         DgvPacasComprar.Columns("Kilos").ReadOnly = True
         DgvPacasComprar.Columns("Grade").ReadOnly = True
+
     End Sub
     Private Sub PropiedadesDgvLiquidacionesCompradas()
         DgvLiqCompradas.Columns("IdLiquidacion").ReadOnly = True
-        DgvLiqCompradas.Columns("TotalHueso").Visible = False
+        DgvLiqCompradas.Columns("Seleccionar").ReadOnly = False
         DgvLiqCompradas.Columns("PacasCantidad").ReadOnly = True
-        DgvLiqCompradas.Columns("PacasDisponibles").Visible = False
         DgvLiqCompradas.Columns("PacasCompradas").ReadOnly = True
+
+        DgvLiqCompradas.Columns("TotalHueso").Visible = False
+        DgvLiqCompradas.Columns("PacasDisponibles").Visible = False
         DgvLiqCompradas.Columns("PesoPluma").Visible = False
         DgvLiqCompradas.Columns("TotalSemilla").Visible = False
-        DgvLiqCompradas.Columns("Seleccionar").ReadOnly = False
     End Sub
     Private Sub PropiedadesDgvLiquidacionesComprar()
         DgvDatosLiquidacion.Columns("IdLiquidacion").ReadOnly = True
@@ -585,12 +622,13 @@ Public Class CompraPacasContrato
     End Sub
     Private Sub PropiedadesDgvContratos()
         DgvContratos.Columns("IdContratoAlgodon").ReadOnly = True
-        DgvContratos.Columns("IdProductor").Visible = False
         DgvContratos.Columns("Pacas").ReadOnly = True
         DgvContratos.Columns("SuperficieComprometida").ReadOnly = True
         DgvContratos.Columns("PrecioQuintal").ReadOnly = True
-        DgvContratos.Columns("Puntos").Visible = False
         DgvContratos.Columns("FechaLiquidacion").ReadOnly = True
+
+        DgvContratos.Columns("Puntos").Visible = False
+        DgvContratos.Columns("IdProductor").Visible = False
         DgvContratos.Columns("Temporada").Visible = False
         DgvContratos.Columns("IdModalidadCompra").Visible = False
         DgvContratos.Columns("PrecioSM").Visible = False
@@ -605,26 +643,26 @@ Public Class CompraPacasContrato
         DgvContratos.Columns("PrecioO").Visible = False
         DgvContratos.Columns("Fecha").Visible = False
     End Sub
-    'Private Sub PropiedadesDgvCompras()
-    '    DgvCompras.Columns("IdCompra").HeaderText = "ID"
-    '    DgvCompras.Columns("IdContratoAlgodon").HeaderText = "Contrato"
-    '    DgvCompras.Columns("Fecha").HeaderText = "Fecha"
-    '    DgvCompras.Columns("IdEstatusCompra").HeaderText = "Estatus"
-    '    DgvCompras.Columns("IdProductor").Visible = False
-    '    DgvCompras.Columns("IdModalidadCompra").Visible = False
-    '    DgvCompras.Columns("Observaciones").Visible = False
-    '    DgvCompras.Columns("CastigoMicros").Visible = False
-    '    DgvCompras.Columns("CastigoLargoFibra").Visible = False
-    '    DgvCompras.Columns("CastigoResistenciaFibra").Visible = False
-    '    DgvCompras.Columns("TotalPesosMx").Visible = False
-    '    DgvCompras.Columns("TotalDlls").Visible = False
-    '    DgvCompras.Columns("InteresPesosMx").Visible = False
-    '    DgvCompras.Columns("InteresDlls").Visible = False
-    '    DgvCompras.Columns("PrecioQuintal").Visible = False
-    '    DgvCompras.Columns("PrecioQuintalBorregos").Visible = False
-    '    DgvCompras.Columns("Descuento").Visible = False
-    '    DgvCompras.Columns("Total").Visible = False
-    'End Sub
+    Private Sub PropiedadesDgvPacasIndCompradas()
+        DgvPacasIndCompradas.Columns("FolioCIA").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
+        DgvPacasIndCompradas.Columns("CastigoUICompra").Visible = False
+        DgvPacasIndCompradas.Columns("TipoCambio").Visible = False
+        DgvPacasIndCompradas.Columns("PrecioMxn").Visible = False
+        DgvPacasIndCompradas.Columns("Descripcion").Visible = False
+
+        DgvPacasIndCompradas.Columns("BaleID").ReadOnly = True
+        DgvPacasIndCompradas.Columns("IdOrdenTrabajo").ReadOnly = True
+        DgvPacasIndCompradas.Columns("IdLiquidacion").ReadOnly = True
+        DgvPacasIndCompradas.Columns("IdPlantaOrigen").ReadOnly = True
+        DgvPacasIndCompradas.Columns("Kilos").ReadOnly = True
+        DgvPacasIndCompradas.Columns("Grade").ReadOnly = True
+        DgvPacasIndCompradas.Columns("Quintales").ReadOnly = True
+        DgvPacasIndCompradas.Columns("PrecioClase").ReadOnly = True
+        DgvPacasIndCompradas.Columns("PrecioDls").ReadOnly = True
+    End Sub
     Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellContentClick
         PrecioSM = 0
         PrecioMP = 0
@@ -794,7 +832,11 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If TbIdProductor.Text = "" Or TbPrecioQuintal.Text = "" Then
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
-        ElseIf ValidaChecksPacas() > 0 Then
+        ElseIf (ValidaChecksPacas() + DgvPacasIndCompradas.Rows.Count) > Val(TbNoPacas.Text) Then
+            MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
+        ElseIf ValidaChecksPacas() > 0 And ValidaChecksPacas() > Val(TbNoPacas.Text) Then
+            MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
+        ElseIf ValidaChecksPacas() > 0 And ValidaChecksPacas() <= Val(TbNoPacas.Text) Then
             If TbIdCompraPaca.Text = "" Then GuardarCompraEnc()
             EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
             EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(2, 1, DgvPacasComprar, TbIdCompraPaca.Text)
@@ -863,7 +905,7 @@ Public Class CompraPacasContrato
             TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoLargoFibraCompra").Value, 2)
             TablaRenglonAInsertar("PrecioClase") = DgvPacasIndCompradas.Rows(ii).Cells("PrecioClase").Value
             TablaRenglonAInsertar("Total") = 0 'DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value
-            TablaRenglonAInsertar("TotalDlls") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("PrecioDls").Value, 4)
+            TablaRenglonAInsertar("TotalDlls") = Math.Truncate(DgvPacasIndCompradas.Rows(ii).Cells("PrecioDls").Value * 10000) / 10000
             TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
 
         Next
@@ -904,7 +946,7 @@ Public Class CompraPacasContrato
             Dim CastigoRF = Convert.ToDouble(item(8))
             Dim CastigoM = Convert.ToDouble(item(9))
             Dim CastigoLF = Convert.ToDouble(item(10))
-            Dim TbPrecioClase = Convert.ToInt32(item(11))
+            Dim TbPrecioClase = Convert.ToDouble(item(11))
             Dim Total = Convert.ToDouble(item(12))
             Dim Dlls = Convert.ToDouble(item(13))
             Dim drr As DataRow = dtResultado.NewRow()

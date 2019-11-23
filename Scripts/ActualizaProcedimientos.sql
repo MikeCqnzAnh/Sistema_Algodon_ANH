@@ -158,7 +158,6 @@ select LR.IdLiquidacion,
 		having   count(case when HVId.EstatusCompra = 2 then HVId.BaleID end) > 0
 
 go
-
 Alter procedure sp_ConPacaComprada
 --declare
 @IdProductor int ,
@@ -174,6 +173,7 @@ select pd.FolioCIA,
 	   pd.Kilos,
 	   hvid.Grade,
 	   HviD.quintales,
+	   hvid.PrecioClase,
 	   hvid.PrecioDls,
 	   Hvid.TipoCambio,
 	   Hvid.PrecioMxn,
@@ -189,7 +189,6 @@ select pd.FolioCIA,
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 
 		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra  = 2 and hvid.IdCompraEnc = @IdCompraEnc
-
 go
 
 Alter procedure sp_ConPacProdDetCla
