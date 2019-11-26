@@ -187,6 +187,12 @@ Public Class CompraPacasContrato
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadCompraPacasContrato1.IdCompra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMatExtCompra
+                    sqlcom1 = New SqlCommand("Sp_ConsultaCastigoMatExtCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

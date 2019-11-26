@@ -375,13 +375,13 @@ Partial Class VentaClasificacion
         'ReporteClasesToolStripMenuItem
         '
         Me.ReporteClasesToolStripMenuItem.Name = "ReporteClasesToolStripMenuItem"
-        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.ReporteClasesToolStripMenuItem.Text = "Reporte Clases"
         '
         'ReporteHVIToolStripMenuItem
         '
         Me.ReporteHVIToolStripMenuItem.Name = "ReporteHVIToolStripMenuItem"
-        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
         Me.ReporteHVIToolStripMenuItem.Text = "Reporte HVI"
         '
         'ExportarToolStripMenuItem

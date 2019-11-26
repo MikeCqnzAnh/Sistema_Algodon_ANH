@@ -172,6 +172,12 @@
     <Compile Include="Almacenes\SalidaSemilla.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Clasificacion\MatExtCompras.Designer.vb">
+      <DependentUpon>MatExtCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\MatExtCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.Designer.vb">
       <DependentUpon>VentaClasificacion.vb</DependentUpon>
     </Compile>
@@ -971,6 +977,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\TiposIncidencias.resx">
       <DependentUpon>TiposIncidencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Clasificacion\MatExtCompras.resx">
+      <DependentUpon>MatExtCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\VentaClasificacion.resx">
       <DependentUpon>VentaClasificacion.vb</DependentUpon>

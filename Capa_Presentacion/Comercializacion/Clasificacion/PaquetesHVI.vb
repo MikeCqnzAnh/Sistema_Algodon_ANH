@@ -9,16 +9,16 @@ Public Class PaquetesHVI
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         'Call ShowDialog.
         OpenFileDialog1.FileName = ""
-            OpenFileDialog1.Filter = "Access Database (*.mdb)|*.mdb| & All Files|*.*"
-            Dim result As DialogResult = OpenFileDialog1.ShowDialog()
-            If result = DialogResult.OK Then
-                Dim path As String = OpenFileDialog1.FileName
-                TbRuta.Text = path
-                AbrirBaseDatosAccess()
-                Inhabilitar()
+        OpenFileDialog1.Filter = "Access Database (*.mdb)|*.mdb| & All Files|*.*"
+        Dim result As DialogResult = OpenFileDialog1.ShowDialog()
+        If result = DialogResult.OK Then
+            Dim path As String = OpenFileDialog1.FileName
+            TbRuta.Text = path
+            AbrirBaseDatosAccess()
+            Inhabilitar()
             NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
         End If
-        End Sub
+    End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
@@ -239,6 +239,9 @@ Public Class PaquetesHVI
         DgvPaquetesHVI.Columns("IdHVIenc").Visible = False
         DgvPaquetesHVI.Columns("IdPlantaOrigen").Visible = False
         DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
+    End Sub
+    Private Sub MatExtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MatExtToolStripMenuItem.Click
+        MatExtCompras.ShowDialog()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

@@ -148,6 +148,7 @@ Namespace Configuracion
         ConsultaOrdenesDeTrabajo = 74
         ConsultaCastigoUniformidad = 75
         ConsultaIdCompraPaca = 76
+        ConsultaCastigoMatExtCompra = 77
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

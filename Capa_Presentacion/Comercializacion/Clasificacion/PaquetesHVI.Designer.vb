@@ -27,10 +27,12 @@ Partial Class PaquetesHVI
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.NuCantidadPacas = New System.Windows.Forms.NumericUpDown()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbRuta = New System.Windows.Forms.TextBox()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TbPaquete = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -42,18 +44,17 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.NuCantidadPacas = New System.Windows.Forms.NumericUpDown()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.MatExtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.MatExtToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1279, 24)
@@ -101,6 +102,17 @@ Partial Class PaquetesHVI
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'NuCantidadPacas
+        '
+        Me.NuCantidadPacas.Enabled = False
+        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NuCantidadPacas.Location = New System.Drawing.Point(895, 95)
+        Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.NuCantidadPacas.Name = "NuCantidadPacas"
+        Me.NuCantidadPacas.Size = New System.Drawing.Size(189, 31)
+        Me.NuCantidadPacas.TabIndex = 12
+        Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'CbEstatus
         '
         Me.CbEstatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -137,6 +149,16 @@ Partial Class PaquetesHVI
         Me.BtSeleccionar.TabIndex = 8
         Me.BtSeleccionar.Text = "Seleccionar"
         Me.BtSeleccionar.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(711, 98)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(178, 25)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "Cantidad Pacas"
         '
         'Label4
         '
@@ -236,26 +258,11 @@ Partial Class PaquetesHVI
         Me.Panel1.Size = New System.Drawing.Size(1279, 389)
         Me.Panel1.TabIndex = 3
         '
-        'NuCantidadPacas
+        'MatExtToolStripMenuItem
         '
-        Me.NuCantidadPacas.Enabled = False
-        Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuCantidadPacas.Location = New System.Drawing.Point(895, 95)
-        Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuCantidadPacas.Name = "NuCantidadPacas"
-        Me.NuCantidadPacas.Size = New System.Drawing.Size(189, 31)
-        Me.NuCantidadPacas.TabIndex = 12
-        Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(711, 98)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(178, 25)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "Cantidad Pacas"
+        Me.MatExtToolStripMenuItem.Name = "MatExtToolStripMenuItem"
+        Me.MatExtToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.MatExtToolStripMenuItem.Text = "Mat. Ext."
         '
         'PaquetesHVI
         '
@@ -274,9 +281,9 @@ Partial Class PaquetesHVI
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -304,4 +311,5 @@ Partial Class PaquetesHVI
     Friend WithEvents Panel1 As Panel
     Friend WithEvents NuCantidadPacas As NumericUpDown
     Friend WithEvents Label6 As Label
+    Friend WithEvents MatExtToolStripMenuItem As ToolStripMenuItem
 End Class
