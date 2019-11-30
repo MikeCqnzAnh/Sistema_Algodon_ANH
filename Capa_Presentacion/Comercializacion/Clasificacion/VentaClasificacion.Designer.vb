@@ -55,6 +55,7 @@ Partial Class VentaClasificacion
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteClasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDePaquetesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,7 +64,6 @@ Partial Class VentaClasificacion
         Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
         Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
-        Me.ReporteDePaquetesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -376,14 +376,20 @@ Partial Class VentaClasificacion
         'ReporteClasesToolStripMenuItem
         '
         Me.ReporteClasesToolStripMenuItem.Name = "ReporteClasesToolStripMenuItem"
-        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReporteClasesToolStripMenuItem.Text = "Reporte Clases"
         '
         'ReporteHVIToolStripMenuItem
         '
         Me.ReporteHVIToolStripMenuItem.Name = "ReporteHVIToolStripMenuItem"
-        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReporteHVIToolStripMenuItem.Text = "Reporte HVI"
+        '
+        'ReporteDePaquetesToolStripMenuItem
+        '
+        Me.ReporteDePaquetesToolStripMenuItem.Name = "ReporteDePaquetesToolStripMenuItem"
+        Me.ReporteDePaquetesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ReporteDePaquetesToolStripMenuItem.Text = "Reporte de Paquetes"
         '
         'ExportarToolStripMenuItem
         '
@@ -446,12 +452,6 @@ Partial Class VentaClasificacion
         Me.BtSeleccionarTodo.TabIndex = 0
         Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
         Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
-        '
-        'ReporteDePaquetesToolStripMenuItem
-        '
-        Me.ReporteDePaquetesToolStripMenuItem.Name = "ReporteDePaquetesToolStripMenuItem"
-        Me.ReporteDePaquetesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
-        Me.ReporteDePaquetesToolStripMenuItem.Text = "Reporte de Paquetes"
         '
         'VentaClasificacion
         '

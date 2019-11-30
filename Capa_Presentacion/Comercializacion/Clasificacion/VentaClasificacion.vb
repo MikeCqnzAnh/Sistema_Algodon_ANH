@@ -931,6 +931,10 @@ Public Class VentaClasificacion
         RepPaquetesVenta.ShowDialog()
     End Sub
 
+    Private Sub BtIgualarClasificacion_Click(sender As Object, e As EventArgs) Handles BtIgualarClasificacion.Click
+
+    End Sub
+
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
     End Sub
