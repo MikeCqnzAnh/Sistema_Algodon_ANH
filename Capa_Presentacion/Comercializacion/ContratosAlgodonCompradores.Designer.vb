@@ -27,6 +27,8 @@ Partial Class ContratosAlgodonCompradores
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.BtGenerar = New System.Windows.Forms.Button()
         Me.GbPrecioQuintal = New System.Windows.Forms.GroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -71,6 +73,7 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.TbValorConversion = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
@@ -105,6 +108,9 @@ Partial Class ContratosAlgodonCompradores
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.TbValorConversion)
+        Me.GbDatosGenerales.Controls.Add(Me.CbUnidadPeso)
+        Me.GbDatosGenerales.Controls.Add(Me.Label3)
         Me.GbDatosGenerales.Controls.Add(Me.BtGenerar)
         Me.GbDatosGenerales.Controls.Add(Me.GbPrecioQuintal)
         Me.GbDatosGenerales.Controls.Add(Me.BtnBuscarProductor)
@@ -135,6 +141,23 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.TabIndex = 2
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'CbUnidadPeso
+        '
+        Me.CbUnidadPeso.FormattingEnabled = True
+        Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 97)
+        Me.CbUnidadPeso.Name = "CbUnidadPeso"
+        Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
+        Me.CbUnidadPeso.TabIndex = 32
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 98)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(82, 13)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "Unidad de peso"
         '
         'BtGenerar
         '
@@ -364,7 +387,7 @@ Partial Class ContratosAlgodonCompradores
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 152)
+        Me.Label13.Location = New System.Drawing.Point(6, 179)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 25
@@ -373,7 +396,7 @@ Partial Class ContratosAlgodonCompradores
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(117, 149)
+        Me.CbEstatus.Location = New System.Drawing.Point(117, 176)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 24
@@ -399,9 +422,9 @@ Partial Class ContratosAlgodonCompradores
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(399, 71)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(70, 13)
+        Me.Label11.Size = New System.Drawing.Size(67, 13)
         Me.Label11.TabIndex = 21
-        Me.Label11.Text = "Mod. Compra"
+        Me.Label11.Text = "Mod. Ventas"
         '
         'Label10
         '
@@ -446,7 +469,7 @@ Partial Class ContratosAlgodonCompradores
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 126)
+        Me.Label8.Location = New System.Drawing.Point(6, 153)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 15
@@ -454,7 +477,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'TbPuntos
         '
-        Me.TbPuntos.Location = New System.Drawing.Point(117, 123)
+        Me.TbPuntos.Location = New System.Drawing.Point(117, 150)
         Me.TbPuntos.Name = "TbPuntos"
         Me.TbPuntos.Size = New System.Drawing.Size(121, 20)
         Me.TbPuntos.TabIndex = 14
@@ -462,7 +485,7 @@ Partial Class ContratosAlgodonCompradores
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 97)
+        Me.Label7.Location = New System.Drawing.Point(6, 124)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(73, 13)
         Me.Label7.TabIndex = 13
@@ -470,7 +493,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'TbPrecioQuintal
         '
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(117, 97)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(117, 124)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(121, 20)
         Me.TbPrecioQuintal.TabIndex = 10
@@ -537,6 +560,14 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
         Me.DgvContratoAlgodon.TabIndex = 14
+        '
+        'TbValorConversion
+        '
+        Me.TbValorConversion.Enabled = False
+        Me.TbValorConversion.Location = New System.Drawing.Point(244, 97)
+        Me.TbValorConversion.Name = "TbValorConversion"
+        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
+        Me.TbValorConversion.TabIndex = 33
         '
         'ContratosAlgodonCompradores
         '
@@ -612,4 +643,7 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents Label1 As Label
     Friend WithEvents TbIdContratoAlgodon As TextBox
     Friend WithEvents DgvContratoAlgodon As DataGridView
+    Friend WithEvents CbUnidadPeso As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TbValorConversion As TextBox
 End Class

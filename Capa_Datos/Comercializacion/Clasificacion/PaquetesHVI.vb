@@ -116,8 +116,8 @@ Public Class PaquetesHVI
             cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", EntidadPaquetesHVI1.BaleID))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
-            cnn.Close()
             MsgBox(ex)
+            cnn.Close()
         Finally
             cnn.Close()
         End Try

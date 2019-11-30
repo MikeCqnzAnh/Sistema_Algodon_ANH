@@ -190,6 +190,16 @@ Public Class CompraPacasContrato
         Next
         Return PacasMarcadas
     End Function
+    Private Function ValidaChecksPacasCompradas()
+        DgvPacasIndCompradas.EndEdit()
+        Dim PacasMarcadas As Integer = 0
+        For i As Integer = 0 To DgvPacasIndCompradas.Rows.Count - 1
+            If DgvPacasIndCompradas.Rows(i).Cells("Seleccionar").EditedFormattedValue = True Then
+                PacasMarcadas = PacasMarcadas + 1
+            End If
+        Next
+        Return PacasMarcadas
+    End Function
     Private Function ValidaChecksDgv()
         Dim valor As Boolean = False
         For i As Integer = 0 To DgvPacasComprar.Rows.Count - 1
@@ -278,7 +288,6 @@ Public Class CompraPacasContrato
             Castigo = 0
             Return Castigo
         End If
-
     End Function
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Dim _ConsultaCompraProductor As New ConsultaCompraProductor
@@ -291,13 +300,10 @@ Public Class CompraPacasContrato
     End Sub
     Public Function LoadDataGridView(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIDValues
         For Each row As DataRow In DatatableParam.Rows
-
             TbIdCompraPaca.Text = row("IdCompra")
             TbIdProductor.Text = row("IdProductor")
             TbNombreProductor.Text = row("Nombre")
-
         Next
-
         Return True
     End Function
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -408,7 +414,7 @@ Public Class CompraPacasContrato
             colSelCon.Name = "Seleccionar"
             colSelCon.FalseValue = False
             colSelCon.Visible = True
-            DgvContratos.Columns.Insert(20, colSelCon)
+            DgvContratos.Columns.Insert(22, colSelCon)
             PropiedadesDgvContratos()
             '---Consultar liquidaciones del productor con compras
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidacionesCompras
@@ -584,7 +590,11 @@ Public Class CompraPacasContrato
     End Sub
 
     Private Sub PropiedadesDgvPacasComprar()
-        DgvPacasComprar.Columns("IdOrdenTrabajo").Visible = False
+
+        DgvPacasComprar.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
+        DgvPacasComprar.Columns("BaleId").HeaderText = "Etiqueta"
+        DgvPacasComprar.Columns("Grade").HeaderText = "Clase"
+        DgvPacasComprar.Columns("IdPlantaOrigen").HeaderText = "Planta"
 
         DgvPacasComprar.Columns("PrecioClase").Visible = False
         DgvPacasComprar.Columns("PrecioDls").Visible = False
@@ -592,8 +602,14 @@ Public Class CompraPacasContrato
         DgvPacasComprar.Columns("PrecioMxn").Visible = False
         DgvPacasComprar.Columns("FolioCIA").Visible = False
         DgvPacasComprar.Columns("Descripcion").Visible = False
+        DgvPacasComprar.Columns("IdLiquidacion").Visible = False
+        DgvPacasComprar.Columns("Quintales").Visible = False
+        DgvPacasComprar.Columns("Uniformidad").Visible = False
+        DgvPacasComprar.Columns("Micros").Visible = False
+        DgvPacasComprar.Columns("Resistencia").Visible = False
+        DgvPacasComprar.Columns("Largo").Visible = False
 
-        DgvPacasComprar.Columns("IdLiquidacion").ReadOnly = True
+        DgvPacasComprar.Columns("IdOrdenTrabajo").ReadOnly = True
         DgvPacasComprar.Columns("IdPlantaOrigen").ReadOnly = True
         DgvPacasComprar.Columns("Descripcion").ReadOnly = True
         DgvPacasComprar.Columns("BaleId").ReadOnly = True
@@ -602,18 +618,23 @@ Public Class CompraPacasContrato
 
     End Sub
     Private Sub PropiedadesDgvLiquidacionesCompradas()
-        DgvLiqCompradas.Columns("IdLiquidacion").ReadOnly = True
+        DgvLiqCompradas.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
+
         DgvLiqCompradas.Columns("Seleccionar").ReadOnly = False
         DgvLiqCompradas.Columns("PacasCantidad").ReadOnly = True
         DgvLiqCompradas.Columns("PacasCompradas").ReadOnly = True
+        DgvLiqCompradas.Columns("IdOrdenTrabajo").ReadOnly = True
 
+        DgvLiqCompradas.Columns("IdLiquidacion").Visible = False
         DgvLiqCompradas.Columns("TotalHueso").Visible = False
         DgvLiqCompradas.Columns("PacasDisponibles").Visible = False
         DgvLiqCompradas.Columns("PesoPluma").Visible = False
         DgvLiqCompradas.Columns("TotalSemilla").Visible = False
     End Sub
     Private Sub PropiedadesDgvLiquidacionesComprar()
-        DgvDatosLiquidacion.Columns("IdLiquidacion").ReadOnly = True
+        DgvDatosLiquidacion.Columns("IdLiquidacion").Visible = False
+        DgvDatosLiquidacion.Columns("IdOrdenTrabajo").ReadOnly = True
+        DgvDatosLiquidacion.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
         DgvDatosLiquidacion.Columns("TotalHueso").ReadOnly = True
         DgvDatosLiquidacion.Columns("PacasCantidad").ReadOnly = True
         DgvDatosLiquidacion.Columns("PacasDisponibles").ReadOnly = True
@@ -621,12 +642,17 @@ Public Class CompraPacasContrato
         DgvDatosLiquidacion.Columns("PesoPluma").ReadOnly = True
     End Sub
     Private Sub PropiedadesDgvContratos()
+        DgvContratos.Columns("IdContratoAlgodon").HeaderText = "Contrato"
+
         DgvContratos.Columns("IdContratoAlgodon").ReadOnly = True
         DgvContratos.Columns("Pacas").ReadOnly = True
-        DgvContratos.Columns("SuperficieComprometida").ReadOnly = True
+        DgvContratos.Columns("PacasCompradas").ReadOnly = True
         DgvContratos.Columns("PrecioQuintal").ReadOnly = True
-        DgvContratos.Columns("FechaLiquidacion").ReadOnly = True
+        DgvContratos.Columns("PacasCompradas").ReadOnly = True
+        DgvContratos.Columns("PacasDisponibles").ReadOnly = True
 
+        DgvContratos.Columns("SuperficieComprometida").Visible = False
+        DgvContratos.Columns("FechaLiquidacion").Visible = False
         DgvContratos.Columns("Puntos").Visible = False
         DgvContratos.Columns("IdProductor").Visible = False
         DgvContratos.Columns("Temporada").Visible = False
@@ -652,16 +678,21 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.Columns("TipoCambio").Visible = False
         DgvPacasIndCompradas.Columns("PrecioMxn").Visible = False
         DgvPacasIndCompradas.Columns("Descripcion").Visible = False
+        DgvPacasIndCompradas.Columns("IdLiquidacion").Visible = False
+        DgvPacasIndCompradas.Columns("Quintales").Visible = False
+        DgvPacasIndCompradas.Columns("PrecioClase").Visible = False
+        DgvPacasIndCompradas.Columns("PrecioDls").Visible = False
 
         DgvPacasIndCompradas.Columns("BaleID").ReadOnly = True
         DgvPacasIndCompradas.Columns("IdOrdenTrabajo").ReadOnly = True
-        DgvPacasIndCompradas.Columns("IdLiquidacion").ReadOnly = True
         DgvPacasIndCompradas.Columns("IdPlantaOrigen").ReadOnly = True
         DgvPacasIndCompradas.Columns("Kilos").ReadOnly = True
         DgvPacasIndCompradas.Columns("Grade").ReadOnly = True
-        DgvPacasIndCompradas.Columns("Quintales").ReadOnly = True
-        DgvPacasIndCompradas.Columns("PrecioClase").ReadOnly = True
-        DgvPacasIndCompradas.Columns("PrecioDls").ReadOnly = True
+
+        DgvPacasIndCompradas.Columns("BaleID").HeaderText = "Etiqueta"
+        DgvPacasIndCompradas.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
+        DgvPacasIndCompradas.Columns("IdPlantaOrigen").HeaderText = "Planta"
+        DgvPacasIndCompradas.Columns("Grade").HeaderText = "Clase"
     End Sub
     Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellContentClick
         PrecioSM = 0
@@ -800,14 +831,41 @@ Public Class CompraPacasContrato
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar2.Click
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        Dim PacasCompradas As Integer = 0
+        Dim PacasDisponibles As Integer = 0
+        Dim PacasMarcadas As Integer = 0
+        If DgvContratos.Rows.Count > 0 Then
+            For Each Fila As DataGridViewRow In DgvContratos.Rows
+                If Fila.Cells("IdContratoAlgodon").Value.ToString = TbIdContrato.Text Then
+                    PacasCompradas = Fila.Cells("PacasCompradas").Value
+                    PacasDisponibles = Fila.Cells("PacasDisponibles").Value
+                    PacasMarcadas = ValidaChecksPacasCompradas()
+                End If
+            Next
+        End If
         If CheckFalse() = 0 Then
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
         Else
-            EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
-            EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(1, 2, DgvPacasIndCompradas, 0, 1)
-            NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
-            consultaDatosdgv()
+            If PacasMarcadas <= PacasCompradas And PacasMarcadas > 0 Then
+                If TbIdCompraPaca.Text = "" Then GuardarCompraEnc()
+                EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
+                EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(1, 2, DgvPacasIndCompradas, 0, 1)
+                NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
+                consultaDatosdgv()
+                For Each Fila As DataGridViewRow In DgvContratos.Rows
+                    If Fila.Cells("IdContratoAlgodon").Value.ToString = TbIdContrato.Text Then
+                        Fila.Cells("PacasCompradas").Value = Fila.Cells("PacasCompradas").Value - PacasMarcadas
+                        Fila.Cells("PacasDisponibles").Value = Fila.Cells("PacasDisponibles").Value + PacasMarcadas
+                        ActualizaPacasDisponiblesContrato(Fila.Cells("IdContratoAlgodon").Value, Fila.Cells("PacasCompradas").Value, Fila.Cells("PacasDisponibles").Value)
+                    End If
+                Next
+            ElseIf PacasMarcadas > PacasCompradas Then
+                MsgBox("La cantidad de pacas seleccionadas a devolucion, es mayor a la comprada, revise la seleccion de pacas o el contrato.", MsgBoxStyle.Information)
+            ElseIf PacasMarcadas = 0 Then
+                MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         End If
+
     End Sub
     Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
         Dim _ConsultaProductorContratoCompras As New ConsultaProductorContratoCompras
@@ -830,15 +888,27 @@ Public Class CompraPacasContrato
     Private Sub BtSeleccionar_Click_1(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        Dim PacasCompradas As Integer = 0
+        Dim PacasDisponibles As Integer = 0
+        Dim PacasSeleccionadas As Integer = 0
+        If DgvContratos.Rows.Count > 0 Then
+            For Each Fila As DataGridViewRow In DgvContratos.Rows
+                If Fila.Cells("IdContratoAlgodon").Value.ToString = TbIdContrato.Text Then
+                    PacasCompradas = Fila.Cells("PacasCompradas").Value
+                    PacasDisponibles = Fila.Cells("PacasDisponibles").Value
+                    PacasSeleccionadas = ValidaChecksPacas()
+                End If
+            Next
+        End If
         If TbIdProductor.Text = "" Or TbPrecioQuintal.Text = "" Then
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
-        ElseIf (ValidaChecksPacas() + DgvPacasIndCompradas.Rows.Count) > Val(TbNoPacas.Text) Then
+        ElseIf (PacasSeleccionadas + PacasCompradas) > Val(TbNoPacas.Text) Then
             MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
-        ElseIf ValidaChecksPacas() > 0 And ValidaChecksPacas() > Val(TbNoPacas.Text) Then
+        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas > Val(TbNoPacas.Text) Then
             MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
-        ElseIf ValidaChecksPacas() > 0 And ValidaChecksPacas() <= Val(TbNoPacas.Text) Then
+        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas <= Val(TbNoPacas.Text) Then
             If TbIdCompraPaca.Text = "" Then GuardarCompraEnc()
-            EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasDet
+            EntidadCompraPacasContrato.Guarda = Guardar.GuardarCompraPacasDet
             EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(2, 1, DgvPacasComprar, TbIdCompraPaca.Text)
             NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
 
@@ -851,9 +921,25 @@ Public Class CompraPacasContrato
             'CompraPago.ShowDialog()
             'ConsultaCompra()
             consultaDatosdgv()
+            For Each Fila As DataGridViewRow In DgvContratos.Rows
+                If Fila.Cells("IdContratoAlgodon").Value.ToString = TbIdContrato.Text Then
+                    Fila.Cells("PacasCompradas").Value = Fila.Cells("PacasCompradas").Value + PacasSeleccionadas
+                    Fila.Cells("PacasDisponibles").Value = Fila.Cells("PacasDisponibles").Value - PacasSeleccionadas
+                    ActualizaPacasDisponiblesContrato(Fila.Cells("IdContratoAlgodon").Value, Fila.Cells("PacasCompradas").Value, Fila.Cells("PacasDisponibles").Value)
+                End If
+            Next
         Else
             MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+    Private Sub ActualizaPacasDisponiblesContrato(ByVal IdContrato As Integer, ByVal PacasCompradas As Integer, ByVal PacasDisponibles As Integer)
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Actualiza = Actuliza.ActualizaPacasDisponibles
+        EntidadCompraPacasContrato.IdContrato = IdContrato
+        EntidadCompraPacasContrato.PacasCompradas = PacasCompradas
+        EntidadCompraPacasContrato.PacasDisponibles = PacasDisponibles
+        NegocioCompraPacasContrato.Actualizar(EntidadCompraPacasContrato)
     End Sub
     Private Function PrecioContratoClase(ByVal Clase As String) As Double
         Dim resultado As Double = 0

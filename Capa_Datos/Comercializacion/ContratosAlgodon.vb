@@ -12,6 +12,8 @@ Public Class ContratosAlgodon
             cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodon1.IdContratoAlgodon))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", EntidadContratosAlgodon1.IdProductor))
             cmdGuardar.Parameters.Add(New SqlParameter("@Pacas", EntidadContratosAlgodon1.Pacas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCompradas", 0))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodon1.Pacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@SuperficieComprometida", EntidadContratosAlgodon1.SuperficieComprometida))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadContratosAlgodon1.PrecioQuintal))
             cmdGuardar.Parameters.Add(New SqlParameter("@Puntos", EntidadContratosAlgodon1.Puntos))
@@ -96,8 +98,13 @@ Public Class ContratosAlgodon
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodon1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUnidadPeso
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaUnidadPesoVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
             End Select
         Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadContratosAlgodon = EntidadContratosAlgodon1

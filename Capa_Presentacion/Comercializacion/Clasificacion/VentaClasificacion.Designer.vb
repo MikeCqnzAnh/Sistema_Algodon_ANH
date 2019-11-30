@@ -63,6 +63,7 @@ Partial Class VentaClasificacion
         Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
         Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
+        Me.ReporteDePaquetesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -367,7 +368,7 @@ Partial Class VentaClasificacion
         '
         'ImprimirToolStripMenuItem
         '
-        Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteClasesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem})
+        Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteClasesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem, Me.ReporteDePaquetesToolStripMenuItem})
         Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
         Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ImprimirToolStripMenuItem.Text = "Imprimir"
@@ -446,6 +447,12 @@ Partial Class VentaClasificacion
         Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
         Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
         '
+        'ReporteDePaquetesToolStripMenuItem
+        '
+        Me.ReporteDePaquetesToolStripMenuItem.Name = "ReporteDePaquetesToolStripMenuItem"
+        Me.ReporteDePaquetesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ReporteDePaquetesToolStripMenuItem.Text = "Reporte de Paquetes"
+        '
         'VentaClasificacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -515,4 +522,5 @@ Partial Class VentaClasificacion
     Friend WithEvents GbSeleccionarTodasPacas As GroupBox
     Friend WithEvents BtDeseleccionarTodo As Button
     Friend WithEvents BtSeleccionarTodo As Button
+    Friend WithEvents ReporteDePaquetesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1,7 +1,7 @@
 Create Procedure Sp_ReporteHviDetalle
 --declare
 @IdPaquete int,
-@IdPlantaOrigen int 
+@IdPlantaOrigen int
 as
 select   b.IdPaquete
         ,b.IdPlanta
@@ -35,9 +35,12 @@ select   b.IdPaquete
 		,a.[Nep]
 		,a.[UV]
 		,a.FlagTerminado
-		,a.IdHviDetalle
 		,a.IdOrdenTrabajo
-		,(Select top 1 colorgrade From CalculoClasificacion where IdPaquete = @IdPaquete and IdPlantaOrigen  = @IdplantaOrigen Group By colorgrade Having Count(*) > 1) as TrCntRep
+		,(select top 1 subcon.colorgrade from (Select colorgrade,count(colorgrade) as ConteoCGR
+		  From CalculoClasificacion 
+		  where IdPaqueteEncabezado = @IdPaquete and IdPlantaOrigen  = @IdPlantaOrigen 
+		  Group By colorgrade) SubCon
+		  order by conteoCGR desc) as TrCntRep
 		,(Select top 1 TrashID From CalculoClasificacion where IdPaquete = @IdPaquete and IdPlantaOrigen  = @IdplantaOrigen  Group By TrashID Having Count(*) > 1) as TrIDRep
 from CalculoClasificacion a inner join PaqueteEncabezado b 
 						 on a.IdPaqueteEncabezado = b.IdPaquete and a.IdPlantaOrigen = b.IdPlanta
@@ -47,3 +50,5 @@ from CalculoClasificacion a inner join PaqueteEncabezado b
 						 on b.idComprador = d.IdComprador
 where b.IdPaquete = @IdPaquete and b.IdPlanta = @IdPlantaOrigen
 order by a.[BaleID]
+
+

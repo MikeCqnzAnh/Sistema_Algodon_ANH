@@ -52,6 +52,10 @@ Partial Class MatExtCompras
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatagrid = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
+        Me.CbPlanta = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TbIdPaquete = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GbDatos.SuspendLayout()
         Me.GbParametros.SuspendLayout()
         Me.GbLevel2.SuspendLayout()
@@ -71,13 +75,17 @@ Partial Class MatExtCompras
         '
         'GbDatos
         '
+        Me.GbDatos.Controls.Add(Me.Label3)
+        Me.GbDatos.Controls.Add(Me.TbIdPaquete)
+        Me.GbDatos.Controls.Add(Me.Label1)
+        Me.GbDatos.Controls.Add(Me.CbPlanta)
         Me.GbDatos.Controls.Add(Me.Label2)
         Me.GbDatos.Controls.Add(Me.TbNoPaca)
         Me.GbDatos.Controls.Add(Me.GbParametros)
         Me.GbDatos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatos.Location = New System.Drawing.Point(0, 24)
         Me.GbDatos.Name = "GbDatos"
-        Me.GbDatos.Size = New System.Drawing.Size(1028, 187)
+        Me.GbDatos.Size = New System.Drawing.Size(1356, 187)
         Me.GbDatos.TabIndex = 0
         Me.GbDatos.TabStop = False
         '
@@ -358,7 +366,7 @@ Partial Class MatExtCompras
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1028, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1356, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -386,7 +394,7 @@ Partial Class MatExtCompras
         Me.GbDatagrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDatagrid.Location = New System.Drawing.Point(0, 211)
         Me.GbDatagrid.Name = "GbDatagrid"
-        Me.GbDatagrid.Size = New System.Drawing.Size(1028, 390)
+        Me.GbDatagrid.Size = New System.Drawing.Size(1356, 487)
         Me.GbDatagrid.TabIndex = 2
         Me.GbDatagrid.TabStop = False
         '
@@ -396,14 +404,49 @@ Partial Class MatExtCompras
         Me.DgvPacas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPacas.Location = New System.Drawing.Point(3, 16)
         Me.DgvPacas.Name = "DgvPacas"
-        Me.DgvPacas.Size = New System.Drawing.Size(1022, 371)
+        Me.DgvPacas.Size = New System.Drawing.Size(1350, 468)
         Me.DgvPacas.TabIndex = 0
+        '
+        'CbPlanta
+        '
+        Me.CbPlanta.FormattingEnabled = True
+        Me.CbPlanta.Location = New System.Drawing.Point(747, 35)
+        Me.CbPlanta.Name = "CbPlanta"
+        Me.CbPlanta.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlanta.TabIndex = 21
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(698, 38)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Planta :"
+        '
+        'TbIdPaquete
+        '
+        Me.TbIdPaquete.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.TbIdPaquete.Location = New System.Drawing.Point(747, 80)
+        Me.TbIdPaquete.Name = "TbIdPaquete"
+        Me.TbIdPaquete.Size = New System.Drawing.Size(275, 44)
+        Me.TbIdPaquete.TabIndex = 23
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(599, 83)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(142, 37)
+        Me.Label3.TabIndex = 24
+        Me.Label3.Text = "Paquete"
         '
         'MatExtCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 601)
+        Me.ClientSize = New System.Drawing.Size(1356, 698)
         Me.Controls.Add(Me.GbDatagrid)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
@@ -465,4 +508,8 @@ Partial Class MatExtCompras
     Friend WithEvents NuBarkLevel1 As NumericUpDown
     Friend WithEvents RbSinCastigoLevel2 As RadioButton
     Friend WithEvents RbSinCastigoLevel1 As RadioButton
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CbPlanta As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TbIdPaquete As TextBox
 End Class

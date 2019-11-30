@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.27.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.29.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -410,6 +410,12 @@
     <Compile Include="Reportes\RepPacasPorLotes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPaquetesVenta.Designer.vb">
+      <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPaquetesVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTAgrupadoPorClase.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -498,6 +504,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTPacasPorLotes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPaquetesVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPaquetesVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
@@ -1017,6 +1029,9 @@
     <EmbeddedResource Include="Reportes\RepPacasPorLotes.resx">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPaquetesVenta.resx">
+      <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTAgrupadoPorClase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTAgrupadoPorClase.vb</LastGenOutput>
@@ -1076,6 +1091,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTPacasPorLotes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasPorLotes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPaquetesVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPaquetesVenta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

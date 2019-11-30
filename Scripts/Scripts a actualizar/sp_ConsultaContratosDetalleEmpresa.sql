@@ -1,4 +1,4 @@
-CREATE Procedure sp_ConsultaContratosDetalleEmpresa
+alter Procedure sp_ConsultaContratosDetalleEmpresa
 --declare
 @IdContratoAlgodon int 
 as
@@ -20,6 +20,8 @@ select a.IdContratoAlgodon,
 	   isnull(c.IdAsociacion,0) as IdAsociacion,
 	   isnull(c.Descripcion,'') as Descripcion,
 	   a.Pacas,
+	   a.PacasCompradas,
+	   a.PacasDisponibles,
 	   a.SuperficieComprometida,
 	   isnull(@Lotes,'') as Lotes,
 	   a.PrecioQuintal,

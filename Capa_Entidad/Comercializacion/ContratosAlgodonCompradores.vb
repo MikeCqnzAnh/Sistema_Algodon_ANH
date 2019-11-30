@@ -20,4 +20,6 @@
     Public PrecioGO As Double
     Public PrecioO As Double
     Public IdEstatus As Integer
+    Public IdUnidadPeso As Integer
+    Public ValorConversion As Double
 End Class

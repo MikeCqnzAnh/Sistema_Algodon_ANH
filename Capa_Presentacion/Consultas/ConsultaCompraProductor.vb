@@ -89,4 +89,11 @@ Public Class ConsultaCompraProductor
 
         Return dt
     End Function
+
+    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown
+        Select Case e.KeyData
+            Case Keys.Enter
+                ConsultaCompra()
+        End Select
+    End Sub
 End Class
