@@ -317,6 +317,7 @@ Public Class CompraPacasContrato
         TbIdProductor.Text = 0
         TbNombreProductor.Text = ""
         CbPlanta.SelectedValue = 1
+
         CbClasesPacasAcomprar.SelectedValue = -1
         TbDesdePaca.Text = ""
         TbHastaPaca.Text = ""
@@ -360,7 +361,7 @@ Public Class CompraPacasContrato
         CbPlanta.DataSource = Tabla
         CbPlanta.ValueMember = "IdPlanta"
         CbPlanta.DisplayMember = "Descripcion"
-        CbPlanta.SelectedValue = 1
+        CbPlanta.SelectedValue = -1
         '--Clases---
         'Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         'Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes

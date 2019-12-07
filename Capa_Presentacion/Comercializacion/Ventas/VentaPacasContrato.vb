@@ -31,10 +31,13 @@ Public Class VentaPacasContrato
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Cantidad", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Quintales", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("TipoCambio", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioMxn", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoUniformidad", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoResistenciaFibra", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoMicros", System.Type.GetType("System.Double")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoLargoFibra", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioQuintal", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioClase", System.Type.GetType("System.Single")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Total", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("TotalDlls", System.Type.GetType("System.Double")))
     End Sub
@@ -50,6 +53,8 @@ Public Class VentaPacasContrato
             VarGlob2.NombreComprador = TbNombreComprador.Text
             VarGlob2.PrecioQuintal = TbPrecioQuintal.Text
             VarGlob2.IdModalidadVenta = CbModalidadVenta.SelectedValue
+            VarGlob2.IdUnidadPeso = CbUnidadPeso.SelectedValue
+            VarGlob2.ValorConversion = Val(TbValorConversion.Text)
             _Tabla = Table()
             VentaPago.ShowDialog()
         End If
@@ -83,8 +88,10 @@ Public Class VentaPacasContrato
     Private Sub Nuevo()
         TbIdVentaPaca.Text = ""
         TbIdComprador.Text = 0
+        CbUnidadPeso.SelectedIndex = -1
         CbModalidadVenta.SelectedIndex = -1
         TbNombreComprador.Text = ""
+        TbValorConversion.Text = 0
         CbPlanta.SelectedValue = 1
         TbIdContrato.Text = ""
         TbPrecioQuintal.Text = ""
@@ -139,6 +146,8 @@ Public Class VentaPacasContrato
         'CbModalidadVenta.DisplayMember = "Descripcion"
         'CbModalidadVenta.SelectedValue = 11
         '-------------------------COMBO UNIDAD PESO
+        LLenaComboInstancias(CbClasesVendidas)
+        LLenaComboInstancias(CbClasesPacasAVender)
         Dim Tabla1 As New DataTable
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
@@ -160,6 +169,19 @@ Public Class VentaPacasContrato
         CbModalidadVenta.ValueMember = "IdModoEncabezado"
         CbModalidadVenta.DisplayMember = "Descripcion"
         CbModalidadVenta.SelectedValue = 1
+    End Sub
+    Private Sub LLenaComboInstancias(ByVal cmb As ComboBox)
+        'cmb.Items.Clear()
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        Dim Tabla2 As New DataTable
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaClases
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla2 = EntidadClasificacionVentaPaquetes.TablaConsulta
+        cmb.DataSource = Tabla2
+        cmb.ValueMember = "IdClasificacion"
+        cmb.DisplayMember = "ClaveCorta"
+        cmb.SelectedValue = -1
     End Sub
     Private Sub BtnBuscarProd_Click(sender As Object, e As EventArgs) Handles BtnBuscarProd.Click
         Dim _ConsultaCompradores As New ConsultaCompradores
@@ -209,7 +231,7 @@ Public Class VentaPacasContrato
             'colSelLiq.FalseValue = False
             'colSelLiq.Visible = True
             'DgvDatosLiquidacion.Columns.Insert(6, colSelLiq)
-            'PropiedadesDgvLiquidacionesVender()
+            PropiedadesDgvLiquidacionesVender()
             '---Consultar las pacas ya clasificadas del productor
             EntidadVentaPacasContrato.Consulta = Consulta.ConsultaPaca
             EntidadVentaPacasContrato.IdProductor = CInt(TbIdComprador.Text)
@@ -222,7 +244,7 @@ Public Class VentaPacasContrato
             'colSelPac.FalseValue = False
             'colSelPac.Visible = True
             'DgvPacasVender.Columns.Insert(7, colSelPac)
-            'PropiedadesDgvPacasVender()
+            PropiedadesDgvPacasVender()
         End If
     End Sub
     Private Sub PropiedadesDgvPacasVender()
@@ -340,16 +362,16 @@ Public Class VentaPacasContrato
             TablaRenglonAInsertar("Grade") = DgvPacasIndVendidas.Rows(ii).Cells("Grade").Value
             TablaRenglonAInsertar("Cantidad") = 1
             TablaRenglonAInsertar("Kilos") = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
-            TablaRenglonAInsertar("Quintales") = Math.Round(Quintales, 2)
-            'TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(8).Value * Quintales), 2)
-            'TablaRenglonAInsertar("CastigoMicros") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 2)
-            'TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 2)
-            TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells(8).Value, 2)
-            TablaRenglonAInsertar("CastigoMicros") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells(7).Value, 2)
-            TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells(9).Value, 2)
-            TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
-            TablaRenglonAInsertar("Total") = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
-            TablaRenglonAInsertar("TotalDlls") = Math.Round(TotalDlls, 2)
+            TablaRenglonAInsertar("Quintales") = Math.Round(Quintales, 4)
+            TablaRenglonAInsertar("TipoCambio") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 4)
+            TablaRenglonAInsertar("PrecioMxn") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 4)
+            TablaRenglonAInsertar("CastigoUniformidad") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoUIVenta").Value, 2)
+            TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoResistenciaFibraVenta").Value, 2)
+            TablaRenglonAInsertar("CastigoMicros") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("castigoMicVenta").Value, 2)
+            TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoLargoFibraVenta").Value, 2)
+            TablaRenglonAInsertar("PrecioClase") = DgvPacasIndVendidas.Rows(ii).Cells("PrecioClase").Value
+            TablaRenglonAInsertar("Total") = 0 'DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value
+            TablaRenglonAInsertar("TotalDlls") = Math.Truncate(DgvPacasIndVendidas.Rows(ii).Cells("PrecioDls").Value * 10000) / 10000
             TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
 
         Next
@@ -362,10 +384,13 @@ Public Class VentaPacasContrato
         dtResultado.Columns.Add("Cantidad")
         dtResultado.Columns.Add("Kilos")
         dtResultado.Columns.Add("Quintales")
+        dtResultado.Columns.Add("TipoCambio")
+        dtResultado.Columns.Add("PrecioMxn")
+        dtResultado.Columns.Add("CastigoUniformidad")
         dtResultado.Columns.Add("CastigoResistenciaFibra")
         dtResultado.Columns.Add("CastigoMicros")
         dtResultado.Columns.Add("CastigoLargoFibra")
-        dtResultado.Columns.Add("PrecioQuintal")
+        dtResultado.Columns.Add("PrecioClase")
         dtResultado.Columns.Add("Total")
         dtResultado.Columns.Add("TotalDlls")
         ''
@@ -373,7 +398,7 @@ Public Class VentaPacasContrato
         dtCopy.Rows.Add()
         Dim dr As DataRow = dtCopy.NewRow()
         Dim i, value, TotalPacas As Integer
-        Dim TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF As Double
+        Dim TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI As Double
         For j As Integer = 0 To dtCopy.Rows.Count - 2
             Dim item = dtCopy.Rows(j)
             Dim BaleID = Convert.ToInt32(item(0))
@@ -381,48 +406,57 @@ Public Class VentaPacasContrato
             Dim Cantidad = Convert.ToInt32(item(2))
             Dim Kilos = Convert.ToDouble(item(3))
             Dim Quintales = Convert.ToString(item(4))
-            Dim CastigoRF = Convert.ToDouble(item(5))
-            Dim CastigoM = Convert.ToDouble(item(6))
-            Dim CastigoLF = Convert.ToDouble(item(7))
-            Dim TbPrecioQuintalQuintal = Convert.ToInt32(item(8))
-            Dim Total = Convert.ToDouble(item(9))
-            Dim Dlls = Convert.ToDouble(item(10))
+            Dim TipoCambio = Convert.ToDouble(item(5))
+            Dim PrecioMxn = Convert.ToDouble(item(6))
+            Dim CastigoUI = Convert.ToDouble(item(7))
+            Dim CastigoRF = Convert.ToDouble(item(8))
+            Dim CastigoM = Convert.ToDouble(item(9))
+            Dim CastigoLF = Convert.ToDouble(item(10))
+            Dim TbPrecioClase = Convert.ToDouble(item(11))
+            Dim Total = Convert.ToDouble(item(12))
+            Dim Dlls = Convert.ToDouble(item(13))
             Dim drr As DataRow = dtResultado.NewRow()
             drr.Item(0) = BaleID
             drr.Item(1) = Clase
             drr.Item(2) = Cantidad
             drr.Item(3) = Kilos
             drr.Item(4) = Quintales
-            drr.Item(5) = Math.Round(CastigoRF, 2)
-            drr.Item(6) = Math.Round(CastigoM, 2)
-            drr.Item(7) = Math.Round(CastigoLF, 2)
-            drr.Item(8) = TbPrecioQuintalQuintal
-            drr.Item(9) = Math.Round(Total, 2)
-            drr.Item(10) = Math.Round(Dlls, 2)
+            drr.Item(5) = TipoCambio
+            drr.Item(6) = PrecioMxn
+            drr.Item(7) = Math.Round(CastigoUI, 2)
+            drr.Item(8) = Math.Round(CastigoRF, 2)
+            drr.Item(9) = Math.Round(CastigoM, 2)
+            drr.Item(10) = Math.Round(CastigoLF, 2)
+            drr.Item(11) = TbPrecioClase
+            drr.Item(12) = Math.Round(Total, 2)
+            drr.Item(13) = Math.Round(Dlls, 2)
             dtResultado.ImportRow(item)
             Dim filaSig As String = Convert.ToString(dtCopy.Rows(i + 1).Item(1)) 'fila siguiente
             If (Clase = filaSig) Then 'clase actual es igual a la siguiente zona
                 value += Kilos
                 TotalQuintales += Quintales
+                TotalCastigoUI += CastigoUI
                 TotalCastigoLF += CastigoLF
                 TotalCastigoM += CastigoM
                 TotalCastigoRF += CastigoRF
                 TotalPacas += Cantidad
-                TotalDolares += Math.Round(Dlls, 2)
+                TotalDolares += Math.Round(Dlls, 4)
             Else 'cuando cambie la clase insertar nueva fila y poner "Total" & Clase
                 drr.Item(0) = ""
                 drr.Item(1) = "Total " & Clase
                 drr.Item(2) = TotalPacas + Cantidad
                 drr.Item(3) = value + Kilos
                 drr.Item(4) = TotalQuintales + Quintales
-                drr.Item(5) = Math.Round(TotalCastigoRF + CastigoRF, 2)
-                drr.Item(6) = Math.Round(TotalCastigoM + CastigoM, 2)
-                drr.Item(7) = Math.Round(TotalCastigoLF + CastigoLF, 2)
-                drr.Item(8) = ""
-                drr.Item(9) = ""
-                drr.Item(10) = TotalDolares + Math.Round(Dlls, 2)
+                drr.Item(7) = Math.Round(TotalCastigoUI + CastigoUI, 2)
+                drr.Item(8) = Math.Round(TotalCastigoRF + CastigoRF, 2)
+                drr.Item(9) = Math.Round(TotalCastigoM + CastigoM, 2)
+                drr.Item(10) = Math.Round(TotalCastigoLF + CastigoLF, 2)
+                drr.Item(11) = ""
+                drr.Item(12) = ""
+                drr.Item(13) = TotalDolares + Math.Round(Dlls, 2)
                 dtResultado.Rows.Add(drr)
                 value = 0
+                TotalCastigoUI = 0
                 TotalQuintales = 0
                 TotalCastigoLF = 0
                 TotalCastigoM = 0
@@ -433,74 +467,6 @@ Public Class VentaPacasContrato
             i += 1 'indice
         Next
         Return dtResultado
-        'Dim TablaRenglonAInsertar As DataRow
-        'For Each row As DataGridViewRow In DgvPacasVender.Rows
-        '    Dim Index As Integer = Convert.ToUInt64(row.Index)
-        '    TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
-        '    TablaRenglonAInsertar("Clase") = DgvPacasVender.Rows(Index).Cells("Clase").Value
-        '    TablaRenglonAInsertar("Cantidad") = 1
-        '    TablaRenglonAInsertar("Kilos") = DgvPacasVender.Rows(Index).Cells("Kilos").Value
-        '    TablaRenglonAInsertar("Quintales") = CDbl(DgvPacasVender.Rows(Index).Cells("Kilos").Value / 46.02)
-        '    TablaRenglonAInsertar("PrecioQuintal") = CDbl(TbPrecioQuintal.Text)
-        '    TablaRenglonAInsertar("Total") = DgvPacasVender.Rows(Index).Cells("Kilos").Value
-        '    TablaRenglonAInsertar("TotalDlls") = Val(CDbl(DgvPacasVender.Rows(Index).Cells("Kilos").Value / 46.02) * CDbl(TbPrecioQuintal.Text))
-        '    TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
-        'Next
-        ''Tabla = TablaModalidadVenta
-        '''
-        'Dim query = From q In TablaPacasAgrupadas.AsEnumerable() Select q Order By q.Item("Clase")
-        'Dim dtResultado As New DataTable()
-        'dtResultado.Columns.Add("Clase")
-        'dtResultado.Columns.Add("Cantidad")
-        'dtResultado.Columns.Add("Kilos")
-        'dtResultado.Columns.Add("Quintales")
-        'dtResultado.Columns.Add("PrecioQuintal")
-        'dtResultado.Columns.Add("Total")
-        'dtResultado.Columns.Add("TotalDlls")
-        '''
-        'Dim dtCopy = query.CopyToDataTable()
-        'dtCopy.Rows.Add()
-        'Dim dr As DataRow = dtCopy.NewRow()
-        'Dim i, value, TotalPacas As Integer
-        'Dim TotalQuintales, TotalDolares As Double
-        'For j As Integer = 0 To dtCopy.Rows.Count - 2
-        '    Dim item = dtCopy.Rows(j)
-        '    Dim Clase = Convert.ToString(item(0))
-        '    Dim Cantidad = Convert.ToInt32(item(1))
-        '    Dim Kilos = Convert.ToDouble(item(2))
-        '    Dim Quintales = Convert.ToString(item(3))
-        '    Dim TbPrecioQuintalQuintal = Convert.ToInt32(item(4))
-        '    Dim Total = Convert.ToDouble(item(5))
-        '    Dim TotalDlls = Convert.ToString(item(6))
-        '    Dim drr As DataRow = dtResultado.NewRow()
-        '    drr.Item(0) = Clase
-        '    drr.Item(1) = Cantidad
-        '    drr.Item(2) = Kilos
-        '    drr.Item(3) = Quintales
-        '    drr.Item(4) = TbPrecioQuintalQuintal
-        '    drr.Item(5) = Total
-        '    drr.Item(6) = TotalDlls
-        '    dtResultado.ImportRow(item)
-        '    Dim filaSig As String = Convert.ToString(dtCopy.Rows(i + 1).Item(0)) 'fila siguiente
-        '    If (Clase = filaSig) Then 'clase actual es igual a la siguiente zona
-        '        value += Kilos
-        '        TotalPacas += Cantidad
-        '    Else 'cuando cambie la clase insertar nueva fila y poner "Total" & Clase
-        '        drr.Item(0) = "Total " & Clase
-        '        drr.Item(1) = TotalPacas + Cantidad
-        '        drr.Item(2) = value + Kilos
-        '        drr.Item(3) = TotalQuintales + Quintales
-        '        drr.Item(4) = ""
-        '        drr.Item(5) = ""
-        '        drr.Item(6) = TotalDlls + TotalDolares
-        '        dtResultado.Rows.Add(drr)
-        '        value = 0
-
-        '        TotalPacas = 0
-        '    End If
-        '    i += 1 'indice
-        'Next
-        'Return dtResultado
     End Function
     Private Sub BtSeleccionar_Click_1(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
@@ -753,7 +719,7 @@ Public Class VentaPacasContrato
         EntidadVentaPacasContrato.IdComprador = CInt(TbIdComprador.Text)
         EntidadVentaPacasContrato.InicioPaca = IIf(TbDesdePaca.Text = "", 0, TbDesdePaca.Text)
         EntidadVentaPacasContrato.FinPaca = IIf(TbHastaPaca.Text = "", 0, TbHastaPaca.Text)
-        EntidadVentaPacasContrato.Clase = CbClasesPacasAcomprar.Text
+        EntidadVentaPacasContrato.Clase = CbClasesPacasAVender.Text
         NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
         Tabla = EntidadVentaPacasContrato.TablaConsulta
         DgvPacasVender.Columns.Clear()
@@ -1010,10 +976,48 @@ Public Class VentaPacasContrato
             Return Castigo
         End If
     End Function
+
+    Private Sub BtFiltro_Click(sender As Object, e As EventArgs) Handles BtFiltro.Click
+        If TbIdComprador.Text = "" Then
+            TbIdComprador.Text = ""
+            MsgBox("Seleccionar a un comprador para ver sus contratos", MsgBoxStyle.Exclamation)
+        ElseIf (TbDesdePaca.Text <> "" And TbHastaPaca.Text <> "" And Val(TbDesdePaca.Text) < Val(TbHastaPaca.Text)) Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text <> "") Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text = "") Then
+            filtraPacasClases()
+        ElseIf (TbDesdePaca.Text > TbHastaPaca.Text) Or TbHastaPaca.Text = "" Or TbDesdePaca.Text = "" Then
+            MsgBox("El Campo De Inicio no puede ser mayor al campo final o contener campos vacios")
+        End If
+    End Sub
+
+    Private Sub BtReiniciaFiltro_Click(sender As Object, e As EventArgs) Handles BtReiniciaFiltro.Click
+        Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
+        Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
+
+        If TbIdComprador.Text = "" Then
+            TbIdComprador.Text = ""
+            MsgBox("Seleccionar a un productor para ver sus contratos", MsgBoxStyle.Exclamation)
+        Else
+            EntidadVentaPacasContrato.Consulta = Consulta.ConsultaPaca
+            EntidadVentaPacasContrato.IdComprador = CInt(TbIdComprador.Text)
+            NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
+            Tabla = EntidadVentaPacasContrato.TablaConsulta
+            DgvPacasVender.Columns.Clear()
+            DgvPacasVender.DataSource = Tabla
+
+            PropiedadesDgvPacasComprar()
+            TbDesdePaca.Text = ""
+            TbHastaPaca.Text = ""
+            CbClasesPacasAVender.SelectedValue = -1
+            ConsultaCantidadPacas()
+            TotalPacasContrato()
+            MarcaSeleccionDisponibles()
+        End If
+    End Sub
+
     Private Sub PropiedadesDgvPacasComprar()
         DgvPacasVender.Columns("IdOrdenTrabajo").Visible = True
         DgvPacasVender.Columns("IdLiquidacion").Visible = False
         DgvPacasVender.Columns("FolioCIA").Visible = False
+        DgvPacasVender.Columns("Kilos").Visible = False
         DgvPacasVender.Columns("Quintales").Visible = False
         DgvPacasVender.Columns("PrecioClase").Visible = False
         DgvPacasVender.Columns("PrecioDls").Visible = False

@@ -90,8 +90,12 @@ Partial Class VentaPacasContrato
         Me.GbFiltrado = New System.Windows.Forms.GroupBox()
         Me.BtReiniciaFiltro = New System.Windows.Forms.Button()
         Me.BtFiltro = New System.Windows.Forms.Button()
-        Me.CbClasesPacasAcomprar = New System.Windows.Forms.ComboBox()
+        Me.CbClasesPacasAVender = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TbHastaPaca = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.BtSeleccionar2 = New System.Windows.Forms.Button()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
@@ -104,7 +108,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.BtReiniciaFiltroCompra = New System.Windows.Forms.Button()
         Me.BtFiltroCompra = New System.Windows.Forms.Button()
-        Me.CbClasesCompradas = New System.Windows.Forms.ComboBox()
+        Me.CbClasesVendidas = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TbDesdePacaCompra = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -117,10 +121,6 @@ Partial Class VentaPacasContrato
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TbHastaPaca = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -839,7 +839,7 @@ Partial Class VentaPacasContrato
         '
         Me.GbFiltrado.Controls.Add(Me.BtReiniciaFiltro)
         Me.GbFiltrado.Controls.Add(Me.BtFiltro)
-        Me.GbFiltrado.Controls.Add(Me.CbClasesPacasAcomprar)
+        Me.GbFiltrado.Controls.Add(Me.CbClasesPacasAVender)
         Me.GbFiltrado.Controls.Add(Me.Label9)
         Me.GbFiltrado.Controls.Add(Me.TbHastaPaca)
         Me.GbFiltrado.Controls.Add(Me.Label11)
@@ -873,13 +873,13 @@ Partial Class VentaPacasContrato
         Me.BtFiltro.Text = "Aplicar Filtro"
         Me.BtFiltro.UseVisualStyleBackColor = True
         '
-        'CbClasesPacasAcomprar
+        'CbClasesPacasAVender
         '
-        Me.CbClasesPacasAcomprar.FormattingEnabled = True
-        Me.CbClasesPacasAcomprar.Location = New System.Drawing.Point(298, 13)
-        Me.CbClasesPacasAcomprar.Name = "CbClasesPacasAcomprar"
-        Me.CbClasesPacasAcomprar.Size = New System.Drawing.Size(114, 21)
-        Me.CbClasesPacasAcomprar.TabIndex = 56
+        Me.CbClasesPacasAVender.FormattingEnabled = True
+        Me.CbClasesPacasAVender.Location = New System.Drawing.Point(298, 13)
+        Me.CbClasesPacasAVender.Name = "CbClasesPacasAVender"
+        Me.CbClasesPacasAVender.Size = New System.Drawing.Size(114, 21)
+        Me.CbClasesPacasAVender.TabIndex = 56
         '
         'Label9
         '
@@ -889,6 +889,38 @@ Partial Class VentaPacasContrato
         Me.Label9.Size = New System.Drawing.Size(62, 13)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Filtrado por:"
+        '
+        'TbHastaPaca
+        '
+        Me.TbHastaPaca.Location = New System.Drawing.Point(166, 13)
+        Me.TbHastaPaca.Name = "TbHastaPaca"
+        Me.TbHastaPaca.Size = New System.Drawing.Size(56, 20)
+        Me.TbHastaPaca.TabIndex = 31
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(135, 16)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(25, 13)
+        Me.Label11.TabIndex = 28
+        Me.Label11.Text = "A la"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 16)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(59, 13)
+        Me.Label10.TabIndex = 26
+        Me.Label10.Text = "De la paca"
+        '
+        'TbDesdePaca
+        '
+        Me.TbDesdePaca.Location = New System.Drawing.Point(73, 13)
+        Me.TbDesdePaca.Name = "TbDesdePaca"
+        Me.TbDesdePaca.Size = New System.Drawing.Size(56, 20)
+        Me.TbDesdePaca.TabIndex = 25
         '
         'Panel5
         '
@@ -1008,7 +1040,7 @@ Partial Class VentaPacasContrato
         '
         Me.GroupBox8.Controls.Add(Me.BtReiniciaFiltroCompra)
         Me.GroupBox8.Controls.Add(Me.BtFiltroCompra)
-        Me.GroupBox8.Controls.Add(Me.CbClasesCompradas)
+        Me.GroupBox8.Controls.Add(Me.CbClasesVendidas)
         Me.GroupBox8.Controls.Add(Me.Label13)
         Me.GroupBox8.Controls.Add(Me.TbDesdePacaCompra)
         Me.GroupBox8.Controls.Add(Me.Label15)
@@ -1042,13 +1074,13 @@ Partial Class VentaPacasContrato
         Me.BtFiltroCompra.Text = "Aplicar Filtro"
         Me.BtFiltroCompra.UseVisualStyleBackColor = True
         '
-        'CbClasesCompradas
+        'CbClasesVendidas
         '
-        Me.CbClasesCompradas.FormattingEnabled = True
-        Me.CbClasesCompradas.Location = New System.Drawing.Point(354, 13)
-        Me.CbClasesCompradas.Name = "CbClasesCompradas"
-        Me.CbClasesCompradas.Size = New System.Drawing.Size(114, 21)
-        Me.CbClasesCompradas.TabIndex = 56
+        Me.CbClasesVendidas.FormattingEnabled = True
+        Me.CbClasesVendidas.Location = New System.Drawing.Point(354, 13)
+        Me.CbClasesVendidas.Name = "CbClasesVendidas"
+        Me.CbClasesVendidas.Size = New System.Drawing.Size(114, 21)
+        Me.CbClasesVendidas.TabIndex = 56
         '
         'Label13
         '
@@ -1168,40 +1200,6 @@ Partial Class VentaPacasContrato
         Me.Label26.TabIndex = 18
         Me.Label26.Text = "Pacas disponibles"
         '
-        'TbHastaPaca
-        '
-        Me.TbHastaPaca.Enabled = False
-        Me.TbHastaPaca.Location = New System.Drawing.Point(166, 13)
-        Me.TbHastaPaca.Name = "TbHastaPaca"
-        Me.TbHastaPaca.Size = New System.Drawing.Size(56, 20)
-        Me.TbHastaPaca.TabIndex = 31
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(135, 16)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(25, 13)
-        Me.Label11.TabIndex = 28
-        Me.Label11.Text = "A la"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(6, 16)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(59, 13)
-        Me.Label10.TabIndex = 26
-        Me.Label10.Text = "De la paca"
-        '
-        'TbDesdePaca
-        '
-        Me.TbDesdePaca.Enabled = False
-        Me.TbDesdePaca.Location = New System.Drawing.Point(73, 13)
-        Me.TbDesdePaca.Name = "TbDesdePaca"
-        Me.TbDesdePaca.Size = New System.Drawing.Size(56, 20)
-        Me.TbDesdePaca.TabIndex = 25
-        '
         'VentaPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1318,7 +1316,7 @@ Partial Class VentaPacasContrato
     Friend WithEvents GbFiltrado As GroupBox
     Friend WithEvents BtReiniciaFiltro As Button
     Friend WithEvents BtFiltro As Button
-    Friend WithEvents CbClasesPacasAcomprar As ComboBox
+    Friend WithEvents CbClasesPacasAVender As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents BtSeleccionar2 As Button
@@ -1332,7 +1330,7 @@ Partial Class VentaPacasContrato
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents BtReiniciaFiltroCompra As Button
     Friend WithEvents BtFiltroCompra As Button
-    Friend WithEvents CbClasesCompradas As ComboBox
+    Friend WithEvents CbClasesVendidas As ComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents TbDesdePacaCompra As TextBox
     Friend WithEvents Label15 As Label
