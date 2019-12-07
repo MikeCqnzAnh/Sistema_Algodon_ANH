@@ -30,7 +30,7 @@ Public Class ContratosAlgodonCompradores
             EntidadContratosAlgodonCompradores.Puntos = TbPuntos.Text
             EntidadContratosAlgodonCompradores.FechaLiquidacion = DtpFechaLiquidacion.Value
             EntidadContratosAlgodonCompradores.Presidente = TbPresidente.Text
-            EntidadContratosAlgodonCompradores.IdModalidadCompra = CbModalidad.SelectedValue
+            EntidadContratosAlgodonCompradores.IdModalidadVenta = CbModalidad.SelectedValue
             EntidadContratosAlgodonCompradores.Temporada = TbTemporada.Text
             EntidadContratosAlgodonCompradores.PrecioSM = TbSM.Text
             EntidadContratosAlgodonCompradores.PrecioMP = TbMP.Text
@@ -65,6 +65,7 @@ Public Class ContratosAlgodonCompradores
             EntidadContratosAlgodonCompradores.IdExterno = CbModalidad.SelectedValue
             EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDiferenciales
             NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+            Tabla = EntidadContratosAlgodonCompradores.TablaConsulta
             TbSM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(0).Item("Diferencial")) - TbPrecioQuintal.Text)
             TbMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(1).Item("Diferencial")) - TbPrecioQuintal.Text)
             TbM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(2).Item("Diferencial")) - TbPrecioQuintal.Text)
@@ -159,39 +160,6 @@ Public Class ContratosAlgodonCompradores
         DgvContratoAlgodon.DataSource = EntidadContratosAlgodonCompradores.TablaConsulta
     End Sub
 
-    Private Sub DgvContratoAlgodon_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratoAlgodon.CellContentDoubleClick
-        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
-        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
-        Dim TablaDetalle As New DataTable
-        Dim index As Integer
-        index = DgvContratoAlgodon.CurrentRow.Index
-        EntidadContratosAlgodonCompradores.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value.ToString()
-        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDetallada
-        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
-        TablaDetalle = EntidadContratosAlgodonCompradores.TablaConsulta
-        TbIdContratoAlgodon.Text = TablaDetalle.Rows(0).Item("IdContratoAlgodon")
-        IdComprador = TablaDetalle.Rows(0).Item("IdComprador")
-        TbComprador.Text = TablaDetalle.Rows(0).Item("Nombre")
-        TbPacas.Text = TablaDetalle.Rows(0).Item("Pacas")
-        CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
-        TbPrecioQuintal.Text = TablaDetalle.Rows(0).Item("PrecioQuintal")
-        TbPuntos.Text = TablaDetalle.Rows(0).Item("Puntos")
-        DtpFechaLiquidacion.Value = TablaDetalle.Rows(0).Item("FechaLiquidacion")
-        TbPresidente.Text = TablaDetalle.Rows(0).Item("Presidente")
-        CbModalidad.SelectedValue = TablaDetalle.Rows(0).Item("IdModalidadCompra")
-        TbTemporada.Text = TablaDetalle.Rows(0).Item("Temporada")
-        TbSM.Text = TablaDetalle.Rows(0).Item("PrecioSM")
-        TbMP.Text = TablaDetalle.Rows(0).Item("PrecioMP")
-        TbM.Text = TablaDetalle.Rows(0).Item("PrecioM")
-        TbSLMP.Text = TablaDetalle.Rows(0).Item("PrecioSLMP")
-        TbSLM.Text = TablaDetalle.Rows(0).Item("PrecioSLM")
-        TbLMP.Text = TablaDetalle.Rows(0).Item("PrecioLMP")
-        TbLM.Text = TablaDetalle.Rows(0).Item("PrecioLM")
-        TbSGO.Text = TablaDetalle.Rows(0).Item("PrecioSGO")
-        TbGO.Text = TablaDetalle.Rows(0).Item("PrecioGO")
-        TbO.Text = TablaDetalle.Rows(0).Item("PrecioO")
-        InhabilitarBotones()
-    End Sub
     Private Sub HabilitarBotones()
         'BtConsultaLotes.Enabled = True
     End Sub
@@ -215,5 +183,41 @@ Public Class ContratosAlgodonCompradores
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
+    End Sub
+
+    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
+        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
+        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
+        Dim TablaDetalle As New DataTable
+        Dim index As Integer
+        index = DgvContratoAlgodon.CurrentRow.Index
+        EntidadContratosAlgodonCompradores.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDetallada
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        TablaDetalle = EntidadContratosAlgodonCompradores.TablaConsulta
+        TbIdContratoAlgodon.Text = TablaDetalle.Rows(0).Item("IdContratoAlgodon")
+        IdComprador = TablaDetalle.Rows(0).Item("IdComprador")
+        TbComprador.Text = TablaDetalle.Rows(0).Item("Nombre")
+        TbPacas.Text = TablaDetalle.Rows(0).Item("Pacas")
+        CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
+        TbPrecioQuintal.Text = TablaDetalle.Rows(0).Item("PrecioQuintal")
+        CbUnidadPeso.SelectedValue = TablaDetalle.Rows(0).Item("IdUnidadPeso")
+        TbValorConversion.Text = TablaDetalle.Rows(0).Item("ValorConversion")
+        TbPuntos.Text = TablaDetalle.Rows(0).Item("Puntos")
+        DtpFechaLiquidacion.Value = TablaDetalle.Rows(0).Item("FechaLiquidacion")
+        TbPresidente.Text = TablaDetalle.Rows(0).Item("Presidente")
+        CbModalidad.SelectedValue = TablaDetalle.Rows(0).Item("IdModalidadVenta")
+        TbTemporada.Text = TablaDetalle.Rows(0).Item("Temporada")
+        TbSM.Text = TablaDetalle.Rows(0).Item("PrecioSM")
+        TbMP.Text = TablaDetalle.Rows(0).Item("PrecioMP")
+        TbM.Text = TablaDetalle.Rows(0).Item("PrecioM")
+        TbSLMP.Text = TablaDetalle.Rows(0).Item("PrecioSLMP")
+        TbSLM.Text = TablaDetalle.Rows(0).Item("PrecioSLM")
+        TbLMP.Text = TablaDetalle.Rows(0).Item("PrecioLMP")
+        TbLM.Text = TablaDetalle.Rows(0).Item("PrecioLM")
+        TbSGO.Text = TablaDetalle.Rows(0).Item("PrecioSGO")
+        TbGO.Text = TablaDetalle.Rows(0).Item("PrecioGO")
+        TbO.Text = TablaDetalle.Rows(0).Item("PrecioO")
+        InhabilitarBotones()
     End Sub
 End Class

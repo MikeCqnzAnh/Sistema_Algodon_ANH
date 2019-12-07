@@ -1,4 +1,4 @@
-Create proc sp_consultaClasesCalculo
+alter proc sp_consultaClasesCalculo
 --DECLARE
 @NumPaca int ,
 @IdPlanta int,
@@ -8,6 +8,7 @@ if @NumPaca = 0
 	begin
 		select
 		     hd.[IdPlantaOrigen]
+			,isnull(hd.[Kilos],0) as Kilos
 			,Hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -82,6 +83,7 @@ else
 	begin
 		select
 		     Hd.[IdPlantaOrigen]
+			,isnull(hd.[Kilos],0) as Kilos
 			,hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]

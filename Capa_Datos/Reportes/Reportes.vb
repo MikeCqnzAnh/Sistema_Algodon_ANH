@@ -126,7 +126,13 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdClase", EntidadReportes1.IdClase))
                     sqlcom1.Parameters.Add(New SqlParameter("@Mayor", EntidadReportes1.Mayor))
                     sqlcom1.Parameters.Add(New SqlParameter("@Menor", EntidadReportes1.Menor))
-
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteClasesVenta
+                    sqlcom1 = New SqlCommand("Sp_ConsultaClasesVenta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadReportes1.IdPaquete))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception

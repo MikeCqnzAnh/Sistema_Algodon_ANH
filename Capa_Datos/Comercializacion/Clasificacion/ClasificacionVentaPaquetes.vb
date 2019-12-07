@@ -101,6 +101,8 @@ Public Class ClasificacionVentaPaquetes
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
+            cnn.Close()
         Finally
             cnn.Close()
             EntidadClasificacionVentaPaquetes = EntidadClasificacionVentaPaquetes1
@@ -175,25 +177,11 @@ Public Class ClasificacionVentaPaquetes
                 cmdGuardar = New SqlCommand("sp_InsertarClasificacionPacas", cnn)
                 cmdGuardar.CommandType = CommandType.StoredProcedure
                 cmdGuardar.Parameters.Clear()
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdCalculoClasificacion", 0))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdHviDetalle", MiTableRow("IdHviDetalle")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", MiTableRow("IdOrdenTrabajo")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@BaleId", MiTableRow("BaleId")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@Mic", MiTableRow("Mic")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@ColorGrade", MiTableRow("ColorGrade")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@TrashId", MiTableRow("TrashId")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@Clase", MiTableRow("Clase")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@UHML", MiTableRow("UHML")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@Strength", MiTableRow("Strength")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@SCI", MiTableRow("SCI")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@flagterminado", MiTableRow("flagterminado")))
-                'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusCompra", MiTableRow("EstatusCompra")))
-
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdCalculoClasificacion", 0))
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", MiTableRow("IdOrdenTrabajo")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", MiTableRow("IdPlantaOrigen")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@LotID", MiTableRow("LotID")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                 cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
@@ -282,4 +270,3 @@ Public Class ClasificacionVentaPaquetes
         End Try
     End Sub
 End Class
-

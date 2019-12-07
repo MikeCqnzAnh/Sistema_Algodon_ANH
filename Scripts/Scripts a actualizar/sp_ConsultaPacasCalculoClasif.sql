@@ -1,8 +1,9 @@
-Create procedure sp_ConsultaPacasCalculoClasif
+Alter procedure sp_ConsultaPacasCalculoClasif
 @IdPaquete int 
 as
 select   
 		 a.[IdPlantaOrigen]
+		,isnull(a.[Kilos],0) as Kilos
 		,a.[LotID]
 		,a.[BaleID]
 		,a.[BaleGroup]

@@ -362,6 +362,12 @@
     </Compile>
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
+    <Compile Include="Reportes\RepClasesVenta.Designer.vb">
+      <DependentUpon>RepClasesVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepClasesVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepCompraPacasDetallado.Designer.vb">
       <DependentUpon>RepCompraPacasDetallado.vb</DependentUpon>
     </Compile>
@@ -420,6 +426,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTAgrupadoPorClase.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTClasesVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTClasesVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTColumnasEncabezado.vb">
@@ -1005,6 +1017,9 @@
     <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepClasesVenta.resx">
+      <DependentUpon>RepClasesVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepCompraPacasDetallado.resx">
       <DependentUpon>RepCompraPacasDetallado.vb</DependentUpon>
     </EmbeddedResource>
@@ -1035,6 +1050,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTAgrupadoPorClase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTAgrupadoPorClase.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTClasesVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTClasesVenta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTColumnasEncabezado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

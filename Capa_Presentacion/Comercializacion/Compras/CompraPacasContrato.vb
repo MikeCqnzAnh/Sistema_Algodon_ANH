@@ -178,7 +178,7 @@ Public Class CompraPacasContrato
         Return dt
     End Function
     Private Sub CuentaPacasMarcadas() Handles DgvPacasComprar.CellContentClick
-        MarcaSeleccionDisponibles()
+
     End Sub
     Private Function ValidaChecksPacas()
         DgvPacasComprar.EndEdit()
@@ -826,7 +826,7 @@ Public Class CompraPacasContrato
         Return checkcount
     End Function
     Private Sub CuentaPacasMarcadas(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPacasComprar.CellContentClick
-
+        MarcaSeleccionDisponibles()
     End Sub
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar2.Click
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato

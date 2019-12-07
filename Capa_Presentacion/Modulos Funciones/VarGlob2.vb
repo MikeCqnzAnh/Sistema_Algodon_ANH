@@ -9,6 +9,8 @@
     Public Shared IdPlanta As Integer
     Public Shared IdComprador As Integer
     Public Shared NombreComprador As String
+    Public Shared IdVenta As Integer
+    Public Shared IdModalidadVenta As Integer
     Public Shared TreeViewMenuPrincipal As TreeView
     Public Shared DgvExportaExcel As DataGridView
     Public Shared TablaExporta As DataTable
