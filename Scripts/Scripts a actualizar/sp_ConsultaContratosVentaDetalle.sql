@@ -1,12 +1,12 @@
 alter procedure sp_ConsultaContratosVentaDetalle
 --declare
-@IdContratoAlgodon int --= 1
+@IdContratoAlgodon int
 as
 select a.IdContratoAlgodon,
 	   b.IdComprador,
        b.Nombre,	   
 	   a.Pacas,	 
-	   a.PacasCompradas,
+	   a.PacasVendidas,
 	   a.PacasDisponibles,
 	   a.PrecioQuintal,
 	   a.IdUnidadPeso,

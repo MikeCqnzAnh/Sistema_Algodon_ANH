@@ -2,7 +2,7 @@ alter procedure sp_InsertarContratoVenta
 @IdContratoAlgodon int output, 
 @IdComprador int,
 @Pacas int,
-@PacasCompradas int,
+@PacasVendidas int,
 @PacasDisponibles int,
 @PrecioQuintal float,
 @IdUnidadPeso int,
@@ -34,7 +34,7 @@ merge [dbo].[ContratoVenta] as target
 using (select @IdContratoAlgodon
 			 ,@IdComprador
 			 ,@Pacas
-			 ,@PacasCompradas
+			 ,@PacasVendidas
 			 ,@PacasDisponibles 
 			 ,@PrecioQuintal
 			 ,@IdUnidadPeso 
@@ -62,7 +62,7 @@ using (select @IdContratoAlgodon
 			 (IdContratoAlgodon
 			 ,IdComprador
 			 ,Pacas
-			 ,PacasCompradas
+			 ,PacasVendidas
 			 ,PacasDisponibles 
 			 ,PrecioQuintal
 			 ,IdUnidadPeso 
@@ -92,7 +92,7 @@ WHEN MATCHED THEN
 UPDATE SET 
 IdComprador = source.IdComprador,
 Pacas = source.Pacas,
-PacasCompradas = source.PacasCompradas,
+PacasVendidas = source.PacasVendidas,
 PacasDisponibles  = source.PacasDisponibles,
 PrecioQuintal = source.PrecioQuintal,
 IdUnidadPeso  = source.IdUnidadPeso,
@@ -118,7 +118,7 @@ FechaActualizacion = source.FechaActualizacion
 WHEN NOT MATCHED THEN
 INSERT (IdComprador
 	   ,Pacas
-	   ,PacasCompradas
+	   ,PacasVendidas
 	   ,PacasDisponibles 
 	   ,PrecioQuintal
 	   ,IdUnidadPeso 
@@ -145,7 +145,7 @@ INSERT (IdComprador
 	   ,FechaActualizacion)
 VALUES (source.IdComprador
 	   ,source.Pacas
-	   ,source.PacasCompradas
+	   ,source.PacasVendidas
 	   ,source.PacasDisponibles 
 	   ,source.PrecioQuintal
 	   ,source.IdUnidadPeso 

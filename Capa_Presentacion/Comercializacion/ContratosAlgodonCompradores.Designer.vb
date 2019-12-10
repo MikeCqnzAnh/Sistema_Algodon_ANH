@@ -27,6 +27,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.TbValorConversion = New System.Windows.Forms.TextBox()
         Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtGenerar = New System.Windows.Forms.Button()
@@ -73,7 +74,6 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.TbValorConversion = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
@@ -138,9 +138,17 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
         Me.GbDatosGenerales.Size = New System.Drawing.Size(1194, 208)
-        Me.GbDatosGenerales.TabIndex = 2
+        Me.GbDatosGenerales.TabIndex = 0
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'TbValorConversion
+        '
+        Me.TbValorConversion.Enabled = False
+        Me.TbValorConversion.Location = New System.Drawing.Point(244, 97)
+        Me.TbValorConversion.Name = "TbValorConversion"
+        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
+        Me.TbValorConversion.TabIndex = 33
         '
         'CbUnidadPeso
         '
@@ -148,7 +156,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 97)
         Me.CbUnidadPeso.Name = "CbUnidadPeso"
         Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
-        Me.CbUnidadPeso.TabIndex = 32
+        Me.CbUnidadPeso.TabIndex = 2
         '
         'Label3
         '
@@ -382,7 +390,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbComprador.Location = New System.Drawing.Point(117, 45)
         Me.TbComprador.Name = "TbComprador"
         Me.TbComprador.Size = New System.Drawing.Size(226, 20)
-        Me.TbComprador.TabIndex = 26
+        Me.TbComprador.TabIndex = 0
         '
         'Label13
         '
@@ -399,7 +407,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbEstatus.Location = New System.Drawing.Point(117, 176)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 24
+        Me.CbEstatus.TabIndex = 5
         '
         'Label12
         '
@@ -415,7 +423,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbTemporada.Location = New System.Drawing.Point(512, 95)
         Me.TbTemporada.Name = "TbTemporada"
         Me.TbTemporada.Size = New System.Drawing.Size(100, 20)
-        Me.TbTemporada.TabIndex = 22
+        Me.TbTemporada.TabIndex = 9
         '
         'Label11
         '
@@ -441,14 +449,14 @@ Partial Class ContratosAlgodonCompradores
         Me.CbModalidad.Location = New System.Drawing.Point(512, 68)
         Me.CbModalidad.Name = "CbModalidad"
         Me.CbModalidad.Size = New System.Drawing.Size(163, 21)
-        Me.CbModalidad.TabIndex = 19
+        Me.CbModalidad.TabIndex = 8
         '
         'TbPresidente
         '
         Me.TbPresidente.Location = New System.Drawing.Point(512, 42)
         Me.TbPresidente.Name = "TbPresidente"
         Me.TbPresidente.Size = New System.Drawing.Size(263, 20)
-        Me.TbPresidente.TabIndex = 18
+        Me.TbPresidente.TabIndex = 7
         '
         'Label9
         '
@@ -464,7 +472,7 @@ Partial Class ContratosAlgodonCompradores
         Me.DtpFechaLiquidacion.Location = New System.Drawing.Point(512, 16)
         Me.DtpFechaLiquidacion.Name = "DtpFechaLiquidacion"
         Me.DtpFechaLiquidacion.Size = New System.Drawing.Size(200, 20)
-        Me.DtpFechaLiquidacion.TabIndex = 16
+        Me.DtpFechaLiquidacion.TabIndex = 6
         '
         'Label8
         '
@@ -480,7 +488,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbPuntos.Location = New System.Drawing.Point(117, 150)
         Me.TbPuntos.Name = "TbPuntos"
         Me.TbPuntos.Size = New System.Drawing.Size(121, 20)
-        Me.TbPuntos.TabIndex = 14
+        Me.TbPuntos.TabIndex = 4
         '
         'Label7
         '
@@ -496,7 +504,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbPrecioQuintal.Location = New System.Drawing.Point(117, 124)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(121, 20)
-        Me.TbPrecioQuintal.TabIndex = 10
+        Me.TbPrecioQuintal.TabIndex = 3
         '
         'Label4
         '
@@ -512,7 +520,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbPacas.Location = New System.Drawing.Point(117, 71)
         Me.TbPacas.Name = "TbPacas"
         Me.TbPacas.Size = New System.Drawing.Size(121, 20)
-        Me.TbPacas.TabIndex = 5
+        Me.TbPacas.TabIndex = 1
         '
         'Label2
         '
@@ -560,14 +568,6 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
         Me.DgvContratoAlgodon.TabIndex = 14
-        '
-        'TbValorConversion
-        '
-        Me.TbValorConversion.Enabled = False
-        Me.TbValorConversion.Location = New System.Drawing.Point(244, 97)
-        Me.TbValorConversion.Name = "TbValorConversion"
-        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
-        Me.TbValorConversion.TabIndex = 33
         '
         'ContratosAlgodonCompradores
         '

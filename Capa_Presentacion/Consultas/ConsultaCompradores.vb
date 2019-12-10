@@ -41,7 +41,7 @@ Public Class ConsultaCompradores
         'index = DgvConsultaCompradores.CurrentRow.Index
         '_Id = DgvConsultaCompradores.Rows(index).Cells("IdComprador").Value.ToString()
         '_Nombre = DgvConsultaCompradores.Rows(index).Cells("Nombre").Value.ToString()
-        Close()
+        Me.Close()
     End Sub
 
     Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown

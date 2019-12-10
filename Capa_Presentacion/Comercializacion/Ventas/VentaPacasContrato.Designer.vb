@@ -57,20 +57,14 @@ Partial Class VentaPacasContrato
         Me.BtCastigoMicros = New System.Windows.Forms.Button()
         Me.BtCastLarFib = New System.Windows.Forms.Button()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
-        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.DgvAgrupadasClases = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TbKilosComp = New System.Windows.Forms.TextBox()
-        Me.TbPacasComp = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TbPacasCompCont = New System.Windows.Forms.TextBox()
+        Me.TbKilosVendidasGral = New System.Windows.Forms.TextBox()
+        Me.TbPacasVendidasGral = New System.Windows.Forms.TextBox()
         Me.TbPacasDisp = New System.Windows.Forms.TextBox()
         Me.TbPacasContratadas = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -97,8 +91,6 @@ Partial Class VentaPacasContrato
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
-        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TP2LiquidacionesVendidas = New System.Windows.Forms.TabPage()
         Me.DgvLiqVendidas = New System.Windows.Forms.DataGridView()
@@ -116,11 +108,17 @@ Partial Class VentaPacasContrato
         Me.TbHastaPacaCompra = New System.Windows.Forms.TextBox()
         Me.GbCompraActual = New System.Windows.Forms.GroupBox()
         Me.TbPacasMarc = New System.Windows.Forms.TextBox()
-        Me.TbKilosSeleccionados = New System.Windows.Forms.TextBox()
+        Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
+        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
+        Me.BtSeleccionar = New System.Windows.Forms.Button()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TbPacasVendidasContrato = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -508,34 +506,6 @@ Partial Class VentaPacasContrato
         Me.MSMenu.Size = New System.Drawing.Size(1561, 24)
         Me.MSMenu.TabIndex = 3
         '
-        'NuevoToolStripMenuItem
-        '
-        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
-        '
-        'ConsultarToolStripMenuItem
-        '
-        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
-        Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
         'GbCompras
         '
         Me.GbCompras.Controls.Add(Me.GroupBox4)
@@ -573,10 +543,8 @@ Partial Class VentaPacasContrato
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.Label22)
-        Me.Panel1.Controls.Add(Me.TbKilosComp)
-        Me.Panel1.Controls.Add(Me.TbPacasComp)
-        Me.Panel1.Controls.Add(Me.Label20)
-        Me.Panel1.Controls.Add(Me.TbPacasCompCont)
+        Me.Panel1.Controls.Add(Me.TbKilosVendidasGral)
+        Me.Panel1.Controls.Add(Me.TbPacasVendidasGral)
         Me.Panel1.Controls.Add(Me.TbPacasDisp)
         Me.Panel1.Controls.Add(Me.TbPacasContratadas)
         Me.Panel1.Controls.Add(Me.Label19)
@@ -593,11 +561,11 @@ Partial Class VentaPacasContrato
         Me.Label23.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label23.Location = New System.Drawing.Point(270, 65)
+        Me.Label23.Location = New System.Drawing.Point(268, 37)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(99, 13)
+        Me.Label23.Size = New System.Drawing.Size(90, 13)
         Me.Label23.TabIndex = 28
-        Me.Label23.Text = "Kilos comprados"
+        Me.Label23.Text = "Kilos Vendidos"
         '
         'Label22
         '
@@ -605,63 +573,47 @@ Partial Class VentaPacasContrato
         Me.Label22.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label22.Location = New System.Drawing.Point(270, 39)
+        Me.Label22.Location = New System.Drawing.Point(268, 11)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(107, 13)
+        Me.Label22.Size = New System.Drawing.Size(98, 13)
         Me.Label22.TabIndex = 27
-        Me.Label22.Text = "Pacas compradas"
+        Me.Label22.Text = "Pacas Vendidas"
         '
-        'TbKilosComp
+        'TbKilosVendidasGral
         '
-        Me.TbKilosComp.Enabled = False
-        Me.TbKilosComp.Location = New System.Drawing.Point(390, 62)
-        Me.TbKilosComp.Name = "TbKilosComp"
-        Me.TbKilosComp.Size = New System.Drawing.Size(100, 20)
-        Me.TbKilosComp.TabIndex = 26
+        Me.TbKilosVendidasGral.Enabled = False
+        Me.TbKilosVendidasGral.Location = New System.Drawing.Point(388, 34)
+        Me.TbKilosVendidasGral.Name = "TbKilosVendidasGral"
+        Me.TbKilosVendidasGral.Size = New System.Drawing.Size(100, 20)
+        Me.TbKilosVendidasGral.TabIndex = 26
+        Me.TbKilosVendidasGral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbPacasComp
+        'TbPacasVendidasGral
         '
-        Me.TbPacasComp.Enabled = False
-        Me.TbPacasComp.Location = New System.Drawing.Point(390, 36)
-        Me.TbPacasComp.Name = "TbPacasComp"
-        Me.TbPacasComp.Size = New System.Drawing.Size(100, 20)
-        Me.TbPacasComp.TabIndex = 25
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label20.Location = New System.Drawing.Point(13, 65)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(132, 13)
-        Me.Label20.TabIndex = 22
-        Me.Label20.Text = "Pacas comp. Contrato"
-        '
-        'TbPacasCompCont
-        '
-        Me.TbPacasCompCont.Enabled = False
-        Me.TbPacasCompCont.Location = New System.Drawing.Point(155, 62)
-        Me.TbPacasCompCont.Name = "TbPacasCompCont"
-        Me.TbPacasCompCont.Size = New System.Drawing.Size(100, 20)
-        Me.TbPacasCompCont.TabIndex = 21
+        Me.TbPacasVendidasGral.Enabled = False
+        Me.TbPacasVendidasGral.Location = New System.Drawing.Point(388, 8)
+        Me.TbPacasVendidasGral.Name = "TbPacasVendidasGral"
+        Me.TbPacasVendidasGral.Size = New System.Drawing.Size(100, 20)
+        Me.TbPacasVendidasGral.TabIndex = 25
+        Me.TbPacasVendidasGral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbPacasDisp
         '
         Me.TbPacasDisp.Enabled = False
-        Me.TbPacasDisp.Location = New System.Drawing.Point(155, 36)
+        Me.TbPacasDisp.Location = New System.Drawing.Point(162, 34)
         Me.TbPacasDisp.Name = "TbPacasDisp"
         Me.TbPacasDisp.Size = New System.Drawing.Size(100, 20)
         Me.TbPacasDisp.TabIndex = 20
+        Me.TbPacasDisp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbPacasContratadas
         '
         Me.TbPacasContratadas.Enabled = False
-        Me.TbPacasContratadas.Location = New System.Drawing.Point(155, 10)
+        Me.TbPacasContratadas.Location = New System.Drawing.Point(162, 8)
         Me.TbPacasContratadas.Name = "TbPacasContratadas"
         Me.TbPacasContratadas.Size = New System.Drawing.Size(100, 20)
         Me.TbPacasContratadas.TabIndex = 19
+        Me.TbPacasContratadas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label19
         '
@@ -669,7 +621,7 @@ Partial Class VentaPacasContrato
         Me.Label19.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label19.Location = New System.Drawing.Point(13, 39)
+        Me.Label19.Location = New System.Drawing.Point(6, 37)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(109, 13)
         Me.Label19.TabIndex = 18
@@ -681,7 +633,7 @@ Partial Class VentaPacasContrato
         Me.Label18.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label18.Location = New System.Drawing.Point(13, 13)
+        Me.Label18.Location = New System.Drawing.Point(6, 11)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(113, 13)
         Me.Label18.TabIndex = 17
@@ -932,26 +884,6 @@ Partial Class VentaPacasContrato
         Me.Panel5.Size = New System.Drawing.Size(42, 231)
         Me.Panel5.TabIndex = 3
         '
-        'BtSeleccionar2
-        '
-        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
-        Me.BtSeleccionar2.Name = "BtSeleccionar2"
-        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar2.TabIndex = 0
-        Me.BtSeleccionar2.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar
-        '
-        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
-        Me.BtSeleccionar.Name = "BtSeleccionar"
-        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar.TabIndex = 0
-        Me.BtSeleccionar.UseVisualStyleBackColor = True
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TP2LiquidacionesVendidas)
@@ -1067,7 +999,7 @@ Partial Class VentaPacasContrato
         '
         'BtFiltroCompra
         '
-        Me.BtFiltroCompra.Location = New System.Drawing.Point(513, 11)
+        Me.BtFiltroCompra.Location = New System.Drawing.Point(508, 16)
         Me.BtFiltroCompra.Name = "BtFiltroCompra"
         Me.BtFiltroCompra.Size = New System.Drawing.Size(75, 23)
         Me.BtFiltroCompra.TabIndex = 57
@@ -1077,7 +1009,7 @@ Partial Class VentaPacasContrato
         'CbClasesVendidas
         '
         Me.CbClasesVendidas.FormattingEnabled = True
-        Me.CbClasesVendidas.Location = New System.Drawing.Point(354, 13)
+        Me.CbClasesVendidas.Location = New System.Drawing.Point(359, 18)
         Me.CbClasesVendidas.Name = "CbClasesVendidas"
         Me.CbClasesVendidas.Size = New System.Drawing.Size(114, 21)
         Me.CbClasesVendidas.TabIndex = 56
@@ -1085,7 +1017,7 @@ Partial Class VentaPacasContrato
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(9, 16)
+        Me.Label13.Location = New System.Drawing.Point(23, 21)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(59, 13)
         Me.Label13.TabIndex = 26
@@ -1093,15 +1025,16 @@ Partial Class VentaPacasContrato
         '
         'TbDesdePacaCompra
         '
-        Me.TbDesdePacaCompra.Location = New System.Drawing.Point(96, 13)
+        Me.TbDesdePacaCompra.Location = New System.Drawing.Point(88, 18)
         Me.TbDesdePacaCompra.Name = "TbDesdePacaCompra"
-        Me.TbDesdePacaCompra.Size = New System.Drawing.Size(45, 20)
+        Me.TbDesdePacaCompra.Size = New System.Drawing.Size(75, 20)
         Me.TbDesdePacaCompra.TabIndex = 25
+        Me.TbDesdePacaCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(154, 16)
+        Me.Label15.Location = New System.Drawing.Point(169, 21)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(25, 13)
         Me.Label15.TabIndex = 28
@@ -1110,7 +1043,7 @@ Partial Class VentaPacasContrato
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(291, 16)
+        Me.Label17.Location = New System.Drawing.Point(291, 21)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(62, 13)
         Me.Label17.TabIndex = 28
@@ -1118,43 +1051,46 @@ Partial Class VentaPacasContrato
         '
         'TbHastaPacaCompra
         '
-        Me.TbHastaPacaCompra.Location = New System.Drawing.Point(190, 13)
+        Me.TbHastaPacaCompra.Location = New System.Drawing.Point(200, 18)
         Me.TbHastaPacaCompra.Name = "TbHastaPacaCompra"
-        Me.TbHastaPacaCompra.Size = New System.Drawing.Size(45, 20)
+        Me.TbHastaPacaCompra.Size = New System.Drawing.Size(75, 20)
         Me.TbHastaPacaCompra.TabIndex = 31
+        Me.TbHastaPacaCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GbCompraActual
         '
         Me.GbCompraActual.BackColor = System.Drawing.SystemColors.Control
+        Me.GbCompraActual.Controls.Add(Me.Label7)
+        Me.GbCompraActual.Controls.Add(Me.TbPacasVendidasContrato)
         Me.GbCompraActual.Controls.Add(Me.TbPacasMarc)
-        Me.GbCompraActual.Controls.Add(Me.TbKilosSeleccionados)
+        Me.GbCompraActual.Controls.Add(Me.TbKilosVendidos)
         Me.GbCompraActual.Controls.Add(Me.Label24)
         Me.GbCompraActual.Controls.Add(Me.Label25)
-        Me.GbCompraActual.Controls.Add(Me.TextBox4)
-        Me.GbCompraActual.Controls.Add(Me.Label26)
         Me.GbCompraActual.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GbCompraActual.Location = New System.Drawing.Point(0, 231)
         Me.GbCompraActual.Name = "GbCompraActual"
         Me.GbCompraActual.Size = New System.Drawing.Size(1555, 55)
         Me.GbCompraActual.TabIndex = 2
         Me.GbCompraActual.TabStop = False
-        Me.GbCompraActual.Text = "Detalles De Compra"
+        Me.GbCompraActual.Text = "Detalles De Venta"
         '
         'TbPacasMarc
         '
         Me.TbPacasMarc.Enabled = False
-        Me.TbPacasMarc.Location = New System.Drawing.Point(103, 25)
+        Me.TbPacasMarc.Location = New System.Drawing.Point(539, 25)
         Me.TbPacasMarc.Name = "TbPacasMarc"
         Me.TbPacasMarc.Size = New System.Drawing.Size(100, 20)
         Me.TbPacasMarc.TabIndex = 25
+        Me.TbPacasMarc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbKilosSeleccionados
+        'TbKilosVendidos
         '
-        Me.TbKilosSeleccionados.Enabled = False
-        Me.TbKilosSeleccionados.Location = New System.Drawing.Point(245, 25)
-        Me.TbKilosSeleccionados.Name = "TbKilosSeleccionados"
-        Me.TbKilosSeleccionados.Size = New System.Drawing.Size(100, 20)
-        Me.TbKilosSeleccionados.TabIndex = 24
+        Me.TbKilosVendidos.Enabled = False
+        Me.TbKilosVendidos.Location = New System.Drawing.Point(1448, 25)
+        Me.TbKilosVendidos.Name = "TbKilosVendidos"
+        Me.TbKilosVendidos.Size = New System.Drawing.Size(100, 20)
+        Me.TbKilosVendidos.TabIndex = 24
+        Me.TbKilosVendidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label24
         '
@@ -1162,7 +1098,7 @@ Partial Class VentaPacasContrato
         Me.Label24.BackColor = System.Drawing.SystemColors.Control
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label24.Location = New System.Drawing.Point(209, 28)
+        Me.Label24.Location = New System.Drawing.Point(1412, 28)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(32, 13)
         Me.Label24.TabIndex = 23
@@ -1174,31 +1110,76 @@ Partial Class VentaPacasContrato
         Me.Label25.BackColor = System.Drawing.SystemColors.Control
         Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label25.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label25.Location = New System.Drawing.Point(11, 28)
+        Me.Label25.Location = New System.Drawing.Point(447, 28)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(86, 13)
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'TextBox4
+        'BtSeleccionar2
         '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(449, 25)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 20
+        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
+        Me.BtSeleccionar2.Name = "BtSeleccionar2"
+        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar2.TabIndex = 0
+        Me.BtSeleccionar2.UseVisualStyleBackColor = True
         '
-        'Label26
+        'BtSeleccionar
         '
-        Me.Label26.AutoSize = True
-        Me.Label26.BackColor = System.Drawing.SystemColors.Control
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label26.Location = New System.Drawing.Point(351, 28)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(92, 13)
-        Me.Label26.TabIndex = 18
-        Me.Label26.Text = "Pacas disponibles"
+        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
+        Me.BtSeleccionar.Name = "BtSeleccionar"
+        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar.TabIndex = 0
+        Me.BtSeleccionar.UseVisualStyleBackColor = True
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'ConsultarToolStripMenuItem
+        '
+        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
+        Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'TbPacasVendidasContrato
+        '
+        Me.TbPacasVendidasContrato.Enabled = False
+        Me.TbPacasVendidasContrato.Location = New System.Drawing.Point(1272, 25)
+        Me.TbPacasVendidasContrato.Name = "TbPacasVendidasContrato"
+        Me.TbPacasVendidasContrato.Size = New System.Drawing.Size(118, 20)
+        Me.TbPacasVendidasContrato.TabIndex = 26
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(1182, 28)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(84, 13)
+        Me.Label7.TabIndex = 27
+        Me.Label7.Text = "Pacas Vendidas"
         '
         'VentaPacasContrato
         '
@@ -1296,10 +1277,8 @@ Partial Class VentaPacasContrato
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label23 As Label
     Friend WithEvents Label22 As Label
-    Friend WithEvents TbKilosComp As TextBox
-    Friend WithEvents TbPacasComp As TextBox
-    Friend WithEvents Label20 As Label
-    Friend WithEvents TbPacasCompCont As TextBox
+    Friend WithEvents TbKilosVendidasGral As TextBox
+    Friend WithEvents TbPacasVendidasGral As TextBox
     Friend WithEvents TbPacasDisp As TextBox
     Friend WithEvents TbPacasContratadas As TextBox
     Friend WithEvents Label19 As Label
@@ -1337,11 +1316,9 @@ Partial Class VentaPacasContrato
     Friend WithEvents Label17 As Label
     Friend WithEvents TbHastaPacaCompra As TextBox
     Friend WithEvents GbCompraActual As GroupBox
-    Friend WithEvents TbKilosSeleccionados As TextBox
+    Friend WithEvents TbKilosVendidos As TextBox
     Friend WithEvents Label24 As Label
     Friend WithEvents Label25 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label26 As Label
     Friend WithEvents TbPacasMarc As TextBox
     Friend WithEvents TbKdAd As TextBox
     Friend WithEvents CkKgAdd As CheckBox
@@ -1354,4 +1331,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents TbDesdePaca As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TbPacasVendidasContrato As TextBox
 End Class

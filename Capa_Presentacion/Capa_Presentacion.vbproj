@@ -422,6 +422,18 @@
     <Compile Include="Reportes\RepPaquetesVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepVentaPacasDetallado.Designer.vb">
+      <DependentUpon>RepVentaPacasDetallado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepVentaPacasDetallado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepVentaPacasResumen.Designer.vb">
+      <DependentUpon>RepVentaPacasResumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepVentaPacasResumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTAgrupadoPorClase.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,6 +480,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTDetallecompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTDetalleVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTDetalleVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTHviDetalle.vb">
@@ -534,6 +552,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTResumenLiquidaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utilerias\ClaveAutorizacion.Designer.vb">
@@ -1047,6 +1071,12 @@
     <EmbeddedResource Include="Reportes\RepPaquetesVenta.resx">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepVentaPacasDetallado.resx">
+      <DependentUpon>RepVentaPacasDetallado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepVentaPacasResumen.resx">
+      <DependentUpon>RepVentaPacasResumen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTAgrupadoPorClase.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTAgrupadoPorClase.vb</LastGenOutput>
@@ -1078,6 +1108,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTDetallecompra.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTDetallecompra.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTDetalleVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTDetalleVenta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTHviDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1122,6 +1156,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTResumenLiquidaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTResumenLiquidaciones.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTVenta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\ClaveAutorizacion.resx">
       <DependentUpon>ClaveAutorizacion.vb</DependentUpon>

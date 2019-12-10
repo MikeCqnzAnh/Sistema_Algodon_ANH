@@ -33,4 +33,4 @@ select pd.FolioCIA,
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 1 and lr.IdLiquidacion is not null
-		order by cc.IdOrdenTrabajo
+		order by cc.IdOrdenTrabajo, cc.BaleID

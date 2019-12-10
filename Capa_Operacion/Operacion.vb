@@ -53,6 +53,8 @@ Namespace Configuracion
         ReporteCompraPacasDetallado = 13
         ReportePaquetesVenta = 14
         ReporteClasesVenta = 15
+        ReporteVentaPacasResumen = 16
+        ReporteVentaPacasDetallado = 17
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
