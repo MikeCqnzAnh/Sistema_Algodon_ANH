@@ -12,11 +12,15 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadContratosAlgodonCompradores1.IdComprador))
             cmdGuardar.Parameters.Add(New SqlParameter("@Pacas", EntidadContratosAlgodonCompradores1.Pacas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasVendidas", 0))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodonCompradores1.Pacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadContratosAlgodonCompradores1.PrecioQuintal))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdUnidadPeso", EntidadContratosAlgodonCompradores1.IdUnidadPeso))
+            cmdGuardar.Parameters.Add(New SqlParameter("@ValorConversion", EntidadContratosAlgodonCompradores1.ValorConversion))
             cmdGuardar.Parameters.Add(New SqlParameter("@Puntos", EntidadContratosAlgodonCompradores1.Puntos))
             cmdGuardar.Parameters.Add(New SqlParameter("@FechaLiquidacion", EntidadContratosAlgodonCompradores1.FechaLiquidacion))
             cmdGuardar.Parameters.Add(New SqlParameter("@Presidente", EntidadContratosAlgodonCompradores1.Presidente))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdModalidadCompra", EntidadContratosAlgodonCompradores1.IdModalidadCompra))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModalidadVenta", EntidadContratosAlgodonCompradores1.IdModalidadVenta))
             cmdGuardar.Parameters.Add(New SqlParameter("@Temporada", EntidadContratosAlgodonCompradores1.Temporada))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioSM", EntidadContratosAlgodonCompradores1.PrecioSM))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMP", EntidadContratosAlgodonCompradores1.PrecioMP))
@@ -38,7 +42,7 @@ Public Class ContratosAlgodonCompradores
             If EntidadContratosAlgodonCompradores1.IdContratoAlgodon = 0 Then
                 EntidadContratosAlgodonCompradores1.IdContratoAlgodon = cmdGuardar.Parameters("@IdContratoAlgodon").Value
                 'For Each MiTableRow As DataRow In EntidadContratosAlgodonCompradores1.TablaConsulta.Rows
-                '    cmdGuardar.CommandText = "sp_InsertarContratoCompraDet"
+                '    cmdGuardar.CommandText = "sp_InsertarContratoVentaDet"
                 '    cmdGuardar.CommandType = CommandType.StoredProcedure
                 '    cmdGuardar.Parameters.Clear()
                 '    cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodonDetalle", 0))
@@ -89,8 +93,13 @@ Public Class ContratosAlgodonCompradores
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqldat1 = New SqlDataAdapter("sp_ConsultaModosVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
+            cnn.Close()
         Finally
             cnn.Close()
             EntidadContratosAlgodonCompradores = EntidadContratosAlgodonCompradores1

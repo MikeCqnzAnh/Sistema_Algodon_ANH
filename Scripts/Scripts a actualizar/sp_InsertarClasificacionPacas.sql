@@ -1,8 +1,9 @@
-Create procedure [dbo].[sp_InsertarClasificacionPacas]
+alter procedure [dbo].[sp_InsertarClasificacionPacas]
 @IdCalculoClasificacion int,
 @IdPaqueteEncabezado int,
 @IdOrdenTrabajo int,
 @IdPlantaOrigen int,
+@Kilos int,
 @LotID int,
 @BaleID int ,
 @BaleGroup varchar(5) ,
@@ -39,6 +40,7 @@ merge [dbo].[CalculoClasificacion] as target
 				@IdPaqueteEncabezado,
 				@IdOrdenTrabajo,
 				@IdPlantaOrigen,
+				@Kilos,
 				@LotID,
 				@BaleID  ,
 				@BaleGroup  ,
@@ -72,6 +74,7 @@ merge [dbo].[CalculoClasificacion] as target
 				IdPaqueteEncabezado,
 				IdOrdenTrabajo,
 				IdPlantaOrigen,
+				Kilos,
 				LotID,
 				BaleID  ,
 				BaleGroup  ,
@@ -102,7 +105,8 @@ merge [dbo].[CalculoClasificacion] as target
 				EstatusVenta)
 ON (target.BaleId = SOURCE.BaleId and target.IdPaqueteEncabezado = SOURCE.IdPaqueteEncabezado and target.IdPlantaOrigen = SOURCE.IdPlantaOrigen)
 WHEN MATCHED THEN
-UPDATE SET 
+UPDATE SET		kilos = source.Kilos,
+				lotid = source.lotid,
 				BaleGroup  = source.BaleGroup ,
 				Operator = source.Operator ,
 				[Date]  = source.[Date] ,
@@ -134,6 +138,7 @@ WHEN NOT MATCHED THEN
 INSERT (IdPaqueteEncabezado
 		,IdOrdenTrabajo
 		,IdPlantaOrigen
+		,Kilos
 		,LotID
 		,BaleId
 		,BaleGroup
@@ -166,6 +171,7 @@ INSERT (IdPaqueteEncabezado
 		(source.IdPaqueteEncabezado
 		,source.IdOrdenTrabajo
 		,source.IdPlantaOrigen
+		,source.Kilos
 		,source.LotID
 		,source.BaleId
 		,source.BaleGroup

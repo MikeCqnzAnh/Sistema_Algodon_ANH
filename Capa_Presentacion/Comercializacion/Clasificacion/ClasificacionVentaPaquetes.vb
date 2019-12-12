@@ -1053,6 +1053,10 @@ Public Class ClasificacionVentaPaquetes
 
     End Sub
 
+    Private Sub ImprimirClasesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImprimirClasesToolStripMenuItem1.Click
+
+    End Sub
+
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbNoPaca.KeyPress, TbIdPaquete.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False

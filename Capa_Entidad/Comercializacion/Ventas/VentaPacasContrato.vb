@@ -12,6 +12,18 @@
     Public CastigoMicros As Double
     Public CastigoLargoFibra As Double
     Public CastigoResistenciaFibra As Double
+    Public CastigoUI As Double
+    Public CastigoBarkLevel1 As Double
+    Public CastigoBarkLevel2 As Double
+    Public CastigoPrepLevel1 As Double
+    Public CastigoPrepLevel2 As Double
+    Public CastigoOtherLevel1 As Double
+    Public CastigoOtherLevel2 As Double
+    Public CastigoPlasticLevel1 As Double
+    Public CastigoPlasticLevel2 As Double
+    Public IdUnidadPeso As Integer
+    Public ValorConversion As Double
+    Public Unidad As Integer
     Public InteresPesosMx As Double
     Public InteresDlls As Double
     Public PrecioQuintal As Double
@@ -29,8 +41,11 @@
     Public InicioPaca As Integer
     Public FinPaca As Integer
     Public Clase As String
+    Public IdPaquete As Integer
     Public IdEstatusVenta As Integer
     Public NombreComprador As String
+    Public PacasVendidas As Integer
+    Public PacasDisponibles As Integer
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

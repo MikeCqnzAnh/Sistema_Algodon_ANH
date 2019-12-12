@@ -55,6 +55,7 @@ Partial Class VentaClasificacion
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteClasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDePaquetesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArchivoAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -367,7 +368,7 @@ Partial Class VentaClasificacion
         '
         'ImprimirToolStripMenuItem
         '
-        Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteClasesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem})
+        Me.ImprimirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteClasesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem, Me.ReporteDePaquetesToolStripMenuItem})
         Me.ImprimirToolStripMenuItem.Name = "ImprimirToolStripMenuItem"
         Me.ImprimirToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ImprimirToolStripMenuItem.Text = "Imprimir"
@@ -375,14 +376,20 @@ Partial Class VentaClasificacion
         'ReporteClasesToolStripMenuItem
         '
         Me.ReporteClasesToolStripMenuItem.Name = "ReporteClasesToolStripMenuItem"
-        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ReporteClasesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReporteClasesToolStripMenuItem.Text = "Reporte Clases"
         '
         'ReporteHVIToolStripMenuItem
         '
         Me.ReporteHVIToolStripMenuItem.Name = "ReporteHVIToolStripMenuItem"
-        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(151, 22)
+        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReporteHVIToolStripMenuItem.Text = "Reporte HVI"
+        '
+        'ReporteDePaquetesToolStripMenuItem
+        '
+        Me.ReporteDePaquetesToolStripMenuItem.Name = "ReporteDePaquetesToolStripMenuItem"
+        Me.ReporteDePaquetesToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ReporteDePaquetesToolStripMenuItem.Text = "Reporte de Paquetes"
         '
         'ExportarToolStripMenuItem
         '
@@ -515,4 +522,5 @@ Partial Class VentaClasificacion
     Friend WithEvents GbSeleccionarTodasPacas As GroupBox
     Friend WithEvents BtDeseleccionarTodo As Button
     Friend WithEvents BtSeleccionarTodo As Button
+    Friend WithEvents ReporteDePaquetesToolStripMenuItem As ToolStripMenuItem
 End Class

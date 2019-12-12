@@ -1,0 +1,87 @@
+drop table ContratoVenta
+go
+CREATE TABLE [dbo].[ContratoVenta](
+	[IdContratoAlgodon] [int] IDENTITY(1,1) NOT NULL primary key,
+	[IdComprador] [int] NULL,
+	[Pacas] [int] NULL,
+	[PacasVendidas] [INT] NULL,
+    [PacasDisponibles] [INT] NULL,
+	[PrecioQuintal] [float] NULL,
+	[IdUnidadPeso] [int] NULL,
+	[ValorConversion] [float] NULL,
+	[Puntos] [float] NULL,
+	[FechaLiquidacion] [datetime] NULL,
+	[Presidente] [varchar](100) NULL,
+	[IdModalidadVenta] [int] NULL,
+	[Temporada] [varchar](20) NULL,
+	[PrecioSM] [float] NULL,
+	[PrecioMP] [float] NULL,
+	[PrecioM] [float] NULL,
+	[PrecioSLMP] [float] NULL,
+	[PrecioSLM] [float] NULL,
+	[PrecioLMP] [float] NULL,
+	[PrecioLM] [float] NULL,
+	[PrecioSGO] [float] NULL,
+	[PrecioGO] [float] NULL,
+	[PrecioO] [float] NULL,
+	[IdEstatus] [int] NULL,
+	[IdUsuarioCreacion] [int] NULL,
+	[FechaCreacion] [datetime] NULL,
+	[IdUsuarioActualizacion] [int] NULL,
+	[FechaActualizacion] [datetime] NULL
+)
+go
+drop table VentaPacas
+go
+CREATE TABLE [dbo].[VentaPacas](
+	[IdVenta] [int] primary key IDENTITY(1,1) NOT NULL,
+	[IdContratoAlgodon] [int] NULL,
+	[IdComprador] [int] NULL,
+	[IdPlanta] [int] NULL,
+	[IdModalidadVenta] [int] NULL,
+	[Fecha] [datetime] NULL,
+	[TotalPacas] [int] NULL,
+	[Observaciones] [varchar](max) NULL,
+	[CastigoMicros] [float] NULL,
+	[CastigoLargoFibra] [float] NULL,
+	[CastigoResistenciaFibra] [float] NULL,
+	[CastigoUI] [float] NULL,
+	[CastigoBarkLevel1] [float] null,
+	[CastigoBarkLevel2] [float] null,
+	[CastigoPrepLevel1] [float] null,
+	[CastigoPrepLevel2] [float] null,
+	[CastigoOtherLevel1] [float] null,
+	[CastigoOtherLevel2] [float] null,
+	[CastigoPlasticLevel1] [float] null,
+	[CastigoPlasticLevel2] [float] null,
+	[IdUnidadPeso] [int] NULL,
+	[ValorConversion] [float] null,
+	[Unidad] [int] null,
+	[InteresPesosMx] [float] NULL,
+	[InteresDlls] [float] NULL,
+	[PrecioQuintal] [float] NULL,
+	[PrecioQuintalBorregos] [float] NULL,
+	[PrecioDolar] [float] NULL,
+	[Subtotal] [float] NULL,
+	[CastigoDls] [float] NULL,
+	[AnticipoDls] [float] NULL,
+	[TotalDlls] [float] NULL,
+	[TotalPesosMx] [float] NULL,
+	[IdEstatusVenta] [int] NULL
+	) 
+go
+Create Table PaqueteMatExt
+(
+IdPaquete int Primary key identity(1,1),
+LotId int,
+BaleId int,
+IdOrdenTrabajo int,
+BarkLevel1 float,
+BarkLevel2 float,
+PrepLevel1 float,
+PrepLevel2 float,
+OtherLevel1 float,
+OtherLevel2 float,
+PlasticLevel1 float,
+PlasticLevel2 float
+)

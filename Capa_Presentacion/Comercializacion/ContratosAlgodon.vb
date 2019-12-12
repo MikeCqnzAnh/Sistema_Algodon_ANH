@@ -129,7 +129,6 @@ Public Class ContratosAlgodon
         ConsultaProductores.ShowDialog()
         IdCliente = _Id
         TbProductor.Text = _Nombre
-        ' TbAsociacion.Text = _Dato
     End Sub
 
     Private Sub BtConsultaLotes_Click(sender As Object, e As EventArgs) Handles BtConsultaLotes.Click

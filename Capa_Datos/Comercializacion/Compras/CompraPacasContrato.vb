@@ -218,8 +218,18 @@ Public Class CompraPacasContrato
                         cmdActualizar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVenta")))
                         cmdActualizar.ExecuteNonQuery()
                     Next
+                Case Capa_Operacion.Configuracion.Actuliza.ActualizaPacasDisponibles
+                    cmdActualizar = New SqlCommand("Sp_ActualizaCantidadPacasCompras", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdContrato", EntidadCompraPacasContrato1.IdContrato))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@PacasCompradas", EntidadCompraPacasContrato1.PacasCompradas))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadCompraPacasContrato1.PacasDisponibles))
+                    cmdActualizar.ExecuteNonQuery()
             End Select
         Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadCompraPacasContrato = EntidadCompraPacasContrato1

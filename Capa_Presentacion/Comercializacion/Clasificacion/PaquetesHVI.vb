@@ -23,7 +23,7 @@ Public Class PaquetesHVI
         Limpiar()
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        If CbPlanta.Text <> "" Or TbPaquete.Text <> "" Or CbPlanta.SelectedValue > 0 Then
+        If CbPlanta.Text <> "" And TbPaquete.Text <> "" And CbPlanta.SelectedValue > 0 Then
             Dim vReturn(1) As String
             If DgvPaquetesHVI.DataSource IsNot Nothing And TbPaquete.Text <> "" Then
                 vReturn = ExistePaqueteHVI(TbPaquete.Text)
@@ -240,6 +240,7 @@ Public Class PaquetesHVI
         DgvPaquetesHVI.Columns("IdPlantaOrigen").Visible = False
         DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
+
     Private Sub MatExtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MatExtToolStripMenuItem.Click
         MatExtCompras.ShowDialog()
     End Sub

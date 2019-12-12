@@ -28,11 +28,13 @@ Public Class ConsultaProductorContratoCompras
     End Sub
 
     Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Dim _dataTable As DataTable = LoadDataTable()
+        If DgvProductores.RowCount > 0 And DgvProductores.CurrentCell IsNot Nothing Then
+            Dim _dataTable As DataTable = LoadDataTable()
 
-        Dim estadoOperacion As Boolean = Me.Opener.LoadIdProductor(_dataTable)
+            Dim estadoOperacion As Boolean = Me.Opener.LoadIdProductor(_dataTable)
 
-        e.Cancel = Not estadoOperacion
+            e.Cancel = Not estadoOperacion
+        End If
     End Sub
     Private Function LoadDataTable() As DataTable
         Dim dt As New DataTable

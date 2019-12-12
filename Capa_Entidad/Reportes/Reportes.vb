@@ -14,5 +14,10 @@
     Public PacaInicial As Integer
     Public PacaFinal As Integer
     Public IdCompra As Integer
+    Public IdVenta As Integer
+    Public CantidadPacas As Integer
+    Public IdComprador As Integer
+    Public Mayor As Boolean
+    Public Menor As Boolean
     '------------------------------
 End Class

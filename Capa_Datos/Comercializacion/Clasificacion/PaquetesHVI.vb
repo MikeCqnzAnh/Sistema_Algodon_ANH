@@ -116,8 +116,8 @@ Public Class PaquetesHVI
             cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", EntidadPaquetesHVI1.BaleID))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
-            cnn.Close()
             MsgBox(ex)
+            cnn.Close()
         Finally
             cnn.Close()
         End Try
@@ -138,13 +138,6 @@ Public Class PaquetesHVI
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
                     sqldat1 = New SqlDataAdapter("sp_ConsultaPlantas", cnn)
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaCompradores
-                    '    sqlcom1 = New SqlCommand("sp_ConsultaCompradores", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", ""))
-                    '    sqldat1.Fill(EntidadContratoSemillas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
                     sqlcom1 = New SqlCommand("sp_ConsultaPaquetesHVIDet", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -152,6 +145,13 @@ Public Class PaquetesHVI
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadPaquetesHVI1.IdPaquete))
                     'sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
+                    sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaEncabezadoMatExt
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPaqueteHviEncabezado", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@LotId", EntidadPaquetesHVI1.LotId))
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
             End Select
         Catch ex As Exception

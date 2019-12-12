@@ -51,6 +51,11 @@ Namespace Configuracion
         ReportePacasDetallado = 11
         ReporteCompraPacasResumen = 12
         ReporteCompraPacasDetallado = 13
+        ReportePaquetesVenta = 14
+        ReporteClasesVenta = 15
+        ReporteVentaPacasResumen = 16
+        ReporteVentaPacasDetallado = 17
+        ReporteVentaHVI = 18
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -149,6 +154,11 @@ Namespace Configuracion
         ConsultaCastigoUniformidad = 75
         ConsultaIdCompraPaca = 76
         ConsultaCastigoMatExtCompra = 77
+        ConsultaUnidadPeso = 78
+        ConsultaIdVentaPaca = 79
+        ConsultaEncabezadoMatExt = 80
+        ConsultaPacaMatExt = 81
+        ConsultaPacaMatExtDet = 82
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -165,6 +175,7 @@ Namespace Configuracion
         ActualizaUsuario = 6
         ActualizaEstatus = 7
         ActualizaClaveAutorizacion = 8
+        ActualizaPacasDisponibles = 9
     End Enum
     Public Enum Importa
         ImportaTabla = 1

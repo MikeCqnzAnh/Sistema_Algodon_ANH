@@ -3,11 +3,15 @@
     Public IdContratoAlgodon As Integer
     Public IdComprador As Integer
     Public Pacas As Integer
+    Public PacasDisponibles As Integer
+    Public PacasCompradas As Integer
     Public PrecioQuintal As Double
+    Public IdUnidadPeso As Integer
+    Public ValorConversion As Double
     Public Puntos As Double
     Public FechaLiquidacion As DateTime
     Public Presidente As String
-    Public IdModalidadCompra As Integer
+    Public IdModalidadVenta As Integer
     Public Temporada As String
     Public PrecioSM As Double
     Public PrecioMP As Double
