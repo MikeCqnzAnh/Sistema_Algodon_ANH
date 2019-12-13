@@ -3,6 +3,8 @@
     Public IdContratoAlgodon As Integer
     Public IdProductor As Integer
     Public Pacas As Integer
+    Public PacasCompradas As Integer
+    Public PacasDisponibles As Integer
     Public SuperficieComprometida As Double
     Public PrecioQuintal As Double
     Public Puntos As Double

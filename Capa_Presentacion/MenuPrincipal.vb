@@ -125,9 +125,9 @@ Public Class MenuPrincipal
         TsPrecioDolar.Text = tabla.Rows(0).Item("TipoDeCambio")
     End Sub
     Private Sub TipoUsuario()
-        SbNombreUsuario.Text = _Usuario
-        SbTipoUsuario.Text = _TipoUsuario
-        SbBdd.Text = _BaseDeDatos
+        SbNombreUsuario.Text = Trim(_Usuario)
+        SbTipoUsuario.Text = Trim(_TipoUsuario)
+        SbBdd.Text = Trim(_BaseDeDatos)
         If VerificaFechaTipoCambio() = True Then
             ObtenerPrecioDolarBanxico()
         Else

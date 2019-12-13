@@ -4,7 +4,7 @@
     Public IdComprador As Integer
     Public Pacas As Integer
     Public PacasDisponibles As Integer
-    Public PacasCompradas As Integer
+    Public PacasVendidas As Integer
     Public PrecioQuintal As Double
     Public IdUnidadPeso As Integer
     Public ValorConversion As Double

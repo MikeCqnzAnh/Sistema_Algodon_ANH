@@ -12,8 +12,8 @@ Public Class ContratosAlgodon
             cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodon1.IdContratoAlgodon))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", EntidadContratosAlgodon1.IdProductor))
             cmdGuardar.Parameters.Add(New SqlParameter("@Pacas", EntidadContratosAlgodon1.Pacas))
-            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCompradas", 0))
-            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodon1.Pacas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasCompradas", EntidadContratosAlgodon1.PacasCompradas))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodon1.PacasDisponibles))
             cmdGuardar.Parameters.Add(New SqlParameter("@SuperficieComprometida", EntidadContratosAlgodon1.SuperficieComprometida))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadContratosAlgodon1.PrecioQuintal))
             cmdGuardar.Parameters.Add(New SqlParameter("@Puntos", EntidadContratosAlgodon1.Puntos))
@@ -52,6 +52,8 @@ Public Class ContratosAlgodon
                 Next
             End If
         Catch ex As Exception
+            MsgBox(ex)
+            cnn.Close()
         Finally
             cnn.Close()
             EntidadContratosAlgodon = EntidadContratosAlgodon1

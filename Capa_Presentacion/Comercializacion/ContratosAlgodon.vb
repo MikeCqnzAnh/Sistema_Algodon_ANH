@@ -1,62 +1,64 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ContratosAlgodon
     Public IdCliente As Integer
-
     Private Sub ContratosAlgodon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
         Limpiar()
         ConsultaContratos()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
         HabilitarBotones()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
-        EntidadContratosAlgodon.IdContratoAlgodon = IIf(TbIdContratoAlgodon.Text = "", 0, TbIdContratoAlgodon.Text)
-        EntidadContratosAlgodon.IdProductor = IdCliente
-        EntidadContratosAlgodon.Pacas = TbPacas.Text
-        EntidadContratosAlgodon.SuperficieComprometida = TbSuperficie.Text
-        EntidadContratosAlgodon.PrecioQuintal = TbPrecioQuintal.Text
-        EntidadContratosAlgodon.Puntos = TbPuntos.Text
-        EntidadContratosAlgodon.FechaLiquidacion = DtpFechaLiquidacion.Value
-        EntidadContratosAlgodon.Presidente = TbPresidente.Text
-        EntidadContratosAlgodon.IdModalidadCompra = CbModalidad.SelectedValue
-        EntidadContratosAlgodon.Temporada = TbTemporada.Text
-        EntidadContratosAlgodon.PrecioSM = TbSM.Text
-        EntidadContratosAlgodon.PrecioMP = TbMP.Text
-        EntidadContratosAlgodon.PrecioM = TbM.Text
-        EntidadContratosAlgodon.PrecioSLMP = TbSLMP.Text
-        EntidadContratosAlgodon.PrecioSLM = TbSLM.Text
-        EntidadContratosAlgodon.PrecioLMP = TbLMP.Text
-        EntidadContratosAlgodon.PrecioLM = TbLM.Text
-        EntidadContratosAlgodon.PrecioSGO = TbSGO.Text
-        EntidadContratosAlgodon.PrecioGO = TbGO.Text
-        EntidadContratosAlgodon.PrecioO = TbO.Text
-        EntidadContratosAlgodon.IdEstatus = CbEstatus.SelectedValue
-        EntidadContratosAlgodon.IdUsuarioCreacion = 1
-        EntidadContratosAlgodon.FechaCreacion = Now
-        EntidadContratosAlgodon.IdUsuarioActualizacion = 1
-        EntidadContratosAlgodon.FechaActualizacion = Now
-        EntidadContratosAlgodon.TablaConsulta = _Tabla
-        NegocioContratosAlgodon.Guardar(EntidadContratosAlgodon)
-        TbIdContratoAlgodon.Text = EntidadContratosAlgodon.IdContratoAlgodon
-        MsgBox("Realizado Correctamente")
-        ConsultaContratos()
-        HabilitarBotones()
+        Try
+            EntidadContratosAlgodon.IdContratoAlgodon = IIf(TbIdContratoAlgodon.Text = "", 0, TbIdContratoAlgodon.Text)
+            EntidadContratosAlgodon.IdProductor = IdCliente
+            EntidadContratosAlgodon.Pacas = Val(TbPacas.Text)
+            EntidadContratosAlgodon.PacasCompradas = Val(TbPacasCompradas.Text)
+            EntidadContratosAlgodon.PacasDisponibles = Val(TbPacasDisponibles.Text)
+            EntidadContratosAlgodon.SuperficieComprometida = Val(TbSuperficie.Text)
+            EntidadContratosAlgodon.PrecioQuintal = Val(TbPrecioQuintal.Text)
+            EntidadContratosAlgodon.Puntos = Val(TbPuntos.Text)
+            EntidadContratosAlgodon.FechaLiquidacion = DtpFechaLiquidacion.Value
+            EntidadContratosAlgodon.Presidente = TbPresidente.Text
+            EntidadContratosAlgodon.IdModalidadCompra = CbModalidad.SelectedValue
+            EntidadContratosAlgodon.Temporada = Val(TbTemporada.Text)
+            EntidadContratosAlgodon.PrecioSM = Val(TbSM.Text)
+            EntidadContratosAlgodon.PrecioMP = Val(TbMP.Text)
+            EntidadContratosAlgodon.PrecioM = Val(TbM.Text)
+            EntidadContratosAlgodon.PrecioSLMP = Val(TbSLMP.Text)
+            EntidadContratosAlgodon.PrecioSLM = Val(TbSLM.Text)
+            EntidadContratosAlgodon.PrecioLMP = Val(TbLMP.Text)
+            EntidadContratosAlgodon.PrecioLM = Val(TbLM.Text)
+            EntidadContratosAlgodon.PrecioSGO = Val(TbSGO.Text)
+            EntidadContratosAlgodon.PrecioGO = Val(TbGO.Text)
+            EntidadContratosAlgodon.PrecioO = Val(TbO.Text)
+            EntidadContratosAlgodon.IdEstatus = CbEstatus.SelectedValue
+            EntidadContratosAlgodon.IdUsuarioCreacion = 1
+            EntidadContratosAlgodon.FechaCreacion = Now
+            EntidadContratosAlgodon.IdUsuarioActualizacion = 1
+            EntidadContratosAlgodon.FechaActualizacion = Now
+            EntidadContratosAlgodon.TablaConsulta = _Tabla
+            NegocioContratosAlgodon.Guardar(EntidadContratosAlgodon)
+            TbIdContratoAlgodon.Text = EntidadContratosAlgodon.IdContratoAlgodon
+        Catch ex As Exception
+            MsgBox(ex)
+        Finally
+            MsgBox("Realizado Correctamente")
+            ConsultaContratos()
+            HabilitarBotones()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdContratoAlgodon.Text, "SE CREO/ACTUALIZO EL CONTRATO " & TbIdContratoAlgodon.Text & " " & TbProductor.Text & " CON LA CANTIDAD DE " & TbPacas.Text & " PACAS DE CONTRATO, " & TbPacasDisponibles.Text & " DISPONIBLES, " & TbPacasCompradas.Text & "COMPRADAS, MODALIDAD DE COMPRA" & CbModalidad.Text & ", PRECIO DE CONTRATO " & TbPrecioQuintal.Text & ".")
+        End Try
     End Sub
-
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
@@ -87,7 +89,6 @@ Public Class ContratosAlgodon
         CbModalidad.DisplayMember = "Descripcion"
         CbModalidad.SelectedValue = 1
     End Sub
-
     Private Sub ConsultaContratos()
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
@@ -96,9 +97,10 @@ Public Class ContratosAlgodon
         NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
         DgvContratoAlgodon.DataSource = EntidadContratosAlgodon.TablaConsulta
     End Sub
-
     Private Sub Limpiar()
         TbIdContratoAlgodon.Text = ""
+        TbPacasCompradas.Text = ""
+        TbPacasDisponibles.Text = ""
         TbProductor.Text = ""
         TbAsociacion.Text = ""
         TbPacas.Text = ""
@@ -122,7 +124,6 @@ Public Class ContratosAlgodon
         TbGO.Text = ""
         TbO.Text = ""
     End Sub
-
     Private Sub BtnBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtnBuscarProductor.Click
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
@@ -130,7 +131,6 @@ Public Class ContratosAlgodon
         IdCliente = _Id
         TbProductor.Text = _Nombre
     End Sub
-
     Private Sub BtConsultaLotes_Click(sender As Object, e As EventArgs) Handles BtConsultaLotes.Click
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
@@ -146,7 +146,6 @@ Public Class ContratosAlgodon
             TbLotes.Text = TbLotes.Text + " - " + row.Item("Lote")
         Next
     End Sub
-
     Private Sub BtGenerar_Click(sender As Object, e As EventArgs) Handles BtGenerar.Click
         If TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" Then
             Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
@@ -185,6 +184,8 @@ Public Class ContratosAlgodon
         TbProductor.Text = TablaDetalle.Rows(0).Item("Nombre")
         TbAsociacion.Text = TablaDetalle.Rows(0).Item("Descripcion")
         TbPacas.Text = TablaDetalle.Rows(0).Item("Pacas")
+        TbPacasCompradas.Text = TablaDetalle.Rows(0).Item("PacasCompradas")
+        TbPacasDisponibles.Text = TablaDetalle.Rows(0).Item("PacasDisponibles")
         TbSuperficie.Text = TablaDetalle.Rows(0).Item("SuperficieComprometida")
         TbLotes.Text = TablaDetalle.Rows(0).Item("Lotes")
         CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
@@ -219,6 +220,14 @@ Public Class ContratosAlgodon
         Else
             MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-
     End Sub
+    Private Sub TbPacas_Leave(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbPacas.KeyDown
+        Select Case e.KeyData
+            Case Keys.Enter
+                If Val(TbPacas.Text) >= Val(TbPacasCompradas.Text) Then
+                    TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasCompradas.Text)
+                End If
+        End Select
+    End Sub
+
 End Class

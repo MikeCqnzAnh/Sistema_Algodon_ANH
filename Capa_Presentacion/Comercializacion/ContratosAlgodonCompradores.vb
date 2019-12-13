@@ -24,25 +24,27 @@ Public Class ContratosAlgodonCompradores
         Try
             EntidadContratosAlgodonCompradores.IdContratoAlgodon = IIf(TbIdContratoAlgodon.Text = "", 0, TbIdContratoAlgodon.Text)
             EntidadContratosAlgodonCompradores.IdComprador = IdComprador
-            EntidadContratosAlgodonCompradores.Pacas = TbPacas.Text
-            EntidadContratosAlgodonCompradores.PrecioQuintal = TbPrecioQuintal.Text
+            EntidadContratosAlgodonCompradores.Pacas = Val(TbPacas.Text)
+            EntidadContratosAlgodonCompradores.PacasDisponibles = Val(TbPacasDisponibles.Text)
+            EntidadContratosAlgodonCompradores.PacasVendidas = Val(TbPacasVendidas.Text)
+            EntidadContratosAlgodonCompradores.PrecioQuintal = Val(TbPrecioQuintal.Text)
             EntidadContratosAlgodonCompradores.IdUnidadPeso = CbUnidadPeso.SelectedValue
             EntidadContratosAlgodonCompradores.ValorConversion = Val(TbValorConversion.Text)
-            EntidadContratosAlgodonCompradores.Puntos = TbPuntos.Text
+            EntidadContratosAlgodonCompradores.Puntos = Val(TbPuntos.Text)
             EntidadContratosAlgodonCompradores.FechaLiquidacion = DtpFechaLiquidacion.Value
             EntidadContratosAlgodonCompradores.Presidente = TbPresidente.Text
             EntidadContratosAlgodonCompradores.IdModalidadVenta = CbModalidad.SelectedValue
-            EntidadContratosAlgodonCompradores.Temporada = TbTemporada.Text
-            EntidadContratosAlgodonCompradores.PrecioSM = TbSM.Text
-            EntidadContratosAlgodonCompradores.PrecioMP = TbMP.Text
-            EntidadContratosAlgodonCompradores.PrecioM = TbM.Text
-            EntidadContratosAlgodonCompradores.PrecioSLMP = TbSLMP.Text
-            EntidadContratosAlgodonCompradores.PrecioSLM = TbSLM.Text
-            EntidadContratosAlgodonCompradores.PrecioLMP = TbLMP.Text
-            EntidadContratosAlgodonCompradores.PrecioLM = TbLM.Text
-            EntidadContratosAlgodonCompradores.PrecioSGO = TbSGO.Text
-            EntidadContratosAlgodonCompradores.PrecioGO = TbGO.Text
-            EntidadContratosAlgodonCompradores.PrecioO = TbO.Text
+            EntidadContratosAlgodonCompradores.Temporada = Val(TbTemporada.Text)
+            EntidadContratosAlgodonCompradores.PrecioSM = Val(TbSM.Text)
+            EntidadContratosAlgodonCompradores.PrecioMP = Val(TbMP.Text)
+            EntidadContratosAlgodonCompradores.PrecioM = Val(TbM.Text)
+            EntidadContratosAlgodonCompradores.PrecioSLMP = Val(TbSLMP.Text)
+            EntidadContratosAlgodonCompradores.PrecioSLM = Val(TbSLM.Text)
+            EntidadContratosAlgodonCompradores.PrecioLMP = Val(TbLMP.Text)
+            EntidadContratosAlgodonCompradores.PrecioLM = Val(TbLM.Text)
+            EntidadContratosAlgodonCompradores.PrecioSGO = Val(TbSGO.Text)
+            EntidadContratosAlgodonCompradores.PrecioGO = Val(TbGO.Text)
+            EntidadContratosAlgodonCompradores.PrecioO = Val(TbO.Text)
             EntidadContratosAlgodonCompradores.IdEstatus = CbEstatus.SelectedValue
             EntidadContratosAlgodonCompradores.IdUsuarioCreacion = 1
             EntidadContratosAlgodonCompradores.FechaCreacion = Now
@@ -56,6 +58,7 @@ Public Class ContratosAlgodonCompradores
         Finally
             MsgBox("Realizado Correctamente")
             ConsultaContratos()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdContratoAlgodon.Text, "SE CREO/ACTUALIZO EL CONTRATO " & TbIdContratoAlgodon.Text & " " & TbComprador.Text & " CON LA CANTIDAD DE " & TbPacas.Text & " PACAS DE CONTRATO, " & TbPacasDisponibles.Text & " DISPONIBLES, " & TbPacasVendidas.Text & " VENDIDAS, MODALIDAD DE VENTA" & CbModalidad.Text & ", PRECIO DE CONTRATO " & TbPrecioQuintal.Text & ".")
         End Try
     End Sub
     Private Sub BtGenerar_Click(sender As Object, e As EventArgs) Handles BtGenerar.Click
@@ -144,6 +147,8 @@ Public Class ContratosAlgodonCompradores
         TbIdContratoAlgodon.Text = ""
         TbComprador.Text = ""
         TbPacas.Text = ""
+        TbPacasDisponibles.Text = ""
+        TbPacasVendidas.Text = ""
         TbPrecioQuintal.Text = ""
         TbPuntos.Text = ""
         DtpFechaLiquidacion.Value = Now
@@ -237,4 +242,12 @@ Public Class ContratosAlgodonCompradores
     Public Function LoadIdVenta(_DataTable As DataTable) As Boolean Implements IForm1.LoadIdVenta
         Throw New NotImplementedException()
     End Function
+    Private Sub TbPacas_KeyDown(sender As Object, e As KeyEventArgs) Handles TbPacas.KeyDown
+        Select Case e.KeyData
+            Case Keys.Enter
+                If Val(TbPacas.Text) >= Val(TbPacasVendidas.Text) Then
+                    TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasVendidas.Text)
+                End If
+        End Select
+    End Sub
 End Class

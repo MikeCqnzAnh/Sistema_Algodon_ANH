@@ -51,6 +51,7 @@ Partial Class ContratosAlgodon
         Me.TbM = New System.Windows.Forms.TextBox()
         Me.TbMP = New System.Windows.Forms.TextBox()
         Me.TbSM = New System.Windows.Forms.TextBox()
+        Me.BtnBuscarProductor = New System.Windows.Forms.Button()
         Me.TbProductor = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
@@ -78,7 +79,10 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.BtnBuscarProductor = New System.Windows.Forms.Button()
+        Me.TbPacasCompradas = New System.Windows.Forms.TextBox()
+        Me.TbPacasDisponibles = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
@@ -90,7 +94,7 @@ Partial Class ContratosAlgodon
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1194, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1321, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -119,6 +123,10 @@ Partial Class ContratosAlgodon
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.Label25)
+        Me.GbDatosGenerales.Controls.Add(Me.Label24)
+        Me.GbDatosGenerales.Controls.Add(Me.TbPacasDisponibles)
+        Me.GbDatosGenerales.Controls.Add(Me.TbPacasCompradas)
         Me.GbDatosGenerales.Controls.Add(Me.BtGenerar)
         Me.GbDatosGenerales.Controls.Add(Me.BtConsultaLotes)
         Me.GbDatosGenerales.Controls.Add(Me.GbPrecioQuintal)
@@ -152,26 +160,26 @@ Partial Class ContratosAlgodon
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1194, 208)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1321, 231)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
         'BtGenerar
         '
-        Me.BtGenerar.Location = New System.Drawing.Point(679, 118)
+        Me.BtGenerar.Location = New System.Drawing.Point(679, 120)
         Me.BtGenerar.Name = "BtGenerar"
         Me.BtGenerar.Size = New System.Drawing.Size(94, 23)
-        Me.BtGenerar.TabIndex = 30
+        Me.BtGenerar.TabIndex = 15
         Me.BtGenerar.Text = "Generar"
         Me.BtGenerar.UseVisualStyleBackColor = True
         '
         'BtConsultaLotes
         '
-        Me.BtConsultaLotes.Location = New System.Drawing.Point(349, 148)
+        Me.BtConsultaLotes.Location = New System.Drawing.Point(349, 200)
         Me.BtConsultaLotes.Name = "BtConsultaLotes"
         Me.BtConsultaLotes.Size = New System.Drawing.Size(42, 23)
-        Me.BtConsultaLotes.TabIndex = 29
+        Me.BtConsultaLotes.TabIndex = 9
         Me.BtConsultaLotes.Text = "..."
         Me.BtConsultaLotes.UseVisualStyleBackColor = True
         '
@@ -197,9 +205,10 @@ Partial Class ContratosAlgodon
         Me.GbPrecioQuintal.Controls.Add(Me.TbM)
         Me.GbPrecioQuintal.Controls.Add(Me.TbMP)
         Me.GbPrecioQuintal.Controls.Add(Me.TbSM)
-        Me.GbPrecioQuintal.Location = New System.Drawing.Point(779, 19)
+        Me.GbPrecioQuintal.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbPrecioQuintal.Location = New System.Drawing.Point(933, 16)
         Me.GbPrecioQuintal.Name = "GbPrecioQuintal"
-        Me.GbPrecioQuintal.Size = New System.Drawing.Size(385, 178)
+        Me.GbPrecioQuintal.Size = New System.Drawing.Size(385, 212)
         Me.GbPrecioQuintal.TabIndex = 28
         Me.GbPrecioQuintal.TabStop = False
         Me.GbPrecioQuintal.Text = "Precio de Quintal Por Clase"
@@ -207,7 +216,7 @@ Partial Class ContratosAlgodon
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(202, 100)
+        Me.Label23.Location = New System.Drawing.Point(202, 126)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(36, 13)
         Me.Label23.TabIndex = 33
@@ -216,7 +225,7 @@ Partial Class ContratosAlgodon
         'TbO
         '
         Me.TbO.Enabled = False
-        Me.TbO.Location = New System.Drawing.Point(279, 97)
+        Me.TbO.Location = New System.Drawing.Point(279, 123)
         Me.TbO.Name = "TbO"
         Me.TbO.Size = New System.Drawing.Size(100, 20)
         Me.TbO.TabIndex = 32
@@ -224,7 +233,7 @@ Partial Class ContratosAlgodon
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(202, 74)
+        Me.Label22.Location = New System.Drawing.Point(202, 100)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(38, 13)
         Me.Label22.TabIndex = 29
@@ -233,7 +242,7 @@ Partial Class ContratosAlgodon
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(202, 48)
+        Me.Label21.Location = New System.Drawing.Point(202, 74)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(45, 13)
         Me.Label21.TabIndex = 31
@@ -242,7 +251,7 @@ Partial Class ContratosAlgodon
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(202, 22)
+        Me.Label20.Location = New System.Drawing.Point(202, 48)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(37, 13)
         Me.Label20.TabIndex = 29
@@ -251,7 +260,7 @@ Partial Class ContratosAlgodon
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 152)
+        Me.Label19.Location = New System.Drawing.Point(202, 22)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(44, 13)
         Me.Label19.TabIndex = 29
@@ -305,7 +314,7 @@ Partial Class ContratosAlgodon
         'TbGO
         '
         Me.TbGO.Enabled = False
-        Me.TbGO.Location = New System.Drawing.Point(279, 71)
+        Me.TbGO.Location = New System.Drawing.Point(279, 97)
         Me.TbGO.Name = "TbGO"
         Me.TbGO.Size = New System.Drawing.Size(100, 20)
         Me.TbGO.TabIndex = 29
@@ -313,7 +322,7 @@ Partial Class ContratosAlgodon
         'TbSGO
         '
         Me.TbSGO.Enabled = False
-        Me.TbSGO.Location = New System.Drawing.Point(279, 45)
+        Me.TbSGO.Location = New System.Drawing.Point(279, 71)
         Me.TbSGO.Name = "TbSGO"
         Me.TbSGO.Size = New System.Drawing.Size(100, 20)
         Me.TbSGO.TabIndex = 29
@@ -321,7 +330,7 @@ Partial Class ContratosAlgodon
         'TbLM
         '
         Me.TbLM.Enabled = False
-        Me.TbLM.Location = New System.Drawing.Point(279, 19)
+        Me.TbLM.Location = New System.Drawing.Point(279, 45)
         Me.TbLM.Name = "TbLM"
         Me.TbLM.Size = New System.Drawing.Size(100, 20)
         Me.TbLM.TabIndex = 29
@@ -329,7 +338,7 @@ Partial Class ContratosAlgodon
         'TbLMP
         '
         Me.TbLMP.Enabled = False
-        Me.TbLMP.Location = New System.Drawing.Point(96, 149)
+        Me.TbLMP.Location = New System.Drawing.Point(279, 19)
         Me.TbLMP.Name = "TbLMP"
         Me.TbLMP.Size = New System.Drawing.Size(100, 20)
         Me.TbLMP.TabIndex = 29
@@ -374,18 +383,27 @@ Partial Class ContratosAlgodon
         Me.TbSM.Size = New System.Drawing.Size(100, 20)
         Me.TbSM.TabIndex = 0
         '
+        'BtnBuscarProductor
+        '
+        Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
+        Me.BtnBuscarProductor.Location = New System.Drawing.Point(349, 42)
+        Me.BtnBuscarProductor.Name = "BtnBuscarProductor"
+        Me.BtnBuscarProductor.Size = New System.Drawing.Size(42, 50)
+        Me.BtnBuscarProductor.TabIndex = 2
+        Me.BtnBuscarProductor.UseVisualStyleBackColor = True
+        '
         'TbProductor
         '
         Me.TbProductor.Enabled = False
         Me.TbProductor.Location = New System.Drawing.Point(117, 45)
         Me.TbProductor.Name = "TbProductor"
         Me.TbProductor.Size = New System.Drawing.Size(226, 20)
-        Me.TbProductor.TabIndex = 26
+        Me.TbProductor.TabIndex = 1
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 179)
+        Me.Label13.Location = New System.Drawing.Point(397, 176)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 25
@@ -394,10 +412,10 @@ Partial Class ContratosAlgodon
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(117, 176)
+        Me.CbEstatus.Location = New System.Drawing.Point(510, 173)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 24
+        Me.CbEstatus.TabIndex = 17
         '
         'Label12
         '
@@ -413,7 +431,7 @@ Partial Class ContratosAlgodon
         Me.TbTemporada.Location = New System.Drawing.Point(510, 147)
         Me.TbTemporada.Name = "TbTemporada"
         Me.TbTemporada.Size = New System.Drawing.Size(100, 20)
-        Me.TbTemporada.TabIndex = 22
+        Me.TbTemporada.TabIndex = 16
         '
         'Label11
         '
@@ -439,14 +457,14 @@ Partial Class ContratosAlgodon
         Me.CbModalidad.Location = New System.Drawing.Point(510, 120)
         Me.CbModalidad.Name = "CbModalidad"
         Me.CbModalidad.Size = New System.Drawing.Size(163, 21)
-        Me.CbModalidad.TabIndex = 19
+        Me.CbModalidad.TabIndex = 14
         '
         'TbPresidente
         '
         Me.TbPresidente.Location = New System.Drawing.Point(510, 94)
         Me.TbPresidente.Name = "TbPresidente"
         Me.TbPresidente.Size = New System.Drawing.Size(263, 20)
-        Me.TbPresidente.TabIndex = 18
+        Me.TbPresidente.TabIndex = 13
         '
         'Label9
         '
@@ -462,7 +480,7 @@ Partial Class ContratosAlgodon
         Me.DtpFechaLiquidacion.Location = New System.Drawing.Point(510, 68)
         Me.DtpFechaLiquidacion.Name = "DtpFechaLiquidacion"
         Me.DtpFechaLiquidacion.Size = New System.Drawing.Size(200, 20)
-        Me.DtpFechaLiquidacion.TabIndex = 16
+        Me.DtpFechaLiquidacion.TabIndex = 12
         '
         'Label8
         '
@@ -478,7 +496,7 @@ Partial Class ContratosAlgodon
         Me.TbPuntos.Location = New System.Drawing.Point(510, 42)
         Me.TbPuntos.Name = "TbPuntos"
         Me.TbPuntos.Size = New System.Drawing.Size(100, 20)
-        Me.TbPuntos.TabIndex = 14
+        Me.TbPuntos.TabIndex = 11
         '
         'Label7
         '
@@ -492,7 +510,7 @@ Partial Class ContratosAlgodon
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 153)
+        Me.Label6.Location = New System.Drawing.Point(6, 205)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(33, 13)
         Me.Label6.TabIndex = 12
@@ -501,7 +519,7 @@ Partial Class ContratosAlgodon
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 127)
+        Me.Label5.Location = New System.Drawing.Point(6, 179)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(99, 13)
         Me.Label5.TabIndex = 11
@@ -517,17 +535,17 @@ Partial Class ContratosAlgodon
         'TbLotes
         '
         Me.TbLotes.Enabled = False
-        Me.TbLotes.Location = New System.Drawing.Point(117, 150)
+        Me.TbLotes.Location = New System.Drawing.Point(117, 202)
         Me.TbLotes.Name = "TbLotes"
         Me.TbLotes.Size = New System.Drawing.Size(226, 20)
-        Me.TbLotes.TabIndex = 9
+        Me.TbLotes.TabIndex = 8
         '
         'TbSuperficie
         '
-        Me.TbSuperficie.Location = New System.Drawing.Point(117, 124)
+        Me.TbSuperficie.Location = New System.Drawing.Point(117, 176)
         Me.TbSuperficie.Name = "TbSuperficie"
         Me.TbSuperficie.Size = New System.Drawing.Size(121, 20)
-        Me.TbSuperficie.TabIndex = 8
+        Me.TbSuperficie.TabIndex = 7
         '
         'Label4
         '
@@ -552,7 +570,7 @@ Partial Class ContratosAlgodon
         Me.TbPacas.Location = New System.Drawing.Point(117, 98)
         Me.TbPacas.Name = "TbPacas"
         Me.TbPacas.Size = New System.Drawing.Size(121, 20)
-        Me.TbPacas.TabIndex = 5
+        Me.TbPacas.TabIndex = 4
         '
         'TbAsociacion
         '
@@ -560,7 +578,7 @@ Partial Class ContratosAlgodon
         Me.TbAsociacion.Location = New System.Drawing.Point(117, 72)
         Me.TbAsociacion.Name = "TbAsociacion"
         Me.TbAsociacion.Size = New System.Drawing.Size(226, 20)
-        Me.TbAsociacion.TabIndex = 4
+        Me.TbAsociacion.TabIndex = 3
         '
         'Label2
         '
@@ -599,30 +617,56 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvContratoAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvContratoAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 232)
+        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 255)
         Me.DgvContratoAlgodon.MultiSelect = False
         Me.DgvContratoAlgodon.Name = "DgvContratoAlgodon"
         Me.DgvContratoAlgodon.ReadOnly = True
         Me.DgvContratoAlgodon.RowHeadersVisible = False
         Me.DgvContratoAlgodon.RowHeadersWidth = 40
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1194, 368)
+        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1321, 378)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
-        'BtnBuscarProductor
+        'TbPacasCompradas
         '
-        Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
-        Me.BtnBuscarProductor.Location = New System.Drawing.Point(349, 42)
-        Me.BtnBuscarProductor.Name = "BtnBuscarProductor"
-        Me.BtnBuscarProductor.Size = New System.Drawing.Size(42, 50)
-        Me.BtnBuscarProductor.TabIndex = 27
-        Me.BtnBuscarProductor.UseVisualStyleBackColor = True
+        Me.TbPacasCompradas.Enabled = False
+        Me.TbPacasCompradas.Location = New System.Drawing.Point(117, 124)
+        Me.TbPacasCompradas.Name = "TbPacasCompradas"
+        Me.TbPacasCompradas.Size = New System.Drawing.Size(121, 20)
+        Me.TbPacasCompradas.TabIndex = 5
+        '
+        'TbPacasDisponibles
+        '
+        Me.TbPacasDisponibles.Enabled = False
+        Me.TbPacasDisponibles.Location = New System.Drawing.Point(117, 150)
+        Me.TbPacasDisponibles.Name = "TbPacasDisponibles"
+        Me.TbPacasDisponibles.Size = New System.Drawing.Size(121, 20)
+        Me.TbPacasDisponibles.TabIndex = 6
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(6, 125)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(93, 13)
+        Me.Label24.TabIndex = 33
+        Me.Label24.Text = "Pacas Compradas"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(6, 153)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(94, 13)
+        Me.Label25.TabIndex = 33
+        Me.Label25.Text = "Pacas Disponibles"
         '
         'ContratosAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1194, 600)
+        Me.ClientSize = New System.Drawing.Size(1321, 633)
         Me.Controls.Add(Me.DgvContratoAlgodon)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
@@ -700,4 +744,8 @@ Partial Class ContratosAlgodon
     Friend WithEvents TbO As TextBox
     Friend WithEvents DgvContratoAlgodon As DataGridView
     Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TbPacasDisponibles As TextBox
+    Friend WithEvents TbPacasCompradas As TextBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label24 As Label
 End Class
