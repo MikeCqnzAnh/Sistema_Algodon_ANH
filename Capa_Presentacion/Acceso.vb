@@ -15,7 +15,7 @@ Public Class Acceso
         Dim IpServer As String
         Dim UsuarioDB As String
         Dim PasswordDB As String
-        Dim Instancia As String
+        Dim Instancia As String 
         Dim DataBase As String
         Dim DataBasePerfiles As String
         Dim ccnppl As String
@@ -97,7 +97,6 @@ Public Class Acceso
                     End
                 End If
             End If
-
         Catch ex As Exception
             MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
         End Try

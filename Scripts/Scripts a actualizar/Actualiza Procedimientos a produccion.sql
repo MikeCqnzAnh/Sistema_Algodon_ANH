@@ -21,7 +21,7 @@ select LR.IdLiquidacion,
 		having   count(case when cc.EstatusVenta = 1 then cc.BaleID end) > 0 --< Count(cc.BaleID)
 		order by  lr.IdOrdenTrabajo
 go
-Alter procedure sp_ConModVenId
+alter procedure sp_ConModVenId
 @IdModalidadVenta int
 as
 select a.IdModoDetalle,
@@ -30,14 +30,14 @@ select a.IdModoDetalle,
 from [dbo].[ModosVentaDetalle] a
 where a.IdModoEncabezado = @IdModalidadVenta
 go
-Alter proc sp_ConsultaDetalleModoVenta
+alter proc sp_ConsultaDetalleModoVenta
 @IdModoEncabezado int
 as
 select md.IdModoDetalle,me.IdModoEncabezado,cc.idclasificacion, cc.clavecorta,cc.descripcion,md.Diferencial 
 from ClasesClasificacion cc, ModosVentaEncabezado me, ModosVentaDetalle md 
 where me.IdModoEncabezado = md.IdModoEncabezado and md.IdClasificacion = cc.IdClasificacion and me.IdModoEncabezado = @IdModoEncabezado
 go
-Alter procedure sp_ConsultaDiferencialesVenta
+alter procedure sp_ConsultaDiferencialesVenta
 --declare
 @IdModo int-- = 2
 as
@@ -51,14 +51,14 @@ where a.IdModoEncabezado = @IdModo
 and   a.IdModoEncabezado = b.IdModoEncabezado
 and   a.IdClasificacion = c.IdClasificacion
 go
-Alter procedure sp_ConsultaModosVenta
+alter procedure sp_ConsultaModosVenta
 as
 select a.IdModoEncabezado,
 	   a.Descripcion
 from [dbo].[ModosVentaEncabezado] a
 where a.IdEstatus = 1
 go
-Alter procedure sp_ConsultaModosVentaEncabezado
+alter procedure sp_ConsultaModosVentaEncabezado
 as
 select a.IdModoEncabezado,
 		a.Descripcion,
@@ -1872,3 +1872,44 @@ select isnull(Pmat.IdPaquete,0) as IdPaquete
 	  ,isnull(Hvid.CastigoPlasticLevel2Compra,0) as CastigoPlasticLevel2Compra
 from PaqueteMatExt Pmat inner join HviDetalle Hvid on Pmat.LotId = Hvid.LotID and Pmat.IdOrdenTrabajo = Hvid.IdOrdenTrabajo and Pmat.BaleId = Hvid.BaleID
 where Hvid.LotID = @LotID
+go
+alter procedure sp_ConsultaContratosDetalle
+--declare
+@IdContratoAlgodon int 
+as
+Declare @Lotes VARCHAR(100)
+SELECT @Lotes = COALESCE(@Lotes + ', ', '') + Lote FROM [dbo].[ContratoCompraDetalle] a, [dbo].[Tierras] b,[dbo].[ContratoCompra] c where a.IdLote = b.IdTierra and a.IdContratoAlgodon = c.IdContratoAlgodon and a.IdContratoAlgodon = @IdContratoAlgodon
+select a.IdContratoAlgodon,
+	   b.IdCliente,
+       b.Nombre,
+	   b.RfcApoderado,
+	   b.Rfc,
+	   isnull(c.IdAsociacion,0) as IdAsociacion,
+	   isnull(c.Descripcion,'') as Descripcion,
+	   a.Pacas,
+	   a.PacasCompradas,
+	   a.PacasDisponibles,
+	   a.SuperficieComprometida,
+	   isnull(@Lotes,'') as Lotes,
+	   a.PrecioQuintal,
+	   a.Puntos,
+	   a.FechaLiquidacion,
+	   a.Presidente,
+	   a.IdModalidadCompra,
+	   a.Temporada,
+	   a.PrecioSM,
+	   a.PrecioMP,
+	   a.PrecioM,
+	   a.PrecioSLMP,
+	   a.PrecioSLM,
+	   a.PrecioLMP,
+	   a.PrecioLM,
+	   a.PrecioSGO,
+	   a.PrecioGO,
+	   a.PrecioO,
+	   a.IdEstatus
+from [dbo].[ContratoCompra] a inner join  [dbo].[Clientes] b on a.IdProductor = b.IdCliente
+							  left join  [dbo].[Asociaciones] c on b.IdCuentaDe = c.IdAsociacion
+	
+where a.IdContratoAlgodon = @IdContratoAlgodon
+and   a.IdEstatus = 1

@@ -1,7 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ConsultaProductorContratoCompras
     Private formOpener As IForm
-
     Public Property Opener() As IForm
         Get
             Return formOpener
@@ -11,22 +10,30 @@ Public Class ConsultaProductorContratoCompras
         End Set
     End Property
     Private Sub ConsultaProductorContratoCompras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ConsultaProductores()
+        Limpiar()
+    End Sub
+    Private Sub Limpiar()
+        TbProductor.Text = ""
+        TbProductor.Select()
+        DgvProductores.DataSource = Nothing
+    End Sub
+    Private Sub TbProductor_KeyDown(sender As Object, e As KeyEventArgs) Handles TbProductor.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                ConsultaProductores()
+        End Select
     End Sub
     Private Sub ConsultaProductores()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         EntidadCompraPacasContrato.Consulta = Consulta.ConsultaProductores
+        EntidadCompraPacasContrato.NombreProductor = TbProductor.Text
         NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
         Tabla = EntidadCompraPacasContrato.TablaConsulta
         DgvProductores.Columns.Clear()
         DgvProductores.DataSource = Tabla
+        DgvProductores.ClearSelection()
     End Sub
-
-    Private Sub DgvProductores_DoubleClick(sender As Object, e As EventArgs) Handles DgvProductores.DoubleClick
-        Me.Close()
-    End Sub
-
     Private Sub Form2_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles MyBase.FormClosing
         If DgvProductores.RowCount > 0 And DgvProductores.CurrentCell IsNot Nothing Then
             Dim _dataTable As DataTable = LoadDataTable()
@@ -52,4 +59,7 @@ Public Class ConsultaProductorContratoCompras
 
         Return dt
     End Function
+    Private Sub DgvProductores_DoubleClick(sender As Object, e As EventArgs) Handles DgvProductores.DoubleClick
+        Me.Close()
+    End Sub
 End Class

@@ -79,6 +79,9 @@ Public Class ContratosAlgodonCompradores
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadContratosAlgodonCompradores1.DescripcionConsulta))
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqldat1 = New SqlDataAdapter("sp_ConsultaModosVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDiferenciales
                     sqlcom1 = New SqlCommand("sp_ConsultaDiferenciales", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -93,8 +96,8 @@ Public Class ContratosAlgodonCompradores
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
-                    sqldat1 = New SqlDataAdapter("sp_ConsultaModosVenta", cnn)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUnidadPeso
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaUnidadPesoVenta", cnn)
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception

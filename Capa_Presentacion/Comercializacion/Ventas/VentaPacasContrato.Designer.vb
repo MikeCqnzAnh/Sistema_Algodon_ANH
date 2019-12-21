@@ -130,6 +130,7 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -513,7 +514,7 @@ Partial Class VentaPacasContrato
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ReporteHVIToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ComparacionToolStripMenuItem, Me.ReporteHVIToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1728, 24)
@@ -542,8 +543,9 @@ Partial Class VentaPacasContrato
         '
         'ReporteHVIToolStripMenuItem
         '
+        Me.ReporteHVIToolStripMenuItem.Image = CType(resources.GetObject("ReporteHVIToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReporteHVIToolStripMenuItem.Name = "ReporteHVIToolStripMenuItem"
-        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
         Me.ReporteHVIToolStripMenuItem.Text = "Reporte HVI"
         '
         'SalirToolStripMenuItem
@@ -769,7 +771,7 @@ Partial Class VentaPacasContrato
         Me.TP1LiquidacionesAVender.Location = New System.Drawing.Point(4, 22)
         Me.TP1LiquidacionesAVender.Name = "TP1LiquidacionesAVender"
         Me.TP1LiquidacionesAVender.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(744, 242)
+        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(847, 255)
         Me.TP1LiquidacionesAVender.TabIndex = 0
         Me.TP1LiquidacionesAVender.Text = "Liquidaciones a Vender"
         '
@@ -790,7 +792,7 @@ Partial Class VentaPacasContrato
         Me.DgvDatosLiquidacion.RowHeadersVisible = False
         Me.DgvDatosLiquidacion.RowHeadersWidth = 40
         Me.DgvDatosLiquidacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(738, 191)
+        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(841, 204)
         Me.DgvDatosLiquidacion.TabIndex = 13
         '
         'GroupBox3
@@ -798,7 +800,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(738, 45)
+        Me.GroupBox3.Size = New System.Drawing.Size(841, 45)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         '
@@ -869,6 +871,8 @@ Partial Class VentaPacasContrato
         '
         'BtDesmarcaTodo
         '
+        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
         Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
@@ -876,7 +880,7 @@ Partial Class VentaPacasContrato
         Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
         Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
         Me.BtDesmarcaTodo.TabIndex = 62
-        Me.BtDesmarcaTodo.Text = "X"
+        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
         Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
         '
         'CbPlantaVender
@@ -890,6 +894,8 @@ Partial Class VentaPacasContrato
         '
         'BtMarcarTodo
         '
+        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
         Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
@@ -897,7 +903,7 @@ Partial Class VentaPacasContrato
         Me.BtMarcarTodo.Name = "BtMarcarTodo"
         Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
         Me.BtMarcarTodo.TabIndex = 61
-        Me.BtMarcarTodo.Text = "M"
+        Me.BtMarcarTodo.Tag = "Seleccionar todo"
         Me.BtMarcarTodo.UseVisualStyleBackColor = True
         '
         'TbIdPaqVtaVender
@@ -1048,7 +1054,7 @@ Partial Class VentaPacasContrato
         Me.TP2LiquidacionesVendidas.Location = New System.Drawing.Point(4, 22)
         Me.TP2LiquidacionesVendidas.Name = "TP2LiquidacionesVendidas"
         Me.TP2LiquidacionesVendidas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(751, 242)
+        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(815, 255)
         Me.TP2LiquidacionesVendidas.TabIndex = 1
         Me.TP2LiquidacionesVendidas.Text = "Liquidaciones Vendidas"
         Me.TP2LiquidacionesVendidas.UseVisualStyleBackColor = True
@@ -1070,7 +1076,7 @@ Partial Class VentaPacasContrato
         Me.DgvLiqVendidas.RowHeadersVisible = False
         Me.DgvLiqVendidas.RowHeadersWidth = 40
         Me.DgvLiqVendidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvLiqVendidas.Size = New System.Drawing.Size(745, 191)
+        Me.DgvLiqVendidas.Size = New System.Drawing.Size(809, 204)
         Me.DgvLiqVendidas.TabIndex = 14
         '
         'GroupBox7
@@ -1078,7 +1084,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox7.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(745, 45)
+        Me.GroupBox7.Size = New System.Drawing.Size(809, 45)
         Me.GroupBox7.TabIndex = 15
         Me.GroupBox7.TabStop = False
         '
@@ -1332,6 +1338,12 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
+        'ComparacionToolStripMenuItem
+        '
+        Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
+        Me.ComparacionToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
+        Me.ComparacionToolStripMenuItem.Text = "Comparacion"
+        '
         'VentaPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1495,4 +1507,5 @@ Partial Class VentaPacasContrato
     Friend WithEvents BtMarcarTodo As Button
     Friend WithEvents Label28 As Label
     Friend WithEvents CbPlantaVender As ComboBox
+    Friend WithEvents ComparacionToolStripMenuItem As ToolStripMenuItem
 End Class

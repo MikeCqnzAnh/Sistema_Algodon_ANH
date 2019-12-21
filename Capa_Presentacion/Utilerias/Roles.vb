@@ -26,7 +26,6 @@ Public Class Roles
                 CkEstatus.Checked = ArrayText(3)
             Next
         End If
-
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -138,17 +137,15 @@ Public Class Roles
         Next
 
     End Sub
-
-
     Private Sub Bt_Click(sender As Object, e As EventArgs) Handles Bt.Click
         'RecorrerTV()
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+    Private Sub BtDespliega_Click(sender As Object, e As EventArgs) Handles BtDespliega.Click
         TVRoles.ExpandAll()
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+    Private Sub BtContraer_Click(sender As Object, e As EventArgs) Handles BtContraer.Click
         TVRoles.CollapseAll()
     End Sub
 End Class

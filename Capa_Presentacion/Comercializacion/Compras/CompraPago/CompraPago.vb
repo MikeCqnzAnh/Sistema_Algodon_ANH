@@ -107,7 +107,7 @@ Public Class CompraPago
         Dim opc = MessageBox.Show("¿Estas seguro de cerrar esta compra?", "", MessageBoxButtons.YesNo)
         If opc = DialogResult.Yes Then
             GuardarCompraEnc()
-            ActualizaEstatusVenta()
+            'ActualizaEstatusVenta()
         Else
             Exit Sub
         End If

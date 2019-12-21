@@ -24,9 +24,14 @@ Partial Class PaquetesHVI
     Private Sub InitializeComponent()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MatExtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.GbConsultaPaca = New System.Windows.Forms.GroupBox()
+        Me.DgvConsultaLotID = New System.Windows.Forms.DataGridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TbNoPacaConsulta = New System.Windows.Forms.TextBox()
         Me.NuCantidadPacas = New System.Windows.Forms.NumericUpDown()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -44,9 +49,10 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.MatExtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        Me.GbConsultaPaca.SuspendLayout()
+        CType(Me.DgvConsultaLotID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -66,6 +72,12 @@ Partial Class PaquetesHVI
         Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
+        'MatExtToolStripMenuItem
+        '
+        Me.MatExtToolStripMenuItem.Name = "MatExtToolStripMenuItem"
+        Me.MatExtToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.MatExtToolStripMenuItem.Text = "Mat. Ext."
+        '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
@@ -80,6 +92,7 @@ Partial Class PaquetesHVI
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.GbConsultaPaca)
         Me.GbDatosGenerales.Controls.Add(Me.NuCantidadPacas)
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
@@ -102,14 +115,56 @@ Partial Class PaquetesHVI
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'GbConsultaPaca
+        '
+        Me.GbConsultaPaca.Controls.Add(Me.DgvConsultaLotID)
+        Me.GbConsultaPaca.Controls.Add(Me.Label7)
+        Me.GbConsultaPaca.Controls.Add(Me.TbNoPacaConsulta)
+        Me.GbConsultaPaca.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbConsultaPaca.Location = New System.Drawing.Point(990, 16)
+        Me.GbConsultaPaca.Name = "GbConsultaPaca"
+        Me.GbConsultaPaca.Size = New System.Drawing.Size(286, 168)
+        Me.GbConsultaPaca.TabIndex = 13
+        Me.GbConsultaPaca.TabStop = False
+        Me.GbConsultaPaca.Text = "Consulta Lote de paca"
+        '
+        'DgvConsultaLotID
+        '
+        Me.DgvConsultaLotID.AllowUserToAddRows = False
+        Me.DgvConsultaLotID.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
+        Me.DgvConsultaLotID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvConsultaLotID.Location = New System.Drawing.Point(10, 71)
+        Me.DgvConsultaLotID.Name = "DgvConsultaLotID"
+        Me.DgvConsultaLotID.Size = New System.Drawing.Size(267, 94)
+        Me.DgvConsultaLotID.TabIndex = 3
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(6, 42)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(81, 20)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "No. Paca"
+        '
+        'TbNoPacaConsulta
+        '
+        Me.TbNoPacaConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbNoPacaConsulta.Location = New System.Drawing.Point(93, 39)
+        Me.TbNoPacaConsulta.MaxLength = 10
+        Me.TbNoPacaConsulta.Name = "TbNoPacaConsulta"
+        Me.TbNoPacaConsulta.Size = New System.Drawing.Size(131, 26)
+        Me.TbNoPacaConsulta.TabIndex = 0
+        '
         'NuCantidadPacas
         '
         Me.NuCantidadPacas.Enabled = False
         Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuCantidadPacas.Location = New System.Drawing.Point(895, 95)
+        Me.NuCantidadPacas.Location = New System.Drawing.Point(862, 95)
         Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
         Me.NuCantidadPacas.Name = "NuCantidadPacas"
-        Me.NuCantidadPacas.Size = New System.Drawing.Size(189, 31)
+        Me.NuCantidadPacas.Size = New System.Drawing.Size(122, 31)
         Me.NuCantidadPacas.TabIndex = 12
         Me.NuCantidadPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -119,7 +174,7 @@ Partial Class PaquetesHVI
         Me.CbEstatus.FormattingEnabled = True
         Me.CbEstatus.Location = New System.Drawing.Point(482, 95)
         Me.CbEstatus.Name = "CbEstatus"
-        Me.CbEstatus.Size = New System.Drawing.Size(185, 33)
+        Me.CbEstatus.Size = New System.Drawing.Size(180, 33)
         Me.CbEstatus.TabIndex = 11
         '
         'Label5
@@ -137,7 +192,7 @@ Partial Class PaquetesHVI
         Me.TbRuta.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbRuta.Location = New System.Drawing.Point(175, 131)
         Me.TbRuta.Name = "TbRuta"
-        Me.TbRuta.Size = New System.Drawing.Size(909, 31)
+        Me.TbRuta.Size = New System.Drawing.Size(809, 31)
         Me.TbRuta.TabIndex = 9
         '
         'BtSeleccionar
@@ -154,7 +209,7 @@ Partial Class PaquetesHVI
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(711, 98)
+        Me.Label6.Location = New System.Drawing.Point(678, 98)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(178, 25)
         Me.Label6.TabIndex = 7
@@ -219,7 +274,7 @@ Partial Class PaquetesHVI
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1127, 22)
+        Me.Label1.Location = New System.Drawing.Point(844, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(34, 25)
         Me.Label1.TabIndex = 1
@@ -229,7 +284,7 @@ Partial Class PaquetesHVI
         '
         Me.TbIdPaqueteHVI.Enabled = False
         Me.TbIdPaqueteHVI.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbIdPaqueteHVI.Location = New System.Drawing.Point(1167, 19)
+        Me.TbIdPaqueteHVI.Location = New System.Drawing.Point(884, 19)
         Me.TbIdPaqueteHVI.Name = "TbIdPaqueteHVI"
         Me.TbIdPaqueteHVI.Size = New System.Drawing.Size(100, 31)
         Me.TbIdPaqueteHVI.TabIndex = 0
@@ -237,11 +292,11 @@ Partial Class PaquetesHVI
         'DgvPaquetesHVI
         '
         Me.DgvPaquetesHVI.AllowUserToAddRows = False
+        Me.DgvPaquetesHVI.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DgvPaquetesHVI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvPaquetesHVI.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPaquetesHVI.Location = New System.Drawing.Point(0, 0)
         Me.DgvPaquetesHVI.Name = "DgvPaquetesHVI"
-        Me.DgvPaquetesHVI.ReadOnly = True
         Me.DgvPaquetesHVI.Size = New System.Drawing.Size(1279, 389)
         Me.DgvPaquetesHVI.TabIndex = 2
         '
@@ -257,12 +312,6 @@ Partial Class PaquetesHVI
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1279, 389)
         Me.Panel1.TabIndex = 3
-        '
-        'MatExtToolStripMenuItem
-        '
-        Me.MatExtToolStripMenuItem.Name = "MatExtToolStripMenuItem"
-        Me.MatExtToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.MatExtToolStripMenuItem.Text = "Mat. Ext."
         '
         'PaquetesHVI
         '
@@ -281,6 +330,9 @@ Partial Class PaquetesHVI
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        Me.GbConsultaPaca.ResumeLayout(False)
+        Me.GbConsultaPaca.PerformLayout()
+        CType(Me.DgvConsultaLotID, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -312,4 +364,8 @@ Partial Class PaquetesHVI
     Friend WithEvents NuCantidadPacas As NumericUpDown
     Friend WithEvents Label6 As Label
     Friend WithEvents MatExtToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GbConsultaPaca As GroupBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TbNoPacaConsulta As TextBox
+    Friend WithEvents DgvConsultaLotID As DataGridView
 End Class

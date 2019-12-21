@@ -226,8 +226,8 @@ Public Class ContratosAlgodon
             Case Keys.Enter
                 If Val(TbPacas.Text) >= Val(TbPacasCompradas.Text) Then
                     TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasCompradas.Text)
+                    TbPacasCompradas.Text = IIf(TbPacasCompradas.Text = "", 0, Val(TbPacasCompradas.Text))
                 End If
         End Select
     End Sub
-
 End Class

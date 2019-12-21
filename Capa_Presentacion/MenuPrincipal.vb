@@ -221,7 +221,7 @@ Public Class MenuPrincipal
     Private Sub ProfesionalesFitosanitariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProfesionalesFitosanitariosToolStripMenuItem.Click
         ProfesionalesFitosanitarios.ShowDialog()
     End Sub
-    Private Sub ModalidadesDeCompraDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModalidadesDeCompraDePacasToolStripMenuItem.Click
+    Private Sub ModalidadesDeCompraDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs)
         ModalidadesCompra.ShowDialog()
     End Sub
     Private Sub TierrasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TierrasToolStripMenuItem.Click
@@ -369,31 +369,33 @@ Public Class MenuPrincipal
     Private Sub ConexionInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem1.Click
         ConfiguraConexionInicial.ShowDialog()
     End Sub
-
     Private Sub LotesDetalleConMódulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosToolStripMenuItem.Click
         RepLotesPorModulo.ShowDialog()
     End Sub
-
     Private Sub PacasPorLotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorLotesToolStripMenuItem.Click
         RepPacasPorLotes.ShowDialog()
     End Sub
-
     Private Sub PacasDetalleYAgrupadoPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasDetalleYAgrupadoPorClaseToolStripMenuItem.Click
         RepPacasDetalleAgrupadoPorClase.ShowDialog()
     End Sub
-
     Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         ClaveAutorizacion.ShowDialog()
     End Sub
-
     Private Sub PaquetesParaVentaPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaPorRangosToolStripMenuItem.Click
         VentaClasificacion.ShowDialog()
     End Sub
-
     Private Sub PacasFaltantesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasFaltantesToolStripMenuItem.Click
         RepPacasFaltantes.ShowDialog()
     End Sub
-
+    Private Sub ModalidadDeCompraToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ModalidadDeCompraToolStripMenuItem.Click
+        ModalidadesCompra.ShowDialog()
+    End Sub
+    Private Sub ModalidadDeVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModalidadDeVentaToolStripMenuItem.Click
+        ModalidadesVenta.ShowDialog()
+    End Sub
+    Private Sub UnidadesDeComercializacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnidadesDeComercializacionToolStripMenuItem.Click
+        UnidadesComercializacion.ShowDialog()
+    End Sub
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

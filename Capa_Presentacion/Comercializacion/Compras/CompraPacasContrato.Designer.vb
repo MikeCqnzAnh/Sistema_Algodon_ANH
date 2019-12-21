@@ -112,6 +112,8 @@ Partial Class CompraPacasContrato
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TP4IndividualCompradas = New System.Windows.Forms.TabPage()
         Me.DgvPacasIndCompradas = New System.Windows.Forms.DataGridView()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TbPacasCompradasContrato = New System.Windows.Forms.TextBox()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -939,6 +941,8 @@ Partial Class CompraPacasContrato
         'GbCompraActual
         '
         Me.GbCompraActual.BackColor = System.Drawing.SystemColors.Control
+        Me.GbCompraActual.Controls.Add(Me.TbPacasCompradasContrato)
+        Me.GbCompraActual.Controls.Add(Me.Label24)
         Me.GbCompraActual.Controls.Add(Me.TbKilosSeleccionados)
         Me.GbCompraActual.Controls.Add(Me.TbPacasMarc)
         Me.GbCompraActual.Controls.Add(Me.Label7)
@@ -1099,6 +1103,23 @@ Partial Class CompraPacasContrato
         Me.DgvPacasIndCompradas.Size = New System.Drawing.Size(741, 220)
         Me.DgvPacasIndCompradas.TabIndex = 14
         '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(1239, 28)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(90, 13)
+        Me.Label24.TabIndex = 25
+        Me.Label24.Text = "PacasCompradas"
+        '
+        'TbPacasCompradasContrato
+        '
+        Me.TbPacasCompradasContrato.Enabled = False
+        Me.TbPacasCompradasContrato.Location = New System.Drawing.Point(1335, 25)
+        Me.TbPacasCompradasContrato.Name = "TbPacasCompradasContrato"
+        Me.TbPacasCompradasContrato.Size = New System.Drawing.Size(100, 20)
+        Me.TbPacasCompradasContrato.TabIndex = 26
+        '
         'CompraPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1242,4 +1263,6 @@ Partial Class CompraPacasContrato
     Friend WithEvents DgvPacasComprar As DataGridView
     Friend WithEvents BtBuscarProductor As Button
     Friend WithEvents BtSeleccionar2 As Button
+    Friend WithEvents TbPacasCompradasContrato As TextBox
+    Friend WithEvents Label24 As Label
 End Class

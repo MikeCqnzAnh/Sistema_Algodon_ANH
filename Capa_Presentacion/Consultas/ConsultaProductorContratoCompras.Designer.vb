@@ -23,18 +23,39 @@ Partial Class ConsultaProductorContratoCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TbProductor = New System.Windows.Forms.TextBox()
         Me.DgvProductores = New System.Windows.Forms.DataGridView()
+        Me.GbDatos.SuspendLayout()
         CType(Me.DgvProductores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GbDatos
         '
+        Me.GbDatos.Controls.Add(Me.Label1)
+        Me.GbDatos.Controls.Add(Me.TbProductor)
         Me.GbDatos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatos.Location = New System.Drawing.Point(0, 0)
         Me.GbDatos.Name = "GbDatos"
-        Me.GbDatos.Size = New System.Drawing.Size(687, 100)
+        Me.GbDatos.Size = New System.Drawing.Size(687, 81)
         Me.GbDatos.TabIndex = 0
         Me.GbDatos.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 34)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(56, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Productor:"
+        '
+        'TbProductor
+        '
+        Me.TbProductor.Location = New System.Drawing.Point(74, 31)
+        Me.TbProductor.Name = "TbProductor"
+        Me.TbProductor.Size = New System.Drawing.Size(236, 20)
+        Me.TbProductor.TabIndex = 0
         '
         'DgvProductores
         '
@@ -47,13 +68,13 @@ Partial Class ConsultaProductorContratoCompras
         Me.DgvProductores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvProductores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvProductores.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvProductores.Location = New System.Drawing.Point(0, 100)
+        Me.DgvProductores.Location = New System.Drawing.Point(0, 81)
         Me.DgvProductores.MultiSelect = False
         Me.DgvProductores.Name = "DgvProductores"
         Me.DgvProductores.RowHeadersVisible = False
         Me.DgvProductores.RowHeadersWidth = 40
         Me.DgvProductores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvProductores.Size = New System.Drawing.Size(687, 266)
+        Me.DgvProductores.Size = New System.Drawing.Size(687, 285)
         Me.DgvProductores.TabIndex = 16
         '
         'ConsultaProductorContratoCompras
@@ -64,7 +85,10 @@ Partial Class ConsultaProductorContratoCompras
         Me.Controls.Add(Me.DgvProductores)
         Me.Controls.Add(Me.GbDatos)
         Me.Name = "ConsultaProductorContratoCompras"
-        Me.Text = "ConsultaProductorContratoCompras"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Productores "
+        Me.GbDatos.ResumeLayout(False)
+        Me.GbDatos.PerformLayout()
         CType(Me.DgvProductores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -72,4 +96,6 @@ Partial Class ConsultaProductorContratoCompras
 
     Friend WithEvents GbDatos As GroupBox
     Friend WithEvents DgvProductores As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TbProductor As TextBox
 End Class

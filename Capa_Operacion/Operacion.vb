@@ -159,6 +159,7 @@ Namespace Configuracion
         ConsultaEncabezadoMatExt = 80
         ConsultaPacaMatExt = 81
         ConsultaPacaMatExtDet = 82
+        ConsultaLotIDPorPaca = 83
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

@@ -104,20 +104,20 @@ Public Class ContratosAlgodonCompradores
         CbEstatus.SelectedValue = 1
         '-------------------------COMBO MODOS DE COMPRA
         Dim Tabla As New DataTable
-        Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
-        Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
-        EntidadContratosAlgodon.Consulta = Consulta.ConsultaExterna
-        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
-        Tabla = EntidadContratosAlgodon.TablaConsulta
+        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
+        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaExterna
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla = EntidadContratosAlgodonCompradores.TablaConsulta
         CbModalidad.DataSource = Tabla
         CbModalidad.ValueMember = "IdModoEncabezado"
         CbModalidad.DisplayMember = "Descripcion"
         CbModalidad.SelectedValue = 1
         '-------------------------COMBO UNIDAD PESO
         Dim Tabla1 As New DataTable
-        EntidadContratosAlgodon.Consulta = Consulta.ConsultaUnidadPeso
-        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
-        Tabla1 = EntidadContratosAlgodon.TablaConsulta
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaUnidadPeso
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla1 = EntidadContratosAlgodonCompradores.TablaConsulta
         CbUnidadPeso.DataSource = Tabla1
         CbUnidadPeso.ValueMember = "IdUnidadPeso"
         CbUnidadPeso.DisplayMember = "Descripcion"
@@ -217,6 +217,8 @@ Public Class ContratosAlgodonCompradores
         IdComprador = TablaDetalle.Rows(0).Item("IdComprador")
         TbComprador.Text = TablaDetalle.Rows(0).Item("Nombre")
         TbPacas.Text = TablaDetalle.Rows(0).Item("Pacas")
+        TbPacasDisponibles.Text = TablaDetalle.Rows(0).Item("PacasDisponibles")
+        TbPacasVendidas.Text = TablaDetalle.Rows(0).Item("PacasVendidas")
         CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
         TbPrecioQuintal.Text = TablaDetalle.Rows(0).Item("PrecioQuintal")
         CbUnidadPeso.SelectedValue = TablaDetalle.Rows(0).Item("IdUnidadPeso")

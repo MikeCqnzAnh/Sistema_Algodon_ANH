@@ -108,9 +108,10 @@ Partial Class Compradores
         Me.GbDatosGenerales.Controls.Add(Me.LbRFC)
         Me.GbDatosGenerales.Controls.Add(Me.LbNombre)
         Me.GbDatosGenerales.Controls.Add(Me.LbID)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(13, 28)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 170)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(982, 170)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -291,15 +292,16 @@ Partial Class Compradores
         Me.DgvCompradores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvCompradores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvCompradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCompradores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCompradores.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCompradores.Location = New System.Drawing.Point(13, 204)
+        Me.DgvCompradores.Location = New System.Drawing.Point(0, 194)
         Me.DgvCompradores.MultiSelect = False
         Me.DgvCompradores.Name = "DgvCompradores"
         Me.DgvCompradores.ReadOnly = True
         Me.DgvCompradores.RowHeadersVisible = False
         Me.DgvCompradores.RowHeadersWidth = 40
         Me.DgvCompradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCompradores.Size = New System.Drawing.Size(957, 281)
+        Me.DgvCompradores.Size = New System.Drawing.Size(982, 308)
         Me.DgvCompradores.TabIndex = 10
         '
         'Compradores
@@ -314,6 +316,7 @@ Partial Class Compradores
         Me.Name = "Compradores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Compradores"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

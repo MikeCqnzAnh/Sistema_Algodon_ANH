@@ -69,7 +69,7 @@ Public Class ClasificacionPacasExcel
         Dim myFileDialog As New OpenFileDialog()
         Dim xSheet As String = ""
         With myFileDialog
-            .Filter = "Excel Files |*.xlsx"
+            .Filter = "Excel Files |*.xlsx ;*.xls"
             .Title = "Open File"
             .ShowDialog()
         End With
@@ -90,7 +90,7 @@ Public Class ClasificacionPacasExcel
                 tabla.DataMember = "MyData"
                 ConsultarPacasBaleID(dt)
             Catch ex As Exception
-                MsgBox("Inserte un nombre valido de la hoja que desea importar", MsgBoxStyle.Information, "Información")
+                MsgBox(ex.Message, MsgBoxStyle.Information, "Información")
             Finally
                 conn.Close()
             End Try

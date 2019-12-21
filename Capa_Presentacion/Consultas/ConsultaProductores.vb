@@ -34,4 +34,11 @@ Public Class ConsultaProductores
         _Nombre = DgvConsultaProductores.Rows(index).Cells("Nombre").Value.ToString()
         Close()
     End Sub
+
+    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                ConsultaProductores()
+        End Select
+    End Sub
 End Class

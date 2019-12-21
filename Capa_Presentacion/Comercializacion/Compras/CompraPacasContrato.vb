@@ -48,7 +48,7 @@ Public Class CompraPacasContrato
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
         ElseIf DgvPacasIndCompradas.RowCount > 0 Then
             GuardarCompraEnc()
-            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdCompraPaca.Text, "SE CREO/MODIFICO LA COMPRA CON EL ID " & TbIdCompraPaca.Text & " DEL PRODUCTOR " & TbNombreProductor.Text & " CON LA CANTIDAD DE " & TbPacasCompradasContrato.Text & " PACAS COMPRADAS DEL CONTRATO No " & TbIdContrato.Text & " CON " & TbNoPacas.Text & " PACAS.")
             filtraPacasClases()
             VarGlob2.IdProductor = TbIdProductor.Text
             VarGlob2.NombreProductor = TbNombreProductor.Text
@@ -317,7 +317,7 @@ Public Class CompraPacasContrato
         TbIdProductor.Text = 0
         TbNombreProductor.Text = ""
         CbPlanta.SelectedValue = 1
-
+        TbPacasCompradasContrato.Text = ""
         CbClasesPacasAcomprar.SelectedValue = -1
         TbDesdePaca.Text = ""
         TbHastaPaca.Text = ""
@@ -464,6 +464,7 @@ Public Class CompraPacasContrato
             TotalPacasContrato()
             MarcaSeleccionDisponibles()
             SeleccionaContratoConsultado()
+            TbPacasCompradasContrato.Text = DgvPacasIndCompradas.Rows.Count
         End If
     End Sub
     Private Sub SeleccionaContratoConsultado()
@@ -860,6 +861,7 @@ Public Class CompraPacasContrato
                         ActualizaPacasDisponiblesContrato(Fila.Cells("IdContratoAlgodon").Value, Fila.Cells("PacasCompradas").Value, Fila.Cells("PacasDisponibles").Value)
                     End If
                 Next
+                TbPacasCompradasContrato.Text = DgvPacasIndCompradas.Rows.Count
             ElseIf PacasMarcadas > PacasCompradas Then
                 MsgBox("La cantidad de pacas seleccionadas a devolucion, es mayor a la comprada, revise la seleccion de pacas o el contrato.", MsgBoxStyle.Information)
             ElseIf PacasMarcadas = 0 Then
@@ -929,6 +931,7 @@ Public Class CompraPacasContrato
                     ActualizaPacasDisponiblesContrato(Fila.Cells("IdContratoAlgodon").Value, Fila.Cells("PacasCompradas").Value, Fila.Cells("PacasDisponibles").Value)
                 End If
             Next
+            TbPacasCompradasContrato.Text = DgvPacasIndCompradas.Rows.Count
         Else
             MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -1118,17 +1121,17 @@ Public Class CompraPacasContrato
         PropiedadesDgvPacasComprar()
 
         '---Consultar pacas compradas
-        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
-        EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-        EntidadCompraPacasContrato.IdCompra = Val(TbIdCompraPaca.Text)
-        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
-        DgvPacasIndCompradas.Columns.Clear()
-        DgvPacasIndCompradas.DataSource = Tabla
-        PropiedadesDgvPacasIndCompradas()
-        ConsultaCantidadPacas()
-        TotalPacasContrato()
-        MarcaSeleccionDisponibles()
+        'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
+        'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+        'EntidadCompraPacasContrato.IdCompra = Val(TbIdCompraPaca.Text)
+        'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        'Tabla = EntidadCompraPacasContrato.TablaConsulta
+        'DgvPacasIndCompradas.Columns.Clear()
+        'DgvPacasIndCompradas.DataSource = Tabla
+        'PropiedadesDgvPacasIndCompradas()
+        'ConsultaCantidadPacas()
+        'TotalPacasContrato()
+        'MarcaSeleccionDisponibles()
     End Sub
     Private Sub BtReiniciaFiltro_Click(sender As Object, e As EventArgs) Handles BtReiniciaFiltro.Click
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato

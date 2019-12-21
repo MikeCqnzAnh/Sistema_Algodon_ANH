@@ -15,6 +15,7 @@ Public Class PaquetesHVI
             Dim path As String = OpenFileDialog1.FileName
             TbRuta.Text = path
             AbrirBaseDatosAccess()
+            PropiedadesDGVCarga()
             Inhabilitar()
             NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
         End If
@@ -38,6 +39,7 @@ Public Class PaquetesHVI
                     MsgBox("El paquete No " & TbPaquete.Text & " ya existe y no es posible actualizar.")
                 Else
                     Guardar()
+                    DgvPaquetesHVI.ReadOnly = True
                     BtSeleccionar.Enabled = False
                 End If
             Else
@@ -49,6 +51,7 @@ Public Class PaquetesHVI
     End Sub
     Private Sub Limpiar()
         TbIdPaqueteHVI.Text = ""
+        TbNoPacaConsulta.Text = ""
         CbPlanta.SelectedIndex = -1
         NuCantidadPacas.Value = 0
         DtpFecha.Value = Now
@@ -56,6 +59,7 @@ Public Class PaquetesHVI
         TbRuta.Text = ""
         Habilitar()
         DgvPaquetesHVI.DataSource = Nothing
+        DgvConsultaLotID.DataSource = Nothing
     End Sub
     Private Sub CargarCombos()
         '---Planta Origen--
@@ -223,6 +227,7 @@ Public Class PaquetesHVI
                         TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
                         DgvPaquetesHVI.DataSource = TablaPaquetesHVIGlobal
                         PropiedadesDGV()
+                        If DgvPaquetesHVI.Rows.Count > 0 Then IdentificaEstatusPacas()
                         'BtSeleccionar.Enabled = False
                         If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
                         If DgvPaquetesHVI.RowCount > 0 Then CbPlanta.SelectedValue = DgvPaquetesHVI.Rows(0).Cells("IdPlantaOrigen").Value
@@ -235,14 +240,100 @@ Public Class PaquetesHVI
                 End If
         End Select
     End Sub
+    Private Sub DgvPaquetesHVI_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPaquetesHVI.CellEndEdit
+        Dim ResultadoSCI As Integer = 0
+        DgvPaquetesHVI.CurrentRow.Cells("SCI").Value = CalculaSCI(ResultadoSCI)
+    End Sub
+    Private Function CalculaSCI(ByVal ResultadoSCI As Integer)
+        ResultadoSCI = -414.67 + 2.9 * DgvPaquetesHVI.CurrentRow.Cells("Strength").Value - 9.32 * DgvPaquetesHVI.CurrentRow.Cells("Mic").Value + 49.17 * DgvPaquetesHVI.CurrentRow.Cells("UHML").Value + 4.74 * DgvPaquetesHVI.CurrentRow.Cells("UI").Value + 0.65 * DgvPaquetesHVI.CurrentRow.Cells("RD").Value + 0.36 * DgvPaquetesHVI.CurrentRow.Cells("PLUSB").Value
+        Return ResultadoSCI
+    End Function
+    Private Sub IdentificaEstatusPacas()
+        For Each fila As DataGridViewRow In DgvPaquetesHVI.Rows
+            If fila.Cells("EstatusCompra").Value > 1 Then
+                fila.DefaultCellStyle.BackColor = Color.SkyBlue
+            End If
+        Next
+    End Sub
     Private Sub PropiedadesDGV()
         DgvPaquetesHVI.Columns("IdHVIenc").Visible = False
         DgvPaquetesHVI.Columns("IdPlantaOrigen").Visible = False
+        DgvPaquetesHVI.Columns("LotID").ReadOnly = True
+        DgvPaquetesHVI.Columns("BaleID").ReadOnly = True
+        DgvPaquetesHVI.Columns("BaleGroup").ReadOnly = True
+        DgvPaquetesHVI.Columns("Operator").ReadOnly = True
+        DgvPaquetesHVI.Columns("Date").ReadOnly = True
+        DgvPaquetesHVI.Columns("Temperature").ReadOnly = True
+        DgvPaquetesHVI.Columns("Humidity").ReadOnly = True
+        DgvPaquetesHVI.Columns("Amount").ReadOnly = True
+        DgvPaquetesHVI.Columns("UHML").ReadOnly = True
+        DgvPaquetesHVI.Columns("UI").ReadOnly = True
+        DgvPaquetesHVI.Columns("Strength").ReadOnly = True
+        DgvPaquetesHVI.Columns("Elongation").ReadOnly = True
+        DgvPaquetesHVI.Columns("SFI").ReadOnly = True
+        DgvPaquetesHVI.Columns("Maturity").ReadOnly = True
+        DgvPaquetesHVI.Columns("Grade").ReadOnly = True
+        DgvPaquetesHVI.Columns("Moist").ReadOnly = True
+        DgvPaquetesHVI.Columns("Mic").ReadOnly = True
+        DgvPaquetesHVI.Columns("Rd").ReadOnly = True
+        DgvPaquetesHVI.Columns("Plusb").ReadOnly = True
+        DgvPaquetesHVI.Columns("ColorGrade").ReadOnly = True
+        DgvPaquetesHVI.Columns("TrashCount").ReadOnly = True
+        DgvPaquetesHVI.Columns("TrashArea").ReadOnly = True
+        DgvPaquetesHVI.Columns("TrashID").ReadOnly = True
+        DgvPaquetesHVI.Columns("SCI").ReadOnly = True
+        DgvPaquetesHVI.Columns("Nep").Visible = False
+        DgvPaquetesHVI.Columns("UV").Visible = False
+        DgvPaquetesHVI.Columns("EstatusCompra").Visible = False
+        DgvPaquetesHVI.Columns("EstatusPaca").ReadOnly = True
+    End Sub
+    Private Sub PropiedadesDGVCarga()
+        DgvPaquetesHVI.Columns("LotID").ReadOnly = True
+        DgvPaquetesHVI.Columns("BaleID").ReadOnly = True
+        DgvPaquetesHVI.Columns("BaleGroup").ReadOnly = True
+        DgvPaquetesHVI.Columns("Operator").ReadOnly = True
+        DgvPaquetesHVI.Columns("Date").ReadOnly = True
+        DgvPaquetesHVI.Columns("Temperature").ReadOnly = True
+        DgvPaquetesHVI.Columns("Humidity").ReadOnly = True
+        DgvPaquetesHVI.Columns("Amount").ReadOnly = True
+        DgvPaquetesHVI.Columns("UHML").ReadOnly = False
+        DgvPaquetesHVI.Columns("UI").ReadOnly = False
+        DgvPaquetesHVI.Columns("Strength").ReadOnly = False
+        DgvPaquetesHVI.Columns("Elongation").ReadOnly = True
+        DgvPaquetesHVI.Columns("SFI").ReadOnly = True
+        DgvPaquetesHVI.Columns("Maturity").ReadOnly = True
+        DgvPaquetesHVI.Columns("Grade").ReadOnly = True
+        DgvPaquetesHVI.Columns("Moist").ReadOnly = True
+        DgvPaquetesHVI.Columns("Mic").ReadOnly = False
+        DgvPaquetesHVI.Columns("Rd").ReadOnly = False
+        DgvPaquetesHVI.Columns("Plusb").ReadOnly = False
+        DgvPaquetesHVI.Columns("ColorGrade").ReadOnly = False
+        DgvPaquetesHVI.Columns("TrashCount").ReadOnly = True
+        DgvPaquetesHVI.Columns("TrashArea").ReadOnly = True
+        DgvPaquetesHVI.Columns("TrashID").ReadOnly = False
+        DgvPaquetesHVI.Columns("SCI").ReadOnly = True
+        DgvPaquetesHVI.Columns("Nep").Visible = False
+        DgvPaquetesHVI.Columns("UV").Visible = False
         DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
     End Sub
-
     Private Sub MatExtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MatExtToolStripMenuItem.Click
         MatExtCompras.ShowDialog()
+    End Sub
+    Private Sub consultaLotIdPorPaca()
+        Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
+        Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+        Dim Tabla As New DataTable
+        EntidadPaquetesHVI.Consulta = Consulta.ConsultaLotIDPorPaca
+        EntidadPaquetesHVI.BaleID = TbNoPacaConsulta.Text
+        NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
+        Tabla = EntidadPaquetesHVI.TablaConsulta
+        DgvConsultaLotID.DataSource = Tabla
+    End Sub
+    Private Sub TbNoPacaConsulta_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNoPacaConsulta.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                consultaLotIdPorPaca()
+        End Select
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

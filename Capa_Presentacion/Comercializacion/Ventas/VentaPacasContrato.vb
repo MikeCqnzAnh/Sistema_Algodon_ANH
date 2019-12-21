@@ -110,6 +110,8 @@ Public Class VentaPacasContrato
         TbPrecioQuintal.Text = ""
         TbNoPacas.Text = ""
         TbKilosVendidos.Text = ""
+        TbIdPaqVtaVender.Text = ""
+        CbPlantaVender.SelectedIndex = -1
         TbPacasVendidasContrato.Text = ""
         DgvContratos.DataSource = Nothing
         DgvDatosLiquidacion.DataSource = Nothing
@@ -742,16 +744,16 @@ Public Class VentaPacasContrato
         PropiedadesDgvPacasVender()
 
         '---Consultar pacas compradas
-        EntidadVentaPacasContrato.Consulta = Consulta.ConsultaPacaVendida
-        EntidadVentaPacasContrato.IdVenta = Val(TbIdVentaPaca.Text)
-        NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
-        Tabla = EntidadVentaPacasContrato.TablaConsulta
-        DgvPacasIndVendidas.Columns.Clear()
-        DgvPacasIndVendidas.DataSource = Tabla
-        PropiedadesDgvPacasIndVendidas()
-        ConsultaCantidadPacas()
-        TotalPacasContrato()
-        MarcaSeleccionDisponibles()
+        'EntidadVentaPacasContrato.Consulta = Consulta.ConsultaPacaVendida
+        'EntidadVentaPacasContrato.IdVenta = Val(TbIdVentaPaca.Text)
+        'NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
+        'Tabla = EntidadVentaPacasContrato.TablaConsulta
+        'DgvPacasIndVendidas.Columns.Clear()
+        'DgvPacasIndVendidas.DataSource = Tabla
+        'PropiedadesDgvPacasIndVendidas()
+        'ConsultaCantidadPacas()
+        'TotalPacasContrato()
+        'MarcaSeleccionDisponibles()
     End Sub
     Private Sub consultaDatosdgv()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
@@ -973,16 +975,19 @@ Public Class VentaPacasContrato
     End Function
 
     Private Sub BtFiltro_Click(sender As Object, e As EventArgs) Handles BtFiltro.Click
-        If TbIdComprador.Text = "" Then
-            TbIdComprador.Text = ""
-            MsgBox("Seleccionar a un comprador para ver sus contratos", MsgBoxStyle.Exclamation)
-        ElseIf (TbDesdePaca.Text <> "" And TbHastaPaca.Text <> "" And Val(TbDesdePaca.Text) < Val(TbHastaPaca.Text)) Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text <> "") Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text = "") Then
-            filtraPacasClases()
-        ElseIf (TbDesdePaca.Text > TbHastaPaca.Text) Or TbHastaPaca.Text = "" Or TbDesdePaca.Text = "" Then
-            MsgBox("El Campo De Inicio no puede ser mayor al campo final o contener campos vacios")
+        If TbIdComprador.Text > 0 Then
+            If TbIdComprador.Text = "" Then
+                TbIdComprador.Text = ""
+                MsgBox("Seleccionar a un comprador para ver sus contratos", MsgBoxStyle.Exclamation)
+            ElseIf (TbDesdePaca.Text <> "" And TbHastaPaca.Text <> "" And Val(TbDesdePaca.Text) < Val(TbHastaPaca.Text)) Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text <> "") Or (TbHastaPaca.Text = "" And TbDesdePaca.Text = "" And CbClasesPacasAVender.Text = "") Then
+                filtraPacasClases()
+            ElseIf (TbDesdePaca.Text > TbHastaPaca.Text) Or TbHastaPaca.Text = "" Or TbDesdePaca.Text = "" Then
+                MsgBox("El Campo De Inicio no puede ser mayor al campo final o contener campos vacios")
+            End If
+        Else
+            MsgBox("No hay un Cliente seleccionado para continuar con el filtrado de pacas.", MsgBoxStyle.Exclamation)
         End If
     End Sub
-
     Private Sub BtReiniciaFiltro_Click(sender As Object, e As EventArgs) Handles BtReiniciaFiltro.Click
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
@@ -1083,6 +1088,10 @@ Public Class VentaPacasContrato
             'End If
         Next
         MarcaSeleccionDisponibles()
+    End Sub
+
+    Private Sub ComparacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComparacionToolStripMenuItem.Click
+        ComparacionVentaVsCliente.ShowDialog()
     End Sub
 
     Private Sub PropiedadesDgvLiquidacionesVendidas()

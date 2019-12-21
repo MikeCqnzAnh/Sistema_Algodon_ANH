@@ -39,7 +39,10 @@ Partial Class MenuPrincipal
         Me.MaquinariaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RangosDeTemperaturaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProfesionalesFitosanitariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ModalidadesDeCompraDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModalidadesDeComercializacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModalidadDeCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModalidadDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnidadesDeComercializacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TierrasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VariedadesDeAlgodónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LargosDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -188,7 +191,7 @@ Partial Class MenuPrincipal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeCompraDePacasToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeComercializacionToolStripMenuItem, Me.UnidadesDeComercializacionToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(82, 23)
         Me.CatálogosToolStripMenuItem.Tag = "1,0"
@@ -293,12 +296,34 @@ Partial Class MenuPrincipal
         Me.ProfesionalesFitosanitariosToolStripMenuItem.Tag = "15,1"
         Me.ProfesionalesFitosanitariosToolStripMenuItem.Text = "Profesionales Fitosanitarios"
         '
-        'ModalidadesDeCompraDePacasToolStripMenuItem
+        'ModalidadesDeComercializacionToolStripMenuItem
         '
-        Me.ModalidadesDeCompraDePacasToolStripMenuItem.Name = "ModalidadesDeCompraDePacasToolStripMenuItem"
-        Me.ModalidadesDeCompraDePacasToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
-        Me.ModalidadesDeCompraDePacasToolStripMenuItem.Tag = "16,1"
-        Me.ModalidadesDeCompraDePacasToolStripMenuItem.Text = "Modalidades de Compra de Pacas"
+        Me.ModalidadesDeComercializacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModalidadDeCompraToolStripMenuItem, Me.ModalidadDeVentaToolStripMenuItem})
+        Me.ModalidadesDeComercializacionToolStripMenuItem.Name = "ModalidadesDeComercializacionToolStripMenuItem"
+        Me.ModalidadesDeComercializacionToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
+        Me.ModalidadesDeComercializacionToolStripMenuItem.Tag = "16,1"
+        Me.ModalidadesDeComercializacionToolStripMenuItem.Text = "Modalidades de Comercializacion"
+        '
+        'ModalidadDeCompraToolStripMenuItem
+        '
+        Me.ModalidadDeCompraToolStripMenuItem.Name = "ModalidadDeCompraToolStripMenuItem"
+        Me.ModalidadDeCompraToolStripMenuItem.Size = New System.Drawing.Size(215, 24)
+        Me.ModalidadDeCompraToolStripMenuItem.Tag = "165,16"
+        Me.ModalidadDeCompraToolStripMenuItem.Text = "Modalidad de Compra"
+        '
+        'ModalidadDeVentaToolStripMenuItem
+        '
+        Me.ModalidadDeVentaToolStripMenuItem.Name = "ModalidadDeVentaToolStripMenuItem"
+        Me.ModalidadDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 24)
+        Me.ModalidadDeVentaToolStripMenuItem.Tag = "166,16"
+        Me.ModalidadDeVentaToolStripMenuItem.Text = "Modalidad de Venta"
+        '
+        'UnidadesDeComercializacionToolStripMenuItem
+        '
+        Me.UnidadesDeComercializacionToolStripMenuItem.Name = "UnidadesDeComercializacionToolStripMenuItem"
+        Me.UnidadesDeComercializacionToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
+        Me.UnidadesDeComercializacionToolStripMenuItem.Tag = "241,1"
+        Me.UnidadesDeComercializacionToolStripMenuItem.Text = "Unidades de Comercializacion"
         '
         'TierrasToolStripMenuItem
         '
@@ -1262,7 +1287,6 @@ Partial Class MenuPrincipal
     Friend WithEvents MaquinariaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RangosDeTemperaturaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProfesionalesFitosanitariosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ModalidadesDeCompraDePacasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TierrasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VariedadesDeAlgodónToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LargosDeFibraToolStripMenuItem As ToolStripMenuItem
@@ -1396,4 +1420,8 @@ Partial Class MenuPrincipal
     Friend WithEvents RolesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PacasPorLotesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ModalidadesDeComercializacionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModalidadDeCompraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModalidadDeVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UnidadesDeComercializacionToolStripMenuItem As ToolStripMenuItem
 End Class

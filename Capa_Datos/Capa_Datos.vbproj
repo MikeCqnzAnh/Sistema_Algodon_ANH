@@ -79,6 +79,7 @@
     <Compile Include="Catalogos\IncidenciaOperaciones.vb" />
     <Compile Include="Catalogos\Maquinaria.vb" />
     <Compile Include="Catalogos\ModalidadesCompra.vb" />
+    <Compile Include="Catalogos\ModalidadesVenta.vb" />
     <Compile Include="Catalogos\Plantas.vb" />
     <Compile Include="Catalogos\ProfesionalesFitosanitarios.vb" />
     <Compile Include="Catalogos\Puestos.vb" />
@@ -86,6 +87,7 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Catalogos\UnidadesComercializacion.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
     <Compile Include="Utilerias\Roles.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />

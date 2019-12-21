@@ -183,6 +183,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9BE8C31C1BC046F6AAB2201FEA95E6DB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9EC7FE1DD7364E35B882A64E8698690C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -202,12 +208,6 @@
         "Entry"
         {
         "MsmKey" = "8:_A4F3502CE51746D19BE5FA3986CBBB30"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A6DA3CFD9FCD4D44ABE608D6566F1F29"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -334,6 +334,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0E2B3D083B6EF729812A388058D55C3D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -353,12 +359,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_481760F72CD129734314AEC03F387AFE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1012,6 +1012,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9BE8C31C1BC046F6AAB2201FEA95E6DB"
+            {
+            "SourcePath" = "8:..\\Capa_Presentacion\\Iconos\\logo_cotton.ico"
+            "TargetName" = "8:logo_cotton.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_82FAAF8384C14D52BC4B2482C1539CDD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9EC7FE1DD7364E35B882A64E8698690C"
             {
             "SourcePath" = "8:..\\Capa_Presentacion\\Reportes\\RPT\\RPTPaquetesVenta.vb"
@@ -1078,26 +1098,6 @@
             "TargetName" = "8:RPTReporteClientes.rpt"
             "Tag" = "8:"
             "Folder" = "8:_DD30591E817643398C9EE1E51917F499"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6DA3CFD9FCD4D44ABE608D6566F1F29"
-            {
-            "SourcePath" = "8:..\\Capa_Presentacion\\Iconos\\logo cotton2 (1).ico"
-            "TargetName" = "8:logo cotton2 (1).ico"
-            "Tag" = "8:"
-            "Folder" = "8:_82FAAF8384C14D52BC4B2482C1539CDD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1554,15 +1554,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{ED69D257-B5E7-41C3-B8F2-EF428C140B06}"
-        "PackageCode" = "8:{548A5DF2-C063-412F-B348-2F18317A1520}"
+        "ProductCode" = "8:{0042CC45-B975-4473-BFBB-47473E76F4DD}"
+        "PackageCode" = "8:{27A3B20C-7A27-430C-8A5C-F29E76774274}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.30"
+        "ProductVersion" = "8:1.0.31"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1572,7 +1572,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_A6DA3CFD9FCD4D44ABE608D6566F1F29"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1686,7 +1686,7 @@
             "Target" = "8:_5DB04AC9E0F542B89E0678A0B8337EEE"
             "Folder" = "8:_8483BAA794F748C1868F3FE9BD2C90F4"
             "WorkingFolder" = "8:_82FAAF8384C14D52BC4B2482C1539CDD"
-            "Icon" = "8:_A6DA3CFD9FCD4D44ABE608D6566F1F29"
+            "Icon" = "8:_9BE8C31C1BC046F6AAB2201FEA95E6DB"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_71658055F5234BFE94B4C0F1994C48E2"
@@ -1700,7 +1700,7 @@
             "Target" = "8:_5DB04AC9E0F542B89E0678A0B8337EEE"
             "Folder" = "8:_4BF34FEFA64449B587FEA4F1C408DCF5"
             "WorkingFolder" = "8:_82FAAF8384C14D52BC4B2482C1539CDD"
-            "Icon" = "8:_A6DA3CFD9FCD4D44ABE608D6566F1F29"
+            "Icon" = "8:_9BE8C31C1BC046F6AAB2201FEA95E6DB"
             "Feature" = "8:"
             }
         }

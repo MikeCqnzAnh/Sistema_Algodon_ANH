@@ -82,6 +82,7 @@ Public Class CompraPacasContrato
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadCompraPacasContrato1.NombreProductor))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
                     sqlcom1 = New SqlCommand("sp_ConContProd", cnn)

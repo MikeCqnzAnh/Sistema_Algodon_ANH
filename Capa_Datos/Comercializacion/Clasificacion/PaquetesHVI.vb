@@ -97,7 +97,7 @@ Public Class PaquetesHVI
             End If
         Catch ex As Exception
             cnn.Close()
-            MsgBox(ex)
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadPaquetesHVI = EntidadPaquetesHVI1
@@ -152,6 +152,14 @@ Public Class PaquetesHVI
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@LotId", EntidadPaquetesHVI1.LotId))
+                    sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLotIDPorPaca
+                    sqlcom1 = New SqlCommand("Sp_ConsultaLotIDporPaca", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@BaleID", EntidadPaquetesHVI1.BaleID))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
             End Select
         Catch ex As Exception

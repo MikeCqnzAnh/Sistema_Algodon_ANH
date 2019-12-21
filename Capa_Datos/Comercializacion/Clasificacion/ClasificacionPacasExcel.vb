@@ -41,11 +41,11 @@ Public Class ClasificacionPacasExcel
             Select Case EntidadClasificacionPacasExcel1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
                     For Each MiTableRow As DataRow In EntidadClasificacionPacasExcel1.TablaBaleID.Rows
-                        sqlcom1 = New SqlCommand("sp_consultaClasesCalculo", cnn)
+                        sqlcom1 = New SqlCommand("Sp_CargaPacasExcel", cnn)
                         sqldat1 = New SqlDataAdapter(sqlcom1)
                         sqlcom1.CommandType = CommandType.StoredProcedure
                         sqlcom1.Parameters.Clear()
-                        sqlcom1.Parameters.Add(New SqlParameter("@NumPaca", MiTableRow("BaleID")))
+                        sqlcom1.Parameters.Add(New SqlParameter("@baleid", MiTableRow("BaleID")))
                         sqldat1.Fill(EntidadClasificacionPacasExcel1.TablaConsulta)
                     Next
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaClases
@@ -53,6 +53,7 @@ Public Class ClasificacionPacasExcel
                     sqldat1.Fill(EntidadClasificacionPacasExcel1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadClasificacionPacasExcel = EntidadClasificacionPacasExcel1
