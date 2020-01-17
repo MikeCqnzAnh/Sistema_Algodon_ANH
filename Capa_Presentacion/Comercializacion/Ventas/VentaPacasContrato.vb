@@ -681,18 +681,18 @@ Public Class VentaPacasContrato
                 r("PrecioMxn") = 0
                 r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
                 r("Quintales") = Quintales
-                r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoUI") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(12, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(16, i).Value * 10000) / 10000
-                r("CastigoBarkLevel2") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
-                r("CastigoPrepLevel1") = Math.Truncate(DataGridEnvia.Item(18, i).Value * 10000) / 10000
-                r("CastigoPrepLevel2") = Math.Truncate(DataGridEnvia.Item(19, i).Value * 10000) / 10000
-                r("CastigoOtherLevel1") = Math.Truncate(DataGridEnvia.Item(20, i).Value * 10000) / 10000
-                r("CastigoOtherLevel2") = Math.Truncate(DataGridEnvia.Item(21, i).Value * 10000) / 10000
-                r("CastigoPlasticLevel1") = Math.Truncate(DataGridEnvia.Item(22, i).Value * 10000) / 10000
-                r("CastigoPlasticLevel2") = Math.Truncate(DataGridEnvia.Item(23, i).Value * 10000) / 10000
+                r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoUI") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
+                r("CastigoBarkLevel2") = Math.Truncate(DataGridEnvia.Item(18, i).Value * 10000) / 10000
+                r("CastigoPrepLevel1") = Math.Truncate(DataGridEnvia.Item(19, i).Value * 10000) / 10000
+                r("CastigoPrepLevel2") = Math.Truncate(DataGridEnvia.Item(20, i).Value * 10000) / 10000
+                r("CastigoOtherLevel1") = Math.Truncate(DataGridEnvia.Item(21, i).Value * 10000) / 10000
+                r("CastigoOtherLevel2") = Math.Truncate(DataGridEnvia.Item(22, i).Value * 10000) / 10000
+                r("CastigoPlasticLevel1") = Math.Truncate(DataGridEnvia.Item(23, i).Value * 10000) / 10000
+                r("CastigoPlasticLevel2") = Math.Truncate(DataGridEnvia.Item(24, i).Value * 10000) / 10000
                 r("EstatusVentaUpdate") = EstatusVentaUpdate
                 r("EstatusVentaBusqueda") = EstatusVentaBusqueda
                 dt.Rows.Add(r)
@@ -1014,6 +1014,7 @@ Public Class VentaPacasContrato
     End Sub
 
     Private Sub PropiedadesDgvPacasVender()
+
         DgvPacasVender.Columns("IdOrdenTrabajo").Visible = True
         DgvPacasVender.Columns("IdLiquidacion").Visible = False
         DgvPacasVender.Columns("FolioCIA").Visible = False
@@ -1032,11 +1033,13 @@ Public Class VentaPacasContrato
         DgvPacasVender.Columns("CastigoPlasticLevel1Venta").Visible = False
         DgvPacasVender.Columns("CastigoPlasticLevel2Venta").Visible = False
 
+        DgvPacasVender.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
         DgvPacasVender.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
         DgvPacasVender.Columns("BaleId").HeaderText = "Etiqueta"
         DgvPacasVender.Columns("Grade").HeaderText = "Clase"
         DgvPacasVender.Columns("Descripcion").HeaderText = "Planta"
 
+        DgvPacasVender.Columns("IdPaqueteEncabezado").ReadOnly = True
         DgvPacasVender.Columns("Descripcion").ReadOnly = True
         DgvPacasVender.Columns("BaleId").ReadOnly = True
         DgvPacasVender.Columns("Kilos").ReadOnly = True
@@ -1095,9 +1098,9 @@ Public Class VentaPacasContrato
     End Sub
 
     Private Sub PropiedadesDgvLiquidacionesVendidas()
-        DgvLiqVendidas.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
+        DgvLiqVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
+        DgvLiqVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True
 
-        DgvLiqVendidas.Columns("IdLiquidacion").Visible = False
         DgvLiqVendidas.Columns("TotalHueso").Visible = False
         DgvLiqVendidas.Columns("PacasCantidad").ReadOnly = True
         DgvLiqVendidas.Columns("PacasDisponibles").Visible = False
@@ -1107,11 +1110,9 @@ Public Class VentaPacasContrato
         DgvLiqVendidas.Columns("Seleccionar").ReadOnly = False
     End Sub
     Private Sub PropiedadesDgvLiquidacionesVender()
-        DgvDatosLiquidacion.Columns("IdLiquidacion").Visible = False
+        DgvDatosLiquidacion.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
+        DgvDatosLiquidacion.Columns("IdPaqueteEncabezado").ReadOnly = True
 
-        DgvDatosLiquidacion.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
-
-        DgvDatosLiquidacion.Columns("IdOrdenTrabajo").ReadOnly = True
         DgvDatosLiquidacion.Columns("TotalHueso").ReadOnly = True
         DgvDatosLiquidacion.Columns("PacasCantidad").ReadOnly = True
         DgvDatosLiquidacion.Columns("PacasDisponibles").ReadOnly = True
@@ -1150,6 +1151,8 @@ Public Class VentaPacasContrato
         DgvContratos.Columns("Fecha").ReadOnly = True
     End Sub
     Private Sub PropiedadesDgvPacasIndVendidas()
+        DgvPacasIndVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
+        DgvPacasIndVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True
         DgvPacasIndVendidas.Columns("FolioCIA").Visible = False
         DgvPacasIndVendidas.Columns("IdOrdenTrabajo").Visible = True
         DgvPacasIndVendidas.Columns("IdLiquidacion").Visible = False
@@ -1209,13 +1212,13 @@ Public Class VentaPacasContrato
     Private Sub DgvLiqVendidas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvLiqVendidas.CellContentClick
         Dim filaSeleccionada As Integer = DgvLiqVendidas.CurrentRow.Index
         Dim chkSel As Boolean = CType(Me.DgvLiqVendidas.Rows(filaSeleccionada).Cells("Seleccionar").EditedFormattedValue, Boolean)
-        Dim IdLiquidacion As Integer
-        IdLiquidacion = DgvLiqVendidas.Rows(filaSeleccionada).Cells("IdLiquidacion").Value
+        Dim IdPaquete As Integer
+        IdPaquete = DgvLiqVendidas.Rows(filaSeleccionada).Cells("IdPaqueteEncabezado").Value
         For Each row As DataGridViewRow In DgvPacasIndVendidas.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
-            If row.Cells("IdLiquidacion").Value = IdLiquidacion And chkSel = True Then
+            If row.Cells("IdPaqueteEncabezado").Value = IdPaquete And chkSel = True Then
                 row.Cells("Seleccionar").Value = True
-            ElseIf row.Cells("IdLiquidacion").Value = IdLiquidacion And chkSel = False Then
+            ElseIf row.Cells("IdPaqueteEncabezado").Value = IdPaquete And chkSel = False Then
                 row.Cells("Seleccionar").Value = False
             End If
         Next
@@ -1224,13 +1227,13 @@ Public Class VentaPacasContrato
     Private Sub DgvDatosLiquidacion_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDatosLiquidacion.CellContentClick
         Dim filaSeleccionada As Integer = DgvDatosLiquidacion.CurrentRow.Index
         Dim chkSel As Boolean = CType(Me.DgvDatosLiquidacion.Rows(filaSeleccionada).Cells("Seleccionar").EditedFormattedValue, Boolean)
-        Dim IdLiquidacion As Integer
-        IdLiquidacion = DgvDatosLiquidacion.Rows(filaSeleccionada).Cells("IdLiquidacion").Value
+        Dim IdPaquete As Integer
+        IdPaquete = DgvDatosLiquidacion.Rows(filaSeleccionada).Cells("IdPaqueteEncabezado").Value
         For Each row As DataGridViewRow In DgvPacasVender.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
-            If row.Cells("IdLiquidacion").Value = IdLiquidacion And chkSel = True Then
+            If row.Cells("IdPaqueteEncabezado").Value = IdPaquete And chkSel = True Then
                 row.Cells("Seleccionar").Value = True
-            ElseIf row.Cells("IdLiquidacion").Value = IdLiquidacion And chkSel = False Then
+            ElseIf row.Cells("IdPaqueteEncabezado").Value = IdPaquete And chkSel = False Then
                 row.Cells("Seleccionar").Value = False
             End If
         Next

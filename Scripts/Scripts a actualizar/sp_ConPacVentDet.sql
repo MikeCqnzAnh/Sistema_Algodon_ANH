@@ -1,8 +1,9 @@
-alter procedure sp_ConPacVentDet
+Alter procedure sp_ConPacVentDet
 --declare
 @Seleccionar bit = 0 
 as
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -33,4 +34,4 @@ select pd.FolioCIA,
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 1 and lr.IdLiquidacion is not null
-		order by cc.IdOrdenTrabajo, cc.BaleID
+		order by cc.IdPaqueteEncabezado

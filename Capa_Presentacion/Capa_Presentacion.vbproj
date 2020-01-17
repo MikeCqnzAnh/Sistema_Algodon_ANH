@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.31.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.32.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -401,6 +401,12 @@
       <DependentUpon>RepCompraPacasResumen.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepCompraPacasResumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepCompraYventas.Designer.vb">
+      <DependentUpon>RepCompraYventas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepCompraYventas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepContratoProductor.Designer.vb">
@@ -1094,6 +1100,9 @@
     <EmbeddedResource Include="Reportes\RepCompraPacasResumen.resx">
       <DependentUpon>RepCompraPacasResumen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepCompraYventas.resx">
+      <DependentUpon>RepCompraYventas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </EmbeddedResource>
@@ -1462,6 +1471,7 @@
     <Content Include="Iconos\if_new_981081.ico" />
     <Content Include="Iconos\if_Recyclebin_Close_171530.ico" />
     <Content Include="Iconos\if_search_322497.ico" />
+    <None Include="Iconos\png\search.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">

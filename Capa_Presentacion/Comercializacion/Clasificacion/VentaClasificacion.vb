@@ -602,7 +602,8 @@ Public Class VentaClasificacion
             rengloninsertar("Elongation") = DgvPacasClasificacion.Rows(index).Cells("Elongation").Value
             rengloninsertar("SFI") = DgvPacasClasificacion.Rows(index).Cells("SFI").Value
             rengloninsertar("Maturity") = DgvPacasClasificacion.Rows(index).Cells("Maturity").Value
-            rengloninsertar("Grade") = DgvPacasClasificacion.Rows(index).Cells("Grade").Value
+            'rengloninsertar("Grade") = DgvPacasClasificacion.Rows(index).Cells("Grade").Value consultaclases()
+            rengloninsertar("Grade") = ConsultaClasesClasificacion(DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value.ToString, DgvPacasClasificacion.Rows(index).Cells("TrashID").Value)
             rengloninsertar("Moist") = DgvPacasClasificacion.Rows(index).Cells("Moist").Value
             rengloninsertar("Mic") = DgvPacasClasificacion.Rows(index).Cells("Mic").Value
             rengloninsertar("Rd") = DgvPacasClasificacion.Rows(index).Cells("Rd").Value
@@ -620,6 +621,18 @@ Public Class VentaClasificacion
         Next
         TablaClasificacionGlobal = TablaClasificacionGrid
     End Sub
+    Private Function ConsultaClasesClasificacion(ByVal ColorGrade As String, ByVal TrashId As Integer)
+        Dim resultado As String = ""
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaClasesDetalle
+        EntidadClasificacionVentaPaquetes.GradoColor = ColorGrade
+        EntidadClasificacionVentaPaquetes.TrashId = TrashId
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
+        resultado = Tabla.Rows(0).Item("ClaveCorta")
+        Return resultado
+    End Function
     Private Sub EliminarPacasSeleccionadasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarPacasSeleccionadasToolStripMenuItem.Click
         VerificaAutorizacion.ShowDialog()
         If VerificaAutorizacion.VerificaAutorizacion = True Then

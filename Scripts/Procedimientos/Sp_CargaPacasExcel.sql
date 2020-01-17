@@ -37,3 +37,6 @@ as
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
 		where Pd.FolioCIA = @baleid
 			order by BaleID asc
+
+			select * from GradosClasificacion
+			select * from ClasesClasificacion

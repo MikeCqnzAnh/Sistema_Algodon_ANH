@@ -285,7 +285,7 @@ Public Class PaquetesHVI
         DgvPaquetesHVI.Columns("Nep").Visible = False
         DgvPaquetesHVI.Columns("UV").Visible = False
         DgvPaquetesHVI.Columns("EstatusCompra").Visible = False
-        DgvPaquetesHVI.Columns("EstatusPaca").ReadOnly = True
+        'DgvPaquetesHVI.Columns("EstatusPaca").ReadOnly = True
     End Sub
     Private Sub PropiedadesDGVCarga()
         DgvPaquetesHVI.Columns("LotID").ReadOnly = True

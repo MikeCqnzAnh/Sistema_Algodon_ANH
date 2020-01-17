@@ -9,7 +9,8 @@ Alter procedure sp_ConsultaPacasVentasFiltro
 as
 if @Clase <> '' and @PacaIni > 0 and @PacaFin > 0 and @IdPlanta = 0 and @IdPaquete = 0
 begin 
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -38,12 +39,13 @@ select pd.FolioCIA,
 						   left join CalculoClasificacion cc on pd.FolioCIA = cc.BaleID 
 						   left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
-		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and
-			  cc.BaleID between @PacaIni and @PacaFin and cc.Grade = @Clase
+		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and cc.BaleID between @PacaIni and @PacaFin and cc.Grade = @Clase
+		order by cc.IdPaqueteEncabezado
 end
 else if @Clase = '' and @PacaIni > 0 and @PacaFin > 0 and @IdPlanta = 0 and @IdPaquete = 0
 begin
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -72,12 +74,13 @@ select pd.FolioCIA,
 								 left join CalculoClasificacion cc on pd.FolioCIA = cc.BaleID 
 								 left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 								 inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
-		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and
-			  cc.BaleID between @PacaIni and @PacaFin 
+		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and cc.BaleID between @PacaIni and @PacaFin 
+		order by cc.IdPaqueteEncabezado
 end
 else if @Clase <> '' and @PacaIni = 0 and @PacaFin = 0 and @IdPlanta = 0 and @IdPaquete = 0
 begin
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -107,10 +110,12 @@ select pd.FolioCIA,
 								 left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 								 inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and cc.Grade = @Clase
+		order by cc.IdPaqueteEncabezado
 end
 else if @Clase = '' and @PacaIni = 0 and @PacaFin = 0 and @IdPlanta = 0 and @IdPaquete = 0
 begin
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -140,10 +145,12 @@ select pd.FolioCIA,
 						   left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta = 1
+		order by cc.IdPaqueteEncabezado
 end
 else if @Clase = '' and @PacaIni = 0 and @PacaFin = 0 and @IdPlanta > 0 and @IdPaquete > 0
 begin
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -173,10 +180,12 @@ select pd.FolioCIA,
 						   left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and pl.IdPlanta = @IdPlanta and cc.IdPaqueteEncabezado = @IdPaquete
+		order by cc.IdPaqueteEncabezado
 end
 else if @Clase = '' and @PacaIni = 0 and @PacaFin = 0 and @IdPlanta = 0 and @IdPaquete > 0
 begin
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   isnull(LR.IdLiquidacion,0) as IdLiquidacion,
 	   Pl.Descripcion,
@@ -206,4 +215,5 @@ select pd.FolioCIA,
 						   left join liquidacionesporromaneaje LR on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta = 1 and cc.IdPaqueteEncabezado = @IdPaquete
-end
+		order by cc.IdPaqueteEncabezado
+end		

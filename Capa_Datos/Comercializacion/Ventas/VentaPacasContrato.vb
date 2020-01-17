@@ -21,7 +21,7 @@ Public Class VentaPacasContrato
                     cmdGuardar.Parameters.Add(New SqlParameter("@Observaciones", EntidadVentaPacasContrato1.Observaciones))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", EntidadVentaPacasContrato1.CastigoMicros))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", EntidadVentaPacasContrato1.CastigoLargoFibra))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", EntidadVentaPacasContrato1.CastigoLargoFibra))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", EntidadVentaPacasContrato1.CastigoResistenciaFibra))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoUI", EntidadVentaPacasContrato1.CastigoUI))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel1", EntidadVentaPacasContrato1.CastigoBarkLevel1))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel2", EntidadVentaPacasContrato1.CastigoBarkLevel2))
@@ -187,7 +187,7 @@ Public Class VentaPacasContrato
             Select Case EntidadVentaPacasContrato1.Actualiza
                 Case Capa_Operacion.Configuracion.Actuliza.ActualizaEstatus
                     For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
-                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusPacaVenta", cnn)
+                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusCierraPacaVenta", cnn)
                         cmdActualizar.CommandType = CommandType.StoredProcedure
                         cmdActualizar.Parameters.Clear()
                         cmdActualizar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))

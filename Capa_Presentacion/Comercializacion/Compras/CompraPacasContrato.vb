@@ -673,10 +673,10 @@ Public Class CompraPacasContrato
     End Sub
     Private Sub PropiedadesDgvPacasIndCompradas()
         DgvPacasIndCompradas.Columns("FolioCIA").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
-        DgvPacasIndCompradas.Columns("CastigoUICompra").Visible = False
+        'DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
+        'DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
+        'DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
+        'DgvPacasIndCompradas.Columns("CastigoUICompra").Visible = False
         DgvPacasIndCompradas.Columns("TipoCambio").Visible = False
         DgvPacasIndCompradas.Columns("PrecioMxn").Visible = False
         DgvPacasIndCompradas.Columns("Descripcion").Visible = False
@@ -690,11 +690,19 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.Columns("IdPlantaOrigen").ReadOnly = True
         DgvPacasIndCompradas.Columns("Kilos").ReadOnly = True
         DgvPacasIndCompradas.Columns("Grade").ReadOnly = True
+        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").ReadOnly = True
+        DgvPacasIndCompradas.Columns("CastigoMicCompra").ReadOnly = True
+        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").ReadOnly = True
+        DgvPacasIndCompradas.Columns("CastigoUICompra").ReadOnly = True
 
         DgvPacasIndCompradas.Columns("BaleID").HeaderText = "Etiqueta"
         DgvPacasIndCompradas.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
         DgvPacasIndCompradas.Columns("IdPlantaOrigen").HeaderText = "Planta"
         DgvPacasIndCompradas.Columns("Grade").HeaderText = "Clase"
+        DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").HeaderText = "Castigo RF"
+        DgvPacasIndCompradas.Columns("CastigoMicCompra").HeaderText = "Castigo Mic"
+        DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").HeaderText = "Castigo LF"
+        DgvPacasIndCompradas.Columns("CastigoUICompra").HeaderText = "Castigo UI"
     End Sub
     Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellContentClick
         PrecioSM = 0
@@ -915,7 +923,7 @@ Public Class CompraPacasContrato
             EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(2, 1, DgvPacasComprar, TbIdCompraPaca.Text)
             NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
 
-            filtraPacasClases()
+            'filtraPacasClases()
             VarGlob2.IdProductor = TbIdProductor.Text
             VarGlob2.NombreProductor = TbNombreProductor.Text
             VarGlob2.PrecioQuintal = TbPrecioQuintal.Text

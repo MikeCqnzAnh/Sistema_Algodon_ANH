@@ -1,4 +1,4 @@
-alter procedure sp_InsertarContratoCompra
+Alter procedure sp_InsertarContratoCompra
 @IdContratoAlgodon int output, 
 @IdProductor int,
 @Pacas int,
@@ -89,6 +89,8 @@ WHEN MATCHED THEN
 UPDATE SET 
 		IdProductor = source.IdProductor,
 		Pacas = source.Pacas,
+		pacasCompradas = source.pacascompradas,
+		pacasdisponibles = source.pacasdisponibles,
 		SuperficieComprometida = source.SuperficieComprometida,
 		PrecioQuintal = source.PrecioQuintal,
 		Puntos = source.Puntos,
@@ -135,7 +137,21 @@ INSERT (IdProductor
 	   ,FechaCreacion
 	   ,IdUsuarioActualizacion
 	   ,FechaActualizacion)
-VALUES (source.IdProductor	   ,source.Pacas	   ,source.PacasDisponibles	   ,source.SuperficieComprometida	   ,source.PrecioQuintal	   ,source.Puntos	   ,source.FechaLiquidacion	   ,source.Presidente	   ,source.IdModalidadCompra	   ,source.Temporada	   ,source.PrecioSM	   ,source.PrecioMP	   ,source.PrecioM	   ,source.PrecioSLMP	   ,source.PrecioSLM
+VALUES (source.IdProductor
+	   ,source.Pacas
+	   ,source.PacasDisponibles
+	   ,source.SuperficieComprometida
+	   ,source.PrecioQuintal
+	   ,source.Puntos
+	   ,source.FechaLiquidacion
+	   ,source.Presidente
+	   ,source.IdModalidadCompra
+	   ,source.Temporada
+	   ,source.PrecioSM
+	   ,source.PrecioMP
+	   ,source.PrecioM
+	   ,source.PrecioSLMP
+	   ,source.PrecioSLM
 	   ,source.PrecioLMP
 	   ,source.PrecioLM
 	   ,source.PrecioSGO

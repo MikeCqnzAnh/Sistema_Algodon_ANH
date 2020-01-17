@@ -1,9 +1,10 @@
-alter procedure sp_ConPacaVendida
+Alter procedure sp_ConPacaVendida
 --declare
 @IdVentaEnc int ,
 @Seleccionar bit = 0 
 as
-select pd.FolioCIA,
+select cc.IdPaqueteEncabezado,
+	   pd.FolioCIA,
 	   cc.IdOrdenTrabajo,
 	   LR.IdLiquidacion,
 	   pl.Descripcion,
@@ -34,4 +35,4 @@ select pd.FolioCIA,
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 2 and cc.IdVentaEnc = @IdVentaEnc
-		order by cc.IdOrdenTrabajo
+		order by cc.IdPaqueteEncabezado
