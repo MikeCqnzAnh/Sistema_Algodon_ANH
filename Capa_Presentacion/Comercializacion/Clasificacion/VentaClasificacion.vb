@@ -47,6 +47,8 @@ Public Class VentaClasificacion
         DgvPacasClasificacion.Columns("Mic").ReadOnly = False
         DgvPacasClasificacion.Columns("ColorGrade").ReadOnly = False
         DgvPacasClasificacion.Columns("TrashID").ReadOnly = False
+        DgvPacasClasificacion.Columns("TrashArea").ReadOnly = False
+        DgvPacasClasificacion.Columns("TrashCount").ReadOnly = False
         DgvPacasClasificacion.Columns("SCI").ReadOnly = True
         DgvPacasClasificacion.Columns("sel").ReadOnly = False
     End Sub
@@ -58,6 +60,8 @@ Public Class VentaClasificacion
         DgvPacasClasificacion.Columns("Mic").ReadOnly = True
         DgvPacasClasificacion.Columns("ColorGrade").ReadOnly = True
         DgvPacasClasificacion.Columns("TrashID").ReadOnly = True
+        DgvPacasClasificacion.Columns("TrashArea").ReadOnly = True
+        DgvPacasClasificacion.Columns("TrashCount").ReadOnly = True
         DgvPacasClasificacion.Columns("SCI").ReadOnly = True
         DgvPacasClasificacion.Columns("sel").ReadOnly = False
     End Sub
@@ -389,14 +393,14 @@ Public Class VentaClasificacion
 
             Dim colTrashCount As New DataGridViewTextBoxColumn
             colTrashCount.Name = "TrashCount"
-            'colTrashCount.HeaderText = "No Paca"
-            colTrashCount.Visible = False
+            colTrashCount.HeaderText = "Trash Count"
+            colTrashCount.ReadOnly = False
             DgvPacasClasificacion.Columns.Insert(24, colTrashCount)
 
             Dim colTrashArea As New DataGridViewTextBoxColumn
             colTrashArea.Name = "TrashArea"
-            'colTrashArea.HeaderText = "No Paca"
-            colTrashArea.Visible = False
+            colTrashArea.HeaderText = "Trash Area"
+            colTrashArea.ReadOnly = False
             DgvPacasClasificacion.Columns.Insert(25, colTrashArea)
 
             Dim colTrashID As New DataGridViewTextBoxColumn

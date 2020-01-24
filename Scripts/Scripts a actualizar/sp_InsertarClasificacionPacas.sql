@@ -131,9 +131,7 @@ UPDATE SET		kilos = source.Kilos,
 				SCI  = source.SCI ,
 				Nep  = source.Nep ,
 				UV  = source.UV ,
-				FlagTerminado = 1 ,
-				EstatusVenta = source.EstatusVenta
-
+				FlagTerminado = 1 
 WHEN NOT MATCHED THEN
 INSERT (IdPaqueteEncabezado
 		,IdOrdenTrabajo

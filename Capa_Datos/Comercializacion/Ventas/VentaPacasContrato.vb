@@ -11,7 +11,7 @@ Public Class VentaPacasContrato
                 Case Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasEnc
                     cmdGuardar = New SqlCommand("Sp_InsertaVentaPacas", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdVenta", CInt(EntidadVentaPacasContrato1.IdVenta)))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadVentaPacasContrato1.IdComprador))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadVentaPacasContrato1.IdContrato))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadVentaPacasContrato1.IdPlanta))

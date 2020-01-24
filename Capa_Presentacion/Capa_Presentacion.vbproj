@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.32.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.34.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -170,6 +170,12 @@
       <DependentUpon>SalidaSemilla.vb</DependentUpon>
     </Compile>
     <Compile Include="Almacenes\SalidaSemilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CastigoMicros.Designer.vb">
+      <DependentUpon>CastigoMicros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CastigoMicros.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\ModalidadesVenta.Designer.vb">
@@ -1036,6 +1042,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\Maquinaria.resx">
       <DependentUpon>Maquinaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CastigoMicros.resx">
+      <DependentUpon>CastigoMicros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\ModalidadesCompra.resx">
       <DependentUpon>ModalidadesCompra.vb</DependentUpon>

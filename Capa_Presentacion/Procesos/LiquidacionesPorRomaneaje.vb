@@ -64,6 +64,7 @@ Public Class LiquidacionesPorRomaneaje
         DgvModulos.DataSource = ""
         TbTotalBoletas.Text = ""
         ChClaseMicros.Checked = False
+        TbIdOrden.Enabled = True
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click, ToolStripMenuItem1.Click
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
@@ -167,6 +168,7 @@ Public Class LiquidacionesPorRomaneaje
                         ConsultarModulos()
                         CalculosResumen()
                         TbTotalBoletas.Text = CInt(DgvModulos.RowCount)
+                        TbIdOrden.Enabled = False
                     End If
                 Else
                     MsgBox("Ingrese el ID de la orden de trabajo...")

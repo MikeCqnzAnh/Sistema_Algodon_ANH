@@ -173,6 +173,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.CastigosPorMicrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -191,7 +192,7 @@ Partial Class MenuPrincipal
         '
         'CatálogosToolStripMenuItem
         '
-        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeComercializacionToolStripMenuItem, Me.UnidadesDeComercializacionToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CamionesToolStripMenuItem})
+        Me.CatálogosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.AsociacionesToolStripMenuItem, Me.CompradoresToolStripMenuItem, Me.MunicipiosToolStripMenuItem, Me.ColoniasToolStripMenuItem, Me.AlmacenesToolStripMenuItem1, Me.PlantasToolStripMenuItem, Me.TiposDeIncidenciasToolStripMenuItem, Me.IncidenciasDeParoDeOperacionesToolStripMenuItem, Me.PuestosToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.MaquinariaToolStripMenuItem, Me.RangosDeTemperaturaToolStripMenuItem, Me.ProfesionalesFitosanitariosToolStripMenuItem, Me.ModalidadesDeComercializacionToolStripMenuItem, Me.UnidadesDeComercializacionToolStripMenuItem, Me.TierrasToolStripMenuItem, Me.VariedadesDeAlgodónToolStripMenuItem, Me.LargosDeFibraToolStripMenuItem, Me.RendimientosToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem, Me.RegímenesHídricosToolStripMenuItem, Me.CastigosPorLargosDeFibraToolStripMenuItem, Me.CastigosPorResistenciaDeFibraToolStripMenuItem, Me.CastigosPorMicrosToolStripMenuItem1, Me.CamionesToolStripMenuItem})
         Me.CatálogosToolStripMenuItem.Name = "CatálogosToolStripMenuItem"
         Me.CatálogosToolStripMenuItem.Size = New System.Drawing.Size(82, 23)
         Me.CatálogosToolStripMenuItem.Tag = "1,0"
@@ -1249,6 +1250,13 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
+        'CastigosPorMicrosToolStripMenuItem1
+        '
+        Me.CastigosPorMicrosToolStripMenuItem1.Name = "CastigosPorMicrosToolStripMenuItem1"
+        Me.CastigosPorMicrosToolStripMenuItem1.Size = New System.Drawing.Size(291, 24)
+        Me.CastigosPorMicrosToolStripMenuItem1.Tag = "242,1"
+        Me.CastigosPorMicrosToolStripMenuItem1.Text = "Castigos por Micros"
+        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1424,4 +1432,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ModalidadDeCompraToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModalidadDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UnidadesDeComercializacionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CastigosPorMicrosToolStripMenuItem1 As ToolStripMenuItem
 End Class

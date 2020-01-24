@@ -66,11 +66,11 @@ Public Class MenuPrincipal
             '    TsPrecioDolar.Text = Regex.Replace(TsPrecioDolar.Text, "[^0-9.]", "", RegexOptions.None)
             '    ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
             'Else
-            If _IdTipoUsuario = 1 Then
-                    Monedas.ShowDialog()
-                    ConsultaTipoCambio()
-                Else
-                    TsPrecioDolar.Text = 0
+            If _IdTipoUsuario = 1 Or _IdTipoUsuario = 10 Or _IdTipoUsuario = 4 Then
+                Monedas.ShowDialog()
+                ConsultaTipoCambio()
+            Else
+                TsPrecioDolar.Text = 0
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString, MsgBoxStyle.Exclamation, "Aviso")
@@ -399,6 +399,11 @@ Public Class MenuPrincipal
     Private Sub ReporteDeComprasYVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeComprasYVentasToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub CastigosPorMicrosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CastigosPorMicrosToolStripMenuItem1.Click
+        CastigoMicros.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
