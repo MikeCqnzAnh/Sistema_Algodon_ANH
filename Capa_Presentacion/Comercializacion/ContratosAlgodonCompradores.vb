@@ -5,17 +5,15 @@ Public Class ContratosAlgodonCompradores
     Dim TablaUnidadPeso As New DataTable
     Private Sub ContratosAlgodonCompradores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
+        Limpiar()
         ConsultaContratos()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbComprador.Text <> "" And TbPacas.Text <> "" And CbUnidadPeso.Text <> "" And TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" And CbEstatus.Text <> "" And CbModalidad.Text <> "" And TbSM.Text <> "" Then
             Guardar()
-
         End If
     End Sub
     Private Sub Guardar()
@@ -168,6 +166,22 @@ Public Class ContratosAlgodonCompradores
         TbO.Text = ""
         CbUnidadPeso.SelectedValue = -1
         TbValorConversion.Text = ""
+        ChBark.Checked = True
+        ChPrep.Checked = True
+        ChOther.Checked = True
+        ChPlastic.Checked = True
+        ChBarkLevel1.Checked = True
+        ChBarkLevel2.Checked = True
+        ChPrepLevel1.Checked = True
+        ChPrepLevel2.Checked = True
+        ChOtherLevel1.Checked = True
+        ChOtherLevel2.Checked = True
+        ChPlasticLevel1.Checked = True
+        ChPlasticLevel2.Checked = True
+        ChMicros.Checked = True
+        ChResistenciaFibra.Checked = True
+        ChLargoFibra.Checked = True
+        ChUniformidad.Checked = True
     End Sub
     Private Sub ConsultaContratos()
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores

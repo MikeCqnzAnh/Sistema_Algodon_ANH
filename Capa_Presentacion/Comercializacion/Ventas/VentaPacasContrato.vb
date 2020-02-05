@@ -665,39 +665,74 @@ Public Class VentaPacasContrato
         dt.Columns.Add("CastigoPlasticLevel2", Type.GetType("System.Single"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
-
-        For i = 0 To DataGridEnvia.Rows.Count - 1
-            r = dt.NewRow
-            If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                Dim Kilos As Integer = DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)
-                Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
-                r("IdComprador") = TbIdComprador.Text
-                r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
-                r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
-                r("IdVentaEnc") = IdVentaEnc
-                r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
-                r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
-                r("TipoCambio") = 0
-                r("PrecioMxn") = 0
-                r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
-                r("Quintales") = Quintales
-                r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoUI") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
-                r("CastigoBarkLevel2") = Math.Truncate(DataGridEnvia.Item(18, i).Value * 10000) / 10000
-                r("CastigoPrepLevel1") = Math.Truncate(DataGridEnvia.Item(19, i).Value * 10000) / 10000
-                r("CastigoPrepLevel2") = Math.Truncate(DataGridEnvia.Item(20, i).Value * 10000) / 10000
-                r("CastigoOtherLevel1") = Math.Truncate(DataGridEnvia.Item(21, i).Value * 10000) / 10000
-                r("CastigoOtherLevel2") = Math.Truncate(DataGridEnvia.Item(22, i).Value * 10000) / 10000
-                r("CastigoPlasticLevel1") = Math.Truncate(DataGridEnvia.Item(23, i).Value * 10000) / 10000
-                r("CastigoPlasticLevel2") = Math.Truncate(DataGridEnvia.Item(24, i).Value * 10000) / 10000
-                r("EstatusVentaUpdate") = EstatusVentaUpdate
-                r("EstatusVentaBusqueda") = EstatusVentaBusqueda
-                dt.Rows.Add(r)
-            End If
-        Next
+        If CbUnidadPeso.SelectedValue = 1 Then
+            For i = 0 To DataGridEnvia.Rows.Count - 1
+                r = dt.NewRow
+                If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
+                    Dim Kilos As Integer = DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)
+                    Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
+                    r("IdComprador") = TbIdComprador.Text
+                    r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
+                    r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
+                    r("IdVentaEnc") = IdVentaEnc
+                    r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
+                    r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
+                    r("TipoCambio") = 0
+                    r("PrecioMxn") = 0
+                    r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
+                    r("Quintales") = Quintales
+                    r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoUI") = IIf(TbIdComprador.Text <> 3, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
+                    r("CastigoBarkLevel2") = Math.Truncate(DataGridEnvia.Item(18, i).Value * 10000) / 10000
+                    r("CastigoPrepLevel1") = Math.Truncate(DataGridEnvia.Item(19, i).Value * 10000) / 10000
+                    r("CastigoPrepLevel2") = Math.Truncate(DataGridEnvia.Item(20, i).Value * 10000) / 10000
+                    r("CastigoOtherLevel1") = Math.Truncate(DataGridEnvia.Item(21, i).Value * 10000) / 10000
+                    r("CastigoOtherLevel2") = Math.Truncate(DataGridEnvia.Item(22, i).Value * 10000) / 10000
+                    r("CastigoPlasticLevel1") = Math.Truncate(DataGridEnvia.Item(23, i).Value * 10000) / 10000
+                    r("CastigoPlasticLevel2") = Math.Truncate(DataGridEnvia.Item(24, i).Value * 10000) / 10000
+                    r("EstatusVentaUpdate") = EstatusVentaUpdate
+                    r("EstatusVentaBusqueda") = EstatusVentaBusqueda
+                    dt.Rows.Add(r)
+                End If
+            Next
+        ElseIf CbUnidadPeso.SelectedValue = 2 Then
+            For i = 0 To DataGridEnvia.Rows.Count - 1
+                r = dt.NewRow
+                If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
+                    Dim Kilos As Integer = DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)
+                    Dim Libras As Double = Kilos * Val(TbValorConversion.Text)
+                    Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
+                    r("IdComprador") = TbIdComprador.Text
+                    r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
+                    r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
+                    r("IdVentaEnc") = IdVentaEnc
+                    r("PrecioDls") = Math.Truncate((Libras * (PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value) / 100)) * 10000) / 10000
+                    r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
+                    r("TipoCambio") = 0
+                    r("PrecioMxn") = 0
+                    r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
+                    r("Quintales") = Quintales
+                    r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoUI") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
+                    r("CastigoBarkLevel2") = Math.Truncate(DataGridEnvia.Item(18, i).Value * 10000) / 10000
+                    r("CastigoPrepLevel1") = Math.Truncate(DataGridEnvia.Item(19, i).Value * 10000) / 10000
+                    r("CastigoPrepLevel2") = Math.Truncate(DataGridEnvia.Item(20, i).Value * 10000) / 10000
+                    r("CastigoOtherLevel1") = Math.Truncate(DataGridEnvia.Item(21, i).Value * 10000) / 10000
+                    r("CastigoOtherLevel2") = Math.Truncate(DataGridEnvia.Item(22, i).Value * 10000) / 10000
+                    r("CastigoPlasticLevel1") = Math.Truncate(DataGridEnvia.Item(23, i).Value * 10000) / 10000
+                    r("CastigoPlasticLevel2") = Math.Truncate(DataGridEnvia.Item(24, i).Value * 10000) / 10000
+                    r("EstatusVentaUpdate") = EstatusVentaUpdate
+                    r("EstatusVentaBusqueda") = EstatusVentaBusqueda
+                    dt.Rows.Add(r)
+                End If
+            Next
+        End If
         Return dt
     End Function
     Private Function PrecioContratoClase(ByVal Clase As String) As Double

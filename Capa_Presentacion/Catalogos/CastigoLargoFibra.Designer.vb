@@ -48,7 +48,7 @@ Partial Class CastigoLargoFibra
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(701, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(731, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -179,21 +179,21 @@ Partial Class CastigoLargoFibra
         Me.DgvCastigoLargoFibra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCastigoLargoFibra.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.DgvCastigoLargoFibra.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCastigoLargoFibra.Location = New System.Drawing.Point(0, 206)
+        Me.DgvCastigoLargoFibra.Location = New System.Drawing.Point(0, 372)
         Me.DgvCastigoLargoFibra.MultiSelect = False
         Me.DgvCastigoLargoFibra.Name = "DgvCastigoLargoFibra"
         Me.DgvCastigoLargoFibra.ReadOnly = True
         Me.DgvCastigoLargoFibra.RowHeadersVisible = False
         Me.DgvCastigoLargoFibra.RowHeadersWidth = 40
         Me.DgvCastigoLargoFibra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCastigoLargoFibra.Size = New System.Drawing.Size(701, 322)
+        Me.DgvCastigoLargoFibra.Size = New System.Drawing.Size(731, 322)
         Me.DgvCastigoLargoFibra.TabIndex = 19
         '
         'CastigoLargoFibra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(701, 528)
+        Me.ClientSize = New System.Drawing.Size(731, 694)
         Me.Controls.Add(Me.DgvCastigoLargoFibra)
         Me.Controls.Add(Me.CbEstatus)
         Me.Controls.Add(Me.Label6)

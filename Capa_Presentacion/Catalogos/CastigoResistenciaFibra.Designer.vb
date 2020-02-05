@@ -26,7 +26,7 @@ Partial Class CastigoResistenciaFibra
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TbIdResistenciaFibra = New System.Windows.Forms.TextBox()
+        Me.TbIdResistenciaEncabezado = New System.Windows.Forms.TextBox()
         Me.TbRango1 = New System.Windows.Forms.TextBox()
         Me.TbRango2 = New System.Windows.Forms.TextBox()
         Me.TbCastigo = New System.Windows.Forms.TextBox()
@@ -36,9 +36,23 @@ Partial Class CastigoResistenciaFibra
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DgvCastigoResistenciaFibra = New System.Windows.Forms.DataGridView()
+        Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CbTipoContrato = New System.Windows.Forms.ComboBox()
+        Me.TbDescripcion = New System.Windows.Forms.TextBox()
+        Me.GbModosCastigo = New System.Windows.Forms.GroupBox()
+        Me.DgvEncabezado = New System.Windows.Forms.DataGridView()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DgvDetalle = New System.Windows.Forms.DataGridView()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.MSMenu.SuspendLayout()
-        CType(Me.DgvCastigoResistenciaFibra, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbDatosGenerales.SuspendLayout()
+        Me.GbModosCastigo.SuspendLayout()
+        CType(Me.DgvEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DgvDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -46,7 +60,7 @@ Partial Class CastigoResistenciaFibra
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(671, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(684, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -67,31 +81,31 @@ Partial Class CastigoResistenciaFibra
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'TbIdResistenciaFibra
+        'TbIdResistenciaEncabezado
         '
-        Me.TbIdResistenciaFibra.Enabled = False
-        Me.TbIdResistenciaFibra.Location = New System.Drawing.Point(129, 27)
-        Me.TbIdResistenciaFibra.Name = "TbIdResistenciaFibra"
-        Me.TbIdResistenciaFibra.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdResistenciaFibra.TabIndex = 1
+        Me.TbIdResistenciaEncabezado.Enabled = False
+        Me.TbIdResistenciaEncabezado.Location = New System.Drawing.Point(96, 19)
+        Me.TbIdResistenciaEncabezado.Name = "TbIdResistenciaEncabezado"
+        Me.TbIdResistenciaEncabezado.Size = New System.Drawing.Size(121, 20)
+        Me.TbIdResistenciaEncabezado.TabIndex = 1
         '
         'TbRango1
         '
-        Me.TbRango1.Location = New System.Drawing.Point(129, 53)
+        Me.TbRango1.Location = New System.Drawing.Point(60, 28)
         Me.TbRango1.Name = "TbRango1"
         Me.TbRango1.Size = New System.Drawing.Size(100, 20)
         Me.TbRango1.TabIndex = 2
         '
         'TbRango2
         '
-        Me.TbRango2.Location = New System.Drawing.Point(129, 79)
+        Me.TbRango2.Location = New System.Drawing.Point(220, 28)
         Me.TbRango2.Name = "TbRango2"
         Me.TbRango2.Size = New System.Drawing.Size(100, 20)
         Me.TbRango2.TabIndex = 3
         '
         'TbCastigo
         '
-        Me.TbCastigo.Location = New System.Drawing.Point(129, 105)
+        Me.TbCastigo.Location = New System.Drawing.Point(374, 28)
         Me.TbCastigo.Name = "TbCastigo"
         Me.TbCastigo.Size = New System.Drawing.Size(100, 20)
         Me.TbCastigo.TabIndex = 4
@@ -99,7 +113,7 @@ Partial Class CastigoResistenciaFibra
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 30)
+        Me.Label1.Location = New System.Drawing.Point(4, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(18, 13)
         Me.Label1.TabIndex = 5
@@ -108,7 +122,7 @@ Partial Class CastigoResistenciaFibra
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 56)
+        Me.Label2.Location = New System.Drawing.Point(6, 31)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 13)
         Me.Label2.TabIndex = 6
@@ -117,7 +131,7 @@ Partial Class CastigoResistenciaFibra
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 82)
+        Me.Label3.Location = New System.Drawing.Point(166, 31)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 7
@@ -126,7 +140,7 @@ Partial Class CastigoResistenciaFibra
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 108)
+        Me.Label4.Location = New System.Drawing.Point(326, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 8
@@ -135,7 +149,7 @@ Partial Class CastigoResistenciaFibra
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(129, 131)
+        Me.CbEstatus.Location = New System.Drawing.Point(271, 71)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 5
@@ -143,49 +157,128 @@ Partial Class CastigoResistenciaFibra
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 134)
+        Me.Label5.Location = New System.Drawing.Point(223, 74)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 13)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Estatus"
         '
-        'DgvCastigoResistenciaFibra
+        'GbDatosGenerales
         '
-        Me.DgvCastigoResistenciaFibra.AllowUserToAddRows = False
-        Me.DgvCastigoResistenciaFibra.AllowUserToDeleteRows = False
-        Me.DgvCastigoResistenciaFibra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvCastigoResistenciaFibra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvCastigoResistenciaFibra.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvCastigoResistenciaFibra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvCastigoResistenciaFibra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCastigoResistenciaFibra.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DgvCastigoResistenciaFibra.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCastigoResistenciaFibra.Location = New System.Drawing.Point(0, 165)
-        Me.DgvCastigoResistenciaFibra.MultiSelect = False
-        Me.DgvCastigoResistenciaFibra.Name = "DgvCastigoResistenciaFibra"
-        Me.DgvCastigoResistenciaFibra.ReadOnly = True
-        Me.DgvCastigoResistenciaFibra.RowHeadersVisible = False
-        Me.DgvCastigoResistenciaFibra.RowHeadersWidth = 40
-        Me.DgvCastigoResistenciaFibra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCastigoResistenciaFibra.Size = New System.Drawing.Size(671, 322)
-        Me.DgvCastigoResistenciaFibra.TabIndex = 20
+        Me.GbDatosGenerales.Controls.Add(Me.Label7)
+        Me.GbDatosGenerales.Controls.Add(Me.Label6)
+        Me.GbDatosGenerales.Controls.Add(Me.CbTipoContrato)
+        Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
+        Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
+        Me.GbDatosGenerales.Controls.Add(Me.TbIdResistenciaEncabezado)
+        Me.GbDatosGenerales.Controls.Add(Me.Label5)
+        Me.GbDatosGenerales.Controls.Add(Me.Label1)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
+        Me.GbDatosGenerales.Name = "GbDatosGenerales"
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(684, 115)
+        Me.GbDatosGenerales.TabIndex = 21
+        Me.GbDatosGenerales.TabStop = False
+        Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(4, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(86, 13)
+        Me.Label7.TabIndex = 12
+        Me.Label7.Text = "Tipo de Contrato"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(4, 48)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 13)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Descripcion"
+        '
+        'CbTipoContrato
+        '
+        Me.CbTipoContrato.FormattingEnabled = True
+        Me.CbTipoContrato.Location = New System.Drawing.Point(96, 71)
+        Me.CbTipoContrato.Name = "CbTipoContrato"
+        Me.CbTipoContrato.Size = New System.Drawing.Size(121, 21)
+        Me.CbTipoContrato.TabIndex = 10
+        '
+        'TbDescripcion
+        '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbDescripcion.Location = New System.Drawing.Point(96, 45)
+        Me.TbDescripcion.Name = "TbDescripcion"
+        Me.TbDescripcion.Size = New System.Drawing.Size(296, 20)
+        Me.TbDescripcion.TabIndex = 9
+        '
+        'GbModosCastigo
+        '
+        Me.GbModosCastigo.Controls.Add(Me.DgvEncabezado)
+        Me.GbModosCastigo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GbModosCastigo.Location = New System.Drawing.Point(0, 139)
+        Me.GbModosCastigo.Name = "GbModosCastigo"
+        Me.GbModosCastigo.Size = New System.Drawing.Size(684, 121)
+        Me.GbModosCastigo.TabIndex = 22
+        Me.GbModosCastigo.TabStop = False
+        Me.GbModosCastigo.Text = "Modos de Castigo"
+        '
+        'DgvEncabezado
+        '
+        Me.DgvEncabezado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvEncabezado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvEncabezado.Location = New System.Drawing.Point(3, 16)
+        Me.DgvEncabezado.Name = "DgvEncabezado"
+        Me.DgvEncabezado.Size = New System.Drawing.Size(678, 102)
+        Me.DgvEncabezado.TabIndex = 1
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.DgvDetalle)
+        Me.GroupBox3.Controls.Add(Me.GroupBox4)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 260)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(684, 468)
+        Me.GroupBox3.TabIndex = 23
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Detalle de Clases"
+        '
+        'DgvDetalle
+        '
+        Me.DgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvDetalle.Location = New System.Drawing.Point(3, 79)
+        Me.DgvDetalle.Name = "DgvDetalle"
+        Me.DgvDetalle.Size = New System.Drawing.Size(678, 386)
+        Me.DgvDetalle.TabIndex = 2
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.TbCastigo)
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.TbRango1)
+        Me.GroupBox4.Controls.Add(Me.TbRango2)
+        Me.GroupBox4.Controls.Add(Me.Label3)
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 16)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(678, 63)
+        Me.GroupBox4.TabIndex = 1
+        Me.GroupBox4.TabStop = False
         '
         'CastigoResistenciaFibra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(671, 487)
-        Me.Controls.Add(Me.DgvCastigoResistenciaFibra)
-        Me.Controls.Add(Me.CbEstatus)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TbCastigo)
-        Me.Controls.Add(Me.TbRango2)
-        Me.Controls.Add(Me.TbRango1)
-        Me.Controls.Add(Me.TbIdResistenciaFibra)
+        Me.ClientSize = New System.Drawing.Size(684, 728)
+        Me.Controls.Add(Me.GbModosCastigo)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "CastigoResistenciaFibra"
@@ -193,7 +286,14 @@ Partial Class CastigoResistenciaFibra
         Me.Text = "Castigo Por Resistencia de Fibra"
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
-        CType(Me.DgvCastigoResistenciaFibra, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GbDatosGenerales.ResumeLayout(False)
+        Me.GbDatosGenerales.PerformLayout()
+        Me.GbModosCastigo.ResumeLayout(False)
+        CType(Me.DgvEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.DgvDetalle, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -203,7 +303,7 @@ Partial Class CastigoResistenciaFibra
     Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TbIdResistenciaFibra As TextBox
+    Friend WithEvents TbIdResistenciaEncabezado As TextBox
     Friend WithEvents TbRango1 As TextBox
     Friend WithEvents TbRango2 As TextBox
     Friend WithEvents TbCastigo As TextBox
@@ -213,5 +313,14 @@ Partial Class CastigoResistenciaFibra
     Friend WithEvents Label4 As Label
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents DgvCastigoResistenciaFibra As DataGridView
+    Friend WithEvents GbDatosGenerales As GroupBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents CbTipoContrato As ComboBox
+    Friend WithEvents TbDescripcion As TextBox
+    Friend WithEvents GbModosCastigo As GroupBox
+    Friend WithEvents DgvEncabezado As DataGridView
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents DgvDetalle As DataGridView
+    Friend WithEvents GroupBox4 As GroupBox
 End Class

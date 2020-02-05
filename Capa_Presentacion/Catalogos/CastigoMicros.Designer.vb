@@ -190,6 +190,7 @@ Partial Class CastigoMicros
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDescripcion.Location = New System.Drawing.Point(117, 44)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(309, 20)

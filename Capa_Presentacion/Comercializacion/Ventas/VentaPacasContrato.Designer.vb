@@ -60,6 +60,7 @@ Partial Class VentaPacasContrato
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
@@ -130,7 +131,7 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtRecalcular = New System.Windows.Forms.Button()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,6 +157,7 @@ Partial Class VentaPacasContrato
         Me.TabControl1.SuspendLayout()
         Me.TP2LiquidacionesVendidas.SuspendLayout()
         CType(Me.DgvLiqVendidas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox7.SuspendLayout()
         Me.TP4IndividualVendidas.SuspendLayout()
         CType(Me.DgvPacasIndVendidas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox8.SuspendLayout()
@@ -540,6 +542,12 @@ Partial Class VentaPacasContrato
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
         Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
         Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
+        '
+        'ComparacionToolStripMenuItem
+        '
+        Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
+        Me.ComparacionToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
+        Me.ComparacionToolStripMenuItem.Text = "Comparacion"
         '
         'ReporteHVIToolStripMenuItem
         '
@@ -1081,6 +1089,7 @@ Partial Class VentaPacasContrato
         '
         'GroupBox7
         '
+        Me.GroupBox7.Controls.Add(Me.BtRecalcular)
         Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox7.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox7.Name = "GroupBox7"
@@ -1338,11 +1347,14 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'ComparacionToolStripMenuItem
+        'BtRecalcular
         '
-        Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
-        Me.ComparacionToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
-        Me.ComparacionToolStripMenuItem.Text = "Comparacion"
+        Me.BtRecalcular.Location = New System.Drawing.Point(728, 16)
+        Me.BtRecalcular.Name = "BtRecalcular"
+        Me.BtRecalcular.Size = New System.Drawing.Size(75, 23)
+        Me.BtRecalcular.TabIndex = 0
+        Me.BtRecalcular.Text = "Recalcular"
+        Me.BtRecalcular.UseVisualStyleBackColor = True
         '
         'VentaPacasContrato
         '
@@ -1390,6 +1402,7 @@ Partial Class VentaPacasContrato
         Me.TabControl1.ResumeLayout(False)
         Me.TP2LiquidacionesVendidas.ResumeLayout(False)
         CType(Me.DgvLiqVendidas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox7.ResumeLayout(False)
         Me.TP4IndividualVendidas.ResumeLayout(False)
         CType(Me.DgvPacasIndVendidas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox8.ResumeLayout(False)
@@ -1508,4 +1521,5 @@ Partial Class VentaPacasContrato
     Friend WithEvents Label28 As Label
     Friend WithEvents CbPlantaVender As ComboBox
     Friend WithEvents ComparacionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtRecalcular As Button
 End Class
