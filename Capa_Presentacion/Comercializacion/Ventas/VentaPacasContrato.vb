@@ -682,7 +682,7 @@ Public Class VentaPacasContrato
                     r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
                     r("Quintales") = Quintales
                     r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
-                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 100) / 100
                     r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
                     r("CastigoUI") = IIf(TbIdComprador.Text <> 3, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000, 0)
                     r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000
@@ -716,7 +716,7 @@ Public Class VentaPacasContrato
                     r("Kilos") = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text))
                     r("Quintales") = Quintales
                     r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value, Quintales, valcastigo) * 10000) / 10000
-                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 10000) / 10000
+                    r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value, Quintales, valcastigo) * 100) / 100
                     r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value, Quintales, valcastigo) * 10000) / 10000
                     r("CastigoUI") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value, Quintales, valcastigo) * 10000) / 10000
                     r("CastigoBarkLevel1") = Math.Truncate(DataGridEnvia.Item(17, i).Value * 10000) / 10000

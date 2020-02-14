@@ -1,0 +1,4 @@
+Create Procedure Sp_LLenaCombosExMatVenta
+as
+select IdExmatVenta,NombreMateria
+from ExMatVenta

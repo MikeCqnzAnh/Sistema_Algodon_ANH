@@ -178,6 +178,12 @@
     <Compile Include="Catalogos\CastigoMicros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Catalogos\CastigoUniformidad.Designer.vb">
+      <DependentUpon>CastigoUniformidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CastigoUniformidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalogos\ModalidadesVenta.Designer.vb">
       <DependentUpon>ModalidadesVenta.vb</DependentUpon>
     </Compile>
@@ -1015,6 +1021,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\CastigoResistenciaFibra.resx">
       <DependentUpon>CastigoResistenciaFibra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CastigoUniformidad.resx">
+      <DependentUpon>CastigoUniformidad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Catalogos\ClasificacionPacas.resx">
       <DependentUpon>ClasificacionPacas.vb</DependentUpon>

@@ -27,14 +27,42 @@ Partial Class ContratosAlgodonCompradores
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
-        Me.TbPacasVendidas = New System.Windows.Forms.TextBox()
-        Me.TbPacasDisponibles = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TbValorConversion = New System.Windows.Forms.TextBox()
-        Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.BtGenerar = New System.Windows.Forms.Button()
+        Me.GbParametros = New System.Windows.Forms.GroupBox()
+        Me.GbCastigos = New System.Windows.Forms.GroupBox()
+        Me.BtConsultaPlastic = New System.Windows.Forms.Button()
+        Me.BtConsultaOther = New System.Windows.Forms.Button()
+        Me.BtConsultaPrep = New System.Windows.Forms.Button()
+        Me.BtConsultaBark = New System.Windows.Forms.Button()
+        Me.BtConsultaUI = New System.Windows.Forms.Button()
+        Me.BtConsultaRF = New System.Windows.Forms.Button()
+        Me.BtConsultaLF = New System.Windows.Forms.Button()
+        Me.BtConsultaMicros = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ChPlasticLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChOtherLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChPrepLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChBarkLevel2 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ChPlasticLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChOtherLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChPrepLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChBarkLevel1 = New System.Windows.Forms.CheckBox()
+        Me.CbModoPlastic = New System.Windows.Forms.ComboBox()
+        Me.CbModoOther = New System.Windows.Forms.ComboBox()
+        Me.CbModoPrep = New System.Windows.Forms.ComboBox()
+        Me.CbModoBark = New System.Windows.Forms.ComboBox()
+        Me.ChPlastic = New System.Windows.Forms.CheckBox()
+        Me.ChOther = New System.Windows.Forms.CheckBox()
+        Me.ChPrep = New System.Windows.Forms.CheckBox()
+        Me.ChBark = New System.Windows.Forms.CheckBox()
+        Me.CbModoUniformidad = New System.Windows.Forms.ComboBox()
+        Me.CbModoResistenciaFibra = New System.Windows.Forms.ComboBox()
+        Me.CbModoLargoFibra = New System.Windows.Forms.ComboBox()
+        Me.ChUniformidad = New System.Windows.Forms.CheckBox()
+        Me.ChResistenciaFibra = New System.Windows.Forms.CheckBox()
+        Me.ChLargoFibra = New System.Windows.Forms.CheckBox()
+        Me.ChMicros = New System.Windows.Forms.CheckBox()
+        Me.CbModoMicros = New System.Windows.Forms.ComboBox()
         Me.GbPrecioQuintal = New System.Windows.Forms.GroupBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TbO = New System.Windows.Forms.TextBox()
@@ -56,6 +84,14 @@ Partial Class ContratosAlgodonCompradores
         Me.TbM = New System.Windows.Forms.TextBox()
         Me.TbMP = New System.Windows.Forms.TextBox()
         Me.TbSM = New System.Windows.Forms.TextBox()
+        Me.TbPacasVendidas = New System.Windows.Forms.TextBox()
+        Me.TbPacasDisponibles = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TbValorConversion = New System.Windows.Forms.TextBox()
+        Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.BtGenerar = New System.Windows.Forms.Button()
         Me.BtnBuscarProductor = New System.Windows.Forms.Button()
         Me.TbComprador = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -78,50 +114,14 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.GbCastigos = New System.Windows.Forms.GroupBox()
-        Me.GbParametros = New System.Windows.Forms.GroupBox()
-        Me.CbModoMicros = New System.Windows.Forms.ComboBox()
-        Me.ChMicros = New System.Windows.Forms.CheckBox()
-        Me.ChLargoFibra = New System.Windows.Forms.CheckBox()
-        Me.ChResistenciaFibra = New System.Windows.Forms.CheckBox()
-        Me.ChUniformidad = New System.Windows.Forms.CheckBox()
-        Me.CbModoLargoFibra = New System.Windows.Forms.ComboBox()
-        Me.CbModoResistenciaFibra = New System.Windows.Forms.ComboBox()
-        Me.CbModoUniformidad = New System.Windows.Forms.ComboBox()
-        Me.ChBark = New System.Windows.Forms.CheckBox()
-        Me.ChPrep = New System.Windows.Forms.CheckBox()
-        Me.ChOther = New System.Windows.Forms.CheckBox()
-        Me.ChPlastic = New System.Windows.Forms.CheckBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ChBarkLevel1 = New System.Windows.Forms.CheckBox()
-        Me.ChPrepLevel1 = New System.Windows.Forms.CheckBox()
-        Me.ChOtherLevel1 = New System.Windows.Forms.CheckBox()
-        Me.ChPlasticLevel1 = New System.Windows.Forms.CheckBox()
-        Me.ChBarkLevel2 = New System.Windows.Forms.CheckBox()
-        Me.ChPrepLevel2 = New System.Windows.Forms.CheckBox()
-        Me.ChOtherLevel2 = New System.Windows.Forms.CheckBox()
-        Me.ChPlasticLevel2 = New System.Windows.Forms.CheckBox()
-        Me.BtConsultaMicros = New System.Windows.Forms.Button()
-        Me.BtConsultaLF = New System.Windows.Forms.Button()
-        Me.BtConsultaRF = New System.Windows.Forms.Button()
-        Me.BtConsultaUI = New System.Windows.Forms.Button()
-        Me.BtConsultaBark = New System.Windows.Forms.Button()
-        Me.BtConsultaPrep = New System.Windows.Forms.Button()
-        Me.BtConsultaOther = New System.Windows.Forms.Button()
-        Me.BtConsultaPlastic = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        Me.GbParametros.SuspendLayout()
+        Me.GbCastigos.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GbCastigos.SuspendLayout()
-        Me.GbParametros.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -190,73 +190,366 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
-        'TbPacasVendidas
+        'GbParametros
         '
-        Me.TbPacasVendidas.Enabled = False
-        Me.TbPacasVendidas.Location = New System.Drawing.Point(117, 123)
-        Me.TbPacasVendidas.Name = "TbPacasVendidas"
-        Me.TbPacasVendidas.Size = New System.Drawing.Size(121, 20)
-        Me.TbPacasVendidas.TabIndex = 5
+        Me.GbParametros.Controls.Add(Me.GbCastigos)
+        Me.GbParametros.Controls.Add(Me.GbPrecioQuintal)
+        Me.GbParametros.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GbParametros.Location = New System.Drawing.Point(790, 16)
+        Me.GbParametros.Name = "GbParametros"
+        Me.GbParametros.Size = New System.Drawing.Size(666, 316)
+        Me.GbParametros.TabIndex = 37
+        Me.GbParametros.TabStop = False
         '
-        'TbPacasDisponibles
+        'GbCastigos
         '
-        Me.TbPacasDisponibles.Enabled = False
-        Me.TbPacasDisponibles.Location = New System.Drawing.Point(117, 97)
-        Me.TbPacasDisponibles.Name = "TbPacasDisponibles"
-        Me.TbPacasDisponibles.Size = New System.Drawing.Size(121, 20)
-        Me.TbPacasDisponibles.TabIndex = 4
+        Me.GbCastigos.Controls.Add(Me.BtConsultaPlastic)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaOther)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaPrep)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaBark)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaUI)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaRF)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaLF)
+        Me.GbCastigos.Controls.Add(Me.BtConsultaMicros)
+        Me.GbCastigos.Controls.Add(Me.GroupBox2)
+        Me.GbCastigos.Controls.Add(Me.GroupBox1)
+        Me.GbCastigos.Controls.Add(Me.CbModoPlastic)
+        Me.GbCastigos.Controls.Add(Me.CbModoOther)
+        Me.GbCastigos.Controls.Add(Me.CbModoPrep)
+        Me.GbCastigos.Controls.Add(Me.CbModoBark)
+        Me.GbCastigos.Controls.Add(Me.ChPlastic)
+        Me.GbCastigos.Controls.Add(Me.ChOther)
+        Me.GbCastigos.Controls.Add(Me.ChPrep)
+        Me.GbCastigos.Controls.Add(Me.ChBark)
+        Me.GbCastigos.Controls.Add(Me.CbModoUniformidad)
+        Me.GbCastigos.Controls.Add(Me.CbModoResistenciaFibra)
+        Me.GbCastigos.Controls.Add(Me.CbModoLargoFibra)
+        Me.GbCastigos.Controls.Add(Me.ChUniformidad)
+        Me.GbCastigos.Controls.Add(Me.ChResistenciaFibra)
+        Me.GbCastigos.Controls.Add(Me.ChLargoFibra)
+        Me.GbCastigos.Controls.Add(Me.ChMicros)
+        Me.GbCastigos.Controls.Add(Me.CbModoMicros)
+        Me.GbCastigos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GbCastigos.Location = New System.Drawing.Point(3, 170)
+        Me.GbCastigos.Name = "GbCastigos"
+        Me.GbCastigos.Size = New System.Drawing.Size(660, 143)
+        Me.GbCastigos.TabIndex = 36
+        Me.GbCastigos.TabStop = False
+        Me.GbCastigos.Text = "Parametros para deduccion"
         '
-        'Label6
+        'BtConsultaPlastic
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 124)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(84, 13)
-        Me.Label6.TabIndex = 35
-        Me.Label6.Text = "Pacas Vendidas"
+        Me.BtConsultaPlastic.Location = New System.Drawing.Point(482, 108)
+        Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
+        Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaPlastic.TabIndex = 24
+        Me.BtConsultaPlastic.Text = "..."
+        Me.BtConsultaPlastic.UseVisualStyleBackColor = True
         '
-        'Label5
+        'BtConsultaOther
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 97)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 13)
-        Me.Label5.TabIndex = 34
-        Me.Label5.Text = "Pacas Disponibles"
+        Me.BtConsultaOther.Location = New System.Drawing.Point(482, 84)
+        Me.BtConsultaOther.Name = "BtConsultaOther"
+        Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaOther.TabIndex = 23
+        Me.BtConsultaOther.Text = "..."
+        Me.BtConsultaOther.UseVisualStyleBackColor = True
         '
-        'TbValorConversion
+        'BtConsultaPrep
         '
-        Me.TbValorConversion.Enabled = False
-        Me.TbValorConversion.Location = New System.Drawing.Point(244, 150)
-        Me.TbValorConversion.Name = "TbValorConversion"
-        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
-        Me.TbValorConversion.TabIndex = 7
+        Me.BtConsultaPrep.Location = New System.Drawing.Point(482, 60)
+        Me.BtConsultaPrep.Name = "BtConsultaPrep"
+        Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaPrep.TabIndex = 22
+        Me.BtConsultaPrep.Text = "..."
+        Me.BtConsultaPrep.UseVisualStyleBackColor = True
         '
-        'CbUnidadPeso
+        'BtConsultaBark
         '
-        Me.CbUnidadPeso.FormattingEnabled = True
-        Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 149)
-        Me.CbUnidadPeso.Name = "CbUnidadPeso"
-        Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
-        Me.CbUnidadPeso.TabIndex = 6
+        Me.BtConsultaBark.Location = New System.Drawing.Point(482, 38)
+        Me.BtConsultaBark.Name = "BtConsultaBark"
+        Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaBark.TabIndex = 21
+        Me.BtConsultaBark.Text = "..."
+        Me.BtConsultaBark.UseVisualStyleBackColor = True
         '
-        'Label3
+        'BtConsultaUI
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 150)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(82, 13)
-        Me.Label3.TabIndex = 31
-        Me.Label3.Text = "Unidad de peso"
+        Me.BtConsultaUI.Location = New System.Drawing.Point(249, 108)
+        Me.BtConsultaUI.Name = "BtConsultaUI"
+        Me.BtConsultaUI.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaUI.TabIndex = 20
+        Me.BtConsultaUI.Text = "..."
+        Me.BtConsultaUI.UseVisualStyleBackColor = True
         '
-        'BtGenerar
+        'BtConsultaRF
         '
-        Me.BtGenerar.Location = New System.Drawing.Point(690, 68)
-        Me.BtGenerar.Name = "BtGenerar"
-        Me.BtGenerar.Size = New System.Drawing.Size(94, 23)
-        Me.BtGenerar.TabIndex = 13
-        Me.BtGenerar.Text = "Generar"
-        Me.BtGenerar.UseVisualStyleBackColor = True
+        Me.BtConsultaRF.Location = New System.Drawing.Point(249, 84)
+        Me.BtConsultaRF.Name = "BtConsultaRF"
+        Me.BtConsultaRF.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaRF.TabIndex = 19
+        Me.BtConsultaRF.Text = "..."
+        Me.BtConsultaRF.UseVisualStyleBackColor = True
+        '
+        'BtConsultaLF
+        '
+        Me.BtConsultaLF.Location = New System.Drawing.Point(249, 60)
+        Me.BtConsultaLF.Name = "BtConsultaLF"
+        Me.BtConsultaLF.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaLF.TabIndex = 18
+        Me.BtConsultaLF.Text = "..."
+        Me.BtConsultaLF.UseVisualStyleBackColor = True
+        '
+        'BtConsultaMicros
+        '
+        Me.BtConsultaMicros.Location = New System.Drawing.Point(249, 36)
+        Me.BtConsultaMicros.Name = "BtConsultaMicros"
+        Me.BtConsultaMicros.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaMicros.TabIndex = 17
+        Me.BtConsultaMicros.Text = "..."
+        Me.BtConsultaMicros.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.ChPlasticLevel2)
+        Me.GroupBox2.Controls.Add(Me.ChOtherLevel2)
+        Me.GroupBox2.Controls.Add(Me.ChPrepLevel2)
+        Me.GroupBox2.Controls.Add(Me.ChBarkLevel2)
+        Me.GroupBox2.Location = New System.Drawing.Point(576, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox2.TabIndex = 16
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Nivel 2"
+        '
+        'ChPlasticLevel2
+        '
+        Me.ChPlasticLevel2.AutoSize = True
+        Me.ChPlasticLevel2.Location = New System.Drawing.Point(19, 101)
+        Me.ChPlasticLevel2.Name = "ChPlasticLevel2"
+        Me.ChPlasticLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChPlasticLevel2.TabIndex = 3
+        Me.ChPlasticLevel2.UseVisualStyleBackColor = True
+        '
+        'ChOtherLevel2
+        '
+        Me.ChOtherLevel2.AutoSize = True
+        Me.ChOtherLevel2.Location = New System.Drawing.Point(19, 78)
+        Me.ChOtherLevel2.Name = "ChOtherLevel2"
+        Me.ChOtherLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChOtherLevel2.TabIndex = 2
+        Me.ChOtherLevel2.UseVisualStyleBackColor = True
+        '
+        'ChPrepLevel2
+        '
+        Me.ChPrepLevel2.AutoSize = True
+        Me.ChPrepLevel2.Location = New System.Drawing.Point(19, 54)
+        Me.ChPrepLevel2.Name = "ChPrepLevel2"
+        Me.ChPrepLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChPrepLevel2.TabIndex = 1
+        Me.ChPrepLevel2.UseVisualStyleBackColor = True
+        '
+        'ChBarkLevel2
+        '
+        Me.ChBarkLevel2.AutoSize = True
+        Me.ChBarkLevel2.Location = New System.Drawing.Point(19, 29)
+        Me.ChBarkLevel2.Name = "ChBarkLevel2"
+        Me.ChBarkLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChBarkLevel2.TabIndex = 0
+        Me.ChBarkLevel2.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ChPlasticLevel1)
+        Me.GroupBox1.Controls.Add(Me.ChOtherLevel1)
+        Me.GroupBox1.Controls.Add(Me.ChPrepLevel1)
+        Me.GroupBox1.Controls.Add(Me.ChBarkLevel1)
+        Me.GroupBox1.Location = New System.Drawing.Point(514, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox1.TabIndex = 16
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Nivel 1"
+        '
+        'ChPlasticLevel1
+        '
+        Me.ChPlasticLevel1.AutoSize = True
+        Me.ChPlasticLevel1.Location = New System.Drawing.Point(20, 101)
+        Me.ChPlasticLevel1.Name = "ChPlasticLevel1"
+        Me.ChPlasticLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChPlasticLevel1.TabIndex = 3
+        Me.ChPlasticLevel1.UseVisualStyleBackColor = True
+        '
+        'ChOtherLevel1
+        '
+        Me.ChOtherLevel1.AutoSize = True
+        Me.ChOtherLevel1.Location = New System.Drawing.Point(20, 77)
+        Me.ChOtherLevel1.Name = "ChOtherLevel1"
+        Me.ChOtherLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChOtherLevel1.TabIndex = 2
+        Me.ChOtherLevel1.UseVisualStyleBackColor = True
+        '
+        'ChPrepLevel1
+        '
+        Me.ChPrepLevel1.AutoSize = True
+        Me.ChPrepLevel1.Location = New System.Drawing.Point(20, 53)
+        Me.ChPrepLevel1.Name = "ChPrepLevel1"
+        Me.ChPrepLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChPrepLevel1.TabIndex = 1
+        Me.ChPrepLevel1.UseVisualStyleBackColor = True
+        '
+        'ChBarkLevel1
+        '
+        Me.ChBarkLevel1.AutoSize = True
+        Me.ChBarkLevel1.Location = New System.Drawing.Point(20, 29)
+        Me.ChBarkLevel1.Name = "ChBarkLevel1"
+        Me.ChBarkLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChBarkLevel1.TabIndex = 0
+        Me.ChBarkLevel1.UseVisualStyleBackColor = True
+        '
+        'CbModoPlastic
+        '
+        Me.CbModoPlastic.FormattingEnabled = True
+        Me.CbModoPlastic.Location = New System.Drawing.Point(355, 110)
+        Me.CbModoPlastic.Name = "CbModoPlastic"
+        Me.CbModoPlastic.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPlastic.TabIndex = 15
+        '
+        'CbModoOther
+        '
+        Me.CbModoOther.FormattingEnabled = True
+        Me.CbModoOther.Location = New System.Drawing.Point(355, 86)
+        Me.CbModoOther.Name = "CbModoOther"
+        Me.CbModoOther.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoOther.TabIndex = 14
+        '
+        'CbModoPrep
+        '
+        Me.CbModoPrep.FormattingEnabled = True
+        Me.CbModoPrep.Location = New System.Drawing.Point(355, 62)
+        Me.CbModoPrep.Name = "CbModoPrep"
+        Me.CbModoPrep.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPrep.TabIndex = 13
+        '
+        'CbModoBark
+        '
+        Me.CbModoBark.FormattingEnabled = True
+        Me.CbModoBark.Location = New System.Drawing.Point(355, 38)
+        Me.CbModoBark.Name = "CbModoBark"
+        Me.CbModoBark.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoBark.TabIndex = 12
+        '
+        'ChPlastic
+        '
+        Me.ChPlastic.AutoSize = True
+        Me.ChPlastic.Location = New System.Drawing.Point(292, 112)
+        Me.ChPlastic.Name = "ChPlastic"
+        Me.ChPlastic.Size = New System.Drawing.Size(57, 17)
+        Me.ChPlastic.TabIndex = 11
+        Me.ChPlastic.Text = "Plastic"
+        Me.ChPlastic.UseVisualStyleBackColor = True
+        '
+        'ChOther
+        '
+        Me.ChOther.AutoSize = True
+        Me.ChOther.Location = New System.Drawing.Point(292, 88)
+        Me.ChOther.Name = "ChOther"
+        Me.ChOther.Size = New System.Drawing.Size(52, 17)
+        Me.ChOther.TabIndex = 10
+        Me.ChOther.Text = "Other"
+        Me.ChOther.UseVisualStyleBackColor = True
+        '
+        'ChPrep
+        '
+        Me.ChPrep.AutoSize = True
+        Me.ChPrep.Location = New System.Drawing.Point(292, 64)
+        Me.ChPrep.Name = "ChPrep"
+        Me.ChPrep.Size = New System.Drawing.Size(48, 17)
+        Me.ChPrep.TabIndex = 9
+        Me.ChPrep.Text = "Prep"
+        Me.ChPrep.UseVisualStyleBackColor = True
+        '
+        'ChBark
+        '
+        Me.ChBark.AutoSize = True
+        Me.ChBark.Location = New System.Drawing.Point(292, 40)
+        Me.ChBark.Name = "ChBark"
+        Me.ChBark.Size = New System.Drawing.Size(48, 17)
+        Me.ChBark.TabIndex = 8
+        Me.ChBark.Text = "Bark"
+        Me.ChBark.UseVisualStyleBackColor = True
+        '
+        'CbModoUniformidad
+        '
+        Me.CbModoUniformidad.FormattingEnabled = True
+        Me.CbModoUniformidad.Location = New System.Drawing.Point(122, 110)
+        Me.CbModoUniformidad.Name = "CbModoUniformidad"
+        Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoUniformidad.TabIndex = 7
+        '
+        'CbModoResistenciaFibra
+        '
+        Me.CbModoResistenciaFibra.FormattingEnabled = True
+        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(122, 86)
+        Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
+        Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoResistenciaFibra.TabIndex = 6
+        '
+        'CbModoLargoFibra
+        '
+        Me.CbModoLargoFibra.FormattingEnabled = True
+        Me.CbModoLargoFibra.Location = New System.Drawing.Point(122, 62)
+        Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
+        Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoLargoFibra.TabIndex = 5
+        '
+        'ChUniformidad
+        '
+        Me.ChUniformidad.AutoSize = True
+        Me.ChUniformidad.Location = New System.Drawing.Point(9, 112)
+        Me.ChUniformidad.Name = "ChUniformidad"
+        Me.ChUniformidad.Size = New System.Drawing.Size(82, 17)
+        Me.ChUniformidad.TabIndex = 4
+        Me.ChUniformidad.Text = "Uniformidad"
+        Me.ChUniformidad.UseVisualStyleBackColor = True
+        '
+        'ChResistenciaFibra
+        '
+        Me.ChResistenciaFibra.AutoSize = True
+        Me.ChResistenciaFibra.Location = New System.Drawing.Point(9, 88)
+        Me.ChResistenciaFibra.Name = "ChResistenciaFibra"
+        Me.ChResistenciaFibra.Size = New System.Drawing.Size(107, 17)
+        Me.ChResistenciaFibra.TabIndex = 3
+        Me.ChResistenciaFibra.Text = "Resistencia Fibra"
+        Me.ChResistenciaFibra.UseVisualStyleBackColor = True
+        '
+        'ChLargoFibra
+        '
+        Me.ChLargoFibra.AutoSize = True
+        Me.ChLargoFibra.Location = New System.Drawing.Point(9, 64)
+        Me.ChLargoFibra.Name = "ChLargoFibra"
+        Me.ChLargoFibra.Size = New System.Drawing.Size(79, 17)
+        Me.ChLargoFibra.TabIndex = 2
+        Me.ChLargoFibra.Text = "Largo Fibra"
+        Me.ChLargoFibra.UseVisualStyleBackColor = True
+        '
+        'ChMicros
+        '
+        Me.ChMicros.AutoSize = True
+        Me.ChMicros.Location = New System.Drawing.Point(9, 40)
+        Me.ChMicros.Name = "ChMicros"
+        Me.ChMicros.Size = New System.Drawing.Size(57, 17)
+        Me.ChMicros.TabIndex = 1
+        Me.ChMicros.Text = "Micros"
+        Me.ChMicros.UseVisualStyleBackColor = True
+        '
+        'CbModoMicros
+        '
+        Me.CbModoMicros.FormattingEnabled = True
+        Me.CbModoMicros.Location = New System.Drawing.Point(122, 38)
+        Me.CbModoMicros.Name = "CbModoMicros"
+        Me.CbModoMicros.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoMicros.TabIndex = 0
         '
         'GbPrecioQuintal
         '
@@ -458,6 +751,74 @@ Partial Class ContratosAlgodonCompradores
         Me.TbSM.Size = New System.Drawing.Size(100, 20)
         Me.TbSM.TabIndex = 0
         '
+        'TbPacasVendidas
+        '
+        Me.TbPacasVendidas.Enabled = False
+        Me.TbPacasVendidas.Location = New System.Drawing.Point(117, 123)
+        Me.TbPacasVendidas.Name = "TbPacasVendidas"
+        Me.TbPacasVendidas.Size = New System.Drawing.Size(121, 20)
+        Me.TbPacasVendidas.TabIndex = 5
+        '
+        'TbPacasDisponibles
+        '
+        Me.TbPacasDisponibles.Enabled = False
+        Me.TbPacasDisponibles.Location = New System.Drawing.Point(117, 97)
+        Me.TbPacasDisponibles.Name = "TbPacasDisponibles"
+        Me.TbPacasDisponibles.Size = New System.Drawing.Size(121, 20)
+        Me.TbPacasDisponibles.TabIndex = 4
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 124)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(84, 13)
+        Me.Label6.TabIndex = 35
+        Me.Label6.Text = "Pacas Vendidas"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 97)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(94, 13)
+        Me.Label5.TabIndex = 34
+        Me.Label5.Text = "Pacas Disponibles"
+        '
+        'TbValorConversion
+        '
+        Me.TbValorConversion.Enabled = False
+        Me.TbValorConversion.Location = New System.Drawing.Point(244, 150)
+        Me.TbValorConversion.Name = "TbValorConversion"
+        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
+        Me.TbValorConversion.TabIndex = 7
+        '
+        'CbUnidadPeso
+        '
+        Me.CbUnidadPeso.FormattingEnabled = True
+        Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 149)
+        Me.CbUnidadPeso.Name = "CbUnidadPeso"
+        Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
+        Me.CbUnidadPeso.TabIndex = 6
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 150)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(82, 13)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "Unidad de peso"
+        '
+        'BtGenerar
+        '
+        Me.BtGenerar.Location = New System.Drawing.Point(690, 68)
+        Me.BtGenerar.Name = "BtGenerar"
+        Me.BtGenerar.Size = New System.Drawing.Size(94, 23)
+        Me.BtGenerar.TabIndex = 13
+        Me.BtGenerar.Text = "Generar"
+        Me.BtGenerar.UseVisualStyleBackColor = True
+        '
         'BtnBuscarProductor
         '
         Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
@@ -652,367 +1013,6 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
         Me.DgvContratoAlgodon.TabIndex = 14
         '
-        'GbCastigos
-        '
-        Me.GbCastigos.Controls.Add(Me.BtConsultaPlastic)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaOther)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaPrep)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaBark)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaUI)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaRF)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaLF)
-        Me.GbCastigos.Controls.Add(Me.BtConsultaMicros)
-        Me.GbCastigos.Controls.Add(Me.GroupBox2)
-        Me.GbCastigos.Controls.Add(Me.GroupBox1)
-        Me.GbCastigos.Controls.Add(Me.ComboBox8)
-        Me.GbCastigos.Controls.Add(Me.ComboBox7)
-        Me.GbCastigos.Controls.Add(Me.ComboBox6)
-        Me.GbCastigos.Controls.Add(Me.ComboBox5)
-        Me.GbCastigos.Controls.Add(Me.ChPlastic)
-        Me.GbCastigos.Controls.Add(Me.ChOther)
-        Me.GbCastigos.Controls.Add(Me.ChPrep)
-        Me.GbCastigos.Controls.Add(Me.ChBark)
-        Me.GbCastigos.Controls.Add(Me.CbModoUniformidad)
-        Me.GbCastigos.Controls.Add(Me.CbModoResistenciaFibra)
-        Me.GbCastigos.Controls.Add(Me.CbModoLargoFibra)
-        Me.GbCastigos.Controls.Add(Me.ChUniformidad)
-        Me.GbCastigos.Controls.Add(Me.ChResistenciaFibra)
-        Me.GbCastigos.Controls.Add(Me.ChLargoFibra)
-        Me.GbCastigos.Controls.Add(Me.ChMicros)
-        Me.GbCastigos.Controls.Add(Me.CbModoMicros)
-        Me.GbCastigos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GbCastigos.Location = New System.Drawing.Point(3, 170)
-        Me.GbCastigos.Name = "GbCastigos"
-        Me.GbCastigos.Size = New System.Drawing.Size(660, 143)
-        Me.GbCastigos.TabIndex = 36
-        Me.GbCastigos.TabStop = False
-        Me.GbCastigos.Text = "Parametros para deduccion"
-        '
-        'GbParametros
-        '
-        Me.GbParametros.Controls.Add(Me.GbCastigos)
-        Me.GbParametros.Controls.Add(Me.GbPrecioQuintal)
-        Me.GbParametros.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbParametros.Location = New System.Drawing.Point(790, 16)
-        Me.GbParametros.Name = "GbParametros"
-        Me.GbParametros.Size = New System.Drawing.Size(666, 316)
-        Me.GbParametros.TabIndex = 37
-        Me.GbParametros.TabStop = False
-        '
-        'CbModoMicros
-        '
-        Me.CbModoMicros.FormattingEnabled = True
-        Me.CbModoMicros.Location = New System.Drawing.Point(122, 38)
-        Me.CbModoMicros.Name = "CbModoMicros"
-        Me.CbModoMicros.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoMicros.TabIndex = 0
-        '
-        'ChMicros
-        '
-        Me.ChMicros.AutoSize = True
-        Me.ChMicros.Location = New System.Drawing.Point(9, 40)
-        Me.ChMicros.Name = "ChMicros"
-        Me.ChMicros.Size = New System.Drawing.Size(57, 17)
-        Me.ChMicros.TabIndex = 1
-        Me.ChMicros.Text = "Micros"
-        Me.ChMicros.UseVisualStyleBackColor = True
-        '
-        'ChLargoFibra
-        '
-        Me.ChLargoFibra.AutoSize = True
-        Me.ChLargoFibra.Location = New System.Drawing.Point(9, 64)
-        Me.ChLargoFibra.Name = "ChLargoFibra"
-        Me.ChLargoFibra.Size = New System.Drawing.Size(79, 17)
-        Me.ChLargoFibra.TabIndex = 2
-        Me.ChLargoFibra.Text = "Largo Fibra"
-        Me.ChLargoFibra.UseVisualStyleBackColor = True
-        '
-        'ChResistenciaFibra
-        '
-        Me.ChResistenciaFibra.AutoSize = True
-        Me.ChResistenciaFibra.Location = New System.Drawing.Point(9, 88)
-        Me.ChResistenciaFibra.Name = "ChResistenciaFibra"
-        Me.ChResistenciaFibra.Size = New System.Drawing.Size(107, 17)
-        Me.ChResistenciaFibra.TabIndex = 3
-        Me.ChResistenciaFibra.Text = "Resistencia Fibra"
-        Me.ChResistenciaFibra.UseVisualStyleBackColor = True
-        '
-        'ChUniformidad
-        '
-        Me.ChUniformidad.AutoSize = True
-        Me.ChUniformidad.Location = New System.Drawing.Point(9, 112)
-        Me.ChUniformidad.Name = "ChUniformidad"
-        Me.ChUniformidad.Size = New System.Drawing.Size(82, 17)
-        Me.ChUniformidad.TabIndex = 4
-        Me.ChUniformidad.Text = "Uniformidad"
-        Me.ChUniformidad.UseVisualStyleBackColor = True
-        '
-        'CbModoLargoFibra
-        '
-        Me.CbModoLargoFibra.FormattingEnabled = True
-        Me.CbModoLargoFibra.Location = New System.Drawing.Point(122, 62)
-        Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
-        Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoLargoFibra.TabIndex = 5
-        '
-        'CbModoResistenciaFibra
-        '
-        Me.CbModoResistenciaFibra.FormattingEnabled = True
-        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(122, 86)
-        Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
-        Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoResistenciaFibra.TabIndex = 6
-        '
-        'CbModoUniformidad
-        '
-        Me.CbModoUniformidad.FormattingEnabled = True
-        Me.CbModoUniformidad.Location = New System.Drawing.Point(122, 110)
-        Me.CbModoUniformidad.Name = "CbModoUniformidad"
-        Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoUniformidad.TabIndex = 7
-        '
-        'ChBark
-        '
-        Me.ChBark.AutoSize = True
-        Me.ChBark.Location = New System.Drawing.Point(292, 40)
-        Me.ChBark.Name = "ChBark"
-        Me.ChBark.Size = New System.Drawing.Size(48, 17)
-        Me.ChBark.TabIndex = 8
-        Me.ChBark.Text = "Bark"
-        Me.ChBark.UseVisualStyleBackColor = True
-        '
-        'ChPrep
-        '
-        Me.ChPrep.AutoSize = True
-        Me.ChPrep.Location = New System.Drawing.Point(292, 64)
-        Me.ChPrep.Name = "ChPrep"
-        Me.ChPrep.Size = New System.Drawing.Size(48, 17)
-        Me.ChPrep.TabIndex = 9
-        Me.ChPrep.Text = "Prep"
-        Me.ChPrep.UseVisualStyleBackColor = True
-        '
-        'ChOther
-        '
-        Me.ChOther.AutoSize = True
-        Me.ChOther.Location = New System.Drawing.Point(292, 88)
-        Me.ChOther.Name = "ChOther"
-        Me.ChOther.Size = New System.Drawing.Size(52, 17)
-        Me.ChOther.TabIndex = 10
-        Me.ChOther.Text = "Other"
-        Me.ChOther.UseVisualStyleBackColor = True
-        '
-        'ChPlastic
-        '
-        Me.ChPlastic.AutoSize = True
-        Me.ChPlastic.Location = New System.Drawing.Point(292, 112)
-        Me.ChPlastic.Name = "ChPlastic"
-        Me.ChPlastic.Size = New System.Drawing.Size(57, 17)
-        Me.ChPlastic.TabIndex = 11
-        Me.ChPlastic.Text = "Plastic"
-        Me.ChPlastic.UseVisualStyleBackColor = True
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(355, 38)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 12
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(355, 62)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 13
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(355, 86)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 14
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(355, 110)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 15
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.ChPlasticLevel1)
-        Me.GroupBox1.Controls.Add(Me.ChOtherLevel1)
-        Me.GroupBox1.Controls.Add(Me.ChPrepLevel1)
-        Me.GroupBox1.Controls.Add(Me.ChBarkLevel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(514, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(56, 127)
-        Me.GroupBox1.TabIndex = 16
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Nivel 1"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.ChPlasticLevel2)
-        Me.GroupBox2.Controls.Add(Me.ChOtherLevel2)
-        Me.GroupBox2.Controls.Add(Me.ChPrepLevel2)
-        Me.GroupBox2.Controls.Add(Me.ChBarkLevel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(576, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(56, 127)
-        Me.GroupBox2.TabIndex = 16
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Nivel 2"
-        '
-        'ChBarkLevel1
-        '
-        Me.ChBarkLevel1.AutoSize = True
-        Me.ChBarkLevel1.Location = New System.Drawing.Point(20, 29)
-        Me.ChBarkLevel1.Name = "ChBarkLevel1"
-        Me.ChBarkLevel1.Size = New System.Drawing.Size(15, 14)
-        Me.ChBarkLevel1.TabIndex = 0
-        Me.ChBarkLevel1.UseVisualStyleBackColor = True
-        '
-        'ChPrepLevel1
-        '
-        Me.ChPrepLevel1.AutoSize = True
-        Me.ChPrepLevel1.Location = New System.Drawing.Point(20, 53)
-        Me.ChPrepLevel1.Name = "ChPrepLevel1"
-        Me.ChPrepLevel1.Size = New System.Drawing.Size(15, 14)
-        Me.ChPrepLevel1.TabIndex = 1
-        Me.ChPrepLevel1.UseVisualStyleBackColor = True
-        '
-        'ChOtherLevel1
-        '
-        Me.ChOtherLevel1.AutoSize = True
-        Me.ChOtherLevel1.Location = New System.Drawing.Point(20, 77)
-        Me.ChOtherLevel1.Name = "ChOtherLevel1"
-        Me.ChOtherLevel1.Size = New System.Drawing.Size(15, 14)
-        Me.ChOtherLevel1.TabIndex = 2
-        Me.ChOtherLevel1.UseVisualStyleBackColor = True
-        '
-        'ChPlasticLevel1
-        '
-        Me.ChPlasticLevel1.AutoSize = True
-        Me.ChPlasticLevel1.Location = New System.Drawing.Point(20, 101)
-        Me.ChPlasticLevel1.Name = "ChPlasticLevel1"
-        Me.ChPlasticLevel1.Size = New System.Drawing.Size(15, 14)
-        Me.ChPlasticLevel1.TabIndex = 3
-        Me.ChPlasticLevel1.UseVisualStyleBackColor = True
-        '
-        'ChBarkLevel2
-        '
-        Me.ChBarkLevel2.AutoSize = True
-        Me.ChBarkLevel2.Location = New System.Drawing.Point(19, 29)
-        Me.ChBarkLevel2.Name = "ChBarkLevel2"
-        Me.ChBarkLevel2.Size = New System.Drawing.Size(15, 14)
-        Me.ChBarkLevel2.TabIndex = 0
-        Me.ChBarkLevel2.UseVisualStyleBackColor = True
-        '
-        'ChPrepLevel2
-        '
-        Me.ChPrepLevel2.AutoSize = True
-        Me.ChPrepLevel2.Location = New System.Drawing.Point(19, 54)
-        Me.ChPrepLevel2.Name = "ChPrepLevel2"
-        Me.ChPrepLevel2.Size = New System.Drawing.Size(15, 14)
-        Me.ChPrepLevel2.TabIndex = 1
-        Me.ChPrepLevel2.UseVisualStyleBackColor = True
-        '
-        'ChOtherLevel2
-        '
-        Me.ChOtherLevel2.AutoSize = True
-        Me.ChOtherLevel2.Location = New System.Drawing.Point(19, 78)
-        Me.ChOtherLevel2.Name = "ChOtherLevel2"
-        Me.ChOtherLevel2.Size = New System.Drawing.Size(15, 14)
-        Me.ChOtherLevel2.TabIndex = 2
-        Me.ChOtherLevel2.UseVisualStyleBackColor = True
-        '
-        'ChPlasticLevel2
-        '
-        Me.ChPlasticLevel2.AutoSize = True
-        Me.ChPlasticLevel2.Location = New System.Drawing.Point(19, 101)
-        Me.ChPlasticLevel2.Name = "ChPlasticLevel2"
-        Me.ChPlasticLevel2.Size = New System.Drawing.Size(15, 14)
-        Me.ChPlasticLevel2.TabIndex = 3
-        Me.ChPlasticLevel2.UseVisualStyleBackColor = True
-        '
-        'BtConsultaMicros
-        '
-        Me.BtConsultaMicros.Location = New System.Drawing.Point(249, 36)
-        Me.BtConsultaMicros.Name = "BtConsultaMicros"
-        Me.BtConsultaMicros.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaMicros.TabIndex = 17
-        Me.BtConsultaMicros.Text = "..."
-        Me.BtConsultaMicros.UseVisualStyleBackColor = True
-        '
-        'BtConsultaLF
-        '
-        Me.BtConsultaLF.Location = New System.Drawing.Point(249, 60)
-        Me.BtConsultaLF.Name = "BtConsultaLF"
-        Me.BtConsultaLF.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaLF.TabIndex = 18
-        Me.BtConsultaLF.Text = "..."
-        Me.BtConsultaLF.UseVisualStyleBackColor = True
-        '
-        'BtConsultaRF
-        '
-        Me.BtConsultaRF.Location = New System.Drawing.Point(249, 84)
-        Me.BtConsultaRF.Name = "BtConsultaRF"
-        Me.BtConsultaRF.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaRF.TabIndex = 19
-        Me.BtConsultaRF.Text = "..."
-        Me.BtConsultaRF.UseVisualStyleBackColor = True
-        '
-        'BtConsultaUI
-        '
-        Me.BtConsultaUI.Location = New System.Drawing.Point(249, 108)
-        Me.BtConsultaUI.Name = "BtConsultaUI"
-        Me.BtConsultaUI.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaUI.TabIndex = 20
-        Me.BtConsultaUI.Text = "..."
-        Me.BtConsultaUI.UseVisualStyleBackColor = True
-        '
-        'BtConsultaBark
-        '
-        Me.BtConsultaBark.Location = New System.Drawing.Point(482, 38)
-        Me.BtConsultaBark.Name = "BtConsultaBark"
-        Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaBark.TabIndex = 21
-        Me.BtConsultaBark.Text = "..."
-        Me.BtConsultaBark.UseVisualStyleBackColor = True
-        '
-        'BtConsultaPrep
-        '
-        Me.BtConsultaPrep.Location = New System.Drawing.Point(482, 60)
-        Me.BtConsultaPrep.Name = "BtConsultaPrep"
-        Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaPrep.TabIndex = 22
-        Me.BtConsultaPrep.Text = "..."
-        Me.BtConsultaPrep.UseVisualStyleBackColor = True
-        '
-        'BtConsultaOther
-        '
-        Me.BtConsultaOther.Location = New System.Drawing.Point(482, 84)
-        Me.BtConsultaOther.Name = "BtConsultaOther"
-        Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaOther.TabIndex = 23
-        Me.BtConsultaOther.Text = "..."
-        Me.BtConsultaOther.UseVisualStyleBackColor = True
-        '
-        'BtConsultaPlastic
-        '
-        Me.BtConsultaPlastic.Location = New System.Drawing.Point(482, 108)
-        Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
-        Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
-        Me.BtConsultaPlastic.TabIndex = 24
-        Me.BtConsultaPlastic.Text = "..."
-        Me.BtConsultaPlastic.UseVisualStyleBackColor = True
-        '
         'ContratosAlgodonCompradores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1030,16 +1030,16 @@ Partial Class ContratosAlgodonCompradores
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        Me.GbParametros.ResumeLayout(False)
+        Me.GbCastigos.ResumeLayout(False)
+        Me.GbCastigos.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GbCastigos.ResumeLayout(False)
-        Me.GbCastigos.PerformLayout()
-        Me.GbParametros.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1121,10 +1121,10 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents ChOtherLevel1 As CheckBox
     Friend WithEvents ChPrepLevel1 As CheckBox
     Friend WithEvents ChBarkLevel1 As CheckBox
-    Friend WithEvents ComboBox8 As ComboBox
-    Friend WithEvents ComboBox7 As ComboBox
-    Friend WithEvents ComboBox6 As ComboBox
-    Friend WithEvents ComboBox5 As ComboBox
+    Friend WithEvents CbModoPlastic As ComboBox
+    Friend WithEvents CbModoOther As ComboBox
+    Friend WithEvents CbModoPrep As ComboBox
+    Friend WithEvents CbModoBark As ComboBox
     Friend WithEvents ChPlastic As CheckBox
     Friend WithEvents ChOther As CheckBox
     Friend WithEvents ChPrep As CheckBox

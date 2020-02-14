@@ -1,6 +1,4 @@
-﻿
-Namespace Configuracion
-
+﻿Namespace Configuracion
     'Namespace Constante
     '    'para uso en VENTA ==============================================================
     '    Public Enum TipoVenta
@@ -160,6 +158,11 @@ Namespace Configuracion
         ConsultaPacaMatExt = 81
         ConsultaPacaMatExtDet = 82
         ConsultaLotIDPorPaca = 83
+        ConsultaEquivalente = 84
+        ConsultaMicrosVentaCmb = 85
+        ConsultaLargoFibraVentaCmb = 86
+        ConsultaResistenciaVentaCmb = 87
+        ConsultaUniformidadVentaCmb = 88
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

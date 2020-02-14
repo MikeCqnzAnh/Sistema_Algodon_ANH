@@ -75,6 +75,7 @@
     <Compile Include="Catalogos\CastigoMicros.vb" />
     <Compile Include="Catalogos\CastigoPorQuintal.vb" />
     <Compile Include="Catalogos\CastigoResistenciaFibra.vb" />
+    <Compile Include="Catalogos\CastigoUniformidad.vb" />
     <Compile Include="Catalogos\Clientes.vb" />
     <Compile Include="Catalogos\Colonias.vb" />
     <Compile Include="Catalogos\Compradores.vb" />

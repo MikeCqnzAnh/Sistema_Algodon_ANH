@@ -41,17 +41,33 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.ExecuteNonQuery()
             If EntidadContratosAlgodonCompradores1.IdContratoAlgodon = 0 Then
                 EntidadContratosAlgodonCompradores1.IdContratoAlgodon = cmdGuardar.Parameters("@IdContratoAlgodon").Value
-                'For Each MiTableRow As DataRow In EntidadContratosAlgodonCompradores1.TablaConsulta.Rows
-                '    cmdGuardar.CommandText = "sp_InsertarContratoVentaDet"
-                '    cmdGuardar.CommandType = CommandType.StoredProcedure
-                '    cmdGuardar.Parameters.Clear()
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodonDetalle", 0))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@IdLote", MiTableRow("IdTierra")))
-                '    cmdGuardar.Parameters.Add(New SqlParameter("@SuperficieContratada", MiTableRow("SuperficieContratada")))
-                '    cmdGuardar.ExecuteNonQuery()
-                'Next
             End If
+            cmdGuardar = New SqlCommand("Sp_InsertaParametrosContratoVenta", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdParametroContrato", EntidadContratosAlgodonCompradores1.IdParametroContrato))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoVenta", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckMicros", EntidadContratosAlgodonCompradores1.CheckMicros))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoMicros", EntidadContratosAlgodonCompradores1.IdModoMicros))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckLargo", EntidadContratosAlgodonCompradores1.CheckLargo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoLargoFibra", EntidadContratosAlgodonCompradores1.IdModoLargoFibra))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckResistencia", EntidadContratosAlgodonCompradores1.CheckResistencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoResistencia", EntidadContratosAlgodonCompradores1.IdModoResistencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckUniformidad", EntidadContratosAlgodonCompradores1.CheckUniformidad))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoUniformidad", EntidadContratosAlgodonCompradores1.IdModoUniformidad))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBark", EntidadContratosAlgodonCompradores1.CheckBark))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoBark", EntidadContratosAlgodonCompradores1.IdModoBark))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel1", EntidadContratosAlgodonCompradores1.CheckBarkLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel2", EntidadContratosAlgodonCompradores1.CheckBarkLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPrep", EntidadContratosAlgodonCompradores1.IdModoPrep))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel1", EntidadContratosAlgodonCompradores1.CheckPrepLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel2", EntidadContratosAlgodonCompradores1.CheckPrepLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoOther", EntidadContratosAlgodonCompradores1.IdModoOther))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel1", EntidadContratosAlgodonCompradores1.CheckOtherLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel2", EntidadContratosAlgodonCompradores1.CheckOtherLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPlastic", EntidadContratosAlgodonCompradores1.IdModoPlastic))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel1", EntidadContratosAlgodonCompradores1.CheckPlasticLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel2", EntidadContratosAlgodonCompradores1.CheckPlasticLevel2))
+            cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
         Finally
             cnn.Close()
@@ -98,6 +114,18 @@ Public Class ContratosAlgodonCompradores
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaUnidadPeso
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaUnidadPesoVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaMicrosVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboMicrosVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLargoFibraVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboLargoFibraVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaResistenciaVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboResistenciaVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidadVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboUniformidadVenta", cnn)
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception

@@ -404,6 +404,10 @@ Public Class MenuPrincipal
         CastigoMicros.ShowDialog()
     End Sub
 
+    Private Sub CastigosPorUniformidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorUniformidadToolStripMenuItem.Click
+        CastigoUniformidad.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

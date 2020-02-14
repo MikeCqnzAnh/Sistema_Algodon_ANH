@@ -87,28 +87,28 @@ Partial Class CastigoResistenciaFibra
         Me.TbIdResistenciaEncabezado.Location = New System.Drawing.Point(96, 19)
         Me.TbIdResistenciaEncabezado.Name = "TbIdResistenciaEncabezado"
         Me.TbIdResistenciaEncabezado.Size = New System.Drawing.Size(121, 20)
-        Me.TbIdResistenciaEncabezado.TabIndex = 1
+        Me.TbIdResistenciaEncabezado.TabIndex = 0
         '
         'TbRango1
         '
         Me.TbRango1.Location = New System.Drawing.Point(60, 28)
         Me.TbRango1.Name = "TbRango1"
         Me.TbRango1.Size = New System.Drawing.Size(100, 20)
-        Me.TbRango1.TabIndex = 2
+        Me.TbRango1.TabIndex = 0
         '
         'TbRango2
         '
         Me.TbRango2.Location = New System.Drawing.Point(220, 28)
         Me.TbRango2.Name = "TbRango2"
         Me.TbRango2.Size = New System.Drawing.Size(100, 20)
-        Me.TbRango2.TabIndex = 3
+        Me.TbRango2.TabIndex = 1
         '
         'TbCastigo
         '
         Me.TbCastigo.Location = New System.Drawing.Point(374, 28)
         Me.TbCastigo.Name = "TbCastigo"
         Me.TbCastigo.Size = New System.Drawing.Size(100, 20)
-        Me.TbCastigo.TabIndex = 4
+        Me.TbCastigo.TabIndex = 2
         '
         'Label1
         '
@@ -152,7 +152,7 @@ Partial Class CastigoResistenciaFibra
         Me.CbEstatus.Location = New System.Drawing.Point(271, 71)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 5
+        Me.CbEstatus.TabIndex = 3
         '
         'Label5
         '
@@ -177,7 +177,7 @@ Partial Class CastigoResistenciaFibra
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
         Me.GbDatosGenerales.Size = New System.Drawing.Size(684, 115)
-        Me.GbDatosGenerales.TabIndex = 21
+        Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
@@ -205,7 +205,7 @@ Partial Class CastigoResistenciaFibra
         Me.CbTipoContrato.Location = New System.Drawing.Point(96, 71)
         Me.CbTipoContrato.Name = "CbTipoContrato"
         Me.CbTipoContrato.Size = New System.Drawing.Size(121, 21)
-        Me.CbTipoContrato.TabIndex = 10
+        Me.CbTipoContrato.TabIndex = 2
         '
         'TbDescripcion
         '
@@ -213,7 +213,7 @@ Partial Class CastigoResistenciaFibra
         Me.TbDescripcion.Location = New System.Drawing.Point(96, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(296, 20)
-        Me.TbDescripcion.TabIndex = 9
+        Me.TbDescripcion.TabIndex = 1
         '
         'GbModosCastigo
         '
@@ -222,18 +222,25 @@ Partial Class CastigoResistenciaFibra
         Me.GbModosCastigo.Location = New System.Drawing.Point(0, 139)
         Me.GbModosCastigo.Name = "GbModosCastigo"
         Me.GbModosCastigo.Size = New System.Drawing.Size(684, 121)
-        Me.GbModosCastigo.TabIndex = 22
+        Me.GbModosCastigo.TabIndex = 2
         Me.GbModosCastigo.TabStop = False
         Me.GbModosCastigo.Text = "Modos de Castigo"
         '
         'DgvEncabezado
         '
+        Me.DgvEncabezado.AllowUserToAddRows = False
+        Me.DgvEncabezado.AllowUserToDeleteRows = False
+        Me.DgvEncabezado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvEncabezado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvEncabezado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvEncabezado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvEncabezado.Location = New System.Drawing.Point(3, 16)
         Me.DgvEncabezado.Name = "DgvEncabezado"
+        Me.DgvEncabezado.ReadOnly = True
+        Me.DgvEncabezado.RowHeadersVisible = False
+        Me.DgvEncabezado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvEncabezado.Size = New System.Drawing.Size(678, 102)
-        Me.DgvEncabezado.TabIndex = 1
+        Me.DgvEncabezado.TabIndex = 0
         '
         'GroupBox3
         '
@@ -243,18 +250,21 @@ Partial Class CastigoResistenciaFibra
         Me.GroupBox3.Location = New System.Drawing.Point(0, 260)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(684, 468)
-        Me.GroupBox3.TabIndex = 23
+        Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Detalle de Clases"
         '
         'DgvDetalle
         '
+        Me.DgvDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvDetalle.Location = New System.Drawing.Point(3, 79)
+        Me.DgvDetalle.MultiSelect = False
         Me.DgvDetalle.Name = "DgvDetalle"
         Me.DgvDetalle.Size = New System.Drawing.Size(678, 386)
-        Me.DgvDetalle.TabIndex = 2
+        Me.DgvDetalle.TabIndex = 1
         '
         'GroupBox4
         '
@@ -268,7 +278,7 @@ Partial Class CastigoResistenciaFibra
         Me.GroupBox4.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(678, 63)
-        Me.GroupBox4.TabIndex = 1
+        Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
         'CastigoResistenciaFibra
@@ -284,6 +294,7 @@ Partial Class CastigoResistenciaFibra
         Me.Name = "CastigoResistenciaFibra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Castigo Por Resistencia de Fibra"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

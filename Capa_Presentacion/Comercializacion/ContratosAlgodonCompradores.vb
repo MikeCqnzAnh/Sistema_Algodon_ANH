@@ -47,7 +47,28 @@ Public Class ContratosAlgodonCompradores
             EntidadContratosAlgodonCompradores.IdUsuarioCreacion = 1
             EntidadContratosAlgodonCompradores.FechaCreacion = Now
             EntidadContratosAlgodonCompradores.IdUsuarioActualizacion = 1
-            EntidadContratosAlgodonCompradores.FechaActualizacion = Now
+            EntidadContratosAlgodonCompradores.IdParametroContrato = 0
+            EntidadContratosAlgodonCompradores.CheckMicros = ChMicros.Checked
+            EntidadContratosAlgodonCompradores.IdModoMicros = CbModoMicros.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckLargo = ChLargoFibra.Checked
+            EntidadContratosAlgodonCompradores.IdModoLargoFibra = CbModoLargoFibra.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckResistencia = ChResistenciaFibra.Checked
+            EntidadContratosAlgodonCompradores.IdModoResistencia = CbModoResistenciaFibra.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckUniformidad = ChUniformidad.Checked
+            EntidadContratosAlgodonCompradores.IdModoUniformidad = CbModoUniformidad.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckBark = ChBark.Checked
+            EntidadContratosAlgodonCompradores.IdModoBark = CbModoBark.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckBarkLevel1 = ChBarkLevel1.Checked
+            EntidadContratosAlgodonCompradores.CheckBarkLevel2 = ChBarkLevel2.Checked
+            EntidadContratosAlgodonCompradores.IdModoPrep = CbModoPrep.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckPrepLevel1 = ChPrepLevel1.Checked
+            EntidadContratosAlgodonCompradores.CheckPrepLevel2 = ChPrepLevel2.Checked
+            EntidadContratosAlgodonCompradores.IdModoOther = CbModoOther.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckOtherLevel1 = ChOtherLevel1.Checked
+            EntidadContratosAlgodonCompradores.CheckOtherLevel2 = ChOtherLevel2.Checked
+            EntidadContratosAlgodonCompradores.IdModoPlastic = CbModoPlastic.SelectedValue
+            EntidadContratosAlgodonCompradores.CheckPlasticLevel1 = ChPlasticLevel1.Checked
+            EntidadContratosAlgodonCompradores.CheckPlasticLevel2 = ChPlasticLevel2.Checked
             EntidadContratosAlgodonCompradores.TablaConsulta = _Tabla
             NegocioContratosAlgodonCompradores.Guardar(EntidadContratosAlgodonCompradores)
             TbIdContratoAlgodon.Text = EntidadContratosAlgodonCompradores.IdContratoAlgodon
@@ -121,6 +142,42 @@ Public Class ContratosAlgodonCompradores
         CbUnidadPeso.DisplayMember = "Descripcion"
         CbUnidadPeso.SelectedValue = -1
         TablaUnidadPeso = Tabla1
+        '------------------------COMBO MICROS VENTA
+        Dim Tabla2 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaMicrosVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla2 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoMicros.DataSource = Tabla2
+        CbModoMicros.ValueMember = "IdModoEncabezado"
+        CbModoMicros.DisplayMember = "Descripcion"
+        CbModoMicros.SelectedValue = -1
+        '------------------------COMBO LARGO FIBRA VENTA
+        Dim Tabla3 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaLargoFibraVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla3 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoLargoFibra.DataSource = Tabla3
+        CbModoLargoFibra.ValueMember = "IdModoEncabezado"
+        CbModoLargoFibra.DisplayMember = "Descripcion"
+        CbModoLargoFibra.SelectedValue = -1
+        '------------------------COMBO RESISTENCIA VENTA
+        Dim Tabla4 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaResistenciaVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla4 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoResistenciaFibra.DataSource = Tabla4
+        CbModoResistenciaFibra.ValueMember = "IdModoEncabezado"
+        CbModoResistenciaFibra.DisplayMember = "Descripcion"
+        CbModoResistenciaFibra.SelectedValue = -1
+        '------------------------COMBO UNIFORMIDAD VENTA
+        Dim Tabla5 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaUniformidadVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla5 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoUniformidad.DataSource = Tabla5
+        CbModoUniformidad.ValueMember = "IdModoEncabezado"
+        CbModoUniformidad.DisplayMember = "Descripcion"
+        CbModoUniformidad.SelectedValue = -1
     End Sub
     Private Sub BtnBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtnBuscarProductor.Click
         'Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
@@ -182,6 +239,10 @@ Public Class ContratosAlgodonCompradores
         ChResistenciaFibra.Checked = True
         ChLargoFibra.Checked = True
         ChUniformidad.Checked = True
+        CbModoLargoFibra.SelectedIndex = -1
+        CbModoMicros.SelectedIndex = -1
+        CbModoResistenciaFibra.SelectedIndex = -1
+        CbModoUniformidad.SelectedIndex = -1
     End Sub
     Private Sub ConsultaContratos()
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
@@ -191,14 +252,12 @@ Public Class ContratosAlgodonCompradores
         NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
         DgvContratoAlgodon.DataSource = EntidadContratosAlgodonCompradores.TablaConsulta
     End Sub
-
     Private Sub HabilitarBotones()
         'BtConsultaLotes.Enabled = True
     End Sub
     Private Sub InhabilitarBotones()
         'BtConsultaLotes.Enabled = False
     End Sub
-
     Private Sub CbUnidadPeso_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbUnidadPeso.SelectionChangeCommitted
         If TablaUnidadPeso.Rows.Count > 0 Then
             For Each Fila As DataRow In TablaUnidadPeso.Rows
@@ -216,7 +275,6 @@ Public Class ContratosAlgodonCompradores
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
         Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
@@ -254,7 +312,6 @@ Public Class ContratosAlgodonCompradores
         TbO.Text = TablaDetalle.Rows(0).Item("PrecioO")
         InhabilitarBotones()
     End Sub
-
     Public Function LoadIdVenta(_DataTable As DataTable) As Boolean Implements IForm1.LoadIdVenta
         Throw New NotImplementedException()
     End Function

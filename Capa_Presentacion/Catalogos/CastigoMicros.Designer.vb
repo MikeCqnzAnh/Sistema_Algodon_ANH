@@ -69,7 +69,7 @@ Partial Class CastigoMicros
         Me.GroupBox2.Size = New System.Drawing.Size(725, 558)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Detalle de Clases"
+        Me.GroupBox2.Text = "Detalles"
         '
         'GroupBox4
         '

@@ -1,27 +1,19 @@
 ﻿Imports Capa_Operacion.Configuracion
-Public Class CastigoResistenciaFibra
+Public Class CastigoUniformidad
     Private TablaClases As New DataTable()
-    Private Sub CastigoLargoFibra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub CastigoUniformidad_Load(sender As Object, e As EventArgs) Handles Me.Load
         CargarCombos()
-        limpiarCampos()
+        Nuevo()
         AgregaCamposTablaClases()
-        ConsultaModosResistenciaFibra()
     End Sub
-    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
-        limpiarCampos()
-        ConsultaModosResistenciaFibra()
-    End Sub
-    Private Sub limpiarCampos()
-        TbIdResistenciaEncabezado.Text = ""
+    Private Sub Nuevo()
+        TbIdUniformidadEncabezado.Text = ""
         TbDescripcion.Text = ""
-        TbRango1.Text = ""
-        TbRango2.Text = ""
-        TbCastigo.Text = ""
         CbTipoContrato.SelectedIndex = -1
-        CbEstatus.SelectedValue = 1
+        CbEstatus.SelectedIndex = 0
         DgvDetalle.DataSource = ""
         DgvEncabezado.DataSource = ""
-        ConsultaModosResistenciaFibra()
+        ConsultaModosUniformidad()
     End Sub
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
@@ -57,36 +49,26 @@ Public Class CastigoResistenciaFibra
         CbTipoContrato.DataSource = dt1
         CbTipoContrato.ValueMember = "Id"
         CbTipoContrato.DisplayMember = "Descripcion"
-        CbTipoContrato.SelectedIndex = -1
+        CbTipoContrato.SelectedValue = 1
     End Sub
-    Private Sub ConsultaModosResistenciaFibra()
-        Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
-        Dim NegocioCastigoResistenciaFibra As New Capa_Negocio.CastigoResistenciaFibra
+    Private Sub ConsultaModosUniformidad()
+        Dim EntidadCastigoUniformidad As New Capa_Entidad.CastigoUniformidad
+        Dim NegocioCastigoUniformidad As New Capa_Negocio.CastigoUniformidad
         Dim Tabla As New DataTable
-        EntidadCastigoResistenciaFibra.Consulta = Consulta.ConsultaEncabezado
-        NegocioCastigoResistenciaFibra.Consultar(EntidadCastigoResistenciaFibra)
-        DgvEncabezado.DataSource = EntidadCastigoResistenciaFibra.TablaConsulta
+        EntidadCastigoUniformidad.Consulta = Consulta.ConsultaEncabezado
+        NegocioCastigoUniformidad.Consultar(EntidadCastigoUniformidad)
+        DgvEncabezado.DataSource = EntidadCastigoUniformidad.TablaConsulta
         'PropiedadesDgModos()
     End Sub
     Private Sub ConsultaModosDetalle()
-        Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
-        Dim NegocioCastigoResistenciaFibra As New Capa_Negocio.CastigoResistenciaFibra
+        Dim EntidadCastigoUniformidad As New Capa_Entidad.CastigoUniformidad
+        Dim NegocioCastigoUniformidad As New Capa_Negocio.CastigoUniformidad
         Dim Tabla As New DataTable
-        EntidadCastigoResistenciaFibra.Consulta = Consulta.ConsultaDetallada
-        EntidadCastigoResistenciaFibra.IdResistenciaEncabezado = Val(TbIdResistenciaEncabezado.Text)
-        NegocioCastigoResistenciaFibra.Consultar(EntidadCastigoResistenciaFibra)
-        DgvDetalle.DataSource = EntidadCastigoResistenciaFibra.TablaConsulta
-        DgvDetallePropiedades()
-    End Sub
-    Private Sub ConsultaModosDetalleParametro(ByVal Id As Integer)
-        Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
-        Dim NegocioCastigoResistenciaFibra As New Capa_Negocio.CastigoResistenciaFibra
-        Dim Tabla As New DataTable
-        EntidadCastigoResistenciaFibra.Consulta = Consulta.ConsultaDetallada
-        EntidadCastigoResistenciaFibra.IdResistenciaEncabezado = Val(TbIdResistenciaEncabezado.Text)
-        NegocioCastigoResistenciaFibra.Consultar(EntidadCastigoResistenciaFibra)
-        DgvDetalle.DataSource = EntidadCastigoResistenciaFibra.TablaConsulta
-        DgvDetallePropiedades()
+        EntidadCastigoUniformidad.Consulta = Consulta.ConsultaDetallada
+        EntidadCastigoUniformidad.IdUnidormidadEncabezado = Val(TbIdUniformidadEncabezado.Text)
+        NegocioCastigoUniformidad.Consultar(EntidadCastigoUniformidad)
+        DgvDetalle.DataSource = EntidadCastigoUniformidad.TablaConsulta
+        PropiedadesDgvDetalle()
     End Sub
     Private Sub AgregaCamposTablaClases()
         TablaClases.Columns.Clear()
@@ -108,7 +90,7 @@ Public Class CastigoResistenciaFibra
             If DgvDetalle.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvDetalle.Rows(index).Cells("Rango2").Value IsNot Nothing Then
                 rengloninsertar = TablaClases.NewRow()
                 rengloninsertar("IdModoDetalle") = IIf(DgvDetalle.Rows(index).Cells("IdModoDetalle").Value Is Nothing, 0, DgvDetalle.Rows(index).Cells("IdModoDetalle").Value)
-                rengloninsertar("IdModoEncabezado") = Val(TbIdResistenciaEncabezado.Text)
+                rengloninsertar("IdModoEncabezado") = Val(TbIdUniformidadEncabezado.Text)
                 rengloninsertar("Rango1") = DgvDetalle.Rows(index).Cells("Rango1").Value
                 rengloninsertar("Rango2") = DgvDetalle.Rows(index).Cells("Rango2").Value
                 rengloninsertar("Castigo") = DgvDetalle.Rows(index).Cells("Castigo").Value
@@ -117,6 +99,32 @@ Public Class CastigoResistenciaFibra
             End If
         Next
     End Sub
+    Private Sub Guardar()
+        Dim EntidadCastigoUniformidad As New Capa_Entidad.CastigoUniformidad
+        Dim NegocioCastigoUniformidad As New Capa_Negocio.CastigoUniformidad
+        AgregarClasesATabla()
+        EntidadCastigoUniformidad.IdUnidormidadEncabezado = IIf(TbIdUniformidadEncabezado.Text = "", 0, TbIdUniformidadEncabezado.Text)
+        EntidadCastigoUniformidad.Descripcion = TbDescripcion.Text
+        EntidadCastigoUniformidad.IdModoComercializacion = CbTipoContrato.SelectedValue
+        EntidadCastigoUniformidad.IdEstatus = CbEstatus.SelectedValue
+        EntidadCastigoUniformidad.TablaModosDetalle = TablaClases
+        NegocioCastigoUniformidad.Guardar(EntidadCastigoUniformidad)
+        TbIdUniformidadEncabezado.Text = EntidadCastigoUniformidad.IdUnidormidadEncabezado
+        MsgBox("Realizado Correctamente")
+        ConsultaModosUniformidad()
+        ConsultaClasesClasificacionDetalle(TbIdUniformidadEncabezado.Text)
+    End Sub
+    Private Sub ConsultaClasesClasificacionDetalle(ByVal Id As Integer)
+        DgvDetalle.DataSource = Nothing
+        Dim EntidadCastigoUniformidad As New Capa_Entidad.CastigoUniformidad
+        Dim NegocioCastigoUniformidad As New Capa_Negocio.CastigoUniformidad
+        Dim Tabla As New DataTable
+        EntidadCastigoUniformidad.IdUnidormidadEncabezado = Id
+        EntidadCastigoUniformidad.Consulta = Consulta.ConsultaDetallada
+        NegocioCastigoUniformidad.Consultar(EntidadCastigoUniformidad)
+        DgvDetalle.DataSource = EntidadCastigoUniformidad.TablaConsulta
+        PropiedadesDgvDetalle()
+    End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbDescripcion.Text = "" Or CbTipoContrato.Text = "" Then
             MsgBox("No se permite guardar con campos vacios.")
@@ -124,29 +132,10 @@ Public Class CastigoResistenciaFibra
             Guardar()
         End If
     End Sub
-    Private Sub Guardar()
-        Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
-        Dim NegocioCastigoResistenciaFibra As New Capa_Negocio.CastigoResistenciaFibra
-        AgregarClasesATabla()
-        EntidadCastigoResistenciaFibra.IdResistenciaEncabezado = IIf(TbIdResistenciaEncabezado.Text = "", 0, TbIdResistenciaEncabezado.Text)
-        EntidadCastigoResistenciaFibra.Descripcion = TbDescripcion.Text
-        EntidadCastigoResistenciaFibra.IdModoComercializacion = CbTipoContrato.SelectedValue
-        EntidadCastigoResistenciaFibra.IdEstatus = CbEstatus.SelectedValue
-        EntidadCastigoResistenciaFibra.TablaModosDetalle = TablaClases
-        NegocioCastigoResistenciaFibra.Guardar(EntidadCastigoResistenciaFibra)
-        TbIdResistenciaEncabezado.Text = EntidadCastigoResistenciaFibra.IdResistenciaEncabezado
-        MsgBox("Realizado Correctamente")
-        ConsultaModosResistenciaFibra()
-        ConsultaModosDetalleParametro(TbIdResistenciaEncabezado.Text)
-    End Sub
-
-    Private Sub ConsultaResistenciaFibra()
-        Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
-        Dim NegocioCastigoResistenciaFibra As New Capa_Negocio.CastigoResistenciaFibra
-        Dim Tabla As New DataTable
-        EntidadCastigoResistenciaFibra.Consulta = Consulta.ConsultaDetallada
-        NegocioCastigoResistenciaFibra.Consultar(EntidadCastigoResistenciaFibra)
-        'DgvCastigoResistenciaFibra.DataSource = EntidadCastigoResistenciaFibra.TablaConsulta
+    Private Sub PropiedadesDgvDetalle()
+        DgvDetalle.Columns("IdModoDetalle").Visible = False
+        DgvDetalle.Columns("IdModoEncabezado").Visible = False
+        DgvDetalle.Columns("IdEstatus").Visible = False
     End Sub
     Private Sub DgvEncabezado_DoubleClick(sender As Object, e As EventArgs) Handles DgvEncabezado.DoubleClick
         If DgvEncabezado.DataSource Is Nothing Then
@@ -154,17 +143,15 @@ Public Class CastigoResistenciaFibra
         Else
             Dim index As Integer
             index = DgvEncabezado.CurrentCell.RowIndex
-            TbIdResistenciaEncabezado.Text = DgvEncabezado.Rows(index).Cells("IdModoEncabezado").Value
+            TbIdUniformidadEncabezado.Text = DgvEncabezado.Rows(index).Cells("IdModoEncabezado").Value
             TbDescripcion.Text = DgvEncabezado.Rows(index).Cells("Descripcion").Value
             CbTipoContrato.SelectedValue = DgvEncabezado.Rows(index).Cells("ModoComercializacion").Value
             CbEstatus.SelectedValue = DgvEncabezado.Rows(index).Cells("IdEstatus").Value
             ConsultaModosDetalle()
         End If
     End Sub
-    Private Sub DgvDetallePropiedades()
-        DgvDetalle.Columns("IdModoDetalle").Visible = False
-        DgvDetalle.Columns("IdModoEncabezado").Visible = False
-        DgvDetalle.Columns("IdEstatus").Visible = False
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        Nuevo()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
