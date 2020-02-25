@@ -178,6 +178,7 @@ Public Class LiquidacionesPorRomaneaje
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
+        TbIdOrden.Focus()
     End Sub
 
     Private Sub CalculosResumen()
