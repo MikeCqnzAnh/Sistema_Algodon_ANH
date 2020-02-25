@@ -55,16 +55,16 @@ Public Class VentaPacasContrato
                         cmdGuardar = New SqlCommand("sp_ActualizaEstatusVentaPaca", cnn)
                         cmdGuardar.CommandType = CommandType.StoredProcedure
                         cmdGuardar.Parameters.Clear()
-                        cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", MiTableRow("IdComprador")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", MiTableRow("IdComprador")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdLiquidacion", MiTableRow("IdLiquidacion")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@IdVentaEnc", MiTableRow("IdVentaEnc")))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDls", MiTableRow("PrecioDls")))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDls", MiTableRow("PrecioDls")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@TipoCambio", MiTableRow("TipoCambio")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMxn", MiTableRow("PrecioMxn")))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", MiTableRow("CastigoResistenciaFibra")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", MiTableRow("CastigoMicros")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", MiTableRow("CastigoLargoFibra")))
@@ -77,9 +77,44 @@ Public Class VentaPacasContrato
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoOtherLevel2", MiTableRow("CastigoOtherLevel2")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel1", MiTableRow("CastigoPlasticLevel1")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel2", MiTableRow("CastigoPlasticLevel2")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVentaUpdate")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaBusqueda", MiTableRow("EstatusVentaBusqueda")))
+
+                        cmdGuardar.ExecuteNonQuery()
+                    Next
+            End Select
+        Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
+        Finally
+            cnn.Close()
+            EntidadVentaPacasContrato = EntidadVentaPacasContrato1
+        End Try
+    End Sub
+    Public Overridable Sub UpsertEnviaVenta(ByRef EntidadVentaPacasContrato As Capa_Entidad.VentaPacasContrato)
+        Dim EntidadVentaPacasContrato1 As New Capa_Entidad.VentaPacasContrato
+        EntidadVentaPacasContrato1 = EntidadVentaPacasContrato
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            Select Case EntidadVentaPacasContrato1.Guarda
+                Case Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasDet
+                    For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
+                        cmdGuardar = New SqlCommand("sp_EnviaPacaVenta", cnn)
+                        cmdGuardar.CommandType = CommandType.StoredProcedure
+                        cmdGuardar.Parameters.Clear()
+                        cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@IdLiquidacion", MiTableRow("IdLiquidacion")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@IdVentaEnc", MiTableRow("IdVentaEnc")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDls", MiTableRow("PrecioDls")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@TipoCambio", MiTableRow("TipoCambio")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMxn", MiTableRow("PrecioMxn")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVentaUpdate")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaBusqueda", MiTableRow("EstatusVentaBusqueda")))
-
                         cmdGuardar.ExecuteNonQuery()
                     Next
             End Select

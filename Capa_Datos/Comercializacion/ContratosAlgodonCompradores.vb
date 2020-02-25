@@ -34,9 +34,9 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioO", EntidadContratosAlgodonCompradores1.PrecioO))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadContratosAlgodonCompradores1.IdEstatus))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadContratosAlgodonCompradores1.IdUsuarioCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadContratosAlgodonCompradores1.FechaCreacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", Now))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadContratosAlgodonCompradores1.IdUsuarioActualizacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadContratosAlgodonCompradores1.FechaActualizacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", Now))
             cmdGuardar.Parameters("@IdContratoAlgodon").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
             If EntidadContratosAlgodonCompradores1.IdContratoAlgodon = 0 Then
@@ -58,12 +58,15 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@IdModoBark", EntidadContratosAlgodonCompradores1.IdModoBark))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel1", EntidadContratosAlgodonCompradores1.CheckBarkLevel1))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel2", EntidadContratosAlgodonCompradores1.CheckBarkLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrep", EntidadContratosAlgodonCompradores1.CheckPrep))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPrep", EntidadContratosAlgodonCompradores1.IdModoPrep))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel1", EntidadContratosAlgodonCompradores1.CheckPrepLevel1))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel2", EntidadContratosAlgodonCompradores1.CheckPrepLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckOther", EntidadContratosAlgodonCompradores1.CheckOther))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdModoOther", EntidadContratosAlgodonCompradores1.IdModoOther))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel1", EntidadContratosAlgodonCompradores1.CheckOtherLevel1))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel2", EntidadContratosAlgodonCompradores1.CheckOtherLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlastic", EntidadContratosAlgodonCompradores1.CheckPlastic))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPlastic", EntidadContratosAlgodonCompradores1.IdModoPlastic))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel1", EntidadContratosAlgodonCompradores1.CheckPlasticLevel1))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel2", EntidadContratosAlgodonCompradores1.CheckPlasticLevel2))
@@ -126,6 +129,16 @@ Public Class ContratosAlgodonCompradores
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidadVentaCmb
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboUniformidadVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMatExtVenta
+                    sqldat1 = New SqlDataAdapter("Sp_LLenaCombosExMatVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaParametrosContratoVenta
+                    sqlcom1 = New SqlCommand("Sp_ConsultaParametrosContratoVenta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdContratoVenta", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception

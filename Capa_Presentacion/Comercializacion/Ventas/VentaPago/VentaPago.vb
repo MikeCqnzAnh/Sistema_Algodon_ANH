@@ -97,7 +97,7 @@ Public Class VentaPago
                 TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
                 TotalPeso = Val(TotalPeso + CDbl(row.Cells("Kilos").Value))
                 TbSubtotal.Text = Val(TbSubtotal.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
-                TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + CDbl(row.Cells("CastigoUniformidad").Value)
+                TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + CDbl(row.Cells("CastigoUI").Value)
                 TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + CDbl(row.Cells("CastigoLargoFibra").Value)
                 TbCastigoxmicro.Text = Val(TbCastigoxmicro.Text) + CDbl(row.Cells("CastigoMicros").Value)
                 TbCastigoxresistencia.Text = Val(TbCastigoxresistencia.Text) + CDbl(row.Cells("CastigoResistenciaFibra").Value)
@@ -208,7 +208,7 @@ Public Class VentaPago
             If DataGridEnvia.Item("BaleID", i).Value.ToString <> "" Then
                 r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
                 r("IdVentaEnc") = TbIdVenta.Text
-                r("EstatusVenta") = 1
+                r("EstatusVenta") = 2
                 dt.Rows.Add(r)
             End If
         Next

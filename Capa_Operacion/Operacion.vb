@@ -163,6 +163,8 @@
         ConsultaLargoFibraVentaCmb = 86
         ConsultaResistenciaVentaCmb = 87
         ConsultaUniformidadVentaCmb = 88
+        ConsultaCastigoMatExtVenta = 89
+        ConsultaParametrosContratoVenta = 90
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

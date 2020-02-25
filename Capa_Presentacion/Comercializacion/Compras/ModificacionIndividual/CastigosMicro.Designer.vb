@@ -69,7 +69,7 @@ Partial Class CastigosMicro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 361)
+        Me.ClientSize = New System.Drawing.Size(444, 408)
         Me.Controls.Add(Me.BtSalir)
         Me.Controls.Add(Me.BtAceptar)
         Me.Controls.Add(Me.DgvCastigoMicros)

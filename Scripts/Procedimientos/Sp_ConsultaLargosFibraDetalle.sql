@@ -1,4 +1,4 @@
-Alter Procedure Sp_ConsultaLargosFibraDetalle
+Create Procedure Sp_ConsultaLargosFibraDetalle
 @IdLargoFibraEncabezado int
 as
 Select IdModoDetalle,

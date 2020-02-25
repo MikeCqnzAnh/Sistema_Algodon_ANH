@@ -1,6 +1,7 @@
-Create Procedure Sp_CastigoResistenciaFibra
+alter Procedure Sp_CastigoResistenciaFibra
+@IdModoEncabezado int,
 @ResistenciaFibra as float
 as
 select castigo
-from ResistenciaFibra
-where @ResistenciaFibra between rango1 and Rango2
+from ResistenciaDetalle
+where @ResistenciaFibra between rango1 and Rango2 and IdModoEncabezado = @IdModoEncabezado

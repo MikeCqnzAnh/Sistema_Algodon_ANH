@@ -35,6 +35,10 @@
     Public ResistenciaFibra As Double
     Public PacasDisponibles As Integer
     Public PacasCompradas As Integer
+    Public IdModoEncabezadoUniformidad As Integer
+    Public IdModoEncabezadoLargoFibra As Integer
+    Public IdModoEncabezadoMicros As Integer
+    Public IdModoEncabezadoResistencia As Integer
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

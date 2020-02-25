@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.36.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.37.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -212,6 +212,54 @@
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Comercializacion\Ventas\ComparacionVentaVsCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.Designer.vb">
+      <DependentUpon>CastigosBarkVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.Designer.vb">
+      <DependentUpon>CastigosLargoFibraVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.Designer.vb">
+      <DependentUpon>CastigosMicrosVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.Designer.vb">
+      <DependentUpon>CastigosOtherVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.Designer.vb">
+      <DependentUpon>CastigosPlasticVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.Designer.vb">
+      <DependentUpon>CastigosPrepVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.Designer.vb">
+      <DependentUpon>CastigosResistenciaFibraVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.Designer.vb">
+      <DependentUpon>CastigosUniformidadVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DsReportes.Designer.vb">
@@ -1099,6 +1147,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Ventas\ComparacionVentaVsCliente.resx">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.resx">
+      <DependentUpon>CastigosBarkVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.resx">
+      <DependentUpon>CastigosLargoFibraVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.resx">
+      <DependentUpon>CastigosMicrosVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.resx">
+      <DependentUpon>CastigosOtherVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.resx">
+      <DependentUpon>CastigosPlasticVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.resx">
+      <DependentUpon>CastigosPrepVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.resx">
+      <DependentUpon>CastigosResistenciaFibraVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.resx">
+      <DependentUpon>CastigosUniformidadVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
