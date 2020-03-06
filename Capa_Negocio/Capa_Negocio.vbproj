@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.vb" />
+    <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
+    <Compile Include="Almacenes\SalidaPacas.vb" />
     <Compile Include="Catalogos\CastigoUniformidad.vb" />
     <Compile Include="Almacenes\ExistenciaBodegaPacas.vb" />
     <Compile Include="Catalogos\Almacenes.vb" />

@@ -158,6 +158,7 @@ Public Class CompraPacasContrato
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCompraPacasContrato1.IdModoEncabezadoLargoFibra))
                     sqlcom1.Parameters.Add(New SqlParameter("@LargoFibra", EntidadCompraPacasContrato1.CastigoLargoFibra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMicros
@@ -165,6 +166,7 @@ Public Class CompraPacasContrato
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCompraPacasContrato1.IdModoEncabezadoMicros))
                     sqlcom1.Parameters.Add(New SqlParameter("@Micros", EntidadCompraPacasContrato1.CastigoMicros))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoResistenciaFibra
@@ -172,6 +174,7 @@ Public Class CompraPacasContrato
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCompraPacasContrato1.IdModoEncabezadoResistencia))
                     sqlcom1.Parameters.Add(New SqlParameter("@ResistenciaFibra", EntidadCompraPacasContrato1.CastigoResistenciaFibra))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoUniformidad
@@ -179,6 +182,7 @@ Public Class CompraPacasContrato
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCompraPacasContrato1.IdModoEncabezadoUniformidad))
                     sqlcom1.Parameters.Add(New SqlParameter("@Uniformidad", EntidadCompraPacasContrato1.CastigoUniformidad))
                     sqldat1.Fill(EntidadCompraPacasContrato1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaIdCompraPaca

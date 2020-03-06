@@ -52,6 +52,40 @@ Partial Class VentaPacasContrato
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtConsultaPlastic = New System.Windows.Forms.Button()
+        Me.BtConsultaOther = New System.Windows.Forms.Button()
+        Me.BtConsultaPrep = New System.Windows.Forms.Button()
+        Me.BtConsultaBark = New System.Windows.Forms.Button()
+        Me.BtConsultaUI = New System.Windows.Forms.Button()
+        Me.BtConsultaRF = New System.Windows.Forms.Button()
+        Me.BtConsultaLF = New System.Windows.Forms.Button()
+        Me.BtConsultaMicros = New System.Windows.Forms.Button()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.ChPlasticLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChOtherLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChPrepLevel2 = New System.Windows.Forms.CheckBox()
+        Me.ChBarkLevel2 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.ChPlasticLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChOtherLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChPrepLevel1 = New System.Windows.Forms.CheckBox()
+        Me.ChBarkLevel1 = New System.Windows.Forms.CheckBox()
+        Me.CbModoPlastic = New System.Windows.Forms.ComboBox()
+        Me.CbModoOther = New System.Windows.Forms.ComboBox()
+        Me.CbModoPrep = New System.Windows.Forms.ComboBox()
+        Me.CbModoBark = New System.Windows.Forms.ComboBox()
+        Me.ChPlastic = New System.Windows.Forms.CheckBox()
+        Me.ChOther = New System.Windows.Forms.CheckBox()
+        Me.ChPrep = New System.Windows.Forms.CheckBox()
+        Me.ChBark = New System.Windows.Forms.CheckBox()
+        Me.CbModoUniformidad = New System.Windows.Forms.ComboBox()
+        Me.CbModoResistenciaFibra = New System.Windows.Forms.ComboBox()
+        Me.CbModoLargoFibra = New System.Windows.Forms.ComboBox()
+        Me.ChUniformidad = New System.Windows.Forms.CheckBox()
+        Me.ChResistenciaFibra = New System.Windows.Forms.CheckBox()
+        Me.ChLargoFibra = New System.Windows.Forms.CheckBox()
+        Me.ChMicros = New System.Windows.Forms.CheckBox()
+        Me.CbModoMicros = New System.Windows.Forms.ComboBox()
         Me.BtModalidadVenta = New System.Windows.Forms.Button()
         Me.BtCastigoResFibra = New System.Windows.Forms.Button()
         Me.BtCastigoMicros = New System.Windows.Forms.Button()
@@ -61,7 +95,6 @@ Partial Class VentaPacasContrato
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReporteHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -109,6 +142,7 @@ Partial Class VentaPacasContrato
         Me.TP2LiquidacionesVendidas = New System.Windows.Forms.TabPage()
         Me.DgvLiqVendidas = New System.Windows.Forms.DataGridView()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.BtRecalcular = New System.Windows.Forms.Button()
         Me.TP4IndividualVendidas = New System.Windows.Forms.TabPage()
         Me.DgvPacasIndVendidas = New System.Windows.Forms.DataGridView()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
@@ -131,13 +165,19 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.BtRecalcular = New System.Windows.Forms.Button()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.MSMenu.SuspendLayout()
         Me.GbCompras.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -180,9 +220,9 @@ Partial Class VentaPacasContrato
         '
         Me.GroupBox6.Controls.Add(Me.DgvContratos)
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox6.Location = New System.Drawing.Point(979, 16)
+        Me.GroupBox6.Location = New System.Drawing.Point(1348, 16)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(746, 159)
+        Me.GroupBox6.Size = New System.Drawing.Size(377, 159)
         Me.GroupBox6.TabIndex = 2
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Contratos"
@@ -204,7 +244,7 @@ Partial Class VentaPacasContrato
         Me.DgvContratos.RowHeadersVisible = False
         Me.DgvContratos.RowHeadersWidth = 40
         Me.DgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratos.Size = New System.Drawing.Size(740, 140)
+        Me.DgvContratos.Size = New System.Drawing.Size(371, 140)
         Me.DgvContratos.TabIndex = 12
         '
         'GroupBox5
@@ -216,7 +256,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox5.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(976, 159)
+        Me.GroupBox5.Size = New System.Drawing.Size(1345, 159)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         '
@@ -248,22 +288,22 @@ Partial Class VentaPacasContrato
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(3, 16)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(835, 140)
+        Me.Panel3.Size = New System.Drawing.Size(700, 140)
         Me.Panel3.TabIndex = 57
         '
         'CbModalidadVenta
         '
         Me.CbModalidadVenta.Enabled = False
         Me.CbModalidadVenta.FormattingEnabled = True
-        Me.CbModalidadVenta.Location = New System.Drawing.Point(528, 28)
+        Me.CbModalidadVenta.Location = New System.Drawing.Point(375, 28)
         Me.CbModalidadVenta.Name = "CbModalidadVenta"
-        Me.CbModalidadVenta.Size = New System.Drawing.Size(146, 21)
+        Me.CbModalidadVenta.Size = New System.Drawing.Size(121, 21)
         Me.CbModalidadVenta.TabIndex = 60
         '
         'TbValorConversion
         '
         Me.TbValorConversion.Enabled = False
-        Me.TbValorConversion.Location = New System.Drawing.Point(655, 54)
+        Me.TbValorConversion.Location = New System.Drawing.Point(502, 54)
         Me.TbValorConversion.Name = "TbValorConversion"
         Me.TbValorConversion.Size = New System.Drawing.Size(75, 20)
         Me.TbValorConversion.TabIndex = 59
@@ -272,7 +312,7 @@ Partial Class VentaPacasContrato
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(493, 108)
+        Me.Label26.Location = New System.Drawing.Point(340, 107)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(34, 12)
         Me.Label26.TabIndex = 60
@@ -282,14 +322,14 @@ Partial Class VentaPacasContrato
         '
         Me.CbUnidadPeso.Enabled = False
         Me.CbUnidadPeso.FormattingEnabled = True
-        Me.CbUnidadPeso.Location = New System.Drawing.Point(528, 53)
+        Me.CbUnidadPeso.Location = New System.Drawing.Point(375, 53)
         Me.CbUnidadPeso.Name = "CbUnidadPeso"
         Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
         Me.CbUnidadPeso.TabIndex = 58
         '
         'TbKdAd
         '
-        Me.TbKdAd.Location = New System.Drawing.Point(319, 54)
+        Me.TbKdAd.Location = New System.Drawing.Point(187, 54)
         Me.TbKdAd.Name = "TbKdAd"
         Me.TbKdAd.Size = New System.Drawing.Size(72, 20)
         Me.TbKdAd.TabIndex = 57
@@ -299,7 +339,7 @@ Partial Class VentaPacasContrato
         'CkKgAdd
         '
         Me.CkKgAdd.AutoSize = True
-        Me.CkKgAdd.Location = New System.Drawing.Point(319, 30)
+        Me.CkKgAdd.Location = New System.Drawing.Point(187, 30)
         Me.CkKgAdd.Name = "CkKgAdd"
         Me.CkKgAdd.Size = New System.Drawing.Size(55, 17)
         Me.CkKgAdd.TabIndex = 56
@@ -319,7 +359,7 @@ Partial Class VentaPacasContrato
         'TbIdVentaPaca
         '
         Me.TbIdVentaPaca.Enabled = False
-        Me.TbIdVentaPaca.Location = New System.Drawing.Point(111, 4)
+        Me.TbIdVentaPaca.Location = New System.Drawing.Point(82, 4)
         Me.TbIdVentaPaca.Name = "TbIdVentaPaca"
         Me.TbIdVentaPaca.Size = New System.Drawing.Size(99, 20)
         Me.TbIdVentaPaca.TabIndex = 17
@@ -327,7 +367,7 @@ Partial Class VentaPacasContrato
         '
         'BtnBuscarProd
         '
-        Me.BtnBuscarProd.Location = New System.Drawing.Point(680, 2)
+        Me.BtnBuscarProd.Location = New System.Drawing.Point(650, 2)
         Me.BtnBuscarProd.Name = "BtnBuscarProd"
         Me.BtnBuscarProd.Size = New System.Drawing.Size(41, 23)
         Me.BtnBuscarProd.TabIndex = 55
@@ -337,7 +377,7 @@ Partial Class VentaPacasContrato
         'TbIdComprador
         '
         Me.TbIdComprador.Enabled = False
-        Me.TbIdComprador.Location = New System.Drawing.Point(288, 4)
+        Me.TbIdComprador.Location = New System.Drawing.Point(258, 4)
         Me.TbIdComprador.Name = "TbIdComprador"
         Me.TbIdComprador.Size = New System.Drawing.Size(75, 20)
         Me.TbIdComprador.TabIndex = 18
@@ -345,7 +385,7 @@ Partial Class VentaPacasContrato
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(420, 57)
+        Me.Label21.Location = New System.Drawing.Point(267, 57)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(83, 13)
         Me.Label21.TabIndex = 46
@@ -354,7 +394,7 @@ Partial Class VentaPacasContrato
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(420, 31)
+        Me.Label27.Location = New System.Drawing.Point(267, 31)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(102, 13)
         Me.Label27.TabIndex = 46
@@ -372,26 +412,26 @@ Partial Class VentaPacasContrato
         'TbNoPacas
         '
         Me.TbNoPacas.Enabled = False
-        Me.TbNoPacas.Location = New System.Drawing.Point(111, 78)
+        Me.TbNoPacas.Location = New System.Drawing.Point(82, 78)
         Me.TbNoPacas.Name = "TbNoPacas"
-        Me.TbNoPacas.Size = New System.Drawing.Size(202, 20)
+        Me.TbNoPacas.Size = New System.Drawing.Size(99, 20)
         Me.TbNoPacas.TabIndex = 39
         '
         'CbPlanta
         '
         Me.CbPlanta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(528, 104)
+        Me.CbPlanta.Location = New System.Drawing.Point(375, 103)
         Me.CbPlanta.Name = "CbPlanta"
-        Me.CbPlanta.Size = New System.Drawing.Size(86, 20)
+        Me.CbPlanta.Size = New System.Drawing.Size(121, 20)
         Me.CbPlanta.TabIndex = 20
         '
         'TbIdContrato
         '
         Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(111, 28)
+        Me.TbIdContrato.Location = New System.Drawing.Point(82, 28)
         Me.TbIdContrato.Name = "TbIdContrato"
-        Me.TbIdContrato.Size = New System.Drawing.Size(202, 20)
+        Me.TbIdContrato.Size = New System.Drawing.Size(99, 20)
         Me.TbIdContrato.TabIndex = 34
         '
         'Label12
@@ -415,23 +455,23 @@ Partial Class VentaPacasContrato
         'DtpFecha
         '
         Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpFecha.Location = New System.Drawing.Point(528, 78)
+        Me.DtpFecha.Location = New System.Drawing.Point(375, 78)
         Me.DtpFecha.Name = "DtpFecha"
-        Me.DtpFecha.Size = New System.Drawing.Size(139, 20)
+        Me.DtpFecha.Size = New System.Drawing.Size(121, 20)
         Me.DtpFecha.TabIndex = 29
         '
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(111, 54)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(82, 54)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
-        Me.TbPrecioQuintal.Size = New System.Drawing.Size(202, 20)
+        Me.TbPrecioQuintal.Size = New System.Drawing.Size(99, 20)
         Me.TbPrecioQuintal.TabIndex = 44
         '
         'TbNombreComprador
         '
         Me.TbNombreComprador.Enabled = False
-        Me.TbNombreComprador.Location = New System.Drawing.Point(369, 4)
+        Me.TbNombreComprador.Location = New System.Drawing.Point(339, 4)
         Me.TbNombreComprador.Name = "TbNombreComprador"
         Me.TbNombreComprador.Size = New System.Drawing.Size(305, 20)
         Me.TbNombreComprador.TabIndex = 39
@@ -439,7 +479,7 @@ Partial Class VentaPacasContrato
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(420, 79)
+        Me.Label4.Location = New System.Drawing.Point(267, 81)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 30
@@ -448,7 +488,7 @@ Partial Class VentaPacasContrato
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(223, 7)
+        Me.Label5.Location = New System.Drawing.Point(187, 7)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 35
@@ -456,24 +496,382 @@ Partial Class VentaPacasContrato
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.BtConsultaPlastic)
+        Me.Panel2.Controls.Add(Me.BtConsultaOther)
+        Me.Panel2.Controls.Add(Me.BtConsultaPrep)
+        Me.Panel2.Controls.Add(Me.BtConsultaBark)
+        Me.Panel2.Controls.Add(Me.BtConsultaUI)
+        Me.Panel2.Controls.Add(Me.BtConsultaRF)
+        Me.Panel2.Controls.Add(Me.BtConsultaLF)
+        Me.Panel2.Controls.Add(Me.BtConsultaMicros)
+        Me.Panel2.Controls.Add(Me.GroupBox9)
+        Me.Panel2.Controls.Add(Me.GroupBox10)
+        Me.Panel2.Controls.Add(Me.CbModoPlastic)
+        Me.Panel2.Controls.Add(Me.CbModoOther)
+        Me.Panel2.Controls.Add(Me.CbModoPrep)
+        Me.Panel2.Controls.Add(Me.CbModoBark)
+        Me.Panel2.Controls.Add(Me.ChPlastic)
+        Me.Panel2.Controls.Add(Me.ChOther)
+        Me.Panel2.Controls.Add(Me.ChPrep)
+        Me.Panel2.Controls.Add(Me.ChBark)
+        Me.Panel2.Controls.Add(Me.CbModoUniformidad)
+        Me.Panel2.Controls.Add(Me.CbModoResistenciaFibra)
+        Me.Panel2.Controls.Add(Me.CbModoLargoFibra)
+        Me.Panel2.Controls.Add(Me.ChUniformidad)
+        Me.Panel2.Controls.Add(Me.ChResistenciaFibra)
+        Me.Panel2.Controls.Add(Me.ChLargoFibra)
+        Me.Panel2.Controls.Add(Me.ChMicros)
+        Me.Panel2.Controls.Add(Me.CbModoMicros)
         Me.Panel2.Controls.Add(Me.BtModalidadVenta)
         Me.Panel2.Controls.Add(Me.BtCastigoResFibra)
         Me.Panel2.Controls.Add(Me.BtCastigoMicros)
         Me.Panel2.Controls.Add(Me.BtCastLarFib)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(838, 16)
+        Me.Panel2.Location = New System.Drawing.Point(703, 16)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(135, 140)
+        Me.Panel2.Size = New System.Drawing.Size(639, 140)
         Me.Panel2.TabIndex = 56
+        '
+        'BtConsultaPlastic
+        '
+        Me.BtConsultaPlastic.Location = New System.Drawing.Point(479, 101)
+        Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
+        Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaPlastic.TabIndex = 80
+        Me.BtConsultaPlastic.Text = "..."
+        Me.BtConsultaPlastic.UseVisualStyleBackColor = True
+        '
+        'BtConsultaOther
+        '
+        Me.BtConsultaOther.Location = New System.Drawing.Point(479, 77)
+        Me.BtConsultaOther.Name = "BtConsultaOther"
+        Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaOther.TabIndex = 79
+        Me.BtConsultaOther.Text = "..."
+        Me.BtConsultaOther.UseVisualStyleBackColor = True
+        '
+        'BtConsultaPrep
+        '
+        Me.BtConsultaPrep.Location = New System.Drawing.Point(479, 53)
+        Me.BtConsultaPrep.Name = "BtConsultaPrep"
+        Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaPrep.TabIndex = 78
+        Me.BtConsultaPrep.Text = "..."
+        Me.BtConsultaPrep.UseVisualStyleBackColor = True
+        '
+        'BtConsultaBark
+        '
+        Me.BtConsultaBark.Location = New System.Drawing.Point(479, 31)
+        Me.BtConsultaBark.Name = "BtConsultaBark"
+        Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaBark.TabIndex = 77
+        Me.BtConsultaBark.Text = "..."
+        Me.BtConsultaBark.UseVisualStyleBackColor = True
+        '
+        'BtConsultaUI
+        '
+        Me.BtConsultaUI.Location = New System.Drawing.Point(246, 101)
+        Me.BtConsultaUI.Name = "BtConsultaUI"
+        Me.BtConsultaUI.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaUI.TabIndex = 76
+        Me.BtConsultaUI.Text = "..."
+        Me.BtConsultaUI.UseVisualStyleBackColor = True
+        '
+        'BtConsultaRF
+        '
+        Me.BtConsultaRF.Location = New System.Drawing.Point(246, 77)
+        Me.BtConsultaRF.Name = "BtConsultaRF"
+        Me.BtConsultaRF.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaRF.TabIndex = 75
+        Me.BtConsultaRF.Text = "..."
+        Me.BtConsultaRF.UseVisualStyleBackColor = True
+        '
+        'BtConsultaLF
+        '
+        Me.BtConsultaLF.Location = New System.Drawing.Point(246, 53)
+        Me.BtConsultaLF.Name = "BtConsultaLF"
+        Me.BtConsultaLF.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaLF.TabIndex = 74
+        Me.BtConsultaLF.Text = "..."
+        Me.BtConsultaLF.UseVisualStyleBackColor = True
+        '
+        'BtConsultaMicros
+        '
+        Me.BtConsultaMicros.Location = New System.Drawing.Point(246, 29)
+        Me.BtConsultaMicros.Name = "BtConsultaMicros"
+        Me.BtConsultaMicros.Size = New System.Drawing.Size(26, 23)
+        Me.BtConsultaMicros.TabIndex = 73
+        Me.BtConsultaMicros.Text = "..."
+        Me.BtConsultaMicros.UseVisualStyleBackColor = True
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.ChPlasticLevel2)
+        Me.GroupBox9.Controls.Add(Me.ChOtherLevel2)
+        Me.GroupBox9.Controls.Add(Me.ChPrepLevel2)
+        Me.GroupBox9.Controls.Add(Me.ChBarkLevel2)
+        Me.GroupBox9.Enabled = False
+        Me.GroupBox9.Location = New System.Drawing.Point(573, 5)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox9.TabIndex = 72
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Nivel 2"
+        '
+        'ChPlasticLevel2
+        '
+        Me.ChPlasticLevel2.AutoSize = True
+        Me.ChPlasticLevel2.Location = New System.Drawing.Point(19, 101)
+        Me.ChPlasticLevel2.Name = "ChPlasticLevel2"
+        Me.ChPlasticLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChPlasticLevel2.TabIndex = 3
+        Me.ChPlasticLevel2.UseVisualStyleBackColor = True
+        '
+        'ChOtherLevel2
+        '
+        Me.ChOtherLevel2.AutoSize = True
+        Me.ChOtherLevel2.Location = New System.Drawing.Point(19, 78)
+        Me.ChOtherLevel2.Name = "ChOtherLevel2"
+        Me.ChOtherLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChOtherLevel2.TabIndex = 2
+        Me.ChOtherLevel2.UseVisualStyleBackColor = True
+        '
+        'ChPrepLevel2
+        '
+        Me.ChPrepLevel2.AutoSize = True
+        Me.ChPrepLevel2.Location = New System.Drawing.Point(19, 54)
+        Me.ChPrepLevel2.Name = "ChPrepLevel2"
+        Me.ChPrepLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChPrepLevel2.TabIndex = 1
+        Me.ChPrepLevel2.UseVisualStyleBackColor = True
+        '
+        'ChBarkLevel2
+        '
+        Me.ChBarkLevel2.AutoSize = True
+        Me.ChBarkLevel2.Location = New System.Drawing.Point(19, 29)
+        Me.ChBarkLevel2.Name = "ChBarkLevel2"
+        Me.ChBarkLevel2.Size = New System.Drawing.Size(15, 14)
+        Me.ChBarkLevel2.TabIndex = 0
+        Me.ChBarkLevel2.UseVisualStyleBackColor = True
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.ChPlasticLevel1)
+        Me.GroupBox10.Controls.Add(Me.ChOtherLevel1)
+        Me.GroupBox10.Controls.Add(Me.ChPrepLevel1)
+        Me.GroupBox10.Controls.Add(Me.ChBarkLevel1)
+        Me.GroupBox10.Enabled = False
+        Me.GroupBox10.Location = New System.Drawing.Point(511, 5)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox10.TabIndex = 71
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Nivel 1"
+        '
+        'ChPlasticLevel1
+        '
+        Me.ChPlasticLevel1.AutoSize = True
+        Me.ChPlasticLevel1.Location = New System.Drawing.Point(20, 101)
+        Me.ChPlasticLevel1.Name = "ChPlasticLevel1"
+        Me.ChPlasticLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChPlasticLevel1.TabIndex = 3
+        Me.ChPlasticLevel1.UseVisualStyleBackColor = True
+        '
+        'ChOtherLevel1
+        '
+        Me.ChOtherLevel1.AutoSize = True
+        Me.ChOtherLevel1.Location = New System.Drawing.Point(20, 77)
+        Me.ChOtherLevel1.Name = "ChOtherLevel1"
+        Me.ChOtherLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChOtherLevel1.TabIndex = 2
+        Me.ChOtherLevel1.UseVisualStyleBackColor = True
+        '
+        'ChPrepLevel1
+        '
+        Me.ChPrepLevel1.AutoSize = True
+        Me.ChPrepLevel1.Location = New System.Drawing.Point(20, 53)
+        Me.ChPrepLevel1.Name = "ChPrepLevel1"
+        Me.ChPrepLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChPrepLevel1.TabIndex = 1
+        Me.ChPrepLevel1.UseVisualStyleBackColor = True
+        '
+        'ChBarkLevel1
+        '
+        Me.ChBarkLevel1.AutoSize = True
+        Me.ChBarkLevel1.Location = New System.Drawing.Point(20, 29)
+        Me.ChBarkLevel1.Name = "ChBarkLevel1"
+        Me.ChBarkLevel1.Size = New System.Drawing.Size(15, 14)
+        Me.ChBarkLevel1.TabIndex = 0
+        Me.ChBarkLevel1.UseVisualStyleBackColor = True
+        '
+        'CbModoPlastic
+        '
+        Me.CbModoPlastic.Enabled = False
+        Me.CbModoPlastic.FormattingEnabled = True
+        Me.CbModoPlastic.Location = New System.Drawing.Point(352, 103)
+        Me.CbModoPlastic.Name = "CbModoPlastic"
+        Me.CbModoPlastic.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPlastic.TabIndex = 70
+        '
+        'CbModoOther
+        '
+        Me.CbModoOther.Enabled = False
+        Me.CbModoOther.FormattingEnabled = True
+        Me.CbModoOther.Location = New System.Drawing.Point(352, 79)
+        Me.CbModoOther.Name = "CbModoOther"
+        Me.CbModoOther.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoOther.TabIndex = 69
+        '
+        'CbModoPrep
+        '
+        Me.CbModoPrep.Enabled = False
+        Me.CbModoPrep.FormattingEnabled = True
+        Me.CbModoPrep.Location = New System.Drawing.Point(352, 55)
+        Me.CbModoPrep.Name = "CbModoPrep"
+        Me.CbModoPrep.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPrep.TabIndex = 68
+        '
+        'CbModoBark
+        '
+        Me.CbModoBark.Enabled = False
+        Me.CbModoBark.FormattingEnabled = True
+        Me.CbModoBark.Location = New System.Drawing.Point(352, 31)
+        Me.CbModoBark.Name = "CbModoBark"
+        Me.CbModoBark.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoBark.TabIndex = 67
+        '
+        'ChPlastic
+        '
+        Me.ChPlastic.AutoSize = True
+        Me.ChPlastic.Enabled = False
+        Me.ChPlastic.Location = New System.Drawing.Point(289, 105)
+        Me.ChPlastic.Name = "ChPlastic"
+        Me.ChPlastic.Size = New System.Drawing.Size(57, 17)
+        Me.ChPlastic.TabIndex = 66
+        Me.ChPlastic.Text = "Plastic"
+        Me.ChPlastic.UseVisualStyleBackColor = True
+        '
+        'ChOther
+        '
+        Me.ChOther.AutoSize = True
+        Me.ChOther.Enabled = False
+        Me.ChOther.Location = New System.Drawing.Point(289, 81)
+        Me.ChOther.Name = "ChOther"
+        Me.ChOther.Size = New System.Drawing.Size(52, 17)
+        Me.ChOther.TabIndex = 65
+        Me.ChOther.Text = "Other"
+        Me.ChOther.UseVisualStyleBackColor = True
+        '
+        'ChPrep
+        '
+        Me.ChPrep.AutoSize = True
+        Me.ChPrep.Enabled = False
+        Me.ChPrep.Location = New System.Drawing.Point(289, 57)
+        Me.ChPrep.Name = "ChPrep"
+        Me.ChPrep.Size = New System.Drawing.Size(48, 17)
+        Me.ChPrep.TabIndex = 64
+        Me.ChPrep.Text = "Prep"
+        Me.ChPrep.UseVisualStyleBackColor = True
+        '
+        'ChBark
+        '
+        Me.ChBark.AutoSize = True
+        Me.ChBark.Enabled = False
+        Me.ChBark.Location = New System.Drawing.Point(289, 33)
+        Me.ChBark.Name = "ChBark"
+        Me.ChBark.Size = New System.Drawing.Size(48, 17)
+        Me.ChBark.TabIndex = 63
+        Me.ChBark.Text = "Bark"
+        Me.ChBark.UseVisualStyleBackColor = True
+        '
+        'CbModoUniformidad
+        '
+        Me.CbModoUniformidad.Enabled = False
+        Me.CbModoUniformidad.FormattingEnabled = True
+        Me.CbModoUniformidad.Location = New System.Drawing.Point(119, 103)
+        Me.CbModoUniformidad.Name = "CbModoUniformidad"
+        Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoUniformidad.TabIndex = 62
+        '
+        'CbModoResistenciaFibra
+        '
+        Me.CbModoResistenciaFibra.Enabled = False
+        Me.CbModoResistenciaFibra.FormattingEnabled = True
+        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(119, 79)
+        Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
+        Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoResistenciaFibra.TabIndex = 61
+        '
+        'CbModoLargoFibra
+        '
+        Me.CbModoLargoFibra.Enabled = False
+        Me.CbModoLargoFibra.FormattingEnabled = True
+        Me.CbModoLargoFibra.Location = New System.Drawing.Point(119, 55)
+        Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
+        Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoLargoFibra.TabIndex = 60
+        '
+        'ChUniformidad
+        '
+        Me.ChUniformidad.AutoSize = True
+        Me.ChUniformidad.Enabled = False
+        Me.ChUniformidad.Location = New System.Drawing.Point(6, 105)
+        Me.ChUniformidad.Name = "ChUniformidad"
+        Me.ChUniformidad.Size = New System.Drawing.Size(82, 17)
+        Me.ChUniformidad.TabIndex = 59
+        Me.ChUniformidad.Text = "Uniformidad"
+        Me.ChUniformidad.UseVisualStyleBackColor = True
+        '
+        'ChResistenciaFibra
+        '
+        Me.ChResistenciaFibra.AutoSize = True
+        Me.ChResistenciaFibra.Enabled = False
+        Me.ChResistenciaFibra.Location = New System.Drawing.Point(6, 81)
+        Me.ChResistenciaFibra.Name = "ChResistenciaFibra"
+        Me.ChResistenciaFibra.Size = New System.Drawing.Size(107, 17)
+        Me.ChResistenciaFibra.TabIndex = 58
+        Me.ChResistenciaFibra.Text = "Resistencia Fibra"
+        Me.ChResistenciaFibra.UseVisualStyleBackColor = True
+        '
+        'ChLargoFibra
+        '
+        Me.ChLargoFibra.AutoSize = True
+        Me.ChLargoFibra.Enabled = False
+        Me.ChLargoFibra.Location = New System.Drawing.Point(6, 57)
+        Me.ChLargoFibra.Name = "ChLargoFibra"
+        Me.ChLargoFibra.Size = New System.Drawing.Size(79, 17)
+        Me.ChLargoFibra.TabIndex = 57
+        Me.ChLargoFibra.Text = "Largo Fibra"
+        Me.ChLargoFibra.UseVisualStyleBackColor = True
+        '
+        'ChMicros
+        '
+        Me.ChMicros.AutoSize = True
+        Me.ChMicros.Enabled = False
+        Me.ChMicros.Location = New System.Drawing.Point(6, 33)
+        Me.ChMicros.Name = "ChMicros"
+        Me.ChMicros.Size = New System.Drawing.Size(57, 17)
+        Me.ChMicros.TabIndex = 56
+        Me.ChMicros.Text = "Micros"
+        Me.ChMicros.UseVisualStyleBackColor = True
+        '
+        'CbModoMicros
+        '
+        Me.CbModoMicros.Enabled = False
+        Me.CbModoMicros.FormattingEnabled = True
+        Me.CbModoMicros.Location = New System.Drawing.Point(119, 31)
+        Me.CbModoMicros.Name = "CbModoMicros"
+        Me.CbModoMicros.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoMicros.TabIndex = 55
         '
         'BtModalidadVenta
         '
         Me.BtModalidadVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtModalidadVenta.Location = New System.Drawing.Point(3, 3)
-        Me.BtModalidadVenta.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtModalidadVenta.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtModalidadVenta.Location = New System.Drawing.Point(6, 4)
+        Me.BtModalidadVenta.MaximumSize = New System.Drawing.Size(20, 20)
+        Me.BtModalidadVenta.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtModalidadVenta.Name = "BtModalidadVenta"
-        Me.BtModalidadVenta.Size = New System.Drawing.Size(60, 60)
+        Me.BtModalidadVenta.Size = New System.Drawing.Size(20, 20)
         Me.BtModalidadVenta.TabIndex = 51
         Me.BtModalidadVenta.Text = "Modalidad de Venta"
         Me.BtModalidadVenta.UseVisualStyleBackColor = True
@@ -481,11 +879,11 @@ Partial Class VentaPacasContrato
         'BtCastigoResFibra
         '
         Me.BtCastigoResFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoResFibra.Location = New System.Drawing.Point(69, 3)
-        Me.BtCastigoResFibra.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoResFibra.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoResFibra.Location = New System.Drawing.Point(29, 4)
+        Me.BtCastigoResFibra.MaximumSize = New System.Drawing.Size(20, 20)
+        Me.BtCastigoResFibra.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoResFibra.Name = "BtCastigoResFibra"
-        Me.BtCastigoResFibra.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastigoResFibra.Size = New System.Drawing.Size(20, 20)
         Me.BtCastigoResFibra.TabIndex = 52
         Me.BtCastigoResFibra.Text = "Castigos por resistencia de fibra"
         Me.BtCastigoResFibra.UseVisualStyleBackColor = True
@@ -493,11 +891,11 @@ Partial Class VentaPacasContrato
         'BtCastigoMicros
         '
         Me.BtCastigoMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoMicros.Location = New System.Drawing.Point(3, 69)
-        Me.BtCastigoMicros.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastigoMicros.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastigoMicros.Location = New System.Drawing.Point(81, 4)
+        Me.BtCastigoMicros.MaximumSize = New System.Drawing.Size(20, 20)
+        Me.BtCastigoMicros.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoMicros.Name = "BtCastigoMicros"
-        Me.BtCastigoMicros.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastigoMicros.Size = New System.Drawing.Size(20, 20)
         Me.BtCastigoMicros.TabIndex = 53
         Me.BtCastigoMicros.Text = "Castigo por micros"
         Me.BtCastigoMicros.UseVisualStyleBackColor = True
@@ -505,18 +903,18 @@ Partial Class VentaPacasContrato
         'BtCastLarFib
         '
         Me.BtCastLarFib.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastLarFib.Location = New System.Drawing.Point(69, 69)
-        Me.BtCastLarFib.MaximumSize = New System.Drawing.Size(60, 60)
-        Me.BtCastLarFib.MinimumSize = New System.Drawing.Size(60, 60)
+        Me.BtCastLarFib.Location = New System.Drawing.Point(55, 4)
+        Me.BtCastLarFib.MaximumSize = New System.Drawing.Size(20, 20)
+        Me.BtCastLarFib.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastLarFib.Name = "BtCastLarFib"
-        Me.BtCastLarFib.Size = New System.Drawing.Size(60, 60)
+        Me.BtCastLarFib.Size = New System.Drawing.Size(20, 20)
         Me.BtCastLarFib.TabIndex = 54
         Me.BtCastLarFib.Text = "Castigos por largo de fibra"
         Me.BtCastLarFib.UseVisualStyleBackColor = True
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ComparacionToolStripMenuItem, Me.ReporteHVIToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ComparacionToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1728, 24)
@@ -533,8 +931,8 @@ Partial Class VentaPacasContrato
         '
         Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar / Actualizar"
         '
         'ConsultarToolStripMenuItem
         '
@@ -548,13 +946,6 @@ Partial Class VentaPacasContrato
         Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
         Me.ComparacionToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
         Me.ComparacionToolStripMenuItem.Text = "Comparacion"
-        '
-        'ReporteHVIToolStripMenuItem
-        '
-        Me.ReporteHVIToolStripMenuItem.Image = CType(resources.GetObject("ReporteHVIToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ReporteHVIToolStripMenuItem.Name = "ReporteHVIToolStripMenuItem"
-        Me.ReporteHVIToolStripMenuItem.Size = New System.Drawing.Size(98, 20)
-        Me.ReporteHVIToolStripMenuItem.Text = "Reporte HVI"
         '
         'SalirToolStripMenuItem
         '
@@ -842,7 +1233,7 @@ Partial Class VentaPacasContrato
         Me.DgvPacasVender.RowHeadersWidth = 40
         Me.DgvPacasVender.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvPacasVender.Size = New System.Drawing.Size(841, 204)
-        Me.DgvPacasVender.TabIndex = 15
+        Me.DgvPacasVender.TabIndex = 13
         '
         'GbFiltrado
         '
@@ -1097,6 +1488,15 @@ Partial Class VentaPacasContrato
         Me.GroupBox7.TabIndex = 15
         Me.GroupBox7.TabStop = False
         '
+        'BtRecalcular
+        '
+        Me.BtRecalcular.Location = New System.Drawing.Point(728, 16)
+        Me.BtRecalcular.Name = "BtRecalcular"
+        Me.BtRecalcular.Size = New System.Drawing.Size(75, 23)
+        Me.BtRecalcular.TabIndex = 0
+        Me.BtRecalcular.Text = "Recalcular"
+        Me.BtRecalcular.UseVisualStyleBackColor = True
+        '
         'TP4IndividualVendidas
         '
         Me.TP4IndividualVendidas.Controls.Add(Me.DgvPacasIndVendidas)
@@ -1127,7 +1527,7 @@ Partial Class VentaPacasContrato
         Me.DgvPacasIndVendidas.RowHeadersWidth = 40
         Me.DgvPacasIndVendidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvPacasIndVendidas.Size = New System.Drawing.Size(809, 204)
-        Me.DgvPacasIndVendidas.TabIndex = 14
+        Me.DgvPacasIndVendidas.TabIndex = 16
         '
         'GroupBox8
         '
@@ -1347,14 +1747,37 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'BtRecalcular
+        'ReportesToolStripMenuItem
         '
-        Me.BtRecalcular.Location = New System.Drawing.Point(728, 16)
-        Me.BtRecalcular.Name = "BtRecalcular"
-        Me.BtRecalcular.Size = New System.Drawing.Size(75, 23)
-        Me.BtRecalcular.TabIndex = 0
-        Me.BtRecalcular.Text = "Recalcular"
-        Me.BtRecalcular.UseVisualStyleBackColor = True
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteHVIToolStripMenuItem1, Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'ReporteHVIToolStripMenuItem1
+        '
+        Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
+        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
+        '
+        'ResumenDeVentaToolStripMenuItem
+        '
+        Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
+        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeVentaToolStripMenuItem.Text = "Resumen de Venta"
+        '
+        'DetalleDeVentaToolStripMenuItem
+        '
+        Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
+        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta"
+        '
+        'ResumenDeLiquidacionesToolStripMenuItem
+        '
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Liquidaciones"
         '
         'VentaPacasContrato
         '
@@ -1378,6 +1801,11 @@ Partial Class VentaPacasContrato
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbCompras.ResumeLayout(False)
@@ -1466,7 +1894,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents DgvDatosLiquidacion As DataGridView
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents TP3PacasAVender As TabPage
-    Friend WithEvents DgvPacasVender As DataGridView
     Friend WithEvents GbFiltrado As GroupBox
     Friend WithEvents BtReiniciaFiltro As Button
     Friend WithEvents BtFiltro As Button
@@ -1480,7 +1907,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents DgvLiqVendidas As DataGridView
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents TP4IndividualVendidas As TabPage
-    Friend WithEvents DgvPacasIndVendidas As DataGridView
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents BtReiniciaFiltroCompra As Button
     Friend WithEvents BtFiltroCompra As Button
@@ -1508,7 +1934,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents TbDesdePaca As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TbPacasVendidasContrato As TextBox
-    Friend WithEvents ReporteHVIToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbIdPaqVtaVender As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents TbIdPaqVtaVendida As TextBox
@@ -1522,4 +1947,45 @@ Partial Class VentaPacasContrato
     Friend WithEvents CbPlantaVender As ComboBox
     Friend WithEvents ComparacionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtRecalcular As Button
+    Friend WithEvents BtConsultaPlastic As Button
+    Friend WithEvents BtConsultaOther As Button
+    Friend WithEvents BtConsultaPrep As Button
+    Friend WithEvents BtConsultaBark As Button
+    Friend WithEvents BtConsultaUI As Button
+    Friend WithEvents BtConsultaRF As Button
+    Friend WithEvents BtConsultaLF As Button
+    Friend WithEvents BtConsultaMicros As Button
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents ChPlasticLevel2 As CheckBox
+    Friend WithEvents ChOtherLevel2 As CheckBox
+    Friend WithEvents ChPrepLevel2 As CheckBox
+    Friend WithEvents ChBarkLevel2 As CheckBox
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents ChPlasticLevel1 As CheckBox
+    Friend WithEvents ChOtherLevel1 As CheckBox
+    Friend WithEvents ChPrepLevel1 As CheckBox
+    Friend WithEvents ChBarkLevel1 As CheckBox
+    Friend WithEvents CbModoPlastic As ComboBox
+    Friend WithEvents CbModoOther As ComboBox
+    Friend WithEvents CbModoPrep As ComboBox
+    Friend WithEvents CbModoBark As ComboBox
+    Friend WithEvents ChPlastic As CheckBox
+    Friend WithEvents ChOther As CheckBox
+    Friend WithEvents ChPrep As CheckBox
+    Friend WithEvents ChBark As CheckBox
+    Friend WithEvents CbModoUniformidad As ComboBox
+    Friend WithEvents CbModoResistenciaFibra As ComboBox
+    Friend WithEvents CbModoLargoFibra As ComboBox
+    Friend WithEvents ChUniformidad As CheckBox
+    Friend WithEvents ChResistenciaFibra As CheckBox
+    Friend WithEvents ChLargoFibra As CheckBox
+    Friend WithEvents ChMicros As CheckBox
+    Friend WithEvents CbModoMicros As ComboBox
+    Friend WithEvents DgvPacasVender As DataGridView
+    Friend WithEvents DgvPacasIndVendidas As DataGridView
+    Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteHVIToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ResumenDeVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DetalleDeVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResumenDeLiquidacionesToolStripMenuItem As ToolStripMenuItem
 End Class

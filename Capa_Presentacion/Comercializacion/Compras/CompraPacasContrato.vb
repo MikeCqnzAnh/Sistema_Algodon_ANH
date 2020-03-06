@@ -225,6 +225,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+            EntidadCompraPacasContrato.IdModoEncabezadoMicros = 1
             EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -243,6 +244,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = 1
             EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -261,6 +263,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = 1
             EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -279,6 +282,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
+            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = 1
             EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta

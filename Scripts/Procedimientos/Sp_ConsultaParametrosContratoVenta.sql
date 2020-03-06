@@ -15,12 +15,15 @@ Select IdParametroContrato
 	  ,IdModoBark
 	  ,CheckBarkLevel1
 	  ,CheckBarkLevel2
+	  ,CheckPrep
 	  ,IdModoPrep
 	  ,CheckPrepLevel1
 	  ,CheckPrepLevel2
+	  ,CheckOther
 	  ,IdModoOther
 	  ,CheckOtherLevel1
 	  ,CheckOtherLevel2
+	  ,CheckPlastic
 	  ,IdModoPlastic
 	  ,CheckPlasticLevel1
 	  ,CheckPlasticLevel2

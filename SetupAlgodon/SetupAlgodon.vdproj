@@ -334,6 +334,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0E2B3D083B6EF729812A388058D55C3D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -353,12 +359,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_481760F72CD129734314AEC03F387AFE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_853889A7AD01C95A7309D3B7DFAC8295"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -533,6 +533,11 @@
             "AssemblyAsmDisplayName" = "8:Capa_Negocio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_0E2B3D083B6EF729812A388058D55C3D"
+                    {
+                    "Name" = "8:Capa_Negocio.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Capa_Negocio.dll"
             "TargetName" = "8:"
@@ -659,6 +664,11 @@
             "AssemblyAsmDisplayName" = "8:Capa_Operacion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_481760F72CD129734314AEC03F387AFE"
+                    {
+                    "Name" = "8:Capa_Operacion.exe"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Capa_Operacion.exe"
             "TargetName" = "8:"
@@ -716,6 +726,11 @@
             "AssemblyAsmDisplayName" = "8:Capa_Entidad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_4A47BE1DB22FF2497214F999A17975C8"
+                    {
+                    "Name" = "8:Capa_Entidad.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Capa_Entidad.dll"
             "TargetName" = "8:"
@@ -1437,6 +1452,11 @@
             "AssemblyAsmDisplayName" = "8:Capa_Datos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_FB42B4CA5588C7BD5083A86CC14349A8"
+                    {
+                    "Name" = "8:Capa_Datos.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Capa_Datos.dll"
             "TargetName" = "8:"
@@ -1534,15 +1554,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{2FBF1871-F664-4802-91F7-75B3F2D75DA2}"
-        "PackageCode" = "8:{A4BC568B-D924-4865-AEB0-47B70AC15EA7}"
+        "ProductCode" = "8:{021924A7-FE5F-4675-9831-A1FBAAAE7B5F}"
+        "PackageCode" = "8:{D6A47E32-FE90-47C5-8AB8-62F54520021B}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.36"
+        "ProductVersion" = "8:1.0.39"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -54,6 +54,7 @@
         ReporteVentaPacasResumen = 16
         ReporteVentaPacasDetallado = 17
         ReporteVentaHVI = 18
+        ReporteOrdenEmbarque = 19
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -64,6 +65,8 @@
         GuardarCompraPacasDet = 2
         GuardarVentaPacasDet = 3
         GuardarVentaPacasEnc = 4
+        GuardarEmbarqueEncabezado = 5
+        GuardarEmbarqueDetalle = 6
     End Enum
     '    '==============================================================================
     '    Public Class Formato
@@ -163,6 +166,11 @@
         ConsultaLargoFibraVentaCmb = 86
         ConsultaResistenciaVentaCmb = 87
         ConsultaUniformidadVentaCmb = 88
+        ConsultaCastigoMatExtVenta = 89
+        ConsultaParametrosContratoVenta = 90
+        ConsultaEmbarqueEncabezado = 91
+        ConsultaPaqueteEmbarcado = 92
+        ConsultaPacasEmbarcado = 93
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

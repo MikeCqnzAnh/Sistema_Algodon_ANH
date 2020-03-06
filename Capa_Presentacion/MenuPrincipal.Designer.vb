@@ -52,6 +52,7 @@ Partial Class MenuPrincipal
         Me.CastigosPorLargosDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CastigosPorResistenciaDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CastigosPorMicrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CastigosPorUniformidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CamionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComercializaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -174,7 +175,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.CastigosPorUniformidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -389,6 +390,13 @@ Partial Class MenuPrincipal
         Me.CastigosPorMicrosToolStripMenuItem1.Size = New System.Drawing.Size(291, 24)
         Me.CastigosPorMicrosToolStripMenuItem1.Tag = "242,1"
         Me.CastigosPorMicrosToolStripMenuItem1.Text = "Castigos por Micros"
+        '
+        'CastigosPorUniformidadToolStripMenuItem
+        '
+        Me.CastigosPorUniformidadToolStripMenuItem.Name = "CastigosPorUniformidadToolStripMenuItem"
+        Me.CastigosPorUniformidadToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
+        Me.CastigosPorUniformidadToolStripMenuItem.Tag = "243,1"
+        Me.CastigosPorUniformidadToolStripMenuItem.Text = "Castigos por Uniformidad"
         '
         'CamionesToolStripMenuItem
         '
@@ -633,7 +641,7 @@ Partial Class MenuPrincipal
         '
         'AlmacenesToolStripMenuItem
         '
-        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem})
+        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem})
         Me.AlmacenesToolStripMenuItem.Name = "AlmacenesToolStripMenuItem"
         Me.AlmacenesToolStripMenuItem.Size = New System.Drawing.Size(86, 23)
         Me.AlmacenesToolStripMenuItem.Tag = "58,0"
@@ -1258,12 +1266,12 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'CastigosPorUniformidadToolStripMenuItem
+        'OrdenDeEmbarquePacasToolStripMenuItem
         '
-        Me.CastigosPorUniformidadToolStripMenuItem.Name = "CastigosPorUniformidadToolStripMenuItem"
-        Me.CastigosPorUniformidadToolStripMenuItem.Size = New System.Drawing.Size(291, 24)
-        Me.CastigosPorUniformidadToolStripMenuItem.Tag = "243,1"
-        Me.CastigosPorUniformidadToolStripMenuItem.Text = "Castigos por Uniformidad"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Name = "OrdenDeEmbarquePacasToolStripMenuItem"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Tag = "244,58"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Text = "Orden de Embarque Pacas"
         '
         'MenuPrincipal
         '
@@ -1442,4 +1450,5 @@ Partial Class MenuPrincipal
     Friend WithEvents UnidadesDeComercializacionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CastigosPorMicrosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents CastigosPorUniformidadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenDeEmbarquePacasToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -13,12 +13,15 @@ Create Procedure Sp_InsertaParametrosContratoVenta
 @IdModoBark int,
 @CheckBarkLevel1 bit,
 @CheckBarkLevel2 bit,
+@CheckPrep bit,
 @IdModoPrep int,
 @CheckPrepLevel1 bit,
 @CheckPrepLevel2 bit,
+@CheckOther bit,
 @IdModoOther int,
 @CheckOtherLevel1 bit,
 @CheckOtherLevel2 bit,
+@CheckPlastic bit,
 @IdModoPlastic int,
 @CheckPlasticLevel1 bit,
 @CheckPlasticLevel2 bit
@@ -40,12 +43,15 @@ merge ParametrosContratoVenta as target
 			   ,@IdModoBark
 			   ,@CheckBarkLevel1
 			   ,@CheckBarkLevel2
+			   ,@CheckPrep
 			   ,@IdModoPrep
 			   ,@CheckPrepLevel1
 			   ,@CheckPrepLevel2
+			   ,@CheckOther
 			   ,@IdModoOther
 			   ,@CheckOtherLevel1
 			   ,@CheckOtherLevel2
+			   ,@CheckPlastic
 			   ,@IdModoPlastic
 			   ,@CheckPlasticLevel1
 			   ,@CheckPlasticLevel2
@@ -64,12 +70,15 @@ merge ParametrosContratoVenta as target
 			   ,IdModoBark
 			   ,CheckBarkLevel1
 			   ,CheckBarkLevel2
+			   ,CheckPrep
 			   ,IdModoPrep
 			   ,CheckPrepLevel1
 			   ,CheckPrepLevel2
+               ,CheckOther
 			   ,IdModoOther
 			   ,CheckOtherLevel1
 			   ,CheckOtherLevel2
+               ,CheckPlastic
 			   ,IdModoPlastic
 			   ,CheckPlasticLevel1
 			   ,CheckPlasticLevel2
@@ -88,18 +97,22 @@ merge ParametrosContratoVenta as target
 			   ,IdModoBark = Source.IdModoBark
 			   ,CheckBarkLevel1 = Source.CheckBarkLevel1
 			   ,CheckBarkLevel2 = Source.CheckBarkLevel2
+			   ,CheckPrep = Source.CheckPrep
 			   ,IdModoPrep = Source.IdModoPrep
 			   ,CheckPrepLevel1 = Source.CheckPrepLevel1
 			   ,CheckPrepLevel2 = Source.CheckPrepLevel2
+			   ,CheckOther = Source.CheckOther
 			   ,IdModoOther = Source.IdModoOther
 			   ,CheckOtherLevel1 = Source.CheckOtherLevel1
 			   ,CheckOtherLevel2 = Source.CheckOtherLevel2
+			   ,CheckPlastic = Source.CheckPlastic
 			   ,IdModoPlastic = Source.IdModoPlastic
 			   ,CheckPlasticLevel1 = Source.CheckPlasticLevel1
 			   ,CheckPlasticLevel2 = Source.CheckPlasticLevel2
  when not matched then
-	insert (CheckMicros
-		   ,IdModoMicros
+	insert ( IdContratoVenta
+			,CheckMicros
+		    ,IdModoMicros
 			,CheckLargo
 			,IdModoLargoFibra
 			,CheckResistencia
@@ -110,16 +123,20 @@ merge ParametrosContratoVenta as target
 			,IdModoBark
 			,CheckBarkLevel1
 			,CheckBarkLevel2
+			,CheckPrep
 			,IdModoPrep
 			,CheckPrepLevel1
 			,CheckPrepLevel2
+			,CheckOther
 			,IdModoOther
 			,CheckOtherLevel1
 			,CheckOtherLevel2
+			,CheckPlastic
 			,IdModoPlastic
 			,CheckPlasticLevel1
 			,CheckPlasticLevel2)
-	values (Source.CheckMicros
+	values ( Source.IdContratoVenta
+			,Source.CheckMicros
 			,Source.IdModoMicros
 			,Source.CheckLargo
 			,Source.IdModoLargoFibra
@@ -131,12 +148,15 @@ merge ParametrosContratoVenta as target
 			,Source.IdModoBark
 			,Source.CheckBarkLevel1
 			,Source.CheckBarkLevel2
+			,Source.CheckPrep
 			,Source.IdModoPrep
 			,Source.CheckPrepLevel1
 			,Source.CheckPrepLevel2
+			,Source.CheckOther
 			,Source.IdModoOther
 			,Source.CheckOtherLevel1
 			,Source.CheckOtherLevel2
+			,Source.IdModoPlastic
 			,Source.IdModoPlastic
 			,Source.CheckPlasticLevel1
 			,Source.CheckPlasticLevel2);

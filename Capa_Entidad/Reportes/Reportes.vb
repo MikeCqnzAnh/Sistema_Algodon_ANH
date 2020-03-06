@@ -19,5 +19,7 @@
     Public IdComprador As Integer
     Public Mayor As Boolean
     Public Menor As Boolean
+    Public IdEmbarqueEncabezado As Integer
+    Public NoLote As String
     '------------------------------
 End Class

@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.36.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.39.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -148,6 +148,12 @@
     <Compile Include="Almacenes\ExistenciaBodegaPacas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Almacenes\OrdenEmbarquePacas.Designer.vb">
+      <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\OrdenEmbarquePacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Almacenes\SalidaBasura.Designer.vb">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
     </Compile>
@@ -212,6 +218,60 @@
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Comercializacion\Ventas\ComparacionVentaVsCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.Designer.vb">
+      <DependentUpon>CastigosBarkVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.Designer.vb">
+      <DependentUpon>CastigosLargoFibraVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.Designer.vb">
+      <DependentUpon>CastigosMicrosVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.Designer.vb">
+      <DependentUpon>CastigosOtherVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.Designer.vb">
+      <DependentUpon>CastigosPlasticVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.Designer.vb">
+      <DependentUpon>CastigosPrepVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.Designer.vb">
+      <DependentUpon>CastigosResistenciaFibraVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.Designer.vb">
+      <DependentUpon>CastigosUniformidadVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarque.Designer.vb">
+      <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarque.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DsReportes.Designer.vb">
@@ -439,6 +499,12 @@
     <Compile Include="Reportes\RepLotesPorModulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepOrdenEmbarque.Designer.vb">
+      <DependentUpon>RepOrdenEmbarque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepOrdenEmbarque.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPacasDetalleAgrupadoPorClase.Designer.vb">
       <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
     </Compile>
@@ -563,6 +629,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTModulosPorProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTOrdenEmbarque.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTOrdenEmbarque.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTPacasDetallado.vb">
@@ -988,6 +1060,9 @@
     <EmbeddedResource Include="Almacenes\ExistenciaBodegaPacas.resx">
       <DependentUpon>ExistenciaBodegaPacas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\OrdenEmbarquePacas.resx">
+      <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaBasura.resx">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1100,8 +1175,35 @@
     <EmbeddedResource Include="Comercializacion\Ventas\ComparacionVentaVsCliente.resx">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosBarkVenta.resx">
+      <DependentUpon>CastigosBarkVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosLargoFibraVenta.resx">
+      <DependentUpon>CastigosLargoFibraVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosMicrosVenta.resx">
+      <DependentUpon>CastigosMicrosVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosOtherVenta.resx">
+      <DependentUpon>CastigosOtherVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPlasticVenta.resx">
+      <DependentUpon>CastigosPlasticVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosPrepVenta.resx">
+      <DependentUpon>CastigosPrepVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosResistenciaFibraVenta.resx">
+      <DependentUpon>CastigosResistenciaFibraVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.resx">
+      <DependentUpon>CastigosUniformidadVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarque.resx">
+      <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
@@ -1129,6 +1231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepLotesPorModulo.resx">
       <DependentUpon>RepLotesPorModulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepOrdenEmbarque.resx">
+      <DependentUpon>RepOrdenEmbarque.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasDetalleAgrupadoPorClase.resx">
       <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
@@ -1206,6 +1311,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTModulosPorProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTModulosPorProductor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTOrdenEmbarque.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTOrdenEmbarque.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPacasDetallado.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

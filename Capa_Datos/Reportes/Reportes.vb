@@ -155,6 +155,15 @@ Public Class Reportes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteOrdenEmbarque
+                    sqlcom1 = New SqlCommand("Sp_ConsultaReporteOrdenEmbarque", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@HabilitaKilos", EntidadReportes1.CheckStatus))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadReportes1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadReportes1.NoLote))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex)

@@ -1,6 +1,7 @@
-Create Procedure Sp_CastigoMicros
+alter Procedure Sp_CastigoMicros
+@IdModoEncabezado int,
 @Micros as float
 as
 select castigo
-from Micros
-where @Micros between rango1 and Rango2
+from MicrosDetalle
+where @Micros between rango1 and Rango2 and IdModoEncabezado = @IdModoEncabezado
