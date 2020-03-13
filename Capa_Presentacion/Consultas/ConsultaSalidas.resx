@@ -117,18 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MSMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BtnBuscarEmbarque.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAQNJREFUOE+tkr1OAkEURtdKKO0VO97ExMQ3seEnPIINWGnpQ/gUGk0EC0J4BUqg
-        0NDhObtLsjvOuCHxS04yM5n73Tv3TlZRG0bwCbuSGQyhBX/qEpawhxcYwwRey7MFXEBUZjZ4DVfQhT4c
-        dA0b0OTUg1CWbRaDb2EFj1CVJt4Z5LtAvtmyzWzwOcT0BtNiWZfN8s2WHWau6h6+i2VdGtiwJiUNHJXd
-        btI7fBTLupyzDbJRKd2Ad3r5LpCfxBE5qpiJwVuYwxmcwC/5STQxi932vWLZnhncgWd4gqiJlThnR2Wz
-        xDdbtpkN1kySJil52aCDwb+ZPMBRCk2+4GhpYmaCs7sfWAxIt+QWnG4AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

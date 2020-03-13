@@ -22,7 +22,7 @@ Public Class ConsultaOrdenEmbarque
             Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
             Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
             Dim Tabla As New DataTable
-            EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
+            EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaPacasEmbarcado
             EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
             EntidadOrdenEmbarquePacas.NombreComprador = TbNombreComprador.Text
             NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)

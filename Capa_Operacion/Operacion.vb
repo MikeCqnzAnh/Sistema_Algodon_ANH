@@ -67,6 +67,7 @@
         GuardarVentaPacasEnc = 4
         GuardarEmbarqueEncabezado = 5
         GuardarEmbarqueDetalle = 6
+        GuardarSalidaPacas = 7
     End Enum
     '    '==============================================================================
     '    Public Class Formato
@@ -171,6 +172,8 @@
         ConsultaEmbarqueEncabezado = 91
         ConsultaPaqueteEmbarcado = 92
         ConsultaPacasEmbarcado = 93
+        ConsultaSalidaPacas = 94
+        ConsultaEmbarqueParaSalida = 95
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
