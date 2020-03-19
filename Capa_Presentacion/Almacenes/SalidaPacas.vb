@@ -53,7 +53,7 @@ Public Class SalidaPacas
         ConsultaOrdenEmbarque.ShowDialog()
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ""
-        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaSalidaPacas
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
         If Tabla.Rows.Count = 0 Then
@@ -224,10 +224,32 @@ Public Class SalidaPacas
             End If
             CbEstatus.SelectedValue = Tabla.Rows(0).Item("EstatusSalida")
             CbNoLote.Text = Tabla.Rows(0).Item("NoLote")
+            PropiedadesDgv()
             SeleccionaLoteCombo()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Private Sub PropiedadesDgv()
+        DgvPacas.Columns("IdSalidaEncabezado").HeaderText = "ID Salida"
+        DgvPacas.Columns("IdEmbarqueEncabezado").HeaderText = "ID Embarque"
+        DgvPacas.Columns("IdComprador").Visible = False
+        DgvPacas.Columns("Nombre").HeaderText = "Comprador"
+        DgvPacas.Columns("NombreChofer").HeaderText = "Chofer"
+        DgvPacas.Columns("PlacaTractoCamion").HeaderText = "Placas Camion"
+        DgvPacas.Columns("NoLicencia").Visible = False
+        DgvPacas.Columns("Telefono").Visible = False
+        DgvPacas.Columns("Destino").Visible = False
+        DgvPacas.Columns("NoFactura").Visible = False
+        DgvPacas.Columns("FechaSalida").HeaderText = ""
+        DgvPacas.Columns("FechaEntrada").HeaderText = ""
+        DgvPacas.Columns("Observaciones").HeaderText = ""
+        DgvPacas.Columns("NoContenedorCaja1").HeaderText = ""
+        DgvPacas.Columns("NoContenedorCaja2").HeaderText = ""
+        DgvPacas.Columns("PlacaCaja1").HeaderText = ""
+        DgvPacas.Columns("PlacaCaja2").HeaderText = ""
+        DgvPacas.Columns("NoLote1").HeaderText = ""
+        DgvPacas.Columns("NoLote2").HeaderText = ""
     End Sub
     Private Sub ConsultarPacas(ByVal IdEmbarqueEncabezado As Integer, ByVal NoLote As String)
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas

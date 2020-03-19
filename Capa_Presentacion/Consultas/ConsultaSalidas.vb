@@ -28,9 +28,31 @@ Public Class ConsultaSalidas
             EntidadSalidaPacas.NombreComprador = TbNombreComprador.Text
             NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
             DgvSalidas.DataSource = EntidadSalidaPacas.TablaConsulta
+            PropiedadesDgv()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Private Sub PropiedadesDgv()
+        DgvSalidas.Columns("IdSalidaEncabezado").HeaderText = "ID Salida"
+        DgvSalidas.Columns("IdEmbarqueEncabezado").HeaderText = "ID Embarque"
+        DgvSalidas.Columns("IdComprador").Visible = False
+        DgvSalidas.Columns("Nombre").HeaderText = "Comprador"
+        DgvSalidas.Columns("NombreChofer").HeaderText = "Chofer"
+        DgvSalidas.Columns("PlacaTractoCamion").HeaderText = "Placas Camion"
+        DgvSalidas.Columns("NoLicencia").Visible = False
+        DgvSalidas.Columns("Telefono").Visible = False
+        DgvSalidas.Columns("Destino").Visible = False
+        DgvSalidas.Columns("NoFactura").Visible = False
+        DgvSalidas.Columns("FechaSalida").HeaderText = ""
+        DgvSalidas.Columns("FechaEntrada").HeaderText = ""
+        DgvSalidas.Columns("Observaciones").HeaderText = ""
+        DgvSalidas.Columns("NoContenedorCaja1").HeaderText = ""
+        DgvSalidas.Columns("NoContenedorCaja2").HeaderText = ""
+        DgvSalidas.Columns("PlacaCaja1").HeaderText = ""
+        DgvSalidas.Columns("PlacaCaja2").HeaderText = ""
+        DgvSalidas.Columns("NoLote1").HeaderText = ""
+        DgvSalidas.Columns("NoLote2").HeaderText = ""
     End Sub
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         ConsultaSalida()
