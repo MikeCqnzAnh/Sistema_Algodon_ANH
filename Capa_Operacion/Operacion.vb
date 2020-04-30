@@ -55,6 +55,8 @@
         ReporteVentaPacasDetallado = 17
         ReporteVentaHVI = 18
         ReporteOrdenEmbarque = 19
+        ReporteDisponibilidadPacasProductor = 20
+        ReportePesosSalidaPacas = 21
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

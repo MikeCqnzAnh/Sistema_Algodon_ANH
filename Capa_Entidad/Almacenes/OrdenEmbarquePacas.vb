@@ -19,6 +19,7 @@
     Public NoContenedorInd As String
     Public PlacaCaja1 As String
     Public PlacaCaja2 As String
+    Public PlacaCaja As String
     Public BaleID As Integer
     Public IdPlanta As Integer
     Public IdEmbarqueDetalle As Integer

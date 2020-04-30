@@ -4,6 +4,7 @@
     Public NoLote As String
     Public IdSalidaEncabezado As Integer
     Public NombreComprador As String
+    Public NoContenedor As String
     Public PesoBruto As Double
     Public PesoTara As Double
     Public PesoNeto As Double

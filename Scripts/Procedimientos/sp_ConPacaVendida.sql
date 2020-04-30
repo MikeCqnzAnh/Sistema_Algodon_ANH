@@ -1,4 +1,4 @@
-Alter procedure sp_ConPacaVendida
+CREATE procedure sp_ConPacaVendida
 @IdVentaEnc int ,
 @Seleccionar bit = 0 
 as
@@ -38,4 +38,4 @@ select cc.IdPaqueteEncabezado,
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 2 and cc.IdVentaEnc = @IdVentaEnc
-		order by cc.IdPaqueteEncabezado
+		order by cc.IdPaqueteEncabezado,cc.BaleID

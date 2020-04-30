@@ -68,11 +68,40 @@ Public Class SalidaPacas
                     sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadSalidaPacas1.IdEmbarqueEncabezado))
                     sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadSalidaPacas1.NoLote))
                     sqldat1.Fill(EntidadSalidaPacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompradores
+                    sqlcom1 = New SqlCommand("Sp_ConsultaCompradorSalidas", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadSalidaPacas1.NombreComprador))
+                    sqldat1.Fill(EntidadSalidaPacas1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally
             cnn.Close()
             EntidadSalidaPacas = EntidadSalidaPacas1
+        End Try
+    End Sub
+    Public Overridable Sub Actualizar(ByRef EntidadSalidaPacas As Capa_Entidad.SalidaPacas)
+        Dim EntidadSalidaPacas1 As New Capa_Entidad.SalidaPacas
+        EntidadSalidaPacas1 = EntidadSalidaPacas
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("Sp_ActualizaSalidaPacas", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdSalidaPaca", CInt(EntidadSalidaPacas1.IdSalidaEncabezado)))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadSalidaPacas1.IdEmbarqueEncabezado))
+            cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedor", EntidadSalidaPacas1.NoContenedor))
+            cmdGuardar.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadSalidaPacas1.EstatusSalida))
+            cmdGuardar.ExecuteNonQuery()
+        Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
+        Finally
+            cnn.Close()
+            'EntidadSalidaPacas = EntidadSalidaPacas1
         End Try
     End Sub
 End Class

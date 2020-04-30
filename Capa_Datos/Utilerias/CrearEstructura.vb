@@ -66,7 +66,7 @@ Public Class CrearEstructura
             cnn.Open()
             Select Case EntidadCrearEstructura1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
-                    Dim selectSQL As String = “select name from sys.databases where name like '%Algodon%';”
+                    Dim selectSQL As String = “select name from sys.databases where name like 'Algodon%';”
                     sqldat1 = New SqlDataAdapter(selectSQL, cnn)
                     sqldat1.Fill(EntidadCrearEstructura1.TablaConsulta)
             End Select

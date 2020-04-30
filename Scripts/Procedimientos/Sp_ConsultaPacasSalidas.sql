@@ -1,6 +1,7 @@
-alter Procedure Sp_ConsultaPacasSalidas
-@IdEmbarqueEncabezado int,
-@NoLote varchar(15)
+Create Procedure Sp_ConsultaPacasSalidas
+--declare
+@IdEmbarqueEncabezado int ,
+@NoLote varchar(15) 
 as
 select IdEmbarqueEncabezado
 	  ,IdSalidaEncabezado
@@ -14,5 +15,5 @@ select IdEmbarqueEncabezado
 	  ,EstatusEmbarque
 	  ,EstatusSalida 
 from EmbarqueDetalle
-where IdEmbarqueEncabezado = @IdEmbarqueEncabezado and NoLote = @NoLote and estatussalida <> 1
+where IdEmbarqueEncabezado = @IdEmbarqueEncabezado and NoLote = @NoLote --and estatussalida <> 1
 order by BaleID

@@ -87,6 +87,7 @@ Partial Class MenuPrincipal
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDeSemillaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDePacasDeBorraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -127,11 +128,13 @@ Partial Class MenuPrincipal
         Me.PacasFaltantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaDePacasToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaDeSemillaToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaDePacasDeBorraToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaDeBasuraToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComparativaDePesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SagarpaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidaDePacasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidaDeSemillaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidaDePacasDeBorraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidaDeBasuraToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesDeEventosPorIncidenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDiarioDeTrabajoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +178,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -647,6 +649,13 @@ Partial Class MenuPrincipal
         Me.AlmacenesToolStripMenuItem.Tag = "58,0"
         Me.AlmacenesToolStripMenuItem.Text = "Almacenes"
         '
+        'OrdenDeEmbarquePacasToolStripMenuItem
+        '
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Name = "OrdenDeEmbarquePacasToolStripMenuItem"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Tag = "244,58"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Text = "Orden de Embarque Pacas"
+        '
         'SalidaDePacasToolStripMenuItem
         '
         Me.SalidaDePacasToolStripMenuItem.Name = "SalidaDePacasToolStripMenuItem"
@@ -706,7 +715,7 @@ Partial Class MenuPrincipal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem1, Me.SalidaDeSemillaToolStripMenuItem1, Me.SalidaDePacasDeBorraToolStripMenuItem1, Me.SalidaDeBasuraToolStripMenuItem1, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.SalidasToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ReportesToolStripMenuItem.Tag = "67,0"
@@ -932,40 +941,55 @@ Partial Class MenuPrincipal
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Tag = "95,67"
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Text = "Existencia de Semilla en Patios"
         '
+        'SalidasToolStripMenuItem
+        '
+        Me.SalidasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalidaDePacasToolStripMenuItem2, Me.SalidaDeSemillaToolStripMenuItem2, Me.SalidaDePacasDeBorraToolStripMenuItem2, Me.SalidaDeBasuraToolStripMenuItem2, Me.ComparativaDePesosToolStripMenuItem})
+        Me.SalidasToolStripMenuItem.Name = "SalidasToolStripMenuItem"
+        Me.SalidasToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
+        Me.SalidasToolStripMenuItem.Tag = "67,245"
+        Me.SalidasToolStripMenuItem.Text = "Salidas"
+        '
+        'SalidaDePacasToolStripMenuItem2
+        '
+        Me.SalidaDePacasToolStripMenuItem2.Name = "SalidaDePacasToolStripMenuItem2"
+        Me.SalidaDePacasToolStripMenuItem2.Size = New System.Drawing.Size(226, 24)
+        Me.SalidaDePacasToolStripMenuItem2.Tag = "97,245"
+        Me.SalidaDePacasToolStripMenuItem2.Text = "Salida de Pacas"
+        '
+        'SalidaDeSemillaToolStripMenuItem2
+        '
+        Me.SalidaDeSemillaToolStripMenuItem2.Name = "SalidaDeSemillaToolStripMenuItem2"
+        Me.SalidaDeSemillaToolStripMenuItem2.Size = New System.Drawing.Size(226, 24)
+        Me.SalidaDeSemillaToolStripMenuItem2.Tag = "98,245"
+        Me.SalidaDeSemillaToolStripMenuItem2.Text = "Salida de Semilla"
+        '
+        'SalidaDePacasDeBorraToolStripMenuItem2
+        '
+        Me.SalidaDePacasDeBorraToolStripMenuItem2.Name = "SalidaDePacasDeBorraToolStripMenuItem2"
+        Me.SalidaDePacasDeBorraToolStripMenuItem2.Size = New System.Drawing.Size(226, 24)
+        Me.SalidaDePacasDeBorraToolStripMenuItem2.Tag = "99,245"
+        Me.SalidaDePacasDeBorraToolStripMenuItem2.Text = "Salida de Pacas de Borra"
+        '
+        'SalidaDeBasuraToolStripMenuItem2
+        '
+        Me.SalidaDeBasuraToolStripMenuItem2.Name = "SalidaDeBasuraToolStripMenuItem2"
+        Me.SalidaDeBasuraToolStripMenuItem2.Size = New System.Drawing.Size(226, 24)
+        Me.SalidaDeBasuraToolStripMenuItem2.Tag = "100,245"
+        Me.SalidaDeBasuraToolStripMenuItem2.Text = "Salida de Basura"
+        '
+        'ComparativaDePesosToolStripMenuItem
+        '
+        Me.ComparativaDePesosToolStripMenuItem.Name = "ComparativaDePesosToolStripMenuItem"
+        Me.ComparativaDePesosToolStripMenuItem.Size = New System.Drawing.Size(226, 24)
+        Me.ComparativaDePesosToolStripMenuItem.Tag = "246,245"
+        Me.ComparativaDePesosToolStripMenuItem.Text = "Comparativa de Pesos"
+        '
         'SagarpaToolStripMenuItem
         '
         Me.SagarpaToolStripMenuItem.Name = "SagarpaToolStripMenuItem"
         Me.SagarpaToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.SagarpaToolStripMenuItem.Tag = "96,67"
         Me.SagarpaToolStripMenuItem.Text = "Sagarpa"
-        '
-        'SalidaDePacasToolStripMenuItem1
-        '
-        Me.SalidaDePacasToolStripMenuItem1.Name = "SalidaDePacasToolStripMenuItem1"
-        Me.SalidaDePacasToolStripMenuItem1.Size = New System.Drawing.Size(349, 24)
-        Me.SalidaDePacasToolStripMenuItem1.Tag = "97,67"
-        Me.SalidaDePacasToolStripMenuItem1.Text = "Salida de Pacas"
-        '
-        'SalidaDeSemillaToolStripMenuItem1
-        '
-        Me.SalidaDeSemillaToolStripMenuItem1.Name = "SalidaDeSemillaToolStripMenuItem1"
-        Me.SalidaDeSemillaToolStripMenuItem1.Size = New System.Drawing.Size(349, 24)
-        Me.SalidaDeSemillaToolStripMenuItem1.Tag = "98,67"
-        Me.SalidaDeSemillaToolStripMenuItem1.Text = "Salida de Semilla"
-        '
-        'SalidaDePacasDeBorraToolStripMenuItem1
-        '
-        Me.SalidaDePacasDeBorraToolStripMenuItem1.Name = "SalidaDePacasDeBorraToolStripMenuItem1"
-        Me.SalidaDePacasDeBorraToolStripMenuItem1.Size = New System.Drawing.Size(349, 24)
-        Me.SalidaDePacasDeBorraToolStripMenuItem1.Tag = "99,67"
-        Me.SalidaDePacasDeBorraToolStripMenuItem1.Text = "Salida de Pacas de Borra"
-        '
-        'SalidaDeBasuraToolStripMenuItem1
-        '
-        Me.SalidaDeBasuraToolStripMenuItem1.Name = "SalidaDeBasuraToolStripMenuItem1"
-        Me.SalidaDeBasuraToolStripMenuItem1.Size = New System.Drawing.Size(349, 24)
-        Me.SalidaDeBasuraToolStripMenuItem1.Tag = "100,67"
-        Me.SalidaDeBasuraToolStripMenuItem1.Text = "Salida de Basura"
         '
         'ReportesDeEventosPorIncidenciaToolStripMenuItem
         '
@@ -1266,13 +1290,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'OrdenDeEmbarquePacasToolStripMenuItem
-        '
-        Me.OrdenDeEmbarquePacasToolStripMenuItem.Name = "OrdenDeEmbarquePacasToolStripMenuItem"
-        Me.OrdenDeEmbarquePacasToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.OrdenDeEmbarquePacasToolStripMenuItem.Tag = "244,58"
-        Me.OrdenDeEmbarquePacasToolStripMenuItem.Text = "Orden de Embarque Pacas"
-        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1382,10 +1399,6 @@ Partial Class MenuPrincipal
     Friend WithEvents ExistenciaDeHuesoEnPatiosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExistenciaDeSemillaEnPatiosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SagarpaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SalidaDePacasToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents SalidaDeSemillaToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents SalidaDePacasDeBorraToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents SalidaDeBasuraToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ReportesDeEventosPorIncidenciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDiarioDeTrabajoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeCertificadosFitosanitariosToolStripMenuItem As ToolStripMenuItem
@@ -1451,4 +1464,10 @@ Partial Class MenuPrincipal
     Friend WithEvents CastigosPorMicrosToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents CastigosPorUniformidadToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenDeEmbarquePacasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalidasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalidaDePacasToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SalidaDeSemillaToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SalidaDePacasDeBorraToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents SalidaDeBasuraToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ComparativaDePesosToolStripMenuItem As ToolStripMenuItem
 End Class

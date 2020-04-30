@@ -239,6 +239,7 @@ Public Class OrdenEmbarquePacas
     End Function
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         GuardarEncabezado()
+        'GuardaEmbarqueDetalle()
     End Sub
     Private Sub GuardaEmbarqueDetalle()
         DgvPacasDisponibles.EndEdit()
@@ -294,7 +295,6 @@ Public Class OrdenEmbarquePacas
             EntidadOrdenEmbarquePacas.Guarda = Guardar.GuardarEmbarqueDetalle
             EntidadOrdenEmbarquePacas.IdEmbarqueDetalle = 0
             EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = TbIdEmbarque.Text
-            EntidadOrdenEmbarquePacas.IdSalida = vbNull
             EntidadOrdenEmbarquePacas.IdComprador = TbIdComprador.Text
             EntidadOrdenEmbarquePacas.IdVentaEnc = IdVenta
             EntidadOrdenEmbarquePacas.IdPlanta = IdPlanta
@@ -302,6 +302,7 @@ Public Class OrdenEmbarquePacas
             EntidadOrdenEmbarquePacas.Kilos = Kilos
             EntidadOrdenEmbarquePacas.NoContenedorInd = IIf(RbSeleccionaCaja1.Checked = True, TbNoContenedor1.Text, TbNoContenedor2.Text)
             EntidadOrdenEmbarquePacas.NoLoteInd = IIf(RbSeleccionaCaja1.Checked = True, TbNoLote1.Text, TbNoLote2.Text)
+            EntidadOrdenEmbarquePacas.PlacaCaja = IIf(RbSeleccionaCaja1.Checked = True, TbPlacaCaja1.Text, TbPlacaCaja2.Text)
             EntidadOrdenEmbarquePacas.EstatusEmbarque = 0
             EntidadOrdenEmbarquePacas.EstatusSalida = 0
             NegocioOrdenEmbarquePacas.Guardar(EntidadOrdenEmbarquePacas)

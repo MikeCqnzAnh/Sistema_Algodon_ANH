@@ -410,6 +410,19 @@ Public Class MenuPrincipal
     Private Sub OrdenDeEmbarquePacasToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePacasToolStripMenuItem.Click
         OrdenEmbarquePacas.ShowDialog()
     End Sub
+
+    Private Sub PacasPorClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorClienteToolStripMenuItem.Click
+        RepDisponibilidadPacasProductor.ShowDialog()
+    End Sub
+
+    Private Sub SalidaDePacasToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SalidaDePacasToolStripMenuItem2.Click
+
+    End Sub
+
+    Private Sub ComparativaDePesosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComparativaDePesosToolStripMenuItem.Click
+        RepSalidaPacas.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

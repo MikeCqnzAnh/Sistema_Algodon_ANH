@@ -23,7 +23,7 @@ SELECT count(BaleID) FROM CalculoClasificacion WHERE IdVentaEnc = 18 group by ba
 
     select round(mic,2,1) as mic
     from CalculoClasificacion
-	 WHERE IdVentaEnc = 18) res) tabla
+	 WHERE IdVentaEnc = 12) res) tabla
     group by rango_Tabla order by rango_Tabla;
 
-	select * from CalculoClasificacion where IdVentaEnc = 18 order by Mic
+	select * from CalculoClasificacion where IdVentaEnc = 12 order by Mic

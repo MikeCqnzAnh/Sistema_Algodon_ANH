@@ -10,7 +10,8 @@ Public Class ConsultaSalidas
     End Property
 
     Private Sub ConsultaSalidas_Load(sender As Object, e As EventArgs) Handles Me.Load
-        _Id = 0
+        Id = 0
+        DgvSalidas.DataSource = ""
     End Sub
     Private Sub Limpiar()
         TbIdSalida.Text = ""
@@ -44,15 +45,19 @@ Public Class ConsultaSalidas
         DgvSalidas.Columns("Telefono").Visible = False
         DgvSalidas.Columns("Destino").Visible = False
         DgvSalidas.Columns("NoFactura").Visible = False
-        DgvSalidas.Columns("FechaSalida").HeaderText = ""
-        DgvSalidas.Columns("FechaEntrada").HeaderText = ""
-        DgvSalidas.Columns("Observaciones").HeaderText = ""
-        DgvSalidas.Columns("NoContenedorCaja1").HeaderText = ""
-        DgvSalidas.Columns("NoContenedorCaja2").HeaderText = ""
-        DgvSalidas.Columns("PlacaCaja1").HeaderText = ""
-        DgvSalidas.Columns("PlacaCaja2").HeaderText = ""
-        DgvSalidas.Columns("NoLote1").HeaderText = ""
-        DgvSalidas.Columns("NoLote2").HeaderText = ""
+        DgvSalidas.Columns("FechaSalida").Visible = False
+        DgvSalidas.Columns("FechaEntrada").HeaderText = "Fecha Entrada"
+        DgvSalidas.Columns("Observaciones").Visible = False
+        DgvSalidas.Columns("NoContenedorCaja1").Visible = False
+        DgvSalidas.Columns("NoContenedorCaja2").Visible = False
+        DgvSalidas.Columns("PlacaCaja1").Visible = False
+        DgvSalidas.Columns("PlacaCaja2").Visible = False
+        DgvSalidas.Columns("NoLote1").Visible = False
+        DgvSalidas.Columns("NoLote2").Visible = False
+        DgvSalidas.Columns("PesoBruto").Visible = False
+        DgvSalidas.Columns("PesoTara").Visible = False
+        DgvSalidas.Columns("PesoNeto").Visible = False
+        DgvSalidas.Columns("EstatusSalida").Visible = False
     End Sub
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         ConsultaSalida()

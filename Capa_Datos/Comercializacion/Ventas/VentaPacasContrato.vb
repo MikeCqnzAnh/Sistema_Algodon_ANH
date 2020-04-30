@@ -115,7 +115,7 @@ Public Class VentaPacasContrato
                         cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVentaUpdate")))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVentaBusqueda", MiTableRow("EstatusVentaBusqueda")))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", MiTableRow("EstatusEmbarque")))
+                        'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", MiTableRow("EstatusEmbarque")))
                         cmdGuardar.ExecuteNonQuery()
                     Next
             End Select

@@ -1,7 +1,6 @@
-Create Procedure Sp_InsertaEmbarqueDetalle
+alter Procedure Sp_InsertaEmbarqueDetalle
 @IdEmbarqueDetalle int,
 @IdEmbarqueEncabezado int,
-@IdSalidaEncabezado int,
 @IdComprador int,
 @IdVentaEnc int,
 @IdPlanta int,
@@ -9,6 +8,7 @@ Create Procedure Sp_InsertaEmbarqueDetalle
 @Kilos int,
 @NoContenedor varchar(13),
 @NoLote varchar(12),
+@PlacaCaja varchar(13),
 @EstatusEmbarque int,
 @EstatusSalida int
 as
@@ -17,7 +17,6 @@ set nocount on
 merge EmbarqueDetalle as target
 using (select @IdEmbarqueDetalle
 			 ,@IdEmbarqueEncabezado
-			 ,@IdSalidaEncabezado
 			 ,@IdComprador
 			 ,@IdVentaEnc
 			 ,@IdPlanta
@@ -25,12 +24,12 @@ using (select @IdEmbarqueDetalle
 			 ,@Kilos
 			 ,@NoContenedor
 			 ,@NoLote
+			 ,@PlacaCaja
 			 ,@EstatusEmbarque
 			 ,@EstatusSalida
 		)
 as Source(IdEmbarqueDetalle
 			 ,IdEmbarqueEncabezado
-			 ,IdSalidaEncabezado
 			 ,IdComprador
 			 ,IdVentaEnc
 			 ,IdPlanta
@@ -38,13 +37,13 @@ as Source(IdEmbarqueDetalle
 			 ,Kilos
 			 ,NoContenedor
 			 ,NoLote
+			 ,PlacaCaja
 			 ,EstatusEmbarque
 			 ,EstatusSalida
 		)
 on (target.baleid = source.baleid and target.IdEmbarqueDetalle = source.IdEmbarqueDetalle)
 when matched then
 update set IdEmbarqueEncabezado = source.IdEmbarqueEncabezado
-			 ,IdSalidaEncabezado = source.IdSalidaEncabezado
 			 ,IdComprador = source.IdComprador
 			 ,IdVentaEnc = source.IdVentaEnc
 			 ,IdPlanta = source.IdPlanta
@@ -52,11 +51,11 @@ update set IdEmbarqueEncabezado = source.IdEmbarqueEncabezado
 			 ,Kilos = source.Kilos
 			 ,NoContenedor = source.NoContenedor
 			 ,NoLote = Source.NoLote
+			 ,PlacaCaja = Source.PlacaCaja
 			 ,EstatusEmbarque = source.EstatusEmbarque
 			 ,EstatusSalida = source.EstatusSalida
 when not matched then 
 insert(IdEmbarqueEncabezado
-			 ,IdSalidaEncabezado
 			 ,IdComprador
 			 ,IdVentaEnc
 			 ,IdPlanta
@@ -64,10 +63,10 @@ insert(IdEmbarqueEncabezado
 			 ,Kilos
 			 ,NoContenedor
 			 ,NoLote
+			 ,PlacaCaja
 			 ,EstatusEmbarque
 			 ,EstatusSalida)
 values(source.IdEmbarqueEncabezado
-			 ,source.IdSalidaEncabezado
 			 ,source.IdComprador
 			 ,source.IdVentaEnc
 			 ,source.IdPlanta
@@ -75,6 +74,7 @@ values(source.IdEmbarqueEncabezado
 			 ,source.Kilos
 			 ,source.NoContenedor
 			 ,source.NoLote
+			 ,source.PlacaCaja
 			 ,source.EstatusEmbarque
 			 ,source.EstatusSalida);
 end

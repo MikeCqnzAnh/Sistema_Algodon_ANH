@@ -34,6 +34,7 @@ Public Class SalidaPacas
         NoLote1 = ""
         NoLote2 = ""
         CbEstatus.SelectedIndex = -1
+        CbNoLote.Enabled = True
         DtpFechaEntrada.Value = Now
         DtFechaSalida.Value = Now
         DgvPacas.DataSource = ""
@@ -51,9 +52,13 @@ Public Class SalidaPacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Dim Tabla As New DataTable
         ConsultaOrdenEmbarque.ShowDialog()
+        If ConsultaOrdenEmbarque.Id = 0 Then
+            Exit Sub
+        End If
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ""
-        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
+        'EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalida
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
         If Tabla.Rows.Count = 0 Then
@@ -67,19 +72,17 @@ Public Class SalidaPacas
             TbPlacaTractoCamion.Text = Tabla.Rows(0).Item("PlacaTractoCamion")
             TbNoLicencia.Text = Tabla.Rows(0).Item("NoLicencia")
             TbTelefono.Text = Tabla.Rows(0).Item("Telefono")
-            NoContenedor1 = Tabla.Rows(0).Item("NoContenedorCaja1")
-            NoContenedor2 = Tabla.Rows(0).Item("NoContenedorCaja2")
-            PlacaCaja1 = Tabla.Rows(0).Item("PlacaCaja1")
-            PlacaCaja2 = Tabla.Rows(0).Item("PlacaCaja2")
-            NoLote1 = Tabla.Rows(0).Item("NoLote1")
-            NoLote2 = Tabla.Rows(0).Item("NoLote2")
+            TbNoContenedor.Text = Tabla.Rows(0).Item("NoContenedor")
+            TbPlacaCaja.Text = Tabla.Rows(0).Item("PlacaCaja")
+            CbNoLote.Text = Tabla.Rows(0).Item("NoLote")
             'DtpFechaEntrada.Value = Tabla.Rows(0).Item("Fecha")
             'TbObservaciones.Text = Tabla.Rows(0).Item("Observaciones")
-            If Tabla.Rows(0).Item("CantidadCajas") = 1 Then
-                CargaCombo(Tabla.Rows(0).Item("CantidadCajas"), Tabla.Rows(0).Item("NoLote1"))
-            ElseIf Tabla.Rows(0).Item("CantidadCajas") = 2 Then
-                CargaCombo(Tabla.Rows(0).Item("CantidadCajas"), Tabla.Rows(0).Item("NoLote1"), Tabla.Rows(0).Item("NoLote2"))
-            End If
+            'If Tabla.Rows(0).Item("CantidadCajas") = 1 Then
+            '    CargaCombo(Tabla.Rows(0).Item("CantidadCajas"), Tabla.Rows(0).Item("NoLote1"))
+            'ElseIf Tabla.Rows(0).Item("CantidadCajas") = 2 Then
+            '    CargaCombo(Tabla.Rows(0).Item("CantidadCajas"), Tabla.Rows(0).Item("NoLote1"), Tabla.Rows(0).Item("NoLote2"))
+            'End If
+            ConsultarPacas(TbIdEmbarque.Text, CbNoLote.Text)
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -88,8 +91,41 @@ Public Class SalidaPacas
     End Sub
 
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        CbEstatus.SelectedValue = IIf(CbEstatus.SelectedValue = Nothing, 0, IIf(CbEstatus.SelectedValue = 0, 1, 0))
-        GuardarSalida()
+        'If CbEstatus.SelectedValue = 0 Then
+        'End If
+        'CbEstatus.SelectedValue = IIf(CbEstatus.SelectedValue = Nothing, 0, IIf(CbEstatus.SelectedValue = 0, 1, 0))
+        'GuardarSalida()
+        CbNoLote.Enabled = False
+        If Val(TbTara.Text) = 0 And Val(TbIdEmbarque.Text) = 0 And TbNombreChofer.Text = "" And TbTelefono.Text = "" And TbPlacaTractoCamion.Text = "" And TbNoLicencia.Text = "" And TbDestino.Text = "" And TbNoFactura.Text = "" And Val(TbNoPacas.Text) = 0 And TbNoContenedor.Text = "" And TbPlacaCaja.Text = "" Then
+            MsgBox("Todos los campos son requeridos.")
+        Else
+            Dim opc As DialogResult = MsgBox("Se guardara la salida con estatus Embarcado, No para guardar sin cambiar el estatus", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+            If opc = DialogResult.Yes Then
+                CbEstatus.SelectedValue = 1
+                GuardarSalida()
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                SeleccionaLoteCombo()
+            ElseIf opc = DialogResult.No Then
+                CbEstatus.SelectedValue = 0
+                GuardarSalida()
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                SeleccionaLoteCombo()
+            End If
+        End If
+    End Sub
+    Private Sub ActualizaIdSalidaPacaDetalle(ByVal IdSalidaEncabezado As Integer, ByVal IdEmbarque As Integer, ByVal NoContenedor As String)
+        Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
+        Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
+        Try
+            'EntidadSalidaPacas.Guarda = Guardar.GuardarSalidaPacas
+            EntidadSalidaPacas.IdSalidaEncabezado = IdSalidaEncabezado
+            EntidadSalidaPacas.IdEmbarqueEncabezado = IdEmbarque
+            EntidadSalidaPacas.NoContenedor = NoContenedor
+            EntidadSalidaPacas.EstatusSalida = CbEstatus.SelectedValue
+            NegocioSalidaPacas.Actualiza(EntidadSalidaPacas)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub GuardarSalida()
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
@@ -183,11 +219,15 @@ Public Class SalidaPacas
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Nuevo()
+        CbNoLote.Enabled = False
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
         Dim Tabla As New DataTable
         ConsultaSalidas.ShowDialog()
-        EntidadSalidaPacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
+        If ConsultaOrdenEmbarque.Id = 0 Then
+            Exit Sub
+        End If
+        EntidadSalidaPacas.IdSalidaEncabezado = ConsultaOrdenEmbarque.Id
         EntidadSalidaPacas.NombreComprador = ""
         EntidadSalidaPacas.Consulta = Consulta.ConsultaSalidaPacas
         NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
@@ -215,6 +255,9 @@ Public Class SalidaPacas
             PlacaCaja2 = Tabla.Rows(0).Item("PlacaCaja2")
             NoLote1 = Tabla.Rows(0).Item("NoLote1")
             NoLote2 = Tabla.Rows(0).Item("NoLote2")
+            TbNeto.Text = Tabla.Rows(0).Item("PesoNeto")
+            TbTara.Text = Tabla.Rows(0).Item("PesoTara")
+            TbBruto.Text = Tabla.Rows(0).Item("PesoBruto")
             'DtpFechaEntrada.Value = Tabla.Rows(0).Item("Fecha")
             'TbObservaciones.Text = Tabla.Rows(0).Item("Observaciones")
             If Tabla.Rows(0).Item("CantidadCajas") = 1 Then
@@ -224,33 +267,33 @@ Public Class SalidaPacas
             End If
             CbEstatus.SelectedValue = Tabla.Rows(0).Item("EstatusSalida")
             CbNoLote.Text = Tabla.Rows(0).Item("NoLote")
-            PropiedadesDgv()
             SeleccionaLoteCombo()
+            'PropiedadesDgv()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub PropiedadesDgv()
-        DgvPacas.Columns("IdSalidaEncabezado").HeaderText = "ID Salida"
-        DgvPacas.Columns("IdEmbarqueEncabezado").HeaderText = "ID Embarque"
-        DgvPacas.Columns("IdComprador").Visible = False
-        DgvPacas.Columns("Nombre").HeaderText = "Comprador"
-        DgvPacas.Columns("NombreChofer").HeaderText = "Chofer"
-        DgvPacas.Columns("PlacaTractoCamion").HeaderText = "Placas Camion"
-        DgvPacas.Columns("NoLicencia").Visible = False
-        DgvPacas.Columns("Telefono").Visible = False
-        DgvPacas.Columns("Destino").Visible = False
-        DgvPacas.Columns("NoFactura").Visible = False
-        DgvPacas.Columns("FechaSalida").HeaderText = ""
-        DgvPacas.Columns("FechaEntrada").HeaderText = ""
-        DgvPacas.Columns("Observaciones").HeaderText = ""
-        DgvPacas.Columns("NoContenedorCaja1").HeaderText = ""
-        DgvPacas.Columns("NoContenedorCaja2").HeaderText = ""
-        DgvPacas.Columns("PlacaCaja1").HeaderText = ""
-        DgvPacas.Columns("PlacaCaja2").HeaderText = ""
-        DgvPacas.Columns("NoLote1").HeaderText = ""
-        DgvPacas.Columns("NoLote2").HeaderText = ""
-    End Sub
+    'Private Sub PropiedadesDgv()
+    'DgvPacas.Columns("IdSalidaEncabezado").HeaderText = "ID Salida"
+    'DgvPacas.Columns("IdEmbarqueEncabezado").HeaderText = "ID Embarque"
+    'DgvPacas.Columns("IdComprador").Visible = False
+    'DgvPacas.Columns("Nombre").HeaderText = "Comprador"
+    'DgvPacas.Columns("NombreChofer").HeaderText = "Chofer"
+    'DgvPacas.Columns("PlacaTractoCamion").HeaderText = "Placas Camion"
+    'DgvPacas.Columns("NoLicencia").Visible = False
+    'DgvPacas.Columns("Telefono").Visible = False
+    'DgvPacas.Columns("Destino").Visible = False
+    'DgvPacas.Columns("NoFactura").Visible = False
+    'DgvPacas.Columns("FechaSalida").HeaderText = ""
+    'DgvPacas.Columns("FechaEntrada").HeaderText = ""
+    'DgvPacas.Columns("Observaciones").HeaderText = ""
+    'DgvPacas.Columns("NoContenedorCaja1").HeaderText = ""
+    'DgvPacas.Columns("NoContenedorCaja2").HeaderText = ""
+    'DgvPacas.Columns("PlacaCaja1").HeaderText = ""
+    'DgvPacas.Columns("PlacaCaja2").HeaderText = ""
+    'DgvPacas.Columns("NoLote1").HeaderText = ""
+    'DgvPacas.Columns("NoLote2").HeaderText = ""
+    'End Sub
     Private Sub ConsultarPacas(ByVal IdEmbarqueEncabezado As Integer, ByVal NoLote As String)
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
@@ -281,7 +324,7 @@ Public Class SalidaPacas
     Public Function LoadIdVenta(_DataTable As DataTable) As Boolean Implements IForm1.LoadIdVenta
         Throw New NotImplementedException()
     End Function
-    Private Sub CbNoLote_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbNoLote.SelectionChangeCommitted
+    Private Sub CbNoLote_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbNoLote.Leave
         SeleccionaLoteCombo()
     End Sub
     Private Sub SeleccionaLoteCombo()

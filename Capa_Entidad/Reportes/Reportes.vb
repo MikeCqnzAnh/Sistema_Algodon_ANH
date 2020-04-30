@@ -21,5 +21,7 @@
     Public Menor As Boolean
     Public IdEmbarqueEncabezado As Integer
     Public NoLote As String
+    Public IdSalidaPacas As Integer
+    Public Nombre As String
     '------------------------------
 End Class
