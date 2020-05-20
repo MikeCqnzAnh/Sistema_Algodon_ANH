@@ -56,7 +56,7 @@ Public Class TiposUsuario
                 Dim NegocioUsuarios As New Capa_Negocio.Usuarios
                 EntidadUsuarios.Tipo = IIf(TbIdTipo.Text = "", 0, TbIdTipo.Text)
                 EntidadUsuarios.Descripcion = TbDescripcion.Text
-                EntidadUsuarios.Actualiza = Actuliza.ActualizaTipoUsuario
+                EntidadUsuarios.Actualiza = Actualiza.ActualizaTipoUsuario
                 NegocioUsuarios.Guardar(EntidadUsuarios)
                 TbIdTipo.Text = EntidadUsuarios.Tipo
                 Consultar()

@@ -27,12 +27,12 @@ Public Class TipoAlmacen
             If TbDescripcion.Text <> "" Then
                 Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
                 Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
-                EntidadAlmacenes.IdTipoAlmacen = IIf(TbIdTipoAlmacen.Text = "", 0, TbIdTipoAlmacen.Text)
-                EntidadAlmacenes.Descripcion = TbDescripcion.Text
-                EntidadAlmacenes.Actualiza = Actuliza.ActualizaTipoAlmacen
-                NegocioAlmacenes.Guardar(EntidadAlmacenes)
-                TbIdTipoAlmacen.Text = EntidadAlmacenes.IdTipoAlmacen
-                Consultar()
+                'EntidadAlmacenes.IdTipoAlmacen = IIf(TbIdTipoAlmacen.Text = "", 0, TbIdTipoAlmacen.Text)
+                'EntidadAlmacenes.Descripcion = TbDescripcion.Text
+                'EntidadAlmacenes.Actualiza = Actuliza.ActualizaTipoAlmacen
+                'NegocioAlmacenes.Guardar(EntidadAlmacenes)
+                'TbIdTipoAlmacen.Text = EntidadAlmacenes.IdTipoAlmacen
+                'Consultar()
             Else
                 MessageBox.Show("El campo descripcion no puede estar vacio.", "Aviso")
             End If

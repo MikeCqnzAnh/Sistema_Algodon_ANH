@@ -62,7 +62,7 @@ Public Class Usuarios
             End If
         End If
         Try
-            EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
+            EntidadUsuarios.Actualiza = Actualiza.ActualizaUsuario
             EntidadUsuarios.IdUsuario = IIf(TbIdUsuario.Text = "", 0, TbIdUsuario.Text)
             EntidadUsuarios.Nombre = TbNombre.Text
             EntidadUsuarios.Usuario = TbUsuario.Text

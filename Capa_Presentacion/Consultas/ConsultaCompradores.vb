@@ -35,12 +35,12 @@ Public Class ConsultaCompradores
         DgvConsultaCompradores.CurrentCell = Nothing
     End Sub
     Private Sub DgvConsultaCompradores_CellContentDoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaCompradores.DoubleClick
-        'Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
-        'Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
-        'Dim index As Integer
-        'index = DgvConsultaCompradores.CurrentRow.Index
-        '_Id = DgvConsultaCompradores.Rows(index).Cells("IdComprador").Value.ToString()
-        '_Nombre = DgvConsultaCompradores.Rows(index).Cells("Nombre").Value.ToString()
+        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
+        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
+        Dim index As Integer
+        index = DgvConsultaCompradores.CurrentRow.Index
+        _Id = DgvConsultaCompradores.Rows(index).Cells("IdComprador").Value.ToString()
+        _Nombre = DgvConsultaCompradores.Rows(index).Cells("Nombre").Value.ToString()
         Me.Close()
     End Sub
 

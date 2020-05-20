@@ -144,7 +144,7 @@ Public Class CompraPago
     Private Sub ActualizaEstatusVenta()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Actualiza = Actuliza.ActualizaEstatus
+        EntidadCompraPacasContrato.Actualiza = Actualiza.ActualizaEstatus
         EntidadCompraPacasContrato.TablaGeneral = DataGridADatatable(DgvResumenPagoPacas)
         NegocioCompraPacasContrato.Actualizar(EntidadCompraPacasContrato)
     End Sub

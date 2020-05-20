@@ -9,7 +9,7 @@ Public Class Usuarios
         Try
             cnn.Open()
             Select Case EntidadUsuarios1.Actualiza
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaUsuario
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaUsuario
                     cmdGuardar = New SqlCommand("sp_InsertarUsuario", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuario", EntidadUsuarios1.IdUsuario))
@@ -23,7 +23,7 @@ Public Class Usuarios
                     If EntidadUsuarios1.IdUsuario = 0 Then
                         EntidadUsuarios1.IdUsuario = cmdGuardar.Parameters("@IdUsuario").Value
                     End If
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaTipoUsuario
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaTipoUsuario
                     cmdGuardar = New SqlCommand("sp_InsertarTipoUsuario", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdTipo", EntidadUsuarios1.Tipo))

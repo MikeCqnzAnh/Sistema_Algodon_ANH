@@ -5,6 +5,7 @@ Public Class OrdenEmbarquePacas
         Nuevo()
     End Sub
     Private Sub Nuevo()
+        TbPacasVendidasContrato.Text = ""
         TbIdEmbarque.Text = ""
         TbNoPacas.Text = ""
         TbIdComprador.Text = 0
@@ -121,8 +122,8 @@ Public Class OrdenEmbarquePacas
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Nuevo()
-        CargaPaquetesDisponibles()
-        CargaPacasDisponibles()
+        'CargaPaquetesDisponibles()
+        'CargaPacasDisponibles()
     End Sub
     Private Sub DgvPaquetesDisponibles_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPaquetesDisponibles.CellContentClick
         DgvPacasDisponibles.EndEdit()
@@ -187,6 +188,7 @@ Public Class OrdenEmbarquePacas
         Else
             MsgBox("El Campo No Lote no puede estar vacio para continuar.")
         End If
+        TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
     End Sub
     Private Sub BtSeleccionar2_Click(sender As Object, e As EventArgs) Handles BtSeleccionar2.Click
         DgvPacasEmbarcadas.EndEdit()
@@ -202,6 +204,7 @@ Public Class OrdenEmbarquePacas
         ConsultarPaqueteEmbarcado()
         ConsultarPacasEmbarcadas()
         TbNoPacas.Text = DgvPacasEmbarcadas.RowCount
+        TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
         GuardarEncabezado()
     End Sub
     Private Sub DeseleccionarPacas(ByVal IdEmbarqueDetalle As Integer)
@@ -238,7 +241,11 @@ Public Class OrdenEmbarquePacas
         Throw New NotImplementedException()
     End Function
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        GuardarEncabezado()
+        If Val(TbIdComprador.Text) = 0 Then
+            MsgBox("No hay un comprador seleccionado, revise la informacion para continuar", MsgBoxStyle.Information, "Aviso")
+        Else
+            GuardarEncabezado()
+        End If
         'GuardaEmbarqueDetalle()
     End Sub
     Private Sub GuardaEmbarqueDetalle()
@@ -258,6 +265,7 @@ Public Class OrdenEmbarquePacas
         CargaPacasDisponibles()
         ConsultarPaqueteEmbarcado()
         ConsultarPacasEmbarcadas()
+        GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, "SE AGREGARON " & DgvPacasEmbarcadas.Rows.Count & " PACAS PARA EL COMPRADOR " & TbNombreComprador.Text & ".")
     End Sub
     Private Sub GuardarEncabezado()
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
@@ -283,6 +291,7 @@ Public Class OrdenEmbarquePacas
             NegocioOrdenEmbarquePacas.Guardar(EntidadOrdenEmbarquePacas)
             TbIdEmbarque.Text = EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado
             GbProceso.Enabled = True
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, "SE REMOVIERON " & DgvPacasEmbarcadas.Rows.Count & " PACAS PARA EL COMPRADOR " & TbNombreComprador.Text & ".")
         Catch ex As Exception
             MsgBox(ex.Message)
             GbProceso.Enabled = False
@@ -314,7 +323,10 @@ Public Class OrdenEmbarquePacas
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Dim Tabla As New DataTable
-        ConsultaOrdenEmbarque.ShowDialog()
+        ConsultaOrdenEmbarqueEncabezado.ShowDialog()
+        If ConsultaOrdenEmbarque.Id = 0 Then
+            Exit Sub
+        End If
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ""
         EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
@@ -347,6 +359,7 @@ Public Class OrdenEmbarquePacas
             ConsultarPaqueteEmbarcado()
             ConsultarPacasEmbarcadas()
             GbProceso.Enabled = True
+            TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -357,7 +370,6 @@ Public Class OrdenEmbarquePacas
         Dispose()
         Close()
     End Sub
-
     Private Sub EmbarqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmbarqueToolStripMenuItem.Click
         If TbIdEmbarque.Text <> "" Then
             Dim ReporteOrdenEmbarque As New RepOrdenEmbarque(TbIdEmbarque.Text)
@@ -365,5 +377,37 @@ Public Class OrdenEmbarquePacas
         Else
             MessageBox.Show("No hay Orden de Embarque seleccionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+    Private Sub BtExcel_Click(sender As Object, e As EventArgs) Handles BtExcel.Click
+        CargaExcel.ShowDialog()
+        Try
+            If Tabla.Rows.Count > 0 Then
+                For Each rowTabla As DataRow In Tabla.Rows
+                    For Each rowGrid As DataGridViewRow In DgvPacasDisponibles.Rows
+                        If rowTabla.Item(0) = rowGrid.Cells("BaleID").Value.ToString Then
+                            rowGrid.Cells("Seleccionar").Value = True
+                        End If
+                    Next
+                Next
+            End If
+            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+            MarcaSeleccionDisponibles()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub BtMarcarTodo_Click(sender As Object, e As EventArgs) Handles BtMarcarTodo.Click
+        DgvPacasDisponibles.EndEdit()
+        For Each row As DataGridViewRow In DgvPacasDisponibles.Rows
+            row.Cells("Seleccionar").Value = True
+        Next
+        MarcaSeleccionDisponibles()
+    End Sub
+    Private Sub BtDesmarcaTodo_Click(sender As Object, e As EventArgs) Handles BtDesmarcaTodo.Click
+        DgvPacasDisponibles.EndEdit()
+        For Each row As DataGridViewRow In DgvPacasDisponibles.Rows
+            row.Cells("Seleccionar").Value = False
+        Next
+        MarcaSeleccionDisponibles()
     End Sub
 End Class

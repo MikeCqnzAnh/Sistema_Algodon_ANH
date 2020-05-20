@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.40.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.45.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -100,6 +100,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -278,6 +279,12 @@
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueEncabezado.Designer.vb">
+      <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueEncabezado.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaSalidas.Designer.vb">
@@ -721,12 +728,19 @@
       <DependentUpon>RPTVentaHVI.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilerias\CargaExcel.Designer.vb">
+      <DependentUpon>CargaExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\CargaExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\ClaveAutorizacion.Designer.vb">
       <DependentUpon>ClaveAutorizacion.vb</DependentUpon>
     </Compile>
     <Compile Include="Utilerias\ClaveAutorizacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilerias\ImportarExcel.vb" />
     <Compile Include="Utilerias\Roles.Designer.vb">
       <DependentUpon>Roles.vb</DependentUpon>
     </Compile>
@@ -1244,6 +1258,9 @@
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarque.resx">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueEncabezado.resx">
+      <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
     </EmbeddedResource>
@@ -1403,6 +1420,9 @@
     <EmbeddedResource Include="Reportes\RPT\RPTVentaHVI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTVentaHVI.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\CargaExcel.resx">
+      <DependentUpon>CargaExcel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\ClaveAutorizacion.resx">
       <DependentUpon>ClaveAutorizacion.vb</DependentUpon>

@@ -137,6 +137,32 @@
         maMeLdcAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="MSMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="BtExcel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAABBNJREFUeF7t21/IFFUcxvFXwxQxFPJGVFIRCQk1SEkh8O9FBillUKEiRgUi3ihR
+        KhR2IXkhhIVhXqWlXkiFGpE3/gvRQgmlRFPQDC80S03MLPP7rDv7/t7D2TPT7rvvntmdBz4se+aMs/Nj
+        d94z54wdReJIf0zCK3hUDa2a3hiN5/A2duIM/sV/ZXPREnkYU7EMm3EEfyI50WpyV4AHMR4LsA5f41f4
+        Ti6LqAswHM/gLXyGk/gbvhOpVRQFeAhT8Do+xAH8Dt8H7m5NKcA0vIsvcQ534ftwPUEFGIf5DfQEumQ3
+        fB+mGVSAd5y2RtCf3UrasQCLUElRAPg6NYMKMAgjUnwK9X/RtIXshz1O1AXIko+g/hpsZYnGJ/Y4RQFQ
+        SVEA2I3NVBQAWdLSBXgWuoMM+Qnqv8e0hfwCe5yoC9D244BRmJliF9R/uWkL+Q72ODUVQDdJVxy+G6cT
+        mIPpmAjdPrt9qon+GvAYbPbC7bMYNt/D7VNN9AX4GDYvwW7Xt6IfksyA3Z4m+gLcwmAk0cleRbL9Pdh8
+        A7t/mugLIKtg8wHU/g8eUUM5E+DumyYXBdCkZx8keRxq/6L0rjOaN3T3TaMCaDpuRYrDUP+Npi3kFOxx
+        6iqAvAyb49DvPYluQfWN8O0bogLkYhygeX6bWeXXJBvg2y+NCqDpqqUpDkL93zdtIT/CHqfuAshk+KJF
+        kZvw7ZMmF9eAxA74omUvX/8sclWAOxgGG60UXYavfxa5KsANaP7Ozf8Z+blyVYD18OUF+PpnkZsCaE1Q
+        a4VJHii/KloGPw3ffmlUAD0joNeQ5IRWm7aQY7DHqbsAn8DGHQK/Bt9+afRhczEOsHeFWh7XbfHI0rv7
+        6YtL8O0bogLMhobXIVqZVv/PTVvIedjj1FWAr2CjFWS1rym968ybcPdNowJkSVOvAVpNTqLne/6A2lVl
+        /f6TDMQ1uPuHRF+Ao7DRP2S3u0NiXRvs9jTRF0B/4my+hd2+DTZD8Bdsn5CoC/Az7Fd8LNw+mjBxB0eb
+        4ParJuoC6AbnomFngqwt0OM186DrxfPw9fNRATTjpLFAyHao/0LTFpLcPSZq/gk0mgrQ9usCmlU+lCIZ
+        Y2gK3rfd5T7kFXUBsqSp44BGKgqALCkKAPUvClB6l56iALDHiboAK6FH60M0H6n+Gnn6trvcNYqoC9D2
+        A6GeKICG0JW0WwG0ttllOj+2AmjJXXeUjWIncEvRlVTTWZpfO4tm/3+BpmcAnsSr0CLnPvwG3wfublEU
+        oFqG4mm8ga34AbfhO5FaRV0AX/SghKbI9azQWuh6cgG+k8sidwWoFl1snsISaNSmucPr8J201TIF8KUX
+        9OSIHoXVc0ZaXteDC3aU1tIFqBatIuk5Iw1OxqihSJGeSEfHPfaF7dJkD407AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="BtSeleccionar2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABS
@@ -414,7 +440,4 @@
         /v8TO/+KYOefEPzH+Dfhv9cPwBb47Uf/H/6IUfHBCx9IAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="MSMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

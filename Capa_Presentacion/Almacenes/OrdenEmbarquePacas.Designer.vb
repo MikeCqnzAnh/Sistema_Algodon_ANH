@@ -33,9 +33,7 @@ Partial Class OrdenEmbarquePacas
         Me.DgvPacasDisponibles = New System.Windows.Forms.DataGridView()
         Me.GbFiltrado = New System.Windows.Forms.GroupBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
         Me.CbPlantaVender = New System.Windows.Forms.ComboBox()
-        Me.BtMarcarTodo = New System.Windows.Forms.Button()
         Me.TbIdPaqVtaVender = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BtFiltro = New System.Windows.Forms.Button()
@@ -50,8 +48,6 @@ Partial Class OrdenEmbarquePacas
         Me.RbSeleccionaCaja2 = New System.Windows.Forms.RadioButton()
         Me.RbSeleccionaCaja1 = New System.Windows.Forms.RadioButton()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
-        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TP2PaquetesEmbarcados = New System.Windows.Forms.TabPage()
@@ -85,15 +81,19 @@ Partial Class OrdenEmbarquePacas
         Me.RbCaja1 = New System.Windows.Forms.RadioButton()
         Me.RbCaja2 = New System.Windows.Forms.RadioButton()
         Me.GbCaja2 = New System.Windows.Forms.GroupBox()
+        Me.TbNoLote2 = New System.Windows.Forms.TextBox()
         Me.TbNoContenedor2 = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.TbPlacaCaja2 = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.GbCaja1 = New System.Windows.Forms.GroupBox()
         Me.TbNoContenedor1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.TbPlacaCaja1 = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TbNoLote1 = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TbTelefono = New System.Windows.Forms.TextBox()
         Me.TbObservaciones = New System.Windows.Forms.TextBox()
@@ -104,8 +104,6 @@ Partial Class OrdenEmbarquePacas
         Me.TbNoLicencia = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbNombreChofer = New System.Windows.Forms.TextBox()
-        Me.TbNoLote1 = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdEmbarque = New System.Windows.Forms.TextBox()
         Me.BtnBuscarProd = New System.Windows.Forms.Button()
@@ -121,10 +119,13 @@ Partial Class OrdenEmbarquePacas
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.TbNoLote2 = New System.Windows.Forms.TextBox()
         Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
+        Me.BtMarcarTodo = New System.Windows.Forms.Button()
+        Me.BtExcel = New System.Windows.Forms.Button()
+        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
+        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.GbProceso.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TcCompras.SuspendLayout()
@@ -291,20 +292,6 @@ Partial Class OrdenEmbarquePacas
         Me.Label28.TabIndex = 62
         Me.Label28.Text = "Planta:"
         '
-        'BtDesmarcaTodo
-        '
-        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
-        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
-        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.TabIndex = 62
-        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
-        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
-        '
         'CbPlantaVender
         '
         Me.CbPlantaVender.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -313,20 +300,6 @@ Partial Class OrdenEmbarquePacas
         Me.CbPlantaVender.Name = "CbPlantaVender"
         Me.CbPlantaVender.Size = New System.Drawing.Size(110, 20)
         Me.CbPlantaVender.TabIndex = 61
-        '
-        'BtMarcarTodo
-        '
-        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
-        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.Name = "BtMarcarTodo"
-        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.TabIndex = 61
-        Me.BtMarcarTodo.Tag = "Seleccionar todo"
-        Me.BtMarcarTodo.UseVisualStyleBackColor = True
         '
         'TbIdPaqVtaVender
         '
@@ -464,6 +437,7 @@ Partial Class OrdenEmbarquePacas
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.BtExcel)
         Me.Panel5.Controls.Add(Me.BtSeleccionar2)
         Me.Panel5.Controls.Add(Me.BtSeleccionar)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
@@ -471,26 +445,6 @@ Partial Class OrdenEmbarquePacas
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(44, 461)
         Me.Panel5.TabIndex = 3
-        '
-        'BtSeleccionar2
-        '
-        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
-        Me.BtSeleccionar2.Name = "BtSeleccionar2"
-        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar2.TabIndex = 1
-        Me.BtSeleccionar2.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar
-        '
-        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
-        Me.BtSeleccionar.Name = "BtSeleccionar"
-        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar.TabIndex = 0
-        Me.BtSeleccionar.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -756,11 +710,11 @@ Partial Class OrdenEmbarquePacas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(1152, 24)
+        Me.Label7.Location = New System.Drawing.Point(1086, 24)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.Size = New System.Drawing.Size(103, 13)
         Me.Label7.TabIndex = 27
-        Me.Label7.Text = "Pacas"
+        Me.Label7.Text = "Pacas en Embarque"
         '
         'TbPacasVendidasContrato
         '
@@ -787,6 +741,7 @@ Partial Class OrdenEmbarquePacas
         Me.TbKilosVendidos.Size = New System.Drawing.Size(100, 20)
         Me.TbKilosVendidos.TabIndex = 24
         Me.TbKilosVendidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbKilosVendidos.Visible = False
         '
         'Label24
         '
@@ -799,6 +754,7 @@ Partial Class OrdenEmbarquePacas
         Me.Label24.Size = New System.Drawing.Size(32, 13)
         Me.Label24.TabIndex = 23
         Me.Label24.Text = "Kilos "
+        Me.Label24.Visible = False
         '
         'Label25
         '
@@ -893,8 +849,17 @@ Partial Class OrdenEmbarquePacas
         Me.GbCaja2.TabStop = False
         Me.GbCaja2.Text = "Datos Caja 2"
         '
+        'TbNoLote2
+        '
+        Me.TbNoLote2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNoLote2.Location = New System.Drawing.Point(109, 22)
+        Me.TbNoLote2.Name = "TbNoLote2"
+        Me.TbNoLote2.Size = New System.Drawing.Size(139, 20)
+        Me.TbNoLote2.TabIndex = 0
+        '
         'TbNoContenedor2
         '
+        Me.TbNoContenedor2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoContenedor2.Location = New System.Drawing.Point(109, 48)
         Me.TbNoContenedor2.Name = "TbNoContenedor2"
         Me.TbNoContenedor2.Size = New System.Drawing.Size(139, 20)
@@ -920,10 +885,20 @@ Partial Class OrdenEmbarquePacas
         '
         'TbPlacaCaja2
         '
+        Me.TbPlacaCaja2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPlacaCaja2.Location = New System.Drawing.Point(109, 74)
         Me.TbPlacaCaja2.Name = "TbPlacaCaja2"
         Me.TbPlacaCaja2.Size = New System.Drawing.Size(139, 20)
         Me.TbPlacaCaja2.TabIndex = 2
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(6, 25)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(48, 13)
+        Me.Label23.TabIndex = 58
+        Me.Label23.Text = "No. Lote"
         '
         'GbCaja1
         '
@@ -942,6 +917,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbNoContenedor1
         '
+        Me.TbNoContenedor1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoContenedor1.Location = New System.Drawing.Point(109, 48)
         Me.TbNoContenedor1.Name = "TbNoContenedor1"
         Me.TbNoContenedor1.Size = New System.Drawing.Size(139, 20)
@@ -967,10 +943,28 @@ Partial Class OrdenEmbarquePacas
         '
         'TbPlacaCaja1
         '
+        Me.TbPlacaCaja1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPlacaCaja1.Location = New System.Drawing.Point(109, 74)
         Me.TbPlacaCaja1.Name = "TbPlacaCaja1"
         Me.TbPlacaCaja1.Size = New System.Drawing.Size(139, 20)
         Me.TbPlacaCaja1.TabIndex = 2
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(6, 25)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(48, 13)
+        Me.Label12.TabIndex = 58
+        Me.Label12.Text = "No. Lote"
+        '
+        'TbNoLote1
+        '
+        Me.TbNoLote1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNoLote1.Location = New System.Drawing.Point(109, 22)
+        Me.TbNoLote1.Name = "TbNoLote1"
+        Me.TbNoLote1.Size = New System.Drawing.Size(139, 20)
+        Me.TbNoLote1.TabIndex = 0
         '
         'Label22
         '
@@ -983,6 +977,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbTelefono
         '
+        Me.TbTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTelefono.Location = New System.Drawing.Point(134, 102)
         Me.TbTelefono.Name = "TbTelefono"
         Me.TbTelefono.Size = New System.Drawing.Size(139, 20)
@@ -990,6 +985,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbObservaciones
         '
+        Me.TbObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbObservaciones.Location = New System.Drawing.Point(134, 126)
         Me.TbObservaciones.Multiline = True
         Me.TbObservaciones.Name = "TbObservaciones"
@@ -1007,6 +1003,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbPlacaTractoCamion
         '
+        Me.TbPlacaTractoCamion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPlacaTractoCamion.Location = New System.Drawing.Point(134, 76)
         Me.TbPlacaTractoCamion.Name = "TbPlacaTractoCamion"
         Me.TbPlacaTractoCamion.Size = New System.Drawing.Size(139, 20)
@@ -1032,6 +1029,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbNoLicencia
         '
+        Me.TbNoLicencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoLicencia.Location = New System.Drawing.Point(357, 76)
         Me.TbNoLicencia.Name = "TbNoLicencia"
         Me.TbNoLicencia.Size = New System.Drawing.Size(213, 20)
@@ -1048,26 +1046,11 @@ Partial Class OrdenEmbarquePacas
         '
         'TbNombreChofer
         '
+        Me.TbNombreChofer.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombreChofer.Location = New System.Drawing.Point(134, 50)
         Me.TbNombreChofer.Name = "TbNombreChofer"
         Me.TbNombreChofer.Size = New System.Drawing.Size(437, 20)
         Me.TbNombreChofer.TabIndex = 1
-        '
-        'TbNoLote1
-        '
-        Me.TbNoLote1.Location = New System.Drawing.Point(109, 22)
-        Me.TbNoLote1.Name = "TbNoLote1"
-        Me.TbNoLote1.Size = New System.Drawing.Size(139, 20)
-        Me.TbNoLote1.TabIndex = 0
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 25)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(48, 13)
-        Me.Label12.TabIndex = 58
-        Me.Label12.Text = "No. Lote"
         '
         'Label1
         '
@@ -1116,6 +1099,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbNoPacas
         '
+        Me.TbNoPacas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoPacas.Enabled = False
         Me.TbNoPacas.Location = New System.Drawing.Point(644, 76)
         Me.TbNoPacas.Name = "TbNoPacas"
@@ -1132,6 +1116,7 @@ Partial Class OrdenEmbarquePacas
         '
         'TbNombreComprador
         '
+        Me.TbNombreComprador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombreComprador.Enabled = False
         Me.TbNombreComprador.Location = New System.Drawing.Point(410, 24)
         Me.TbNombreComprador.Name = "TbNombreComprador"
@@ -1190,33 +1175,76 @@ Partial Class OrdenEmbarquePacas
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
+        'EmbarqueToolStripMenuItem
+        '
+        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
+        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'Label23
+        'BtDesmarcaTodo
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(6, 25)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(48, 13)
-        Me.Label23.TabIndex = 58
-        Me.Label23.Text = "No. Lote"
+        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
+        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
+        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.TabIndex = 62
+        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
+        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
         '
-        'TbNoLote2
+        'BtMarcarTodo
         '
-        Me.TbNoLote2.Location = New System.Drawing.Point(109, 22)
-        Me.TbNoLote2.Name = "TbNoLote2"
-        Me.TbNoLote2.Size = New System.Drawing.Size(139, 20)
-        Me.TbNoLote2.TabIndex = 0
+        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
+        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.Name = "BtMarcarTodo"
+        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.TabIndex = 61
+        Me.BtMarcarTodo.Tag = "Seleccionar todo"
+        Me.BtMarcarTodo.UseVisualStyleBackColor = True
         '
-        'EmbarqueToolStripMenuItem
+        'BtExcel
         '
-        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
-        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
+        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
+        Me.BtExcel.Name = "BtExcel"
+        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
+        Me.BtExcel.TabIndex = 2
+        Me.BtExcel.Text = "..."
+        Me.BtExcel.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar2
+        '
+        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
+        Me.BtSeleccionar2.Name = "BtSeleccionar2"
+        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar2.TabIndex = 1
+        Me.BtSeleccionar2.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar
+        '
+        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
+        Me.BtSeleccionar.Name = "BtSeleccionar"
+        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar.TabIndex = 0
+        Me.BtSeleccionar.UseVisualStyleBackColor = True
         '
         'OrdenEmbarquePacas
         '
@@ -1369,4 +1397,5 @@ Partial Class OrdenEmbarquePacas
     Friend WithEvents TbNoLote2 As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents EmbarqueToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtExcel As Button
 End Class

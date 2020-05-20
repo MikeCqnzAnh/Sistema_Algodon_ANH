@@ -30,12 +30,15 @@ Partial Class SalidaPacas
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DtpFechaEntrada = New System.Windows.Forms.DateTimePicker()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.DtFechaSalida = New System.Windows.Forms.DateTimePicker()
         Me.TbDestino = New System.Windows.Forms.TextBox()
         Me.TbNoFactura = New System.Windows.Forms.TextBox()
-        Me.DtFechaSalida = New System.Windows.Forms.DateTimePicker()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TbObservaciones = New System.Windows.Forms.TextBox()
@@ -60,9 +63,8 @@ Partial Class SalidaPacas
         Me.TbNombreComprador = New System.Windows.Forms.TextBox()
         Me.TbIdSalida = New System.Windows.Forms.TextBox()
         Me.TbNoPacas = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BtnBuscarEmbarque = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DtpFechaEntrada = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbIdComprador = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -74,14 +76,12 @@ Partial Class SalidaPacas
         Me.TbTara = New System.Windows.Forms.TextBox()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtnBuscarEmbarque = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.GbPesos.SuspendLayout()
         Me.GbPacas.SuspendLayout()
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -164,6 +164,28 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.DtpFechaEntrada)
+        Me.Panel1.Controls.Add(Me.Label20)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.CbEstatus)
+        Me.Panel1.Controls.Add(Me.Label19)
+        Me.Panel1.Controls.Add(Me.DtFechaSalida)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(1233, 16)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(247, 194)
+        Me.Panel1.TabIndex = 84
+        '
+        'DtpFechaEntrada
+        '
+        Me.DtpFechaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtpFechaEntrada.Location = New System.Drawing.Point(140, 3)
+        Me.DtpFechaEntrada.Name = "DtpFechaEntrada"
+        Me.DtpFechaEntrada.Size = New System.Drawing.Size(100, 20)
+        Me.DtpFechaEntrada.TabIndex = 29
+        '
         'Label20
         '
         Me.Label20.AutoSize = True
@@ -173,6 +195,15 @@ Partial Class SalidaPacas
         Me.Label20.TabIndex = 83
         Me.Label20.Text = "Estatus"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(57, 6)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(77, 13)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "Fecha Entrada"
+        '
         'CbEstatus
         '
         Me.CbEstatus.Enabled = False
@@ -181,6 +212,23 @@ Partial Class SalidaPacas
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 82
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(57, 35)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(69, 13)
+        Me.Label19.TabIndex = 80
+        Me.Label19.Text = "Fecha Salida"
+        '
+        'DtFechaSalida
+        '
+        Me.DtFechaSalida.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaSalida.Location = New System.Drawing.Point(140, 29)
+        Me.DtFechaSalida.Name = "DtFechaSalida"
+        Me.DtFechaSalida.Size = New System.Drawing.Size(100, 20)
+        Me.DtFechaSalida.TabIndex = 81
         '
         'TbDestino
         '
@@ -197,23 +245,6 @@ Partial Class SalidaPacas
         Me.TbNoFactura.Name = "TbNoFactura"
         Me.TbNoFactura.Size = New System.Drawing.Size(115, 20)
         Me.TbNoFactura.TabIndex = 10
-        '
-        'DtFechaSalida
-        '
-        Me.DtFechaSalida.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaSalida.Location = New System.Drawing.Point(140, 29)
-        Me.DtFechaSalida.Name = "DtFechaSalida"
-        Me.DtFechaSalida.Size = New System.Drawing.Size(100, 20)
-        Me.DtFechaSalida.TabIndex = 81
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(57, 35)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(69, 13)
-        Me.Label19.TabIndex = 80
-        Me.Label19.Text = "Fecha Salida"
         '
         'Label15
         '
@@ -424,14 +455,15 @@ Partial Class SalidaPacas
         Me.TbNoPacas.Size = New System.Drawing.Size(95, 20)
         Me.TbNoPacas.TabIndex = 12
         '
-        'Label4
+        'BtnBuscarEmbarque
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(57, 6)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 13)
-        Me.Label4.TabIndex = 30
-        Me.Label4.Text = "Fecha Entrada"
+        Me.BtnBuscarEmbarque.BackgroundImage = CType(resources.GetObject("BtnBuscarEmbarque.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBuscarEmbarque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnBuscarEmbarque.Location = New System.Drawing.Point(226, 42)
+        Me.BtnBuscarEmbarque.Name = "BtnBuscarEmbarque"
+        Me.BtnBuscarEmbarque.Size = New System.Drawing.Size(32, 25)
+        Me.BtnBuscarEmbarque.TabIndex = 2
+        Me.BtnBuscarEmbarque.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -441,14 +473,6 @@ Partial Class SalidaPacas
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 46
         Me.Label6.Text = "No. Pacas"
-        '
-        'DtpFechaEntrada
-        '
-        Me.DtpFechaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpFechaEntrada.Location = New System.Drawing.Point(140, 3)
-        Me.DtpFechaEntrada.Name = "DtpFechaEntrada"
-        Me.DtpFechaEntrada.Size = New System.Drawing.Size(100, 20)
-        Me.DtpFechaEntrada.TabIndex = 29
         '
         'Label5
         '
@@ -472,7 +496,7 @@ Partial Class SalidaPacas
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(189, 180)
+        Me.Label18.Location = New System.Drawing.Point(12, 171)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(80, 33)
         Me.Label18.TabIndex = 79
@@ -482,7 +506,7 @@ Partial Class SalidaPacas
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(189, 88)
+        Me.Label17.Location = New System.Drawing.Point(12, 79)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(79, 33)
         Me.Label17.TabIndex = 78
@@ -492,7 +516,7 @@ Partial Class SalidaPacas
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(189, 134)
+        Me.Label16.Location = New System.Drawing.Point(12, 125)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(89, 33)
         Me.Label16.TabIndex = 77
@@ -509,7 +533,7 @@ Partial Class SalidaPacas
         Me.GbPesos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbPesos.Location = New System.Drawing.Point(0, 237)
         Me.GbPesos.Name = "GbPesos"
-        Me.GbPesos.Size = New System.Drawing.Size(844, 406)
+        Me.GbPesos.Size = New System.Drawing.Size(362, 406)
         Me.GbPesos.TabIndex = 2
         Me.GbPesos.TabStop = False
         Me.GbPesos.Text = "Captura Peso"
@@ -517,7 +541,7 @@ Partial Class SalidaPacas
         'TbNeto
         '
         Me.TbNeto.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbNeto.Location = New System.Drawing.Point(300, 177)
+        Me.TbNeto.Location = New System.Drawing.Point(123, 168)
         Me.TbNeto.Name = "TbNeto"
         Me.TbNeto.ReadOnly = True
         Me.TbNeto.Size = New System.Drawing.Size(181, 40)
@@ -528,7 +552,7 @@ Partial Class SalidaPacas
         'TbBruto
         '
         Me.TbBruto.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbBruto.Location = New System.Drawing.Point(300, 131)
+        Me.TbBruto.Location = New System.Drawing.Point(123, 122)
         Me.TbBruto.Name = "TbBruto"
         Me.TbBruto.Size = New System.Drawing.Size(181, 40)
         Me.TbBruto.TabIndex = 1
@@ -538,7 +562,7 @@ Partial Class SalidaPacas
         'TbTara
         '
         Me.TbTara.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbTara.Location = New System.Drawing.Point(300, 85)
+        Me.TbTara.Location = New System.Drawing.Point(123, 76)
         Me.TbTara.Name = "TbTara"
         Me.TbTara.Size = New System.Drawing.Size(181, 40)
         Me.TbTara.TabIndex = 0
@@ -549,9 +573,9 @@ Partial Class SalidaPacas
         '
         Me.GbPacas.Controls.Add(Me.DgvPacas)
         Me.GbPacas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbPacas.Location = New System.Drawing.Point(844, 237)
+        Me.GbPacas.Location = New System.Drawing.Point(362, 237)
         Me.GbPacas.Name = "GbPacas"
-        Me.GbPacas.Size = New System.Drawing.Size(639, 406)
+        Me.GbPacas.Size = New System.Drawing.Size(1121, 406)
         Me.GbPacas.TabIndex = 80
         Me.GbPacas.TabStop = False
         Me.GbPacas.Text = "Pacas de lote"
@@ -573,32 +597,8 @@ Partial Class SalidaPacas
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(633, 387)
+        Me.DgvPacas.Size = New System.Drawing.Size(1115, 387)
         Me.DgvPacas.TabIndex = 2
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.DtpFechaEntrada)
-        Me.Panel1.Controls.Add(Me.Label20)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.CbEstatus)
-        Me.Panel1.Controls.Add(Me.Label19)
-        Me.Panel1.Controls.Add(Me.DtFechaSalida)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(1233, 16)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(247, 194)
-        Me.Panel1.TabIndex = 84
-        '
-        'BtnBuscarEmbarque
-        '
-        Me.BtnBuscarEmbarque.BackgroundImage = CType(resources.GetObject("BtnBuscarEmbarque.BackgroundImage"), System.Drawing.Image)
-        Me.BtnBuscarEmbarque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnBuscarEmbarque.Location = New System.Drawing.Point(226, 42)
-        Me.BtnBuscarEmbarque.Name = "BtnBuscarEmbarque"
-        Me.BtnBuscarEmbarque.Size = New System.Drawing.Size(32, 25)
-        Me.BtnBuscarEmbarque.TabIndex = 2
-        Me.BtnBuscarEmbarque.UseVisualStyleBackColor = True
         '
         'SalidaPacas
         '
@@ -618,12 +618,12 @@ Partial Class SalidaPacas
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.GbPesos.ResumeLayout(False)
         Me.GbPesos.PerformLayout()
         Me.GbPacas.ResumeLayout(False)
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

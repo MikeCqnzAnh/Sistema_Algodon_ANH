@@ -91,7 +91,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadClasificacionVentaPaquetes.NumeroPaca))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaIdPaca
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaIdPaca
                     sqlcom1 = New SqlCommand("Sp_ActualizaIdPaqueteDePaca", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
@@ -140,7 +140,7 @@ Public Class ClasificacionVentaPaquetes
         Try
             cnn.Open()
             Select Case EntidadClasificacionVentaPaquetes1.Actualiza
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaIdPaca
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaIdPaca
                     sqlcom1 = New SqlCommand("Sp_ActualizaIdPaqueteDePaca", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
@@ -148,7 +148,7 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Add(New SqlParameter("@BaleID", EntidadClasificacionVentaPaquetes.NumeroPaca))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqlcom1.ExecuteNonQuery()
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaSeleccion
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaSeleccion
                     sqlcom1 = New SqlCommand("sp_SeleccionPacaClasificacion", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure

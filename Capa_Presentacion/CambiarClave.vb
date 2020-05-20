@@ -87,7 +87,7 @@ Public Class CambiarClave
             EntidadUsuarios.Password = Encriptar.Encriptar(Password)
             EntidadUsuarios.Tipo = Tipo
             'EntidadUsuarios.BaseDeDatos = BaseDeDatos
-            EntidadUsuarios.Actualiza = Actuliza.ActualizaUsuario
+            EntidadUsuarios.Actualiza = Actualiza.ActualizaUsuario
             NegocioUsuarios.Guardar(EntidadUsuarios)
             GeneraRegistroBitacora(Me.Text.Clone.ToString, "Actualizar", IdUsuario, Usuario)
         Catch ex As Exception

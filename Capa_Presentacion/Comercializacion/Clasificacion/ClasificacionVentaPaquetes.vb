@@ -47,7 +47,7 @@ Public Class ClasificacionVentaPaquetes
         For i As Integer = 0 To DgvPacasClasificacion1.Rows.Count - 1
             Dim Seleccion As Boolean = CType(Me.DgvPacasClasificacion1.Rows(i).Cells("Sel").EditedFormattedValue, Boolean)
 
-            EntidadClasificacionVentaPaquetes.Actualiza = Actuliza.ActualizaSeleccion
+            EntidadClasificacionVentaPaquetes.Actualiza = Actualiza.ActualizaSeleccion
             EntidadClasificacionVentaPaquetes.IdPaquete = TbIdPaquete.Text
             EntidadClasificacionVentaPaquetes.NumeroPaca = DgvPacasClasificacion1.Rows(i).Cells("BaleID").Value
             EntidadClasificacionVentaPaquetes.Seleccion = Seleccion
@@ -359,7 +359,7 @@ Public Class ClasificacionVentaPaquetes
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         'Dim Tabla As New DataTable
-        EntidadClasificacionVentaPaquetes.Actualiza = Actuliza.ActualizaIdPaca
+        EntidadClasificacionVentaPaquetes.Actualiza = Actualiza.ActualizaIdPaca
         EntidadClasificacionVentaPaquetes.NumeroPaca = CInt(IIf(TbNoPaca.Text = "", 0, TbNoPaca.Text))
         EntidadClasificacionVentaPaquetes.IdPaquete = CInt(IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text))
         NegocioClasificacionVentaPaquetes.Actualizar(EntidadClasificacionVentaPaquetes)

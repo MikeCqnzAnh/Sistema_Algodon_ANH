@@ -28,7 +28,7 @@
         Dim Resultado As Boolean = False
         EntidadAcceso.Usuario = Usuario
         EntidadAcceso.BaseDeDatosPerfiles = "Perfiles"
-        EntidadAcceso.Actualiza = Actuliza.ActualizaClaveAutorizacion
+        EntidadAcceso.Actualiza = Actualiza.ActualizaClaveAutorizacion
         NegocioAcceso.ActualizaPerfiles(EntidadAcceso)
     End Sub
     Private Sub UsuarioRegistrado()

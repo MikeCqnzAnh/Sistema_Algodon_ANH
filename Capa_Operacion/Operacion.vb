@@ -176,6 +176,7 @@
         ConsultaPacasEmbarcado = 93
         ConsultaSalidaPacas = 94
         ConsultaEmbarqueParaSalida = 95
+        ConsultaOrdenEmbarqueEncabezado = 96
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -183,7 +184,7 @@
         LlenaComboRegimen = 3
         LlenaComboBaseDatos = 4
     End Enum
-    Public Enum Actuliza
+    Public Enum Actualiza
         ActualizaIdPaca = 1
         ActualizaSeleccion = 2
         ActualizaTipoAlmacen = 3

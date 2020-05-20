@@ -101,7 +101,7 @@ Public Class Acceso
         Try
             cnn.Open()
             Select Case EntidadAcceso1.Actualiza
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaClaveAutorizacion
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaClaveAutorizacion
                     cmdGuardar = New SqlCommand("Sp_ActualizaClaveActualizacion", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.ExecuteNonQuery()

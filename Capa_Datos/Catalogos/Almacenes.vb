@@ -8,36 +8,33 @@ Public Class Almacenes
         Try
             cnn.Open()
             Select Case EntidadAlmacenes1.Actualiza
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaTipoAlmacen
-                    cmdGuardar = New SqlCommand("Sp_InsertarTipoAlmacen", cnn)
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaTipoAlmacen
+                    cmdGuardar = New SqlCommand("Sp_InsertaAlmacenEncabezado", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoAlmacen", EntidadAlmacenes1.IdTipoAlmacen))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadAlmacenes1.Descripcion))
-                    cmdGuardar.Parameters("@IdTipoAlmacen").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@TipoAlmacen", EntidadAlmacenes1.TipoAlmacen))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadLotes", EntidadAlmacenes1.CantidadLotes))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadNiveles", EntidadAlmacenes1.CantidadNiveles))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Columnas", EntidadAlmacenes1.Columnas))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Filas", EntidadAlmacenes1.filas))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaAlta", EntidadAlmacenes1.FechaAlta))
+                    cmdGuardar.Parameters("@IdAlmacenEncabezado").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
-                    If EntidadAlmacenes1.IdTipoAlmacen = 0 Then
-                        EntidadAlmacenes1.IdTipoAlmacen = cmdGuardar.Parameters("@IdTipoAlmacen").Value
+                    If EntidadAlmacenes1.IdAlmacenEncabezado = 0 Then
+                        EntidadAlmacenes1.IdAlmacenEncabezado = cmdGuardar.Parameters("@IdAlmacenEncabezado").Value
                     End If
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaAlmacen
-                    cmdGuardar = New SqlCommand("Sp_InsertaAlmacen", cnn)
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaAlmacen
+                    cmdGuardar = New SqlCommand("Sp_InsertaAlmacenDetalle", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacen", EntidadAlmacenes1.IdAlmacen))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadAlmacenes1.Descripcion))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoAlmacen", EntidadAlmacenes1.IdTipoAlmacen))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Calle", EntidadAlmacenes1.Calle))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Numero", EntidadAlmacenes1.Numero))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@CodigoPostal", EntidadAlmacenes1.CodigoPostal))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Colonia", EntidadAlmacenes1.Colonia))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Ciudad", EntidadAlmacenes1.Ciudad))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Estado", EntidadAlmacenes1.Estado))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Capacidad", EntidadAlmacenes1.Capacidad))
-                    cmdGuardar.Parameters("@IdAlmacen").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenDetalle", 0))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdLote", EntidadAlmacenes1.IdLote))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Nivel", DBNull.Value))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionColumna", DBNull.Value))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionFila", DBNull.Value))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", DBNull.Value))
                     cmdGuardar.ExecuteNonQuery()
-                    If EntidadAlmacenes1.IdTipoAlmacen = 0 Then
-                        EntidadAlmacenes1.IdTipoAlmacen = cmdGuardar.Parameters("@IdAlmacen").Value
-                    End If
             End Select
-
         Catch ex As Exception
         Finally
             cnn.Close()
@@ -48,17 +45,38 @@ Public Class Almacenes
         Dim EntidadAlmacenes1 = New Capa_Entidad.Almacenes
         EntidadAlmacenes1 = EntidadAlmacenes
         EntidadAlmacenes1.TablaConsulta = New DataTable
+        Dim sqlcom1 As SqlCommand
+        Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
+            'cnn.Open()
+            'Select Case EntidadAlmacenes1.Consulta
+            '    Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+            '        Dim sqldat1 As New SqlDataAdapter("Sp_ConsultaTipoAlmacen", cnn)
+            '        sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
+            '    Case Capa_Operacion.Configuracion.Consulta.ConsultaAlmacen
+            '        Dim sqldat1 As New SqlDataAdapter("Sp_ConsultaAlmacen", cnn)
+            '        sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
+            '    Case Capa_Operacion.Configuracion.Consulta.ConsultaAlmacen
+            '        Dim sqldat1 As New SqlDataAdapter("Sp_ConsultaAlmacenEncabezado", cnn)
+
+            '        sqlcom1 = New SqlCommand("sp_EliminarAsociacion", cnn)
+            '        sqldat1 = New SqlDataAdapter(sqlcom1)
+            '        sqlcom1.CommandType = CommandType.StoredProcedure
+            '        sqlcom1.Parameters.Clear()
+            '        sqlcom1.Parameters.Add(New SqlParameter("@IdAsociacion", EntidadAsociaciones1.IdAsociacion))
+            '        sqldat1.Fill(EntidadAsociaciones1.TablaConsulta)
+            'End Select
             cnn.Open()
             Select Case EntidadAlmacenes1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
-                    Dim sqldat1 As New SqlDataAdapter("Sp_ConsultaTipoAlmacen", cnn)
+                    sqlcom1 = New SqlCommand("Sp_ConsultaAlmacenEncabezado", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
                     sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaAlmacen
-                    Dim sqldat1 As New SqlDataAdapter("Sp_ConsultaAlmacen", cnn)
-                    sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
-                    End Select
+            End Select
         Catch ex As Exception
         Finally
             cnn.Close()

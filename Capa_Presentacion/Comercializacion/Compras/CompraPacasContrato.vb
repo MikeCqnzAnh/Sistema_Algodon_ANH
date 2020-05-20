@@ -951,7 +951,7 @@ Public Class CompraPacasContrato
     Private Sub ActualizaPacasDisponiblesContrato(ByVal IdContrato As Integer, ByVal PacasCompradas As Integer, ByVal PacasDisponibles As Integer)
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        EntidadCompraPacasContrato.Actualiza = Actuliza.ActualizaPacasDisponibles
+        EntidadCompraPacasContrato.Actualiza = Actualiza.ActualizaPacasDisponibles
         EntidadCompraPacasContrato.IdContrato = IdContrato
         EntidadCompraPacasContrato.PacasCompradas = PacasCompradas
         EntidadCompraPacasContrato.PacasDisponibles = PacasDisponibles

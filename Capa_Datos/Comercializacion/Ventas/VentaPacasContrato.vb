@@ -221,7 +221,7 @@ Public Class VentaPacasContrato
         Try
             cnn.Open()
             Select Case EntidadVentaPacasContrato1.Actualiza
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaEstatus
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaEstatus
                     For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
                         cmdActualizar = New SqlCommand("Sp_ActualizaEstatusCierraPacaVenta", cnn)
                         cmdActualizar.CommandType = CommandType.StoredProcedure
@@ -231,7 +231,7 @@ Public Class VentaPacasContrato
                         cmdActualizar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVenta")))
                         cmdActualizar.ExecuteNonQuery()
                     Next
-                Case Capa_Operacion.Configuracion.Actuliza.ActualizaPacasDisponibles
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaPacasDisponibles
                     cmdActualizar = New SqlCommand("Sp_ActualizaCantidadPacasVentas", cnn)
                     cmdActualizar.CommandType = CommandType.StoredProcedure
                     cmdActualizar.Parameters.Clear()

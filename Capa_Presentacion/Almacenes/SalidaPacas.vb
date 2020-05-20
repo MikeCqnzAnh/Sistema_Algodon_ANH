@@ -99,8 +99,8 @@ Public Class SalidaPacas
         If Val(TbTara.Text) = 0 And Val(TbIdEmbarque.Text) = 0 And TbNombreChofer.Text = "" And TbTelefono.Text = "" And TbPlacaTractoCamion.Text = "" And TbNoLicencia.Text = "" And TbDestino.Text = "" And TbNoFactura.Text = "" And Val(TbNoPacas.Text) = 0 And TbNoContenedor.Text = "" And TbPlacaCaja.Text = "" Then
             MsgBox("Todos los campos son requeridos.")
         Else
-            Dim opc As DialogResult = MsgBox("Se guardara la salida con estatus Embarcado, No para guardar sin cambiar el estatus", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
-            If opc = DialogResult.Yes Then
+            Dim opc As DialogResult = MsgBox("Elija SI para guardar la salida con estatus EMBARCADO, Elija NO para guardar sin cambiar el estatus", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+            If opc = DialogResult.Yes And Val(TbTara.Text) <> 0 And Val(TbNeto.Text) <> 0 Then
                 CbEstatus.SelectedValue = 1
                 GuardarSalida()
                 ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
@@ -110,6 +110,12 @@ Public Class SalidaPacas
                 GuardarSalida()
                 ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
                 SeleccionaLoteCombo()
+            Else
+                CbEstatus.SelectedValue = 0
+                GuardarSalida()
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                SeleccionaLoteCombo()
+                MsgBox("Se guardo con estatus SIN EMBARCAR, revise que el peso sea correcto!", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
@@ -162,8 +168,10 @@ Public Class SalidaPacas
         End If
     End Sub
     Private Sub CalculaNeto()
-        If Val(TbBruto.Text) > Val(TbNeto.Text) Then
+        If Val(TbBruto.Text) > Val(TbTara.Text) Then
             TbNeto.Text = Val(TbBruto.Text) - Val(TbTara.Text)
+        ElseIf Val(TbTara.Text) > 0 And Val(TbBruto.Text) = 0 Then
+            TbNeto.Text = Val(TbTara.Text)
         Else
             TbNeto.Text = 0
         End If
@@ -273,27 +281,27 @@ Public Class SalidaPacas
             MsgBox(ex.Message)
         End Try
     End Sub
-    'Private Sub PropiedadesDgv()
-    'DgvPacas.Columns("IdSalidaEncabezado").HeaderText = "ID Salida"
-    'DgvPacas.Columns("IdEmbarqueEncabezado").HeaderText = "ID Embarque"
-    'DgvPacas.Columns("IdComprador").Visible = False
-    'DgvPacas.Columns("Nombre").HeaderText = "Comprador"
-    'DgvPacas.Columns("NombreChofer").HeaderText = "Chofer"
-    'DgvPacas.Columns("PlacaTractoCamion").HeaderText = "Placas Camion"
-    'DgvPacas.Columns("NoLicencia").Visible = False
-    'DgvPacas.Columns("Telefono").Visible = False
-    'DgvPacas.Columns("Destino").Visible = False
-    'DgvPacas.Columns("NoFactura").Visible = False
-    'DgvPacas.Columns("FechaSalida").HeaderText = ""
-    'DgvPacas.Columns("FechaEntrada").HeaderText = ""
-    'DgvPacas.Columns("Observaciones").HeaderText = ""
-    'DgvPacas.Columns("NoContenedorCaja1").HeaderText = ""
-    'DgvPacas.Columns("NoContenedorCaja2").HeaderText = ""
-    'DgvPacas.Columns("PlacaCaja1").HeaderText = ""
-    'DgvPacas.Columns("PlacaCaja2").HeaderText = ""
-    'DgvPacas.Columns("NoLote1").HeaderText = ""
-    'DgvPacas.Columns("NoLote2").HeaderText = ""
-    'End Sub
+    Private Sub PropiedadesDgv()
+        DgvPacas.Columns("IdEmbarqueEncabezado").Visible = False
+        DgvPacas.Columns("IdSalidaEncabezado").Visible = False
+        DgvPacas.Columns("IdComprador").Visible = False
+        DgvPacas.Columns("IdVentaEnc").Visible = False
+        DgvPacas.Columns("EstatusEmbarque").Visible = False
+        DgvPacas.Columns("EstatusSalida").Visible = False
+        'DgvPacas.Columns("NoLicencia").Visible = False
+        'DgvPacas.Columns("Telefono").Visible = False
+        'DgvPacas.Columns("Destino").Visible = False
+        'DgvPacas.Columns("NoFactura").Visible = False
+        'DgvPacas.Columns("FechaSalida").HeaderText = ""
+        'DgvPacas.Columns("FechaEntrada").HeaderText = ""
+        'DgvPacas.Columns("Observaciones").HeaderText = ""
+        'DgvPacas.Columns("NoContenedorCaja1").HeaderText = ""
+        'DgvPacas.Columns("NoContenedorCaja2").HeaderText = ""
+        'DgvPacas.Columns("PlacaCaja1").HeaderText = ""
+        'DgvPacas.Columns("PlacaCaja2").HeaderText = ""
+        'DgvPacas.Columns("NoLote1").HeaderText = ""
+        'DgvPacas.Columns("NoLote2").HeaderText = ""
+    End Sub
     Private Sub ConsultarPacas(ByVal IdEmbarqueEncabezado As Integer, ByVal NoLote As String)
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
@@ -303,6 +311,7 @@ Public Class SalidaPacas
         EntidadSalidaPacas.Consulta = Consulta.ConsultaPacasEmbarcado
         NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
         DgvPacas.DataSource = EntidadSalidaPacas.TablaConsulta
+        PropiedadesDgv()
     End Sub
     Public Function LoadIdComprador(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdComprador
         For Each row As DataRow In DatatableParam.Rows
@@ -339,7 +348,7 @@ Public Class SalidaPacas
         End If
         TbNoPacas.Text = DgvPacas.Rows.Count
     End Sub
-    Private Sub TbBruto_Leave(sender As Object, e As EventArgs) Handles TbBruto.Leave
+    Private Sub TbBruto_Leave(sender As Object, e As EventArgs) Handles TbBruto.Leave, TbTara.Leave
         CalculaNeto()
     End Sub
 End Class
