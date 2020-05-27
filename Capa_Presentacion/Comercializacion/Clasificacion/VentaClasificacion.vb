@@ -122,6 +122,9 @@ Public Class VentaClasificacion
         TbIdPaquete.Enabled = True
         TbIdPaquete.Focus()
         TbNoPaca.Text = ""
+        TbDesde.Text = ""
+        TbHasta.Text = ""
+        ChActivaRangos.Checked = False
         CbPlanta.SelectedIndex = -1
         CbClases.SelectedIndex = -1
         CbEstatus.SelectedValue = 1
@@ -985,6 +988,31 @@ Public Class VentaClasificacion
         Else
             MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+
+    Private Sub AgregarPacasPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ChActivaRangos_CheckedChanged(sender As Object, e As EventArgs) Handles ChActivaRangos.CheckedChanged
+        If TbDesde.Enabled = False Then
+            TbDesde.Enabled = True
+            TbHasta.Enabled = True
+            BtAceptar.Enabled = True
+        Else
+            TbDesde.Enabled = False
+            TbHasta.Enabled = False
+            BtAceptar.Enabled = False
+        End If
+    End Sub
+    Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbHasta.KeyPress, TbDesde.KeyPress, TbIdPaquete.KeyPress, TbNoPaca.KeyPress
+        If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
+
     End Sub
 
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click

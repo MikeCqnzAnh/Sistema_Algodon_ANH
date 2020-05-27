@@ -22,7 +22,10 @@ Public Class OrdenEmbarquePacas
         RbCaja1.Checked = True
         TbPlacaCaja1.Text = ""
         TbPlacaCaja2.Text = ""
+        TbPacasMarc.Text = ""
         DtpFecha.Value = Now
+        DgvPacasDisponibles.DataSource = ""
+        DgvPaquetesDisponibles.DataSource = ""
         DgvPacasEmbarcadas.DataSource = ""
         DgvPaqueteEmbarcado.DataSource = ""
         GbProceso.Enabled = False

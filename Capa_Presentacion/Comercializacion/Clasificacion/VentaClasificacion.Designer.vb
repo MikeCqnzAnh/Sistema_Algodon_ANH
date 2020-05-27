@@ -23,6 +23,13 @@ Partial Class VentaClasificacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
+        Me.GbRangos = New System.Windows.Forms.GroupBox()
+        Me.BtAceptar = New System.Windows.Forms.Button()
+        Me.ChActivaRangos = New System.Windows.Forms.CheckBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TbHasta = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TbDesde = New System.Windows.Forms.TextBox()
         Me.NuPromedioUI = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtIgualarClasificacion = New System.Windows.Forms.Button()
@@ -65,6 +72,7 @@ Partial Class VentaClasificacion
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
         Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
         Me.GbDatos.SuspendLayout()
+        Me.GbRangos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbRegistros.SuspendLayout()
@@ -75,6 +83,7 @@ Partial Class VentaClasificacion
         '
         'GbDatos
         '
+        Me.GbDatos.Controls.Add(Me.GbRangos)
         Me.GbDatos.Controls.Add(Me.NuPromedioUI)
         Me.GbDatos.Controls.Add(Me.Label3)
         Me.GbDatos.Controls.Add(Me.BtIgualarClasificacion)
@@ -104,6 +113,77 @@ Partial Class VentaClasificacion
         Me.GbDatos.TabIndex = 0
         Me.GbDatos.TabStop = False
         '
+        'GbRangos
+        '
+        Me.GbRangos.Controls.Add(Me.BtAceptar)
+        Me.GbRangos.Controls.Add(Me.ChActivaRangos)
+        Me.GbRangos.Controls.Add(Me.Label11)
+        Me.GbRangos.Controls.Add(Me.TbHasta)
+        Me.GbRangos.Controls.Add(Me.Label12)
+        Me.GbRangos.Controls.Add(Me.TbDesde)
+        Me.GbRangos.Location = New System.Drawing.Point(885, 10)
+        Me.GbRangos.Name = "GbRangos"
+        Me.GbRangos.Size = New System.Drawing.Size(200, 194)
+        Me.GbRangos.TabIndex = 9
+        Me.GbRangos.TabStop = False
+        Me.GbRangos.Text = "Agrega Pacas Por Rango"
+        '
+        'BtAceptar
+        '
+        Me.BtAceptar.Enabled = False
+        Me.BtAceptar.Location = New System.Drawing.Point(91, 146)
+        Me.BtAceptar.Name = "BtAceptar"
+        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtAceptar.TabIndex = 3
+        Me.BtAceptar.Text = "Aceptar"
+        Me.BtAceptar.UseVisualStyleBackColor = True
+        '
+        'ChActivaRangos
+        '
+        Me.ChActivaRangos.AutoSize = True
+        Me.ChActivaRangos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChActivaRangos.Location = New System.Drawing.Point(151, 29)
+        Me.ChActivaRangos.Name = "ChActivaRangos"
+        Me.ChActivaRangos.Size = New System.Drawing.Size(15, 14)
+        Me.ChActivaRangos.TabIndex = 0
+        Me.ChActivaRangos.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 62)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(54, 13)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "Rango de"
+        '
+        'TbHasta
+        '
+        Me.TbHasta.Enabled = False
+        Me.TbHasta.Location = New System.Drawing.Point(66, 96)
+        Me.TbHasta.MaxLength = 9
+        Me.TbHasta.Name = "TbHasta"
+        Me.TbHasta.Size = New System.Drawing.Size(100, 20)
+        Me.TbHasta.TabIndex = 2
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 99)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 13)
+        Me.Label12.TabIndex = 1
+        Me.Label12.Text = "Hasta"
+        '
+        'TbDesde
+        '
+        Me.TbDesde.Enabled = False
+        Me.TbDesde.Location = New System.Drawing.Point(66, 59)
+        Me.TbDesde.MaxLength = 9
+        Me.TbDesde.Name = "TbDesde"
+        Me.TbDesde.Size = New System.Drawing.Size(100, 20)
+        Me.TbDesde.TabIndex = 1
+        '
         'NuPromedioUI
         '
         Me.NuPromedioUI.DecimalPlaces = 2
@@ -130,7 +210,7 @@ Partial Class VentaClasificacion
         Me.BtIgualarClasificacion.Location = New System.Drawing.Point(1103, 16)
         Me.BtIgualarClasificacion.Name = "BtIgualarClasificacion"
         Me.BtIgualarClasificacion.Size = New System.Drawing.Size(126, 191)
-        Me.BtIgualarClasificacion.TabIndex = 9
+        Me.BtIgualarClasificacion.TabIndex = 10
         Me.BtIgualarClasificacion.Text = "Igualar Clasificacion"
         Me.BtIgualarClasificacion.UseVisualStyleBackColor = True
         '
@@ -140,7 +220,7 @@ Partial Class VentaClasificacion
         Me.BtRevisarClases.Location = New System.Drawing.Point(1229, 16)
         Me.BtRevisarClases.Name = "BtRevisarClases"
         Me.BtRevisarClases.Size = New System.Drawing.Size(119, 191)
-        Me.BtRevisarClases.TabIndex = 31
+        Me.BtRevisarClases.TabIndex = 11
         Me.BtRevisarClases.Text = "Revisar Clases De  Paquete"
         Me.BtRevisarClases.UseVisualStyleBackColor = True
         Me.BtRevisarClases.Visible = False
@@ -149,7 +229,7 @@ Partial Class VentaClasificacion
         '
         Me.NuCantidadPacas.Enabled = False
         Me.NuCantidadPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NuCantidadPacas.Location = New System.Drawing.Point(909, 144)
+        Me.NuCantidadPacas.Location = New System.Drawing.Point(681, 144)
         Me.NuCantidadPacas.Maximum = New Decimal(New Integer() {99999999, 0, 0, 0})
         Me.NuCantidadPacas.Name = "NuCantidadPacas"
         Me.NuCantidadPacas.Size = New System.Drawing.Size(184, 49)
@@ -268,7 +348,7 @@ Partial Class VentaClasificacion
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(738, 152)
+        Me.Label7.Location = New System.Drawing.Point(510, 152)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(154, 37)
         Me.Label7.TabIndex = 15
@@ -469,6 +549,8 @@ Partial Class VentaClasificacion
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
+        Me.GbRangos.ResumeLayout(False)
+        Me.GbRangos.PerformLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbRegistros.ResumeLayout(False)
@@ -523,4 +605,11 @@ Partial Class VentaClasificacion
     Friend WithEvents BtDeseleccionarTodo As Button
     Friend WithEvents BtSeleccionarTodo As Button
     Friend WithEvents ReporteDePaquetesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GbRangos As GroupBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents TbHasta As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TbDesde As TextBox
+    Friend WithEvents BtAceptar As Button
+    Friend WithEvents ChActivaRangos As CheckBox
 End Class

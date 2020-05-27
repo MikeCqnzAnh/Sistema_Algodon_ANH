@@ -2,7 +2,8 @@
     Inherits Tarjeta
     Public IdAlmacenEncabezado As Integer
     Public IdAlmacenDetalle As Integer
-    Public TipoAlmacen As Integer
+    Public Descripcion As String
+    Public IdTipoAlmacen As Integer
     Public CantidadLotes As Integer
     Public CantidadNiveles As Integer
     Public Columnas As Integer

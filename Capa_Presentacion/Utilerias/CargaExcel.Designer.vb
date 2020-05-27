@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CargaExcel
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,17 +20,17 @@ Partial Class CargaExcel
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CargaExcel))
         Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TbCantidadPacas = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtConfirma = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BtConfirma = New System.Windows.Forms.Button()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbCantidadPacas = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,6 +59,32 @@ Partial Class CargaExcel
         Me.Panel1.Size = New System.Drawing.Size(715, 99)
         Me.Panel1.TabIndex = 3
         '
+        'TbCantidadPacas
+        '
+        Me.TbCantidadPacas.Location = New System.Drawing.Point(587, 69)
+        Me.TbCantidadPacas.Name = "TbCantidadPacas"
+        Me.TbCantidadPacas.ReadOnly = True
+        Me.TbCantidadPacas.Size = New System.Drawing.Size(116, 20)
+        Me.TbCantidadPacas.TabIndex = 6
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(529, 72)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 13)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Cantidad:"
+        '
+        'BtConfirma
+        '
+        Me.BtConfirma.Location = New System.Drawing.Point(587, 27)
+        Me.BtConfirma.Name = "BtConfirma"
+        Me.BtConfirma.Size = New System.Drawing.Size(116, 36)
+        Me.BtConfirma.TabIndex = 4
+        Me.BtConfirma.Text = "Confirmar Seleccion"
+        Me.BtConfirma.UseVisualStyleBackColor = True
+        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem})
@@ -73,15 +99,6 @@ Partial Class CargaExcel
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
         Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'BtConfirma
-        '
-        Me.BtConfirma.Location = New System.Drawing.Point(587, 27)
-        Me.BtConfirma.Name = "BtConfirma"
-        Me.BtConfirma.Size = New System.Drawing.Size(116, 36)
-        Me.BtConfirma.TabIndex = 4
-        Me.BtConfirma.Text = "Confirmar Seleccion"
-        Me.BtConfirma.UseVisualStyleBackColor = True
         '
         'DgvPacas
         '
@@ -103,23 +120,6 @@ Partial Class CargaExcel
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvPacas.Size = New System.Drawing.Size(715, 416)
         Me.DgvPacas.TabIndex = 22
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(529, 72)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Cantidad:"
-        '
-        'TbCantidadPacas
-        '
-        Me.TbCantidadPacas.Location = New System.Drawing.Point(587, 69)
-        Me.TbCantidadPacas.Name = "TbCantidadPacas"
-        Me.TbCantidadPacas.ReadOnly = True
-        Me.TbCantidadPacas.Size = New System.Drawing.Size(116, 20)
-        Me.TbCantidadPacas.TabIndex = 6
         '
         'CargaExcel
         '

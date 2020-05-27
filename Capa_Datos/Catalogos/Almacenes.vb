@@ -8,11 +8,11 @@ Public Class Almacenes
         Try
             cnn.Open()
             Select Case EntidadAlmacenes1.Actualiza
-                Case Capa_Operacion.Configuracion.Actualiza.ActualizaTipoAlmacen
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaAlmacenEnc
                     cmdGuardar = New SqlCommand("Sp_InsertaAlmacenEncabezado", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@TipoAlmacen", EntidadAlmacenes1.TipoAlmacen))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@TipoAlmacen", EntidadAlmacenes1.IdTipoAlmacen))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CantidadLotes", EntidadAlmacenes1.CantidadLotes))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CantidadNiveles", EntidadAlmacenes1.CantidadNiveles))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Columnas", EntidadAlmacenes1.Columnas))
@@ -23,7 +23,7 @@ Public Class Almacenes
                     If EntidadAlmacenes1.IdAlmacenEncabezado = 0 Then
                         EntidadAlmacenes1.IdAlmacenEncabezado = cmdGuardar.Parameters("@IdAlmacenEncabezado").Value
                     End If
-                Case Capa_Operacion.Configuracion.Actualiza.ActualizaAlmacen
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaAlmacenDet
                     cmdGuardar = New SqlCommand("Sp_InsertaAlmacenDetalle", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenDetalle", 0))
@@ -34,6 +34,16 @@ Public Class Almacenes
                     cmdGuardar.Parameters.Add(New SqlParameter("@PosicionFila", DBNull.Value))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", DBNull.Value))
                     cmdGuardar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizaTipoAlmacen
+                    cmdGuardar = New SqlCommand("Sp_InsertarTipoAlmacen", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdTipoAlmacen", 0))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadAlmacenes1.Descripcion))
+                    cmdGuardar.Parameters("@IdAlmacenEncabezado").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                    If EntidadAlmacenes1.IdTipoAlmacen = 0 Then
+                        EntidadAlmacenes1.IdTipoAlmacen = cmdGuardar.Parameters("@IdTipoAlmacen").Value
+                    End If
             End Select
         Catch ex As Exception
         Finally
@@ -69,12 +79,18 @@ Public Class Almacenes
             'End Select
             cnn.Open()
             Select Case EntidadAlmacenes1.Consulta
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaAlmacen
                     sqlcom1 = New SqlCommand("Sp_ConsultaAlmacenEncabezado", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
+                    sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                    sqlcom1 = New SqlCommand("Sp_ConsultaTipoAlmacen", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
                     sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
             End Select
         Catch ex As Exception

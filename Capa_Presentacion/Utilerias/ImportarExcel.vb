@@ -8,7 +8,7 @@ Module ImportarExcel
     Sub importarDoc(ByVal tabla As DataGridView)
         Dim myFileDialog As New OpenFileDialog()
         Dim xSheet As String = ""
-
+        Dim NomCol As String = ""
         With myFileDialog
             .Filter = "Excel Files|*.xls;*.xlsx;*.xlsm"
             .Title = "Open File"
@@ -23,10 +23,12 @@ Module ImportarExcel
             Dim conn As OleDbConnection
 
             xSheet = InputBox("Digite el nombre de la Hoja que desea importar", "Complete")
+            NomCol = InputBox("Digite el nombre de la columna que desea importar", "Complete")
+
             conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
 
             Try
-                da = New OleDbDataAdapter("SELECT * FROM  [" & xSheet & "$]", conn)
+                da = New OleDbDataAdapter("SELECT LTRIM(RTRIM(" & NomCol & ")) AS " & NomCol & " FROM  [" & xSheet & "$] WHERE " & NomCol & " > 0", conn)
 
                 conn.Open()
                 da.Fill(ds, "MyData")
@@ -36,9 +38,9 @@ Module ImportarExcel
             Catch ex As Exception
                 MsgBox("Inserte un nombre valido de la Hoja que desea importar", MsgBoxStyle.Information, "Informacion")
             Finally
+                'MsgBox("Se ha cargado la importacion correctamente", MsgBoxStyle.Information, "Importado con exito")
                 conn.Close()
             End Try
         End If
-        MsgBox("Se ha cargado la importacion correctamente", MsgBoxStyle.Information, "Importado con exito")
     End Sub
 End Module

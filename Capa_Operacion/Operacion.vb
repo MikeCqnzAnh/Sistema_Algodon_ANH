@@ -188,12 +188,14 @@
         ActualizaIdPaca = 1
         ActualizaSeleccion = 2
         ActualizaTipoAlmacen = 3
-        ActualizaAlmacen = 4
+        ActualizaAlmacenEnc = 4
         ActualizaTipoUsuario = 5
         ActualizaUsuario = 6
         ActualizaEstatus = 7
         ActualizaClaveAutorizacion = 8
         ActualizaPacasDisponibles = 9
+        ActualizaAlmacenDet = 10
+
     End Enum
     Public Enum Importa
         ImportaTabla = 1

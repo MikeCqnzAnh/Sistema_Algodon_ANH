@@ -27,19 +27,18 @@ Public Class TipoAlmacen
             If TbDescripcion.Text <> "" Then
                 Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
                 Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
-                'EntidadAlmacenes.IdTipoAlmacen = IIf(TbIdTipoAlmacen.Text = "", 0, TbIdTipoAlmacen.Text)
-                'EntidadAlmacenes.Descripcion = TbDescripcion.Text
-                'EntidadAlmacenes.Actualiza = Actuliza.ActualizaTipoAlmacen
-                'NegocioAlmacenes.Guardar(EntidadAlmacenes)
-                'TbIdTipoAlmacen.Text = EntidadAlmacenes.IdTipoAlmacen
-                'Consultar()
+                EntidadAlmacenes.IdTipoAlmacen = IIf(TbIdTipoAlmacen.Text = "", 0, TbIdTipoAlmacen.Text)
+                EntidadAlmacenes.Descripcion = TbDescripcion.Text
+                EntidadAlmacenes.Actualiza = Actualiza.ActualizaTipoAlmacen
+                NegocioAlmacenes.Guardar(EntidadAlmacenes)
+                TbIdTipoAlmacen.Text = EntidadAlmacenes.IdTipoAlmacen
+                Consultar()
             Else
                 MessageBox.Show("El campo descripcion no puede estar vacio.", "Aviso")
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
     End Sub
     Private Sub Consultar()
         Try
@@ -56,11 +55,9 @@ Public Class TipoAlmacen
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Guardar()
     End Sub
-
     Private Sub DgvTipoAlmacen_DoubleClick(sender As Object, e As EventArgs) Handles DgvTipoAlmacen.DoubleClick
         SeleccionarTipoAlmacen()
     End Sub

@@ -56,13 +56,13 @@ Public Class Almacenes
         Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
         Try
             EntidadAlmacenes.IdAlmacenEncabezado = IIf(TbIdBodega.Text = "", 0, TbIdBodega.Text)
-            EntidadAlmacenes.TipoAlmacen = CbTipo.SelectedValue
+            EntidadAlmacenes.IdTipoAlmacen = CbTipo.SelectedValue
             EntidadAlmacenes.CantidadLotes = Val(TbCantidadRack.Text)
             EntidadAlmacenes.CantidadNiveles = Val(TbCantidadNiveles.Text)
             EntidadAlmacenes.Columnas = Val(TbColumnas.Text)
             EntidadAlmacenes.filas = Val(TbFilas.Text)
             EntidadAlmacenes.FechaAlta = DtFecha.Value
-            EntidadAlmacenes.Actualiza = Actualiza.ActualizaTipoAlmacen
+            EntidadAlmacenes.Actualiza = Actualiza.ActualizaAlmacenEnc
             NegocioAlmacenes.Guardar(EntidadAlmacenes)
             TbIdBodega.Text = EntidadAlmacenes.IdAlmacenEncabezado
         Catch ex As Exception
@@ -80,7 +80,7 @@ Public Class Almacenes
             'EntidadAlmacenes.PosicionColumna = DBNull.Value 'TbNumero.Text
             'EntidadAlmacenes.PosicionFila = DBNull.Value ' TbCodigoPostal.Text
             'EntidadAlmacenes.BaleID = IIf(tb) TbColonia.Text
-            EntidadAlmacenes.Actualiza = Actualiza.ActualizaAlmacen
+            EntidadAlmacenes.Actualiza = Actualiza.ActualizaAlmacenDet
             NegocioAlmacenes.Guardar(EntidadAlmacenes)
             TbIdBodega.Text = EntidadAlmacenes.IdAlmacenEncabezado
         Catch ex As Exception
@@ -112,29 +112,29 @@ Public Class Almacenes
         DgvBodegas.Columns("Ciudad").Visible = False
     End Sub
     Private Sub LlenaCombos()
-        'Dim tabla As New DataTable
-        'Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
-        'Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
-        'EntidadAlmacenes.IdTipoAlmacen = CbTipo.SelectedValue
-        'EntidadAlmacenes.Consulta = Consulta.ConsultaBasica
-        'NegocioAlmacenes.Consultar(EntidadAlmacenes)
-        'tabla = EntidadAlmacenes.TablaConsulta
-        'CbTipo.DataSource = tabla
-        'CbTipo.ValueMember = "IdTipoAlmacen"
-        'CbTipo.DisplayMember = "Descripcion"
-        'CbTipo.SelectedIndex = -1
+        Dim tabla As New DataTable
+        Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
+        Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
+        EntidadAlmacenes.IdTipoAlmacen = CbTipo.SelectedValue
+        EntidadAlmacenes.Consulta = Consulta.ConsultaBasica
+        NegocioAlmacenes.Consultar(EntidadAlmacenes)
+        tabla = EntidadAlmacenes.TablaConsulta
+        CbTipo.DataSource = tabla
+        CbTipo.ValueMember = "IdTipoAlmacen"
+        CbTipo.DisplayMember = "Descripcion"
+        CbTipo.SelectedIndex = -1
 
-        ''---------------------------CONSULTA ESTADOS
-        'Dim tabla1 As New DataTable
-        'Dim EntidadClientes As New Capa_Entidad.Clientes
-        'Dim NegocioClientes As New Capa_Negocio.Clientes
-        'EntidadClientes.Consulta = Consulta.ConsultaEstado
-        'NegocioClientes.Consultar(EntidadClientes)
-        'tabla1 = EntidadClientes.TablaConsulta
-        'CbEstado.DataSource = tabla1
-        'CbEstado.ValueMember = "IdEstado"
-        'CbEstado.DisplayMember = "Descripcion"
-        'CbEstado.SelectedIndex = -1
+        '---------------------------CONSULTA ESTADOS
+        Dim tabla1 As New DataTable
+        Dim EntidadClientes As New Capa_Entidad.Clientes
+        Dim NegocioClientes As New Capa_Negocio.Clientes
+        EntidadClientes.Consulta = Consulta.ConsultaEstado
+        NegocioClientes.Consultar(EntidadClientes)
+        tabla1 = EntidadClientes.TablaConsulta
+        CbEstado.DataSource = tabla1
+        CbEstado.ValueMember = "IdEstado"
+        CbEstado.DisplayMember = "Descripcion"
+        CbEstado.SelectedIndex = -1
 
     End Sub
     Private Sub CargaComboMunicipios()
