@@ -23,7 +23,7 @@ Module ImportarExcel
             Dim conn As OleDbConnection
 
             xSheet = InputBox("Digite el nombre de la Hoja que desea importar", "Complete")
-            NomCol = InputBox("Digite el nombre de la columna que desea importar", "Complete")
+            NomCol = InputBox("Digite el nombre de la Columna que desea importar", "Complete")
 
             conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
 
@@ -36,7 +36,7 @@ Module ImportarExcel
                 tabla.DataSource = ds
                 tabla.DataMember = "MyData"
             Catch ex As Exception
-                MsgBox("Inserte un nombre valido de la Hoja que desea importar", MsgBoxStyle.Information, "Informacion")
+                MsgBox("Inserte un nombre valido de la Hoja que desea importar." & vbCrLf & "DETALLES:" & ex.Message, MsgBoxStyle.Information, "Informacion")
             Finally
                 'MsgBox("Se ha cargado la importacion correctamente", MsgBoxStyle.Information, "Importado con exito")
                 conn.Close()

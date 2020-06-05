@@ -116,7 +116,7 @@ Public Class OrdenEmbarquePacas
         DgvPacasDisponibles.Columns("IdPlantaOrigen").ReadOnly = True
     End Sub
     Private Sub PropiedadesDgvPacasEmbarcadas()
-        DgvPacasEmbarcadas.Columns("IdEmbarqueDetalle").Visible = False
+        'DgvPacasEmbarcadas.Columns("IdEmbarqueDetalle").Visible = False
         DgvPacasEmbarcadas.Columns("IdEmbarqueEncabezado").Visible = False
         DgvPacasEmbarcadas.Columns("IdSalidaEncabezado").Visible = False
         DgvPacasEmbarcadas.Columns("IdComprador").Visible = False
@@ -199,7 +199,7 @@ Public Class OrdenEmbarquePacas
         For Each row As DataGridViewRow In DgvPacasEmbarcadas.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
             If row.Cells("Seleccionar").Value = True Then
-                DeseleccionarPacas(row.Cells("IdEmbarqueDetalle").Value)
+                DeseleccionarPacas(row.Cells("Baleid").Value, row.Cells("IdVentaEnc").Value)
             End If
         Next
         CargaPaquetesDisponibles()
@@ -210,13 +210,14 @@ Public Class OrdenEmbarquePacas
         TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
         GuardarEncabezado()
     End Sub
-    Private Sub DeseleccionarPacas(ByVal IdEmbarqueDetalle As Integer)
+    Private Sub DeseleccionarPacas(ByVal BaleID As Integer, ByVal IdVentaEnc As Integer)
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Try
             Dim Tabla As New DataTable
             EntidadOrdenEmbarquePacas.Eliminar = Eliminar.EliminaPacaSeleccionada
-            EntidadOrdenEmbarquePacas.IdEmbarqueDetalle = IdEmbarqueDetalle
+            EntidadOrdenEmbarquePacas.BaleID = BaleID
+            EntidadOrdenEmbarquePacas.IdVentaEnc = IdVentaEnc
             NegocioOrdenEmbarquePacas.Eliminar(EntidadOrdenEmbarquePacas)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -257,11 +258,14 @@ Public Class OrdenEmbarquePacas
         Dim filaSeleccionada As Integer = DgvPaquetesDisponibles.CurrentRow.Index
         Dim chkSel As Boolean = CType(Me.DgvPaquetesDisponibles.Rows(filaSeleccionada).Cells("Seleccionar").EditedFormattedValue, Boolean)
         Dim IdPaquete As Integer
+        Dim Contador As Integer = 0
         IdPaquete = DgvPaquetesDisponibles.Rows(filaSeleccionada).Cells("IdPaqueteEncabezado").Value
         For Each row As DataGridViewRow In DgvPacasDisponibles.Rows
             Dim Index As Integer = Convert.ToUInt64(row.Index)
             If row.Cells("Seleccionar").Value = True Then
                 GuardaDetalle(row.Cells("IdVentaEnc").Value, row.Cells("IdPlantaOrigen").Value, row.Cells("BaleID").Value, row.Cells("Kilos").Value)
+                Contador = Contador + 1
+                If Contador = Val(TbPacasMarc.Text) Then Exit For
             End If
         Next
         CargaPaquetesDisponibles()
@@ -330,9 +334,9 @@ Public Class OrdenEmbarquePacas
         If ConsultaOrdenEmbarque.Id = 0 Then
             Exit Sub
         End If
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ""
-        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
         If Tabla.Rows.Count = 0 Then

@@ -33,7 +33,9 @@ Partial Class OrdenEmbarquePacas
         Me.DgvPacasDisponibles = New System.Windows.Forms.DataGridView()
         Me.GbFiltrado = New System.Windows.Forms.GroupBox()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
         Me.CbPlantaVender = New System.Windows.Forms.ComboBox()
+        Me.BtMarcarTodo = New System.Windows.Forms.Button()
         Me.TbIdPaqVtaVender = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BtFiltro = New System.Windows.Forms.Button()
@@ -48,6 +50,9 @@ Partial Class OrdenEmbarquePacas
         Me.RbSeleccionaCaja2 = New System.Windows.Forms.RadioButton()
         Me.RbSeleccionaCaja1 = New System.Windows.Forms.RadioButton()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.BtExcel = New System.Windows.Forms.Button()
+        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
+        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TP2PaquetesEmbarcados = New System.Windows.Forms.TabPage()
@@ -121,11 +126,6 @@ Partial Class OrdenEmbarquePacas
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
-        Me.BtMarcarTodo = New System.Windows.Forms.Button()
-        Me.BtExcel = New System.Windows.Forms.Button()
-        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
-        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.GbProceso.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TcCompras.SuspendLayout()
@@ -292,6 +292,20 @@ Partial Class OrdenEmbarquePacas
         Me.Label28.TabIndex = 62
         Me.Label28.Text = "Planta:"
         '
+        'BtDesmarcaTodo
+        '
+        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
+        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
+        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.TabIndex = 62
+        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
+        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
+        '
         'CbPlantaVender
         '
         Me.CbPlantaVender.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -300,6 +314,20 @@ Partial Class OrdenEmbarquePacas
         Me.CbPlantaVender.Name = "CbPlantaVender"
         Me.CbPlantaVender.Size = New System.Drawing.Size(110, 20)
         Me.CbPlantaVender.TabIndex = 61
+        '
+        'BtMarcarTodo
+        '
+        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
+        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.Name = "BtMarcarTodo"
+        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.TabIndex = 61
+        Me.BtMarcarTodo.Tag = "Seleccionar todo"
+        Me.BtMarcarTodo.UseVisualStyleBackColor = True
         '
         'TbIdPaqVtaVender
         '
@@ -445,6 +473,37 @@ Partial Class OrdenEmbarquePacas
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(44, 461)
         Me.Panel5.TabIndex = 3
+        '
+        'BtExcel
+        '
+        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
+        Me.BtExcel.Name = "BtExcel"
+        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
+        Me.BtExcel.TabIndex = 2
+        Me.BtExcel.Text = "..."
+        Me.BtExcel.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar2
+        '
+        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
+        Me.BtSeleccionar2.Name = "BtSeleccionar2"
+        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar2.TabIndex = 1
+        Me.BtSeleccionar2.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar
+        '
+        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
+        Me.BtSeleccionar.Name = "BtSeleccionar"
+        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar.TabIndex = 0
+        Me.BtSeleccionar.UseVisualStyleBackColor = True
         '
         'Panel2
         '
@@ -1186,65 +1245,6 @@ Partial Class OrdenEmbarquePacas
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'BtDesmarcaTodo
-        '
-        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
-        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
-        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.TabIndex = 62
-        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
-        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
-        '
-        'BtMarcarTodo
-        '
-        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
-        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.Name = "BtMarcarTodo"
-        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.TabIndex = 61
-        Me.BtMarcarTodo.Tag = "Seleccionar todo"
-        Me.BtMarcarTodo.UseVisualStyleBackColor = True
-        '
-        'BtExcel
-        '
-        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
-        Me.BtExcel.Name = "BtExcel"
-        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
-        Me.BtExcel.TabIndex = 2
-        Me.BtExcel.Text = "..."
-        Me.BtExcel.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar2
-        '
-        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
-        Me.BtSeleccionar2.Name = "BtSeleccionar2"
-        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar2.TabIndex = 1
-        Me.BtSeleccionar2.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar
-        '
-        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
-        Me.BtSeleccionar.Name = "BtSeleccionar"
-        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar.TabIndex = 0
-        Me.BtSeleccionar.UseVisualStyleBackColor = True
         '
         'OrdenEmbarquePacas
         '

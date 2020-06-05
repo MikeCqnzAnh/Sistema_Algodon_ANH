@@ -18,4 +18,7 @@
     Public FlagRevisado As Boolean
     Public IdEstatus As Integer
     Public Seleccion As Boolean
+    '------
+    Public Rango1 As Integer
+    Public Rango2 As Integer
 End Class

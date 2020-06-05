@@ -594,6 +594,7 @@ Partial Class SalidaPacas
         Me.DgvPacas.Location = New System.Drawing.Point(3, 16)
         Me.DgvPacas.MultiSelect = False
         Me.DgvPacas.Name = "DgvPacas"
+        Me.DgvPacas.ReadOnly = True
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

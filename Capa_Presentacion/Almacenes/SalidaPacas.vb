@@ -55,10 +55,10 @@ Public Class SalidaPacas
         If ConsultaOrdenEmbarque.Id = 0 Then
             Exit Sub
         End If
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalida
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ""
         'EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
-        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalida
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
         If Tabla.Rows.Count = 0 Then
@@ -152,6 +152,8 @@ Public Class SalidaPacas
             EntidadSalidaPacas.EstatusSalida = CbEstatus.SelectedValue
             NegocioSalidaPacas.Guardar(EntidadSalidaPacas)
             TbIdSalida.Text = EntidadSalidaPacas.IdSalidaEncabezado
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, TbNombreComprador.Text & ".")
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -175,7 +177,6 @@ Public Class SalidaPacas
         Else
             TbNeto.Text = 0
         End If
-
     End Sub
     Private Sub ComboEstatus()
         Dim dt As DataTable = New DataTable("Tabla")

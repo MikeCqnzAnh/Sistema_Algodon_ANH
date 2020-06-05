@@ -980,7 +980,6 @@ Public Class VentaClasificacion
         ContarPacas()
         GeneraPromedioUI()
     End Sub
-
     Private Sub ReporteClasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteClasesToolStripMenuItem.Click
         If TbIdPaquete.Text <> "" Then
             Dim ReporteClasesVenta As New RepClasesVenta(TbIdPaquete.Text)
@@ -989,11 +988,9 @@ Public Class VentaClasificacion
             MessageBox.Show("No hay paquete seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
-
     Private Sub AgregarPacasPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
-
     Private Sub ChActivaRangos_CheckedChanged(sender As Object, e As EventArgs) Handles ChActivaRangos.CheckedChanged
         If TbDesde.Enabled = False Then
             TbDesde.Enabled = True
@@ -1010,11 +1007,18 @@ Public Class VentaClasificacion
             e.KeyChar = ""
         End If
     End Sub
-
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
 
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPacasRangos
+        EntidadClasificacionVentaPaquetes.Rango1 = Val(TbDesde.Text)
+        EntidadClasificacionVentaPaquetes.Rango2 = Val(TbHasta.Text)
+        EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
+        EntidadClasificacionVentaPaquetes.IdPaquete = CInt(IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text))
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
     End Sub
-
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
     End Sub
