@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.50.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.54.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -291,6 +291,12 @@
       <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarqueEncabezado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueSalidas.Designer.vb">
+      <DependentUpon>ConsultaOrdenEmbarqueSalidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueSalidas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaSalidas.Designer.vb">
@@ -1269,6 +1275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueEncabezado.resx">
       <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueSalidas.resx">
+      <DependentUpon>ConsultaOrdenEmbarqueSalidas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>

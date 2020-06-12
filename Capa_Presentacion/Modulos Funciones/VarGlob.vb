@@ -4,6 +4,7 @@
     Public Property _Dato As String
     Public Property _Tabla As New DataTable
     Public Property _NoContenedor As String
+    Public Property _NombreComprador As String
     Public Property Id() As Integer
         Get
             Return _Id

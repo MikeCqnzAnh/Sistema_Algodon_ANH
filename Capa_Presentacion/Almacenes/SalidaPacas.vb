@@ -16,6 +16,7 @@ Public Class SalidaPacas
         TbPlacaTractoCamion.Text = ""
         TbNoLicencia.Text = ""
         TbDestino.Text = ""
+        CbNoLote.Text = ""
         CbNoLote.SelectedValue = 0
         TbNoPacas.Text = ""
         TbNoContenedor.Text = ""
@@ -51,13 +52,14 @@ Public Class SalidaPacas
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Dim Tabla As New DataTable
-        ConsultaOrdenEmbarque.ShowDialog()
-        If ConsultaOrdenEmbarque.Id = 0 Then
+        ConsultaOrdenEmbarqueSalidas.ShowDialog()
+        If ConsultaOrdenEmbarqueSalidas.Id = 0 Then
             Exit Sub
         End If
-        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalida
-        EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarque.Id
-        EntidadOrdenEmbarquePacas.NombreComprador = ""
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
+        EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarqueSalidas.Id
+        EntidadOrdenEmbarquePacas.NombreComprador = ConsultaOrdenEmbarqueSalidas.NombreComprador
+        EntidadOrdenEmbarquePacas.NoContenedorInd = ConsultaOrdenEmbarqueSalidas.NoContenedor
         'EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
@@ -338,16 +340,16 @@ Public Class SalidaPacas
         SeleccionaLoteCombo()
     End Sub
     Private Sub SeleccionaLoteCombo()
-        If CbNoLote.Text = NoLote1 Then
-            TbNoContenedor.Text = NoContenedor1
-            TbPlacaCaja.Text = PlacaCaja1
-            ConsultarPacas(TbIdEmbarque.Text, NoLote1)
-        ElseIf CbNoLote.Text = NoLote2 Then
-            TbNoContenedor.Text = NoContenedor2
-            TbPlacaCaja.Text = PlacaCaja2
-            ConsultarPacas(TbIdEmbarque.Text, NoLote2)
-        End If
-        TbNoPacas.Text = DgvPacas.Rows.Count
+        'If CbNoLote.Text = NoLote1 Then
+        '    TbNoContenedor.Text = NoContenedor1
+        '    TbPlacaCaja.Text = PlacaCaja1
+        '    ConsultarPacas(TbIdEmbarque.Text, NoLote1)
+        'ElseIf CbNoLote.Text = NoLote2 Then
+        '    TbNoContenedor.Text = NoContenedor2
+        '    TbPlacaCaja.Text = PlacaCaja2
+        '    ConsultarPacas(TbIdEmbarque.Text, NoLote2)
+        'End If
+        'TbNoPacas.Text = DgvPacas.Rows.Count
     End Sub
     Private Sub TbBruto_Leave(sender As Object, e As EventArgs) Handles TbBruto.Leave, TbTara.Leave
         CalculaNeto()

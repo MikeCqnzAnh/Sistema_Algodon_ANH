@@ -178,6 +178,7 @@
         ConsultaEmbarqueParaSalida = 95
         ConsultaOrdenEmbarqueEncabezado = 96
         ConsultaPacasRangos = 97
+        ConsultaEmbarqueParaSalidaSinSelecionar = 98
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

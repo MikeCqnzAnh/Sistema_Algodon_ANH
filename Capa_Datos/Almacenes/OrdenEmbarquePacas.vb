@@ -105,6 +105,16 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadOrdenEmbarquePacas1.NombreComprador))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
+                    sqlcom1 = New SqlCommand("Sp_ConsultaEmbarqueSalidaSinSeleccionar", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadOrdenEmbarquePacas1.NombreComprador))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoContenedor", EntidadOrdenEmbarquePacas1.NoContenedorInd))
+                    sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenEmbarqueEncabezado
                     sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezado", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

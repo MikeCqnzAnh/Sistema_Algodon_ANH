@@ -12,6 +12,8 @@ Public Class Almacenes
         TbIdBodega.Text = ""
         TbDescripcion.Text = ""
         CbTipo.SelectedIndex = -1
+        TbCantidadRack.Text = ""
+        TbCantidadNiveles.Text = ""
         TbCalle.Text = ""
         TbNumero.Text = ""
         TbCodigoPostal.Text = ""
