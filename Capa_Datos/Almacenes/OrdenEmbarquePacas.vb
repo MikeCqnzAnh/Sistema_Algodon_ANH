@@ -113,7 +113,7 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadOrdenEmbarquePacas1.NombreComprador))
-                    sqlcom1.Parameters.Add(New SqlParameter("@NoContenedor", EntidadOrdenEmbarquePacas1.NoContenedorInd))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenEmbarqueEncabezado
                     sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezado", cnn)

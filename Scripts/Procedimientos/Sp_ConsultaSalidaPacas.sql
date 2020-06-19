@@ -1,4 +1,4 @@
-alter Procedure Sp_ConsultaSalidaPacas
+Create Procedure Sp_ConsultaSalidaPacas
 @IdSalidaPacas int,
 @NombreComprador varchar(100)
 as
@@ -25,6 +25,7 @@ select SP.IdSalidaEncabezado
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
+	  ,sp.FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
@@ -56,6 +57,7 @@ select SP.IdSalidaEncabezado
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
+	  ,sp.FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
@@ -88,6 +90,7 @@ select SP.IdSalidaEncabezado
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
+	  ,sp.FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
@@ -120,6 +123,7 @@ select SP.IdSalidaEncabezado
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
+	  ,sp.FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida

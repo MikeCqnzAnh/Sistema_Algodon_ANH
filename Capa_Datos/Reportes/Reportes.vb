@@ -177,6 +177,7 @@ Public Class Reportes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdSalidaPacas", EntidadReportes1.IdSalidaPacas))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdComprador", EntidadReportes1.IdComprador))
+                    sqlcom1.Parameters.Add(New SqlParameter("@HabilitaCampos", EntidadReportes1.CheckStatus))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception

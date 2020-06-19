@@ -1,4 +1,4 @@
-Alter Procedure Sp_InsertaSalidaPacas
+Create Procedure Sp_InsertaSalidaPacas
 @IdSalidaEncabezado int output,
 @IdEmbarqueEncabezado int,
 @NoLote varchar(15),
@@ -6,6 +6,7 @@ Alter Procedure Sp_InsertaSalidaPacas
 @PesoTara float,
 @PesoNeto float,
 @Destino varchar(150),
+@FolioSalida int,
 @NoFactura varchar(12),
 @FechaEntrada datetime,
 @FechaSalida datetime,
@@ -22,6 +23,7 @@ using (select @IdSalidaEncabezado,
 				@PesoTara,
 				@PesoNeto,
 				@Destino,
+				@FolioSalida,
 				@NoFactura,
 				@FechaEntrada,
 				@FechaSalida,
@@ -34,6 +36,7 @@ as source (IdSalidaEncabezado,
 			PesoTara,
 			PesoNeto,
 			Destino,
+			FolioSalida,
 			NoFactura,
 			FechaEntrada,
 			FechaSalida,
@@ -47,6 +50,7 @@ update set IdEmbarqueEncabezado = source.IdEmbarqueEncabezado
 		  ,PesoTara = source.PesoTara
 		  ,PesoNeto = source.PesoNeto
 		  ,Destino = source.Destino
+		  ,FolioSalida = source.FolioSalida
 		  ,NoFactura = source.NoFactura
 		  ,FechaSalida = source.FechaSalida
 		  ,Observaciones = source.Observaciones
@@ -58,6 +62,7 @@ insert(IdEmbarqueEncabezado,
 		PesoTara,
 		PesoNeto,
 		Destino,
+		FolioSalida,
 		NoFactura,
 		FechaEntrada,
 		Observaciones,
@@ -68,6 +73,7 @@ values (source.IdEmbarqueEncabezado
 	   ,source.PesoTara
 	   ,source.PesoNeto
 	   ,source.Destino
+	   ,source.FolioSalida
 	   ,source.NoFactura
 	   ,source.FechaEntrada
 	   ,source.Observaciones

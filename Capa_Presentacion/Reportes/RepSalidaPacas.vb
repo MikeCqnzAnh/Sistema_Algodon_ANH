@@ -20,7 +20,6 @@ Public Class RepSalidaPacas
         TbComprador.Text = ""
         CRVReporteSalida.ReportSource = Nothing
         CRVReporteSalida.Refresh()
-        CargaReporteIdSalida(0, 0)
     End Sub
     'Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
     '    'Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
@@ -42,6 +41,25 @@ Public Class RepSalidaPacas
         EntidadReportes.Reporte = Reporte.ReportePesosSalidaPacas
         EntidadReportes.IdSalidaPacas = IdSalida
         EntidadReportes.IdComprador = IdComprador
+        EntidadReportes.CheckStatus = CkDiferencia.Checked
+        NegocioReportes.Consultar(EntidadReportes)
+        Tabla = EntidadReportes.TablaConsulta
+        ds.Tables.Add(Tabla)
+        CrReport.Load(Ruta)
+        CrReport.SetDataSource(ds.Tables("table1"))
+        CRVReporteSalida.ReportSource = CrReport
+    End Sub
+    Private Sub CargaReporteIdSalidaDetalle(ByVal IdSalida As Integer, ByVal IdComprador As Integer)
+        Dim EntidadReportes As New Capa_Entidad.Reportes
+        Dim NegocioReportes As New Capa_Negocio.Reportes
+        Dim Tabla, TablaGeneral As New Data.DataTable
+        Dim ds As New DataSet
+        Dim CrReport As RPTSalidasPacasResumen = New RPTSalidasPacasResumen
+        Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Reportes\RPT\RPTSalidasPacasResumen.rpt"
+        EntidadReportes.Reporte = Reporte.ReportePesosSalidaPacas
+        EntidadReportes.IdSalidaPacas = IdSalida
+        EntidadReportes.IdComprador = IdComprador
+        EntidadReportes.CheckStatus = CkDiferencia.Checked
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)
@@ -72,5 +90,12 @@ Public Class RepSalidaPacas
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
+    End Sub
+    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
+        CargaReporteIdSalida(IIf(TbIdSalida.Text = "", 0, TbIdSalida.Text), IIf(TbComprador.Text = "", 0, ConsultaCompradoresSalidas.Id))
+    End Sub
+
+    Private Sub ResumenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenToolStripMenuItem.Click
+        CargaReporteIdSalidaDetalle(IIf(TbIdSalida.Text = "", 0, TbIdSalida.Text), IIf(TbComprador.Text = "", 0, ConsultaCompradoresSalidas.Id))
     End Sub
 End Class

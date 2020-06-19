@@ -17,6 +17,7 @@ Public Class SalidaPacas
             cmdGuardar.Parameters.Add(New SqlParameter("@PesoNeto", EntidadSalidaPacas1.PesoNeto))
             cmdGuardar.Parameters.Add(New SqlParameter("@Destino", EntidadSalidaPacas1.Destino))
             cmdGuardar.Parameters.Add(New SqlParameter("@NoFactura", EntidadSalidaPacas1.NoFactura))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FolioSalida", EntidadSalidaPacas1.FolioSalida))
             cmdGuardar.Parameters.Add(New SqlParameter("@FechaEntrada", EntidadSalidaPacas1.FechaEntrada))
             cmdGuardar.Parameters.Add(New SqlParameter("@FechaSalida", EntidadSalidaPacas1.FechaSalida))
             cmdGuardar.Parameters.Add(New SqlParameter("@Observaciones", EntidadSalidaPacas1.Observaciones))
@@ -93,7 +94,7 @@ Public Class SalidaPacas
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@IdSalidaPaca", CInt(EntidadSalidaPacas1.IdSalidaEncabezado)))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadSalidaPacas1.IdEmbarqueEncabezado))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedor", EntidadSalidaPacas1.NoContenedor))
+            cmdGuardar.Parameters.Add(New SqlParameter("@NoLote", EntidadSalidaPacas1.NoLote))
             cmdGuardar.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadSalidaPacas1.EstatusSalida))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception

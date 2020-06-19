@@ -22,6 +22,7 @@ Public Class SalidaPacas
         TbNoContenedor.Text = ""
         TbPlacaCaja.Text = ""
         TbObservaciones.Text = ""
+        TbFolioSalida.Text = ""
         TbNoFactura.Text = ""
         TbTara.Text = 0
         TbBruto.Text = 0
@@ -59,7 +60,7 @@ Public Class SalidaPacas
         EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
         EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarqueSalidas.Id
         EntidadOrdenEmbarquePacas.NombreComprador = ConsultaOrdenEmbarqueSalidas.NombreComprador
-        EntidadOrdenEmbarquePacas.NoContenedorInd = ConsultaOrdenEmbarqueSalidas.NoContenedor
+        EntidadOrdenEmbarquePacas.NoLoteInd = ConsultaOrdenEmbarqueSalidas.NoLote
         'EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
         NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
         Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
@@ -98,37 +99,37 @@ Public Class SalidaPacas
         'CbEstatus.SelectedValue = IIf(CbEstatus.SelectedValue = Nothing, 0, IIf(CbEstatus.SelectedValue = 0, 1, 0))
         'GuardarSalida()
         CbNoLote.Enabled = False
-        If Val(TbTara.Text) = 0 And Val(TbIdEmbarque.Text) = 0 And TbNombreChofer.Text = "" And TbTelefono.Text = "" And TbPlacaTractoCamion.Text = "" And TbNoLicencia.Text = "" And TbDestino.Text = "" And TbNoFactura.Text = "" And Val(TbNoPacas.Text) = 0 And TbNoContenedor.Text = "" And TbPlacaCaja.Text = "" Then
+        If Val(TbTara.Text) = 0 And Val(TbIdEmbarque.Text) = 0 And TbNombreChofer.Text = "" And TbTelefono.Text = "" And TbPlacaTractoCamion.Text = "" And TbNoLicencia.Text = "" And TbDestino.Text = "" And TbNoFactura.Text = "" And Val(TbNoPacas.Text) = 0 And TbNoContenedor.Text = "" And TbPlacaCaja.Text = "" And TbFolioSalida.Text = "" Then
             MsgBox("Todos los campos son requeridos.")
         Else
             Dim opc As DialogResult = MsgBox("Elija SI para guardar la salida con estatus EMBARCADO, Elija NO para guardar sin cambiar el estatus", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
             If opc = DialogResult.Yes And Val(TbTara.Text) <> 0 And Val(TbNeto.Text) <> 0 Then
                 CbEstatus.SelectedValue = 1
                 GuardarSalida()
-                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, CbNoLote.Text)
                 SeleccionaLoteCombo()
             ElseIf opc = DialogResult.No Then
                 CbEstatus.SelectedValue = 0
                 GuardarSalida()
-                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, CbNoLote.Text)
                 SeleccionaLoteCombo()
             Else
                 CbEstatus.SelectedValue = 0
                 GuardarSalida()
-                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, TbNoContenedor.Text)
+                ActualizaIdSalidaPacaDetalle(TbIdSalida.Text, TbIdEmbarque.Text, CbNoLote.Text)
                 SeleccionaLoteCombo()
                 MsgBox("Se guardo con estatus SIN EMBARCAR, revise que el peso sea correcto!", MsgBoxStyle.Exclamation)
             End If
         End If
     End Sub
-    Private Sub ActualizaIdSalidaPacaDetalle(ByVal IdSalidaEncabezado As Integer, ByVal IdEmbarque As Integer, ByVal NoContenedor As String)
+    Private Sub ActualizaIdSalidaPacaDetalle(ByVal IdSalidaEncabezado As Integer, ByVal IdEmbarque As Integer, ByVal NoLote As String)
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
         Try
             'EntidadSalidaPacas.Guarda = Guardar.GuardarSalidaPacas
             EntidadSalidaPacas.IdSalidaEncabezado = IdSalidaEncabezado
             EntidadSalidaPacas.IdEmbarqueEncabezado = IdEmbarque
-            EntidadSalidaPacas.NoContenedor = NoContenedor
+            EntidadSalidaPacas.NoLote = NoLote
             EntidadSalidaPacas.EstatusSalida = CbEstatus.SelectedValue
             NegocioSalidaPacas.Actualiza(EntidadSalidaPacas)
         Catch ex As Exception
@@ -147,6 +148,7 @@ Public Class SalidaPacas
             EntidadSalidaPacas.PesoTara = Val(TbTara.Text)
             EntidadSalidaPacas.PesoNeto = Val(TbNeto.Text)
             EntidadSalidaPacas.Destino = TbDestino.Text
+            EntidadSalidaPacas.FolioSalida = TbFolioSalida.Text
             EntidadSalidaPacas.NoFactura = TbNoFactura.Text
             EntidadSalidaPacas.FechaEntrada = DtpFechaEntrada.Value
             EntidadSalidaPacas.FechaSalida = DtFechaSalida.Value
@@ -256,6 +258,7 @@ Public Class SalidaPacas
             TbNoLicencia.Text = Tabla.Rows(0).Item("NoLicencia")
             TbTelefono.Text = Tabla.Rows(0).Item("Telefono")
             TbDestino.Text = Tabla.Rows(0).Item("Destino")
+            TbFolioSalida.Text = Tabla.Rows(0).Item("FolioSalida")
             TbNoFactura.Text = Tabla.Rows(0).Item("NoFactura")
             DtFechaSalida.Value = IIf(Tabla.Rows(0).Item("FechaSalida").ToString = "", Now, Tabla.Rows(0).Item("FechaSalida").ToString)
             DtpFechaEntrada.Value = Tabla.Rows(0).Item("FechaEntrada")
@@ -340,16 +343,16 @@ Public Class SalidaPacas
         SeleccionaLoteCombo()
     End Sub
     Private Sub SeleccionaLoteCombo()
-        'If CbNoLote.Text = NoLote1 Then
-        '    TbNoContenedor.Text = NoContenedor1
-        '    TbPlacaCaja.Text = PlacaCaja1
-        '    ConsultarPacas(TbIdEmbarque.Text, NoLote1)
-        'ElseIf CbNoLote.Text = NoLote2 Then
-        '    TbNoContenedor.Text = NoContenedor2
-        '    TbPlacaCaja.Text = PlacaCaja2
-        '    ConsultarPacas(TbIdEmbarque.Text, NoLote2)
-        'End If
-        'TbNoPacas.Text = DgvPacas.Rows.Count
+        If CbNoLote.Text = NoLote1 Then
+            TbNoContenedor.Text = NoContenedor1
+            TbPlacaCaja.Text = PlacaCaja1
+            ConsultarPacas(TbIdEmbarque.Text, NoLote1)
+        ElseIf CbNoLote.Text = NoLote2 Then
+            TbNoContenedor.Text = NoContenedor2
+            TbPlacaCaja.Text = PlacaCaja2
+            ConsultarPacas(TbIdEmbarque.Text, NoLote2)
+        End If
+        TbNoPacas.Text = DgvPacas.Rows.Count
     End Sub
     Private Sub TbBruto_Leave(sender As Object, e As EventArgs) Handles TbBruto.Leave, TbTara.Leave
         CalculaNeto()

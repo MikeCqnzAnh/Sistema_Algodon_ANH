@@ -76,6 +76,8 @@ Partial Class SalidaPacas
         Me.TbTara = New System.Windows.Forms.TextBox()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TbFolioSalida = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -125,6 +127,8 @@ Partial Class SalidaPacas
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.TbFolioSalida)
+        Me.GbDatosGenerales.Controls.Add(Me.Label21)
         Me.GbDatosGenerales.Controls.Add(Me.Panel1)
         Me.GbDatosGenerales.Controls.Add(Me.TbDestino)
         Me.GbDatosGenerales.Controls.Add(Me.TbNoFactura)
@@ -159,7 +163,7 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1483, 213)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1483, 242)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -175,7 +179,7 @@ Partial Class SalidaPacas
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(1233, 16)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(247, 194)
+        Me.Panel1.Size = New System.Drawing.Size(247, 223)
         Me.Panel1.TabIndex = 84
         '
         'DtpFechaEntrada
@@ -233,23 +237,23 @@ Partial Class SalidaPacas
         'TbDestino
         '
         Me.TbDestino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbDestino.Location = New System.Drawing.Point(300, 97)
+        Me.TbDestino.Location = New System.Drawing.Point(120, 123)
         Me.TbDestino.Name = "TbDestino"
-        Me.TbDestino.Size = New System.Drawing.Size(390, 20)
-        Me.TbDestino.TabIndex = 9
+        Me.TbDestino.Size = New System.Drawing.Size(570, 20)
+        Me.TbDestino.TabIndex = 11
         '
         'TbNoFactura
         '
         Me.TbNoFactura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoFactura.Location = New System.Drawing.Point(823, 97)
+        Me.TbNoFactura.Location = New System.Drawing.Point(327, 97)
         Me.TbNoFactura.Name = "TbNoFactura"
         Me.TbNoFactura.Size = New System.Drawing.Size(115, 20)
-        Me.TbNoFactura.TabIndex = 10
+        Me.TbNoFactura.TabIndex = 9
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(696, 100)
+        Me.Label15.Location = New System.Drawing.Point(261, 100)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(60, 13)
         Me.Label15.TabIndex = 76
@@ -258,7 +262,7 @@ Partial Class SalidaPacas
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(251, 100)
+        Me.Label10.Location = New System.Drawing.Point(12, 126)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(43, 13)
         Me.Label10.TabIndex = 75
@@ -267,11 +271,11 @@ Partial Class SalidaPacas
         'TbObservaciones
         '
         Me.TbObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbObservaciones.Location = New System.Drawing.Point(120, 150)
+        Me.TbObservaciones.Location = New System.Drawing.Point(120, 176)
         Me.TbObservaciones.Multiline = True
         Me.TbObservaciones.Name = "TbObservaciones"
         Me.TbObservaciones.Size = New System.Drawing.Size(397, 56)
-        Me.TbObservaciones.TabIndex = 15
+        Me.TbObservaciones.TabIndex = 16
         '
         'TbTelefono
         '
@@ -292,18 +296,18 @@ Partial Class SalidaPacas
         'TbNoLicencia
         '
         Me.TbNoLicencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoLicencia.Location = New System.Drawing.Point(120, 97)
+        Me.TbNoLicencia.Location = New System.Drawing.Point(569, 97)
         Me.TbNoLicencia.Name = "TbNoLicencia"
         Me.TbNoLicencia.Size = New System.Drawing.Size(121, 20)
-        Me.TbNoLicencia.TabIndex = 8
+        Me.TbNoLicencia.TabIndex = 10
         '
         'CbNoLote
         '
         Me.CbNoLote.FormattingEnabled = True
-        Me.CbNoLote.Location = New System.Drawing.Point(120, 123)
+        Me.CbNoLote.Location = New System.Drawing.Point(120, 149)
         Me.CbNoLote.Name = "CbNoLote"
         Me.CbNoLote.Size = New System.Drawing.Size(138, 21)
-        Me.CbNoLote.TabIndex = 11
+        Me.CbNoLote.TabIndex = 12
         '
         'TbPlacaTractoCamion
         '
@@ -316,18 +320,18 @@ Partial Class SalidaPacas
         'TbNoContenedor
         '
         Me.TbNoContenedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoContenedor.Location = New System.Drawing.Point(523, 124)
+        Me.TbNoContenedor.Location = New System.Drawing.Point(523, 150)
         Me.TbNoContenedor.Name = "TbNoContenedor"
         Me.TbNoContenedor.Size = New System.Drawing.Size(100, 20)
-        Me.TbNoContenedor.TabIndex = 13
+        Me.TbNoContenedor.TabIndex = 14
         '
         'TbPlacaCaja
         '
         Me.TbPlacaCaja.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbPlacaCaja.Location = New System.Drawing.Point(714, 123)
+        Me.TbPlacaCaja.Location = New System.Drawing.Point(714, 149)
         Me.TbPlacaCaja.Name = "TbPlacaCaja"
         Me.TbPlacaCaja.Size = New System.Drawing.Size(100, 20)
-        Me.TbPlacaCaja.TabIndex = 14
+        Me.TbPlacaCaja.TabIndex = 15
         '
         'TbIdEmbarque
         '
@@ -340,7 +344,7 @@ Partial Class SalidaPacas
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(12, 153)
+        Me.Label14.Location = New System.Drawing.Point(12, 179)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(78, 13)
         Me.Label14.TabIndex = 65
@@ -367,7 +371,7 @@ Partial Class SalidaPacas
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(12, 100)
+        Me.Label11.Location = New System.Drawing.Point(499, 100)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 13)
         Me.Label11.TabIndex = 62
@@ -385,7 +389,7 @@ Partial Class SalidaPacas
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(629, 126)
+        Me.Label8.Location = New System.Drawing.Point(629, 152)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(73, 13)
         Me.Label8.TabIndex = 59
@@ -394,7 +398,7 @@ Partial Class SalidaPacas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(428, 126)
+        Me.Label7.Location = New System.Drawing.Point(428, 152)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(79, 13)
         Me.Label7.TabIndex = 58
@@ -403,7 +407,7 @@ Partial Class SalidaPacas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 126)
+        Me.Label3.Location = New System.Drawing.Point(12, 152)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(45, 13)
         Me.Label3.TabIndex = 57
@@ -450,10 +454,10 @@ Partial Class SalidaPacas
         '
         Me.TbNoPacas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoPacas.Enabled = False
-        Me.TbNoPacas.Location = New System.Drawing.Point(327, 123)
+        Me.TbNoPacas.Location = New System.Drawing.Point(327, 149)
         Me.TbNoPacas.Name = "TbNoPacas"
         Me.TbNoPacas.Size = New System.Drawing.Size(95, 20)
-        Me.TbNoPacas.TabIndex = 12
+        Me.TbNoPacas.TabIndex = 13
         '
         'BtnBuscarEmbarque
         '
@@ -468,7 +472,7 @@ Partial Class SalidaPacas
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(264, 126)
+        Me.Label6.Location = New System.Drawing.Point(264, 152)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 46
@@ -531,9 +535,9 @@ Partial Class SalidaPacas
         Me.GbPesos.Controls.Add(Me.Label17)
         Me.GbPesos.Controls.Add(Me.Label18)
         Me.GbPesos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GbPesos.Location = New System.Drawing.Point(0, 237)
+        Me.GbPesos.Location = New System.Drawing.Point(0, 266)
         Me.GbPesos.Name = "GbPesos"
-        Me.GbPesos.Size = New System.Drawing.Size(362, 406)
+        Me.GbPesos.Size = New System.Drawing.Size(362, 377)
         Me.GbPesos.TabIndex = 2
         Me.GbPesos.TabStop = False
         Me.GbPesos.Text = "Captura Peso"
@@ -573,9 +577,9 @@ Partial Class SalidaPacas
         '
         Me.GbPacas.Controls.Add(Me.DgvPacas)
         Me.GbPacas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbPacas.Location = New System.Drawing.Point(362, 237)
+        Me.GbPacas.Location = New System.Drawing.Point(362, 266)
         Me.GbPacas.Name = "GbPacas"
-        Me.GbPacas.Size = New System.Drawing.Size(1121, 406)
+        Me.GbPacas.Size = New System.Drawing.Size(1121, 377)
         Me.GbPacas.TabIndex = 80
         Me.GbPacas.TabStop = False
         Me.GbPacas.Text = "Pacas de lote"
@@ -598,8 +602,24 @@ Partial Class SalidaPacas
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(1115, 387)
+        Me.DgvPacas.Size = New System.Drawing.Size(1115, 358)
         Me.DgvPacas.TabIndex = 2
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(12, 100)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(61, 13)
+        Me.Label21.TabIndex = 85
+        Me.Label21.Text = "Folio Salida"
+        '
+        'TbFolioSalida
+        '
+        Me.TbFolioSalida.Location = New System.Drawing.Point(120, 97)
+        Me.TbFolioSalida.Name = "TbFolioSalida"
+        Me.TbFolioSalida.Size = New System.Drawing.Size(100, 20)
+        Me.TbFolioSalida.TabIndex = 8
         '
         'SalidaPacas
         '
@@ -682,4 +702,6 @@ Partial Class SalidaPacas
     Friend WithEvents Label20 As Label
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents TbFolioSalida As TextBox
+    Friend WithEvents Label21 As Label
 End Class

@@ -8,12 +8,12 @@ Public Class ConsultaOrdenEmbarqueSalidas
             _Id = value
         End Set
     End Property
-    Public Property NoContenedor() As String
+    Public Property NoLote() As String
         Get
-            Return _NoContenedor
+            Return _NoLote
         End Get
         Set(value As String)
-            _NoContenedor = value
+            _NoLote = value
         End Set
     End Property
     Public Property NombreComprador() As String
@@ -26,13 +26,13 @@ Public Class ConsultaOrdenEmbarqueSalidas
     End Property
     Private Sub ConsultaOrdenEmbarque_Load(sender As Object, e As EventArgs) Handles Me.Load
         Id = 0
-        NoContenedor = ""
+        NoLote = ""
         Limpiar()
     End Sub
     Private Sub Limpiar()
         TbIdEmbarque.Text = ""
         TbNombreComprador.Text = ""
-        TbNoContenedor.Text = ""
+        TbNoLote.Text = ""
         DgvConsultaEmbarque.DataSource = ""
         TbIdEmbarque.Select()
     End Sub
@@ -44,7 +44,7 @@ Public Class ConsultaOrdenEmbarqueSalidas
             EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
             EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
             EntidadOrdenEmbarquePacas.NombreComprador = TbNombreComprador.Text
-            EntidadOrdenEmbarquePacas.NoContenedorInd = TbNoContenedor.Text
+            EntidadOrdenEmbarquePacas.NoLoteInd = TbNoLote.Text
             NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
             DgvConsultaEmbarque.DataSource = EntidadOrdenEmbarquePacas.TablaConsulta
             PropiedadesDgvEmbarqueEncabezado()
@@ -74,7 +74,7 @@ Public Class ConsultaOrdenEmbarqueSalidas
     Private Sub BtConsulta_Click(sender As Object, e As EventArgs) Handles BtConsulta.Click
         ConsultaEmbarqueEncabezado()
     End Sub
-    Private Sub EventoKeypress(sender As Object, e As KeyEventArgs) Handles TbIdEmbarque.KeyDown, TbNombreComprador.KeyDown
+    Private Sub EventoKeypress(sender As Object, e As KeyEventArgs) Handles TbIdEmbarque.KeyDown, TbNombreComprador.KeyDown, TbNoLote.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
                 ConsultaEmbarqueEncabezado()
@@ -88,7 +88,7 @@ Public Class ConsultaOrdenEmbarqueSalidas
             index = DgvConsultaEmbarque.CurrentCell.RowIndex
             _Id = DgvConsultaEmbarque.Rows(index).Cells("IdEmbarqueEncabezado").Value
             _NombreComprador = DgvConsultaEmbarque.Rows(index).Cells("Nombre").Value
-            _NoContenedor = DgvConsultaEmbarque.Rows(index).Cells("NoContenedor").Value
+            _NoLote = DgvConsultaEmbarque.Rows(index).Cells("NoLote").Value
             Close()
         End If
     End Sub

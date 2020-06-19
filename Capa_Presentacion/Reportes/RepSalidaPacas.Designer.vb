@@ -28,13 +28,14 @@ Partial Class RepSalidaPacas
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CkDiferencia = New System.Windows.Forms.CheckBox()
         Me.BtComprador = New System.Windows.Forms.Button()
         Me.BtIdSalida = New System.Windows.Forms.Button()
         Me.TbIdSalida = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbComprador = New System.Windows.Forms.TextBox()
-        Me.BtConsultar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ResumenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +60,7 @@ Partial Class RepSalidaPacas
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NueviToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NueviToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ResumenToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1284, 24)
@@ -75,8 +76,8 @@ Partial Class RepSalidaPacas
         'ConsultarToolStripMenuItem
         '
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.ConsultarToolStripMenuItem.Text = "Consultar"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
+        Me.ConsultarToolStripMenuItem.Text = "Detalle"
         '
         'SalirToolStripMenuItem
         '
@@ -86,18 +87,29 @@ Partial Class RepSalidaPacas
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.CkDiferencia)
         Me.Panel1.Controls.Add(Me.BtComprador)
         Me.Panel1.Controls.Add(Me.BtIdSalida)
         Me.Panel1.Controls.Add(Me.TbIdSalida)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.TbComprador)
-        Me.Panel1.Controls.Add(Me.BtConsultar)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 24)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(281, 568)
         Me.Panel1.TabIndex = 3
+        '
+        'CkDiferencia
+        '
+        Me.CkDiferencia.AutoSize = True
+        Me.CkDiferencia.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CkDiferencia.Location = New System.Drawing.Point(58, 136)
+        Me.CkDiferencia.Name = "CkDiferencia"
+        Me.CkDiferencia.Size = New System.Drawing.Size(74, 17)
+        Me.CkDiferencia.TabIndex = 8
+        Me.CkDiferencia.Text = "Diferencia"
+        Me.CkDiferencia.UseVisualStyleBackColor = True
         '
         'BtComprador
         '
@@ -142,15 +154,6 @@ Partial Class RepSalidaPacas
         Me.TbComprador.Size = New System.Drawing.Size(100, 20)
         Me.TbComprador.TabIndex = 3
         '
-        'BtConsultar
-        '
-        Me.BtConsultar.Location = New System.Drawing.Point(144, 150)
-        Me.BtConsultar.Name = "BtConsultar"
-        Me.BtConsultar.Size = New System.Drawing.Size(75, 23)
-        Me.BtConsultar.TabIndex = 2
-        Me.BtConsultar.Text = "Consultar"
-        Me.BtConsultar.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -159,6 +162,12 @@ Partial Class RepSalidaPacas
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Comprador"
+        '
+        'ResumenToolStripMenuItem
+        '
+        Me.ResumenToolStripMenuItem.Name = "ResumenToolStripMenuItem"
+        Me.ResumenToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.ResumenToolStripMenuItem.Text = "Resumen"
         '
         'RepSalidaPacas
         '
@@ -187,10 +196,11 @@ Partial Class RepSalidaPacas
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TbComprador As TextBox
-    Friend WithEvents BtConsultar As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents TbIdSalida As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents BtComprador As Button
     Friend WithEvents BtIdSalida As Button
+    Friend WithEvents CkDiferencia As CheckBox
+    Friend WithEvents ResumenToolStripMenuItem As ToolStripMenuItem
 End Class

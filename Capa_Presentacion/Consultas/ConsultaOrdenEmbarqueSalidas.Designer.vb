@@ -24,13 +24,13 @@ Partial Class ConsultaOrdenEmbarqueSalidas
     Private Sub InitializeComponent()
         Me.DgvConsultaEmbarque = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TbNoLote = New System.Windows.Forms.TextBox()
         Me.BtConsulta = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbNombreComprador = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbIdEmbarque = New System.Windows.Forms.TextBox()
-        Me.TbNoContenedor = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DgvConsultaEmbarque, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +59,7 @@ Partial Class ConsultaOrdenEmbarqueSalidas
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TbNoContenedor)
+        Me.GroupBox1.Controls.Add(Me.TbNoLote)
         Me.GroupBox1.Controls.Add(Me.BtConsulta)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TbNombreComprador)
@@ -71,6 +71,23 @@ Partial Class ConsultaOrdenEmbarqueSalidas
         Me.GroupBox1.Size = New System.Drawing.Size(1327, 91)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(789, 28)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(45, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "No Lote"
+        '
+        'TbNoLote
+        '
+        Me.TbNoLote.Location = New System.Drawing.Point(840, 26)
+        Me.TbNoLote.MaxLength = 30
+        Me.TbNoLote.Name = "TbNoLote"
+        Me.TbNoLote.Size = New System.Drawing.Size(149, 20)
+        Me.TbNoLote.TabIndex = 3
         '
         'BtConsulta
         '
@@ -113,23 +130,6 @@ Partial Class ConsultaOrdenEmbarqueSalidas
         Me.TbIdEmbarque.Size = New System.Drawing.Size(104, 20)
         Me.TbIdEmbarque.TabIndex = 0
         '
-        'TbNoContenedor
-        '
-        Me.TbNoContenedor.Location = New System.Drawing.Point(874, 25)
-        Me.TbNoContenedor.MaxLength = 30
-        Me.TbNoContenedor.Name = "TbNoContenedor"
-        Me.TbNoContenedor.Size = New System.Drawing.Size(149, 20)
-        Me.TbNoContenedor.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(789, 28)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "No Contenedor"
-        '
         'ConsultaOrdenEmbarqueSalidas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -138,6 +138,7 @@ Partial Class ConsultaOrdenEmbarqueSalidas
         Me.Controls.Add(Me.DgvConsultaEmbarque)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "ConsultaOrdenEmbarqueSalidas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Ordenes de Embarque"
         CType(Me.DgvConsultaEmbarque, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -154,5 +155,5 @@ Partial Class ConsultaOrdenEmbarqueSalidas
     Friend WithEvents Label2 As Label
     Friend WithEvents TbIdEmbarque As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents TbNoContenedor As TextBox
+    Friend WithEvents TbNoLote As TextBox
 End Class

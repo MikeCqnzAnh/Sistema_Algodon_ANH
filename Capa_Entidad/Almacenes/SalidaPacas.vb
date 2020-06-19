@@ -9,6 +9,7 @@
     Public PesoTara As Double
     Public PesoNeto As Double
     Public Destino As String
+    Public FolioSalida As String
     Public NoFactura As String
     Public FechaEntrada As DateTime
     Public FechaSalida As DateTime

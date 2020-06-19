@@ -1,10 +1,10 @@
-Create Procedure Sp_ActualizaSalidaPacas
+alter Procedure Sp_ActualizaSalidaPacas
 @IdSalidaPaca int,
 @IdEmbarqueEncabezado int,
-@NoContenedor varchar(12),
+@NoLote varchar(12),
 @EstatusSalida int
 as
-Update EmbarqueDetalle
+Update CalculoClasificacion
 set IdSalidaEncabezado = @IdSalidaPaca,
 	EstatusSalida = @EstatusSalida
-where IdEmbarqueEncabezado = @IdEmbarqueEncabezado and NoContenedor = @NoContenedor
+where IdEmbarqueEncabezado = @IdEmbarqueEncabezado and Nolote = @NoLote

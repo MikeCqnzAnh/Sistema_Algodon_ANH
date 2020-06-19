@@ -1,70 +1,98 @@
-Create Procedure Sp_ReportePesosSalida
+alter Procedure Sp_ReportePesosSalida
+@HabilitaCampos bit = 0,
 @IdSalidaPacas int ,
 @IdComprador int
 as
 if @IdSalidaPacas = 0 and @IdComprador = 0
 	begin 
-		select cc.Nombre
-			  ,count(hd.BaleID) as Cantidad
-			  ,sum(hd.Kilos) as KilosOrigen 
-			  ,sum (ed.Kilos) as KilosVenta 
-			  ,se.PesoNeto as KilosSalida
-			  ,se.Destino
-			  ,se.NoFactura
-			  ,se.FechaEntrada
-			  ,se.FechaSalida
-		from HviDetalle hd inner join  CalculoClasificacion ed on hd.BaleID = ed.BaleID and hd.IdPlantaOrigen = ed.IdPlantaOrigen
-						   inner join  SalidaPacasEncabezado se on ed.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and ed.NoLote = se.NoLote
-						   inner join  Compradores cc on ed.IdComprador = cc.IdComprador
-		where se.EstatusSalida = 1 --and se.IdSalidaEncabezado = @IdSalidaPacas
-		group by se.PesoNeto,
-				 cc.Nombre,
-				 se.FechaEntrada, 
-				 se.FechaSalida,
-				 se.Destino,
-				 se.NoFactura
+		select cal.idembarqueencabezado
+			,com.Nombre
+			,count(hvi.BaleID) as Cantidad
+			,sum(hvi.Kilos) as KilosOrigen 
+			,sum (cal.Kilos) as KilosVenta
+			,sae.PesoNeto as KilosSalida
+			,sae.Destino
+			,isnull(sae.FolioSalida,0) as FolioSalida
+			,sae.NoFactura
+			,sae.FechaEntrada
+			,sae.FechaSalida
+			,sae.EstatusSalida	  
+			,@HabilitaCampos as HabilitaCampos  
+		from embarqueencabezado eme inner join SalidaPacasEncabezado sae on eme.IdEmbarqueEncabezado = sae.IdEmbarqueEncabezado
+					inner join calculoclasificacion cal on sae.IdEmbarqueEncabezado = cal.IdEmbarqueEncabezado
+					inner join hvidetalle hvi on cal.BaleID = hvi.BaleID and cal.IdPlantaOrigen = hvi.IdPlantaOrigen
+					inner join Compradores com on cal.IdComprador = com.idcomprador 
+		where sae.EstatusSalida = 1
+		group by cal.idembarqueencabezado
+				,sae.PesoNeto 
+				,com.Nombre
+				,sae.Destino
+				,sae.FolioSalida
+				,sae.NoFactura
+				,sae.FechaEntrada
+				,sae.FechaSalida
+				,sae.EstatusSalida
+		order by cal.idembarqueencabezado
 	end
 else if  @IdSalidaPacas > 0 and @IdComprador = 0
 	begin
-		select cc.Nombre
-			  ,count(hd.BaleID) as Cantidad
-			  ,sum(hd.Kilos) as KilosOrigen 
-			  ,sum (ed.Kilos) as KilosVenta 
-			  ,se.PesoNeto as KilosSalida
-			  ,se.Destino
-			  ,se.NoFactura
-			  ,se.FechaEntrada
-			  ,se.FechaSalida
-		from HviDetalle hd inner join  CalculoClasificacion ed on hd.BaleID = ed.BaleID and hd.IdPlantaOrigen = ed.IdPlantaOrigen
-						   inner join  SalidaPacasEncabezado se on ed.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and ed.NoLote = se.NoLote
-						   inner join  Compradores cc on ed.IdComprador = cc.IdComprador
-		where se.EstatusSalida = 1 and se.IdSalidaEncabezado = @IdSalidaPacas
-		group by se.PesoNeto,
-				 cc.Nombre,
-				 se.FechaEntrada, 
-				 se.FechaSalida,
-				 se.Destino,
-				 se.NoFactura
+		select cal.idembarqueencabezado
+			,com.Nombre
+			,count(hvi.BaleID) as Cantidad
+			,sum(hvi.Kilos) as KilosOrigen 
+			,sum (cal.Kilos) as KilosVenta
+			,sae.PesoNeto as KilosSalida
+			,sae.Destino
+			,isnull(sae.FolioSalida,0) as FolioSalida
+			,sae.NoFactura
+			,sae.FechaEntrada
+			,sae.FechaSalida
+			,sae.EstatusSalida	  
+			,@HabilitaCampos as HabilitaCampos  
+		from embarqueencabezado eme inner join SalidaPacasEncabezado sae on eme.IdEmbarqueEncabezado = sae.IdEmbarqueEncabezado
+					inner join calculoclasificacion cal on sae.IdEmbarqueEncabezado = cal.IdEmbarqueEncabezado
+					inner join hvidetalle hvi on cal.BaleID = hvi.BaleID and cal.IdPlantaOrigen = hvi.IdPlantaOrigen
+					inner join Compradores com on cal.IdComprador = com.idcomprador 
+		where sae.EstatusSalida = 1 and sae.IdSalidaEncabezado = @IdSalidaPacas
+		group by cal.idembarqueencabezado
+				,sae.PesoNeto 
+				,com.Nombre
+				,sae.Destino
+				,sae.FolioSalida
+				,sae.NoFactura
+				,sae.FechaEntrada
+				,sae.FechaSalida
+				,sae.EstatusSalida
+		order by cal.idembarqueencabezado
 	end
 else if @IdSalidaPacas = 0 and @IdComprador > 0
 	begin
-		select cc.Nombre
-			  ,count(hd.BaleID) as Cantidad
-			  ,sum(hd.Kilos) as KilosOrigen 
-			  ,sum (ed.Kilos) as KilosVenta 
-			  ,se.PesoNeto as KilosSalida
-			  ,se.Destino
-			  ,se.NoFactura
-			  ,se.FechaEntrada
-			  ,se.FechaSalida
-		from HviDetalle hd inner join  CalculoClasificacion ed on hd.BaleID = ed.BaleID and hd.IdPlantaOrigen = ed.IdPlantaOrigen
-						   inner join  SalidaPacasEncabezado se on ed.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and ed.NoLote = se.NoLote
-						   inner join  Compradores cc on ed.IdComprador = cc.IdComprador
-		where se.EstatusSalida = 1 and ed.IdComprador = @IdComprador
-		group by se.PesoNeto,
-				 cc.Nombre,
-				 se.FechaEntrada, 
-				 se.FechaSalida,
-				 se.Destino,
-				 se.NoFactura	
+		select cal.idembarqueencabezado
+			,com.Nombre
+			,count(hvi.BaleID) as Cantidad
+			,sum(hvi.Kilos) as KilosOrigen 
+			,sum (cal.Kilos) as KilosVenta
+			,sae.PesoNeto as KilosSalida
+			,sae.Destino
+			,isnull(sae.FolioSalida,0) as FolioSalida
+			,sae.NoFactura
+			,sae.FechaEntrada
+			,sae.FechaSalida
+			,sae.EstatusSalida	  
+			,@HabilitaCampos as HabilitaCampos  
+		from embarqueencabezado eme inner join SalidaPacasEncabezado sae on eme.IdEmbarqueEncabezado = sae.IdEmbarqueEncabezado
+					inner join calculoclasificacion cal on sae.IdEmbarqueEncabezado = cal.IdEmbarqueEncabezado
+					inner join hvidetalle hvi on cal.BaleID = hvi.BaleID and cal.IdPlantaOrigen = hvi.IdPlantaOrigen
+					inner join Compradores com on cal.IdComprador = com.idcomprador 
+		where sae.EstatusSalida = 1 and cal.IdComprador = @IdComprador
+		group by cal.idembarqueencabezado
+				,sae.PesoNeto 
+				,com.Nombre
+				,sae.Destino
+				,sae.FolioSalida
+				,sae.NoFactura
+				,sae.FechaEntrada
+				,sae.FechaSalida
+				,sae.EstatusSalida
+		order by cal.idembarqueencabezado
 	end

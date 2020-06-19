@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.54.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.60.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -488,6 +488,12 @@
     </Compile>
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
+    <Compile Include="Procesos\CargaPacasExternas.Designer.vb">
+      <DependentUpon>CargaPacasExternas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\CargaPacasExternas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepClasesVenta.Designer.vb">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
     </Compile>
@@ -726,6 +732,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTSalidaPacas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTSalidasPacasResumen.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTSalidasPacasResumen.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTVenta.vb">
@@ -1288,6 +1300,9 @@
     <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\CargaPacasExternas.resx">
+      <DependentUpon>CargaPacasExternas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepClasesVenta.resx">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1430,6 +1445,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTSalidaPacas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTSalidaPacas.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTSalidasPacasResumen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTSalidasPacasResumen.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
