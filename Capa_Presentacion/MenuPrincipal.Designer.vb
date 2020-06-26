@@ -86,6 +86,7 @@ Partial Class MenuPrincipal
         Me.LiquidacionesPorRomaneajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -178,7 +179,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -641,6 +641,13 @@ Partial Class MenuPrincipal
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Tag = "57,47"
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Text = "Asignación de Personal a un jefe de turno"
+        '
+        'CargaPacasExternasToolStripMenuItem
+        '
+        Me.CargaPacasExternasToolStripMenuItem.Name = "CargaPacasExternasToolStripMenuItem"
+        Me.CargaPacasExternasToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
+        Me.CargaPacasExternasToolStripMenuItem.Tag = "247,47"
+        Me.CargaPacasExternasToolStripMenuItem.Text = "Carga Pacas Externas"
         '
         'AlmacenesToolStripMenuItem
         '
@@ -1290,13 +1297,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
-        '
-        'CargaPacasExternasToolStripMenuItem
-        '
-        Me.CargaPacasExternasToolStripMenuItem.Name = "CargaPacasExternasToolStripMenuItem"
-        Me.CargaPacasExternasToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
-        Me.CargaPacasExternasToolStripMenuItem.Tag = "247,47"
-        Me.CargaPacasExternasToolStripMenuItem.Text = "Carga Pacas Externas"
         '
         'MenuPrincipal
         '

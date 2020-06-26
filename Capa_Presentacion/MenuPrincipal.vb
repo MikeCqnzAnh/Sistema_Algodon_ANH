@@ -423,6 +423,10 @@ Public Class MenuPrincipal
         RepSalidaPacas.ShowDialog()
     End Sub
 
+    Private Sub CargaPacasExternasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargaPacasExternasToolStripMenuItem.Click
+        CargaPacasExternas.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

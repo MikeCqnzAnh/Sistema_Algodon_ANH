@@ -1,6 +1,5 @@
-Create Procedure sp_ConsultaDetalladaClientes
---declare
-@IdCliente int --= 1
+CREATE procedure sp_ConsultaDetalladaClientes
+@IdCliente int
 as
 select IdCliente	,
 		Socio	,
@@ -49,3 +48,4 @@ select IdCliente	,
 from dbo.Clientes 
 where IdEstatus = 1
 and   IdCliente = @IdCliente
+order by Nombre

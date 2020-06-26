@@ -30,6 +30,8 @@ Partial Class SalidaPacas
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.TbFolioSalida = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DtpFechaEntrada = New System.Windows.Forms.DateTimePicker()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -45,7 +47,6 @@ Partial Class SalidaPacas
         Me.TbTelefono = New System.Windows.Forms.TextBox()
         Me.TbNombreChofer = New System.Windows.Forms.TextBox()
         Me.TbNoLicencia = New System.Windows.Forms.TextBox()
-        Me.CbNoLote = New System.Windows.Forms.ComboBox()
         Me.TbPlacaTractoCamion = New System.Windows.Forms.TextBox()
         Me.TbNoContenedor = New System.Windows.Forms.TextBox()
         Me.TbPlacaCaja = New System.Windows.Forms.TextBox()
@@ -76,8 +77,7 @@ Partial Class SalidaPacas
         Me.TbTara = New System.Windows.Forms.TextBox()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.TbFolioSalida = New System.Windows.Forms.TextBox()
+        Me.TbNoLote = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -127,6 +127,7 @@ Partial Class SalidaPacas
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.TbNoLote)
         Me.GbDatosGenerales.Controls.Add(Me.TbFolioSalida)
         Me.GbDatosGenerales.Controls.Add(Me.Label21)
         Me.GbDatosGenerales.Controls.Add(Me.Panel1)
@@ -138,7 +139,6 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.Controls.Add(Me.TbTelefono)
         Me.GbDatosGenerales.Controls.Add(Me.TbNombreChofer)
         Me.GbDatosGenerales.Controls.Add(Me.TbNoLicencia)
-        Me.GbDatosGenerales.Controls.Add(Me.CbNoLote)
         Me.GbDatosGenerales.Controls.Add(Me.TbPlacaTractoCamion)
         Me.GbDatosGenerales.Controls.Add(Me.TbNoContenedor)
         Me.GbDatosGenerales.Controls.Add(Me.TbPlacaCaja)
@@ -167,6 +167,22 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'TbFolioSalida
+        '
+        Me.TbFolioSalida.Location = New System.Drawing.Point(120, 97)
+        Me.TbFolioSalida.Name = "TbFolioSalida"
+        Me.TbFolioSalida.Size = New System.Drawing.Size(100, 20)
+        Me.TbFolioSalida.TabIndex = 8
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(12, 100)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(61, 13)
+        Me.Label21.TabIndex = 85
+        Me.Label21.Text = "Folio Salida"
         '
         'Panel1
         '
@@ -300,14 +316,6 @@ Partial Class SalidaPacas
         Me.TbNoLicencia.Name = "TbNoLicencia"
         Me.TbNoLicencia.Size = New System.Drawing.Size(121, 20)
         Me.TbNoLicencia.TabIndex = 10
-        '
-        'CbNoLote
-        '
-        Me.CbNoLote.FormattingEnabled = True
-        Me.CbNoLote.Location = New System.Drawing.Point(120, 149)
-        Me.CbNoLote.Name = "CbNoLote"
-        Me.CbNoLote.Size = New System.Drawing.Size(138, 21)
-        Me.CbNoLote.TabIndex = 12
         '
         'TbPlacaTractoCamion
         '
@@ -605,21 +613,13 @@ Partial Class SalidaPacas
         Me.DgvPacas.Size = New System.Drawing.Size(1115, 358)
         Me.DgvPacas.TabIndex = 2
         '
-        'Label21
+        'TbNoLote
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 100)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(61, 13)
-        Me.Label21.TabIndex = 85
-        Me.Label21.Text = "Folio Salida"
-        '
-        'TbFolioSalida
-        '
-        Me.TbFolioSalida.Location = New System.Drawing.Point(120, 97)
-        Me.TbFolioSalida.Name = "TbFolioSalida"
-        Me.TbFolioSalida.Size = New System.Drawing.Size(100, 20)
-        Me.TbFolioSalida.TabIndex = 8
+        Me.TbNoLote.Enabled = False
+        Me.TbNoLote.Location = New System.Drawing.Point(120, 149)
+        Me.TbNoLote.Name = "TbNoLote"
+        Me.TbNoLote.Size = New System.Drawing.Size(138, 20)
+        Me.TbNoLote.TabIndex = 86
         '
         'SalidaPacas
         '
@@ -679,7 +679,6 @@ Partial Class SalidaPacas
     Friend WithEvents TbPlacaCaja As TextBox
     Friend WithEvents TbNoContenedor As TextBox
     Friend WithEvents TbPlacaTractoCamion As TextBox
-    Friend WithEvents CbNoLote As ComboBox
     Friend WithEvents TbNoLicencia As TextBox
     Friend WithEvents TbNombreChofer As TextBox
     Friend WithEvents TbTelefono As TextBox
@@ -704,4 +703,5 @@ Partial Class SalidaPacas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TbFolioSalida As TextBox
     Friend WithEvents Label21 As Label
+    Friend WithEvents TbNoLote As TextBox
 End Class

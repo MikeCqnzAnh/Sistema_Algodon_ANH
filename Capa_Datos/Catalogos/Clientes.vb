@@ -120,8 +120,6 @@ Public Class Clientes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCliente", EntidadClientes1.IdCliente))
                     sqldat1.Fill(EntidadClientes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                    'sqldat1 = New SqlDataAdapter("sp_ConsultaDetalladaClientes", cnn)
-                    'sqldat1.Fill(EntidadClientes1.TablaConsulta)
                     sqlcom1 = New SqlCommand("sp_ConsultaDetalladaClientes", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
