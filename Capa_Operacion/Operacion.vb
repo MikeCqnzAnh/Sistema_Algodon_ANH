@@ -179,6 +179,12 @@
         ConsultaOrdenEmbarqueEncabezado = 96
         ConsultaPacasRangos = 97
         ConsultaEmbarqueParaSalidaSinSelecionar = 98
+        ConsultaMicrosCompraCmb = 99
+        ConsultaLargoFibraCompraCmb = 100
+        ConsultaResistenciaCompraCmb = 101
+        ConsultaUniformidadCompraCmb = 102
+        ConsultaParametrosContratoCompra = 103
+        ConsultaUniformidad = 104
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

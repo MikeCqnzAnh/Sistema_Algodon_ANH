@@ -21,4 +21,5 @@ Public Class Tarjeta
     Public Property DescripcionConsulta As String
     Public Property BaseDeDatos As String
     Public Property BaseDeDatosPerfiles As String
+
 End Class

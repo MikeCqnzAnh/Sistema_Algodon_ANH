@@ -221,6 +221,12 @@
     <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.Designer.vb">
+      <DependentUpon>CastigosUniformidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Ventas\ComparacionVentaVsCliente.Designer.vb">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </Compile>
@@ -1248,6 +1254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\VentaClasificacion.resx">
       <DependentUpon>VentaClasificacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.resx">
+      <DependentUpon>CastigosUniformidad.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Ventas\ComparacionVentaVsCliente.resx">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>

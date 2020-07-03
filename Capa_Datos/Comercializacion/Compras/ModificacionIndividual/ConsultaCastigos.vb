@@ -19,6 +19,9 @@ Public Class ConsultaCastigos
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaMicros
                     sqldat1 = New SqlDataAdapter("sp_ConCasMicros", cnn)
                     sqldat1.Fill(EntidadConsultaCastigos1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidad
+                    sqldat1 = New SqlDataAdapter("sp_ConCasMicros", cnn)
+                    sqldat1.Fill(EntidadConsultaCastigos1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModalidadCompra
                     sqlcom1 = New SqlCommand("sp_ConModComId", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

@@ -51,6 +51,35 @@ Public Class ContratosAlgodon
                     cmdGuardar.ExecuteNonQuery()
                 Next
             End If
+            cmdGuardar = New SqlCommand("Sp_InsertaParametrosContratoCompra", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdParametroContrato", EntidadContratosAlgodon1.IdParametroContrato))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoCompra", EntidadContratosAlgodon1.IdContratoAlgodon))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckMicros", EntidadContratosAlgodon1.CheckMicros))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoMicros", EntidadContratosAlgodon1.IdModoMicros))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckLargo", EntidadContratosAlgodon1.CheckLargo))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoLargoFibra", EntidadContratosAlgodon1.IdModoLargoFibra))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckResistencia", EntidadContratosAlgodon1.CheckResistencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoResistencia", EntidadContratosAlgodon1.IdModoResistencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckUniformidad", EntidadContratosAlgodon1.CheckUniformidad))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoUniformidad", EntidadContratosAlgodon1.IdModoUniformidad))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBark", EntidadContratosAlgodon1.CheckBark))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoBark", EntidadContratosAlgodon1.IdModoBark))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel1", EntidadContratosAlgodon1.CheckBarkLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckBarkLevel2", EntidadContratosAlgodon1.CheckBarkLevel2))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrep", EntidadContratosAlgodon1.CheckPrep))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPrep", EntidadContratosAlgodon1.IdModoPrep))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel1", EntidadContratosAlgodon1.CheckPrepLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPrepLevel2", EntidadContratosAlgodon1.CheckPrepLevel2))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@CheckOther", EntidadContratosAlgodon1.CheckOther))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoOther", EntidadContratosAlgodon1.IdModoOther))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel1", EntidadContratosAlgodon1.CheckOtherLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckOtherLevel2", EntidadContratosAlgodon1.CheckOtherLevel2))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlastic", EntidadContratosAlgodon1.CheckPlastic))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPlastic", EntidadContratosAlgodon1.IdModoPlastic))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel1", EntidadContratosAlgodon1.CheckPlasticLevel1))
+            cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel2", EntidadContratosAlgodon1.CheckPlasticLevel2))
+            cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex)
             cnn.Close()
@@ -102,6 +131,28 @@ Public Class ContratosAlgodon
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaUnidadPeso
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaUnidadPesoVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaMicrosCompraCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboMicrosCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLargoFibraCompraCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboLargoFibraCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaResistenciaCompraCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboResistenciaCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidadCompraCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboUniformidadCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMatExtCompra
+                    sqldat1 = New SqlDataAdapter("Sp_LLenaCombosExMatCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaParametrosContratoCompra
+                    sqlcom1 = New SqlCommand("Sp_ConsultaParametrosContratoCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdContratoCompra", EntidadContratosAlgodon1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
             End Select
         Catch ex As Exception

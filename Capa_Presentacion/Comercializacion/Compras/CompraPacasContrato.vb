@@ -301,6 +301,7 @@ Public Class CompraPacasContrato
 
         _ConsultaCompraProductor.ShowDialog()
         ConsultarDatosCompra()
+        ConsultaParametrosCompra()
     End Sub
     Public Function LoadDataGridView(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIDValues
         For Each row As DataRow In DatatableParam.Rows
@@ -349,6 +350,30 @@ Public Class CompraPacasContrato
         TbPacasComp.Text = ""
         TbKilosComp.Text = ""
         TbKilosSeleccionados.Text = ""
+        ChBark.Checked = False
+        ChPrep.Checked = False
+        ChOther.Checked = False
+        ChPlastic.Checked = False
+        ChBarkLevel1.Checked = False
+        ChBarkLevel2.Checked = False
+        ChPrepLevel1.Checked = False
+        ChPrepLevel2.Checked = False
+        ChOtherLevel1.Checked = False
+        ChOtherLevel2.Checked = False
+        ChPlasticLevel1.Checked = False
+        ChPlasticLevel2.Checked = False
+        ChMicros.Checked = False
+        ChResistenciaFibra.Checked = False
+        ChLargoFibra.Checked = False
+        ChUniformidad.Checked = False
+        CbModoLargoFibra.SelectedIndex = -1
+        CbModoMicros.SelectedIndex = -1
+        CbModoResistenciaFibra.SelectedIndex = -1
+        CbModoUniformidad.SelectedIndex = -1
+        CbModoBark.SelectedIndex = -1
+        CbModoPrep.SelectedIndex = -1
+        CbModoOther.SelectedIndex = -1
+        CbModoPlastic.SelectedIndex = -1
         TablaModalidadCompra.Clear()
         TablacastigoMicros.Clear()
         TablaCastigoLargoFibra.Clear()
@@ -380,6 +405,8 @@ Public Class CompraPacasContrato
         LLenaComboInstancias(CbClasesCompradas)
         LLenaComboInstancias(CbClasesPacasAcomprar)
         '---Modalidad De Compra--
+        Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
+        Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
         Dim Tabla3 As New DataTable
         EntidadProduccion.Consulta = Consulta.ConsultaModoCompra
         NegocioProduccion.Consultar(EntidadProduccion)
@@ -388,6 +415,94 @@ Public Class CompraPacasContrato
         CbModalidadCompra.ValueMember = "IdModoEncabezado"
         CbModalidadCompra.DisplayMember = "Descripcion"
         CbModalidadCompra.SelectedValue = 11
+        '------------------------COMBO MICROS VENTA
+        Dim Tabla2 As New DataTable
+        EntidadContratosAlgodon.Consulta = Consulta.ConsultaMicrosCompraCmb
+        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
+        Tabla2 = EntidadContratosAlgodon.TablaConsulta
+        CbModoMicros.DataSource = Tabla2
+        CbModoMicros.ValueMember = "IdModoEncabezado"
+        CbModoMicros.DisplayMember = "Descripcion"
+        CbModoMicros.SelectedIndex = 0
+        '------------------------COMBO LARGO FIBRA VENTA
+        Dim Table3 As New DataTable
+        EntidadContratosAlgodon.Consulta = Consulta.ConsultaLargoFibraCompraCmb
+        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
+        Table3 = EntidadContratosAlgodon.TablaConsulta
+        CbModoLargoFibra.DataSource = Table3
+        CbModoLargoFibra.ValueMember = "IdModoEncabezado"
+        CbModoLargoFibra.DisplayMember = "Descripcion"
+        CbModoLargoFibra.SelectedIndex = 0
+        '------------------------COMBO RESISTENCIA VENTA
+        Dim Tabla4 As New DataTable
+        EntidadContratosAlgodon.Consulta = Consulta.ConsultaResistenciaCompraCmb
+        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
+        Tabla4 = EntidadContratosAlgodon.TablaConsulta
+        CbModoResistenciaFibra.DataSource = Tabla4
+        CbModoResistenciaFibra.ValueMember = "IdModoEncabezado"
+        CbModoResistenciaFibra.DisplayMember = "Descripcion"
+        CbModoResistenciaFibra.SelectedIndex = 0
+        '------------------------COMBO UNIFORMIDAD VENTA
+        Dim Tabla5 As New DataTable
+        EntidadContratosAlgodon.Consulta = Consulta.ConsultaUniformidadCompraCmb
+        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
+        Tabla5 = EntidadContratosAlgodon.TablaConsulta
+        CbModoUniformidad.DataSource = Tabla5
+        CbModoUniformidad.ValueMember = "IdModoEncabezado"
+        CbModoUniformidad.DisplayMember = "Descripcion"
+        CbModoUniformidad.SelectedIndex = 0
+        '-----------------------COMBO BARK
+        Dim dtBark As DataTable = New DataTable("Tabla")
+        dtBark.Columns.Add("Id")
+        dtBark.Columns.Add("Descripcion")
+        Dim drBark As DataRow
+        drBark = dtBark.NewRow()
+        drBark("Id") = "1"
+        drBark("Descripcion") = "Bark"
+        dtBark.Rows.Add(drBark)
+        CbModoBark.DataSource = dtBark
+        CbModoBark.ValueMember = "Id"
+        CbModoBark.DisplayMember = "Descripcion"
+        CbModoBark.SelectedIndex = 0
+        '-----------------------COMBO PREP
+        Dim dtPrep As DataTable = New DataTable("Tabla")
+        dtPrep.Columns.Add("Id")
+        dtPrep.Columns.Add("Descripcion")
+        Dim drPrep As DataRow
+        drPrep = dtPrep.NewRow()
+        drPrep("Id") = "2"
+        drPrep("Descripcion") = "Prep"
+        dtPrep.Rows.Add(drPrep)
+        CbModoPrep.DataSource = dtPrep
+        CbModoPrep.ValueMember = "Id"
+        CbModoPrep.DisplayMember = "Descripcion"
+        CbModoPrep.SelectedIndex = 0
+        '-----------------------COMBO OTHER
+        Dim dtOther As DataTable = New DataTable("Tabla")
+        dtOther.Columns.Add("Id")
+        dtOther.Columns.Add("Descripcion")
+        Dim drOther As DataRow
+        drOther = dtOther.NewRow()
+        drOther("Id") = "3"
+        drOther("Descripcion") = "Other"
+        dtOther.Rows.Add(drOther)
+        CbModoOther.DataSource = dtOther
+        CbModoOther.ValueMember = "Id"
+        CbModoOther.DisplayMember = "Descripcion"
+        CbModoOther.SelectedIndex = 0
+        '-----------------------COMBO PLASTIC
+        Dim dtPlastic As DataTable = New DataTable("Tabla")
+        dtPlastic.Columns.Add("Id")
+        dtPlastic.Columns.Add("Descripcion")
+        Dim drPlastic As DataRow
+        drPlastic = dtPlastic.NewRow()
+        drPlastic("Id") = "4"
+        drPlastic("Descripcion") = "Plastic"
+        dtPlastic.Rows.Add(drPlastic)
+        CbModoPlastic.DataSource = dtPlastic
+        CbModoPlastic.ValueMember = "Id"
+        CbModoPlastic.DisplayMember = "Descripcion"
+        CbModoPlastic.SelectedIndex = 0
     End Sub
     Private Sub LLenaComboInstancias(ByVal cmb As ComboBox)
         'cmb.Items.Clear()
@@ -401,6 +516,42 @@ Public Class CompraPacasContrato
         cmb.ValueMember = "IdClasificacion"
         cmb.DisplayMember = "ClaveCorta"
         cmb.SelectedValue = -1
+    End Sub
+    Private Sub ConsultaParametrosCompra()
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.ContratosAlgodon
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.ContratosAlgodon
+        Dim TablaDetalle As New DataTable
+        Dim TablaParametros As New DataTable
+        EntidadCompraPacasContrato.IdContratoAlgodon = Val(TbIdContrato.Text)
+        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaParametrosContratoCompra
+        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        TablaParametros = EntidadCompraPacasContrato.TablaConsulta
+        If TablaParametros.Rows.Count > 0 Then
+            ChMicros.Checked = TablaParametros.Rows(0).Item("CheckMicros")
+            CbModoMicros.SelectedValue = TablaParametros.Rows(0).Item("IdModoMicros")
+            ChLargoFibra.Checked = TablaParametros.Rows(0).Item("CheckLargo")
+            CbModoLargoFibra.SelectedValue = TablaParametros.Rows(0).Item("IdModoLargoFibra")
+            ChResistenciaFibra.Checked = TablaParametros.Rows(0).Item("CheckResistencia")
+            CbModoResistenciaFibra.SelectedValue = TablaParametros.Rows(0).Item("IdModoResistencia")
+            ChUniformidad.Checked = TablaParametros.Rows(0).Item("CheckUniformidad")
+            CbModoUniformidad.SelectedValue = TablaParametros.Rows(0).Item("IdModoUniformidad")
+            'ChBark.Checked = TablaParametros.Rows(0).Item("CheckBark")
+            'CbModoBark.SelectedValue = TablaParametros.Rows(0).Item("IdModoBark")
+            'ChBarkLevel1.Checked = TablaParametros.Rows(0).Item("CheckBarkLevel1")
+            'ChBarkLevel2.Checked = TablaParametros.Rows(0).Item("CheckBarkLevel2")
+            'ChPrep.Checked = TablaParametros.Rows(0).Item("CheckPrep")
+            'CbModoPrep.SelectedValue = TablaParametros.Rows(0).Item("IdModoPrep")
+            'ChPrepLevel1.Checked = TablaParametros.Rows(0).Item("CheckPrepLevel1")
+            'ChPrepLevel2.Checked = TablaParametros.Rows(0).Item("CheckPrepLevel2")
+            'ChOther.Checked = TablaParametros.Rows(0).Item("CheckOther")
+            'CbModoOther.SelectedValue = TablaParametros.Rows(0).Item("IdModoOther")
+            'ChOtherLevel1.Checked = TablaParametros.Rows(0).Item("CheckOtherLevel1")
+            'ChOtherLevel2.Checked = TablaParametros.Rows(0).Item("CheckOtherLevel2")
+            'ChPlastic.Checked = TablaParametros.Rows(0).Item("CheckPlastic")
+            'CbModoPlastic.SelectedValue = TablaParametros.Rows(0).Item("IdModoPlastic")
+            'ChPlasticLevel1.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel1")
+            'ChPlasticLevel2.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel2")
+        End If
     End Sub
     Private Sub ConsultarDatosCompra()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
@@ -739,6 +890,7 @@ Public Class CompraPacasContrato
                 PrecioSGO = -1 * DgvContratos.Rows(Index).Cells("PrecioSGO").Value
                 PrecioGO = -1 * DgvContratos.Rows(Index).Cells("PrecioGO").Value
                 PrecioO = -1 * DgvContratos.Rows(Index).Cells("PrecioO").Value
+                ConsultaParametrosCompra()
             Else
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = False
             End If
@@ -758,6 +910,30 @@ Public Class CompraPacasContrato
             PrecioSGO = 0
             PrecioGO = 0
             PrecioO = 0
+            ChBark.Checked = False
+            ChPrep.Checked = False
+            ChOther.Checked = False
+            ChPlastic.Checked = False
+            ChBarkLevel1.Checked = False
+            ChBarkLevel2.Checked = False
+            ChPrepLevel1.Checked = False
+            ChPrepLevel2.Checked = False
+            ChOtherLevel1.Checked = False
+            ChOtherLevel2.Checked = False
+            ChPlasticLevel1.Checked = False
+            ChPlasticLevel2.Checked = False
+            ChMicros.Checked = False
+            ChResistenciaFibra.Checked = False
+            ChLargoFibra.Checked = False
+            ChUniformidad.Checked = False
+            CbModoLargoFibra.SelectedIndex = -1
+            CbModoMicros.SelectedIndex = -1
+            CbModoResistenciaFibra.SelectedIndex = -1
+            CbModoUniformidad.SelectedIndex = -1
+            CbModoBark.SelectedIndex = -1
+            CbModoPrep.SelectedIndex = -1
+            CbModoOther.SelectedIndex = -1
+            CbModoPlastic.SelectedIndex = -1
         End If
     End Sub
     Private Sub ConsultaCantidadPacas()

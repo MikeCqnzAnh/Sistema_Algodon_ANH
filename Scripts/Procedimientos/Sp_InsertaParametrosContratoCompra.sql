@@ -1,4 +1,4 @@
-Create Procedure Sp_InsertaParametrosContratoCompra
+alter Procedure Sp_InsertaParametrosContratoCompra
 @IdParametroContrato int output,
 @IdContratoCompra Int,
 @CheckMicros bit,
@@ -74,7 +74,7 @@ merge ParametrosContratoCompra as target
 			   ,CheckPlasticLevel1
 			   ,CheckPlasticLevel2
 		)
- on (target.IdParametroContrato = Source.IdParametroContrato and target.IdContratoCompra = Source.IdContratoCompra)
+ on (target.IdContratoCompra = Source.IdContratoCompra)
  when matched then
 	update set CheckMicros = Source.CheckMicros
 			  ,IdModoMicros = Source.IdModoMicros
@@ -98,8 +98,9 @@ merge ParametrosContratoCompra as target
 			   ,CheckPlasticLevel1 = Source.CheckPlasticLevel1
 			   ,CheckPlasticLevel2 = Source.CheckPlasticLevel2
  when not matched then
-	insert (CheckMicros
-		   ,IdModoMicros
+	insert ( IdContratoCompra
+			,CheckMicros
+		    ,IdModoMicros
 			,CheckLargo
 			,IdModoLargoFibra
 			,CheckResistencia
@@ -119,7 +120,8 @@ merge ParametrosContratoCompra as target
 			,IdModoPlastic
 			,CheckPlasticLevel1
 			,CheckPlasticLevel2)
-	values (Source.CheckMicros
+	values ( Source.IdContratoCompra
+			,Source.CheckMicros
 			,Source.IdModoMicros
 			,Source.CheckLargo
 			,Source.IdModoLargoFibra

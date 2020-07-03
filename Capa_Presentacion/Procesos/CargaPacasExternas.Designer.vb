@@ -38,6 +38,24 @@ Partial Class CargaPacasExternas
         Me.GbCentro = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CbVariedad = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TbPredio = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CBPlantaDestino = New System.Windows.Forms.ComboBox()
+        Me.TbIdOrdenTrabajo = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TbIdProduccion = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CbTipoPaca = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TbTotalPacas = New System.Windows.Forms.TextBox()
+        Me.TbTotalKilos = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TbIdLiquidacion = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GbEncabezado.SuspendLayout()
         Me.GbCentro.SuspendLayout()
@@ -106,7 +124,7 @@ Partial Class CargaPacasExternas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 71)
+        Me.Label1.Location = New System.Drawing.Point(12, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(71, 13)
         Me.Label1.TabIndex = 4
@@ -115,7 +133,7 @@ Partial Class CargaPacasExternas
         'CbPlantaOrigen
         '
         Me.CbPlantaOrigen.FormattingEnabled = True
-        Me.CbPlantaOrigen.Location = New System.Drawing.Point(89, 68)
+        Me.CbPlantaOrigen.Location = New System.Drawing.Point(89, 47)
         Me.CbPlantaOrigen.Name = "CbPlantaOrigen"
         Me.CbPlantaOrigen.Size = New System.Drawing.Size(229, 21)
         Me.CbPlantaOrigen.TabIndex = 5
@@ -133,6 +151,20 @@ Partial Class CargaPacasExternas
         '
         'GbEncabezado
         '
+        Me.GbEncabezado.Controls.Add(Me.Label10)
+        Me.GbEncabezado.Controls.Add(Me.TbIdLiquidacion)
+        Me.GbEncabezado.Controls.Add(Me.Label7)
+        Me.GbEncabezado.Controls.Add(Me.CbTipoPaca)
+        Me.GbEncabezado.Controls.Add(Me.Label6)
+        Me.GbEncabezado.Controls.Add(Me.TbIdProduccion)
+        Me.GbEncabezado.Controls.Add(Me.Label5)
+        Me.GbEncabezado.Controls.Add(Me.TbIdOrdenTrabajo)
+        Me.GbEncabezado.Controls.Add(Me.CBPlantaDestino)
+        Me.GbEncabezado.Controls.Add(Me.Label4)
+        Me.GbEncabezado.Controls.Add(Me.TbPredio)
+        Me.GbEncabezado.Controls.Add(Me.Label3)
+        Me.GbEncabezado.Controls.Add(Me.Label2)
+        Me.GbEncabezado.Controls.Add(Me.CbVariedad)
         Me.GbEncabezado.Controls.Add(Me.BtProductor)
         Me.GbEncabezado.Controls.Add(Me.TbIdProductor)
         Me.GbEncabezado.Controls.Add(Me.TbNombreProductor)
@@ -170,12 +202,168 @@ Partial Class CargaPacasExternas
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.TbTotalKilos)
+        Me.Panel1.Controls.Add(Me.TbTotalPacas)
         Me.Panel1.Controls.Add(Me.BtCargaExcel)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(3, 16)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1374, 50)
         Me.Panel1.TabIndex = 0
+        '
+        'CbVariedad
+        '
+        Me.CbVariedad.FormattingEnabled = True
+        Me.CbVariedad.Location = New System.Drawing.Point(749, 21)
+        Me.CbVariedad.Name = "CbVariedad"
+        Me.CbVariedad.Size = New System.Drawing.Size(121, 21)
+        Me.CbVariedad.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(637, 24)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(106, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Variedad de Algodon"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(637, 51)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(37, 13)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Predio"
+        '
+        'TbPredio
+        '
+        Me.TbPredio.Location = New System.Drawing.Point(749, 48)
+        Me.TbPredio.Name = "TbPredio"
+        Me.TbPredio.Size = New System.Drawing.Size(121, 20)
+        Me.TbPredio.TabIndex = 9
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 77)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(73, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Plada Destino"
+        '
+        'CBPlantaDestino
+        '
+        Me.CBPlantaDestino.FormattingEnabled = True
+        Me.CBPlantaDestino.Location = New System.Drawing.Point(89, 74)
+        Me.CBPlantaDestino.Name = "CBPlantaDestino"
+        Me.CBPlantaDestino.Size = New System.Drawing.Size(229, 21)
+        Me.CBPlantaDestino.TabIndex = 11
+        '
+        'TbIdOrdenTrabajo
+        '
+        Me.TbIdOrdenTrabajo.Location = New System.Drawing.Point(1268, 21)
+        Me.TbIdOrdenTrabajo.Name = "TbIdOrdenTrabajo"
+        Me.TbIdOrdenTrabajo.ReadOnly = True
+        Me.TbIdOrdenTrabajo.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdOrdenTrabajo.TabIndex = 12
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(1187, 24)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(75, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "ID Orden Trab"
+        '
+        'TbIdProduccion
+        '
+        Me.TbIdProduccion.Location = New System.Drawing.Point(1268, 47)
+        Me.TbIdProduccion.Name = "TbIdProduccion"
+        Me.TbIdProduccion.ReadOnly = True
+        Me.TbIdProduccion.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdProduccion.TabIndex = 14
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(1187, 50)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(75, 13)
+        Me.Label6.TabIndex = 15
+        Me.Label6.Text = "ID Produccion"
+        '
+        'CbTipoPaca
+        '
+        Me.CbTipoPaca.FormattingEnabled = True
+        Me.CbTipoPaca.Location = New System.Drawing.Point(749, 74)
+        Me.CbTipoPaca.Name = "CbTipoPaca"
+        Me.CbTipoPaca.Size = New System.Drawing.Size(121, 21)
+        Me.CbTipoPaca.TabIndex = 16
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(637, 77)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(56, 13)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Tipo Paca"
+        '
+        'TbTotalPacas
+        '
+        Me.TbTotalPacas.Location = New System.Drawing.Point(193, 18)
+        Me.TbTotalPacas.Name = "TbTotalPacas"
+        Me.TbTotalPacas.ReadOnly = True
+        Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalPacas.TabIndex = 7
+        '
+        'TbTotalKilos
+        '
+        Me.TbTotalKilos.Location = New System.Drawing.Point(377, 18)
+        Me.TbTotalKilos.Name = "TbTotalKilos"
+        Me.TbTotalKilos.ReadOnly = True
+        Me.TbTotalKilos.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalKilos.TabIndex = 8
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(105, 21)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(82, 13)
+        Me.Label8.TabIndex = 9
+        Me.Label8.Text = "Cantidad Pacas"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(315, 21)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(56, 13)
+        Me.Label9.TabIndex = 10
+        Me.Label9.Text = "Total Kilos"
+        '
+        'TbIdLiquidacion
+        '
+        Me.TbIdLiquidacion.Location = New System.Drawing.Point(1268, 73)
+        Me.TbIdLiquidacion.Name = "TbIdLiquidacion"
+        Me.TbIdLiquidacion.ReadOnly = True
+        Me.TbIdLiquidacion.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdLiquidacion.TabIndex = 18
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(1187, 76)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(75, 13)
+        Me.Label10.TabIndex = 19
+        Me.Label10.Text = "ID Liquidacion"
         '
         'CargaPacasExternas
         '
@@ -196,6 +384,7 @@ Partial Class CargaPacasExternas
         Me.GbCentro.ResumeLayout(False)
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -216,4 +405,22 @@ Partial Class CargaPacasExternas
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ExcelParaImportarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DgvPacas As DataGridView
+    Friend WithEvents Label2 As Label
+    Friend WithEvents CbVariedad As ComboBox
+    Friend WithEvents TbPredio As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents CBPlantaDestino As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TbIdOrdenTrabajo As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TbIdProduccion As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents CbTipoPaca As ComboBox
+    Friend WithEvents TbTotalKilos As TextBox
+    Friend WithEvents TbTotalPacas As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TbIdLiquidacion As TextBox
 End Class
