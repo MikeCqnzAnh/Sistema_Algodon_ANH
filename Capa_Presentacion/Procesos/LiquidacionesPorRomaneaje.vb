@@ -4,6 +4,13 @@ Public Class LiquidacionesPorRomaneaje
     Public TablaCombos As New DataTable
     Public TablaComparacion As New DataTable
     Public Bandera As Boolean
+    Private Sub LiquidacionesPorRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TablaComparacion.Columns.Clear()
+        TablaComparacion.Columns.Add(New DataColumn("IdBoleta", System.Type.GetType("System.Int32")))
+        LlenarCombos()
+        Limpiar()
+        TbIdOrden.Focus()
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
@@ -110,14 +117,6 @@ Public Class LiquidacionesPorRomaneaje
         DgvModulos.Columns("IdOrdenTrabajo").Visible = False
         DgvModulos.Columns("IdPlanta").Visible = False
     End Sub
-    Private Sub LiquidacionesPorRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TablaComparacion.Columns.Clear()
-        TablaComparacion.Columns.Add(New DataColumn("IdBoleta", System.Type.GetType("System.Int32")))
-        LlenarCombos()
-        Limpiar()
-        TbIdOrden.Focus()
-    End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbIdOrden.Text = "" Or DgvModulos.RowCount = 0 Then
             MsgBox("Por favor, abrir una orden de trabajo", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")

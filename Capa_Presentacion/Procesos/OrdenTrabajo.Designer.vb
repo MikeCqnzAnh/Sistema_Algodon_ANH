@@ -63,6 +63,7 @@ Partial Class OrdenTrabajo
         Me.CbPlantas = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvCapturaLotes = New System.Windows.Forms.DataGridView()
+        Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbInformacion.SuspendLayout()
@@ -519,4 +520,5 @@ Partial Class OrdenTrabajo
     Friend WithEvents Label3 As Label
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label16 As Label
+    Friend WithEvents FontDialog1 As FontDialog
 End Class

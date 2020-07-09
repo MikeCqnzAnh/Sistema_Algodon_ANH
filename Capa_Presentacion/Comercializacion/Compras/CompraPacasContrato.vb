@@ -166,10 +166,10 @@ Public Class CompraPacasContrato
                 r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
                 r("TipoCambio") = 0
                 r("PrecioMxn") = 0
-                r("CastigoUniformidad") = Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoResistenciaFibra") = Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoMicros") = Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
-                r("CastigoLargoFibra") = Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000
+                r("CastigoUniformidad") = IIf(ChUniformidad.Checked = True, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                r("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                r("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                r("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
                 r("estatuscompraUpdate") = EstatusCompraUpdate
                 r("EstatusCompraBusqueda") = EstatusCompraBusqueda
                 dt.Rows.Add(r)
@@ -225,7 +225,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
-            EntidadCompraPacasContrato.IdModoEncabezadoMicros = 1
+            EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
             EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -244,7 +244,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = 1
+            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
             EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -263,7 +263,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = 1
+            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
             EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
@@ -282,7 +282,7 @@ Public Class CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         If bandera = 0 Then
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
-            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = 1
+            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
             EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta

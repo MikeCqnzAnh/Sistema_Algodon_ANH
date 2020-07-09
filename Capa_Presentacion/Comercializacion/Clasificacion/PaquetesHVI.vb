@@ -324,7 +324,7 @@ Public Class PaquetesHVI
         Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
         Dim Tabla As New DataTable
         EntidadPaquetesHVI.Consulta = Consulta.ConsultaLotIDPorPaca
-        EntidadPaquetesHVI.BaleID = TbNoPacaConsulta.Text
+        EntidadPaquetesHVI.BaleID = Val(TbNoPacaConsulta.Text)
         NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
         Tabla = EntidadPaquetesHVI.TablaConsulta
         DgvConsultaLotID.DataSource = Tabla

@@ -4,6 +4,7 @@ Public Class CapturaBoletasPorLotes
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1 = EntidadCapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1.TablaConsulta = New DataTable
+        Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
@@ -11,6 +12,13 @@ Public Class CapturaBoletasPorLotes
             Select Case EntidadCapturaBoletasPorLotes1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
                     sqldat1 = New SqlDataAdapter("sp_ConsultaModulos", cnn)
+                    sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqlcom1 = New SqlCommand("sp_ConsultaModulosExterno", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadCapturaBoletasPorLotes1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModulosEntradas
                     sqldat1 = New SqlDataAdapter("sp_ConsultaModulosSinTara", cnn)
