@@ -70,6 +70,8 @@
         GuardarEmbarqueEncabezado = 5
         GuardarEmbarqueDetalle = 6
         GuardarSalidaPacas = 7
+        GuardarEncabezado = 8
+        GuardarDetalle = 9
     End Enum
     '    '==============================================================================
     '    Public Class Formato

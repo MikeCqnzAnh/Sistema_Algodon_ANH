@@ -22,6 +22,7 @@ Partial Class PaquetesHVI
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PaquetesHVI))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MatExtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,6 +50,8 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtCargaAccess = New System.Windows.Forms.Button()
+        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbConsultaPaca.SuspendLayout()
@@ -92,6 +95,8 @@ Partial Class PaquetesHVI
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.BtCargaAccess)
+        Me.GbDatosGenerales.Controls.Add(Me.BtCargaExcel)
         Me.GbDatosGenerales.Controls.Add(Me.GbConsultaPaca)
         Me.GbDatosGenerales.Controls.Add(Me.NuCantidadPacas)
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
@@ -110,7 +115,7 @@ Partial Class PaquetesHVI
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1279, 187)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1279, 215)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -123,7 +128,7 @@ Partial Class PaquetesHVI
         Me.GbConsultaPaca.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbConsultaPaca.Location = New System.Drawing.Point(990, 16)
         Me.GbConsultaPaca.Name = "GbConsultaPaca"
-        Me.GbConsultaPaca.Size = New System.Drawing.Size(286, 168)
+        Me.GbConsultaPaca.Size = New System.Drawing.Size(286, 196)
         Me.GbConsultaPaca.TabIndex = 13
         Me.GbConsultaPaca.TabStop = False
         Me.GbConsultaPaca.Text = "Consulta Lote de paca"
@@ -190,15 +195,15 @@ Partial Class PaquetesHVI
         'TbRuta
         '
         Me.TbRuta.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbRuta.Location = New System.Drawing.Point(175, 131)
+        Me.TbRuta.Location = New System.Drawing.Point(482, 131)
         Me.TbRuta.Name = "TbRuta"
-        Me.TbRuta.Size = New System.Drawing.Size(809, 31)
+        Me.TbRuta.Size = New System.Drawing.Size(502, 31)
         Me.TbRuta.TabIndex = 9
         '
         'BtSeleccionar
         '
         Me.BtSeleccionar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtSeleccionar.Location = New System.Drawing.Point(15, 131)
+        Me.BtSeleccionar.Location = New System.Drawing.Point(322, 131)
         Me.BtSeleccionar.Name = "BtSeleccionar"
         Me.BtSeleccionar.Size = New System.Drawing.Size(154, 31)
         Me.BtSeleccionar.TabIndex = 8
@@ -297,7 +302,7 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPaquetesHVI.Location = New System.Drawing.Point(0, 0)
         Me.DgvPaquetesHVI.Name = "DgvPaquetesHVI"
-        Me.DgvPaquetesHVI.Size = New System.Drawing.Size(1279, 389)
+        Me.DgvPaquetesHVI.Size = New System.Drawing.Size(1279, 361)
         Me.DgvPaquetesHVI.TabIndex = 2
         '
         'OpenFileDialog1
@@ -308,10 +313,34 @@ Partial Class PaquetesHVI
         '
         Me.Panel1.Controls.Add(Me.DgvPaquetesHVI)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 211)
+        Me.Panel1.Location = New System.Drawing.Point(0, 239)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1279, 389)
+        Me.Panel1.Size = New System.Drawing.Size(1279, 361)
         Me.Panel1.TabIndex = 3
+        '
+        'BtCargaAccess
+        '
+        Me.BtCargaAccess.BackgroundImage = CType(resources.GetObject("BtCargaAccess.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaAccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaAccess.Location = New System.Drawing.Point(58, 132)
+        Me.BtCargaAccess.Name = "BtCargaAccess"
+        Me.BtCargaAccess.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaAccess.TabIndex = 15
+        Me.BtCargaAccess.Tag = "Cargar Access"
+        Me.BtCargaAccess.UseVisualStyleBackColor = True
+        '
+        'BtCargaExcel
+        '
+        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaExcel.Location = New System.Drawing.Point(15, 132)
+        Me.BtCargaExcel.Name = "BtCargaExcel"
+        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.TabIndex = 14
+        Me.BtCargaExcel.Tag = "Cargar Excel"
+        Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'PaquetesHVI
         '
@@ -368,4 +397,6 @@ Partial Class PaquetesHVI
     Friend WithEvents Label7 As Label
     Friend WithEvents TbNoPacaConsulta As TextBox
     Friend WithEvents DgvConsultaLotID As DataGridView
+    Friend WithEvents BtCargaAccess As Button
+    Friend WithEvents BtCargaExcel As Button
 End Class

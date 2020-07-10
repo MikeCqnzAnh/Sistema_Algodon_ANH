@@ -35,6 +35,8 @@ Partial Class CargaPacasExternas
         Me.CbPlantaOrigen = New System.Windows.Forms.ComboBox()
         Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.GbEncabezado = New System.Windows.Forms.GroupBox()
+        Me.TbNoModulos = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TbRangoFin = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -62,12 +64,12 @@ Partial Class CargaPacasExternas
         Me.GbCentro = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtCargaAccess = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TbTotalKilos = New System.Windows.Forms.TextBox()
         Me.TbTotalPacas = New System.Windows.Forms.TextBox()
-        Me.TbNoModulos = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.GbEncabezado.SuspendLayout()
         Me.GbCentro.SuspendLayout()
@@ -199,9 +201,28 @@ Partial Class CargaPacasExternas
         Me.GbEncabezado.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbEncabezado.Location = New System.Drawing.Point(0, 24)
         Me.GbEncabezado.Name = "GbEncabezado"
-        Me.GbEncabezado.Size = New System.Drawing.Size(1380, 171)
+        Me.GbEncabezado.Size = New System.Drawing.Size(1380, 165)
         Me.GbEncabezado.TabIndex = 8
         Me.GbEncabezado.TabStop = False
+        '
+        'TbNoModulos
+        '
+        Me.TbNoModulos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNoModulos.Enabled = False
+        Me.TbNoModulos.Location = New System.Drawing.Point(1054, 47)
+        Me.TbNoModulos.Name = "TbNoModulos"
+        Me.TbNoModulos.ReadOnly = True
+        Me.TbNoModulos.Size = New System.Drawing.Size(73, 20)
+        Me.TbNoModulos.TabIndex = 31
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(1001, 50)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(47, 13)
+        Me.Label16.TabIndex = 30
+        Me.Label16.Text = "Modulos"
         '
         'Label15
         '
@@ -217,6 +238,7 @@ Partial Class CargaPacasExternas
         Me.TbRangoFin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRangoFin.Location = New System.Drawing.Point(917, 47)
         Me.TbRangoFin.Name = "TbRangoFin"
+        Me.TbRangoFin.ReadOnly = True
         Me.TbRangoFin.Size = New System.Drawing.Size(78, 20)
         Me.TbRangoFin.TabIndex = 28
         '
@@ -417,9 +439,9 @@ Partial Class CargaPacasExternas
         Me.GbCentro.Controls.Add(Me.DgvPacas)
         Me.GbCentro.Controls.Add(Me.Panel1)
         Me.GbCentro.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GbCentro.Location = New System.Drawing.Point(0, 195)
+        Me.GbCentro.Location = New System.Drawing.Point(0, 189)
         Me.GbCentro.Name = "GbCentro"
-        Me.GbCentro.Size = New System.Drawing.Size(1380, 508)
+        Me.GbCentro.Size = New System.Drawing.Size(1380, 514)
         Me.GbCentro.TabIndex = 9
         Me.GbCentro.TabStop = False
         '
@@ -433,11 +455,12 @@ Partial Class CargaPacasExternas
         Me.DgvPacas.Location = New System.Drawing.Point(3, 66)
         Me.DgvPacas.Name = "DgvPacas"
         Me.DgvPacas.ReadOnly = True
-        Me.DgvPacas.Size = New System.Drawing.Size(1374, 439)
+        Me.DgvPacas.Size = New System.Drawing.Size(1374, 445)
         Me.DgvPacas.TabIndex = 1
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.BtCargaAccess)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.TbTotalKilos)
@@ -448,6 +471,17 @@ Partial Class CargaPacasExternas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1374, 50)
         Me.Panel1.TabIndex = 0
+        '
+        'BtCargaAccess
+        '
+        Me.BtCargaAccess.BackgroundImage = CType(resources.GetObject("BtCargaAccess.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaAccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaAccess.Location = New System.Drawing.Point(46, 3)
+        Me.BtCargaAccess.Name = "BtCargaAccess"
+        Me.BtCargaAccess.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaAccess.TabIndex = 11
+        Me.BtCargaAccess.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -483,24 +517,9 @@ Partial Class CargaPacasExternas
         Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalPacas.TabIndex = 7
         '
-        'TbNoModulos
+        'OpenFileDialog1
         '
-        Me.TbNoModulos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoModulos.Enabled = False
-        Me.TbNoModulos.Location = New System.Drawing.Point(1054, 47)
-        Me.TbNoModulos.Name = "TbNoModulos"
-        Me.TbNoModulos.ReadOnly = True
-        Me.TbNoModulos.Size = New System.Drawing.Size(73, 20)
-        Me.TbNoModulos.TabIndex = 31
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(1001, 50)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(47, 13)
-        Me.Label16.TabIndex = 30
-        Me.Label16.Text = "Modulos"
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'CargaPacasExternas
         '
@@ -572,4 +591,6 @@ Partial Class CargaPacasExternas
     Friend WithEvents Label15 As Label
     Friend WithEvents TbNoModulos As TextBox
     Friend WithEvents Label16 As Label
+    Friend WithEvents BtCargaAccess As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

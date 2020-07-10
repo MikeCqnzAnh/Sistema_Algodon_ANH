@@ -1,4 +1,5 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports System.Data.OleDb
 Public Class CargaPacasExternas
     Public TablaPaquetesHVIGlobal As DataTable
     Private Sub CargaPacasExternas_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -37,14 +38,8 @@ Public Class CargaPacasExternas
         NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
         Tabla = EntidadOrdenTrabajo.TablaConsulta
         TbRangoInicio.Text = (Tabla.Rows(0).Item("RangoFin") + 1)
-    End Sub
-    Private Sub TbRangoFin_Leave(sender As Object, e As EventArgs) Handles TbRangoFin.Leave
-        If TbRangoFin.Text = "" Then
-            MsgBox("Ingrese un valor para el rango final")
-            Exit Sub
-        Else
-            TbNoModulos.Text = CInt((TbRangoFin.Text - TbRangoInicio.Text) + 1)
-        End If
+        TbRangoFin.Text = (Tabla.Rows(0).Item("RangoFin") + 1)
+        TbNoModulos.Text = CInt((TbRangoFin.Text - TbRangoInicio.Text) + 1)
     End Sub
     Private Sub ConsultaOrdProd()
         If TbIdOrdenTrabajo.Text <> "" Then
@@ -190,6 +185,21 @@ Public Class CargaPacasExternas
             Next
         End If
         TbTotalKilos.Text = SumaKilos
+    End Sub
+    Private Sub BtCargaAccess_Click(sender As Object, e As EventArgs) Handles BtCargaAccess.Click
+        importarAccessExterno(DgvPacas)
+        ''Call ShowDialog.
+        'OpenFileDialog1.FileName = ""
+        'OpenFileDialog1.Filter = "Access Database (*.mdb)|*.mdb| & All Files|*.*"
+        'Dim result As DialogResult = OpenFileDialog1.ShowDialog()
+        'If result = DialogResult.OK Then
+        '    Dim path As String = OpenFileDialog1.FileName
+        '    'TbRuta.Text = path
+        '    AbrirBaseDatosAccess()
+        '    PropiedadesDGVCarga()
+        '    Inhabilitar()
+        '    NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
+        'End If
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         GuardarOrdenTrabajoEnc()

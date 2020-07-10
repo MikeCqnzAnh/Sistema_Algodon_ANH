@@ -14,7 +14,7 @@ Public Class PaquetesHVI
         If result = DialogResult.OK Then
             Dim path As String = OpenFileDialog1.FileName
             TbRuta.Text = path
-            AbrirBaseDatosAccess()
+            'AbrirBaseDatosAccess()
             PropiedadesDGVCarga()
             Inhabilitar()
             NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
@@ -48,6 +48,18 @@ Public Class PaquetesHVI
         Else
             MsgBox("Campo Planta y Paquete es requerido para continuar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
+    End Sub
+    Private Sub BtCargaExcel_Click(sender As Object, e As EventArgs) Handles BtCargaExcel.Click
+        importarExcelExterno(DgvPaquetesHVI)
+        PropiedadesDGVCarga()
+        Inhabilitar()
+        NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
+    End Sub
+    Private Sub BtCargaAccess_Click(sender As Object, e As EventArgs) Handles BtCargaAccess.Click
+        importarAccessExterno(DgvPaquetesHVI)
+        PropiedadesDGVCarga()
+        Inhabilitar()
+        NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
     End Sub
     Private Sub Limpiar()
         TbIdPaqueteHVI.Text = ""
@@ -95,28 +107,28 @@ Public Class PaquetesHVI
         CargarCombos()
         Limpiar()
     End Sub
-    Private Sub AbrirBaseDatosAccess()
-        Dim bbdd As OleDbConnection
-        Dim dt As New DataTable
-        Dim sConnString As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & TbRuta.Text
-        bbdd = New OleDb.OleDbConnection(sConnString)
-        bbdd.Open()
-        Dim ds As DataSet
-        ds = New DataSet()
-        Dim cm As OleDbCommand
-        cm = New OleDbCommand("SELECT * FROM " & "SystemTestData", bbdd)
-        Dim da As OleDbDataAdapter
-        da = New OleDbDataAdapter(cm)
-        da.Fill(ds)
-        dt = ds.Tables(0)
-        Dim miView As DataView = New DataView(dt)
-        miView.Sort = "BaleID asc"
-        DgvPaquetesHVI.DataSource = dt
-        TablaPaquetesHVIGlobal = dt
-        TbPaquete.Text = dt.Rows(0).Item("LotID")
-        bbdd.Close()
-        'DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
-    End Sub
+    'Private Sub AbrirBaseDatosAccess()
+    '    Dim bbdd As OleDbConnection
+    '    Dim dt As New DataTable
+    '    Dim sConnString As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & TbRuta.Text
+    '    bbdd = New OleDb.OleDbConnection(sConnString)
+    '    bbdd.Open()
+    '    Dim ds As DataSet
+    '    ds = New DataSet()
+    '    Dim cm As OleDbCommand
+    '    cm = New OleDbCommand("SELECT * FROM " & "SystemTestData", bbdd)
+    '    Dim da As OleDbDataAdapter
+    '    da = New OleDbDataAdapter(cm)
+    '    da.Fill(ds)
+    '    dt = ds.Tables(0)
+    '    Dim miView As DataView = New DataView(dt)
+    '    miView.Sort = "BaleID asc"
+    '    DgvPaquetesHVI.DataSource = dt
+    '    TablaPaquetesHVIGlobal = dt
+    '    TbPaquete.Text = dt.Rows(0).Item("LotID")
+    '    bbdd.Close()
+    '    'DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
+    'End Sub
     Private Sub Inhabilitar()
         'TbPaquete.Enabled = False
     End Sub
@@ -171,6 +183,7 @@ Public Class PaquetesHVI
         Try
             Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
             Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+            EntidadPaquetesHVI.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarEncabezado
             EntidadPaquetesHVI.IdPaqueteHVI = IIf(TbIdPaqueteHVI.Text = "", 0, TbIdPaqueteHVI.Text)
             EntidadPaquetesHVI.LotId = TbPaquete.Text
             EntidadPaquetesHVI.NumeroPacas = IIf(NuCantidadPacas.Value > NumeroPacas, NuCantidadPacas.Value, NumeroPacas)
@@ -181,15 +194,57 @@ Public Class PaquetesHVI
             EntidadPaquetesHVI.FechaCreacion = Now
             EntidadPaquetesHVI.IdUsuarioActualizacion = 1
             EntidadPaquetesHVI.FechaActualizacion = Now
-            EntidadPaquetesHVI.TablaGlobal = TablaPaquetesHVIGlobal
+            'EntidadPaquetesHVI.TablaGlobal = TablaPaquetesHVIGlobal
             NegocioPaquetesHVI.Guardar(EntidadPaquetesHVI)
             TbIdPaqueteHVI.Text = EntidadPaquetesHVI.IdPaqueteHVI
+            GuardarDetalle()
             ObtieneOrdentrabajoPaca()
         Catch ex As Exception
             MsgBox(ex)
         Finally
             NumeroPacas = 0
             MsgBox("Guardado con exito!")
+        End Try
+    End Sub
+    Private Sub GuardarDetalle()
+        Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
+        Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+
+        Try
+            For Each Fila As DataGridViewRow In DgvPaquetesHVI.Rows
+                EntidadPaquetesHVI.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarDetalle
+                EntidadPaquetesHVI.IdPaqueteHVI = Val(TbIdPaqueteHVI.Text)
+                EntidadPaquetesHVI.IdPlanta = CbPlanta.SelectedValue
+                EntidadPaquetesHVI.LotId = Val(TbPaquete.Text)
+                EntidadPaquetesHVI.BaleID = Fila.Cells("BaleID").Value
+                EntidadPaquetesHVI.BaleGroup = Fila.Cells("BaleGroup").Value
+                EntidadPaquetesHVI.Operatr = Fila.Cells("Operator").Value
+                EntidadPaquetesHVI.FechaAn = Fila.Cells("Date").Value
+                EntidadPaquetesHVI.Temperature = Fila.Cells("Temperature").Value
+                EntidadPaquetesHVI.Humidity = Fila.Cells("Humidity").Value
+                EntidadPaquetesHVI.Amount = Fila.Cells("Amount").Value
+                EntidadPaquetesHVI.UHML = Fila.Cells("UHML").Value
+                EntidadPaquetesHVI.UI = Fila.Cells("UI").Value
+                EntidadPaquetesHVI.Strength = Fila.Cells("Strength").Value
+                EntidadPaquetesHVI.Elongation = Fila.Cells("Elongation").Value
+                EntidadPaquetesHVI.SFI = Fila.Cells("SFI").Value
+                EntidadPaquetesHVI.Maturity = Fila.Cells("Maturity").Value
+                EntidadPaquetesHVI.Grade = Fila.Cells("Grade").Value
+                EntidadPaquetesHVI.Moist = Fila.Cells("Moist").Value
+                EntidadPaquetesHVI.Mic = Fila.Cells("Mic").Value
+                EntidadPaquetesHVI.Rd = Fila.Cells("Rd").Value
+                EntidadPaquetesHVI.Plusb = Fila.Cells("Plusb").Value
+                EntidadPaquetesHVI.Colorgrade = Fila.Cells("ColorGrade").Value
+                EntidadPaquetesHVI.TrashCount = Fila.Cells("TrashCount").Value
+                EntidadPaquetesHVI.TrashArea = Fila.Cells("TrashArea").Value
+                EntidadPaquetesHVI.TrashID = Fila.Cells("TrashID").Value
+                EntidadPaquetesHVI.SCI = Fila.Cells("SCI").Value
+                EntidadPaquetesHVI.Nep = 0 ' Fila.Cells("Nep").Value
+                EntidadPaquetesHVI.UV = 0 'Fila.Cells("UV").Value
+                NegocioPaquetesHVI.Guardar(EntidadPaquetesHVI)
+            Next
+        Catch ex As Exception
+            MsgBox(ex)
         End Try
     End Sub
     Private Sub ObtieneOrdentrabajoPaca()
@@ -241,6 +296,7 @@ Public Class PaquetesHVI
         End Select
     End Sub
     Private Sub DgvPaquetesHVI_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPaquetesHVI.CellEndEdit
+        DgvPaquetesHVI.EndEdit()
         Dim ResultadoSCI As Integer = 0
         DgvPaquetesHVI.CurrentRow.Cells("SCI").Value = CalculaSCI(ResultadoSCI)
     End Sub
@@ -288,33 +344,59 @@ Public Class PaquetesHVI
         'DgvPaquetesHVI.Columns("EstatusPaca").ReadOnly = True
     End Sub
     Private Sub PropiedadesDGVCarga()
-        DgvPaquetesHVI.Columns("LotID").ReadOnly = True
-        DgvPaquetesHVI.Columns("BaleID").ReadOnly = True
-        DgvPaquetesHVI.Columns("BaleGroup").ReadOnly = True
-        DgvPaquetesHVI.Columns("Operator").ReadOnly = True
-        DgvPaquetesHVI.Columns("Date").ReadOnly = True
-        DgvPaquetesHVI.Columns("Temperature").ReadOnly = True
-        DgvPaquetesHVI.Columns("Humidity").ReadOnly = True
-        DgvPaquetesHVI.Columns("Amount").ReadOnly = True
-        DgvPaquetesHVI.Columns("UHML").ReadOnly = False
-        DgvPaquetesHVI.Columns("UI").ReadOnly = False
-        DgvPaquetesHVI.Columns("Strength").ReadOnly = False
-        DgvPaquetesHVI.Columns("Elongation").ReadOnly = True
-        DgvPaquetesHVI.Columns("SFI").ReadOnly = True
-        DgvPaquetesHVI.Columns("Maturity").ReadOnly = True
-        DgvPaquetesHVI.Columns("Grade").ReadOnly = True
-        DgvPaquetesHVI.Columns("Moist").ReadOnly = True
-        DgvPaquetesHVI.Columns("Mic").ReadOnly = False
-        DgvPaquetesHVI.Columns("Rd").ReadOnly = False
-        DgvPaquetesHVI.Columns("Plusb").ReadOnly = False
-        DgvPaquetesHVI.Columns("ColorGrade").ReadOnly = False
-        DgvPaquetesHVI.Columns("TrashCount").ReadOnly = True
-        DgvPaquetesHVI.Columns("TrashArea").ReadOnly = True
-        DgvPaquetesHVI.Columns("TrashID").ReadOnly = False
-        DgvPaquetesHVI.Columns("SCI").ReadOnly = True
-        DgvPaquetesHVI.Columns("Nep").Visible = False
-        DgvPaquetesHVI.Columns("UV").Visible = False
-        DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
+        If DgvPaquetesHVI.Columns.Contains("LotID") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("BaleID") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("BaleGroup") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Operator") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Date") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Temperature") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Humidity") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Amount") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("UHML") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("UI") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Strength") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Elongation") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("SFI") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Maturity") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Grade") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Moist") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Mic") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Rd") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("Plusb") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("ColorGrade") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("TrashCount") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("TrashArea") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("TrashID") <> Nothing And
+            DgvPaquetesHVI.Columns.Contains("SCI") <> Nothing Then
+
+            DgvPaquetesHVI.Columns("LotID").ReadOnly = True
+            DgvPaquetesHVI.Columns("BaleID").ReadOnly = True
+            DgvPaquetesHVI.Columns("BaleGroup").ReadOnly = True
+            DgvPaquetesHVI.Columns("Operator").ReadOnly = True
+            DgvPaquetesHVI.Columns("Date").ReadOnly = True
+            DgvPaquetesHVI.Columns("Temperature").ReadOnly = True
+            DgvPaquetesHVI.Columns("Humidity").ReadOnly = True
+            DgvPaquetesHVI.Columns("Amount").ReadOnly = True
+            DgvPaquetesHVI.Columns("UHML").ReadOnly = False
+            DgvPaquetesHVI.Columns("UI").ReadOnly = False
+            DgvPaquetesHVI.Columns("Strength").ReadOnly = False
+            DgvPaquetesHVI.Columns("Elongation").ReadOnly = True
+            DgvPaquetesHVI.Columns("SFI").ReadOnly = True
+            DgvPaquetesHVI.Columns("Maturity").ReadOnly = True
+            DgvPaquetesHVI.Columns("Grade").ReadOnly = True
+            DgvPaquetesHVI.Columns("Moist").ReadOnly = True
+            DgvPaquetesHVI.Columns("Mic").ReadOnly = False
+            DgvPaquetesHVI.Columns("Rd").ReadOnly = False
+            DgvPaquetesHVI.Columns("Plusb").ReadOnly = False
+            DgvPaquetesHVI.Columns("ColorGrade").ReadOnly = False
+            DgvPaquetesHVI.Columns("TrashCount").ReadOnly = True
+            DgvPaquetesHVI.Columns("TrashArea").ReadOnly = True
+            DgvPaquetesHVI.Columns("TrashID").ReadOnly = False
+            DgvPaquetesHVI.Columns("SCI").ReadOnly = True
+            DgvPaquetesHVI.Columns("Nep").Visible = False
+            DgvPaquetesHVI.Columns("UV").Visible = False
+            DgvPaquetesHVI.Sort(DgvPaquetesHVI.Columns("BaleID"), System.ComponentModel.ListSortDirection.Ascending)
+        End If
     End Sub
     Private Sub MatExtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MatExtToolStripMenuItem.Click
         MatExtCompras.ShowDialog()
