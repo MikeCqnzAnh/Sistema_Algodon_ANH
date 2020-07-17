@@ -22,6 +22,18 @@ Public Class CompraPacasContrato
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", EntidadCompraPacasContrato1.CastigoMicros))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", EntidadCompraPacasContrato1.CastigoLargoFibra))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", EntidadCompraPacasContrato1.CastigoResistenciaFibra))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoUI", EntidadCompraPacasContrato1.CastigoUniformidad))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel1", EntidadCompraPacasContrato1.CastigoBarkLevel1))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel2", EntidadCompraPacasContrato1.CastigoBarkLevel2))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPrepLevel1", EntidadCompraPacasContrato1.CastigoPrepLevel1))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPrepLevel2", EntidadCompraPacasContrato1.CastigoPrepLevel2))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoOtherLevel1", EntidadCompraPacasContrato1.CastigoOtherLevel1))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoOtherLevel2", EntidadCompraPacasContrato1.CastigoOtherLevel2))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel1", EntidadCompraPacasContrato1.CastigoPlasticLevel1))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel2", EntidadCompraPacasContrato1.CastigoPlasticLevel2))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUnidadPeso", EntidadCompraPacasContrato1.IdUnidadPeso))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@ValorConversion", EntidadCompraPacasContrato1.ValorConversacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Unidad", EntidadCompraPacasContrato1.Unidad))
                     cmdGuardar.Parameters.Add(New SqlParameter("@InteresPesosMx", EntidadCompraPacasContrato1.InteresPesosMx))
                     cmdGuardar.Parameters.Add(New SqlParameter("@InteresDlls", EntidadCompraPacasContrato1.InteresDlls))
                     cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadCompraPacasContrato1.PrecioQuintal))
@@ -62,6 +74,7 @@ Public Class CompraPacasContrato
                     Next
             End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadCompraPacasContrato = EntidadCompraPacasContrato1

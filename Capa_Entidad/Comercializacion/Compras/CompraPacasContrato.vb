@@ -13,6 +13,17 @@
     Public CastigoMicros As Double
     Public CastigoLargoFibra As Double
     Public CastigoResistenciaFibra As Double
+    Public CastigoBarkLevel1 As Double
+    Public CastigoBarkLevel2 As Double
+    Public CastigoPrepLevel1 As Double
+    Public CastigoPrepLevel2 As Double
+    Public CastigoOtherLevel1 As Double
+    Public CastigoOtherLevel2 As Double
+    Public CastigoPlasticLevel1 As Double
+    Public CastigoPlasticLevel2 As Double
+    Public IdUnidadPeso As Integer
+    Public ValorConversacion As Double
+    Public Unidad As Integer
     Public TotalPesosMx As Double
     Public TotalDlls As Double
     Public InteresPesosMx As Double

@@ -41,10 +41,6 @@ Partial Class CargaPacasExternas
         Me.TbRangoFin = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbRangoInicio = New System.Windows.Forms.TextBox()
-        Me.TbLotID = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.TbIdPaqueteHVI = New System.Windows.Forms.TextBox()
         Me.CbTipo = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -110,7 +106,7 @@ Partial Class CargaPacasExternas
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1380, 24)
-        Me.MenuStrip1.TabIndex = 3
+        Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'NuevaToolStripMenuItem
@@ -152,7 +148,7 @@ Partial Class CargaPacasExternas
         Me.CbPlantaOrigen.Location = New System.Drawing.Point(89, 47)
         Me.CbPlantaOrigen.Name = "CbPlantaOrigen"
         Me.CbPlantaOrigen.Size = New System.Drawing.Size(229, 21)
-        Me.CbPlantaOrigen.TabIndex = 5
+        Me.CbPlantaOrigen.TabIndex = 1
         '
         'BtCargaExcel
         '
@@ -162,7 +158,7 @@ Partial Class CargaPacasExternas
         Me.BtCargaExcel.Location = New System.Drawing.Point(3, 3)
         Me.BtCargaExcel.Name = "BtCargaExcel"
         Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
-        Me.BtCargaExcel.TabIndex = 6
+        Me.BtCargaExcel.TabIndex = 0
         Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'GbEncabezado
@@ -173,10 +169,6 @@ Partial Class CargaPacasExternas
         Me.GbEncabezado.Controls.Add(Me.TbRangoFin)
         Me.GbEncabezado.Controls.Add(Me.Label14)
         Me.GbEncabezado.Controls.Add(Me.TbRangoInicio)
-        Me.GbEncabezado.Controls.Add(Me.TbLotID)
-        Me.GbEncabezado.Controls.Add(Me.Label13)
-        Me.GbEncabezado.Controls.Add(Me.Label12)
-        Me.GbEncabezado.Controls.Add(Me.TbIdPaqueteHVI)
         Me.GbEncabezado.Controls.Add(Me.CbTipo)
         Me.GbEncabezado.Controls.Add(Me.Label11)
         Me.GbEncabezado.Controls.Add(Me.Label10)
@@ -202,14 +194,14 @@ Partial Class CargaPacasExternas
         Me.GbEncabezado.Location = New System.Drawing.Point(0, 24)
         Me.GbEncabezado.Name = "GbEncabezado"
         Me.GbEncabezado.Size = New System.Drawing.Size(1380, 165)
-        Me.GbEncabezado.TabIndex = 8
+        Me.GbEncabezado.TabIndex = 1
         Me.GbEncabezado.TabStop = False
         '
         'TbNoModulos
         '
         Me.TbNoModulos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoModulos.Enabled = False
-        Me.TbNoModulos.Location = New System.Drawing.Point(1054, 47)
+        Me.TbNoModulos.Location = New System.Drawing.Point(377, 100)
         Me.TbNoModulos.Name = "TbNoModulos"
         Me.TbNoModulos.ReadOnly = True
         Me.TbNoModulos.Size = New System.Drawing.Size(73, 20)
@@ -218,7 +210,7 @@ Partial Class CargaPacasExternas
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(1001, 50)
+        Me.Label16.Location = New System.Drawing.Point(324, 103)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(47, 13)
         Me.Label16.TabIndex = 30
@@ -227,7 +219,7 @@ Partial Class CargaPacasExternas
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(844, 50)
+        Me.Label15.Location = New System.Drawing.Point(167, 103)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(67, 13)
         Me.Label15.TabIndex = 29
@@ -236,7 +228,7 @@ Partial Class CargaPacasExternas
         'TbRangoFin
         '
         Me.TbRangoFin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRangoFin.Location = New System.Drawing.Point(917, 47)
+        Me.TbRangoFin.Location = New System.Drawing.Point(240, 101)
         Me.TbRangoFin.Name = "TbRangoFin"
         Me.TbRangoFin.ReadOnly = True
         Me.TbRangoFin.Size = New System.Drawing.Size(78, 20)
@@ -245,7 +237,7 @@ Partial Class CargaPacasExternas
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(612, 50)
+        Me.Label14.Location = New System.Drawing.Point(12, 103)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(70, 13)
         Me.Label14.TabIndex = 27
@@ -254,59 +246,24 @@ Partial Class CargaPacasExternas
         'TbRangoInicio
         '
         Me.TbRangoInicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRangoInicio.Location = New System.Drawing.Point(724, 47)
+        Me.TbRangoInicio.Location = New System.Drawing.Point(88, 101)
         Me.TbRangoInicio.Name = "TbRangoInicio"
         Me.TbRangoInicio.ReadOnly = True
         Me.TbRangoInicio.Size = New System.Drawing.Size(73, 20)
         Me.TbRangoInicio.TabIndex = 26
         '
-        'TbLotID
-        '
-        Me.TbLotID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbLotID.Location = New System.Drawing.Point(89, 101)
-        Me.TbLotID.Name = "TbLotID"
-        Me.TbLotID.Size = New System.Drawing.Size(101, 20)
-        Me.TbLotID.TabIndex = 25
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(12, 104)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(36, 13)
-        Me.Label13.TabIndex = 24
-        Me.Label13.Text = "Lot ID"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(1180, 102)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(82, 13)
-        Me.Label12.TabIndex = 23
-        Me.Label12.Text = "ID Paquete HVI"
-        '
-        'TbIdPaqueteHVI
-        '
-        Me.TbIdPaqueteHVI.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbIdPaqueteHVI.Location = New System.Drawing.Point(1268, 99)
-        Me.TbIdPaqueteHVI.Name = "TbIdPaqueteHVI"
-        Me.TbIdPaqueteHVI.ReadOnly = True
-        Me.TbIdPaqueteHVI.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdPaqueteHVI.TabIndex = 22
-        '
         'CbTipo
         '
         Me.CbTipo.FormattingEnabled = True
-        Me.CbTipo.Location = New System.Drawing.Point(724, 127)
+        Me.CbTipo.Location = New System.Drawing.Point(724, 101)
         Me.CbTipo.Name = "CbTipo"
         Me.CbTipo.Size = New System.Drawing.Size(121, 21)
-        Me.CbTipo.TabIndex = 21
+        Me.CbTipo.TabIndex = 6
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(612, 130)
+        Me.Label11.Location = New System.Drawing.Point(612, 104)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(28, 13)
         Me.Label11.TabIndex = 20
@@ -333,7 +290,7 @@ Partial Class CargaPacasExternas
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(612, 103)
+        Me.Label7.Location = New System.Drawing.Point(612, 77)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 13)
         Me.Label7.TabIndex = 17
@@ -342,10 +299,10 @@ Partial Class CargaPacasExternas
         'CbTipoPaca
         '
         Me.CbTipoPaca.FormattingEnabled = True
-        Me.CbTipoPaca.Location = New System.Drawing.Point(724, 100)
+        Me.CbTipoPaca.Location = New System.Drawing.Point(724, 74)
         Me.CbTipoPaca.Name = "CbTipoPaca"
         Me.CbTipoPaca.Size = New System.Drawing.Size(121, 21)
-        Me.CbTipoPaca.TabIndex = 16
+        Me.CbTipoPaca.TabIndex = 5
         '
         'Label6
         '
@@ -389,7 +346,7 @@ Partial Class CargaPacasExternas
         Me.CBPlantaDestino.Location = New System.Drawing.Point(89, 74)
         Me.CBPlantaDestino.Name = "CBPlantaDestino"
         Me.CBPlantaDestino.Size = New System.Drawing.Size(229, 21)
-        Me.CBPlantaDestino.TabIndex = 11
+        Me.CBPlantaDestino.TabIndex = 2
         '
         'Label4
         '
@@ -403,15 +360,15 @@ Partial Class CargaPacasExternas
         'TbPredio
         '
         Me.TbPredio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbPredio.Location = New System.Drawing.Point(724, 74)
+        Me.TbPredio.Location = New System.Drawing.Point(724, 48)
         Me.TbPredio.Name = "TbPredio"
         Me.TbPredio.Size = New System.Drawing.Size(121, 20)
-        Me.TbPredio.TabIndex = 9
+        Me.TbPredio.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(612, 77)
+        Me.Label3.Location = New System.Drawing.Point(612, 51)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 8
@@ -432,7 +389,7 @@ Partial Class CargaPacasExternas
         Me.CbVariedad.Location = New System.Drawing.Point(724, 21)
         Me.CbVariedad.Name = "CbVariedad"
         Me.CbVariedad.Size = New System.Drawing.Size(121, 21)
-        Me.CbVariedad.TabIndex = 6
+        Me.CbVariedad.TabIndex = 3
         '
         'GbCentro
         '
@@ -442,7 +399,7 @@ Partial Class CargaPacasExternas
         Me.GbCentro.Location = New System.Drawing.Point(0, 189)
         Me.GbCentro.Name = "GbCentro"
         Me.GbCentro.Size = New System.Drawing.Size(1380, 514)
-        Me.GbCentro.TabIndex = 9
+        Me.GbCentro.TabIndex = 2
         Me.GbCentro.TabStop = False
         '
         'DgvPacas
@@ -480,7 +437,7 @@ Partial Class CargaPacasExternas
         Me.BtCargaAccess.Location = New System.Drawing.Point(46, 3)
         Me.BtCargaAccess.Name = "BtCargaAccess"
         Me.BtCargaAccess.Size = New System.Drawing.Size(37, 35)
-        Me.BtCargaAccess.TabIndex = 11
+        Me.BtCargaAccess.TabIndex = 1
         Me.BtCargaAccess.UseVisualStyleBackColor = True
         '
         'Label9
@@ -581,10 +538,6 @@ Partial Class CargaPacasExternas
     Friend WithEvents TbIdLiquidacion As TextBox
     Friend WithEvents CbTipo As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TbIdPaqueteHVI As TextBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents TbLotID As TextBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents TbRangoInicio As TextBox
     Friend WithEvents TbRangoFin As TextBox

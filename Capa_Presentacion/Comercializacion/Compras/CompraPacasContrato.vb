@@ -81,6 +81,18 @@ Public Class CompraPacasContrato
         EntidadCompraPacasContrato.CastigoMicros = SumaCastigoMicros()
         EntidadCompraPacasContrato.CastigoLargoFibra = SumaCastigoLargo()
         EntidadCompraPacasContrato.CastigoResistenciaFibra = SumaCastigoResistencia()
+        EntidadCompraPacasContrato.CastigoUniformidad = SumaCastigoUniformidad()
+        EntidadCompraPacasContrato.CastigoBarkLevel1 = 0
+        EntidadCompraPacasContrato.CastigoBarkLevel2 = 0
+        EntidadCompraPacasContrato.CastigoPrepLevel1 = 0
+        EntidadCompraPacasContrato.CastigoPrepLevel2 = 0
+        EntidadCompraPacasContrato.CastigoOtherLevel1 = 0
+        EntidadCompraPacasContrato.CastigoOtherLevel2 = 0
+        EntidadCompraPacasContrato.CastigoPlasticLevel1 = 0
+        EntidadCompraPacasContrato.CastigoPlasticLevel2 = 0
+        EntidadCompraPacasContrato.IdUnidadPeso = 0
+        EntidadCompraPacasContrato.ValorConversacion = 0
+        EntidadCompraPacasContrato.Unidad = 0
         EntidadCompraPacasContrato.InteresPesosMx = 0
         EntidadCompraPacasContrato.InteresDlls = 0
         EntidadCompraPacasContrato.PrecioQuintal = 0
@@ -126,6 +138,17 @@ Public Class CompraPacasContrato
             For Each Fila As DataGridViewRow In DgvPacasIndCompradas.Rows
                 If Not Fila Is Nothing Then
                     Resultado = Resultado + Fila.Cells("CastigoLargoFibraCompra").Value
+                End If
+            Next
+        End If
+        Return Resultado
+    End Function
+    Private Function SumaCastigoUniformidad()
+        Dim Resultado As Double = 0
+        If DgvPacasIndCompradas.Rows.Count > 0 Then
+            For Each Fila As DataGridViewRow In DgvPacasIndCompradas.Rows
+                If Not Fila Is Nothing Then
+                    Resultado = Resultado + Fila.Cells("CastigoUniformidadCompra").Value
                 End If
             Next
         End If
@@ -831,7 +854,7 @@ Public Class CompraPacasContrato
         'DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").Visible = False
         'DgvPacasIndCompradas.Columns("CastigoMicCompra").Visible = False
         'DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").Visible = False
-        'DgvPacasIndCompradas.Columns("CastigoUICompra").Visible = False
+        'DgvPacasIndCompradas.Columns("CastigoUniformidadCompra").Visible = False
         DgvPacasIndCompradas.Columns("TipoCambio").Visible = False
         DgvPacasIndCompradas.Columns("PrecioMxn").Visible = False
         DgvPacasIndCompradas.Columns("Descripcion").Visible = False
@@ -848,7 +871,7 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").ReadOnly = True
         DgvPacasIndCompradas.Columns("CastigoMicCompra").ReadOnly = True
         DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").ReadOnly = True
-        DgvPacasIndCompradas.Columns("CastigoUICompra").ReadOnly = True
+        DgvPacasIndCompradas.Columns("CastigoUniformidadCompra").ReadOnly = True
 
         DgvPacasIndCompradas.Columns("BaleID").HeaderText = "Etiqueta"
         DgvPacasIndCompradas.Columns("IdOrdenTrabajo").HeaderText = "No Orden"
@@ -857,7 +880,7 @@ Public Class CompraPacasContrato
         DgvPacasIndCompradas.Columns("CastigoResistenciaFibraCompra").HeaderText = "Castigo RF"
         DgvPacasIndCompradas.Columns("CastigoMicCompra").HeaderText = "Castigo Mic"
         DgvPacasIndCompradas.Columns("CastigoLargoFibraCompra").HeaderText = "Castigo LF"
-        DgvPacasIndCompradas.Columns("CastigoUICompra").HeaderText = "Castigo UI"
+        DgvPacasIndCompradas.Columns("CastigoUniformidadCompra").HeaderText = "Castigo UI"
     End Sub
     Private Sub DgvContratos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratos.CellContentClick
         PrecioSM = 0
@@ -1177,10 +1200,10 @@ Public Class CompraPacasContrato
             TablaRenglonAInsertar("Quintales") = Math.Round(Quintales, 4)
             TablaRenglonAInsertar("TipoCambio") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 4)
             TablaRenglonAInsertar("PrecioMxn") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 4)
-            TablaRenglonAInsertar("CastigoUniformidad") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoUICompra").Value, 2)
-            TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoResistenciaFibraCompra").Value, 2)
-            TablaRenglonAInsertar("CastigoMicros") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("castigoMicCompra").Value, 2)
-            TablaRenglonAInsertar("CastigoLargoFibra") = Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoLargoFibraCompra").Value, 2)
+            TablaRenglonAInsertar("CastigoUniformidad") = IIf(ChUniformidad.Checked = True, Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoUniformidadCompra").Value, 2), 0)
+            TablaRenglonAInsertar("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoResistenciaFibraCompra").Value, 2), 0)
+            TablaRenglonAInsertar("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("castigoMicCompra").Value, 2), 0)
+            TablaRenglonAInsertar("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Round(DgvPacasIndCompradas.Rows(ii).Cells("CastigoLargoFibraCompra").Value, 2), 0)
             TablaRenglonAInsertar("PrecioClase") = DgvPacasIndCompradas.Rows(ii).Cells("PrecioClase").Value
             TablaRenglonAInsertar("Total") = 0 'DgvPacasIndCompradas.Rows(ii).Cells("Kilos").Value
             TablaRenglonAInsertar("TotalDlls") = Math.Truncate(DgvPacasIndCompradas.Rows(ii).Cells("PrecioDls").Value * 10000) / 10000
