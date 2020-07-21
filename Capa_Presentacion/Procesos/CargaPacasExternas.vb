@@ -1,5 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Imports System.Data.OleDb
+Imports Excel = Microsoft.Office.Interop.Excel
 Public Class CargaPacasExternas
     Public TablaPaquetesHVIGlobal As DataTable
     Private Sub CargaPacasExternas_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -199,18 +200,6 @@ Public Class CargaPacasExternas
     End Sub
     Private Sub BtCargaAccess_Click(sender As Object, e As EventArgs) Handles BtCargaAccess.Click
         importarAccessExterno(DgvPacas)
-        ''Call ShowDialog.
-        'OpenFileDialog1.FileName = ""
-        'OpenFileDialog1.Filter = "Access Database (*.mdb)|*.mdb| & All Files|*.*"
-        'Dim result As DialogResult = OpenFileDialog1.ShowDialog()
-        'If result = DialogResult.OK Then
-        '    Dim path As String = OpenFileDialog1.FileName
-        '    'TbRuta.Text = path
-        '    AbrirBaseDatosAccess()
-        '    PropiedadesDGVCarga()
-        '    Inhabilitar()
-        '    NuCantidadPacas.Value = DgvPaquetesHVI.RowCount
-        'End If
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         'Dim vReturn(1) As String
@@ -245,6 +234,7 @@ Public Class CargaPacasExternas
             Else
                 MsgBox("No se permiten campos en blanco, verifique", MsgBoxStyle.Exclamation, "Aviso")
             End If
+            MsgBox("Proceso terminado.", MsgBoxStyle.Information, "Aviso")
         Else
             MsgBox("No hay Pacas para registrar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
@@ -269,6 +259,7 @@ Public Class CargaPacasExternas
             EntidadOrdenTrabajo.FechaActualizacion = Now
             NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
             TbIdOrdenTrabajo.Text = EntidadOrdenTrabajo.IdOrdenTrabajo
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -302,6 +293,7 @@ Public Class CargaPacasExternas
             EntidadLiquidacionesPorRomaneaje.FechaActualizacion = Now
             NegocioLiquidacionesPorRomaneaje.Upsert(EntidadLiquidacionesPorRomaneaje)
             TbIdLiquidacion.Text = EntidadLiquidacionesPorRomaneaje.IdLiquidacion
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -334,6 +326,7 @@ Public Class CargaPacasExternas
             EntidadProduccion.FechaActualizacion = Now
             NegocioProduccion.Guardar(EntidadProduccion)
             TbIdProduccion.Text = EntidadProduccion.IdProduccion
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
         Catch ex As Exception
             MsgBox(ex)
         End Try
@@ -372,8 +365,8 @@ Public Class CargaPacasExternas
             EntidadProduccion.CastigoLargoFibraCpa = 0
             EntidadProduccion.CastigoLargoFibraVta = 0
             EntidadProduccion.CastigoResistenciaFibra = 0
-            EntidadProduccion.CastigoResistenciaFibraCpa = 0
             EntidadProduccion.CastigoResistenciaFibraVta = 0
+            EntidadProduccion.CastigoResistenciaFibraCpa = 0
             EntidadProduccion.ClaveClasificacionCpa = 0
             EntidadProduccion.ClaveClasificacionVta = 0
             EntidadProduccion.FechaClasificacion = Now
@@ -389,31 +382,6 @@ Public Class CargaPacasExternas
             MsgBox(ex.Message)
         End Try
     End Sub
-    'Private Sub GuardarHvi()
-    '    Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
-    '    Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
-    '    Try
-    '        EntidadPaquetesHVI.IdPaqueteHVI = IIf(TbIdPaqueteHVI.Text = "", 0, TbIdPaqueteHVI.Text)
-    '        EntidadPaquetesHVI.LotId = TbLotID.Text
-    '        EntidadPaquetesHVI.NumeroPacas = DgvPacas.Rows.Count
-    '        EntidadPaquetesHVI.IdPlanta = CbPlantaOrigen.SelectedValue
-    '        EntidadPaquetesHVI.Fecha = Now
-    '        EntidadPaquetesHVI.IdEstatus = 1
-    '        EntidadPaquetesHVI.IdUsuarioCreacion = 1
-    '        EntidadPaquetesHVI.FechaCreacion = Now
-    '        EntidadPaquetesHVI.IdUsuarioActualizacion = 1
-    '        EntidadPaquetesHVI.FechaActualizacion = Now
-    '        EntidadPaquetesHVI.TablaGlobal = TablaPaquetesHVIGlobal
-    '        NegocioPaquetesHVI.Guardar(EntidadPaquetesHVI)
-    '        TbIdPaqueteHVI.Text = EntidadPaquetesHVI.IdPaqueteHVI
-    '        ObtieneOrdentrabajoPaca()
-    '    Catch ex As Exception
-    '        MsgBox(ex)
-    '    Finally
-    '        'NumeroPacas = 0
-    '        MsgBox("Guardado con exito!")
-    '    End Try
-    'End Sub
     Private Sub ObtieneOrdentrabajoPaca()
         If DgvPacas.Rows.Count > 0 Then
             For Each Fila As DataGridViewRow In DgvPacas.Rows
@@ -427,32 +395,6 @@ Public Class CargaPacasExternas
             Next
         End If
     End Sub
-    'Private Sub ConsultaPaqueteHVI()
-    '    Dim vReturn(1) As String
-    '    If TbLotID.Text <> "" Then
-    '        'vReturn = ExistePaqueteHVI(TbPaquete.Text)
-    '        If vReturn(0) = False And vReturn(1) = False Then
-    '            MsgBox("El paquete consultado no se encuentra registrado!", MsgBoxStyle.Information, "Aviso")
-    '        Else
-    '            Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
-    '            Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
-    '            EntidadPaquetesHVI.Consulta = Consulta.ConsultaDetallada
-    '            EntidadPaquetesHVI.IdPaquete = TbLotID.Text
-    '            NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
-    '            TablaPaquetesHVIGlobal = EntidadPaquetesHVI.TablaConsulta
-    '            'DgvPacas.DataSource = TablaPaquetesHVIGlobal
-    '            'PropiedadesDGV()
-    '            'If DgvPaquetesHVI.Rows.Count > 0 Then IdentificaEstatusPacas()
-    '            ''BtSeleccionar.Enabled = False
-    '            'If DgvPacas.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPacas.Rows(0).Cells("IdHviEnc").Value
-    '            'If DgvPacas.RowCount > 0 Then CbPlanta.SelectedValue = DgvPacas.Rows(0).Cells("IdPlantaOrigen").Value
-    '            'ContarFilas()
-    '        End If
-    '    Else
-    '        MsgBox("El campo Paquete no puede ir vacios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
-    '        Exit Sub
-    '    End If
-    'End Sub
     Private Sub ActualizaPesoModuloManual(ByVal IdBoleta As Integer, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
         Dim EntidadCapturaBoletasPorLotes As New Capa_Entidad.CapturaBoletasPorLotes
         Dim NegocioCapturaBoletasPorLotes As New Capa_Negocio.CapturaBoletasPorLotes
@@ -468,4 +410,19 @@ Public Class CargaPacasExternas
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub ExcelParaImportarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelParaImportarToolStripMenuItem.Click
+        Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Reportes\RPT\PacasExt.xltx"
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+
+        xlApp = New Excel.Application
+        'xlWorkBook = xlApp.Workbooks.Open(Application.StartupPath & "\Libro2.xlsx")
+        xlWorkBook = xlApp.Workbooks.Open(Application.StartupPath & "\Reportes\RPT\PacasExt.xltx")
+        xlWorkSheet = xlWorkBook.Worksheets("Pacas")
+        xlWorkSheet = CType(xlWorkBook.Worksheets("Pacas"), Excel.Worksheet)
+        xlApp.Visible = True
+    End Sub
+
 End Class

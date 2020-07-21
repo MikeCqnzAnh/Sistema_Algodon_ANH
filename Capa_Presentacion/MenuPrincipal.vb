@@ -40,11 +40,15 @@ Public Class MenuPrincipal
     Private Sub llenaTablaMenuRoles()
         Dim EntidadRoles As New Capa_Entidad.Roles
         Dim NegocioRoles As New Capa_Negocio.Roles
-        EntidadRoles.IdUsuario = IdUsuario
-        EntidadRoles.IdTipoUsuario = IdTipoUsuario
-        EntidadRoles.Consulta = Consulta.ConsultaPerfilUsuario
-        NegocioRoles.Consultar(EntidadRoles)
-        TablaEnc = EntidadRoles.TablaConsulta
+        Try
+            EntidadRoles.IdUsuario = IdUsuario
+            EntidadRoles.IdTipoUsuario = IdTipoUsuario
+            EntidadRoles.Consulta = Consulta.ConsultaPerfilUsuario
+            NegocioRoles.Consultar(EntidadRoles)
+            TablaEnc = EntidadRoles.TablaConsulta
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub RolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesToolStripMenuItem.Click
         Roles.ShowDialog()
@@ -104,14 +108,17 @@ Public Class MenuPrincipal
         Dim tabla As New DataTable
         Dim EntidadMenuPrincipal As New Capa_Entidad.MenuPrincipal
         Dim NegocioMenuPrincipal As New Capa_Negocio.MenuPrincipal
-
-        EntidadMenuPrincipal.FechaHoy = Now.Date
-        EntidadMenuPrincipal.Abreviacion = "USD"
-        EntidadMenuPrincipal.Consulta = Consulta.ConsultaFechaTipoCambio
-        NegocioMenuPrincipal.Consultar(EntidadMenuPrincipal)
-        tabla = EntidadMenuPrincipal.TablaConsulta
-        Resultado = tabla.Rows(0).Item("Respuesta")
-        Return Resultado
+        Try
+            EntidadMenuPrincipal.FechaHoy = Now.Date
+            EntidadMenuPrincipal.Abreviacion = "USD"
+            EntidadMenuPrincipal.Consulta = Consulta.ConsultaFechaTipoCambio
+            NegocioMenuPrincipal.Consultar(EntidadMenuPrincipal)
+            tabla = EntidadMenuPrincipal.TablaConsulta
+            Resultado = tabla.Rows(0).Item("Respuesta")
+            Return Resultado
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Function
     Private Sub ConsultaTipoCambio()
         Dim tabla As New DataTable

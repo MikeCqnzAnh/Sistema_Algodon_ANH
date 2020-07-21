@@ -1684,6 +1684,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Reportes\RPT\PacasExt.xltx" />
     <None Include="Web References\WebServiceBanxico\DgieWS.wsdl" />
     <None Include="Web References\WebServiceBanxico\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

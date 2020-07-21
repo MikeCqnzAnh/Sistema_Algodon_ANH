@@ -67,7 +67,7 @@ Module ImportarExcel
                 tabla.DataSource = ds
                 tabla.DataMember = "MyData"
             Catch ex As Exception
-                MsgBox("Inserte un nombre valido de la Hoja que desea importar", MsgBoxStyle.Information, "Informacion")
+                MsgBox("Inserte un nombre valido de la Hoja que desea importar " & ex.Message, MsgBoxStyle.Information, "Informacion")
             Finally
                 conn.Close()
             End Try
@@ -98,7 +98,7 @@ Module ImportarExcel
                 tabla.DataSource = ds
                 tabla.DataMember = "MyData"
             Catch ex As Exception
-                MsgBox("Inserte un nombre valido de la tabla que desea importar", MsgBoxStyle.Information, "Informacion")
+                MsgBox("Inserte un nombre valido de la tabla que desea importar " & ex.Message, MsgBoxStyle.Information, "Informacion")
             Finally
                 conn.Close()
             End Try
