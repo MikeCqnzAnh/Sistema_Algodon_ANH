@@ -1,7 +1,7 @@
 alter procedure sp_ConPacaComprada
 --declare
 @IdProductor int ,
-@IdCompraEnc int ,
+@IdCompraEnc int,
 @Seleccionar bit = 0 
 as
 select pd.FolioCIA,
@@ -24,7 +24,7 @@ select pd.FolioCIA,
 	   @Seleccionar as Seleccionar
 from Produccion pr inner join ProduccionDetalle pd 
 		on pr.IdProduccion = pd.IdProduccion left join HviDetalle hvid 
-		on pd.FolioCIA = hvid.BaleID left join liquidacionesporromaneaje LR 
+		on pd.FolioCIA = hvid.BaleID  and pd.idordentrabajo = hvid.idordentrabajo left join liquidacionesporromaneaje LR 
 		on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra  = 2 and hvid.IdCompraEnc = @IdCompraEnc

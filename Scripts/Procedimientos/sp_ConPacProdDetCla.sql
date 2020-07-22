@@ -1,4 +1,4 @@
-Create procedure sp_ConPacProdDetCla
+alter procedure sp_ConPacProdDetCla
 --declare
 @IdProductor int ,
 @Seleccionar bit = 0 
@@ -12,6 +12,7 @@ select pd.FolioCIA,
 	   pd.Kilos,
 	   hvid.Grade,
 	   HviD.quintales,
+	   HviD.PrecioClase,
 	   hvid.PrecioDls,
 	   Hvid.TipoCambio,
 	   Hvid.PrecioMxn,
@@ -21,7 +22,7 @@ select pd.FolioCIA,
 	   hvid.UHML as Largo,
 	   @Seleccionar as Seleccionar
 		from Produccion pr inner join ProduccionDetalle pd on pr.IdProduccion = pd.IdProduccion 
-					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID 
+					       left join HviDetalle hvid on pd.FolioCIA = hvid.BaleID and pd.IdOrdenTrabajo = hvid.IdOrdenTrabajo
 						   right join liquidacionesporromaneaje LR on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo 
 						   inner join Plantas Pl on pd.IdPlantaOrigen = Pl.IdPlanta
 		where pr.IdCliente = @IdProductor and hvid.FlagTerminado =1 and hvid.EstatusCompra  = 1
