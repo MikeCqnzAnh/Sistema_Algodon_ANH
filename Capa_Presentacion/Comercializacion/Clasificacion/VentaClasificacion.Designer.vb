@@ -22,6 +22,7 @@ Partial Class VentaClasificacion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentaClasificacion))
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.GbRangos = New System.Windows.Forms.GroupBox()
         Me.BtAceptar = New System.Windows.Forms.Button()
@@ -71,6 +72,7 @@ Partial Class VentaClasificacion
         Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
         Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
+        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.GbDatos.SuspendLayout()
         Me.GbRangos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,6 +117,7 @@ Partial Class VentaClasificacion
         '
         'GbRangos
         '
+        Me.GbRangos.Controls.Add(Me.BtCargaExcel)
         Me.GbRangos.Controls.Add(Me.BtAceptar)
         Me.GbRangos.Controls.Add(Me.ChActivaRangos)
         Me.GbRangos.Controls.Add(Me.Label11)
@@ -131,58 +134,64 @@ Partial Class VentaClasificacion
         'BtAceptar
         '
         Me.BtAceptar.Enabled = False
-        Me.BtAceptar.Location = New System.Drawing.Point(91, 146)
+        Me.BtAceptar.Location = New System.Drawing.Point(91, 102)
         Me.BtAceptar.Name = "BtAceptar"
         Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
         Me.BtAceptar.TabIndex = 3
         Me.BtAceptar.Text = "Aceptar"
         Me.BtAceptar.UseVisualStyleBackColor = True
+        Me.BtAceptar.Visible = False
         '
         'ChActivaRangos
         '
         Me.ChActivaRangos.AutoSize = True
         Me.ChActivaRangos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChActivaRangos.Location = New System.Drawing.Point(151, 29)
+        Me.ChActivaRangos.Location = New System.Drawing.Point(151, 19)
         Me.ChActivaRangos.Name = "ChActivaRangos"
         Me.ChActivaRangos.Size = New System.Drawing.Size(15, 14)
         Me.ChActivaRangos.TabIndex = 0
         Me.ChActivaRangos.UseVisualStyleBackColor = True
+        Me.ChActivaRangos.Visible = False
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 62)
+        Me.Label11.Location = New System.Drawing.Point(6, 42)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(54, 13)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Rango de"
+        Me.Label11.Visible = False
         '
         'TbHasta
         '
         Me.TbHasta.Enabled = False
-        Me.TbHasta.Location = New System.Drawing.Point(66, 96)
+        Me.TbHasta.Location = New System.Drawing.Point(66, 76)
         Me.TbHasta.MaxLength = 9
         Me.TbHasta.Name = "TbHasta"
         Me.TbHasta.Size = New System.Drawing.Size(100, 20)
         Me.TbHasta.TabIndex = 2
+        Me.TbHasta.Visible = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 99)
+        Me.Label12.Location = New System.Drawing.Point(7, 79)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(35, 13)
         Me.Label12.TabIndex = 1
         Me.Label12.Text = "Hasta"
+        Me.Label12.Visible = False
         '
         'TbDesde
         '
         Me.TbDesde.Enabled = False
-        Me.TbDesde.Location = New System.Drawing.Point(66, 59)
+        Me.TbDesde.Location = New System.Drawing.Point(66, 39)
         Me.TbDesde.MaxLength = 9
         Me.TbDesde.Name = "TbDesde"
         Me.TbDesde.Size = New System.Drawing.Size(100, 20)
         Me.TbDesde.TabIndex = 1
+        Me.TbDesde.Visible = False
         '
         'NuPromedioUI
         '
@@ -533,6 +542,20 @@ Partial Class VentaClasificacion
         Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
         Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
         '
+        'BtCargaExcel
+        '
+        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaExcel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaExcel.Location = New System.Drawing.Point(3, 156)
+        Me.BtCargaExcel.MaximumSize = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.MinimumSize = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.Name = "BtCargaExcel"
+        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.TabIndex = 4
+        Me.BtCargaExcel.UseVisualStyleBackColor = True
+        '
         'VentaClasificacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -612,4 +635,5 @@ Partial Class VentaClasificacion
     Friend WithEvents TbDesde As TextBox
     Friend WithEvents BtAceptar As Button
     Friend WithEvents ChActivaRangos As CheckBox
+    Friend WithEvents BtCargaExcel As Button
 End Class

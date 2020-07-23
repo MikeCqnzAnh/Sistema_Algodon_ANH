@@ -201,7 +201,7 @@ Public Class VentaClasificacion
                         MessageBox.Show("La Paca No " & TbNoPaca.Text & " ya existe en el paquete actual.")
                         TbNoPaca.Text = ""
                     Else
-                        InsertaPaca()
+                        InsertaPaca(Val(TbNoPaca.Text))
                         TbNoPaca.Text = ""
                     End If
                 Else
@@ -482,20 +482,20 @@ Public Class VentaClasificacion
         DgvPacasClasificacion.Sort(DgvPacasClasificacion.Columns("BaleID"), System.ComponentModel.ListSortDirection.Descending)
         ContarPacas()
     End Sub
-    Private Sub InsertaPaca()
+    Private Sub InsertaPaca(ByVal NoPaca As Integer)
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         Dim Tabla As New DataTable
         Dim VerificaDuplicado As Boolean
         EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaPaca
-        EntidadClasificacionVentaPaquetes.NumeroPaca = CInt(IIf(TbNoPaca.Text = "", 0, TbNoPaca.Text))
+        EntidadClasificacionVentaPaquetes.NumeroPaca = NoPaca
         EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         EntidadClasificacionVentaPaquetes.IdPaquete = CInt(IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text))
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
         If Tabla.Rows.Count = 0 Then
             MsgBox("La paca no se encuentra en la base de datos HVI.")
-        ElseIf VerificaPacaRepetida(VerificaDuplicado) = False Then
+        ElseIf VerificaPacaRepetida(VerificaDuplicado, NoPaca) = False Then
             DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(0).Item("Kilos"), Tabla.Rows(0).Item("LotID"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
         Else
             MsgBox("El numero de paca ya se encuentra registrado.")
@@ -504,10 +504,10 @@ Public Class VentaClasificacion
         ContarPacas()
         GeneraPromedioUI()
     End Sub
-    Public Function VerificaPacaRepetida(ByVal VerificaDuplicado As Boolean)
+    Public Function VerificaPacaRepetida(ByVal VerificaDuplicado As Boolean, ByVal NoPaca As Integer)
         VerificaDuplicado = False
         For Each row As DataGridViewRow In DgvPacasClasificacion.Rows
-            Dim NoPaca As Integer = TbNoPaca.Text
+            'Dim NoPaca As Integer = TbNoPaca.Text
             If NoPaca = row.Cells("BaleId").Value Then
                 VerificaDuplicado = True
             End If
@@ -1019,6 +1019,46 @@ Public Class VentaClasificacion
         NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
         Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
     End Sub
+
+    Private Sub BtCargaExcel_Click(sender As Object, e As EventArgs) Handles BtCargaExcel.Click
+        CargaExcel.ShowDialog()
+        Try
+            If Tabla.Rows.Count > 0 Then
+                For Each rowTabla As DataRow In Tabla.Rows
+                    If rowTabla(0) > 0 And CbPlanta.Text <> "" And CbClases.Text <> "" Then
+                        If ExistePacaHVI(rowTabla(0)) = False Then
+                            'MsgBox("Paca " & rowTabla(0) & " no existe en HVI o en la planta seleccionada, revisa el ID capturado.")
+                            TbNoPaca.Text = ""
+                            'Exit For
+                        ElseIf VerificaPacaPlanta(rowTabla(0)) = False Then
+                            'MessageBox.Show("Paca No " & rowTabla(0) & " no pertenece a planta " & CbPlanta.Text & ".", "Aviso")
+                            'Exit For
+                        ElseIf ExistePacaPaquete(rowTabla(0)) = True And Val(TbIdPaquete.Text) <> IdPaqueteEncabezadoVerifica Then
+                            'MessageBox.Show("Paca " & rowTabla(0) & " existe en paquete " & IdPaqueteEncabezadoVerifica & ".", "Aviso")
+                            TbNoPaca.Text = ""
+                            'Exit For
+                        ElseIf ExistePacaPaquete(rowTabla(0)) = True And Val(TbIdPaquete.Text) = IdPaqueteEncabezadoVerifica Then
+                            'MessageBox.Show("La Paca No " & rowTabla(0) & " ya existe en el paquete actual.")
+                            TbNoPaca.Text = ""
+                            'Exit For
+                        Else
+                            InsertaPaca(rowTabla(0))
+                            TbNoPaca.Text = ""
+                        End If
+                    Else
+                        MsgBox("Ingrese el campo Planta y Clase para continuar...")
+                        TbNoPaca.Text = ""
+                        Exit For
+                    End If
+                Next
+            End If
+            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+        End Try
+    End Sub
+
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
     End Sub

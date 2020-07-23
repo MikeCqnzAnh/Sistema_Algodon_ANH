@@ -15,6 +15,7 @@ Public Class CargaExcel
     End Sub
     Private Sub cargaTabla()
         Tabla.Columns.Clear()
+        Tabla.Rows.Clear()
         Dim r As DataRow
         Try
             Tabla.Columns.Add("etiquetas", Type.GetType("System.Int32"))
