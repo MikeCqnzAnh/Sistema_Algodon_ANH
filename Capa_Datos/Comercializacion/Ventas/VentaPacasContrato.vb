@@ -207,7 +207,7 @@ Public Class VentaPacasContrato
             End Select
         Catch ex As Exception
             cnn.Close()
-            MsgBox(ex)
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadVentaPacasContrato = EntidadVentaPacasContrato1

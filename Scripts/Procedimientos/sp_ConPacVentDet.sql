@@ -1,4 +1,4 @@
-Alter procedure sp_ConPacVentDet
+alter procedure sp_ConPacVentDet
 @Seleccionar bit = 0 
 as
 select cc.IdPaqueteEncabezado,
@@ -33,7 +33,7 @@ select cc.IdPaqueteEncabezado,
 	   @Seleccionar as Seleccionar
 		from Produccion pr inner join ProduccionDetalle pd 
 		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
+		on pd.FolioCIA = cc.BaleID and pd.idordentrabajo=cc.IdOrdenTrabajo  left join liquidacionesporromaneaje LR 
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 1 and lr.IdLiquidacion is not null

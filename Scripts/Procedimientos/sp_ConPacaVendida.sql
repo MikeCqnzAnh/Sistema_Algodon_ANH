@@ -1,5 +1,6 @@
-CREATE procedure sp_ConPacaVendida
-@IdVentaEnc int ,
+alter procedure sp_ConPacaVendida
+--declare
+@IdVentaEnc int  ,
 @Seleccionar bit = 0 
 as
 select cc.IdPaqueteEncabezado,
@@ -34,8 +35,8 @@ select cc.IdPaqueteEncabezado,
 	   @Seleccionar as Seleccionar
 		from Produccion pr inner join ProduccionDetalle pd 
 		on pr.IdProduccion = pd.IdProduccion left join CalculoClasificacion cc 
-		on pd.FolioCIA = cc.BaleID left join liquidacionesporromaneaje LR 
+		on pd.FolioCIA = cc.BaleID and pd.IdOrdenTrabajo = cc.IdOrdenTrabajo AND PD.IdPlantaOrigen = CC.IdPlantaOrigen left join liquidacionesporromaneaje LR 
 		on cc.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
 		on pd.IdPlantaOrigen = Pl.IdPlanta
 		where cc.FlagTerminado =1 and cc.EstatusVenta  = 2 and cc.IdVentaEnc = @IdVentaEnc
-		order by cc.IdPaqueteEncabezado,cc.BaleID
+		order by cc.IdPaqueteEncabezado

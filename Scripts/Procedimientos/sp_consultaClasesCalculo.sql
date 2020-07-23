@@ -1,4 +1,4 @@
-Create proc sp_consultaClasesCalculo
+alter proc sp_consultaClasesCalculo
 --DECLARE
 @NumPaca int ,
 @IdPlanta int,
@@ -8,6 +8,7 @@ if @NumPaca = 0
 	begin
 		select
 		     hd.[IdPlantaOrigen]
+			,isnull(hd.[Kilos],0) as Kilos
 			,Hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -36,7 +37,7 @@ if @NumPaca = 0
 			,hd.[UV]
 			,0 as FlagTerminado
 			,Pd.IdOrdenTrabajo
-		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
+		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA and hd.IdOrdenTrabajo = pd.IdOrdenTrabajo and hd.IdPlantaOrigen = pd.IdPlantaOrigen
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
   		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta
@@ -82,6 +83,7 @@ else
 	begin
 		select
 		     Hd.[IdPlantaOrigen]
+			,isnull(hd.[Kilos],0) as Kilos
 			,hd.[LotID]
 			,hd.[BaleID]
 			,hd.[BaleGroup]
@@ -110,7 +112,7 @@ else
 			,hd.[UV]
 			,0 as FlagTerminado
 			,Pd.IdOrdenTrabajo
-		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
+		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA and hd.IdOrdenTrabajo = pd.IdOrdenTrabajo and hd.IdPlantaOrigen = pd.IdPlantaOrigen
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
 		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta 
