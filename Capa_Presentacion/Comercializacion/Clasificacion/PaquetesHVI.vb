@@ -229,7 +229,7 @@ Public Class PaquetesHVI
                 EntidadPaquetesHVI.Elongation = Fila.Cells("Elongation").Value
                 EntidadPaquetesHVI.SFI = Fila.Cells("SFI").Value
                 EntidadPaquetesHVI.Maturity = Fila.Cells("Maturity").Value
-                EntidadPaquetesHVI.Grade = Fila.Cells("Grade").Value
+                EntidadPaquetesHVI.Grade = CStr(Fila.Cells("Grade").Value.ToString)
                 EntidadPaquetesHVI.Moist = Fila.Cells("Moist").Value
                 EntidadPaquetesHVI.Mic = Fila.Cells("Mic").Value
                 EntidadPaquetesHVI.Rd = Fila.Cells("Rd").Value

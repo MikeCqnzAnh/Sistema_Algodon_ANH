@@ -29,6 +29,8 @@ Partial Class PaquetesHVI
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.BtCargaAccess = New System.Windows.Forms.Button()
+        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.GbConsultaPaca = New System.Windows.Forms.GroupBox()
         Me.DgvConsultaLotID = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -50,8 +52,6 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtCargaAccess = New System.Windows.Forms.Button()
-        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbConsultaPaca.SuspendLayout()
@@ -119,6 +119,30 @@ Partial Class PaquetesHVI
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'BtCargaAccess
+        '
+        Me.BtCargaAccess.BackgroundImage = CType(resources.GetObject("BtCargaAccess.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaAccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaAccess.Location = New System.Drawing.Point(58, 132)
+        Me.BtCargaAccess.Name = "BtCargaAccess"
+        Me.BtCargaAccess.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaAccess.TabIndex = 15
+        Me.BtCargaAccess.Tag = "Cargar Access"
+        Me.BtCargaAccess.UseVisualStyleBackColor = True
+        '
+        'BtCargaExcel
+        '
+        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaExcel.Location = New System.Drawing.Point(15, 132)
+        Me.BtCargaExcel.Name = "BtCargaExcel"
+        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.TabIndex = 14
+        Me.BtCargaExcel.Tag = "Cargar Excel"
+        Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'GbConsultaPaca
         '
@@ -199,6 +223,7 @@ Partial Class PaquetesHVI
         Me.TbRuta.Name = "TbRuta"
         Me.TbRuta.Size = New System.Drawing.Size(502, 31)
         Me.TbRuta.TabIndex = 9
+        Me.TbRuta.Visible = False
         '
         'BtSeleccionar
         '
@@ -209,6 +234,7 @@ Partial Class PaquetesHVI
         Me.BtSeleccionar.TabIndex = 8
         Me.BtSeleccionar.Text = "Seleccionar"
         Me.BtSeleccionar.UseVisualStyleBackColor = True
+        Me.BtSeleccionar.Visible = False
         '
         'Label6
         '
@@ -317,30 +343,6 @@ Partial Class PaquetesHVI
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1279, 361)
         Me.Panel1.TabIndex = 3
-        '
-        'BtCargaAccess
-        '
-        Me.BtCargaAccess.BackgroundImage = CType(resources.GetObject("BtCargaAccess.BackgroundImage"), System.Drawing.Image)
-        Me.BtCargaAccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtCargaAccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtCargaAccess.Location = New System.Drawing.Point(58, 132)
-        Me.BtCargaAccess.Name = "BtCargaAccess"
-        Me.BtCargaAccess.Size = New System.Drawing.Size(37, 35)
-        Me.BtCargaAccess.TabIndex = 15
-        Me.BtCargaAccess.Tag = "Cargar Access"
-        Me.BtCargaAccess.UseVisualStyleBackColor = True
-        '
-        'BtCargaExcel
-        '
-        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtCargaExcel.Location = New System.Drawing.Point(15, 132)
-        Me.BtCargaExcel.Name = "BtCargaExcel"
-        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
-        Me.BtCargaExcel.TabIndex = 14
-        Me.BtCargaExcel.Tag = "Cargar Excel"
-        Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'PaquetesHVI
         '
