@@ -1,4 +1,0 @@
-Create Procedure Sp_ConsultaCastigoMatExtCompra
-as
-Select IdExmatCompra,NombreMateria,Nivel1,Nivel2 
-from ExMatCompra

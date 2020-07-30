@@ -281,6 +281,12 @@
     <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaAlmacen.Designer.vb">
+      <DependentUpon>ConsultaAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaAlmacen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaCompradoresSalidas.Designer.vb">
       <DependentUpon>ConsultaCompradoresSalidas.vb</DependentUpon>
     </Compile>
@@ -1287,6 +1293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaAlmacen.resx">
+      <DependentUpon>ConsultaAlmacen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaCompradoresSalidas.resx">
       <DependentUpon>ConsultaCompradoresSalidas.vb</DependentUpon>

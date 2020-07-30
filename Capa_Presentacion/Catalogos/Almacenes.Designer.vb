@@ -27,7 +27,7 @@ Partial Class Almacenes
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AgregarTipoDeAlmacenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TbIdBodega = New System.Windows.Forms.TextBox()
+        Me.TbIdAlmacen = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbTipo = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -36,11 +36,12 @@ Partial Class Almacenes
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.DtFecha = New System.Windows.Forms.DateTimePicker()
         Me.TbCantidadNiveles = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TbCantidadRack = New System.Windows.Forms.TextBox()
+        Me.TbCantidadLotes = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -59,7 +60,6 @@ Partial Class Almacenes
         Me.TbColonia = New System.Windows.Forms.TextBox()
         Me.CbCiudad = New System.Windows.Forms.ComboBox()
         Me.DgvBodegas = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.NuCapacidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -99,13 +99,13 @@ Partial Class Almacenes
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'TbIdBodega
+        'TbIdAlmacen
         '
-        Me.TbIdBodega.Enabled = False
-        Me.TbIdBodega.Location = New System.Drawing.Point(114, 19)
-        Me.TbIdBodega.Name = "TbIdBodega"
-        Me.TbIdBodega.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdBodega.TabIndex = 0
+        Me.TbIdAlmacen.Enabled = False
+        Me.TbIdAlmacen.Location = New System.Drawing.Point(114, 19)
+        Me.TbIdAlmacen.Name = "TbIdAlmacen"
+        Me.TbIdAlmacen.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdAlmacen.TabIndex = 0
         '
         'Label1
         '
@@ -119,15 +119,15 @@ Partial Class Almacenes
         'CbTipo
         '
         Me.CbTipo.FormattingEnabled = True
-        Me.CbTipo.Location = New System.Drawing.Point(114, 45)
+        Me.CbTipo.Location = New System.Drawing.Point(114, 71)
         Me.CbTipo.Name = "CbTipo"
         Me.CbTipo.Size = New System.Drawing.Size(121, 21)
-        Me.CbTipo.TabIndex = 1
+        Me.CbTipo.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 49)
+        Me.Label2.Location = New System.Drawing.Point(6, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(31, 13)
         Me.Label2.TabIndex = 2
@@ -142,6 +142,7 @@ Partial Class Almacenes
         Me.NuCapacidad.Size = New System.Drawing.Size(120, 20)
         Me.NuCapacidad.TabIndex = 9
         Me.NuCapacidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuCapacidad.Visible = False
         '
         'Label3
         '
@@ -151,11 +152,12 @@ Partial Class Almacenes
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Capacidad:"
+        Me.Label3.Visible = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(704, 23)
+        Me.Label4.Location = New System.Drawing.Point(6, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(66, 13)
         Me.Label4.TabIndex = 2
@@ -164,9 +166,9 @@ Partial Class Almacenes
         'TbDescripcion
         '
         Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbDescripcion.Location = New System.Drawing.Point(776, 20)
+        Me.TbDescripcion.Location = New System.Drawing.Point(114, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
-        Me.TbDescripcion.Size = New System.Drawing.Size(275, 20)
+        Me.TbDescripcion.Size = New System.Drawing.Size(121, 20)
         Me.TbDescripcion.TabIndex = 1
         '
         'GroupBox1
@@ -176,7 +178,7 @@ Partial Class Almacenes
         Me.GroupBox1.Controls.Add(Me.DtFecha)
         Me.GroupBox1.Controls.Add(Me.TbCantidadNiveles)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TbCantidadRack)
+        Me.GroupBox1.Controls.Add(Me.TbCantidadLotes)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label14)
@@ -189,7 +191,7 @@ Partial Class Almacenes
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.TbIdBodega)
+        Me.GroupBox1.Controls.Add(Me.TbIdAlmacen)
         Me.GroupBox1.Controls.Add(Me.NuCapacidad)
         Me.GroupBox1.Controls.Add(Me.TbNumero)
         Me.GroupBox1.Controls.Add(Me.TbCodigoPostal)
@@ -205,9 +207,19 @@ Partial Class Almacenes
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 24)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1239, 143)
+        Me.GroupBox1.Size = New System.Drawing.Size(1239, 165)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1152, 109)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 27
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Label15
         '
@@ -224,39 +236,39 @@ Partial Class Almacenes
         Me.DtFecha.Location = New System.Drawing.Point(342, 71)
         Me.DtFecha.Name = "DtFecha"
         Me.DtFecha.Size = New System.Drawing.Size(110, 20)
-        Me.DtFecha.TabIndex = 6
+        Me.DtFecha.TabIndex = 7
         '
         'TbCantidadNiveles
         '
-        Me.TbCantidadNiveles.Location = New System.Drawing.Point(114, 98)
+        Me.TbCantidadNiveles.Location = New System.Drawing.Point(114, 124)
         Me.TbCantidadNiveles.Name = "TbCantidadNiveles"
         Me.TbCantidadNiveles.Size = New System.Drawing.Size(100, 20)
-        Me.TbCantidadNiveles.TabIndex = 3
+        Me.TbCantidadNiveles.TabIndex = 4
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 101)
+        Me.Label8.Location = New System.Drawing.Point(6, 127)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(102, 13)
         Me.Label8.TabIndex = 24
         Me.Label8.Text = "Cantidad de Niveles"
         '
-        'TbCantidadRack
+        'TbCantidadLotes
         '
-        Me.TbCantidadRack.Location = New System.Drawing.Point(114, 72)
-        Me.TbCantidadRack.Name = "TbCantidadRack"
-        Me.TbCantidadRack.Size = New System.Drawing.Size(100, 20)
-        Me.TbCantidadRack.TabIndex = 2
+        Me.TbCantidadLotes.Location = New System.Drawing.Point(114, 98)
+        Me.TbCantidadLotes.Name = "TbCantidadLotes"
+        Me.TbCantidadLotes.Size = New System.Drawing.Size(100, 20)
+        Me.TbCantidadLotes.TabIndex = 3
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 75)
+        Me.Label12.Location = New System.Drawing.Point(6, 101)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(83, 13)
+        Me.Label12.Size = New System.Drawing.Size(89, 13)
         Me.Label12.TabIndex = 23
-        Me.Label12.Text = "Cantidad Racks"
+        Me.Label12.Text = "Cantidad de lotes"
         '
         'Label13
         '
@@ -281,14 +293,14 @@ Partial Class Almacenes
         Me.TbFilas.Location = New System.Drawing.Point(342, 45)
         Me.TbFilas.Name = "TbFilas"
         Me.TbFilas.Size = New System.Drawing.Size(100, 20)
-        Me.TbFilas.TabIndex = 5
+        Me.TbFilas.TabIndex = 6
         '
         'TbColumnas
         '
         Me.TbColumnas.Location = New System.Drawing.Point(342, 19)
         Me.TbColumnas.Name = "TbColumnas"
         Me.TbColumnas.Size = New System.Drawing.Size(100, 20)
-        Me.TbColumnas.TabIndex = 4
+        Me.TbColumnas.TabIndex = 5
         '
         'Label11
         '
@@ -298,6 +310,7 @@ Partial Class Almacenes
         Me.Label11.Size = New System.Drawing.Size(43, 13)
         Me.Label11.TabIndex = 2
         Me.Label11.Text = "Estado:"
+        Me.Label11.Visible = False
         '
         'Label7
         '
@@ -307,6 +320,7 @@ Partial Class Almacenes
         Me.Label7.Size = New System.Drawing.Size(43, 13)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Ciudad:"
+        Me.Label7.Visible = False
         '
         'Label6
         '
@@ -316,6 +330,7 @@ Partial Class Almacenes
         Me.Label6.Size = New System.Drawing.Size(45, 13)
         Me.Label6.TabIndex = 2
         Me.Label6.Text = "Colonia:"
+        Me.Label6.Visible = False
         '
         'Label10
         '
@@ -325,6 +340,7 @@ Partial Class Almacenes
         Me.Label10.Size = New System.Drawing.Size(24, 13)
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "No:"
+        Me.Label10.Visible = False
         '
         'Label5
         '
@@ -334,6 +350,7 @@ Partial Class Almacenes
         Me.Label5.Size = New System.Drawing.Size(24, 13)
         Me.Label5.TabIndex = 2
         Me.Label5.Text = "CP:"
+        Me.Label5.Visible = False
         '
         'Label9
         '
@@ -343,6 +360,7 @@ Partial Class Almacenes
         Me.Label9.Size = New System.Drawing.Size(33, 13)
         Me.Label9.TabIndex = 2
         Me.Label9.Text = "Calle:"
+        Me.Label9.Visible = False
         '
         'TbNumero
         '
@@ -351,6 +369,7 @@ Partial Class Almacenes
         Me.TbNumero.Name = "TbNumero"
         Me.TbNumero.Size = New System.Drawing.Size(84, 20)
         Me.TbNumero.TabIndex = 4
+        Me.TbNumero.Visible = False
         '
         'TbCodigoPostal
         '
@@ -359,6 +378,7 @@ Partial Class Almacenes
         Me.TbCodigoPostal.Name = "TbCodigoPostal"
         Me.TbCodigoPostal.Size = New System.Drawing.Size(99, 20)
         Me.TbCodigoPostal.TabIndex = 5
+        Me.TbCodigoPostal.Visible = False
         '
         'TbCalle
         '
@@ -367,6 +387,7 @@ Partial Class Almacenes
         Me.TbCalle.Name = "TbCalle"
         Me.TbCalle.Size = New System.Drawing.Size(275, 20)
         Me.TbCalle.TabIndex = 3
+        Me.TbCalle.Visible = False
         '
         'CbEstado
         '
@@ -375,6 +396,7 @@ Partial Class Almacenes
         Me.CbEstado.Name = "CbEstado"
         Me.CbEstado.Size = New System.Drawing.Size(121, 21)
         Me.CbEstado.TabIndex = 8
+        Me.CbEstado.Visible = False
         '
         'TbColonia
         '
@@ -383,6 +405,7 @@ Partial Class Almacenes
         Me.TbColonia.Name = "TbColonia"
         Me.TbColonia.Size = New System.Drawing.Size(119, 20)
         Me.TbColonia.TabIndex = 1
+        Me.TbColonia.Visible = False
         '
         'CbCiudad
         '
@@ -391,6 +414,7 @@ Partial Class Almacenes
         Me.CbCiudad.Name = "CbCiudad"
         Me.CbCiudad.Size = New System.Drawing.Size(121, 21)
         Me.CbCiudad.TabIndex = 7
+        Me.CbCiudad.Visible = False
         '
         'DgvBodegas
         '
@@ -403,24 +427,15 @@ Partial Class Almacenes
         Me.DgvBodegas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvBodegas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvBodegas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvBodegas.Location = New System.Drawing.Point(0, 167)
+        Me.DgvBodegas.Location = New System.Drawing.Point(0, 189)
         Me.DgvBodegas.MultiSelect = False
         Me.DgvBodegas.Name = "DgvBodegas"
         Me.DgvBodegas.ReadOnly = True
         Me.DgvBodegas.RowHeadersVisible = False
         Me.DgvBodegas.RowHeadersWidth = 40
         Me.DgvBodegas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvBodegas.Size = New System.Drawing.Size(1239, 540)
+        Me.DgvBodegas.Size = New System.Drawing.Size(1239, 518)
         Me.DgvBodegas.TabIndex = 2
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(544, 91)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 27
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Almacenes
         '
@@ -450,7 +465,7 @@ Partial Class Almacenes
     Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents TbIdBodega As TextBox
+    Friend WithEvents TbIdAlmacen As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents CbTipo As ComboBox
     Friend WithEvents Label2 As Label
@@ -475,7 +490,7 @@ Partial Class Almacenes
     Friend WithEvents DgvBodegas As DataGridView
     Friend WithEvents TbCantidadNiveles As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TbCantidadRack As TextBox
+    Friend WithEvents TbCantidadLotes As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label

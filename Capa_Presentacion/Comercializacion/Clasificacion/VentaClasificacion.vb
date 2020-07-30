@@ -1059,6 +1059,14 @@ Public Class VentaClasificacion
         End Try
     End Sub
 
+    Private Sub ArchivoExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoExcelToolStripMenuItem.Click
+        ExportExcel(DgvPacasClasificacion)
+    End Sub
+
+    Private Sub ExportarToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
     End Sub

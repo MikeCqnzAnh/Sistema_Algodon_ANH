@@ -12,6 +12,7 @@ Public Class Almacenes
                     cmdGuardar = New SqlCommand("Sp_InsertaAlmacenEncabezado", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadAlmacenes1.Descripcion))
                     cmdGuardar.Parameters.Add(New SqlParameter("@TipoAlmacen", EntidadAlmacenes1.IdTipoAlmacen))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CantidadLotes", EntidadAlmacenes1.CantidadLotes))
                     cmdGuardar.Parameters.Add(New SqlParameter("@CantidadNiveles", EntidadAlmacenes1.CantidadNiveles))
@@ -29,10 +30,11 @@ Public Class Almacenes
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenDetalle", 0))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdLote", EntidadAlmacenes1.IdLote))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Nivel", DBNull.Value))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionColumna", DBNull.Value))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionFila", DBNull.Value))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Nivel", EntidadAlmacenes1.Nivel))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionColumna", EntidadAlmacenes1.PosicionColumna))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PosicionFila", EntidadAlmacenes1.PosicionFila))
                     cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", DBNull.Value))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@EstatusAlmacen", DBNull.Value))
                     cmdGuardar.ExecuteNonQuery()
                 Case Capa_Operacion.Configuracion.Actualiza.ActualizaTipoAlmacen
                     cmdGuardar = New SqlCommand("Sp_InsertarTipoAlmacen", cnn)
@@ -85,6 +87,7 @@ Public Class Almacenes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadAlmacenes1.IdAlmacenEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Descripcion", EntidadAlmacenes1.Descripcion))
                     sqldat1.Fill(EntidadAlmacenes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqlcom1 = New SqlCommand("Sp_ConsultaTipoAlmacen", cnn)

@@ -26,8 +26,15 @@ Partial Class ExistenciaBodegaPacas
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GbGeneral = New System.Windows.Forms.GroupBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtInsertar = New System.Windows.Forms.Button()
         Me.TbEtiqueta = New System.Windows.Forms.TextBox()
+        Me.CbNoLote = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.BtIdAlmacen = New System.Windows.Forms.Button()
+        Me.TbIdAlmacen = New System.Windows.Forms.TextBox()
+        Me.TbNombreAlmacen = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TbCantidadNiveles = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TbCantidadRack = New System.Windows.Forms.TextBox()
@@ -44,7 +51,9 @@ Partial Class ExistenciaBodegaPacas
         Me.DgvMatriz = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGeneral.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -52,8 +61,13 @@ Partial Class ExistenciaBodegaPacas
         '
         'GbGeneral
         '
-        Me.GbGeneral.Controls.Add(Me.BtInsertar)
-        Me.GbGeneral.Controls.Add(Me.TbEtiqueta)
+        Me.GbGeneral.Controls.Add(Me.Panel3)
+        Me.GbGeneral.Controls.Add(Me.CbNoLote)
+        Me.GbGeneral.Controls.Add(Me.Label7)
+        Me.GbGeneral.Controls.Add(Me.BtIdAlmacen)
+        Me.GbGeneral.Controls.Add(Me.TbIdAlmacen)
+        Me.GbGeneral.Controls.Add(Me.TbNombreAlmacen)
+        Me.GbGeneral.Controls.Add(Me.Label5)
         Me.GbGeneral.Controls.Add(Me.TbCantidadNiveles)
         Me.GbGeneral.Controls.Add(Me.Label6)
         Me.GbGeneral.Controls.Add(Me.TbCantidadRack)
@@ -68,16 +82,26 @@ Partial Class ExistenciaBodegaPacas
         Me.GbGeneral.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbGeneral.Location = New System.Drawing.Point(0, 24)
         Me.GbGeneral.Name = "GbGeneral"
-        Me.GbGeneral.Size = New System.Drawing.Size(1317, 215)
+        Me.GbGeneral.Size = New System.Drawing.Size(1317, 264)
         Me.GbGeneral.TabIndex = 1
         Me.GbGeneral.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.BtInsertar)
+        Me.Panel3.Controls.Add(Me.TbEtiqueta)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(674, 16)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(640, 245)
+        Me.Panel3.TabIndex = 20
         '
         'BtInsertar
         '
         Me.BtInsertar.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtInsertar.Location = New System.Drawing.Point(893, 104)
+        Me.BtInsertar.Location = New System.Drawing.Point(434, 155)
         Me.BtInsertar.Name = "BtInsertar"
-        Me.BtInsertar.Size = New System.Drawing.Size(197, 73)
+        Me.BtInsertar.Size = New System.Drawing.Size(197, 80)
         Me.BtInsertar.TabIndex = 6
         Me.BtInsertar.Text = "Insertar"
         Me.BtInsertar.UseVisualStyleBackColor = True
@@ -85,15 +109,72 @@ Partial Class ExistenciaBodegaPacas
         'TbEtiqueta
         '
         Me.TbEtiqueta.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbEtiqueta.Location = New System.Drawing.Point(575, 97)
+        Me.TbEtiqueta.Location = New System.Drawing.Point(3, 155)
         Me.TbEtiqueta.Name = "TbEtiqueta"
-        Me.TbEtiqueta.Size = New System.Drawing.Size(312, 80)
+        Me.TbEtiqueta.Size = New System.Drawing.Size(386, 80)
         Me.TbEtiqueta.TabIndex = 5
+        '
+        'CbNoLote
+        '
+        Me.CbNoLote.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbNoLote.FormattingEnabled = True
+        Me.CbNoLote.IntegralHeight = False
+        Me.CbNoLote.ItemHeight = 55
+        Me.CbNoLote.Location = New System.Drawing.Point(218, 117)
+        Me.CbNoLote.MaxDropDownItems = 5
+        Me.CbNoLote.Name = "CbNoLote"
+        Me.CbNoLote.Size = New System.Drawing.Size(133, 63)
+        Me.CbNoLote.TabIndex = 19
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(6, 120)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(206, 55)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "Lote No."
+        '
+        'BtIdAlmacen
+        '
+        Me.BtIdAlmacen.Location = New System.Drawing.Point(112, 21)
+        Me.BtIdAlmacen.Name = "BtIdAlmacen"
+        Me.BtIdAlmacen.Size = New System.Drawing.Size(42, 23)
+        Me.BtIdAlmacen.TabIndex = 17
+        Me.BtIdAlmacen.Text = "..."
+        Me.BtIdAlmacen.UseVisualStyleBackColor = True
+        '
+        'TbIdAlmacen
+        '
+        Me.TbIdAlmacen.Location = New System.Drawing.Point(160, 23)
+        Me.TbIdAlmacen.Name = "TbIdAlmacen"
+        Me.TbIdAlmacen.ReadOnly = True
+        Me.TbIdAlmacen.Size = New System.Drawing.Size(87, 20)
+        Me.TbIdAlmacen.TabIndex = 16
+        '
+        'TbNombreAlmacen
+        '
+        Me.TbNombreAlmacen.Location = New System.Drawing.Point(253, 23)
+        Me.TbNombreAlmacen.Name = "TbNombreAlmacen"
+        Me.TbNombreAlmacen.ReadOnly = True
+        Me.TbNombreAlmacen.Size = New System.Drawing.Size(216, 20)
+        Me.TbNombreAlmacen.TabIndex = 15
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(4, 26)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(62, 13)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "ID Almacen"
         '
         'TbCantidadNiveles
         '
         Me.TbCantidadNiveles.Location = New System.Drawing.Point(112, 75)
         Me.TbCantidadNiveles.Name = "TbCantidadNiveles"
+        Me.TbCantidadNiveles.ReadOnly = True
         Me.TbCantidadNiveles.Size = New System.Drawing.Size(100, 20)
         Me.TbCantidadNiveles.TabIndex = 1
         '
@@ -110,13 +191,14 @@ Partial Class ExistenciaBodegaPacas
         '
         Me.TbCantidadRack.Location = New System.Drawing.Point(112, 49)
         Me.TbCantidadRack.Name = "TbCantidadRack"
+        Me.TbCantidadRack.ReadOnly = True
         Me.TbCantidadRack.Size = New System.Drawing.Size(100, 20)
         Me.TbCantidadRack.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 52)
+        Me.Label4.Location = New System.Drawing.Point(4, 52)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 13)
         Me.Label4.TabIndex = 9
@@ -125,7 +207,7 @@ Partial Class ExistenciaBodegaPacas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(78, 130)
+        Me.Label3.Location = New System.Drawing.Point(250, 78)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
         Me.Label3.TabIndex = 8
@@ -134,7 +216,7 @@ Partial Class ExistenciaBodegaPacas
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(53, 104)
+        Me.Label2.Location = New System.Drawing.Point(250, 52)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 7
@@ -143,40 +225,46 @@ Partial Class ExistenciaBodegaPacas
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(75, 159)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(6, 189)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.Size = New System.Drawing.Size(130, 55)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Nivel"
         '
         'CbNivel
         '
+        Me.CbNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbNivel.FormattingEnabled = True
-        Me.CbNivel.Location = New System.Drawing.Point(112, 154)
+        Me.CbNivel.IntegralHeight = False
+        Me.CbNivel.Location = New System.Drawing.Point(218, 186)
         Me.CbNivel.Name = "CbNivel"
-        Me.CbNivel.Size = New System.Drawing.Size(100, 21)
+        Me.CbNivel.Size = New System.Drawing.Size(133, 63)
         Me.CbNivel.TabIndex = 4
         '
         'BtAceptar
         '
-        Me.BtAceptar.Location = New System.Drawing.Point(245, 154)
+        Me.BtAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtAceptar.Location = New System.Drawing.Point(369, 186)
         Me.BtAceptar.Name = "BtAceptar"
-        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtAceptar.Size = New System.Drawing.Size(299, 65)
         Me.BtAceptar.TabIndex = 4
-        Me.BtAceptar.Text = "Aceptar"
+        Me.BtAceptar.Text = "Seleccionar"
         Me.BtAceptar.UseVisualStyleBackColor = True
         '
         'TbFilas
         '
-        Me.TbFilas.Location = New System.Drawing.Point(112, 127)
+        Me.TbFilas.Location = New System.Drawing.Point(369, 75)
         Me.TbFilas.Name = "TbFilas"
+        Me.TbFilas.ReadOnly = True
         Me.TbFilas.Size = New System.Drawing.Size(100, 20)
         Me.TbFilas.TabIndex = 3
         '
         'TbColumnas
         '
-        Me.TbColumnas.Location = New System.Drawing.Point(112, 101)
+        Me.TbColumnas.Location = New System.Drawing.Point(369, 49)
         Me.TbColumnas.Name = "TbColumnas"
+        Me.TbColumnas.ReadOnly = True
         Me.TbColumnas.Size = New System.Drawing.Size(100, 20)
         Me.TbColumnas.TabIndex = 2
         '
@@ -192,9 +280,9 @@ Partial Class ExistenciaBodegaPacas
         '
         Me.Panel1.Controls.Add(Me.DgvMatriz)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 239)
+        Me.Panel1.Location = New System.Drawing.Point(0, 288)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1317, 348)
+        Me.Panel1.Size = New System.Drawing.Size(1317, 299)
         Me.Panel1.TabIndex = 3
         '
         'DgvMatriz
@@ -218,7 +306,7 @@ Partial Class ExistenciaBodegaPacas
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgvMatriz.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DgvMatriz.Dock = System.Windows.Forms.DockStyle.Left
+        Me.DgvMatriz.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvMatriz.Location = New System.Drawing.Point(0, 0)
         Me.DgvMatriz.Name = "DgvMatriz"
         Me.DgvMatriz.ReadOnly = True
@@ -230,12 +318,12 @@ Partial Class ExistenciaBodegaPacas
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvMatriz.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DgvMatriz.Size = New System.Drawing.Size(1090, 348)
+        Me.DgvMatriz.Size = New System.Drawing.Size(1317, 299)
         Me.DgvMatriz.TabIndex = 1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1317, 24)
@@ -247,6 +335,12 @@ Partial Class ExistenciaBodegaPacas
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
         Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'ExistenciaBodegaPacas
         '
@@ -264,6 +358,8 @@ Partial Class ExistenciaBodegaPacas
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbGeneral.ResumeLayout(False)
         Me.GbGeneral.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
@@ -292,4 +388,12 @@ Partial Class ExistenciaBodegaPacas
     Friend WithEvents BtInsertar As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtIdAlmacen As Button
+    Friend WithEvents TbIdAlmacen As TextBox
+    Friend WithEvents TbNombreAlmacen As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents CbNoLote As ComboBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
 End Class

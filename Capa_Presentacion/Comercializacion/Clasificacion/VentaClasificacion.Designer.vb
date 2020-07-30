@@ -25,6 +25,7 @@ Partial Class VentaClasificacion
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentaClasificacion))
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.GbRangos = New System.Windows.Forms.GroupBox()
+        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.BtAceptar = New System.Windows.Forms.Button()
         Me.ChActivaRangos = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -72,7 +73,6 @@ Partial Class VentaClasificacion
         Me.GbSeleccionarTodasPacas = New System.Windows.Forms.GroupBox()
         Me.BtDeseleccionarTodo = New System.Windows.Forms.Button()
         Me.BtSeleccionarTodo = New System.Windows.Forms.Button()
-        Me.BtCargaExcel = New System.Windows.Forms.Button()
         Me.GbDatos.SuspendLayout()
         Me.GbRangos.SuspendLayout()
         CType(Me.NuPromedioUI, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,6 +130,20 @@ Partial Class VentaClasificacion
         Me.GbRangos.TabIndex = 9
         Me.GbRangos.TabStop = False
         Me.GbRangos.Text = "Agrega Pacas Por Rango"
+        '
+        'BtCargaExcel
+        '
+        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtCargaExcel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtCargaExcel.Location = New System.Drawing.Point(3, 156)
+        Me.BtCargaExcel.MaximumSize = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.MinimumSize = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.Name = "BtCargaExcel"
+        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
+        Me.BtCargaExcel.TabIndex = 4
+        Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'BtAceptar
         '
@@ -490,7 +504,7 @@ Partial Class VentaClasificacion
         'ArchivoExcelToolStripMenuItem
         '
         Me.ArchivoExcelToolStripMenuItem.Name = "ArchivoExcelToolStripMenuItem"
-        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ArchivoExcelToolStripMenuItem.Text = "Archivo Excel"
         '
         'ArchivoAccessToolStripMenuItem
@@ -541,20 +555,6 @@ Partial Class VentaClasificacion
         Me.BtSeleccionarTodo.TabIndex = 0
         Me.BtSeleccionarTodo.Text = "Seleccionar Todo"
         Me.BtSeleccionarTodo.UseVisualStyleBackColor = True
-        '
-        'BtCargaExcel
-        '
-        Me.BtCargaExcel.BackgroundImage = CType(resources.GetObject("BtCargaExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtCargaExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtCargaExcel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BtCargaExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtCargaExcel.Location = New System.Drawing.Point(3, 156)
-        Me.BtCargaExcel.MaximumSize = New System.Drawing.Size(37, 35)
-        Me.BtCargaExcel.MinimumSize = New System.Drawing.Size(37, 35)
-        Me.BtCargaExcel.Name = "BtCargaExcel"
-        Me.BtCargaExcel.Size = New System.Drawing.Size(37, 35)
-        Me.BtCargaExcel.TabIndex = 4
-        Me.BtCargaExcel.UseVisualStyleBackColor = True
         '
         'VentaClasificacion
         '

@@ -3,16 +3,17 @@ Public Class Almacenes
     Private Sub Almacenes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpiar()
         LlenaCombos()
-        Consultar()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
     Private Sub Limpiar()
-        TbIdBodega.Text = ""
+        TbIdAlmacen.Text = ""
         TbDescripcion.Text = ""
+        TbColumnas.Text = ""
+        TbFilas.Text = ""
         CbTipo.SelectedIndex = -1
-        TbCantidadRack.Text = ""
+        TbCantidadLotes.Text = ""
         TbCantidadNiveles.Text = ""
         TbCalle.Text = ""
         TbNumero.Text = ""
@@ -21,6 +22,7 @@ Public Class Almacenes
         CbCiudad.SelectedIndex = -1
         CbEstado.SelectedIndex = -1
         NuCapacidad.Value = 0
+        Consultar()
     End Sub
     Private Sub AgregarTipoDeAlmacenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarTipoDeAlmacenToolStripMenuItem.Click
         TipoAlmacen.ShowDialog()
@@ -57,44 +59,46 @@ Public Class Almacenes
         Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
         Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
         Try
-            EntidadAlmacenes.IdAlmacenEncabezado = IIf(TbIdBodega.Text = "", 0, TbIdBodega.Text)
+            EntidadAlmacenes.IdAlmacenEncabezado = IIf(TbIdAlmacen.Text = "", 0, TbIdAlmacen.Text)
+            EntidadAlmacenes.Descripcion = TbDescripcion.Text
             EntidadAlmacenes.IdTipoAlmacen = CbTipo.SelectedValue
-            EntidadAlmacenes.CantidadLotes = Val(TbCantidadRack.Text)
+            EntidadAlmacenes.CantidadLotes = Val(TbCantidadLotes.Text)
             EntidadAlmacenes.CantidadNiveles = Val(TbCantidadNiveles.Text)
             EntidadAlmacenes.Columnas = Val(TbColumnas.Text)
             EntidadAlmacenes.filas = Val(TbFilas.Text)
             EntidadAlmacenes.FechaAlta = DtFecha.Value
             EntidadAlmacenes.Actualiza = Actualiza.ActualizaAlmacenEnc
             NegocioAlmacenes.Guardar(EntidadAlmacenes)
-            TbIdBodega.Text = EntidadAlmacenes.IdAlmacenEncabezado
+            TbIdAlmacen.Text = EntidadAlmacenes.IdAlmacenEncabezado
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub GuardarDetalle()
+    Private Sub GuardarDetalle(ByVal IdLote As Integer, ByVal Nivel As String, ByVal Columna As Integer, ByVal Fila As Integer)
         Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
         Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
         Try
             EntidadAlmacenes.IdAlmacenDetalle = 0
-            EntidadAlmacenes.IdAlmacenEncabezado = Val(TbIdBodega.Text)
-            EntidadAlmacenes.IdLote = Val(TbCantidadRack.Text)
-            'EntidadAlmacenes.Nivel = Val(TbCantidadNiveles.Text)
-            'EntidadAlmacenes.PosicionColumna = DBNull.Value 'TbNumero.Text
-            'EntidadAlmacenes.PosicionFila = DBNull.Value ' TbCodigoPostal.Text
+            EntidadAlmacenes.IdAlmacenEncabezado = Val(TbIdAlmacen.Text)
+            EntidadAlmacenes.IdLote = IdLote
+            EntidadAlmacenes.Nivel = Nivel
+            EntidadAlmacenes.PosicionColumna = Columna
+            EntidadAlmacenes.PosicionFila = Fila
             'EntidadAlmacenes.BaleID = IIf(tb) TbColonia.Text
             EntidadAlmacenes.Actualiza = Actualiza.ActualizaAlmacenDet
             NegocioAlmacenes.Guardar(EntidadAlmacenes)
-            TbIdBodega.Text = EntidadAlmacenes.IdAlmacenEncabezado
+            TbIdAlmacen.Text = EntidadAlmacenes.IdAlmacenEncabezado
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
     Private Sub Consultar()
+        Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
+        Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
+        Dim Tabla As New DataTable
         Try
-            Dim EntidadAlmacenes As New Capa_Entidad.Almacenes
-            Dim NegocioAlmacenes As New Capa_Negocio.Almacenes
-            Dim Tabla As New DataTable
-            EntidadAlmacenes.IdAlmacenEncabezado = IIf(TbIdBodega.Text = "", 0, TbIdBodega.Text)
+            EntidadAlmacenes.IdAlmacenEncabezado = IIf(TbIdAlmacen.Text = "", 0, TbIdAlmacen.Text)
+            EntidadAlmacenes.Descripcion = ""
             EntidadAlmacenes.Consulta = Consulta.ConsultaAlmacen
             NegocioAlmacenes.Consultar(EntidadAlmacenes)
             DgvBodegas.DataSource = EntidadAlmacenes.TablaConsulta
@@ -155,36 +159,48 @@ Public Class Almacenes
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         'Guardar()
-        If CbTipo.SelectedText = "" And Val(TbCantidadRack.Text) = 0 And Val(TbCantidadNiveles.Text) = 0 And Val(TbColumnas.Text) = 0 And Val(TbFilas.Text) = 0 Then
+        If CbTipo.SelectedText = "" And Val(TbCantidadLotes.Text) = 0 And Val(TbCantidadNiveles.Text) = 0 And Val(TbColumnas.Text) = 0 And Val(TbFilas.Text) = 0 Then
             MsgBox("No se permiten campos en blanco, revisar", MsgBoxStyle.Information, "Aviso")
         Else
             guardarencabezado()
-            For i = 0 To Val(TbCantidadRack.Text) - 1 Step 1
+            Dim Lote As Integer = 0
+            Dim Nivel As String = ""
+            Dim Columna As Integer = 0
+            Dim Fila As Integer = 0
+            Dim ArrayCadena() As String = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
+            For i = 0 To Val(TbCantidadLotes.Text) - 1 Step 1
+                Lote = i + 1
                 For j = 0 To Val(TbCantidadNiveles.Text) - 1 Step 1
-                    GuardarDetalle()
+                    Nivel = ArrayCadena(j)
+                    For k = 0 To Val(TbColumnas.Text) - 1 Step 1
+                        Columna = k
+                        For l = 0 To Val(TbFilas.Text) - 1 Step 1
+                            Fila = l
+                            GuardarDetalle(Lote, Nivel, Columna, Fila)
+                        Next
+                    Next
                 Next
             Next
         End If
         Consultar()
     End Sub
     Private Sub DgvBodegas_DoubleClick(sender As Object, e As EventArgs) Handles DgvBodegas.DoubleClick
-
         If DgvBodegas.DataSource Is Nothing Then
             MsgBox("No hay registros disponibles")
         Else
             Dim index As Integer
             index = DgvBodegas.CurrentCell.RowIndex
-            TbIdBodega.Text = DgvBodegas.Rows(index).Cells("IdAlmacen").Value
+            TbIdAlmacen.Text = DgvBodegas.Rows(index).Cells("IdAlmacenEncabezado").Value
             TbDescripcion.Text = DgvBodegas.Rows(index).Cells("Descripcion").Value
-            CbTipo.SelectedValue = DgvBodegas.Rows(index).Cells("IdTipoAlmacen").Value
-            TbCalle.Text = DgvBodegas.Rows(index).Cells("Calle").Value
-            TbNumero.Text = DgvBodegas.Rows(index).Cells("Numero").Value
-            TbCodigoPostal.Text = DgvBodegas.Rows(index).Cells("CodigoPostal").Value
-            TbColonia.Text = DgvBodegas.Rows(index).Cells("Colonia").Value
-            CbEstado.SelectedValue = DgvBodegas.Rows(index).Cells("Estado").Value
-            CargaComboMunicipios()
-            CbCiudad.SelectedValue = DgvBodegas.Rows(index).Cells("Ciudad").Value
-            NuCapacidad.Value = DgvBodegas.Rows(index).Cells("Capacidad").Value
+            CbTipo.SelectedValue = DgvBodegas.Rows(index).Cells("TipoAlmacen").Value
+            TbCantidadLotes.Text = DgvBodegas.Rows(index).Cells("Cantidadlotes").Value
+            TbCantidadNiveles.Text = DgvBodegas.Rows(index).Cells("CantidadNiveles").Value
+            TbColumnas.Text = DgvBodegas.Rows(index).Cells("Columnas").Value
+            TbFilas.Text = DgvBodegas.Rows(index).Cells("Filas").Value
+            DtFecha.Value = DgvBodegas.Rows(index).Cells("FechaAlta").Value
+            'CargaComboMunicipios()
+            'CbCiudad.SelectedValue = DgvBodegas.Rows(index).Cells("Ciudad").Value
+            'NuCapacidad.Value = DgvBodegas.Rows(index).Cells("Capacidad").Value
         End If
     End Sub
     Private Sub CbEstado_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbEstado.SelectionChangeCommitted
