@@ -434,6 +434,10 @@ Public Class MenuPrincipal
         CargaPacasExternas.ShowDialog()
     End Sub
 
+    Private Sub EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Click
+        ParametrosCorreo.ShowDialog()
+    End Sub
+
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub

@@ -500,6 +500,7 @@
     </Compile>
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
+    <Compile Include="Modulos Funciones\EnviarEmail.vb" />
     <Compile Include="Procesos\CargaPacasExternas.Designer.vb">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
     </Compile>
@@ -777,6 +778,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilerias\ImportarExcel.vb" />
+    <Compile Include="Utilerias\ParametrosCorreo.Designer.vb">
+      <DependentUpon>ParametrosCorreo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ParametrosCorreo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\Roles.Designer.vb">
       <DependentUpon>Roles.vb</DependentUpon>
     </Compile>
@@ -1481,6 +1488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\ClaveAutorizacion.resx">
       <DependentUpon>ClaveAutorizacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ParametrosCorreo.resx">
+      <DependentUpon>ParametrosCorreo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Roles.resx">
       <DependentUpon>Roles.vb</DependentUpon>

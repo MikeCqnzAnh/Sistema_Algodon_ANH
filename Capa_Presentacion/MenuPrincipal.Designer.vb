@@ -1053,63 +1053,63 @@ Partial Class MenuPrincipal
         'BorrarPerfilToolStripMenuItem
         '
         Me.BorrarPerfilToolStripMenuItem.Name = "BorrarPerfilToolStripMenuItem"
-        Me.BorrarPerfilToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.BorrarPerfilToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.BorrarPerfilToolStripMenuItem.Tag = "108,107"
         Me.BorrarPerfilToolStripMenuItem.Text = "Borrar Perfil"
         '
         'BorrarPacasToolStripMenuItem
         '
         Me.BorrarPacasToolStripMenuItem.Name = "BorrarPacasToolStripMenuItem"
-        Me.BorrarPacasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.BorrarPacasToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.BorrarPacasToolStripMenuItem.Tag = "109,107"
         Me.BorrarPacasToolStripMenuItem.Text = "Borrar Pacas"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(394, 24)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(325, 24)
         Me.ToolStripMenuItem1.Tag = "240,107"
         Me.ToolStripMenuItem1.Text = "Clave Autorizacion"
         '
         'CambioDePerfilDePacasToolStripMenuItem
         '
         Me.CambioDePerfilDePacasToolStripMenuItem.Name = "CambioDePerfilDePacasToolStripMenuItem"
-        Me.CambioDePerfilDePacasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.CambioDePerfilDePacasToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.CambioDePerfilDePacasToolStripMenuItem.Tag = "110,107"
         Me.CambioDePerfilDePacasToolStripMenuItem.Text = "Cambio de Perfil de Pacas"
         '
         'CambioDePerfilDeUnProductorAOtroToolStripMenuItem
         '
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Name = "CambioDePerfilDeUnProductorAOtroToolStripMenuItem"
-        Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Tag = "111,107"
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Text = "Cambio de Perfil de un Productor a Otro"
         '
         'EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem
         '
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Name = "EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem"
-        Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Tag = "112,107"
-        Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Text = "Envio de Mensajes de texto y correos a Productores"
+        Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Text = "Parametros para envio de correo"
         '
         'MonedasToolStripMenuItem
         '
         Me.MonedasToolStripMenuItem.Name = "MonedasToolStripMenuItem"
-        Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.MonedasToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.MonedasToolStripMenuItem.Tag = "113,107"
         Me.MonedasToolStripMenuItem.Text = "Monedas"
         '
         'BitacoraToolStripMenuItem
         '
         Me.BitacoraToolStripMenuItem.Name = "BitacoraToolStripMenuItem"
-        Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.BitacoraToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.BitacoraToolStripMenuItem.Tag = "114,107"
         Me.BitacoraToolStripMenuItem.Text = "Bitacora"
         '
         'RutaDeDocumentosToolStripMenuItem
         '
         Me.RutaDeDocumentosToolStripMenuItem.Name = "RutaDeDocumentosToolStripMenuItem"
-        Me.RutaDeDocumentosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.RutaDeDocumentosToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.RutaDeDocumentosToolStripMenuItem.Tag = "115,107"
         Me.RutaDeDocumentosToolStripMenuItem.Text = "Ruta de Documentos"
         '
@@ -1117,7 +1117,7 @@ Partial Class MenuPrincipal
         '
         Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RealizarRespaldoToolStripMenuItem, Me.RestaurarRespaldoToolStripMenuItem, Me.ProgramarRespaldoAutomaticoToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(394, 24)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(325, 24)
         Me.ToolStripMenuItem3.Tag = "116,107"
         Me.ToolStripMenuItem3.Text = "Respaldos"
         '
@@ -1145,14 +1145,14 @@ Partial Class MenuPrincipal
         'UsuariosToolStripMenuItem
         '
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.UsuariosToolStripMenuItem.Tag = "120,107"
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'RolesToolStripMenuItem
         '
         Me.RolesToolStripMenuItem.Name = "RolesToolStripMenuItem"
-        Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(394, 24)
+        Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.RolesToolStripMenuItem.Tag = "121,107"
         Me.RolesToolStripMenuItem.Text = "Roles"
         '
