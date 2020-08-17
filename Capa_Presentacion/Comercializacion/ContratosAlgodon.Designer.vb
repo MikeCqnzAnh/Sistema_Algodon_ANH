@@ -119,6 +119,7 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -131,7 +132,7 @@ Partial Class ContratosAlgodon
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1447, 24)
@@ -1076,6 +1077,13 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1447, 363)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
+        'EnviarEmailToolStripMenuItem
+        '
+        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
+        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
+        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
+        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
+        '
         'ContratosAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1205,4 +1213,5 @@ Partial Class ContratosAlgodon
     Friend WithEvents ChMicros As CheckBox
     Friend WithEvents CbModoMicros As ComboBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
 End Class

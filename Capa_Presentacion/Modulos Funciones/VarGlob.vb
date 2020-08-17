@@ -111,4 +111,13 @@
             _PasswordDB = value
         End Set
     End Property
+    Public _IpServer As String
+    Public Property IpServer As String
+        Get
+            Return _IpServer
+        End Get
+        Set(value As String)
+            _IpServer = value
+        End Set
+    End Property
 End Module

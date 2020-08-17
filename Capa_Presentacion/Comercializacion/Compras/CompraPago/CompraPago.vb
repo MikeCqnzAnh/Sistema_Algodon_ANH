@@ -1,5 +1,12 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports System.IO
 Public Class CompraPago
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\conf\"
+    Dim archivo As String = "confemail.ini"
+    Dim email, password, hostsmtp As String
+    Dim puertosmtp As Integer
+    Dim ConexionSSL As Boolean
+    Dim rutadoc As String
     Private Sub CompraPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiarControles()
         TbIdProductor.Text = VarGlob2.IdProductor
@@ -14,7 +21,39 @@ Public Class CompraPago
         ConsultaTipoCambio()
         TotalCompra()
         Formatos()
+        ObtenerArchivoConfiguracion()
     End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New StreamReader(Ruta & archivo)
+        email = ""
+        password = ""
+        hostsmtp = ""
+        puertosmtp = 0
+        ConexionSSL = False
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim arreglocadena() As String = Split(linea, vbCrLf)
+                email = ObtenerValor(arreglocadena(0))
+                password = ObtenerValor(arreglocadena(1))
+                hostsmtp = ObtenerValor(arreglocadena(2))
+                puertosmtp = ObtenerValor(arreglocadena(3))
+                ConexionSSL = ObtenerValor(arreglocadena(4))
+            End While
+            leer.Close()
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+    Private Function ObtenerValor(ByVal cadena As String)
+        Dim Resultado As String
+        Dim ArregloCadena() As String = Split(cadena, "=")
+        Resultado = ArregloCadena(1)
+        Return Resultado
+    End Function
     Private Sub PropiedadesDgv()
         DgvResumenPagoPacas.Columns(4).Visible = False
         DgvResumenPagoPacas.Columns(5).Visible = False
@@ -117,7 +156,7 @@ Public Class CompraPago
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         EntidadCompraPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarCompraPacasEnc
         EntidadCompraPacasContrato.IdCompra = IIf(TbIdCompra.Text = "", 0, TbIdCompra.Text)
-        EntidadCompraPacasContrato.IdContrato = tbidcontrato.Text
+        EntidadCompraPacasContrato.IdContrato = TbIdContrato.Text
         EntidadCompraPacasContrato.IdProductor = TbIdProductor.Text
         EntidadCompraPacasContrato.IdPlanta = VarGlob2.IdPlanta
         EntidadCompraPacasContrato.IdModalidadCompra = VarGlob2.IdModalidadCompra
@@ -218,6 +257,18 @@ Public Class CompraPago
             ReporteCompraPacasDetallado.ShowDialog()
         Else
             MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub EnviarEmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarEmailToolStripMenuItem.Click
+        Dim Destinatario As String = ""
+        Dim asunto As String = ""
+        Dim Mensaje As String = ""
+        If TbIdCompra.Text <> "" Then
+            asunto = "Compra de pacas con el ID " & TbIdContrato.Text & " a nombre de " & TbNombreProductor.Text & "."
+            Mensaje = "Se realizo compra por un total de " & TbTotalPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales." & vbCrLf & "Enviado desde SIA."
+            Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
+            enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
         End If
     End Sub
 End Class

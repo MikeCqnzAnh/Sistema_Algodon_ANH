@@ -114,6 +114,7 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbParametros.SuspendLayout()
@@ -126,7 +127,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1459, 24)
@@ -1013,6 +1014,13 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
         Me.DgvContratoAlgodon.TabIndex = 14
         '
+        'EnviarEmailToolStripMenuItem
+        '
+        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
+        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
+        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
+        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
+        '
         'ContratosAlgodonCompradores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1137,4 +1145,5 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents BtConsultaUI As Button
     Friend WithEvents BtConsultaRF As Button
     Friend WithEvents BtConsultaLF As Button
+    Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
 End Class

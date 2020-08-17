@@ -1,13 +1,21 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports System.IO
 Public Class ContratosAlgodonCompradores
     Implements IForm1
     Dim IdComprador As Integer
     Dim TablaUnidadPeso As New DataTable
+    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\conf\"
+    Dim archivo As String = "confemail.ini"
+    Dim email, password, hostsmtp As String
+    Dim puertosmtp As Integer
+    Dim ConexionSSL As Boolean
+    Dim rutadoc As String
     Private Sub ContratosAlgodonCompradores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
         'CastigosMatExt()
         Limpiar()
         ConsultaContratos()
+        ObtenerArchivoConfiguracion()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
@@ -17,6 +25,37 @@ Public Class ContratosAlgodonCompradores
             Guardar()
         End If
     End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New StreamReader(Ruta & archivo)
+        email = ""
+        password = ""
+        hostsmtp = ""
+        puertosmtp = 0
+        ConexionSSL = False
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim arreglocadena() As String = Split(linea, vbCrLf)
+                email = ObtenerValor(arreglocadena(0))
+                password = ObtenerValor(arreglocadena(1))
+                hostsmtp = ObtenerValor(arreglocadena(2))
+                puertosmtp = ObtenerValor(arreglocadena(3))
+                ConexionSSL = ObtenerValor(arreglocadena(4))
+            End While
+            leer.Close()
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+    Private Function ObtenerValor(ByVal cadena As String)
+        Dim Resultado As String
+        Dim ArregloCadena() As String = Split(cadena, "=")
+        Resultado = ArregloCadena(1)
+        Return Resultado
+    End Function
     'Private Sub CastigosMatExt()
     '    Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
     '    Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
@@ -432,5 +471,18 @@ Public Class ContratosAlgodonCompradores
                     TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasVendidas.Text)
                 End If
         End Select
+    End Sub
+    Private Sub EnviarEmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarEmailToolStripMenuItem.Click
+        Dim Destinatario As String = ""
+        Dim asunto As String = ""
+        Dim Mensaje As String = ""
+        If TbIdContratoAlgodon.Text <> "" Then
+            asunto = "Contrato de pacas con el ID " & TbIdContratoAlgodon.Text & " a nombre de " & "" & "."
+            Mensaje = "Se realizo compra por un total de " & TbPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales." & vbCrLf & "Enviado desde SIA."
+            Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
+            enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
+        Else
+            MsgBox("Seleccione un contrato para enviar por email.", MsgBoxStyle.Information, "Aviso")
+        End If
     End Sub
 End Class

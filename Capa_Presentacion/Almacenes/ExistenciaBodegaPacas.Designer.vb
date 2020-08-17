@@ -52,11 +52,17 @@ Partial Class ExistenciaBodegaPacas
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RbEntrada = New System.Windows.Forms.RadioButton()
+        Me.RbSalidas = New System.Windows.Forms.RadioButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GbGeneral.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GbGeneral
@@ -88,9 +94,14 @@ Partial Class ExistenciaBodegaPacas
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.PictureBox2)
+        Me.Panel3.Controls.Add(Me.PictureBox1)
+        Me.Panel3.Controls.Add(Me.RbSalidas)
+        Me.Panel3.Controls.Add(Me.RbEntrada)
         Me.Panel3.Controls.Add(Me.BtInsertar)
         Me.Panel3.Controls.Add(Me.TbEtiqueta)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Enabled = False
         Me.Panel3.Location = New System.Drawing.Point(674, 16)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(640, 245)
@@ -116,6 +127,7 @@ Partial Class ExistenciaBodegaPacas
         '
         'CbNoLote
         '
+        Me.CbNoLote.Enabled = False
         Me.CbNoLote.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbNoLote.FormattingEnabled = True
         Me.CbNoLote.IntegralHeight = False
@@ -234,6 +246,7 @@ Partial Class ExistenciaBodegaPacas
         '
         'CbNivel
         '
+        Me.CbNivel.Enabled = False
         Me.CbNivel.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbNivel.FormattingEnabled = True
         Me.CbNivel.IntegralHeight = False
@@ -244,6 +257,7 @@ Partial Class ExistenciaBodegaPacas
         '
         'BtAceptar
         '
+        Me.BtAceptar.Enabled = False
         Me.BtAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtAceptar.Location = New System.Drawing.Point(369, 186)
         Me.BtAceptar.Name = "BtAceptar"
@@ -271,9 +285,9 @@ Partial Class ExistenciaBodegaPacas
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 587)
+        Me.Panel2.Location = New System.Drawing.Point(0, 759)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1317, 209)
+        Me.Panel2.Size = New System.Drawing.Size(1317, 37)
         Me.Panel2.TabIndex = 2
         '
         'Panel1
@@ -282,7 +296,7 @@ Partial Class ExistenciaBodegaPacas
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 288)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1317, 299)
+        Me.Panel1.Size = New System.Drawing.Size(1317, 471)
         Me.Panel1.TabIndex = 3
         '
         'DgvMatriz
@@ -318,7 +332,7 @@ Partial Class ExistenciaBodegaPacas
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvMatriz.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DgvMatriz.Size = New System.Drawing.Size(1317, 299)
+        Me.DgvMatriz.Size = New System.Drawing.Size(1317, 471)
         Me.DgvMatriz.TabIndex = 1
         '
         'MenuStrip1
@@ -342,6 +356,48 @@ Partial Class ExistenciaBodegaPacas
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'RbEntrada
+        '
+        Me.RbEntrada.AutoSize = True
+        Me.RbEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RbEntrada.Location = New System.Drawing.Point(3, 36)
+        Me.RbEntrada.Name = "RbEntrada"
+        Me.RbEntrada.Size = New System.Drawing.Size(141, 35)
+        Me.RbEntrada.TabIndex = 7
+        Me.RbEntrada.TabStop = True
+        Me.RbEntrada.Text = "Entradas"
+        Me.RbEntrada.UseVisualStyleBackColor = True
+        '
+        'RbSalidas
+        '
+        Me.RbSalidas.AutoSize = True
+        Me.RbSalidas.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RbSalidas.Location = New System.Drawing.Point(268, 36)
+        Me.RbSalidas.Name = "RbSalidas"
+        Me.RbSalidas.Size = New System.Drawing.Size(121, 35)
+        Me.RbSalidas.TabIndex = 8
+        Me.RbSalidas.TabStop = True
+        Me.RbSalidas.Text = "Salidas"
+        Me.RbSalidas.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Green
+        Me.PictureBox1.Location = New System.Drawing.Point(150, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(37, 31)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Yellow
+        Me.PictureBox2.Location = New System.Drawing.Point(395, 40)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(37, 31)
+        Me.PictureBox2.TabIndex = 10
+        Me.PictureBox2.TabStop = False
+        '
         'ExistenciaBodegaPacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -364,6 +420,8 @@ Partial Class ExistenciaBodegaPacas
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +454,8 @@ Partial Class ExistenciaBodegaPacas
     Friend WithEvents CbNoLote As ComboBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RbSalidas As RadioButton
+    Friend WithEvents RbEntrada As RadioButton
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

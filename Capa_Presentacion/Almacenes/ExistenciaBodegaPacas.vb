@@ -19,12 +19,21 @@
         CbNoLote.Items.Clear()
         DgvMatriz.Columns.Clear()
         DgvMatriz.Refresh()
+        RbEntrada.Checked = True
+        CbNivel.Enabled = False
+        CbNoLote.Enabled = False
+        BtAceptar.Enabled = False
+        Panel3.Enabled = False
     End Sub
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
         'ArrayNiveles()
-        CreaMatriz()
-        ConsultaBodega()
-        TbEtiqueta.Select()
+        If CbNivel.SelectedValue Is Nothing Then
+
+        Else
+            CreaMatriz()
+            ConsultaBodega()
+            TbEtiqueta.Select()
+        End If
     End Sub
     Private Sub CreaMatriz()
         Dim i As Byte
@@ -109,6 +118,10 @@
             TbFilas.Text = Tabla.Rows(0).Item("Filas")
             ArrayNiveles()
             comboLotes()
+            CbNivel.Enabled = True
+            CbNoLote.Enabled = True
+            BtAceptar.Enabled = True
+            Panel3.Enabled = True
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -124,7 +137,7 @@
         NegocioExistenciaBodegaPacas.Consultar(EntidadExistenciaBodegaPacas)
         Tabla = EntidadExistenciaBodegaPacas.TablaConsulta
         For Each row As DataRow In Tabla.Rows
-            InsertaPaca(row("PosicionColumna"), row("PosicionFila"), row("BaleID"))
+            InsertaPaca(row("PosicionColumna"), row("PosicionFila"), row("BaleID"), row("Estatusalmacen"))
         Next
     End Sub
     Private Sub ActualizaPaca(ByVal Fil As Integer, ByVal Col As Integer, ByVal Baleid As Integer, ByVal estatus As Integer)
@@ -141,39 +154,72 @@
         NegocioExistenciaBodegaPacas.Guardar(EntidadExistenciaBodegaPacas)
         Tabla = EntidadExistenciaBodegaPacas.TablaConsulta
     End Sub
-    Private Sub InsertaPaca(ByVal Col As Byte, ByVal Fil As Byte, ByVal BaleID As Integer)
+    Private Sub InsertaPaca(ByVal Col As Byte, ByVal Fil As Byte, ByVal BaleID As Integer, ByVal estatus As Integer)
         DgvMatriz(Col, Fil).Value = IIf(BaleID = 0, "", BaleID)
+        Select Case estatus
+            Case 0
+                DgvMatriz(Col, Fil).Style.BackColor = Color.White
+            Case 1
+                DgvMatriz(Col, Fil).Style.BackColor = Color.Green
+            Case 2
+                DgvMatriz(Col, Fil).Style.BackColor = Color.Yellow
+        End Select
     End Sub
     Private Sub insertapacamatriz()
         Dim i, j As Byte
         columna = DgvMatriz.ColumnCount
         fila = DgvMatriz.RowCount
+        Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
+        If TbEtiqueta.Text <> "" Then
+            For j = 0 To fila - 1
+                For i = 0 To columna - 1
+                    If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text Then
+                        MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
+                        Exit Sub
+                        'ElseIf DgvMatriz(i, j).Value IsNot Nothing And DgvMatriz(i, j).Value = 0 Then
+                    ElseIf DgvMatriz(i, j).Value.ToString <> "" Then
+
+                    Else
+                        DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+                        ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+                        If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+                            CbNivel.SelectedIndex = 0
+                            CreaMatriz()
+                            ConsultaBodega()
+                        ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+                            CbNivel.SelectedIndex = 0
+                            CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+                            CreaMatriz()
+                            ConsultaBodega()
+                        ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+                            CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+                            CreaMatriz()
+                            ConsultaBodega()
+                        End If
+                        CreaMatriz()
+                        ConsultaBodega()
+                        Exit Sub
+                    End If
+                Next
+            Next
+        Else
+            MsgBox("El campo etiqueta no puede estar vacio.", MsgBoxStyle.Exclamation, "Aviso")
+        End If
+    End Sub
+    Function validaceldas()
+        Dim contar As Integer = 0
+        Dim i, j As Byte
+        columna = DgvMatriz.ColumnCount
+        fila = DgvMatriz.RowCount
         For j = 0 To fila - 1
             For i = 0 To columna - 1
-                If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text Then
-                    MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
-                    Exit Sub
-                    'ElseIf DgvMatriz(i, j).Value IsNot Nothing And DgvMatriz(i, j).Value = 0 Then
-
-                ElseIf DgvMatriz(i, j).Value.ToString <> "" Then
-
-                Else
-                    DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
-                    ActualizaPaca(j, i, DgvMatriz(i, j).Value, 1)
-                    If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) Then
-                        CbNivel.SelectedIndex = 0
-                        CreaMatriz()
-                        ConsultaBodega()
-                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
-                        CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
-                        CreaMatriz()
-                        ConsultaBodega()
-                    End If
-                    Exit Sub
+                If DgvMatriz(i, j).Value.ToString <> "" Then
+                    contar = contar + 1
                 End If
             Next
         Next
-    End Sub
+        Return contar
+    End Function
     Private Sub TbEtiqueta_KeyDown(sender As Object, e As KeyEventArgs) Handles TbEtiqueta.KeyDown
         If e.KeyCode = Keys.Enter Then
             If DgvMatriz.Rows.Count > 0 Then

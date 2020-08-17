@@ -1740,7 +1740,11 @@
     <Content Include="Iconos\if_new_981081.ico" />
     <Content Include="Iconos\if_Recyclebin_Close_171530.ico" />
     <Content Include="Iconos\if_search_322497.ico" />
+    <None Include="Resources\light_green.png" />
+    <None Include="Resources\light_red.png" />
+    <None Include="Resources\light_yellow.png" />
     <None Include="Iconos\png\search.png" />
+    <None Include="Iconos\png\attachment.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
