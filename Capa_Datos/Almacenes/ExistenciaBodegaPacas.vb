@@ -47,14 +47,14 @@ Public Class ExistenciaBodegaPacas
                     sqlcom1.Parameters.Add(New SqlParameter("@IdLote", EntidadExistenciaBodegaPacas1.IdLote))
                     sqlcom1.Parameters.Add(New SqlParameter("@Nivel", EntidadExistenciaBodegaPacas1.Nivel))
                     sqldat1.Fill(EntidadExistenciaBodegaPacas1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaExistenciaBodegaPacas
-                    '    sqlcom1 = New SqlCommand("Sp_ConsultaExistenciaBodegaPacas", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@IdExistenciaBodegaPacas", EntidadExistenciaBodegaPacas1.IdSalidaEncabezado))
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadExistenciaBodegaPacas1.NombreComprador))
-                    '    sqldat1.Fill(EntidadExistenciaBodegaPacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaAlmacen
+                    sqlcom1 = New SqlCommand("Sp_ExistePacaBodega", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdAlmacenEncabezado", EntidadExistenciaBodegaPacas1.IdAlmacenEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Baleid", EntidadExistenciaBodegaPacas1.BaleID))
+                    sqldat1.Fill(EntidadExistenciaBodegaPacas1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaEmbarqueParaSalida
                     '    sqlcom1 = New SqlCommand("Sp_ConsultaEmbarqueParaSalida", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)

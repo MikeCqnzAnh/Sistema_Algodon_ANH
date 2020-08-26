@@ -51,6 +51,8 @@
     End Sub
     Private Sub BtInsertar_Click(sender As Object, e As EventArgs) Handles BtInsertar.Click
         insertapacamatriz()
+        TbEtiqueta.Text = ""
+        TbEtiqueta.Select()
     End Sub
     Private Sub ArrayNiveles()
         Dim ArrayCadena() As String = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
@@ -166,45 +168,231 @@
         End Select
     End Sub
     Private Sub insertapacamatriz()
+        Dim existe As Boolean = False
+        Dim IDAlmacen As Integer
+        Dim NoLote As Integer
+        Dim LNivel As String
+        Dim estatusalmacen As Boolean
+
+        Dim EntidadExistenciaBodegaPacas As New Capa_Entidad.ExistenciaBodegaPacas
+        Dim NegocioExistenciaBodegaPacas As New Capa_Negocio.ExistenciaBodegaPacas
+        EntidadExistenciaBodegaPacas.IdAlmacenEncabezado = Val(TbIdAlmacen.Text)
+        EntidadExistenciaBodegaPacas.BaleID = Val(TbEtiqueta.Text)
+        EntidadExistenciaBodegaPacas.Consulta = Consulta.ConsultaAlmacen
+        NegocioExistenciaBodegaPacas.Consultar(EntidadExistenciaBodegaPacas)
+        Tabla = EntidadExistenciaBodegaPacas.TablaConsulta
+        If Tabla.Rows.Count > 0 Then
+            IDAlmacen = Tabla.Rows(0).Item("IdAlmacenEncabezado")
+            NoLote = Tabla.Rows(0).Item("IdLote")
+            LNivel = Tabla.Rows(0).Item("Nivel")
+            existe = Tabla.Rows(0).Item("existe")
+            estatusalmacen = IIf(Tabla.Rows(0).Item("EstatusAlmacen") = 2, 1, 0)
+        End If
         Dim i, j As Byte
         columna = DgvMatriz.ColumnCount
         fila = DgvMatriz.RowCount
-        Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
         If TbEtiqueta.Text <> "" Then
-            For j = 0 To fila - 1
-                For i = 0 To columna - 1
-                    If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text Then
-                        MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
-                        Exit Sub
-                        'ElseIf DgvMatriz(i, j).Value IsNot Nothing And DgvMatriz(i, j).Value = 0 Then
-                    ElseIf DgvMatriz(i, j).Value.ToString <> "" Then
+            If existe = False And RbEntrada.Checked = True Then
+                For j = 0 To fila - 1
+                    For i = 0 To columna - 1
+                        Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
+                        If DgvMatriz(i, j).Value.ToString <> "" Then
 
-                    Else
-                        DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
-                        ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
-                        If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
-                            CbNivel.SelectedIndex = 0
+                        ElseIf DgvMatriz(i, j).Value.ToString = "" Then
+                            DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+                            ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+                            If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+                                CbNivel.SelectedIndex = 0
+                                CreaMatriz()
+                                ConsultaBodega()
+                            ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+                                CbNivel.SelectedIndex = 0
+                                CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+                                CreaMatriz()
+                                ConsultaBodega()
+                            ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+                                CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+                                CreaMatriz()
+                                ConsultaBodega()
+                            End If
                             CreaMatriz()
                             ConsultaBodega()
-                        ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
-                            CbNivel.SelectedIndex = 0
-                            CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
-                            CreaMatriz()
-                            ConsultaBodega()
-                        ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
-                            CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
-                            CreaMatriz()
-                            ConsultaBodega()
+                            Exit Sub
                         End If
-                        CreaMatriz()
-                        ConsultaBodega()
-                        Exit Sub
-                    End If
+                    Next
                 Next
-            Next
+            ElseIf existe = True And estatusalmacen = False And RbSalidas.Checked = True Then
+                For j = 0 To fila - 1
+                    For i = 0 To columna - 1
+                        Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
+                        If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text Then
+                            DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+                            ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+                            If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+                                CbNivel.SelectedIndex = 0
+                                CreaMatriz()
+                                ConsultaBodega()
+                            ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+                                CbNivel.SelectedIndex = 0
+                                CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+                                CreaMatriz()
+                                ConsultaBodega()
+                            ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+                                CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+                                CreaMatriz()
+                                ConsultaBodega()
+                            End If
+                            CreaMatriz()
+                            ConsultaBodega()
+                            Exit Sub
+                        End If
+                    Next
+                Next
+            ElseIf existe = True And estatusalmacen = False And RbEntrada.Checked = True Then
+                MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el Lote #" & CbNoLote.Text)
+                Exit Sub
+            ElseIf existe = True And estatusalmacen = True And RbSalidas.Checked = True Then
+                MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el Lote #" & CbNoLote.Text)
+                Exit Sub
+            ElseIf existe = False And RbSalidas.Checked = True Then
+                MsgBox("La paca no existe para darle salida, verifique o cambie a opcion Entradas para continuar", MsgBoxStyle.Information, "Aviso")
+            ElseIf existe = True And estatusalmacen = True And RbEntrada.Checked = True Then
+                MsgBox("La paca " & TbEtiqueta.Text & " ya se registro su salida, revise la informacion o contacte al administrador del sistema.", MsgBoxStyle.Information, "Aviso")
+            End If
         Else
-            MsgBox("El campo etiqueta no puede estar vacio.", MsgBoxStyle.Exclamation, "Aviso")
+            MsgBox("El campo de etiqueta no puede estar vacio.", MsgBoxStyle.Information, "Aviso")
         End If
+        'If existe = False And estatusalmacen = False And RbEntrada.Checked = True Then
+        '    For j = 0 To fila - 1
+        '        For i = 0 To columna - 1
+        '            Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
+        '            If TbEtiqueta.Text <> "" Then
+        '                If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text And RbEntrada.Checked = True And DgvMatriz(i, j).Style.BackColor = Color.Green Then
+        '                   
+        '                ElseIf DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text And RbEntrada.Checked = False And DgvMatriz(i, j).Style.BackColor = Color.Yellow Then
+        '                    MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
+        '                    Exit Sub
+        '                ElseIf DgvMatriz(i, j).Value.ToString <> "" And DgvMatriz(i, j).Style.BackColor = Color.Green Then
+
+        '                ElseIf DgvMatriz(i, j).Value.ToString <> "" And DgvMatriz(i, j).Style.BackColor = Color.Yellow Then
+
+        '                ElseIf DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text Then
+        '                    DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+        '                    ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+        '                    If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+        '                        CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    End If
+        '                    CreaMatriz()
+        '                    ConsultaBodega()
+        '                    Exit Sub
+        '                ElseIf DgvMatriz(i, j).Value.ToString = "" Then
+        '                    DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+        '                    ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+        '                    If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+        '                        CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    End If
+        '                    CreaMatriz()
+        '                    ConsultaBodega()
+        '                    Exit Sub
+        '                End If
+        '            Else
+        '                MsgBox("El campo etiqueta no puede estar vacio.", MsgBoxStyle.Exclamation, "Aviso")
+        '                Exit Sub
+        '            End If
+        '        Next
+        '    Next
+        'ElseIf existe = True And estatusalmacen = False And RbEntrada.Checked = False And DgvMatriz(i, j).Style.BackColor = Color.Green And LNivel = CbNivel.Text And DgvMatriz(i, j).Value = Val(TbEtiqueta.Text) Then
+        '    For j = 0 To fila - 1
+        '        For i = 0 To columna - 1
+        '            Dim Reg As Integer = Val(TbFilas.Text) * Val(TbColumnas.Text)
+        '            If TbEtiqueta.Text <> "" Then
+        '                If DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text And RbEntrada.Checked = True And DgvMatriz(i, j).Style.BackColor = Color.Green Then
+        '                    MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
+        '                    Exit Sub
+        '                ElseIf DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text And RbEntrada.Checked = False And DgvMatriz(i, j).Style.BackColor = Color.Yellow Then
+        '                    MsgBox("La Paca con etiqueta " & TbEtiqueta.Text & " ya existe en el rack #" & CbNoLote.Text)
+        '                    Exit Sub
+        '                ElseIf DgvMatriz(i, j).Value.ToString <> "" And DgvMatriz(i, j).Style.BackColor = Color.Yellow Then
+
+        '                ElseIf DgvMatriz(i, j).Value.ToString = TbEtiqueta.Text And DgvMatriz(i, j).Style.BackColor = Color.Green Then
+        '                    DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+        '                    ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+        '                    If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+        '                        CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    End If
+        '                    CreaMatriz()
+        '                    ConsultaBodega()
+        '                    Exit Sub
+        '                ElseIf DgvMatriz(i, j).Value.ToString = "" Then
+        '                    DgvMatriz(i, j).Value = Val(TbEtiqueta.Text)
+        '                    ActualizaPaca(j, i, DgvMatriz(i, j).Value, IIf(RbEntrada.Checked = True, 1, 2))
+        '                    If i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And validaceldas() < Reg Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex = (CbNivel.Items.Count - 1) And Reg = validaceldas() Then
+        '                        CbNivel.SelectedIndex = 0
+        '                        CbNoLote.SelectedIndex = CbNoLote.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    ElseIf i = (Val(TbColumnas.Text) - 1) And CbNivel.SelectedIndex < (CbNivel.Items.Count - 1) Then
+        '                        CbNivel.SelectedIndex = CbNivel.SelectedIndex + 1
+        '                        CreaMatriz()
+        '                        ConsultaBodega()
+        '                    End If
+        '                    CreaMatriz()
+        '                    ConsultaBodega()
+        '                    Exit Sub
+        '                End If
+        '            ElseIf existe = True And estatusalmacen = False And RbEntrada.Checked = False And DgvMatriz(i, j).Style.BackColor = Color.Yellow Then
+        '                MsgBox("La paca con el numero de etiqueta " & TbEtiqueta.Text & " ya se encuentra registrada en el lote " & NoLote & " en el nivel " & LNivel & " y registrada en salida.")
+        '                Exit Sub
+        '            Else
+        '                MsgBox("El campo etiqueta no puede estar vacio.", MsgBoxStyle.Exclamation, "Aviso")
+        '                Exit Sub
+        '            End If
+        '        Next
+        '    Next
+        'ElseIf existe = False And RbEntrada.Checked = False Then
+        '    MsgBox("La paca con el numero de etiqueta " & TbEtiqueta.Text & " no se encuentra registrada en la bodega con ID " & TbIdAlmacen.Text & " revisar la etiqueta o cambiar la opcion a Entradas.")
+        '    Exit Sub
+        'Else
+        '    MsgBox("La paca con el numero de etiqueta " & TbEtiqueta.Text & " ya se encuentra registrada en el lote " & NoLote & " en el nivel " & LNivel & ".")
+        '    Exit Sub
+        'End If
     End Sub
     Function validaceldas()
         Dim contar As Integer = 0
@@ -219,6 +407,20 @@
             Next
         Next
         Return contar
+    End Function
+    Private Function validaexistencia(ByVal BaleId As Integer) As Boolean
+        Dim existe As Boolean
+        Dim EntidadExistenciaBodegaPacas As New Capa_Entidad.ExistenciaBodegaPacas
+        Dim NegocioExistenciaBodegaPacas As New Capa_Negocio.ExistenciaBodegaPacas
+        EntidadExistenciaBodegaPacas.IdAlmacenEncabezado = Val(TbIdAlmacen.Text)
+        EntidadExistenciaBodegaPacas.BaleID = Val(TbEtiqueta.Text)
+        EntidadExistenciaBodegaPacas.Consulta = Consulta.ConsultaAlmacen
+        NegocioExistenciaBodegaPacas.Consultar(EntidadExistenciaBodegaPacas)
+        Tabla = EntidadExistenciaBodegaPacas.TablaConsulta
+        If Tabla.Rows.Count > 0 Then
+            existe = Tabla.Rows(0).Item("existe")
+        End If
+        Return existe
     End Function
     Private Sub TbEtiqueta_KeyDown(sender As Object, e As KeyEventArgs) Handles TbEtiqueta.KeyDown
         If e.KeyCode = Keys.Enter Then

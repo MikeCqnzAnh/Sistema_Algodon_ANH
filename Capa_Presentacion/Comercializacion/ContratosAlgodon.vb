@@ -441,14 +441,13 @@ Public Class ContratosAlgodon
                 End If
         End Select
     End Sub
-
     Private Sub EnviarEmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarEmailToolStripMenuItem.Click
         Dim Destinatario As String = ""
         Dim asunto As String = ""
         Dim Mensaje As String = ""
         If TbIdContratoAlgodon.Text <> "" Then
             asunto = "Contrato de pacas con el ID " & TbIdContratoAlgodon.Text & " Nombre de " & TbProductor.Text & "."
-            Mensaje = "Se realizo compra por un total de " & TbPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales. " + vbCrLf + "Enviado desde SIA."
+            Mensaje = "Se confirma la siguiente operacion ciclo PV" & TbTemporada.Text & "<br><br>Cliente.- " & TbProductor.Text & "<br>Ref. No.- " & TbIdContratoAlgodon.Text & "<br>Pacas.- " & TbPacas.Text & "<br>Precio Base.- " & IIf(Val(TbPrecioQuintal.Text) = 0, "On Call", Val(TbPrecioQuintal.Text)) & "<br>Descuento.- " & TbPuntos.Text & "<br>Precio base neto.- " & Val(TbPrecioQuintal.Text) - Val(TbPuntos.Text) & "<br><br><br><br>Enviado desde SIA."
             Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
             enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
         Else

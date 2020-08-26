@@ -182,6 +182,7 @@ Public Class Almacenes
                 Next
             Next
         End If
+        Limpiar()
         Consultar()
     End Sub
     Private Sub DgvBodegas_DoubleClick(sender As Object, e As EventArgs) Handles DgvBodegas.DoubleClick
