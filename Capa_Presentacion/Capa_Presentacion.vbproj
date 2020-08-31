@@ -501,6 +501,7 @@
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
     <Compile Include="Modulos Funciones\EnviarEmail.vb" />
+    <Compile Include="Modulos Funciones\RespaldosAutomaticos.vb" />
     <Compile Include="Procesos\CargaPacasExternas.Designer.vb">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
     </Compile>
