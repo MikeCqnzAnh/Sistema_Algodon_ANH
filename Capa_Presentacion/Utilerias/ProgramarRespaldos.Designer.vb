@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ProgramarRespaldos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class ProgramarRespaldos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GbInfo = New System.Windows.Forms.GroupBox()
         Me.BtSelectDir = New System.Windows.Forms.Button()
         Me.btBackup = New System.Windows.Forms.Button()
-        Me.TbBackupName = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.TbPath = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.lblUnallocatedSize = New System.Windows.Forms.Label()
@@ -38,9 +37,7 @@ Partial Class ProgramarRespaldos
         Me.GbOrigen = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbNombreRespaldo = New System.Windows.Forms.TextBox()
-        Me.DtFechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.DtHoraInicio = New System.Windows.Forms.DateTimePicker()
         Me.CbFrecuencia = New System.Windows.Forms.ComboBox()
         Me.lblConnStatus = New System.Windows.Forms.Label()
         Me.pbConnStatus = New System.Windows.Forms.PictureBox()
@@ -53,21 +50,25 @@ Partial Class ProgramarRespaldos
         Me.BtPruebaConexion = New System.Windows.Forms.Button()
         Me.TbBDD = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.tbpruebahora = New System.Windows.Forms.TextBox()
-        Me.TbFechaPrueba = New System.Windows.Forms.TextBox()
+        Me.GbJobActivos = New System.Windows.Forms.GroupBox()
+        Me.DgvJobsActivos = New System.Windows.Forms.DataGridView()
         Me.GbInfo.SuspendLayout()
         Me.GbOrigen.SuspendLayout()
         CType(Me.pbConnStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbJobActivos.SuspendLayout()
+        CType(Me.DgvJobsActivos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GbInfo
         '
+        Me.GbInfo.Controls.Add(Me.Label10)
         Me.GbInfo.Controls.Add(Me.BtSelectDir)
+        Me.GbInfo.Controls.Add(Me.Label2)
         Me.GbInfo.Controls.Add(Me.btBackup)
-        Me.GbInfo.Controls.Add(Me.TbBackupName)
-        Me.GbInfo.Controls.Add(Me.Label17)
         Me.GbInfo.Controls.Add(Me.TbPath)
+        Me.GbInfo.Controls.Add(Me.DtHoraInicio)
         Me.GbInfo.Controls.Add(Me.Label16)
+        Me.GbInfo.Controls.Add(Me.CbFrecuencia)
         Me.GbInfo.Controls.Add(Me.lblUnallocatedSize)
         Me.GbInfo.Controls.Add(Me.lblDBSize)
         Me.GbInfo.Controls.Add(Me.lblDBName)
@@ -75,9 +76,9 @@ Partial Class ProgramarRespaldos
         Me.GbInfo.Controls.Add(Me.Label8)
         Me.GbInfo.Controls.Add(Me.Label9)
         Me.GbInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GbInfo.Location = New System.Drawing.Point(484, 0)
+        Me.GbInfo.Location = New System.Drawing.Point(532, 0)
         Me.GbInfo.Name = "GbInfo"
-        Me.GbInfo.Size = New System.Drawing.Size(438, 513)
+        Me.GbInfo.Size = New System.Drawing.Size(716, 402)
         Me.GbInfo.TabIndex = 3
         Me.GbInfo.TabStop = False
         Me.GbInfo.Text = "Información de la base de datos y configuración del respaldo"
@@ -85,7 +86,7 @@ Partial Class ProgramarRespaldos
         'BtSelectDir
         '
         Me.BtSelectDir.Enabled = False
-        Me.BtSelectDir.Location = New System.Drawing.Point(308, 131)
+        Me.BtSelectDir.Location = New System.Drawing.Point(314, 131)
         Me.BtSelectDir.Name = "BtSelectDir"
         Me.BtSelectDir.Size = New System.Drawing.Size(29, 20)
         Me.BtSelectDir.TabIndex = 29
@@ -95,33 +96,16 @@ Partial Class ProgramarRespaldos
         'btBackup
         '
         Me.btBackup.Enabled = False
-        Me.btBackup.Location = New System.Drawing.Point(6, 200)
+        Me.btBackup.Location = New System.Drawing.Point(9, 256)
         Me.btBackup.Name = "btBackup"
         Me.btBackup.Size = New System.Drawing.Size(296, 51)
         Me.btBackup.TabIndex = 28
-        Me.btBackup.Text = "&Respaldar"
+        Me.btBackup.Text = "Respaldar"
         Me.btBackup.UseVisualStyleBackColor = True
-        '
-        'TbBackupName
-        '
-        Me.TbBackupName.Enabled = False
-        Me.TbBackupName.Location = New System.Drawing.Point(125, 160)
-        Me.TbBackupName.Name = "TbBackupName"
-        Me.TbBackupName.Size = New System.Drawing.Size(177, 20)
-        Me.TbBackupName.TabIndex = 27
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 163)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(102, 13)
-        Me.Label17.TabIndex = 26
-        Me.Label17.Text = "Nombre del archivo:"
         '
         'TbPath
         '
-        Me.TbPath.Location = New System.Drawing.Point(125, 132)
+        Me.TbPath.Location = New System.Drawing.Point(131, 132)
         Me.TbPath.Name = "TbPath"
         Me.TbPath.ReadOnly = True
         Me.TbPath.Size = New System.Drawing.Size(177, 20)
@@ -195,14 +179,6 @@ Partial Class ProgramarRespaldos
         '
         'GbOrigen
         '
-        Me.GbOrigen.Controls.Add(Me.TbFechaPrueba)
-        Me.GbOrigen.Controls.Add(Me.tbpruebahora)
-        Me.GbOrigen.Controls.Add(Me.Label10)
-        Me.GbOrigen.Controls.Add(Me.Label2)
-        Me.GbOrigen.Controls.Add(Me.Label1)
-        Me.GbOrigen.Controls.Add(Me.TbNombreRespaldo)
-        Me.GbOrigen.Controls.Add(Me.DtFechaInicio)
-        Me.GbOrigen.Controls.Add(Me.CbFrecuencia)
         Me.GbOrigen.Controls.Add(Me.lblConnStatus)
         Me.GbOrigen.Controls.Add(Me.pbConnStatus)
         Me.GbOrigen.Controls.Add(Me.TbPassword)
@@ -217,7 +193,7 @@ Partial Class ProgramarRespaldos
         Me.GbOrigen.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbOrigen.Location = New System.Drawing.Point(0, 0)
         Me.GbOrigen.Name = "GbOrigen"
-        Me.GbOrigen.Size = New System.Drawing.Size(484, 513)
+        Me.GbOrigen.Size = New System.Drawing.Size(532, 402)
         Me.GbOrigen.TabIndex = 2
         Me.GbOrigen.TabStop = False
         Me.GbOrigen.Text = "Configuracion de la conexion"
@@ -225,7 +201,7 @@ Partial Class ProgramarRespaldos
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 342)
+        Me.Label10.Location = New System.Drawing.Point(6, 191)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(119, 13)
         Me.Label10.TabIndex = 19
@@ -234,48 +210,32 @@ Partial Class ProgramarRespaldos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 312)
+        Me.Label2.Location = New System.Drawing.Point(6, 161)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Sucede:"
         '
-        'Label1
+        'DtHoraInicio
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 286)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Nombre:"
-        '
-        'TbNombreRespaldo
-        '
-        Me.TbNombreRespaldo.Location = New System.Drawing.Point(137, 283)
-        Me.TbNombreRespaldo.Name = "TbNombreRespaldo"
-        Me.TbNombreRespaldo.Size = New System.Drawing.Size(312, 20)
-        Me.TbNombreRespaldo.TabIndex = 16
-        '
-        'DtFechaInicio
-        '
-        Me.DtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DtFechaInicio.Location = New System.Drawing.Point(137, 336)
-        Me.DtFechaInicio.Name = "DtFechaInicio"
-        Me.DtFechaInicio.Size = New System.Drawing.Size(113, 20)
-        Me.DtFechaInicio.TabIndex = 15
-        Me.DtFechaInicio.Value = New Date(2020, 8, 28, 0, 0, 0, 0)
+        Me.DtHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DtHoraInicio.Location = New System.Drawing.Point(131, 185)
+        Me.DtHoraInicio.Name = "DtHoraInicio"
+        Me.DtHoraInicio.Size = New System.Drawing.Size(113, 20)
+        Me.DtHoraInicio.TabIndex = 15
+        Me.DtHoraInicio.Value = New Date(2020, 9, 3, 0, 0, 0, 0)
         '
         'CbFrecuencia
         '
         Me.CbFrecuencia.FormattingEnabled = True
-        Me.CbFrecuencia.Location = New System.Drawing.Point(137, 309)
+        Me.CbFrecuencia.Location = New System.Drawing.Point(131, 158)
         Me.CbFrecuencia.Name = "CbFrecuencia"
         Me.CbFrecuencia.Size = New System.Drawing.Size(166, 21)
         Me.CbFrecuencia.TabIndex = 14
         '
         'lblConnStatus
         '
-        Me.lblConnStatus.Location = New System.Drawing.Point(15, 225)
+        Me.lblConnStatus.Location = New System.Drawing.Point(15, 307)
         Me.lblConnStatus.Name = "lblConnStatus"
         Me.lblConnStatus.Size = New System.Drawing.Size(235, 37)
         Me.lblConnStatus.TabIndex = 13
@@ -286,7 +246,7 @@ Partial Class ProgramarRespaldos
         '
         Me.pbConnStatus.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.light_yellow
         Me.pbConnStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbConnStatus.Location = New System.Drawing.Point(202, 174)
+        Me.pbConnStatus.Location = New System.Drawing.Point(202, 256)
         Me.pbConnStatus.Name = "pbConnStatus"
         Me.pbConnStatus.Size = New System.Drawing.Size(48, 48)
         Me.pbConnStatus.TabIndex = 12
@@ -343,7 +303,7 @@ Partial Class ProgramarRespaldos
         '
         'BtPruebaConexion
         '
-        Me.BtPruebaConexion.Location = New System.Drawing.Point(15, 174)
+        Me.BtPruebaConexion.Location = New System.Drawing.Point(15, 256)
         Me.BtPruebaConexion.Name = "BtPruebaConexion"
         Me.BtPruebaConexion.Size = New System.Drawing.Size(181, 48)
         Me.BtPruebaConexion.TabIndex = 5
@@ -366,27 +326,50 @@ Partial Class ProgramarRespaldos
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Base de datos:"
         '
-        'tbpruebahora
+        'GbJobActivos
         '
-        Me.tbpruebahora.Location = New System.Drawing.Point(15, 399)
-        Me.tbpruebahora.Name = "tbpruebahora"
-        Me.tbpruebahora.Size = New System.Drawing.Size(166, 20)
-        Me.tbpruebahora.TabIndex = 20
+        Me.GbJobActivos.Controls.Add(Me.DgvJobsActivos)
+        Me.GbJobActivos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GbJobActivos.Location = New System.Drawing.Point(0, 402)
+        Me.GbJobActivos.Name = "GbJobActivos"
+        Me.GbJobActivos.Size = New System.Drawing.Size(1248, 271)
+        Me.GbJobActivos.TabIndex = 14
+        Me.GbJobActivos.TabStop = False
         '
-        'TbFechaPrueba
+        'DgvJobsActivos
         '
-        Me.TbFechaPrueba.Location = New System.Drawing.Point(15, 434)
-        Me.TbFechaPrueba.Name = "TbFechaPrueba"
-        Me.TbFechaPrueba.Size = New System.Drawing.Size(166, 20)
-        Me.TbFechaPrueba.TabIndex = 21
+        Me.DgvJobsActivos.AllowUserToAddRows = False
+        Me.DgvJobsActivos.AllowUserToDeleteRows = False
+        Me.DgvJobsActivos.AllowUserToOrderColumns = True
+        Me.DgvJobsActivos.AllowUserToResizeRows = False
+        Me.DgvJobsActivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvJobsActivos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DgvJobsActivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvJobsActivos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvJobsActivos.Location = New System.Drawing.Point(3, 16)
+        Me.DgvJobsActivos.MultiSelect = False
+        Me.DgvJobsActivos.Name = "DgvJobsActivos"
+        Me.DgvJobsActivos.ReadOnly = True
+        Me.DgvJobsActivos.RowHeadersVisible = False
+        Me.DgvJobsActivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvJobsActivos.Size = New System.Drawing.Size(1242, 252)
+        Me.DgvJobsActivos.TabIndex = 3
         '
         'ProgramarRespaldos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(922, 513)
+        Me.ClientSize = New System.Drawing.Size(1248, 673)
         Me.Controls.Add(Me.GbInfo)
         Me.Controls.Add(Me.GbOrigen)
+        Me.Controls.Add(Me.GbJobActivos)
         Me.Name = "ProgramarRespaldos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Programar Respaldos Automaticos"
@@ -395,6 +378,8 @@ Partial Class ProgramarRespaldos
         Me.GbOrigen.ResumeLayout(False)
         Me.GbOrigen.PerformLayout()
         CType(Me.pbConnStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GbJobActivos.ResumeLayout(False)
+        CType(Me.DgvJobsActivos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -402,8 +387,6 @@ Partial Class ProgramarRespaldos
     Friend WithEvents GbInfo As GroupBox
     Friend WithEvents BtSelectDir As Button
     Friend WithEvents btBackup As Button
-    Friend WithEvents TbBackupName As TextBox
-    Friend WithEvents Label17 As Label
     Friend WithEvents TbPath As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents lblUnallocatedSize As Label
@@ -424,12 +407,10 @@ Partial Class ProgramarRespaldos
     Friend WithEvents BtPruebaConexion As Button
     Friend WithEvents TbBDD As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents DtFechaInicio As DateTimePicker
+    Friend WithEvents DtHoraInicio As DateTimePicker
     Friend WithEvents CbFrecuencia As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TbNombreRespaldo As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TbFechaPrueba As TextBox
-    Friend WithEvents tbpruebahora As TextBox
+    Friend WithEvents GbJobActivos As GroupBox
+    Friend WithEvents DgvJobsActivos As DataGridView
 End Class

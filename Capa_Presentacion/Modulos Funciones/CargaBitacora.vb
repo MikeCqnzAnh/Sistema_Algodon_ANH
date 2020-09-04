@@ -53,6 +53,12 @@ Module CargaBitacora
                 Case "Insertar"
                     operacion = "INSERTAR PACA A ALMACEN"
                     observaciones = "EL USUARIO " & Usuario & " INSERTO LA PACA " & ReferenciaAdicional & " EN EL ALMACEN CON EL ID " & IdAdicional & "."
+                Case "Respaldando..."
+                    operacion = "PROGRAMAR RESPALDOS AUTOMATICOS"
+                    observaciones = "EL USUARIO " & Usuario & " CREO EL RESPALDO DE LA BASE DE DATOS ADJUNTO DETALLES: " & ReferenciaAdicional
+                Case "Restaurando..."
+                    operacion = "RESTAURAR RESPALDOS"
+                    observaciones = "EL USUARIO " & Usuario & " RESTAURO LA BASE DE DATOS ADJUNTO DETALLES: " & ReferenciaAdicional
             End Select
             InsertaBitacora(Modulo, Opcion, operacion, observaciones, BaseDeDatos)
         Catch ex As Exception

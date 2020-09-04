@@ -159,7 +159,7 @@ Public Class Respaldos
 
                 MessageBox.Show("Se ha respaldado la base de datos correctamente.", "Respaldo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                GeneraRegistroBitacora(Me.Text.Clone.ToString, btBackup.Text, 0,)
             Catch ex As Exception
 
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

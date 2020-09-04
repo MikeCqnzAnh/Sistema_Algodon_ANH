@@ -33,17 +33,19 @@ Public Class ProgramarRespaldos
         End Try
     End Sub
     Private Sub ProgramarRespaldos_Load(sender As Object, e As EventArgs) Handles Me.Load
-        tbpruebahora.Text = TimeValue(DtFechaInicio.Value)
-        TbFechaPrueba.Text = Now.Date
         lblDBName.Text = "..."
         lblDBSize.Text = "..."
         lblUnallocatedSize.Text = "..."
+        TbPath.Text = ""
+        EC = Estado_Conexion.NoEstablecida
+        pbConnStatus.BackgroundImage = My.Resources.light_yellow
         LeerArchivo()
         TbServidor.Text = Instancia
         TbBDD.Text = BaseDeDatos
         TbUsuario.Text = UsuarioDB
         TbPassword.Text = PasswordDB
         CargaCombo()
+        ConsultaJobs()
     End Sub
     Private Sub CargaCombo()
         Dim dt As DataTable = New DataTable("Tabla")
@@ -79,6 +81,22 @@ Public Class ProgramarRespaldos
             TbPath.Text = FBD.SelectedPath 'Asignamos la dirección de la carpeta a txtPath
         End If
     End Sub
+    Private Function Fechabdd(ByVal ValorFecha As DateTime) As Integer
+        Dim resultado As Integer
+        Dim year As String = ValorFecha.ToString("yyyy")
+        Dim day As String = ValorFecha.ToString("dd")
+        Dim month As String = ValorFecha.ToString("MM")
+        resultado = year & month & day
+        Return resultado
+    End Function
+    Private Function Horabdd(ByVal ValorFecha As DateTime) As Integer
+        Dim resultado As Integer
+        Dim hour As String = ValorFecha.ToString("HH")
+        Dim min As String = ValorFecha.ToString("mm")
+        Dim sec As String = ValorFecha.ToString("ss")
+        resultado = hour & min & sec
+        Return resultado
+    End Function
     Private Sub btnTestConnection_Click(sender As Object, e As EventArgs) Handles BtPruebaConexion.Click
 
         'Deshabilitamos btnTestConnection durante la prueba e informamos
@@ -119,7 +137,6 @@ Public Class ProgramarRespaldos
             lblUnallocatedSize.Text = Dr.Item("unallocated space").ToString.Trim
 
             BtSelectDir.Enabled = True
-            TbBackupName.Enabled = True
 
         Catch ex As Exception
 
@@ -132,49 +149,90 @@ Public Class ProgramarRespaldos
         Finally
 
             BtPruebaConexion.Enabled = True
+            btBackup.Enabled = True
             Cnx.Close()
 
         End Try
 
     End Sub
     Private Sub btnBackup_Click(sender As Object, e As EventArgs) Handles btBackup.Click
-
-        'Verificamos que la conexión sea válida
-        If EC = Estado_Conexion.Establecida Then
-
-            'Deshabilitando el botón btnBackup durante el respaldo
-            btBackup.Text = "Respaldando..."
-            btBackup.Enabled = False
-            btBackup.Refresh()
-
-            'Variable de texto que contiene la consulta de respaldo a ejecutarse en el servidor
-            Dim Query As String = "BACKUP DATABASE " & TbBDD.Text.Trim & "
-                                TO DISK = '" & TbPath.Text & "\" & TbBackupName.Text & ".bak'
-                                   WITH FORMAT,
-                                      MEDIANAME = '" & TbBackupName.Text & "',
-                                      NAME = '" & TbBackupName.Text & "'"
-            Try
-                Dim descripcionJob As String = "Genera respaldo de base de datos " & TbBDD.Text & " que inicia con fecha " & Now.Date & " que sucedera " & CbFrecuencia.Text & " a las " & Hour(DtFechaInicio.Value) & ""
-                Dim NombreJob As String = "JobBK"
-                'GeneraJob(descripcionJob, NombreJob,)
-
-                MessageBox.Show("Se ha respaldado la base de datos correctamente.", "Respaldo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            Catch ex As Exception
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-            Finally
-
-                btBackup.Text = "Respaldar"
-                btBackup.Enabled = True
-
-            End Try
+        If CbFrecuencia.Text <> "" And TbPath.Text <> "" Then
+            'Verificamos que la conexión sea válida
+            If EC = Estado_Conexion.Establecida Then
+                'Deshabilitando el botón btnBackup durante el respaldo
+                btBackup.Text = "Respaldando..."
+                btBackup.Enabled = False
+                btBackup.Refresh()
+                GeneraRespaldo()
+            Else
+                MessageBox.Show("No se ha establecido ninguna conexión con el servidor de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            End If
         Else
-            MessageBox.Show("No se ha establecido ninguna conexión con el servidor de datos.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MessageBox.Show("Todos los campos son requeridos para continuar, favor de revisar para continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End If
+    End Sub
+    Private Sub GeneraRespaldo()
+        Dim Query As String = "Declare @dbname NVARCHAR(1024)
+    Set	@dbname =  ''" & TbBDD.Text.Trim & "''
 
+-- Set the name of the archive backup directory.
+Declare @bakdir VARCHAR(300)
+    Set	@bakdir = ''" & TbPath.Text & "''
+
+-- Create the name of the backup file from the database name And the current date.
+Declare @bakname VARCHAR(300)
+    Set	@bakname = @dbname + ''_backup_'' + REPLACE(CONVERT(VARCHAR(20), GETDATE(), 112) + CONVERT(VARCHAR(20), GETDATE(), 108),'':'','''')
+
+-- Set the name of the backup file.
+Declare @filename VARCHAR(300)
+    Set	@filename = @bakdir + ''\'' + @bakname+''.bak''
+
+-- Create the directories if necessary.
+EXECUTE	master.dbo.xp_create_subdir @bakdir
+BACKUP DATABASE @dbname
+TO  DISK =@filename
+With FORMAT, 
+INIT,  
+MEDIANAME = @bakname,  
+NAME = @bakname, 
+SKIP, NOREWIND, NOUNLOAD,  STATS = 10"
+
+        Try
+            Dim descripcionJob As String = "Genera respaldo de base de datos " & TbBDD.Text & " que inicia con fecha " & Now.Date & " que sucedera " & CbFrecuencia.Text & " a las " & DtHoraInicio.Value.ToShortTimeString & ""
+            Dim NombreJob As String = "JobBK" & TbBDD.Text.Trim & Now.Day & Now.Month & Now.Year
+            Dim NombreStep As String = "StepBK" & TbBDD.Text.Trim & Now.Day & Now.Month & Now.Year
+            Dim NombreProg As String = "ProgBK" & TbBDD.Text.Trim & Now.Day & Now.Month & Now.Year
+            GeneraJob(descripcionJob, NombreJob, Fechabdd(Now.Date), Horabdd(DtHoraInicio.Value), TbBDD.Text.Trim, CbFrecuencia.Text, CbFrecuencia.SelectedValue, TbUsuario.Text, TbPassword.Text, TbServidor.Text, NombreStep, Query, NombreProg)
+
+            MessageBox.Show("Se ha creado la tarea de respaldo programado con exito.", "Respaldo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, btBackup.Text, 0, descripcionJob)
+            ConsultaJobs()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            btBackup.Text = "Respaldar"
+            btBackup.Enabled = True
+        End Try
+    End Sub
+    Private Sub ConsultaJobs()
+        Dim EntidadProgramarRespaldos As New Capa_Entidad.ProgramarRespaldos
+        Dim NegocioProgramarRespaldos As New Capa_Negocio.ProgramarRespaldos
+        Dim Tabla As New DataTable
+        EntidadProgramarRespaldos.Consulta = Consulta.ConsultaBasica
+        NegocioProgramarRespaldos.Consultar(EntidadProgramarRespaldos)
+        Tabla = EntidadProgramarRespaldos.TablaConsulta
+        DgvJobsActivos.Columns.Clear()
+        DgvJobsActivos.DataSource = EntidadProgramarRespaldos.TablaConsulta
+        ParametrosDgv()
+    End Sub
+    Private Sub ParametrosDgv()
+        DgvJobsActivos.Columns("name").HeaderText = "Nombre"
+        DgvJobsActivos.Columns("date_created").HeaderText = "Fecha Creacion"
+        DgvJobsActivos.Columns("date_modified").Visible = False
+        DgvJobsActivos.Columns("step_id").Visible = False
+        DgvJobsActivos.Columns("step_name").Visible = False
+        DgvJobsActivos.Columns("description").HeaderText = "Descripcion"
+        DgvJobsActivos.Columns("last_run_date").HeaderText = "Ultima Ejecucion Fecha"
+        DgvJobsActivos.Columns("last_run_time").HeaderText = "Ultima Ejecucion Hora"
     End Sub
 End Class

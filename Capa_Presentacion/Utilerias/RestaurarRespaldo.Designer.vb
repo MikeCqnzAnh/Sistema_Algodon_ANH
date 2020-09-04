@@ -157,7 +157,7 @@ Partial Class RestaurarRespaldo
         Me.Name = "RestaurarRespaldo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Tag = "0,0"
-        Me.Text = "RestaurarRespaldo"
+        Me.Text = "Restaurar Respaldo"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

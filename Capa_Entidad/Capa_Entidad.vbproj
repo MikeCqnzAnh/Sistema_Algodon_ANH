@@ -96,6 +96,7 @@
     <Compile Include="Catalogos\TiposIncidencias.vb" />
     <Compile Include="Catalogos\UnidadesComercializacion.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
+    <Compile Include="Utilerias\ProgramarRespaldos.vb" />
     <Compile Include="Utilerias\Roles.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />

@@ -2,7 +2,12 @@
 Imports System.IO
 Module RespaldosAutomaticos
     Dim CSBuilder As New SqlConnectionStringBuilder
-    Sub GeneraJob(ByVal DescripcionJob As String, ByVal NombreJob As String, ByVal FechaInicio As Date, ByVal HoraInicio As Integer, ByVal BDD As String, ByVal sucededescripcion As String, ByVal IdSucede As Integer, ByVal UsuarioDB As String, ByVal NombreServer As String, ByVal NombreStep As String, ByVal Comando As String, ByVal nombreProgramacion As String)
+    Sub GeneraJob(ByVal DescripcionJob As String, ByVal NombreJob As String, ByVal FechaInicio As Integer, ByVal HoraInicio As Integer, ByVal BDD As String, ByVal sucededescripcion As String, ByVal IdSucede As Integer, ByVal UsuarioBK As String, ByVal passwordBK As String, ByVal NombreServer As String, ByVal NombreStep As String, ByVal Comando As String, ByVal nombreProgramacion As String)
+
+        With CSBuilder
+            .DataSource = NombreServer : .InitialCatalog = BDD : .IntegratedSecurity = False
+            .UserID = UsuarioBK : .Password = passwordBK
+        End With
 
         Dim Query As String = "DECLARE @jobId BINARY(16)
         EXEC  msdb.dbo.sp_add_job @job_name=N'" & NombreJob & "', 
@@ -14,7 +19,7 @@ Module RespaldosAutomaticos
 		@delete_level=0, 
 		@description=N'Genera respaldo de base de datos " & BDD & " que inicia con fecha " & FechaInicio & " que sucedera " & sucededescripcion & " a las " & HoraInicio & "', 
 		@category_name=N'[Uncategorized (Local)]', 
-		@owner_login_name=N'" & UsuarioDB & "', @job_id = @jobId OUTPUT"
+		@owner_login_name=N'" & UsuarioBK & "', @job_id = @jobId OUTPUT"
         Try
             'Creamos la conexión y el comando que ejecutará la consulta 
             Dim Cnx As New SqlConnection(CSBuilder.ConnectionString)
@@ -23,8 +28,17 @@ Module RespaldosAutomaticos
             Cnx.Open()
             Cmd.ExecuteNonQuery()
 
-            MessageBox.Show("Se ha respaldado la base de datos correctamente.", "Respaldo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+            AddJobServer(NombreJob, NombreServer)
+            GeneraStep(NombreJob, NombreStep, Comando, BDD)
+            ActualizaJob(NombreJob, DescripcionJob, UsuarioBK)
+            Select Case IdSucede
+                Case = 1
+                    RespaldoDiario(NombreJob, nombreProgramacion, FechaInicio, HoraInicio)
+                Case = 2
+                    RespaldoSemanal(NombreJob, nombreProgramacion, FechaInicio, HoraInicio)
+                Case = 3
+                    RespaldoMensual(NombreJob, nombreProgramacion, FechaInicio, HoraInicio)
+            End Select
 
         Catch ex As Exception
 
@@ -34,7 +48,7 @@ Module RespaldosAutomaticos
 
         End Try
     End Sub
-    Sub ActualizaJob(ByVal NombreJob As String, ByVal DescripcionJob As String, ByVal UsuarioBD As String)
+    Sub ActualizaJob(ByVal NombreJob As String, ByVal DescripcionJob As String, ByVal UsuarioBK As String)
         Dim Query As String = "EXEC msdb.dbo.sp_update_job @job_name=N'" & NombreJob & "', 
 		@enabled=1, 
 		@start_step_id=1, 
@@ -45,7 +59,7 @@ Module RespaldosAutomaticos
 		@delete_level=0, 
 		@description=N'" & DescripcionJob & "', 
 		@category_name=N'[Uncategorized (Local)]', 
-		@owner_login_name=N'" & UsuarioBD & "', 
+		@owner_login_name=N'" & UsuarioBK & "', 
 		@notify_email_operator_name=N'', 
 		@notify_netsend_operator_name=N'', 
 		@notify_page_operator_name=N''"
@@ -57,9 +71,6 @@ Module RespaldosAutomaticos
 
             Cnx.Open()
             Cmd.ExecuteNonQuery()
-
-            MessageBox.Show("Se ha respaldado la base de datos correctamente.", "Respaldo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
 
@@ -115,7 +126,7 @@ Module RespaldosAutomaticos
 
         End Try
     End Sub
-    Sub RespaldoDiario(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer)
+    Sub RespaldoDiario(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer, ByVal HoraInicio As Integer)
         Dim Query As String = "DECLARE @schedule_id int
         EXEC msdb.dbo.sp_add_jobschedule @job_name=N'" & nombreJob & "', @name=N'" & nombreProgramacion & "', 
 		@enabled=1, 
@@ -127,7 +138,7 @@ Module RespaldosAutomaticos
 		@freq_recurrence_factor=1, 
 		@active_start_date=" & FechaInicio & ", 
 		@active_end_date=99991231, 
-		@active_start_time=0, 
+		@active_start_time=" & HoraInicio & ", 
 		@active_end_time=235959, @schedule_id = @schedule_id OUTPUT"
         Try
             'Creamos la conexión y el comando que ejecutará la consulta 
@@ -145,7 +156,7 @@ Module RespaldosAutomaticos
 
         End Try
     End Sub
-    Sub RespaldoSemanal(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer)
+    Sub RespaldoSemanal(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer, ByVal HoraInicio As Integer)
         Dim Query As String = "DECLARE @schedule_id int
         EXEC msdb.dbo.sp_add_jobschedule @job_name=N'" & nombreJob & "', @name=N'" & nombreProgramacion & "', 
 		@enabled=1, 
@@ -157,7 +168,7 @@ Module RespaldosAutomaticos
 		@freq_recurrence_factor=1, 
 		@active_start_date=" & FechaInicio & ", 
 		@active_end_date=99991231, 
-		@active_start_time=0, 
+		@active_start_time=" & HoraInicio & ", 
 		@active_end_time=235959, @schedule_id = @schedule_id OUTPUT"
         Try
             'Creamos la conexión y el comando que ejecutará la consulta 
@@ -175,7 +186,7 @@ Module RespaldosAutomaticos
 
         End Try
     End Sub
-    Sub RespaldoMensual(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer)
+    Sub RespaldoMensual(ByVal nombreJob As String, ByVal nombreProgramacion As String, ByVal FechaInicio As Integer, ByVal HoraInicio As Integer)
         Dim Query As String = "DECLARE @schedule_id int
         EXEC msdb.dbo.sp_add_jobschedule @job_name=N'" & nombreJob & "', @name=N'" & nombreProgramacion & "', 
 		@enabled=1, 
@@ -187,7 +198,7 @@ Module RespaldosAutomaticos
 		@freq_recurrence_factor=1, 
 		@active_start_date=" & FechaInicio & ", 
 		@active_end_date=99991231, 
-		@active_start_time=0, 
+		@active_start_time=" & HoraInicio & ", 
 		@active_end_time=235959, @schedule_id = @schedule_id OUTPUT"
         Try
             'Creamos la conexión y el comando que ejecutará la consulta 
@@ -202,8 +213,6 @@ Module RespaldosAutomaticos
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Finally
-
-
 
         End Try
     End Sub

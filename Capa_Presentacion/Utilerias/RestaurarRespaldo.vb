@@ -61,6 +61,7 @@ Public Class RestaurarRespaldo
                                 MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 con.Close()
+                GeneraRegistroBitacora(Me.Text.Clone.ToString, BtRestaurar.Text, 0, "")
             Catch ex As Exception
                 MessageBox.Show(ex.Message,
                                 "Error al restaurar la base de datos",
