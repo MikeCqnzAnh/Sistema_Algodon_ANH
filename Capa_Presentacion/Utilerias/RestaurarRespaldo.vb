@@ -8,20 +8,21 @@ Public Class RestaurarRespaldo
         Dim leer As New StreamReader(Ruta & archivo)
 
         Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadLine()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim ArregloCadena() As String = Split(linea, ",")
-                IpServer = ArregloCadena(0)
-                Instancia = ArregloCadena(1)
-                UsuarioDB = ArregloCadena(2)
-                PasswordDB = ArregloCadena(3)
-            End While
+            If File.Exists(Ruta & archivo) Then
+                While leer.Peek <> -1
+                    Dim linea As String = leer.ReadLine()
+                    If String.IsNullOrEmpty(linea) Then
+                        Continue While
+                    End If
+                    Dim ArregloCadena() As String = Split(linea, ",")
+                    IpServer = ArregloCadena(0)
+                    Instancia = ArregloCadena(1)
+                    UsuarioDB = ArregloCadena(2)
+                    PasswordDB = ArregloCadena(3)
+                End While
 
-            leer.Close()
-
+                leer.Close()
+            End If
         Catch ex As Exception
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
         End Try

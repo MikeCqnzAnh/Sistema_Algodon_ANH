@@ -53,6 +53,7 @@ Public Class ParametrosCorreo
             escribir.WriteLine("Email=" & TbEmail.Text & vbCrLf & "Contraseña=" & TbPassword.Text & vbCrLf & "Host SMTP=" & TbHostsmtp.Text & vbCrLf & "Puerto SMTP=" & TbPuertosmtp.Text & vbCrLf & "SSL=" & CkConexionCifrada.CheckState)
             ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
             escribir.Close()
+            MsgBox("Se guardo la informacion correctamente.", MsgBoxStyle.Information, " ")
             ':::Limpiamos los TextBox
 
             ':::Llamamos nuestro procedimiento para leer el archivo TXT

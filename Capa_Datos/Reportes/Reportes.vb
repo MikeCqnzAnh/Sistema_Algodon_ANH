@@ -85,6 +85,7 @@ Public Class Reportes
                     sqlcom1 = New SqlCommand("Sp_ConsultaPacasFaltantes", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
                     sqlcom1.Parameters.Add(New SqlParameter("@RangoInicial", EntidadReportes1.PacaInicial))

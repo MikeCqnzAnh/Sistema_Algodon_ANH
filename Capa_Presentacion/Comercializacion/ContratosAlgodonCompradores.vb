@@ -26,26 +26,30 @@ Public Class ContratosAlgodonCompradores
         End If
     End Sub
     Private Sub ObtenerArchivoConfiguracion()
-        Dim leer As New StreamReader(Ruta & archivo)
         email = ""
         password = ""
         hostsmtp = ""
         puertosmtp = 0
         ConexionSSL = False
         Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadToEnd()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim arreglocadena() As String = Split(linea, vbCrLf)
-                email = ObtenerValor(arreglocadena(0))
-                password = ObtenerValor(arreglocadena(1))
-                hostsmtp = ObtenerValor(arreglocadena(2))
-                puertosmtp = ObtenerValor(arreglocadena(3))
-                ConexionSSL = ObtenerValor(arreglocadena(4))
-            End While
-            leer.Close()
+            If File.Exists(Ruta & archivo) Then
+                Dim leer As New StreamReader(Ruta & archivo)
+                While leer.Peek <> -1
+                    Dim linea As String = leer.ReadToEnd()
+                    If String.IsNullOrEmpty(linea) Then
+                        Continue While
+                    End If
+                    Dim arreglocadena() As String = Split(linea, vbCrLf)
+                    email = ObtenerValor(arreglocadena(0))
+                    password = ObtenerValor(arreglocadena(1))
+                    hostsmtp = ObtenerValor(arreglocadena(2))
+                    puertosmtp = ObtenerValor(arreglocadena(3))
+                    ConexionSSL = ObtenerValor(arreglocadena(4))
+                End While
+                leer.Close()
+            Else
+                MsgBox("No se ha configurado un correo, entrar al apartado Utilerias en la opcion Parametros para envio de Correo y configurar los parametros requeridos.", MsgBoxStyle.Exclamation, "Aviso")
+            End If
         Catch ex As Exception
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -478,7 +482,8 @@ Public Class ContratosAlgodonCompradores
         Dim Mensaje As String = ""
         If TbIdContratoAlgodon.Text <> "" Then
             asunto = "Contrato de pacas con el ID " & TbIdContratoAlgodon.Text & " a nombre de " & "" & "."
-            Mensaje = "Se realizo compra por un total de " & TbPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales." & vbCrLf & "Enviado desde SIA."
+            'Mensaje = "Se realizo compra por un total de " & TbPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales." & vbCrLf & "Enviado desde SIA."
+            Mensaje = "Se confirma la siguiente operacion ciclo PV" & TbTemporada.Text & "<br><br>Comprador.- " & TbComprador.Text & "<br>Ref. No.- " & TbIdContratoAlgodon.Text & "<br>Pacas.- " & TbPacas.Text & "<br>Precio Base.- " & IIf(Val(TbPrecioQuintal.Text) = 0, "On Call", Val(TbPrecioQuintal.Text)) & "<br>Descuento.- " & TbPuntos.Text & "<br>Precio base neto.- " & Val(TbPrecioQuintal.Text) - Val(TbPuntos.Text) & "<br><br><br><br>Enviado desde SIA."
             Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
             enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
         Else

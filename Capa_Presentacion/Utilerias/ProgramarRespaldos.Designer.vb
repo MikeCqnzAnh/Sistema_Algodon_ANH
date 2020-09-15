@@ -22,12 +22,16 @@ Partial Class ProgramarRespaldos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GbInfo = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.BtSelectDir = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btBackup = New System.Windows.Forms.Button()
         Me.TbPath = New System.Windows.Forms.TextBox()
+        Me.DtHoraInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.CbFrecuencia = New System.Windows.Forms.ComboBox()
         Me.lblUnallocatedSize = New System.Windows.Forms.Label()
         Me.lblDBSize = New System.Windows.Forms.Label()
         Me.lblDBName = New System.Windows.Forms.Label()
@@ -35,10 +39,6 @@ Partial Class ProgramarRespaldos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GbOrigen = New System.Windows.Forms.GroupBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.DtHoraInicio = New System.Windows.Forms.DateTimePicker()
-        Me.CbFrecuencia = New System.Windows.Forms.ComboBox()
         Me.lblConnStatus = New System.Windows.Forms.Label()
         Me.pbConnStatus = New System.Windows.Forms.PictureBox()
         Me.TbPassword = New System.Windows.Forms.TextBox()
@@ -83,6 +83,15 @@ Partial Class ProgramarRespaldos
         Me.GbInfo.TabStop = False
         Me.GbInfo.Text = "Información de la base de datos y configuración del respaldo"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 191)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(119, 13)
+        Me.Label10.TabIndex = 19
+        Me.Label10.Text = "Sucede una vez a la(s):"
+        '
         'BtSelectDir
         '
         Me.BtSelectDir.Enabled = False
@@ -92,6 +101,15 @@ Partial Class ProgramarRespaldos
         Me.BtSelectDir.TabIndex = 29
         Me.BtSelectDir.Text = "..."
         Me.BtSelectDir.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 161)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Sucede:"
         '
         'btBackup
         '
@@ -111,6 +129,15 @@ Partial Class ProgramarRespaldos
         Me.TbPath.Size = New System.Drawing.Size(177, 20)
         Me.TbPath.TabIndex = 25
         '
+        'DtHoraInicio
+        '
+        Me.DtHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DtHoraInicio.Location = New System.Drawing.Point(131, 185)
+        Me.DtHoraInicio.Name = "DtHoraInicio"
+        Me.DtHoraInicio.Size = New System.Drawing.Size(113, 20)
+        Me.DtHoraInicio.TabIndex = 15
+        Me.DtHoraInicio.Value = New Date(2020, 9, 3, 0, 0, 0, 0)
+        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -119,6 +146,14 @@ Partial Class ProgramarRespaldos
         Me.Label16.Size = New System.Drawing.Size(73, 13)
         Me.Label16.TabIndex = 23
         Me.Label16.Text = "Respaldar en:"
+        '
+        'CbFrecuencia
+        '
+        Me.CbFrecuencia.FormattingEnabled = True
+        Me.CbFrecuencia.Location = New System.Drawing.Point(131, 158)
+        Me.CbFrecuencia.Name = "CbFrecuencia"
+        Me.CbFrecuencia.Size = New System.Drawing.Size(166, 21)
+        Me.CbFrecuencia.TabIndex = 14
         '
         'lblUnallocatedSize
         '
@@ -197,41 +232,6 @@ Partial Class ProgramarRespaldos
         Me.GbOrigen.TabIndex = 2
         Me.GbOrigen.TabStop = False
         Me.GbOrigen.Text = "Configuracion de la conexion"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(6, 191)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(119, 13)
-        Me.Label10.TabIndex = 19
-        Me.Label10.Text = "Sucede una vez a la(s):"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 161)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Sucede:"
-        '
-        'DtHoraInicio
-        '
-        Me.DtHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DtHoraInicio.Location = New System.Drawing.Point(131, 185)
-        Me.DtHoraInicio.Name = "DtHoraInicio"
-        Me.DtHoraInicio.Size = New System.Drawing.Size(113, 20)
-        Me.DtHoraInicio.TabIndex = 15
-        Me.DtHoraInicio.Value = New Date(2020, 9, 3, 0, 0, 0, 0)
-        '
-        'CbFrecuencia
-        '
-        Me.CbFrecuencia.FormattingEnabled = True
-        Me.CbFrecuencia.Location = New System.Drawing.Point(131, 158)
-        Me.CbFrecuencia.Name = "CbFrecuencia"
-        Me.CbFrecuencia.Size = New System.Drawing.Size(166, 21)
-        Me.CbFrecuencia.TabIndex = 14
         '
         'lblConnStatus
         '
@@ -335,6 +335,7 @@ Partial Class ProgramarRespaldos
         Me.GbJobActivos.Size = New System.Drawing.Size(1248, 271)
         Me.GbJobActivos.TabIndex = 14
         Me.GbJobActivos.TabStop = False
+        Me.GbJobActivos.Text = "Respaldos activos"
         '
         'DgvJobsActivos
         '
@@ -343,14 +344,14 @@ Partial Class ProgramarRespaldos
         Me.DgvJobsActivos.AllowUserToOrderColumns = True
         Me.DgvJobsActivos.AllowUserToResizeRows = False
         Me.DgvJobsActivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvJobsActivos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvJobsActivos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvJobsActivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvJobsActivos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvJobsActivos.Location = New System.Drawing.Point(3, 16)

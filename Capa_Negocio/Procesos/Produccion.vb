@@ -1,5 +1,4 @@
-﻿
-Public Class Produccion
+﻿Public Class Produccion
     Public Overridable Sub Guardar(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         Dim DatosProduccion As New Capa_Datos.Produccion

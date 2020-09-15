@@ -24,7 +24,6 @@ Public Class RepPacasFaltantes
         CbPlanta.DisplayMember = "Descripcion"
         CbPlanta.SelectedValue = -1
     End Sub
-
     Private Sub RepPacasFaltantes_Load(sender As Object, e As EventArgs) Handles Me.Load
         CargaCombos()
     End Sub
@@ -47,7 +46,7 @@ Public Class RepPacasFaltantes
         Dim CrReport As RPTPacasFaltantes = New RPTPacasFaltantes
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTPacasFaltantes.rpt"
         EntidadReportes.Reporte = Reporte.ReportePacasFaltantes
-        EntidadReportes.IdPlanta = CbPlanta.SelectedValue
+        EntidadReportes.IdPlanta = IIf(CbPlanta.SelectedValue = Nothing, 0, CbPlanta.SelectedValue)
         EntidadReportes.PacaInicial = IIf(TbFolioInicial.Text = "", 0, TbFolioInicial.Text)
         EntidadReportes.PacaFinal = IIf(TbFolioFinal.Text = "", 0, TbFolioFinal.Text)
         NegocioReportes.Consultar(EntidadReportes)

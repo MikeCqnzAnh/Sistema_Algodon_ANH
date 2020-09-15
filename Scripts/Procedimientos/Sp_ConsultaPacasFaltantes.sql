@@ -1,18 +1,16 @@
-Create Procedure Sp_ConsultaPacasFaltantes
+alter Procedure Sp_ConsultaPacasFaltantes
 @IdPlanta int ,
 @RangoInicial int,
-@RangoFinal int 
+@RangoFinal int ,
+@Valor int = 0
 as
 IF OBJECT_ID('tempdb..#Fuente') is not null
 	begin
 		DROP TABLE #Fuente
 	end
 		CREATE TABLE #Fuente (numero int)
-	
---declare @RangoInicial int,@RangoFinal int
---set @RangoInicial = @PacaInicial
---set @RangoFinal = @PacaFinal
-IF @RangoInicial > 0
+
+IF @RangoInicial > 0 AND @IdPlanta = 0
 	BEGIN 
 		INSERT INTO #Fuente 
 		select FolioCIA 
@@ -47,12 +45,23 @@ IF OBJECT_ID('tempdb..#Rangos') is not null
 
 		CREATE TABLE #Rangos (numero int)
 	
-INSERT INTO #Rangos values (@RangoInicial)
-WHILE (SELECT ISNULL(MAX(numero),0) FROM #Rangos) < @RangoFinal
-	BEGIN
-		INSERT INTO #Rangos
-		SELECT ISNULL(MAX(numero),0)+1 FROM #Rangos 
-		CONTINUE
+set @Valor = (select min(numero) from #Fuente)
+WHILE @valor <= (SELECT ISNULL(MAX(numero),0) FROM #Fuente)
+	BEGIN 
+		if exists (select foliocia from ProduccionDetalle where IdPlantaOrigen = 1 and FolioCIA = @Valor)
+			begin
+				set  @valor = @Valor + 1
+
+				CONTINUE
+			end
+		else
+			begin 
+				INSERT INTO #Rangos(numero)
+				values (@Valor)
+
+				set  @valor = @Valor + 1
+				CONTINUE
+			end
 	END
 SELECT #Rangos.numero FROM #Rangos FULL JOIN #Fuente ON #Rangos.numero = #Fuente.numero
 WHERE #Fuente.numero IS NULL

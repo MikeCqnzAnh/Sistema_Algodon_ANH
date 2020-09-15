@@ -1284,8 +1284,8 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(241, 17)
-        Me.ToolStripStatusLabel3.Text = "|                                                                            |"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(181, 17)
+        Me.ToolStripStatusLabel3.Text = "|                                                        |"
         '
         'TsPrecioDolar
         '
@@ -1296,7 +1296,7 @@ Partial Class MenuPrincipal
         'ToolStripStatusLabel5
         '
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 15)
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
         'MenuPrincipal

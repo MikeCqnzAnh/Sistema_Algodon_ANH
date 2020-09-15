@@ -94,6 +94,11 @@ Partial Class VentaPacasContrato
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
@@ -165,11 +170,7 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtExcel = New System.Windows.Forms.Button()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -941,6 +942,38 @@ Partial Class VentaPacasContrato
         Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
         Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
         '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteHVIToolStripMenuItem1, Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'ReporteHVIToolStripMenuItem1
+        '
+        Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
+        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
+        '
+        'ResumenDeVentaToolStripMenuItem
+        '
+        Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
+        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeVentaToolStripMenuItem.Text = "Resumen de Venta"
+        '
+        'DetalleDeVentaToolStripMenuItem
+        '
+        Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
+        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta"
+        '
+        'ResumenDeLiquidacionesToolStripMenuItem
+        '
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Liquidaciones"
+        '
         'ComparacionToolStripMenuItem
         '
         Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
@@ -1407,6 +1440,7 @@ Partial Class VentaPacasContrato
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.BtExcel)
         Me.Panel5.Controls.Add(Me.BtSeleccionar2)
         Me.Panel5.Controls.Add(Me.BtSeleccionar)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
@@ -1747,37 +1781,16 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'ReportesToolStripMenuItem
+        'BtExcel
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteHVIToolStripMenuItem1, Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem})
-        Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
-        Me.ReportesToolStripMenuItem.Text = "Reportes"
-        '
-        'ReporteHVIToolStripMenuItem1
-        '
-        Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
-        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
-        Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
-        '
-        'ResumenDeVentaToolStripMenuItem
-        '
-        Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
-        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ResumenDeVentaToolStripMenuItem.Text = "Resumen de Venta"
-        '
-        'DetalleDeVentaToolStripMenuItem
-        '
-        Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
-        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta"
-        '
-        'ResumenDeLiquidacionesToolStripMenuItem
-        '
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Liquidaciones"
+        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
+        Me.BtExcel.Name = "BtExcel"
+        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
+        Me.BtExcel.TabIndex = 3
+        Me.BtExcel.Text = "..."
+        Me.BtExcel.UseVisualStyleBackColor = True
         '
         'VentaPacasContrato
         '
@@ -1988,4 +2001,5 @@ Partial Class VentaPacasContrato
     Friend WithEvents ResumenDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DetalleDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenDeLiquidacionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtExcel As Button
 End Class

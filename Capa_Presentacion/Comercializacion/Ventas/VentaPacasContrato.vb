@@ -1592,6 +1592,24 @@ Public Class VentaPacasContrato
         End If
     End Sub
 
+    Private Sub BtExcel_Click_1(sender As Object, e As EventArgs) Handles BtExcel.Click
+        CargaExcel.ShowDialog()
+        Try
+            If Tabla.Rows.Count > 0 Then
+                For Each rowTabla As DataRow In Tabla.Rows
+                    For Each rowGrid As DataGridViewRow In DgvPacasVender.Rows
+                        If rowTabla.Item(0) = rowGrid.Cells("BaleID").Value.ToString Then
+                            rowGrid.Cells("Seleccionar").Value = True
+                        End If
+                    Next
+                Next
+            End If
+            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+            MarcaSeleccionDisponibles()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub PropiedadesDgvLiquidacionesVendidas()
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True

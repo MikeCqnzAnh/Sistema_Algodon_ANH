@@ -15,26 +15,30 @@ Public Class ContratosAlgodon
         ObtenerArchivoConfiguracion()
     End Sub
     Private Sub ObtenerArchivoConfiguracion()
-        Dim leer As New StreamReader(Ruta & archivo)
         email = ""
         password = ""
         hostsmtp = ""
         puertosmtp = 0
         ConexionSSL = False
         Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadToEnd()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim arreglocadena() As String = Split(linea, vbCrLf)
-                email = ObtenerValor(arreglocadena(0))
-                password = ObtenerValor(arreglocadena(1))
-                hostsmtp = ObtenerValor(arreglocadena(2))
-                puertosmtp = ObtenerValor(arreglocadena(3))
-                ConexionSSL = ObtenerValor(arreglocadena(4))
-            End While
-            leer.Close()
+            If File.Exists(Ruta & archivo) Then
+                Dim leer As New StreamReader(Ruta & archivo)
+                While leer.Peek <> -1
+                    Dim linea As String = leer.ReadToEnd()
+                    If String.IsNullOrEmpty(linea) Then
+                        Continue While
+                    End If
+                    Dim arreglocadena() As String = Split(linea, vbCrLf)
+                    email = ObtenerValor(arreglocadena(0))
+                    password = ObtenerValor(arreglocadena(1))
+                    hostsmtp = ObtenerValor(arreglocadena(2))
+                    puertosmtp = ObtenerValor(arreglocadena(3))
+                    ConexionSSL = ObtenerValor(arreglocadena(4))
+                End While
+                leer.Close()
+            Else
+                MsgBox("No se ha configurado un correo, entrar al apartado Utilerias en la opcion Parametros para envio de Correo y configurar los parametros requeridos.", MsgBoxStyle.Exclamation, "Aviso")
+            End If
         Catch ex As Exception
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
