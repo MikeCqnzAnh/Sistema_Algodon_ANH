@@ -14,15 +14,15 @@ Public Class CargaExcel
         TbCantidadPacas.Text = ""
     End Sub
     Private Sub cargaTabla()
-        Tabla.Columns.Clear()
-        Tabla.Rows.Clear()
+        TablaExcel.Columns.Clear()
+        TablaExcel.Rows.Clear()
         Dim r As DataRow
         Try
-            Tabla.Columns.Add("etiquetas", Type.GetType("System.Int32"))
+            TablaExcel.Columns.Add("BaleID", Type.GetType("System.Int32"))
             For i = 0 To DgvPacas.Rows.Count - 1
-                r = Tabla.NewRow
-                r("etiquetas") = DgvPacas.Item(0, i).Value
-                Tabla.Rows.Add(r)
+                r = TablaExcel.NewRow
+                r("BaleID") = DgvPacas.Item(0, i).Value
+                TablaExcel.Rows.Add(r)
             Next
         Catch ex As Exception
             MsgBox(ex.Message)

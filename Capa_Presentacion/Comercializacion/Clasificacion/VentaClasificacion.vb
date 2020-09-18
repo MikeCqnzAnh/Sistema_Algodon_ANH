@@ -1023,8 +1023,8 @@ Public Class VentaClasificacion
     Private Sub BtCargaExcel_Click(sender As Object, e As EventArgs) Handles BtCargaExcel.Click
         CargaExcel.ShowDialog()
         Try
-            If Tabla.Rows.Count > 0 Then
-                For Each rowTabla As DataRow In Tabla.Rows
+            If TablaExcel.Rows.Count > 0 Then
+                For Each rowTabla As DataRow In TablaExcel.Rows
                     If rowTabla(0) > 0 And CbPlanta.Text <> "" And CbClases.Text <> "" Then
                         If ExistePacaHVI(rowTabla(0)) = False Then
                             'MsgBox("Paca " & rowTabla(0) & " no existe en HVI o en la planta seleccionada, revisa el ID capturado.")
@@ -1052,10 +1052,10 @@ Public Class VentaClasificacion
                     End If
                 Next
             End If
-            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+            If TablaExcel.Rows.Count > 0 Then TablaExcel.Clear()
         Catch ex As Exception
             MsgBox(ex.Message)
-            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+            If TablaExcel.Rows.Count > 0 Then TablaExcel.Clear()
         End Try
     End Sub
 

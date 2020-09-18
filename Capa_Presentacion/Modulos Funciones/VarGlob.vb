@@ -3,6 +3,7 @@
     Public Property _Nombre As String
     Public Property _Dato As String
     Public Property _Tabla As New DataTable
+    Public Property _TablaExcel As New DataTable
     Public Property _NoLote As String
     Public Property _NoContenedor As String
     Public Property _NombreComprador As String
@@ -37,6 +38,14 @@
         End Get
         Set(ByVal value As DataTable)
             _Tabla = value
+        End Set
+    End Property
+    Public Property TablaExcel() As DataTable
+        Get
+            Return _TablaExcel
+        End Get
+        Set(ByVal value As DataTable)
+            _TablaExcel = value
         End Set
     End Property
     Public _IdTipoUsuario As Integer

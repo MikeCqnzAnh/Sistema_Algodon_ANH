@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.63.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.64.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -98,6 +98,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
@@ -766,6 +768,12 @@
       <DependentUpon>RPTVentaHVI.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilerias\BuscarActualizacion.Designer.vb">
+      <DependentUpon>BuscarActualizacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\BuscarActualizacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\CargaExcel.Designer.vb">
       <DependentUpon>CargaExcel.vb</DependentUpon>
     </Compile>
@@ -1268,6 +1276,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\VentaClasificacion.resx">
       <DependentUpon>VentaClasificacion.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.resx">
       <DependentUpon>CastigosUniformidad.vb</DependentUpon>
@@ -1328,6 +1337,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\CargaPacasExternas.resx">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepClasesVenta.resx">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
@@ -1484,6 +1494,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTVentaHVI.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\BuscarActualizacion.resx">
+      <DependentUpon>BuscarActualizacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\CargaExcel.resx">
       <DependentUpon>CargaExcel.vb</DependentUpon>
     </EmbeddedResource>
@@ -1543,6 +1556,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\PaquetesHVI.resx">
       <DependentUpon>PaquetesHVI.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\ContratosAlgodon.resx">
       <DependentUpon>ContratosAlgodon.vb</DependentUpon>
@@ -1791,6 +1805,15 @@
       <VersionMinor>9</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

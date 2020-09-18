@@ -1595,8 +1595,8 @@ Public Class VentaPacasContrato
     Private Sub BtExcel_Click_1(sender As Object, e As EventArgs) Handles BtExcel.Click
         CargaExcel.ShowDialog()
         Try
-            If Tabla.Rows.Count > 0 Then
-                For Each rowTabla As DataRow In Tabla.Rows
+            If TablaExcel.Rows.Count > 0 Then
+                For Each rowTabla As DataRow In TablaExcel.Rows
                     For Each rowGrid As DataGridViewRow In DgvPacasVender.Rows
                         If rowTabla.Item(0) = rowGrid.Cells("BaleID").Value.ToString Then
                             rowGrid.Cells("Seleccionar").Value = True
@@ -1604,7 +1604,7 @@ Public Class VentaPacasContrato
                     Next
                 Next
             End If
-            If Tabla.Rows.Count > 0 Then Tabla.Clear()
+            If TablaExcel.Rows.Count > 0 Then TablaExcel.Clear()
             MarcaSeleccionDisponibles()
         Catch ex As Exception
             MsgBox(ex.Message)
