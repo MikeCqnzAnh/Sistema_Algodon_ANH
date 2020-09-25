@@ -22,7 +22,9 @@ Partial Class DatosEmpresa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DatosEmpresa))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TbRazonSocial = New System.Windows.Forms.TextBox()
@@ -56,14 +58,13 @@ Partial Class DatosEmpresa
         Me.TbLugarExpedicion = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GbNombreEmpresa = New System.Windows.Forms.GroupBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TbRepresentante = New System.Windows.Forms.TextBox()
+        Me.TbID = New System.Windows.Forms.TextBox()
         Me.TbRFCRepresentante = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GbDatosEmpresa = New System.Windows.Forms.GroupBox()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TbID = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GbNombreEmpresa.SuspendLayout()
         Me.GbDatosEmpresa.SuspendLayout()
@@ -77,6 +78,12 @@ Partial Class DatosEmpresa
         Me.MenuStrip1.Size = New System.Drawing.Size(910, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
         'ModificarToolStripMenuItem
         '
@@ -364,6 +371,15 @@ Partial Class DatosEmpresa
         Me.GbNombreEmpresa.TabIndex = 0
         Me.GbNombreEmpresa.TabStop = False
         '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(15, 20)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(21, 13)
+        Me.Label18.TabIndex = 4
+        Me.Label18.Text = "ID:"
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -380,6 +396,15 @@ Partial Class DatosEmpresa
         Me.TbRepresentante.Name = "TbRepresentante"
         Me.TbRepresentante.Size = New System.Drawing.Size(418, 20)
         Me.TbRepresentante.TabIndex = 2
+        '
+        'TbID
+        '
+        Me.TbID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbID.Enabled = False
+        Me.TbID.Location = New System.Drawing.Point(124, 17)
+        Me.TbID.Name = "TbID"
+        Me.TbID.Size = New System.Drawing.Size(133, 20)
+        Me.TbID.TabIndex = 3
         '
         'TbRFCRepresentante
         '
@@ -434,30 +459,6 @@ Partial Class DatosEmpresa
         Me.GbDatosEmpresa.TabStop = False
         Me.GbDatosEmpresa.Text = "Datos de la empresa"
         '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(15, 20)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(21, 13)
-        Me.Label18.TabIndex = 4
-        Me.Label18.Text = "ID:"
-        '
-        'TbID
-        '
-        Me.TbID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbID.Enabled = False
-        Me.TbID.Location = New System.Drawing.Point(124, 17)
-        Me.TbID.Name = "TbID"
-        Me.TbID.Size = New System.Drawing.Size(133, 20)
-        Me.TbID.TabIndex = 3
-        '
         'DatosEmpresa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -466,6 +467,7 @@ Partial Class DatosEmpresa
         Me.Controls.Add(Me.GbDatosEmpresa)
         Me.Controls.Add(Me.GbNombreEmpresa)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "DatosEmpresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

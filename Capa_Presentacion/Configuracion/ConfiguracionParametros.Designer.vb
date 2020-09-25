@@ -109,19 +109,15 @@ Partial Class ConfiguracionParametros
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GbDatosDolar = New System.Windows.Forms.GroupBox()
         Me.TbSitioBanxico = New System.Windows.Forms.TextBox()
-        Me.TbPalabraPosicion = New System.Windows.Forms.TextBox()
         Me.TbIdConfiguracionBanxico = New System.Windows.Forms.TextBox()
         Me.GbPuerto = New System.Windows.Forms.GroupBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.CbPlantaElabora = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
         Me.TbIdSerieBanxico = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.NuPosicion = New System.Windows.Forms.NumericUpDown()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.NuLongitud = New System.Windows.Forms.NumericUpDown()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsNombrePc = New System.Windows.Forms.ToolStripStatusLabel()
@@ -137,8 +133,8 @@ Partial Class ConfiguracionParametros
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.CbPlantaElabora = New System.Windows.Forms.ComboBox()
-        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TbToken = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPruebaSerial.SuspendLayout()
         Me.GbResultado.SuspendLayout()
@@ -168,8 +164,6 @@ Partial Class ConfiguracionParametros
         CType(Me.NuPosicionID, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbDatosDolar.SuspendLayout()
         Me.GbPuerto.SuspendLayout()
-        CType(Me.NuPosicion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuLongitud, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -183,7 +177,7 @@ Partial Class ConfiguracionParametros
         Me.PanelParametrosBascula.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelParametrosBascula.Location = New System.Drawing.Point(0, 24)
         Me.PanelParametrosBascula.Name = "PanelParametrosBascula"
-        Me.PanelParametrosBascula.Size = New System.Drawing.Size(1164, 695)
+        Me.PanelParametrosBascula.Size = New System.Drawing.Size(1141, 730)
         Me.PanelParametrosBascula.TabIndex = 2
         '
         'GbPruebaSerial
@@ -195,7 +189,7 @@ Partial Class ConfiguracionParametros
         Me.GbPruebaSerial.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbPruebaSerial.Location = New System.Drawing.Point(0, 385)
         Me.GbPruebaSerial.Name = "GbPruebaSerial"
-        Me.GbPruebaSerial.Size = New System.Drawing.Size(1164, 310)
+        Me.GbPruebaSerial.Size = New System.Drawing.Size(1141, 345)
         Me.GbPruebaSerial.TabIndex = 4
         Me.GbPruebaSerial.TabStop = False
         Me.GbPruebaSerial.Text = "Prueba de Puerto Serial"
@@ -208,7 +202,7 @@ Partial Class ConfiguracionParametros
         Me.TbCadenaPuertoSerial.Name = "TbCadenaPuertoSerial"
         Me.TbCadenaPuertoSerial.ReadOnly = True
         Me.TbCadenaPuertoSerial.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TbCadenaPuertoSerial.Size = New System.Drawing.Size(630, 260)
+        Me.TbCadenaPuertoSerial.Size = New System.Drawing.Size(607, 295)
         Me.TbCadenaPuertoSerial.TabIndex = 10
         '
         'GbResultado
@@ -225,9 +219,9 @@ Partial Class ConfiguracionParametros
         Me.GbResultado.Controls.Add(Me.TbBruto)
         Me.GbResultado.Controls.Add(Me.TbIdCamion)
         Me.GbResultado.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbResultado.Location = New System.Drawing.Point(633, 47)
+        Me.GbResultado.Location = New System.Drawing.Point(610, 47)
         Me.GbResultado.Name = "GbResultado"
-        Me.GbResultado.Size = New System.Drawing.Size(441, 260)
+        Me.GbResultado.Size = New System.Drawing.Size(441, 295)
         Me.GbResultado.TabIndex = 13
         Me.GbResultado.TabStop = False
         Me.GbResultado.Text = "Resultado"
@@ -236,7 +230,7 @@ Partial Class ConfiguracionParametros
         '
         Me.Panel1.Controls.Add(Me.BtProbarConfiguracion)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(3, 213)
+        Me.Panel1.Location = New System.Drawing.Point(3, 248)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(435, 44)
         Me.Panel1.TabIndex = 2
@@ -357,9 +351,9 @@ Partial Class ConfiguracionParametros
         '
         Me.BtLimpiar.Dock = System.Windows.Forms.DockStyle.Right
         Me.BtLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtLimpiar.Location = New System.Drawing.Point(1074, 16)
+        Me.BtLimpiar.Location = New System.Drawing.Point(1051, 16)
         Me.BtLimpiar.Name = "BtLimpiar"
-        Me.BtLimpiar.Size = New System.Drawing.Size(87, 291)
+        Me.BtLimpiar.Size = New System.Drawing.Size(87, 326)
         Me.BtLimpiar.TabIndex = 11
         Me.BtLimpiar.Text = "Limpiar"
         Me.BtLimpiar.UseVisualStyleBackColor = True
@@ -391,7 +385,7 @@ Partial Class ConfiguracionParametros
         Me.GbPesoPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbPesoPacas.Location = New System.Drawing.Point(0, 245)
         Me.GbPesoPacas.Name = "GbPesoPacas"
-        Me.GbPesoPacas.Size = New System.Drawing.Size(1164, 140)
+        Me.GbPesoPacas.Size = New System.Drawing.Size(1141, 140)
         Me.GbPesoPacas.TabIndex = 3
         Me.GbPesoPacas.TabStop = False
         Me.GbPesoPacas.Text = "Peso De Pacas"
@@ -400,7 +394,7 @@ Partial Class ConfiguracionParametros
         '
         Me.BtTestPacas.Dock = System.Windows.Forms.DockStyle.Right
         Me.BtTestPacas.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtTestPacas.Location = New System.Drawing.Point(1074, 16)
+        Me.BtTestPacas.Location = New System.Drawing.Point(1051, 16)
         Me.BtTestPacas.Name = "BtTestPacas"
         Me.BtTestPacas.Size = New System.Drawing.Size(87, 121)
         Me.BtTestPacas.TabIndex = 21
@@ -640,7 +634,7 @@ Partial Class ConfiguracionParametros
         Me.GbIdProduccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbIdProduccion.Location = New System.Drawing.Point(0, 100)
         Me.GbIdProduccion.Name = "GbIdProduccion"
-        Me.GbIdProduccion.Size = New System.Drawing.Size(1164, 145)
+        Me.GbIdProduccion.Size = New System.Drawing.Size(1141, 145)
         Me.GbIdProduccion.TabIndex = 2
         Me.GbIdProduccion.TabStop = False
         Me.GbIdProduccion.Text = "Id Modulo y Camion Produccion"
@@ -649,7 +643,7 @@ Partial Class ConfiguracionParametros
         '
         Me.BtTestModulos.Dock = System.Windows.Forms.DockStyle.Right
         Me.BtTestModulos.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtTestModulos.Location = New System.Drawing.Point(1074, 16)
+        Me.BtTestModulos.Location = New System.Drawing.Point(1051, 16)
         Me.BtTestModulos.Name = "BtTestModulos"
         Me.BtTestModulos.Size = New System.Drawing.Size(87, 126)
         Me.BtTestModulos.TabIndex = 21
@@ -1043,23 +1037,19 @@ Partial Class ConfiguracionParametros
         '
         'GbDatosDolar
         '
+        Me.GbDatosDolar.Controls.Add(Me.Label44)
+        Me.GbDatosDolar.Controls.Add(Me.TbToken)
         Me.GbDatosDolar.Controls.Add(Me.TbSitioBanxico)
-        Me.GbDatosDolar.Controls.Add(Me.TbPalabraPosicion)
         Me.GbDatosDolar.Controls.Add(Me.TbIdConfiguracionBanxico)
         Me.GbDatosDolar.Controls.Add(Me.GbPuerto)
         Me.GbDatosDolar.Controls.Add(Me.TbIdSerieBanxico)
-        Me.GbDatosDolar.Controls.Add(Me.Label17)
-        Me.GbDatosDolar.Controls.Add(Me.Label16)
-        Me.GbDatosDolar.Controls.Add(Me.NuPosicion)
         Me.GbDatosDolar.Controls.Add(Me.Label18)
-        Me.GbDatosDolar.Controls.Add(Me.Label14)
         Me.GbDatosDolar.Controls.Add(Me.Label15)
-        Me.GbDatosDolar.Controls.Add(Me.NuLongitud)
         Me.GbDatosDolar.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosDolar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GbDatosDolar.Location = New System.Drawing.Point(0, 0)
         Me.GbDatosDolar.Name = "GbDatosDolar"
-        Me.GbDatosDolar.Size = New System.Drawing.Size(1164, 100)
+        Me.GbDatosDolar.Size = New System.Drawing.Size(1141, 100)
         Me.GbDatosDolar.TabIndex = 0
         Me.GbDatosDolar.TabStop = False
         Me.GbDatosDolar.Text = "Datos para captura automatica de precio del dolar"
@@ -1071,16 +1061,9 @@ Partial Class ConfiguracionParametros
         Me.TbSitioBanxico.Size = New System.Drawing.Size(581, 20)
         Me.TbSitioBanxico.TabIndex = 0
         '
-        'TbPalabraPosicion
-        '
-        Me.TbPalabraPosicion.Location = New System.Drawing.Point(122, 72)
-        Me.TbPalabraPosicion.Name = "TbPalabraPosicion"
-        Me.TbPalabraPosicion.Size = New System.Drawing.Size(105, 20)
-        Me.TbPalabraPosicion.TabIndex = 3
-        '
         'TbIdConfiguracionBanxico
         '
-        Me.TbIdConfiguracionBanxico.Location = New System.Drawing.Point(598, 68)
+        Me.TbIdConfiguracionBanxico.Location = New System.Drawing.Point(598, 72)
         Me.TbIdConfiguracionBanxico.Name = "TbIdConfiguracionBanxico"
         Me.TbIdConfiguracionBanxico.Size = New System.Drawing.Size(105, 20)
         Me.TbIdConfiguracionBanxico.TabIndex = 1
@@ -1094,12 +1077,31 @@ Partial Class ConfiguracionParametros
         Me.GbPuerto.Controls.Add(Me.CbPuertosSeriales)
         Me.GbPuerto.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbPuerto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbPuerto.Location = New System.Drawing.Point(735, 16)
+        Me.GbPuerto.Location = New System.Drawing.Point(747, 16)
         Me.GbPuerto.Name = "GbPuerto"
-        Me.GbPuerto.Size = New System.Drawing.Size(426, 81)
+        Me.GbPuerto.Size = New System.Drawing.Size(391, 81)
         Me.GbPuerto.TabIndex = 1
         Me.GbPuerto.TabStop = False
         Me.GbPuerto.Text = "Configuraciones Generales"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.Location = New System.Drawing.Point(6, 33)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(79, 13)
+        Me.Label43.TabIndex = 0
+        Me.Label43.Text = "Planta Elabora:"
+        '
+        'CbPlantaElabora
+        '
+        Me.CbPlantaElabora.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbPlantaElabora.FormattingEnabled = True
+        Me.CbPlantaElabora.Location = New System.Drawing.Point(91, 29)
+        Me.CbPlantaElabora.Name = "CbPlantaElabora"
+        Me.CbPlantaElabora.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlantaElabora.TabIndex = 0
         '
         'Label2
         '
@@ -1124,37 +1126,8 @@ Partial Class ConfiguracionParametros
         '
         Me.TbIdSerieBanxico.Location = New System.Drawing.Point(122, 46)
         Me.TbIdSerieBanxico.Name = "TbIdSerieBanxico"
-        Me.TbIdSerieBanxico.Size = New System.Drawing.Size(105, 20)
+        Me.TbIdSerieBanxico.Size = New System.Drawing.Size(107, 20)
         Me.TbIdSerieBanxico.TabIndex = 1
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(238, 49)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(115, 13)
-        Me.Label17.TabIndex = 3
-        Me.Label17.Text = "Posicion Inicial Camion"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(238, 75)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(58, 13)
-        Me.Label16.TabIndex = 3
-        Me.Label16.Text = "Caracteres"
-        '
-        'NuPosicion
-        '
-        Me.NuPosicion.Location = New System.Drawing.Point(359, 47)
-        Me.NuPosicion.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuPosicion.Name = "NuPosicion"
-        Me.NuPosicion.Size = New System.Drawing.Size(62, 20)
-        Me.NuPosicion.TabIndex = 2
-        Me.NuPosicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label18
         '
@@ -1162,19 +1135,9 @@ Partial Class ConfiguracionParametros
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(9, 23)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(68, 13)
+        Me.Label18.Size = New System.Drawing.Size(71, 13)
         Me.Label18.TabIndex = 3
-        Me.Label18.Text = "Sitio Banxico"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(9, 75)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(107, 13)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Posiciona peso Bruto"
+        Me.Label18.Text = "Sitio Banxico:"
         '
         'Label15
         '
@@ -1186,21 +1149,12 @@ Partial Class ConfiguracionParametros
         Me.Label15.TabIndex = 3
         Me.Label15.Text = "Id Serie Banxico:"
         '
-        'NuLongitud
-        '
-        Me.NuLongitud.Location = New System.Drawing.Point(359, 73)
-        Me.NuLongitud.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.NuLongitud.Name = "NuLongitud"
-        Me.NuLongitud.Size = New System.Drawing.Size(62, 20)
-        Me.NuLongitud.TabIndex = 4
-        Me.NuLongitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.TsNombrePc, Me.TsSeparador, Me.ToolStripStatusLabel2, Me.TsIpComputadora, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel4, Me.TsIdConfiguracion, Me.TsIdConf})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 719)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 754)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1164, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1141, 22)
         Me.StatusStrip1.TabIndex = 0
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -1260,7 +1214,7 @@ Partial Class ConfiguracionParametros
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GuardarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1164, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1141, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1285,31 +1239,29 @@ Partial Class ConfiguracionParametros
         'SpCapturaAuto
         '
         '
-        'CbPlantaElabora
+        'TbToken
         '
-        Me.CbPlantaElabora.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbPlantaElabora.FormattingEnabled = True
-        Me.CbPlantaElabora.Location = New System.Drawing.Point(91, 29)
-        Me.CbPlantaElabora.Name = "CbPlantaElabora"
-        Me.CbPlantaElabora.Size = New System.Drawing.Size(121, 21)
-        Me.CbPlantaElabora.TabIndex = 0
+        Me.TbToken.Location = New System.Drawing.Point(122, 72)
+        Me.TbToken.Name = "TbToken"
+        Me.TbToken.Size = New System.Drawing.Size(470, 20)
+        Me.TbToken.TabIndex = 5
         '
-        'Label43
+        'Label44
         '
-        Me.Label43.AutoSize = True
-        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(6, 33)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(79, 13)
-        Me.Label43.TabIndex = 0
-        Me.Label43.Text = "Planta Elabora:"
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(9, 75)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(41, 13)
+        Me.Label44.TabIndex = 6
+        Me.Label44.Text = "Token:"
         '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1164, 741)
+        Me.ClientSize = New System.Drawing.Size(1141, 776)
         Me.Controls.Add(Me.PanelParametrosBascula)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -1354,8 +1306,6 @@ Partial Class ConfiguracionParametros
         Me.GbDatosDolar.PerformLayout()
         Me.GbPuerto.ResumeLayout(False)
         Me.GbPuerto.PerformLayout()
-        CType(Me.NuPosicion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuLongitud, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
@@ -1387,13 +1337,7 @@ Partial Class ConfiguracionParametros
     Friend WithEvents TsIdConfiguracion As ToolStripStatusLabel
     Friend WithEvents TsIdConf As ToolStripStatusLabel
     Friend WithEvents TbIdSerieBanxico As TextBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents TbPalabraPosicion As TextBox
-    Friend WithEvents NuPosicion As NumericUpDown
-    Friend WithEvents NuLongitud As NumericUpDown
     Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
     Friend WithEvents GbDatosDolar As GroupBox
     Friend WithEvents Label18 As Label
     Friend WithEvents TbSitioBanxico As TextBox
@@ -1480,4 +1424,6 @@ Partial Class ConfiguracionParametros
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label43 As Label
     Friend WithEvents CbPlantaElabora As ComboBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents TbToken As TextBox
 End Class

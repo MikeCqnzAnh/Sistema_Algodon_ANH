@@ -167,6 +167,7 @@ Partial Class MenuPrincipal
         Me.CrearEstructuraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConexionInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -192,7 +193,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(932, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(910, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -1166,7 +1167,7 @@ Partial Class MenuPrincipal
         '
         'ConfiguracionToolStripMenuItem
         '
-        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1})
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(106, 23)
         Me.ConfiguracionToolStripMenuItem.Tag = "122,0"
@@ -1175,14 +1176,14 @@ Partial Class MenuPrincipal
         'DatosDeEmpresaToolStripMenuItem
         '
         Me.DatosDeEmpresaToolStripMenuItem.Name = "DatosDeEmpresaToolStripMenuItem"
-        Me.DatosDeEmpresaToolStripMenuItem.Size = New System.Drawing.Size(271, 24)
+        Me.DatosDeEmpresaToolStripMenuItem.Size = New System.Drawing.Size(306, 24)
         Me.DatosDeEmpresaToolStripMenuItem.Tag = "123,122"
         Me.DatosDeEmpresaToolStripMenuItem.Text = "Datos de empresa"
         '
         'ConfiguracionDeParametrosToolStripMenuItem1
         '
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Name = "ConfiguracionDeParametrosToolStripMenuItem1"
-        Me.ConfiguracionDeParametrosToolStripMenuItem1.Size = New System.Drawing.Size(271, 24)
+        Me.ConfiguracionDeParametrosToolStripMenuItem1.Size = New System.Drawing.Size(306, 24)
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Tag = "124,122"
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Text = "Configuracion de parametros"
         '
@@ -1190,7 +1191,7 @@ Partial Class MenuPrincipal
         '
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionaConexionToolStripMenuItem1, Me.CrearEstructuraToolStripMenuItem, Me.ImportarCatalogosToolStripMenuItem1, Me.ConexionInicialToolStripMenuItem1})
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Name = "ConfiguracionDeBaseDeDatosToolStripMenuItem1"
-        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Size = New System.Drawing.Size(271, 24)
+        Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Size = New System.Drawing.Size(306, 24)
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Tag = "125,122"
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.Text = "Configuracion de base de datos"
         '
@@ -1222,6 +1223,13 @@ Partial Class MenuPrincipal
         Me.ConexionInicialToolStripMenuItem1.Tag = "129,125"
         Me.ConexionInicialToolStripMenuItem1.Text = "Conexion inicial"
         '
+        'ConfiguracionDeParametrosBanxicoToolStripMenuItem
+        '
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Name = "ConfiguracionDeParametrosBanxicoToolStripMenuItem"
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Size = New System.Drawing.Size(306, 24)
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Tag = "0,0"
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Text = "Configuracion de parametros Banxico"
+        '
         'TsSalir
         '
         Me.TsSalir.Name = "TsSalir"
@@ -1232,10 +1240,10 @@ Partial Class MenuPrincipal
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
-        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 514)
+        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 482)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(932, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(910, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1314,7 +1322,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(932, 536)
+        Me.ClientSize = New System.Drawing.Size(910, 504)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1489,4 +1497,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ComparativaDePesosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargaPacasExternasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscarActualizacionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionDeParametrosBanxicoToolStripMenuItem As ToolStripMenuItem
 End Class

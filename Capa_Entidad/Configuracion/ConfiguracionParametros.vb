@@ -39,7 +39,7 @@
     Public TextoCadenaPesoPacas As String
     Public PesoMinimoPaca As Integer
     Public IdSerieBanxico As String
-    Public CampoValorBanxico As String
+    Public TokenBanxico As String
     Public PosicionValorBanxico As Integer
     Public LongitudValorBanxico As Integer
     Public SitioBanxico As String

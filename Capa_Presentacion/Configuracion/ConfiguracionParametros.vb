@@ -124,9 +124,6 @@ Public Class ConfiguracionParametros
         NuPacasCaracterTara.Value = 0
         NuPacasCaracterNeto.Value = 0
         TbIdSerieBanxico.Text = ""
-        TbPalabraPosicion.Text = ""
-        NuPosicion.Value = 0
-        NuLongitud.Value = 0
         NuPesoMinimoPaca.Value = 0
         CbPlantaElabora.SelectedValue = 0
     End Sub
@@ -191,35 +188,33 @@ Public Class ConfiguracionParametros
         ConsultaParametros()
     End Sub
     Private Sub GuardarConfiguracionParametrosBanxico()
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        EntidadConfiguracionParametros.IdConfiguracion = IIf(TbIdConfiguracionBanxico.Text = "", 0, TbIdConfiguracionBanxico.Text)
-        EntidadConfiguracionParametros.IdSerieBanxico = TbIdSerieBanxico.Text
-        EntidadConfiguracionParametros.CampoValorBanxico = TbPalabraPosicion.Text
-        EntidadConfiguracionParametros.PosicionValorBanxico = NuPosicion.Value
-        EntidadConfiguracionParametros.LongitudValorBanxico = NuLongitud.Value
-        EntidadConfiguracionParametros.SitioBanxico = TbSitioBanxico.Text
-        NegocioConfiguracionParametros.GuardarBanxico(EntidadConfiguracionParametros)
-        TsIdConfiguracion.Text = EntidadConfiguracionParametros.IdConfiguracion
-        MsgBox("Realizado Correctamente")
+        'Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        'Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        'EntidadConfiguracionParametros.IdConfiguracion = IIf(TbIdConfiguracionBanxico.Text = "", 0, TbIdConfiguracionBanxico.Text)
+        'EntidadConfiguracionParametros.IdSerieBanxico = TbIdSerieBanxico.Text
+        'EntidadConfiguracionParametros.TokenBanxico = TbToken.Text
+        'EntidadConfiguracionParametros.SitioBanxico = TbSitioBanxico.Text
+        'NegocioConfiguracionParametros.GuardarBanxico(EntidadConfiguracionParametros)
+        'TsIdConfiguracion.Text = EntidadConfiguracionParametros.IdConfiguracion
+        'MsgBox("Realizado Correctamente")
         ConsultaParametrosBanxico()
     End Sub
     Private Sub ConsultaParametrosBanxico()
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        Dim Tabla As New DataTable
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaExterna
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        Tabla = EntidadConfiguracionParametros.TablaConsulta
-        If Tabla.Rows.Count = 0 Then
-            Exit Sub
-        End If
-        TbIdConfiguracionBanxico.Text = Tabla.Rows(0).Item("IdConfiguracionBanxico")
-        TbIdSerieBanxico.Text = Tabla.Rows(0).Item("IdSerieBanxico")
-        TbPalabraPosicion.Text = Tabla.Rows(0).Item("CampoValorBanxico")
-        NuPosicion.Value = Tabla.Rows(0).Item("PosicionValorBanxico")
-        NuLongitud.Value = Tabla.Rows(0).Item("LongitudValorBanxico")
-        TbSitioBanxico.Text = Tabla.Rows(0).Item("SitioBanxico")
+        'Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        'Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        'Dim Tabla As New DataTable
+        'EntidadConfiguracionParametros.Consulta = Consulta.ConsultaExterna
+        'NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        'Tabla = EntidadConfiguracionParametros.TablaConsulta
+        'If Tabla.Rows.Count = 0 Then
+        '    Exit Sub
+        'End If
+        'TbIdConfiguracionBanxico.Text = Tabla.Rows(0).Item("IdConfiguracionBanxico")
+        'TbIdSerieBanxico.Text = Tabla.Rows(0).Item("IdSerieBanxico")
+        'TbPalabraPosicion.Text = Tabla.Rows(0).Item("CampoValorBanxico")
+        'NuPosicion.Value = Tabla.Rows(0).Item("PosicionValorBanxico")
+        'NuLongitud.Value = Tabla.Rows(0).Item("LongitudValorBanxico")
+        'TbSitioBanxico.Text = Tabla.Rows(0).Item("SitioBanxico")
         PanelParametrosBascula.Enabled = False
     End Sub
     Private Sub ConsultaParametros()

@@ -18,6 +18,7 @@ Public Class BuscarActualizacion
             Label4.Visible = True
         Else
             Label4.Visible = True
+            BtActualizar.Enabled = False
             Label4.Text = "Tienes la version mas reciente!!"
         End If
     End Sub

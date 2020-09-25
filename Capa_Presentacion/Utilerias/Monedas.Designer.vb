@@ -23,6 +23,7 @@ Partial Class Monedas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Monedas))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -214,6 +215,7 @@ Partial Class Monedas
         Me.Controls.Add(Me.PRegistroMoneda)
         Me.Controls.Add(Me.GbDatosMoneda)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Monedas"
         Me.Text = "Monedas"

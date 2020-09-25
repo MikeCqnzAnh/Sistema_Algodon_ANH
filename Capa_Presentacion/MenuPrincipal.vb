@@ -4,15 +4,44 @@ Imports System.Drawing.Drawing2D
 Imports Capa_Presentacion.WebServiceBanxico
 Imports System.Net
 Imports System.Text.RegularExpressions
+Imports System.IO
+
 Public Class MenuPrincipal
-    Dim IdSerieBanxico, CampoValorBanxico, SitioBanxico As String
+    Dim Sitio, Serie, Token As String
     Dim PosicionValorBanxico, LongitudValorBanxico As Integer
     Dim TablaEnc As New DataTable
     Dim valor As String = ""
+    Dim Version As String
+    Dim NombreArchivo As String = "\Version.txt"
+    Dim CarpetaOrigen As String = "\\192.168.10.29\Scanner\Miguel\UPDATE"
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        consultaItems(MSMenu)
-        ConsultaParametros()
-        TipoUsuario()
+        LeerArchivo()
+        If Version > Application.ProductVersion Then
+            BuscarActualizacion.ShowDialog()
+        Else
+            consultaItems(MSMenu)
+            ConsultaParametros()
+            TipoUsuario()
+        End If
+    End Sub
+    Private Sub LeerArchivo()
+        Dim leer As New StreamReader(CarpetaOrigen & NombreArchivo)
+
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadLine()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, "|")
+                Version = ArregloCadena(0)
+            End While
+
+            leer.Close()
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
     End Sub
     Private Sub consultaItems(ByVal MsItem As MenuStrip)
         llenaTablaMenuRoles()
@@ -55,26 +84,22 @@ Public Class MenuPrincipal
     End Sub
     Private Sub ObtenerPrecioDolarBanxico()
         Try
-            'Dim myProxy As New WebProxy("Proxy", 80)
-            'Dim UrlBanxico As String = "8.8.8.8"
-            'myProxy.Credentials = New NetworkCredential("Usuario", "contraseña")
-            'If VerificarConexionURL(UrlBanxico) = True Then
-            '    Dim httpBanxico As HttpWebRequest = CType(WebRequest.Create(RTrim(SitioBanxico)), HttpWebRequest)
-            '    WebRequest.DefaultWebProxy = httpBanxico.Proxy
-            '    Dim TipoCambio As New WebServiceBanxico.DgieWS
-            '    Dim strTipoCambio As String = TipoCambio.tiposDeCambioBanxico
-
-            '    strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(IdSerieBanxico)) - 1)
-            '    strTipoCambio = strTipoCambio.Substring(strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) + 1, strTipoCambio.Length - strTipoCambio.IndexOf(RTrim(CampoValorBanxico)) - 1)
-            '    TsPrecioDolar.Text = Replace(strTipoCambio.Substring(PosicionValorBanxico, LongitudValorBanxico), Chr(34), "")
-            '    TsPrecioDolar.Text = Regex.Replace(TsPrecioDolar.Text, "[^0-9.]", "", RegexOptions.None)
-            '    ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
-            'Else
-            If _IdTipoUsuario = 1 Or _IdTipoUsuario = 10 Or _IdTipoUsuario = 4 Then
-                Monedas.ShowDialog()
-                ConsultaTipoCambio()
+            If Serie <> "" And Sitio <> "" And Token <> "" Then
+                Dim TipoDeCambio As String = TipoDeCambioFIX(Serie, Now, Now, Token, Sitio)
+                If TipoDeCambio <> "" Then
+                    TsPrecioDolar.Text = TipoDeCambio
+                    ActualizaPrecioDolar(Val(TsPrecioDolar.Text))
+                ElseIf _IdTipoUsuario = 1 Or _IdTipoUsuario = 10 Or _IdTipoUsuario = 4 Then
+                    Monedas.ShowDialog()
+                    ConsultaTipoCambio()
+                End If
             Else
-                TsPrecioDolar.Text = 0
+                If _IdTipoUsuario = 1 Or _IdTipoUsuario = 10 Or _IdTipoUsuario = 4 Then
+                    Monedas.ShowDialog()
+                    ConsultaTipoCambio()
+                Else
+                    TsPrecioDolar.Text = 0
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message.ToString, MsgBoxStyle.Exclamation, "Aviso")
@@ -151,11 +176,9 @@ Public Class MenuPrincipal
         If Tabla.Rows.Count = 0 Then
             Exit Sub
         End If
-        IdSerieBanxico = Tabla.Rows(0).Item("IdSerieBanxico")
-        CampoValorBanxico = Tabla.Rows(0).Item("CampoValorBanxico")
-        PosicionValorBanxico = Tabla.Rows(0).Item("PosicionValorBanxico")
-        LongitudValorBanxico = Tabla.Rows(0).Item("LongitudValorBanxico")
-        SitioBanxico = Tabla.Rows(0).Item("Sitiobanxico")
+        Sitio = Tabla.Rows(0).Item("Sitio")
+        Serie = Tabla.Rows(0).Item("Serie")
+        Token = Tabla.Rows(0).Item("Token")
     End Sub
     Private Function GetNameHost()
         Dim strHostName As String
@@ -332,6 +355,7 @@ Public Class MenuPrincipal
     End Sub
     Private Sub MonedasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MonedasToolStripMenuItem.Click
         Monedas.ShowDialog()
+        ConsultaTipoCambio()
     End Sub
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
         Bitacora.ShowDialog()
@@ -424,6 +448,14 @@ Public Class MenuPrincipal
 
     Private Sub BuscarActualizacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarActualizacionesToolStripMenuItem.Click
         BuscarActualizacion.ShowDialog()
+    End Sub
+
+    Private Sub TipoCambioToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ConfiguracionDeParametrosBanxicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosBanxicoToolStripMenuItem.Click
+        ParametrosBanxico.ShowDialog()
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click

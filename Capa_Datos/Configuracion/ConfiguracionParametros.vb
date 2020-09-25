@@ -71,11 +71,9 @@ Public Class ConfiguracionParametros
             cmdGuardar = New SqlCommand("Sp_InsertarConfiguracionBanxico", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@Idconfiguracionbanxico", EntidadConfiguracionParametros1.IdConfiguracion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdSerieBanxico", EntidadConfiguracionParametros1.IdSerieBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@CampoValorBanxico", EntidadConfiguracionParametros1.CampoValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@PosicionValorBanxico", EntidadConfiguracionParametros1.PosicionValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@LongitudValorBanxico", EntidadConfiguracionParametros1.LongitudValorBanxico))
-            cmdGuardar.Parameters.Add(New SqlParameter("@SitioBanxico", EntidadConfiguracionParametros1.SitioBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Sitio", EntidadConfiguracionParametros1.SitioBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Serie", EntidadConfiguracionParametros1.IdSerieBanxico))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Token", EntidadConfiguracionParametros1.TokenBanxico))
 
             cmdGuardar.Parameters("@IdConfiguracionBanxico").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
