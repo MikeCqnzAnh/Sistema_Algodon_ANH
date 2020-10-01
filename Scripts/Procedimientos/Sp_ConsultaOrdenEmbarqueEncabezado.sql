@@ -11,7 +11,9 @@ if @IdEmbarqueEncabezado <> 0 and @NombreComprador = ''
 			  ,ee.PlacaTractoCamion
 			  ,ee.NoLicencia
 			  ,ee.CantidadCajas
-			  ,ee.CantidadPacas 
+			  ,ee.NoLote1
+			  ,ee.NoLote2
+			  ,ee.CantidadPacas
 		from EmbarqueEncabezado ee inner join compradores co 
 		on ee.IdComprador = co.IdComprador
 		where ee.IdEmbarqueEncabezado = @IdEmbarqueEncabezado
@@ -26,6 +28,8 @@ else if @IdEmbarqueEncabezado = 0 and @NombreComprador <> ''
 			  ,ee.PlacaTractoCamion
 			  ,ee.NoLicencia
 			  ,ee.CantidadCajas
+			  ,ee.NoLote1
+			  ,ee.NoLote2
 			  ,ee.CantidadPacas 
 		from EmbarqueEncabezado ee inner join compradores co 
 		on ee.IdComprador = co.IdComprador
@@ -41,8 +45,11 @@ else
 			  ,ee.PlacaTractoCamion
 			  ,ee.NoLicencia
 			  ,ee.CantidadCajas
+			  ,ee.NoLote1
+			  ,ee.NoLote2
 			  ,ee.CantidadPacas 
 		from EmbarqueEncabezado ee inner join compradores co 
 		on ee.IdComprador = co.IdComprador
 		order by ee.IdEmbarqueEncabezado
 	end
+	select * from embarqueencabezado

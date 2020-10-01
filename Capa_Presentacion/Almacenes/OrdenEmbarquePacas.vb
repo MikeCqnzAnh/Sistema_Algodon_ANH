@@ -178,18 +178,18 @@ Public Class OrdenEmbarquePacas
         MarcaSeleccionDisponibles()
     End Sub
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
-        If RbCaja1.Checked = True And TbNoLote1.Text <> "" Then
+        If RbCaja1.Checked = True And TbNoLote1.Text <> "" And TbNoContenedor1.Text <> "" And TbPlacaCaja1.Text <> "" Then
             GuardaEmbarqueDetalle()
             TbNoPacas.Text = DgvPacasEmbarcadas.RowCount
             TbPacasMarc.Text = 0
             GuardarEncabezado()
-        ElseIf RbCaja2.Checked = True And TbNoLote2.Text <> "" Then
+        ElseIf RbCaja2.Checked = True And TbNoLote2.Text <> "" And TbNoContenedor2.Text <> "" And TbPlacaCaja2.Text <> "" Then
             GuardaEmbarqueDetalle()
             TbNoPacas.Text = DgvPacasEmbarcadas.RowCount
             TbPacasMarc.Text = 0
             GuardarEncabezado()
         Else
-            MsgBox("El Campo No Lote no puede estar vacio para continuar.")
+            MsgBox("El Campo No Lote, Placas y contenedor deben de llenarse para continuar.")
         End If
         TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
     End Sub

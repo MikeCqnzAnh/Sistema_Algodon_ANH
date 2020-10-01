@@ -318,6 +318,16 @@ Public Class SalidaPacas
         DgvPacas.DataSource = EntidadSalidaPacas.TablaConsulta
         PropiedadesDgv()
     End Sub
+
+    Private Sub EmbarqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmbarqueToolStripMenuItem.Click
+        If TbIdEmbarque.Text <> "" Then
+            Dim ReporteOrdenEmbarque As New RepOrdenEmbarque(TbIdEmbarque.Text)
+            ReporteOrdenEmbarque.ShowDialog()
+        Else
+            MessageBox.Show("No hay Orden de Embarque seleccionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
     Public Function LoadIdComprador(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdComprador
         For Each row As DataRow In DatatableParam.Rows
             TbIdComprador.Text = row("IdComprador")

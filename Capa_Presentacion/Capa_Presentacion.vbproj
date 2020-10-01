@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.68.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.71.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -85,7 +85,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Iconos\logo_cotton.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\logo_cotton.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -322,6 +322,9 @@
     <Compile Include="DsReportes.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsReportes.vb">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
@@ -582,6 +585,12 @@
     <Compile Include="Reportes\RepPacasPorLotes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPacasSinVender.Designer.vb">
+      <DependentUpon>RepPacasSinVender.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPacasSinVender.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPaquetesVenta.Designer.vb">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
     </Compile>
@@ -726,6 +735,12 @@
       <DependentUpon>RPTPacasPorLotes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTPacasSinVender.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPacasSinVender.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTPaquetesVenta.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -792,7 +807,7 @@
     <Compile Include="Utilerias\ClaveAutorizacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\ImportarExcel.vb" />
+    <Compile Include="Modulos Funciones\ImportarExcel.vb" />
     <Compile Include="Utilerias\ParametrosCorreo.Designer.vb">
       <DependentUpon>ParametrosCorreo.vb</DependentUpon>
     </Compile>
@@ -1103,7 +1118,7 @@
     <Compile Include="Utilerias\CrearEstructura.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\Encriptar.vb" />
+    <Compile Include="Modulos Funciones\Encriptar.vb" />
     <Compile Include="Utilerias\ImportarCatalogos.Designer.vb">
       <DependentUpon>ImportarCatalogos.vb</DependentUpon>
     </Compile>
@@ -1381,6 +1396,9 @@
     <EmbeddedResource Include="Reportes\RepPacasPorLotes.resx">
       <DependentUpon>RepPacasPorLotes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPacasSinVender.resx">
+      <DependentUpon>RepPacasSinVender.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPaquetesVenta.resx">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1471,6 +1489,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTPacasPorLotes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasPorLotes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPacasSinVender.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPacasSinVender.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPaquetesVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1772,6 +1794,7 @@
     <None Include="Iconos\png\attachment.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
+    <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

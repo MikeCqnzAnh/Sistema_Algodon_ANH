@@ -57,6 +57,7 @@
         ReporteOrdenEmbarque = 19
         ReporteDisponibilidadPacasProductor = 20
         ReportePesosSalidaPacas = 21
+        ReportePacasSinVender = 22
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

@@ -251,6 +251,10 @@ Public Class CompraPago
         End If
     End Sub
 
+    Private Sub ImpResumenDeLiquidacionesItem_Click(sender As Object, e As EventArgs) Handles ImpResumenDeLiquidacionesItem.Click
+
+    End Sub
+
     Private Sub ImpDetallesDeCompraItem_Click(sender As Object, e As EventArgs) Handles ImpDetallesDeCompraItem.Click
         If TbIdCompra.Text <> "" Then
             Dim ReporteCompraPacasDetallado As New RepCompraPacasDetallado(TbIdCompra.Text)

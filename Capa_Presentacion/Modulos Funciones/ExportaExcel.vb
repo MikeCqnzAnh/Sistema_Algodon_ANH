@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.Office.Interop
-
 Module ExportaExcel
     Public Sub ExportExcel(ByVal obj As Object)
         Dim rowsTotal, colsTotal As Short
@@ -16,6 +15,7 @@ Module ExportaExcel
             With excelWorksheet
                 .Cells.Select()
                 .Cells.Delete()
+                .Cells.NumberFormat = "@"
                 For iC = 0 To colsTotal
                     .Cells(1, iC + 1).Value = obj.Columns(iC).HeaderText
                 Next
@@ -26,6 +26,7 @@ Module ExportaExcel
                 Next I
                 .Rows("1:1").Font.FontStyle = "Bold"
                 .Rows("1:1").Font.Size = 12
+
 
                 .Cells.Columns.AutoFit()
                 .Cells.Select()

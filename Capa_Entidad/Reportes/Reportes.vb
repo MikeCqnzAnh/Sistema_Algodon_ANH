@@ -23,5 +23,7 @@
     Public NoLote As String
     Public IdSalidaPacas As Integer
     Public Nombre As String
+    Public Valor As String
+    Public Clase As String
     '------------------------------
 End Class

@@ -30,6 +30,7 @@ Partial Class SalidaPacas
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.TbNoLote = New System.Windows.Forms.TextBox()
         Me.TbFolioSalida = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -77,7 +78,7 @@ Partial Class SalidaPacas
         Me.TbTara = New System.Windows.Forms.TextBox()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.TbNoLote = New System.Windows.Forms.TextBox()
+        Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -115,6 +116,7 @@ Partial Class SalidaPacas
         '
         'ReportesToolStripMenuItem
         '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmbarqueToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -167,6 +169,14 @@ Partial Class SalidaPacas
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'TbNoLote
+        '
+        Me.TbNoLote.Enabled = False
+        Me.TbNoLote.Location = New System.Drawing.Point(120, 149)
+        Me.TbNoLote.Name = "TbNoLote"
+        Me.TbNoLote.Size = New System.Drawing.Size(138, 20)
+        Me.TbNoLote.TabIndex = 86
         '
         'TbFolioSalida
         '
@@ -613,13 +623,11 @@ Partial Class SalidaPacas
         Me.DgvPacas.Size = New System.Drawing.Size(1115, 358)
         Me.DgvPacas.TabIndex = 2
         '
-        'TbNoLote
+        'EmbarqueToolStripMenuItem
         '
-        Me.TbNoLote.Enabled = False
-        Me.TbNoLote.Location = New System.Drawing.Point(120, 149)
-        Me.TbNoLote.Name = "TbNoLote"
-        Me.TbNoLote.Size = New System.Drawing.Size(138, 20)
-        Me.TbNoLote.TabIndex = 86
+        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
+        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
         '
         'SalidaPacas
         '
@@ -704,4 +712,5 @@ Partial Class SalidaPacas
     Friend WithEvents TbFolioSalida As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents TbNoLote As TextBox
+    Friend WithEvents EmbarqueToolStripMenuItem As ToolStripMenuItem
 End Class

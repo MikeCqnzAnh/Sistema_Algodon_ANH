@@ -23,20 +23,24 @@ Public Class Bitacora
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@Fechainicio", EntidadBitacora1.FechaInicio))
                     sqlcom1.Parameters.Add(New SqlParameter("@FechaFin", EntidadBitacora1.FechaFin))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Usuario", EntidadBitacora1.Usuario))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Modulo", EntidadBitacora1.Modulo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Operacion", EntidadBitacora1.Operacion))
                     sqldat1.Fill(EntidadBitacora1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                    '    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacora", cnn)
-                    '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaBaseDatosReciente
-                    '    sqldat1 = New SqlDataAdapter("Sp_ConsultaBDreciente", cnn)
-                    '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUsuario
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacoraUsuario", cnn)
+                    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacoraModulo", cnn)
+                    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaBitacoraOperacion", cnn)
+                    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
                     '    Dim servidores As SqlDataSourceEnumerator
                     '    servidores = SqlDataSourceEnumerator.Instance
                     '    EntidadBitacora1.TablaConsulta = servidores.GetDataSources()
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaTablas
-                    '    sqldat1 = New SqlDataAdapter("sp_ListaTablas", cnn)
-                    '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)
+
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaProcedimientos
                     '    sqldat1 = New SqlDataAdapter("sp_listaProcedimientos", cnn)
                     '    sqldat1.Fill(EntidadBitacora1.TablaConsulta)

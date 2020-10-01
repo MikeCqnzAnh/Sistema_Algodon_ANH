@@ -27,6 +27,12 @@ Partial Class Bitacora
         Me.DgvBitacora = New System.Windows.Forms.DataGridView()
         Me.GbFiltros = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CbOperacion = New System.Windows.Forms.ComboBox()
+        Me.CbModulo = New System.Windows.Forms.ComboBox()
+        Me.CbUsuario = New System.Windows.Forms.ComboBox()
         Me.DtFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.BtConsulta = New System.Windows.Forms.Button()
         Me.DtFechaInicio = New System.Windows.Forms.DateTimePicker()
@@ -36,12 +42,6 @@ Partial Class Bitacora
         Me.LimpiarCamposToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarBitacoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CbUsuario = New System.Windows.Forms.ComboBox()
-        Me.CbModulo = New System.Windows.Forms.ComboBox()
-        Me.CbOperacion = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.PDatos.SuspendLayout()
         CType(Me.DgvBitacora, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbFiltros.SuspendLayout()
@@ -53,9 +53,9 @@ Partial Class Bitacora
         '
         Me.PDatos.Controls.Add(Me.DgvBitacora)
         Me.PDatos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PDatos.Location = New System.Drawing.Point(0, 228)
+        Me.PDatos.Location = New System.Drawing.Point(0, 176)
         Me.PDatos.Name = "PDatos"
-        Me.PDatos.Size = New System.Drawing.Size(1034, 385)
+        Me.PDatos.Size = New System.Drawing.Size(1154, 440)
         Me.PDatos.TabIndex = 0
         '
         'DgvBitacora
@@ -80,7 +80,7 @@ Partial Class Bitacora
         Me.DgvBitacora.Name = "DgvBitacora"
         Me.DgvBitacora.RowHeadersVisible = False
         Me.DgvBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvBitacora.Size = New System.Drawing.Size(1034, 385)
+        Me.DgvBitacora.Size = New System.Drawing.Size(1154, 440)
         Me.DgvBitacora.TabIndex = 2
         '
         'GbFiltros
@@ -89,7 +89,7 @@ Partial Class Bitacora
         Me.GbFiltros.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbFiltros.Location = New System.Drawing.Point(0, 24)
         Me.GbFiltros.Name = "GbFiltros"
-        Me.GbFiltros.Size = New System.Drawing.Size(1034, 204)
+        Me.GbFiltros.Size = New System.Drawing.Size(1154, 152)
         Me.GbFiltros.TabIndex = 1
         Me.GbFiltros.TabStop = False
         '
@@ -109,8 +109,62 @@ Partial Class Bitacora
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 16)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1028, 185)
+        Me.Panel1.Size = New System.Drawing.Size(1148, 133)
         Me.Panel1.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(809, 29)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(56, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Operacion"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(559, 29)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Modulo"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(348, 30)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Usuario"
+        '
+        'CbOperacion
+        '
+        Me.CbOperacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbOperacion.FormattingEnabled = True
+        Me.CbOperacion.Location = New System.Drawing.Point(871, 25)
+        Me.CbOperacion.Name = "CbOperacion"
+        Me.CbOperacion.Size = New System.Drawing.Size(232, 21)
+        Me.CbOperacion.TabIndex = 5
+        '
+        'CbModulo
+        '
+        Me.CbModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbModulo.FormattingEnabled = True
+        Me.CbModulo.Location = New System.Drawing.Point(607, 25)
+        Me.CbModulo.Name = "CbModulo"
+        Me.CbModulo.Size = New System.Drawing.Size(196, 21)
+        Me.CbModulo.TabIndex = 4
+        '
+        'CbUsuario
+        '
+        Me.CbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbUsuario.FormattingEnabled = True
+        Me.CbUsuario.Location = New System.Drawing.Point(397, 26)
+        Me.CbUsuario.Name = "CbUsuario"
+        Me.CbUsuario.Size = New System.Drawing.Size(138, 21)
+        Me.CbUsuario.TabIndex = 3
         '
         'DtFechaFin
         '
@@ -122,7 +176,10 @@ Partial Class Bitacora
         '
         'BtConsulta
         '
-        Me.BtConsulta.Location = New System.Drawing.Point(833, 159)
+        Me.BtConsulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtConsulta.Location = New System.Drawing.Point(1064, 94)
+        Me.BtConsulta.MaximumSize = New System.Drawing.Size(75, 23)
+        Me.BtConsulta.MinimumSize = New System.Drawing.Size(75, 23)
         Me.BtConsulta.Name = "BtConsulta"
         Me.BtConsulta.Size = New System.Drawing.Size(75, 23)
         Me.BtConsulta.TabIndex = 2
@@ -157,10 +214,11 @@ Partial Class Bitacora
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarCamposToolStripMenuItem, Me.ExportarBitacoraToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1034, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1154, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -182,62 +240,11 @@ Partial Class Bitacora
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'CbUsuario
-        '
-        Me.CbUsuario.FormattingEnabled = True
-        Me.CbUsuario.Location = New System.Drawing.Point(397, 26)
-        Me.CbUsuario.Name = "CbUsuario"
-        Me.CbUsuario.Size = New System.Drawing.Size(121, 21)
-        Me.CbUsuario.TabIndex = 3
-        '
-        'CbModulo
-        '
-        Me.CbModulo.FormattingEnabled = True
-        Me.CbModulo.Location = New System.Drawing.Point(586, 26)
-        Me.CbModulo.Name = "CbModulo"
-        Me.CbModulo.Size = New System.Drawing.Size(121, 21)
-        Me.CbModulo.TabIndex = 4
-        '
-        'CbOperacion
-        '
-        Me.CbOperacion.FormattingEnabled = True
-        Me.CbOperacion.Location = New System.Drawing.Point(787, 26)
-        Me.CbOperacion.Name = "CbOperacion"
-        Me.CbOperacion.Size = New System.Drawing.Size(121, 21)
-        Me.CbOperacion.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(348, 30)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Usuario"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(538, 30)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Modulo"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(725, 30)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(56, 13)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Operacion"
-        '
         'Bitacora
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1034, 613)
+        Me.ClientSize = New System.Drawing.Size(1154, 616)
         Me.Controls.Add(Me.PDatos)
         Me.Controls.Add(Me.GbFiltros)
         Me.Controls.Add(Me.MenuStrip1)

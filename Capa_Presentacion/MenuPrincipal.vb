@@ -19,7 +19,7 @@ Public Class MenuPrincipal
         If Version > Application.ProductVersion Then
             BuscarActualizacion.ShowDialog()
         Else
-            consultaItems(MSMenu)
+            consultaItems()
             ConsultaParametros()
             TipoUsuario()
         End If
@@ -43,9 +43,9 @@ Public Class MenuPrincipal
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
         End Try
     End Sub
-    Private Sub consultaItems(ByVal MsItem As MenuStrip)
+    Private Sub consultaItems()
         llenaTablaMenuRoles()
-        For Each miitem As ToolStripMenuItem In MsItem.Items
+        For Each miitem As ToolStripMenuItem In MSMenu.Items
             recorrer(miitem)
         Next
     End Sub
@@ -456,6 +456,10 @@ Public Class MenuPrincipal
 
     Private Sub ConfiguracionDeParametrosBanxicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosBanxicoToolStripMenuItem.Click
         ParametrosBanxico.ShowDialog()
+    End Sub
+
+    Private Sub PacasSinVenderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasSinVenderToolStripMenuItem.Click
+        RepPacasSinVender.ShowDialog()
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click

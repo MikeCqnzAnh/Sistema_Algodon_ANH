@@ -162,12 +162,12 @@ Partial Class MenuPrincipal
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeleccionaConexionToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CrearEstructuraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarCatalogosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConexionInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -1187,6 +1187,13 @@ Partial Class MenuPrincipal
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Tag = "124,122"
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Text = "Configuracion de parametros"
         '
+        'ConfiguracionDeParametrosBanxicoToolStripMenuItem
+        '
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Name = "ConfiguracionDeParametrosBanxicoToolStripMenuItem"
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Size = New System.Drawing.Size(306, 24)
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Tag = "0,0"
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Text = "Configuracion de parametros Banxico"
+        '
         'ConfiguracionDeBaseDeDatosToolStripMenuItem1
         '
         Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SeleccionaConexionToolStripMenuItem1, Me.CrearEstructuraToolStripMenuItem, Me.ImportarCatalogosToolStripMenuItem1, Me.ConexionInicialToolStripMenuItem1})
@@ -1222,13 +1229,6 @@ Partial Class MenuPrincipal
         Me.ConexionInicialToolStripMenuItem1.Size = New System.Drawing.Size(198, 24)
         Me.ConexionInicialToolStripMenuItem1.Tag = "129,125"
         Me.ConexionInicialToolStripMenuItem1.Text = "Conexion inicial"
-        '
-        'ConfiguracionDeParametrosBanxicoToolStripMenuItem
-        '
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Name = "ConfiguracionDeParametrosBanxicoToolStripMenuItem"
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Size = New System.Drawing.Size(306, 24)
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Tag = "0,0"
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Text = "Configuracion de parametros Banxico"
         '
         'TsSalir
         '

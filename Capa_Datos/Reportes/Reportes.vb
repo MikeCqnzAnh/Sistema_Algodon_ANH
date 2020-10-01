@@ -180,6 +180,15 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdComprador", EntidadReportes1.IdComprador))
                     sqlcom1.Parameters.Add(New SqlParameter("@HabilitaCampos", EntidadReportes1.CheckStatus))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReportePacasSinVender
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPacasSinVender", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@Valor", EntidadReportes1.Valor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Clase", EntidadReportes1.Clase))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex)
