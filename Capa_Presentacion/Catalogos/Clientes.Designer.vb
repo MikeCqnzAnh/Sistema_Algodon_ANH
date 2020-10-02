@@ -22,6 +22,7 @@ Partial Class Clientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,7 +41,6 @@ Partial Class Clientes
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CbMunicipioFis = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.TbRfcFis = New System.Windows.Forms.TextBox()
         Me.CbEstadoFis = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -51,7 +51,6 @@ Partial Class Clientes
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TbColoniaFis = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TbCurpFis = New System.Windows.Forms.TextBox()
         Me.TbCalleFis = New System.Windows.Forms.TextBox()
@@ -70,8 +69,25 @@ Partial Class Clientes
         Me.Label30 = New System.Windows.Forms.Label()
         Me.TbIneApoderado = New System.Windows.Forms.TextBox()
         Me.TbCurpApoderado = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
+        Me.TbNombreApoderado = New System.Windows.Forms.TextBox()
         Me.TbRfcApoderado = New System.Windows.Forms.TextBox()
+        Me.GbDireccionMoral = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.TbCelularMoral = New System.Windows.Forms.TextBox()
+        Me.TbTelefonoMoral = New System.Windows.Forms.TextBox()
+        Me.CbMunicipioMoral = New System.Windows.Forms.ComboBox()
+        Me.CbEstadoMoral = New System.Windows.Forms.ComboBox()
+        Me.TbColoniaMoral = New System.Windows.Forms.TextBox()
+        Me.TbNumeroMoral = New System.Windows.Forms.TextBox()
+        Me.TbCalleMoral = New System.Windows.Forms.TextBox()
         Me.GbActaConstitutiva = New System.Windows.Forms.GroupBox()
         Me.TbFolioMercantil = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
@@ -87,6 +103,8 @@ Partial Class Clientes
         Me.DtpFechaActa = New System.Windows.Forms.DateTimePicker()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TbFolioActa = New System.Windows.Forms.TextBox()
+        Me.TbRfcFis = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GbMovilizacion = New System.Windows.Forms.GroupBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.CbEstadoMovilizacion = New System.Windows.Forms.ComboBox()
@@ -103,33 +121,16 @@ Partial Class Clientes
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.GbDireccionMoral = New System.Windows.Forms.GroupBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.CbMunicipioMoral = New System.Windows.Forms.ComboBox()
-        Me.CbEstadoMoral = New System.Windows.Forms.ComboBox()
-        Me.TbCalleMoral = New System.Windows.Forms.TextBox()
-        Me.TbNumeroMoral = New System.Windows.Forms.TextBox()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.TbTelefonoMoral = New System.Windows.Forms.TextBox()
-        Me.TbCelularMoral = New System.Windows.Forms.TextBox()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.TbColoniaMoral = New System.Windows.Forms.TextBox()
-        Me.TbNombreApoderado = New System.Windows.Forms.TextBox()
-        Me.Label32 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.TCTipoPersona.SuspendLayout()
         Me.TPPersonaFisica.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TPPersonaMoral.SuspendLayout()
         Me.GbApoderado.SuspendLayout()
+        Me.GbDireccionMoral.SuspendLayout()
         Me.GbActaConstitutiva.SuspendLayout()
         Me.GbMovilizacion.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        Me.GbDireccionMoral.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -298,14 +299,6 @@ Partial Class Clientes
         Me.Label39.TabIndex = 21
         Me.Label39.Text = "Municipio"
         '
-        'TbRfcFis
-        '
-        Me.TbRfcFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbRfcFis.Location = New System.Drawing.Point(124, 81)
-        Me.TbRfcFis.Name = "TbRfcFis"
-        Me.TbRfcFis.Size = New System.Drawing.Size(210, 20)
-        Me.TbRfcFis.TabIndex = 3
-        '
         'CbEstadoFis
         '
         Me.CbEstadoFis.FormattingEnabled = True
@@ -392,15 +385,6 @@ Partial Class Clientes
         Me.Label6.Size = New System.Drawing.Size(37, 13)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "CURP"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 84)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(28, 13)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "RFC"
         '
         'Label13
         '
@@ -573,6 +557,15 @@ Partial Class Clientes
         Me.TbCurpApoderado.Size = New System.Drawing.Size(148, 20)
         Me.TbCurpApoderado.TabIndex = 1
         '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(6, 19)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(44, 13)
+        Me.Label32.TabIndex = 1
+        Me.Label32.Text = "Nombre"
+        '
         'Label29
         '
         Me.Label29.AutoSize = True
@@ -582,6 +575,14 @@ Partial Class Clientes
         Me.Label29.TabIndex = 1
         Me.Label29.Text = "RFC"
         '
+        'TbNombreApoderado
+        '
+        Me.TbNombreApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNombreApoderado.Location = New System.Drawing.Point(80, 16)
+        Me.TbNombreApoderado.Name = "TbNombreApoderado"
+        Me.TbNombreApoderado.Size = New System.Drawing.Size(148, 20)
+        Me.TbNombreApoderado.TabIndex = 0
+        '
         'TbRfcApoderado
         '
         Me.TbRfcApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
@@ -589,6 +590,149 @@ Partial Class Clientes
         Me.TbRfcApoderado.Name = "TbRfcApoderado"
         Me.TbRfcApoderado.Size = New System.Drawing.Size(148, 20)
         Me.TbRfcApoderado.TabIndex = 0
+        '
+        'GbDireccionMoral
+        '
+        Me.GbDireccionMoral.Controls.Add(Me.Label12)
+        Me.GbDireccionMoral.Controls.Add(Me.Label40)
+        Me.GbDireccionMoral.Controls.Add(Me.Label44)
+        Me.GbDireccionMoral.Controls.Add(Me.Label21)
+        Me.GbDireccionMoral.Controls.Add(Me.Label42)
+        Me.GbDireccionMoral.Controls.Add(Me.Label43)
+        Me.GbDireccionMoral.Controls.Add(Me.Label41)
+        Me.GbDireccionMoral.Controls.Add(Me.TbCelularMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbTelefonoMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.CbMunicipioMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.CbEstadoMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbColoniaMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbNumeroMoral)
+        Me.GbDireccionMoral.Controls.Add(Me.TbCalleMoral)
+        Me.GbDireccionMoral.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbDireccionMoral.Location = New System.Drawing.Point(3, 3)
+        Me.GbDireccionMoral.Name = "GbDireccionMoral"
+        Me.GbDireccionMoral.Size = New System.Drawing.Size(492, 142)
+        Me.GbDireccionMoral.TabIndex = 2
+        Me.GbDireccionMoral.TabStop = False
+        Me.GbDireccionMoral.Text = "Direccion"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(261, 23)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(52, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Municipio"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(7, 97)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(40, 13)
+        Me.Label40.TabIndex = 16
+        Me.Label40.Text = "Estado"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(261, 72)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(39, 13)
+        Me.Label44.TabIndex = 15
+        Me.Label44.Text = "Celular"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(7, 71)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(42, 13)
+        Me.Label21.TabIndex = 15
+        Me.Label21.Text = "Colonia"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(7, 47)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(24, 13)
+        Me.Label42.TabIndex = 15
+        Me.Label42.Text = "No."
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(261, 47)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(49, 13)
+        Me.Label43.TabIndex = 14
+        Me.Label43.Text = "Telefono"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(7, 23)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(30, 13)
+        Me.Label41.TabIndex = 15
+        Me.Label41.Text = "Calle"
+        '
+        'TbCelularMoral
+        '
+        Me.TbCelularMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbCelularMoral.Location = New System.Drawing.Point(335, 69)
+        Me.TbCelularMoral.Name = "TbCelularMoral"
+        Me.TbCelularMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbCelularMoral.TabIndex = 7
+        '
+        'TbTelefonoMoral
+        '
+        Me.TbTelefonoMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbTelefonoMoral.Location = New System.Drawing.Point(335, 44)
+        Me.TbTelefonoMoral.Name = "TbTelefonoMoral"
+        Me.TbTelefonoMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbTelefonoMoral.TabIndex = 6
+        '
+        'CbMunicipioMoral
+        '
+        Me.CbMunicipioMoral.FormattingEnabled = True
+        Me.CbMunicipioMoral.Location = New System.Drawing.Point(335, 20)
+        Me.CbMunicipioMoral.Name = "CbMunicipioMoral"
+        Me.CbMunicipioMoral.Size = New System.Drawing.Size(148, 21)
+        Me.CbMunicipioMoral.TabIndex = 14
+        '
+        'CbEstadoMoral
+        '
+        Me.CbEstadoMoral.FormattingEnabled = True
+        Me.CbEstadoMoral.Location = New System.Drawing.Point(81, 93)
+        Me.CbEstadoMoral.Name = "CbEstadoMoral"
+        Me.CbEstadoMoral.Size = New System.Drawing.Size(148, 21)
+        Me.CbEstadoMoral.TabIndex = 13
+        '
+        'TbColoniaMoral
+        '
+        Me.TbColoniaMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbColoniaMoral.Location = New System.Drawing.Point(81, 68)
+        Me.TbColoniaMoral.Name = "TbColoniaMoral"
+        Me.TbColoniaMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbColoniaMoral.TabIndex = 12
+        '
+        'TbNumeroMoral
+        '
+        Me.TbNumeroMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbNumeroMoral.Location = New System.Drawing.Point(81, 44)
+        Me.TbNumeroMoral.Name = "TbNumeroMoral"
+        Me.TbNumeroMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbNumeroMoral.TabIndex = 12
+        '
+        'TbCalleMoral
+        '
+        Me.TbCalleMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbCalleMoral.Location = New System.Drawing.Point(81, 20)
+        Me.TbCalleMoral.Name = "TbCalleMoral"
+        Me.TbCalleMoral.Size = New System.Drawing.Size(148, 20)
+        Me.TbCalleMoral.TabIndex = 12
         '
         'GbActaConstitutiva
         '
@@ -731,6 +875,23 @@ Partial Class Clientes
         Me.TbFolioActa.Name = "TbFolioActa"
         Me.TbFolioActa.Size = New System.Drawing.Size(139, 20)
         Me.TbFolioActa.TabIndex = 0
+        '
+        'TbRfcFis
+        '
+        Me.TbRfcFis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbRfcFis.Location = New System.Drawing.Point(124, 81)
+        Me.TbRfcFis.Name = "TbRfcFis"
+        Me.TbRfcFis.Size = New System.Drawing.Size(210, 20)
+        Me.TbRfcFis.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 84)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(28, 13)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "RFC"
         '
         'GbMovilizacion
         '
@@ -893,166 +1054,6 @@ Partial Class Clientes
         Me.Panel2.Size = New System.Drawing.Size(1000, 169)
         Me.Panel2.TabIndex = 0
         '
-        'GbDireccionMoral
-        '
-        Me.GbDireccionMoral.Controls.Add(Me.Label12)
-        Me.GbDireccionMoral.Controls.Add(Me.Label40)
-        Me.GbDireccionMoral.Controls.Add(Me.Label44)
-        Me.GbDireccionMoral.Controls.Add(Me.Label21)
-        Me.GbDireccionMoral.Controls.Add(Me.Label42)
-        Me.GbDireccionMoral.Controls.Add(Me.Label43)
-        Me.GbDireccionMoral.Controls.Add(Me.Label41)
-        Me.GbDireccionMoral.Controls.Add(Me.TbCelularMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.TbTelefonoMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.CbMunicipioMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.CbEstadoMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.TbColoniaMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.TbNumeroMoral)
-        Me.GbDireccionMoral.Controls.Add(Me.TbCalleMoral)
-        Me.GbDireccionMoral.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GbDireccionMoral.Location = New System.Drawing.Point(3, 3)
-        Me.GbDireccionMoral.Name = "GbDireccionMoral"
-        Me.GbDireccionMoral.Size = New System.Drawing.Size(492, 142)
-        Me.GbDireccionMoral.TabIndex = 2
-        Me.GbDireccionMoral.TabStop = False
-        Me.GbDireccionMoral.Text = "Direccion"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(261, 23)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(52, 13)
-        Me.Label12.TabIndex = 17
-        Me.Label12.Text = "Municipio"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(7, 97)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(40, 13)
-        Me.Label40.TabIndex = 16
-        Me.Label40.Text = "Estado"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(7, 23)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(30, 13)
-        Me.Label41.TabIndex = 15
-        Me.Label41.Text = "Calle"
-        '
-        'CbMunicipioMoral
-        '
-        Me.CbMunicipioMoral.FormattingEnabled = True
-        Me.CbMunicipioMoral.Location = New System.Drawing.Point(335, 20)
-        Me.CbMunicipioMoral.Name = "CbMunicipioMoral"
-        Me.CbMunicipioMoral.Size = New System.Drawing.Size(148, 21)
-        Me.CbMunicipioMoral.TabIndex = 14
-        '
-        'CbEstadoMoral
-        '
-        Me.CbEstadoMoral.FormattingEnabled = True
-        Me.CbEstadoMoral.Location = New System.Drawing.Point(81, 93)
-        Me.CbEstadoMoral.Name = "CbEstadoMoral"
-        Me.CbEstadoMoral.Size = New System.Drawing.Size(148, 21)
-        Me.CbEstadoMoral.TabIndex = 13
-        '
-        'TbCalleMoral
-        '
-        Me.TbCalleMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCalleMoral.Location = New System.Drawing.Point(81, 20)
-        Me.TbCalleMoral.Name = "TbCalleMoral"
-        Me.TbCalleMoral.Size = New System.Drawing.Size(148, 20)
-        Me.TbCalleMoral.TabIndex = 12
-        '
-        'TbNumeroMoral
-        '
-        Me.TbNumeroMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNumeroMoral.Location = New System.Drawing.Point(81, 44)
-        Me.TbNumeroMoral.Name = "TbNumeroMoral"
-        Me.TbNumeroMoral.Size = New System.Drawing.Size(148, 20)
-        Me.TbNumeroMoral.TabIndex = 12
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(7, 47)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(24, 13)
-        Me.Label42.TabIndex = 15
-        Me.Label42.Text = "No."
-        '
-        'TbTelefonoMoral
-        '
-        Me.TbTelefonoMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbTelefonoMoral.Location = New System.Drawing.Point(335, 44)
-        Me.TbTelefonoMoral.Name = "TbTelefonoMoral"
-        Me.TbTelefonoMoral.Size = New System.Drawing.Size(148, 20)
-        Me.TbTelefonoMoral.TabIndex = 6
-        '
-        'TbCelularMoral
-        '
-        Me.TbCelularMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbCelularMoral.Location = New System.Drawing.Point(335, 69)
-        Me.TbCelularMoral.Name = "TbCelularMoral"
-        Me.TbCelularMoral.Size = New System.Drawing.Size(148, 20)
-        Me.TbCelularMoral.TabIndex = 7
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(261, 47)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(49, 13)
-        Me.Label43.TabIndex = 14
-        Me.Label43.Text = "Telefono"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(261, 72)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(39, 13)
-        Me.Label44.TabIndex = 15
-        Me.Label44.Text = "Celular"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(7, 71)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(42, 13)
-        Me.Label21.TabIndex = 15
-        Me.Label21.Text = "Colonia"
-        '
-        'TbColoniaMoral
-        '
-        Me.TbColoniaMoral.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbColoniaMoral.Location = New System.Drawing.Point(81, 68)
-        Me.TbColoniaMoral.Name = "TbColoniaMoral"
-        Me.TbColoniaMoral.Size = New System.Drawing.Size(148, 20)
-        Me.TbColoniaMoral.TabIndex = 12
-        '
-        'TbNombreApoderado
-        '
-        Me.TbNombreApoderado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNombreApoderado.Location = New System.Drawing.Point(80, 16)
-        Me.TbNombreApoderado.Name = "TbNombreApoderado"
-        Me.TbNombreApoderado.Size = New System.Drawing.Size(148, 20)
-        Me.TbNombreApoderado.TabIndex = 0
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(6, 19)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(44, 13)
-        Me.Label32.TabIndex = 1
-        Me.Label32.Text = "Nombre"
-        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1062,6 +1063,7 @@ Partial Class Clientes
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GbMovilizacion)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -1076,14 +1078,14 @@ Partial Class Clientes
         Me.TPPersonaMoral.ResumeLayout(False)
         Me.GbApoderado.ResumeLayout(False)
         Me.GbApoderado.PerformLayout()
+        Me.GbDireccionMoral.ResumeLayout(False)
+        Me.GbDireccionMoral.PerformLayout()
         Me.GbActaConstitutiva.ResumeLayout(False)
         Me.GbActaConstitutiva.PerformLayout()
         Me.GbMovilizacion.ResumeLayout(False)
         Me.GbMovilizacion.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        Me.GbDireccionMoral.ResumeLayout(False)
-        Me.GbDireccionMoral.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

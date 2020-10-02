@@ -91,6 +91,7 @@ Partial Class CompraPacasContrato
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
@@ -148,7 +149,6 @@ Partial Class CompraPacasContrato
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TP4IndividualCompradas = New System.Windows.Forms.TabPage()
         Me.DgvPacasIndCompradas = New System.Windows.Forms.DataGridView()
-        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -884,6 +884,13 @@ Partial Class CompraPacasContrato
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
         '
+        'EnviarEmailToolStripMenuItem
+        '
+        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
+        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
+        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
+        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
+        '
         'ConsultarToolStripMenuItem
         '
         Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
@@ -1172,7 +1179,7 @@ Partial Class CompraPacasContrato
         Me.TP3PacasAComprar.Location = New System.Drawing.Point(4, 22)
         Me.TP3PacasAComprar.Name = "TP3PacasAComprar"
         Me.TP3PacasAComprar.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP3PacasAComprar.Size = New System.Drawing.Size(988, 271)
+        Me.TP3PacasAComprar.Size = New System.Drawing.Size(641, 276)
         Me.TP3PacasAComprar.TabIndex = 2
         Me.TP3PacasAComprar.Text = "Pacas a Comprar"
         Me.TP3PacasAComprar.UseVisualStyleBackColor = True
@@ -1194,7 +1201,7 @@ Partial Class CompraPacasContrato
         Me.DgvPacasComprar.RowHeadersVisible = False
         Me.DgvPacasComprar.RowHeadersWidth = 40
         Me.DgvPacasComprar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasComprar.Size = New System.Drawing.Size(982, 220)
+        Me.DgvPacasComprar.Size = New System.Drawing.Size(635, 225)
         Me.DgvPacasComprar.TabIndex = 15
         '
         'GbFiltrado
@@ -1210,14 +1217,14 @@ Partial Class CompraPacasContrato
         Me.GbFiltrado.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbFiltrado.Location = New System.Drawing.Point(3, 3)
         Me.GbFiltrado.Name = "GbFiltrado"
-        Me.GbFiltrado.Size = New System.Drawing.Size(982, 45)
+        Me.GbFiltrado.Size = New System.Drawing.Size(635, 45)
         Me.GbFiltrado.TabIndex = 3
         Me.GbFiltrado.TabStop = False
         '
         'BtReiniciaFiltro
         '
         Me.BtReiniciaFiltro.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtReiniciaFiltro.Location = New System.Drawing.Point(892, 16)
+        Me.BtReiniciaFiltro.Location = New System.Drawing.Point(545, 16)
         Me.BtReiniciaFiltro.MaximumSize = New System.Drawing.Size(87, 23)
         Me.BtReiniciaFiltro.MinimumSize = New System.Drawing.Size(87, 23)
         Me.BtReiniciaFiltro.Name = "BtReiniciaFiltro"
@@ -1496,7 +1503,7 @@ Partial Class CompraPacasContrato
         Me.TP4IndividualCompradas.Location = New System.Drawing.Point(4, 22)
         Me.TP4IndividualCompradas.Name = "TP4IndividualCompradas"
         Me.TP4IndividualCompradas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP4IndividualCompradas.Size = New System.Drawing.Size(747, 271)
+        Me.TP4IndividualCompradas.Size = New System.Drawing.Size(747, 276)
         Me.TP4IndividualCompradas.TabIndex = 3
         Me.TP4IndividualCompradas.Text = "Individual Compradas (por paca)"
         Me.TP4IndividualCompradas.UseVisualStyleBackColor = True
@@ -1518,15 +1525,8 @@ Partial Class CompraPacasContrato
         Me.DgvPacasIndCompradas.RowHeadersVisible = False
         Me.DgvPacasIndCompradas.RowHeadersWidth = 40
         Me.DgvPacasIndCompradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasIndCompradas.Size = New System.Drawing.Size(741, 220)
+        Me.DgvPacasIndCompradas.Size = New System.Drawing.Size(741, 225)
         Me.DgvPacasIndCompradas.TabIndex = 14
-        '
-        'EnviarEmailToolStripMenuItem
-        '
-        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
-        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
-        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
-        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
         '
         'CompraPacasContrato
         '
@@ -1538,6 +1538,7 @@ Partial Class CompraPacasContrato
         Me.Controls.Add(Me.GbCompras)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1415, 651)
         Me.Name = "CompraPacasContrato"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

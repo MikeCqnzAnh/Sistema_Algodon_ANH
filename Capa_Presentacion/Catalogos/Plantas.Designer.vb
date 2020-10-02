@@ -22,6 +22,7 @@ Partial Class Plantas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Plantas))
         Me.LbID = New System.Windows.Forms.Label()
         Me.TbIdPlanta = New System.Windows.Forms.TextBox()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
@@ -181,6 +182,7 @@ Partial Class Plantas
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.DgvPlantas)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Plantas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

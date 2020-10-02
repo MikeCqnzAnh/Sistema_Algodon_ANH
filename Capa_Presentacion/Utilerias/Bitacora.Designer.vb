@@ -23,6 +23,7 @@ Partial Class Bitacora
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Bitacora))
         Me.PDatos = New System.Windows.Forms.Panel()
         Me.DgvBitacora = New System.Windows.Forms.DataGridView()
         Me.GbFiltros = New System.Windows.Forms.GroupBox()
@@ -248,6 +249,7 @@ Partial Class Bitacora
         Me.Controls.Add(Me.PDatos)
         Me.Controls.Add(Me.GbFiltros)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Bitacora"
         Me.Text = "Bitacora"

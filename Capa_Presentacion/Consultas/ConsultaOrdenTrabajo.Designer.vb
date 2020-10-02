@@ -22,6 +22,7 @@ Partial Class ConsultaOrdenTrabajo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaOrdenTrabajo))
         Me.BtSalir = New System.Windows.Forms.Button()
         Me.BtAceptar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -95,6 +96,7 @@ Partial Class ConsultaOrdenTrabajo
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TbOrden)
         Me.Controls.Add(Me.DgvConsultaOrden)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaOrdenTrabajo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ConsultaOrdenTrabajo"

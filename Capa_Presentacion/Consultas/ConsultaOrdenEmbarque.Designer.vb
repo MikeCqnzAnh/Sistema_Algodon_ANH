@@ -22,6 +22,7 @@ Partial Class ConsultaOrdenEmbarque
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaOrdenEmbarque))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbIdEmbarque = New System.Windows.Forms.TextBox()
@@ -116,6 +117,7 @@ Partial Class ConsultaOrdenEmbarque
         Me.ClientSize = New System.Drawing.Size(1327, 437)
         Me.Controls.Add(Me.DgvConsultaEmbarque)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaOrdenEmbarque"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Consulta Orden de Embarque"

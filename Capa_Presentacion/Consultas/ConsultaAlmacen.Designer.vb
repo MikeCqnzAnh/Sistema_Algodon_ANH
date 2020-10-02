@@ -22,6 +22,7 @@ Partial Class ConsultaAlmacen
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaAlmacen))
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.BtBuscar = New System.Windows.Forms.Button()
         Me.TbAlmacen = New System.Windows.Forms.TextBox()
@@ -116,6 +117,7 @@ Partial Class ConsultaAlmacen
         Me.ClientSize = New System.Drawing.Size(818, 430)
         Me.Controls.Add(Me.DgvAlmacenes)
         Me.Controls.Add(Me.GbDatosGenerales)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(834, 469)
         Me.Name = "ConsultaAlmacen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

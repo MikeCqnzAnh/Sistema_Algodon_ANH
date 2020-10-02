@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.71.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.75.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -1112,17 +1112,17 @@
     <Compile Include="Configuracion\ConfiguraConexionInicial.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\CrearEstructura.Designer.vb">
+    <Compile Include="Configuracion\CrearEstructura.Designer.vb">
       <DependentUpon>CrearEstructura.vb</DependentUpon>
     </Compile>
-    <Compile Include="Utilerias\CrearEstructura.vb">
+    <Compile Include="Configuracion\CrearEstructura.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos Funciones\Encriptar.vb" />
-    <Compile Include="Utilerias\ImportarCatalogos.Designer.vb">
+    <Compile Include="Configuracion\ImportarCatalogos.Designer.vb">
       <DependentUpon>ImportarCatalogos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Utilerias\ImportarCatalogos.vb">
+    <Compile Include="Configuracion\ImportarCatalogos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilerias\Monedas.Designer.vb">
@@ -1155,10 +1155,10 @@
     <Compile Include="Utilerias\RutaDocumentos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utilerias\SeleccionaConexion.Designer.vb">
+    <Compile Include="Configuracion\SeleccionaConexion.Designer.vb">
       <DependentUpon>SeleccionaConexion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Utilerias\SeleccionaConexion.vb">
+    <Compile Include="Configuracion\SeleccionaConexion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulos Funciones\VarGlob.vb" />
@@ -1685,10 +1685,10 @@
     <EmbeddedResource Include="Configuracion\ConfiguraConexionInicial.resx">
       <DependentUpon>ConfiguraConexionInicial.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilerias\CrearEstructura.resx">
+    <EmbeddedResource Include="Configuracion\CrearEstructura.resx">
       <DependentUpon>CrearEstructura.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilerias\ImportarCatalogos.resx">
+    <EmbeddedResource Include="Configuracion\ImportarCatalogos.resx">
       <DependentUpon>ImportarCatalogos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Monedas.resx">
@@ -1706,7 +1706,7 @@
     <EmbeddedResource Include="Utilerias\RutaDocumentos.resx">
       <DependentUpon>RutaDocumentos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Utilerias\SeleccionaConexion.resx">
+    <EmbeddedResource Include="Configuracion\SeleccionaConexion.resx">
       <DependentUpon>SeleccionaConexion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\VerificaAutorizacion.resx">
@@ -1758,10 +1758,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Capa_Datos\Capa_Datos.vbproj">
-      <Project>{07c8185b-0838-4052-993f-a6142e682b21}</Project>
-      <Name>Capa_Datos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Capa_Entidad\Capa_Entidad.vbproj">
       <Project>{3de26638-6ead-4d20-b52f-3eed4039a544}</Project>
       <Name>Capa_Entidad</Name>

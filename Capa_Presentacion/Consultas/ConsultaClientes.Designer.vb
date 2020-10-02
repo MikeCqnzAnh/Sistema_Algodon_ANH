@@ -22,12 +22,13 @@ Partial Class ConsultaClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaClientes))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvConsultaClientes = New System.Windows.Forms.DataGridView()
         Me.BtBuscar = New System.Windows.Forms.Button()
         Me.GbParametros = New System.Windows.Forms.GroupBox()
-        Me.TbIdCliente = New System.Windows.Forms.TextBox()
         Me.TbNombre = New System.Windows.Forms.TextBox()
+        Me.TbIdCliente = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DgvConsultaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbParametros.SuspendLayout()
@@ -86,14 +87,6 @@ Partial Class ConsultaClientes
         Me.GbParametros.TabIndex = 12
         Me.GbParametros.TabStop = False
         '
-        'TbIdCliente
-        '
-        Me.TbIdCliente.Location = New System.Drawing.Point(75, 30)
-        Me.TbIdCliente.MaxLength = 10
-        Me.TbIdCliente.Name = "TbIdCliente"
-        Me.TbIdCliente.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdCliente.TabIndex = 12
-        '
         'TbNombre
         '
         Me.TbNombre.Location = New System.Drawing.Point(286, 30)
@@ -101,6 +94,14 @@ Partial Class ConsultaClientes
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(440, 20)
         Me.TbNombre.TabIndex = 12
+        '
+        'TbIdCliente
+        '
+        Me.TbIdCliente.Location = New System.Drawing.Point(75, 30)
+        Me.TbIdCliente.MaxLength = 10
+        Me.TbIdCliente.Name = "TbIdCliente"
+        Me.TbIdCliente.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdCliente.TabIndex = 12
         '
         'Label2
         '
@@ -118,6 +119,7 @@ Partial Class ConsultaClientes
         Me.ClientSize = New System.Drawing.Size(1070, 610)
         Me.Controls.Add(Me.DgvConsultaClientes)
         Me.Controls.Add(Me.GbParametros)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta de Clientes"

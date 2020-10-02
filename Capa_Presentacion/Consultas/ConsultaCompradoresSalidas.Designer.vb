@@ -22,6 +22,7 @@ Partial Class ConsultaCompradoresSalidas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaCompradoresSalidas))
         Me.BtConsultar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbNombre = New System.Windows.Forms.TextBox()
@@ -95,6 +96,7 @@ Partial Class ConsultaCompradoresSalidas
         Me.ClientSize = New System.Drawing.Size(734, 392)
         Me.Controls.Add(Me.DgvConsultaCompradores)
         Me.Controls.Add(Me.Panel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaCompradoresSalidas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Consulta Compradores "

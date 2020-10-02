@@ -23,6 +23,7 @@ Partial Class ConfiguracionParametros
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConfiguracionParametros))
         Me.PanelParametrosBascula = New System.Windows.Forms.Panel()
         Me.GbPruebaSerial = New System.Windows.Forms.GroupBox()
         Me.TbCadenaPuertoSerial = New System.Windows.Forms.TextBox()
@@ -108,6 +109,8 @@ Partial Class ConfiguracionParametros
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GbDatosDolar = New System.Windows.Forms.GroupBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.TbToken = New System.Windows.Forms.TextBox()
         Me.TbSitioBanxico = New System.Windows.Forms.TextBox()
         Me.TbIdConfiguracionBanxico = New System.Windows.Forms.TextBox()
         Me.GbPuerto = New System.Windows.Forms.GroupBox()
@@ -133,8 +136,6 @@ Partial Class ConfiguracionParametros
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.TbToken = New System.Windows.Forms.TextBox()
-        Me.Label44 = New System.Windows.Forms.Label()
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPruebaSerial.SuspendLayout()
         Me.GbResultado.SuspendLayout()
@@ -1054,6 +1055,23 @@ Partial Class ConfiguracionParametros
         Me.GbDatosDolar.TabStop = False
         Me.GbDatosDolar.Text = "Datos para captura automatica de precio del dolar"
         '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(9, 75)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(41, 13)
+        Me.Label44.TabIndex = 6
+        Me.Label44.Text = "Token:"
+        '
+        'TbToken
+        '
+        Me.TbToken.Location = New System.Drawing.Point(122, 72)
+        Me.TbToken.Name = "TbToken"
+        Me.TbToken.Size = New System.Drawing.Size(470, 20)
+        Me.TbToken.TabIndex = 5
+        '
         'TbSitioBanxico
         '
         Me.TbSitioBanxico.Location = New System.Drawing.Point(122, 20)
@@ -1239,23 +1257,6 @@ Partial Class ConfiguracionParametros
         'SpCapturaAuto
         '
         '
-        'TbToken
-        '
-        Me.TbToken.Location = New System.Drawing.Point(122, 72)
-        Me.TbToken.Name = "TbToken"
-        Me.TbToken.Size = New System.Drawing.Size(470, 20)
-        Me.TbToken.TabIndex = 5
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(9, 75)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(41, 13)
-        Me.Label44.TabIndex = 6
-        Me.Label44.Text = "Token:"
-        '
         'ConfiguracionParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1265,6 +1266,7 @@ Partial Class ConfiguracionParametros
         Me.Controls.Add(Me.PanelParametrosBascula)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MinimumSize = New System.Drawing.Size(1134, 671)
         Me.Name = "ConfiguracionParametros"

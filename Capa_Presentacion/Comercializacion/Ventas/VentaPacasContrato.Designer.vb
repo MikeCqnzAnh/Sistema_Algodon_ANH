@@ -141,6 +141,7 @@ Partial Class VentaPacasContrato
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.BtExcel = New System.Windows.Forms.Button()
         Me.BtSeleccionar2 = New System.Windows.Forms.Button()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -170,7 +171,6 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.BtExcel = New System.Windows.Forms.Button()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1449,6 +1449,17 @@ Partial Class VentaPacasContrato
         Me.Panel5.Size = New System.Drawing.Size(44, 281)
         Me.Panel5.TabIndex = 3
         '
+        'BtExcel
+        '
+        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
+        Me.BtExcel.Name = "BtExcel"
+        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
+        Me.BtExcel.TabIndex = 3
+        Me.BtExcel.Text = "..."
+        Me.BtExcel.UseVisualStyleBackColor = True
+        '
         'BtSeleccionar2
         '
         Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
@@ -1781,17 +1792,6 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'BtExcel
-        '
-        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
-        Me.BtExcel.Name = "BtExcel"
-        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
-        Me.BtExcel.TabIndex = 3
-        Me.BtExcel.Text = "..."
-        Me.BtExcel.UseVisualStyleBackColor = True
-        '
         'VentaPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1802,6 +1802,7 @@ Partial Class VentaPacasContrato
         Me.Controls.Add(Me.GbCompras)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1415, 651)
         Me.Name = "VentaPacasContrato"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
