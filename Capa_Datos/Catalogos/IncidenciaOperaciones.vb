@@ -31,7 +31,7 @@ Public Class IncidenciaOperaciones
         Dim EntidadIncidenciaOperaciones1 = New Capa_Entidad.IncidenciaOperaciones
         EntidadIncidenciaOperaciones1 = EntidadIncidenciaOperaciones
         EntidadIncidenciaOperaciones1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

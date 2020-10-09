@@ -31,7 +31,7 @@ Public Class Rendimientos
         Dim EntidadRendimientos1 = New Capa_Entidad.Rendimientos
         EntidadRendimientos1 = EntidadRendimientos
         EntidadRendimientos1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

@@ -22,6 +22,7 @@ Partial Class ClaveAutorizacion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ClaveAutorizacion))
         Me.TbClave = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BtActualizarClave = New System.Windows.Forms.Button()
@@ -64,6 +65,7 @@ Partial Class ClaveAutorizacion
         Me.Controls.Add(Me.BtActualizarClave)
         Me.Controls.Add(Me.TbClave)
         Me.Controls.Add(Me.Label2)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(551, 335)
         Me.MinimumSize = New System.Drawing.Size(551, 335)
         Me.Name = "ClaveAutorizacion"

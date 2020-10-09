@@ -22,6 +22,7 @@ Partial Class CastigosResistenciaFibra
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CastigosResistenciaFibra))
         Me.DgvCastigoResistenciaFibra = New System.Windows.Forms.DataGridView()
         CType(Me.DgvCastigoResistenciaFibra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,6 +53,7 @@ Partial Class CastigosResistenciaFibra
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(425, 491)
         Me.Controls.Add(Me.DgvCastigoResistenciaFibra)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CastigosResistenciaFibra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Castigos por resistencia de fibra"

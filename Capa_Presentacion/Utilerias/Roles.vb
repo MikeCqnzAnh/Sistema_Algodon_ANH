@@ -137,7 +137,7 @@ Public Class Roles
         Next
 
     End Sub
-    Private Sub Bt_Click(sender As Object, e As EventArgs) Handles Bt.Click
+    Private Sub Bt_Click(sender As Object, e As EventArgs)
         'RecorrerTV()
     End Sub
 

@@ -30,7 +30,7 @@ Public Class TiposIncidencias
         Dim EntidadTiposIncidencias1 As New Capa_Entidad.TiposIncidencias
         EntidadTiposIncidencias1 = EntidadTiposIncidencias
         EntidadTiposIncidencias1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

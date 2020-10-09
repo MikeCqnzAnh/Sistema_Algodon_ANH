@@ -31,7 +31,7 @@ Public Class Empleados
         Dim EntidadEmpleados1 = New Capa_Entidad.Empleados
         EntidadEmpleados1 = EntidadEmpleados
         EntidadEmpleados1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

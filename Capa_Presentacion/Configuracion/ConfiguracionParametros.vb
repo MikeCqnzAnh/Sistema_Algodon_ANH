@@ -123,7 +123,6 @@ Public Class ConfiguracionParametros
         NuPacasCaracterBruto.Value = 0
         NuPacasCaracterTara.Value = 0
         NuPacasCaracterNeto.Value = 0
-        TbIdSerieBanxico.Text = ""
         NuPesoMinimoPaca.Value = 0
         CbPlantaElabora.SelectedValue = 0
     End Sub
@@ -272,7 +271,7 @@ Public Class ConfiguracionParametros
         End Try
     End Sub
     Private Sub ModificarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModificarToolStripMenuItem.Click
-        Dim opc As DialogResult = MsgBox("¿Desea modificar campos al registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+        Dim opc As DialogResult = MsgBox("¿Desea modificar campos al registro?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Aviso")
         If opc = DialogResult.Yes Then
             PanelParametrosBascula.Enabled = True
         ElseIf opc = DialogResult.No Then
@@ -331,7 +330,7 @@ Public Class ConfiguracionParametros
         'While bandera = True
         Dim TipoFlete As String = ""
         Dim returnStr As String = ""
-        Dim FechaActualizacion As DateTime
+        'Dim FechaActualizacion As DateTime
         Dim numeroRecorrido As Integer = 0
         Dim az As String     'utilizada para almacenar los datos que se reciben por el puerto
         Dim sib As Integer    ' sera utilizada como contador

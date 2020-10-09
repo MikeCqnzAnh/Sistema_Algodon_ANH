@@ -22,6 +22,7 @@ Partial Class ModalidadesCompra
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModalidadesCompra))
         Me.MsMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +46,7 @@ Partial Class ModalidadesCompra
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -189,6 +191,7 @@ Partial Class ModalidadesCompra
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DgvModosCompra)
         Me.Controls.Add(Me.MsMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MsMenu
         Me.Name = "ModalidadesCompra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

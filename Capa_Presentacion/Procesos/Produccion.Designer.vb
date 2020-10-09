@@ -26,6 +26,7 @@ Partial Class Produccion
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Produccion))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,7 +66,9 @@ Partial Class Produccion
         Me.CbOperador = New System.Windows.Forms.ComboBox()
         Me.CbTurno = New System.Windows.Forms.ComboBox()
         Me.GbModulos = New System.Windows.Forms.GroupBox()
+        Me.TbTotalKilos = New System.Windows.Forms.TextBox()
         Me.TbTotalPacas = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.TbTotalModulos = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -94,8 +97,6 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.TbTotalKilos = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -112,6 +113,7 @@ Partial Class Produccion
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -482,6 +484,14 @@ Partial Class Produccion
         Me.GbModulos.TabStop = False
         Me.GbModulos.Text = "Modulos"
         '
+        'TbTotalKilos
+        '
+        Me.TbTotalKilos.Enabled = False
+        Me.TbTotalKilos.Location = New System.Drawing.Point(481, 80)
+        Me.TbTotalKilos.Name = "TbTotalKilos"
+        Me.TbTotalKilos.Size = New System.Drawing.Size(100, 20)
+        Me.TbTotalKilos.TabIndex = 56
+        '
         'TbTotalPacas
         '
         Me.TbTotalPacas.Enabled = False
@@ -489,6 +499,15 @@ Partial Class Produccion
         Me.TbTotalPacas.Name = "TbTotalPacas"
         Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalPacas.TabIndex = 56
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(397, 83)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(71, 13)
+        Me.Label11.TabIndex = 56
+        Me.Label11.Text = "Total de Kilos"
         '
         'TbTotalModulos
         '
@@ -808,23 +827,6 @@ Partial Class Produccion
         'SpCapturaAutomatica
         '
         '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(397, 83)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(71, 13)
-        Me.Label11.TabIndex = 56
-        Me.Label11.Text = "Total de Kilos"
-        '
-        'TbTotalKilos
-        '
-        Me.TbTotalKilos.Enabled = False
-        Me.TbTotalKilos.Location = New System.Drawing.Point(481, 80)
-        Me.TbTotalKilos.Name = "TbTotalKilos"
-        Me.TbTotalKilos.Size = New System.Drawing.Size(100, 20)
-        Me.TbTotalKilos.TabIndex = 56
-        '
         'Produccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -834,6 +836,7 @@ Partial Class Produccion
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Produccion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

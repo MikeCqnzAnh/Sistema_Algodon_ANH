@@ -22,7 +22,9 @@ Partial Class CastigoMicros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CastigoMicros))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DgvMicrosDetalle = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.BtAgregar = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -46,8 +48,8 @@ Partial Class CastigoMicros
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DgvMicrosDetalle = New System.Windows.Forms.DataGridView()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.DgvMicrosDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +58,6 @@ Partial Class CastigoMicros
         CType(Me.DgvMicrosEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MsMenu.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DgvMicrosDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -70,6 +71,17 @@ Partial Class CastigoMicros
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles"
+        '
+        'DgvMicrosDetalle
+        '
+        Me.DgvMicrosDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvMicrosDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvMicrosDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvMicrosDetalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvMicrosDetalle.Location = New System.Drawing.Point(3, 83)
+        Me.DgvMicrosDetalle.Name = "DgvMicrosDetalle"
+        Me.DgvMicrosDetalle.Size = New System.Drawing.Size(719, 472)
+        Me.DgvMicrosDetalle.TabIndex = 1
         '
         'GroupBox4
         '
@@ -262,6 +274,7 @@ Partial Class CastigoMicros
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -297,17 +310,6 @@ Partial Class CastigoMicros
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Modos de Castigo"
         '
-        'DgvMicrosDetalle
-        '
-        Me.DgvMicrosDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvMicrosDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvMicrosDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvMicrosDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvMicrosDetalle.Location = New System.Drawing.Point(3, 83)
-        Me.DgvMicrosDetalle.Name = "DgvMicrosDetalle"
-        Me.DgvMicrosDetalle.Size = New System.Drawing.Size(719, 472)
-        Me.DgvMicrosDetalle.TabIndex = 1
-        '
         'CastigoMicros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -317,10 +319,12 @@ Partial Class CastigoMicros
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MsMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CastigoMicros"
         Me.Text = "Castigos Por Micros"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.DgvMicrosDetalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -332,7 +336,6 @@ Partial Class CastigoMicros
         Me.MsMenu.ResumeLayout(False)
         Me.MsMenu.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        CType(Me.DgvMicrosDetalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

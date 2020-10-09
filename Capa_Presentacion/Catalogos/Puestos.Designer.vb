@@ -41,6 +41,7 @@ Partial Class Puestos
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -73,9 +74,10 @@ Partial Class Puestos
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdPuesto)
         Me.GbDatosGenerales.Controls.Add(Me.LbID)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 103)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(982, 103)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -140,15 +142,16 @@ Partial Class Puestos
         Me.DgvPuestos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPuestos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPuestos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPuestos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvPuestos.Location = New System.Drawing.Point(12, 136)
+        Me.DgvPuestos.Location = New System.Drawing.Point(0, 127)
         Me.DgvPuestos.MultiSelect = False
         Me.DgvPuestos.Name = "DgvPuestos"
         Me.DgvPuestos.ReadOnly = True
         Me.DgvPuestos.RowHeadersVisible = False
         Me.DgvPuestos.RowHeadersWidth = 40
         Me.DgvPuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPuestos.Size = New System.Drawing.Size(957, 266)
+        Me.DgvPuestos.Size = New System.Drawing.Size(982, 288)
         Me.DgvPuestos.TabIndex = 12
         '
         'Puestos

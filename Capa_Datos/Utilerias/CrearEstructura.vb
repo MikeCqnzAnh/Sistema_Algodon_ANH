@@ -60,7 +60,7 @@ Public Class CrearEstructura
         EntidadCrearEstructura1 = EntidadCrearEstructura
         Dim cnn As New SqlConnection(conexionMasterExportarEstructura(EntidadCrearEstructura.Instancia, EntidadCrearEstructura.Usuario, EntidadCrearEstructura.Password))
         EntidadCrearEstructura1.TablaConsulta = New DataTable()
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try
             cnn.Open()
@@ -103,7 +103,7 @@ Public Class CrearEstructura
         Dim cnn As New SqlConnection(conexionMasterExportarRegistros(EntidadCrearEstructura.Instancia, EntidadCrearEstructura.BaseDeDatos, EntidadCrearEstructura.Usuario, EntidadCrearEstructura.Password))
         EntidadCrearEstructura1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
-        Dim sqldat1 As SqlDataAdapter
+        'Dim sqldat1 As SqlDataAdapter
         Try
             cnn.Open()
             Select Case EntidadCrearEstructura1.Importa

@@ -10,6 +10,7 @@ Public Class ConsultaClientes
         End Set
     End Property
     Private Sub ConsultaClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TbIdCliente.Select()
         ConsultarClientes()
     End Sub
     Private Sub ConsultarClientes()
@@ -38,7 +39,7 @@ Public Class ConsultaClientes
         End If
     End Sub
 
-    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown
+    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown, TbIdCliente.KeyDown
         If e.KeyCode = Keys.Enter Then
             ConsultarClientes()
         End If

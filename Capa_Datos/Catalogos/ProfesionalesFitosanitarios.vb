@@ -30,7 +30,7 @@ Public Class ProfesionalesFitosanitarios
         Dim EntidadProfesionalesFitosanitarios1 = New Capa_Entidad.ProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1 = EntidadProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

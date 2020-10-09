@@ -239,6 +239,7 @@ Public Class CargaPacasExternas
             MsgBox("No hay Pacas para registrar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
     End Sub
+
     Private Sub GuardarOrdenTrabajoEnc()
         Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
@@ -378,9 +379,20 @@ Public Class CargaPacasExternas
             EntidadProduccion.LargoFibra = 0
             EntidadProduccion.ResistenciaFibra = 0
             NegocioProduccion.GuardarDetalle(EntidadProduccion)
+            ActualizarUltimaEtiqueta(NoPaca)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Private Sub ActualizarUltimaEtiqueta(ByVal NoPaca As Integer)
+        'If CkLeersaco.CheckState = False Then
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+        EntidadProduccion.FolioCIA = NoPaca
+        NegocioProduccion.GuardarEtiqueta(EntidadProduccion)
+        'End If
     End Sub
     Private Sub ObtieneOrdentrabajoPaca()
         If DgvPacas.Rows.Count > 0 Then

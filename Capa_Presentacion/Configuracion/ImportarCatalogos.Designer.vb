@@ -23,6 +23,7 @@ Partial Class ImportarCatalogos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ImportarCatalogos))
         Me.BtIniciar = New System.Windows.Forms.Button()
         Me.GbEstableceDatos = New System.Windows.Forms.GroupBox()
         Me.GbDestino = New System.Windows.Forms.GroupBox()
@@ -342,6 +343,7 @@ Partial Class ImportarCatalogos
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -370,6 +372,7 @@ Partial Class ImportarCatalogos
         Me.Controls.Add(Me.GbEstableceDatos)
         Me.Controls.Add(Me.BtIniciar)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ImportarCatalogos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

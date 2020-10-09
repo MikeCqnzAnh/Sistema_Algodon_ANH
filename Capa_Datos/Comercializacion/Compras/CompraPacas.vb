@@ -33,7 +33,7 @@ Public Class CompraPacas
         Dim EntidadCompraPacas1 As New Capa_Entidad.VentaPacas
         EntidadCompraPacas1 = EntidadCompraPacas
         EntidadCompraPacas1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

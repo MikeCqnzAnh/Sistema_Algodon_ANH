@@ -297,6 +297,7 @@ Public Class OrdenEmbarquePacas
             EntidadOrdenEmbarquePacas.Fecha = DtpFecha.Value
             NegocioOrdenEmbarquePacas.Guardar(EntidadOrdenEmbarquePacas)
             TbIdEmbarque.Text = EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado
+            MsgBox("Guardado con exito", MsgBoxStyle.Information, "Aviso")
             GbProceso.Enabled = True
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, "SE REMOVIERON " & DgvPacasEmbarcadas.Rows.Count & " PACAS PARA EL COMPRADOR " & TbNombreComprador.Text & ".")
         Catch ex As Exception

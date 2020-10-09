@@ -44,20 +44,33 @@ Partial Class VentaPago
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TbSumaCastigo = New System.Windows.Forms.TextBox()
         Me.GbCastigos = New System.Windows.Forms.GroupBox()
-        Me.TbPrepLevel1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
         Me.TbBerkLevel1 = New System.Windows.Forms.TextBox()
-        Me.TbPlasticLevel2 = New System.Windows.Forms.TextBox()
-        Me.TbOtherLevel2 = New System.Windows.Forms.TextBox()
-        Me.TbPrepLevel2 = New System.Windows.Forms.TextBox()
-        Me.TbBerkLevel2 = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TbPrepLevel1 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TbOtherLevel1 = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.TbPlasticLevel1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TbCastigoxresistencia = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TbCastigoxmicro = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.TbCastigoxUI = New System.Windows.Forms.TextBox()
         Me.TbCastigoxlargo = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.TbCastigoxUI = New System.Windows.Forms.TextBox()
-        Me.TbCastigoxmicro = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TbBerkLevel2 = New System.Windows.Forms.TextBox()
+        Me.TbPrepLevel2 = New System.Windows.Forms.TextBox()
+        Me.TbOtherLevel2 = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TbPlasticLevel2 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.DgvResumenPagoPacas = New System.Windows.Forms.DataGridView()
         Me.TbNombreComprador = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -77,30 +90,17 @@ Partial Class VentaPago
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.TbOtherLevel1 = New System.Windows.Forms.TextBox()
-        Me.TbPlasticLevel1 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPagoFinal.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'GbDatosGenerales
@@ -344,15 +344,33 @@ Partial Class VentaPago
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Castigos"
         '
-        'TbPrepLevel1
+        'GroupBox2
         '
-        Me.TbPrepLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbPrepLevel1.Location = New System.Drawing.Point(9, 79)
-        Me.TbPrepLevel1.Name = "TbPrepLevel1"
-        Me.TbPrepLevel1.ReadOnly = True
-        Me.TbPrepLevel1.Size = New System.Drawing.Size(84, 22)
-        Me.TbPrepLevel1.TabIndex = 11
-        Me.TbPrepLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.GroupBox2.Controls.Add(Me.Label22)
+        Me.GroupBox2.Controls.Add(Me.TbBerkLevel1)
+        Me.GroupBox2.Controls.Add(Me.Label25)
+        Me.GroupBox2.Controls.Add(Me.TbPrepLevel1)
+        Me.GroupBox2.Controls.Add(Me.Label24)
+        Me.GroupBox2.Controls.Add(Me.TbOtherLevel1)
+        Me.GroupBox2.Controls.Add(Me.Label23)
+        Me.GroupBox2.Controls.Add(Me.TbPlasticLevel1)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(110, 22)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(136, 202)
+        Me.GroupBox2.TabIndex = 17
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Mat. Ext. Nivel 1"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label22.Location = New System.Drawing.Point(6, 23)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(32, 15)
+        Me.Label22.TabIndex = 14
+        Me.Label22.Text = "Bark"
         '
         'TbBerkLevel1
         '
@@ -364,46 +382,82 @@ Partial Class VentaPago
         Me.TbBerkLevel1.TabIndex = 10
         Me.TbBerkLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbPlasticLevel2
+        'Label25
         '
-        Me.TbPlasticLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbPlasticLevel2.Location = New System.Drawing.Point(9, 168)
-        Me.TbPlasticLevel2.Name = "TbPlasticLevel2"
-        Me.TbPlasticLevel2.ReadOnly = True
-        Me.TbPlasticLevel2.Size = New System.Drawing.Size(84, 22)
-        Me.TbPlasticLevel2.TabIndex = 9
-        Me.TbPlasticLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label25.Location = New System.Drawing.Point(6, 151)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(43, 15)
+        Me.Label25.TabIndex = 15
+        Me.Label25.Text = "Plastic"
         '
-        'TbOtherLevel2
+        'TbPrepLevel1
         '
-        Me.TbOtherLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbOtherLevel2.Location = New System.Drawing.Point(9, 123)
-        Me.TbOtherLevel2.Name = "TbOtherLevel2"
-        Me.TbOtherLevel2.ReadOnly = True
-        Me.TbOtherLevel2.Size = New System.Drawing.Size(84, 22)
-        Me.TbOtherLevel2.TabIndex = 8
-        Me.TbOtherLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbPrepLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbPrepLevel1.Location = New System.Drawing.Point(9, 79)
+        Me.TbPrepLevel1.Name = "TbPrepLevel1"
+        Me.TbPrepLevel1.ReadOnly = True
+        Me.TbPrepLevel1.Size = New System.Drawing.Size(84, 22)
+        Me.TbPrepLevel1.TabIndex = 11
+        Me.TbPrepLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TbPrepLevel2
+        'Label24
         '
-        Me.TbPrepLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbPrepLevel2.Location = New System.Drawing.Point(9, 78)
-        Me.TbPrepLevel2.Name = "TbPrepLevel2"
-        Me.TbPrepLevel2.ReadOnly = True
-        Me.TbPrepLevel2.Size = New System.Drawing.Size(84, 22)
-        Me.TbPrepLevel2.TabIndex = 7
-        Me.TbPrepLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label24.Location = New System.Drawing.Point(6, 106)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(37, 15)
+        Me.Label24.TabIndex = 15
+        Me.Label24.Text = "Other"
         '
-        'TbBerkLevel2
+        'TbOtherLevel1
         '
-        Me.TbBerkLevel2.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.TbBerkLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbBerkLevel2.Location = New System.Drawing.Point(9, 40)
-        Me.TbBerkLevel2.Name = "TbBerkLevel2"
-        Me.TbBerkLevel2.ReadOnly = True
-        Me.TbBerkLevel2.Size = New System.Drawing.Size(84, 22)
-        Me.TbBerkLevel2.TabIndex = 6
-        Me.TbBerkLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbOtherLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbOtherLevel1.Location = New System.Drawing.Point(9, 124)
+        Me.TbOtherLevel1.Name = "TbOtherLevel1"
+        Me.TbOtherLevel1.ReadOnly = True
+        Me.TbOtherLevel1.Size = New System.Drawing.Size(84, 22)
+        Me.TbOtherLevel1.TabIndex = 12
+        Me.TbOtherLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label23.Location = New System.Drawing.Point(6, 63)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(33, 15)
+        Me.Label23.TabIndex = 15
+        Me.Label23.Text = "Prep"
+        '
+        'TbPlasticLevel1
+        '
+        Me.TbPlasticLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbPlasticLevel1.Location = New System.Drawing.Point(9, 169)
+        Me.TbPlasticLevel1.Name = "TbPlasticLevel1"
+        Me.TbPlasticLevel1.ReadOnly = True
+        Me.TbPlasticLevel1.Size = New System.Drawing.Size(84, 22)
+        Me.TbPlasticLevel1.TabIndex = 13
+        Me.TbPlasticLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.TbCastigoxresistencia)
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.TbCastigoxmicro)
+        Me.GroupBox3.Controls.Add(Me.Label14)
+        Me.GroupBox3.Controls.Add(Me.TbCastigoxUI)
+        Me.GroupBox3.Controls.Add(Me.TbCastigoxlargo)
+        Me.GroupBox3.Controls.Add(Me.Label13)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 22)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(107, 202)
+        Me.GroupBox3.TabIndex = 18
+        Me.GroupBox3.TabStop = False
         '
         'TbCastigoxresistencia
         '
@@ -415,6 +469,36 @@ Partial Class VentaPago
         Me.TbCastigoxresistencia.TabIndex = 5
         Me.TbCastigoxresistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(3, 63)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(44, 15)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "Micros"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(3, 25)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(75, 15)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Uniformidad"
+        '
+        'TbCastigoxmicro
+        '
+        Me.TbCastigoxmicro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbCastigoxmicro.Location = New System.Drawing.Point(6, 79)
+        Me.TbCastigoxmicro.Name = "TbCastigoxmicro"
+        Me.TbCastigoxmicro.ReadOnly = True
+        Me.TbCastigoxmicro.Size = New System.Drawing.Size(84, 22)
+        Me.TbCastigoxmicro.TabIndex = 1
+        Me.TbCastigoxmicro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
@@ -424,6 +508,16 @@ Partial Class VentaPago
         Me.Label14.Size = New System.Drawing.Size(100, 13)
         Me.Label14.TabIndex = 4
         Me.Label14.Text = "Resistencia de fibra"
+        '
+        'TbCastigoxUI
+        '
+        Me.TbCastigoxUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbCastigoxUI.Location = New System.Drawing.Point(6, 41)
+        Me.TbCastigoxUI.Name = "TbCastigoxUI"
+        Me.TbCastigoxUI.ReadOnly = True
+        Me.TbCastigoxUI.Size = New System.Drawing.Size(84, 22)
+        Me.TbCastigoxUI.TabIndex = 1
+        Me.TbCastigoxUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbCastigoxlargo
         '
@@ -445,45 +539,104 @@ Partial Class VentaPago
         Me.Label13.TabIndex = 2
         Me.Label13.Text = "Largo de fibra"
         '
-        'TbCastigoxUI
+        'GroupBox1
         '
-        Me.TbCastigoxUI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxUI.Location = New System.Drawing.Point(6, 41)
-        Me.TbCastigoxUI.Name = "TbCastigoxUI"
-        Me.TbCastigoxUI.ReadOnly = True
-        Me.TbCastigoxUI.Size = New System.Drawing.Size(84, 22)
-        Me.TbCastigoxUI.TabIndex = 1
-        Me.TbCastigoxUI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.GroupBox1.Controls.Add(Me.TbBerkLevel2)
+        Me.GroupBox1.Controls.Add(Me.TbPrepLevel2)
+        Me.GroupBox1.Controls.Add(Me.TbOtherLevel2)
+        Me.GroupBox1.Controls.Add(Me.Label21)
+        Me.GroupBox1.Controls.Add(Me.TbPlasticLevel2)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Label20)
+        Me.GroupBox1.Controls.Add(Me.Label19)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GroupBox1.Location = New System.Drawing.Point(246, 22)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(135, 202)
+        Me.GroupBox1.TabIndex = 16
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Mat. Ext. Nivel 2"
         '
-        'TbCastigoxmicro
+        'TbBerkLevel2
         '
-        Me.TbCastigoxmicro.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbCastigoxmicro.Location = New System.Drawing.Point(6, 79)
-        Me.TbCastigoxmicro.Name = "TbCastigoxmicro"
-        Me.TbCastigoxmicro.ReadOnly = True
-        Me.TbCastigoxmicro.Size = New System.Drawing.Size(84, 22)
-        Me.TbCastigoxmicro.TabIndex = 1
-        Me.TbCastigoxmicro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TbBerkLevel2.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TbBerkLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbBerkLevel2.Location = New System.Drawing.Point(9, 40)
+        Me.TbBerkLevel2.Name = "TbBerkLevel2"
+        Me.TbBerkLevel2.ReadOnly = True
+        Me.TbBerkLevel2.Size = New System.Drawing.Size(84, 22)
+        Me.TbBerkLevel2.TabIndex = 6
+        Me.TbBerkLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label6
+        'TbPrepLevel2
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 25)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(75, 15)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Uniformidad"
+        Me.TbPrepLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbPrepLevel2.Location = New System.Drawing.Point(9, 78)
+        Me.TbPrepLevel2.Name = "TbPrepLevel2"
+        Me.TbPrepLevel2.ReadOnly = True
+        Me.TbPrepLevel2.Size = New System.Drawing.Size(84, 22)
+        Me.TbPrepLevel2.TabIndex = 7
+        Me.TbPrepLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label12
+        'TbOtherLevel2
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(3, 63)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(44, 15)
-        Me.Label12.TabIndex = 0
-        Me.Label12.Text = "Micros"
+        Me.TbOtherLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbOtherLevel2.Location = New System.Drawing.Point(9, 123)
+        Me.TbOtherLevel2.Name = "TbOtherLevel2"
+        Me.TbOtherLevel2.ReadOnly = True
+        Me.TbOtherLevel2.Size = New System.Drawing.Size(84, 22)
+        Me.TbOtherLevel2.TabIndex = 8
+        Me.TbOtherLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label21.Location = New System.Drawing.Point(6, 150)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(43, 15)
+        Me.Label21.TabIndex = 15
+        Me.Label21.Text = "Plastic"
+        '
+        'TbPlasticLevel2
+        '
+        Me.TbPlasticLevel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TbPlasticLevel2.Location = New System.Drawing.Point(9, 168)
+        Me.TbPlasticLevel2.Name = "TbPlasticLevel2"
+        Me.TbPlasticLevel2.ReadOnly = True
+        Me.TbPlasticLevel2.Size = New System.Drawing.Size(84, 22)
+        Me.TbPlasticLevel2.TabIndex = 9
+        Me.TbPlasticLevel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label9.Location = New System.Drawing.Point(6, 22)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(32, 15)
+        Me.Label9.TabIndex = 14
+        Me.Label9.Text = "Bark"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label20.Location = New System.Drawing.Point(6, 105)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(37, 15)
+        Me.Label20.TabIndex = 15
+        Me.Label20.Text = "Other"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label19.Location = New System.Drawing.Point(6, 62)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(33, 15)
+        Me.Label19.TabIndex = 15
+        Me.Label19.Text = "Prep"
         '
         'DgvResumenPagoPacas
         '
@@ -588,6 +741,7 @@ Partial Class VentaPago
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeVentaItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -663,159 +817,6 @@ Partial Class VentaPago
         Me.Panel3.Size = New System.Drawing.Size(1502, 72)
         Me.Panel3.TabIndex = 47
         '
-        'TbOtherLevel1
-        '
-        Me.TbOtherLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbOtherLevel1.Location = New System.Drawing.Point(9, 124)
-        Me.TbOtherLevel1.Name = "TbOtherLevel1"
-        Me.TbOtherLevel1.ReadOnly = True
-        Me.TbOtherLevel1.Size = New System.Drawing.Size(84, 22)
-        Me.TbOtherLevel1.TabIndex = 12
-        Me.TbOtherLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TbPlasticLevel1
-        '
-        Me.TbPlasticLevel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TbPlasticLevel1.Location = New System.Drawing.Point(9, 169)
-        Me.TbPlasticLevel1.Name = "TbPlasticLevel1"
-        Me.TbPlasticLevel1.ReadOnly = True
-        Me.TbPlasticLevel1.Size = New System.Drawing.Size(84, 22)
-        Me.TbPlasticLevel1.TabIndex = 13
-        Me.TbPlasticLevel1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label9.Location = New System.Drawing.Point(6, 22)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(32, 15)
-        Me.Label9.TabIndex = 14
-        Me.Label9.Text = "Bark"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label19.Location = New System.Drawing.Point(6, 62)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(33, 15)
-        Me.Label19.TabIndex = 15
-        Me.Label19.Text = "Prep"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label20.Location = New System.Drawing.Point(6, 105)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(37, 15)
-        Me.Label20.TabIndex = 15
-        Me.Label20.Text = "Other"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label21.Location = New System.Drawing.Point(6, 150)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(43, 15)
-        Me.Label21.TabIndex = 15
-        Me.Label21.Text = "Plastic"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label22.Location = New System.Drawing.Point(6, 23)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(32, 15)
-        Me.Label22.TabIndex = 14
-        Me.Label22.Text = "Bark"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label23.Location = New System.Drawing.Point(6, 63)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(33, 15)
-        Me.Label23.TabIndex = 15
-        Me.Label23.Text = "Prep"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label24.Location = New System.Drawing.Point(6, 106)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(37, 15)
-        Me.Label24.TabIndex = 15
-        Me.Label24.Text = "Other"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.Label25.Location = New System.Drawing.Point(6, 151)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(43, 15)
-        Me.Label25.TabIndex = 15
-        Me.Label25.Text = "Plastic"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.TbBerkLevel2)
-        Me.GroupBox1.Controls.Add(Me.TbPrepLevel2)
-        Me.GroupBox1.Controls.Add(Me.TbOtherLevel2)
-        Me.GroupBox1.Controls.Add(Me.Label21)
-        Me.GroupBox1.Controls.Add(Me.TbPlasticLevel2)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.Label20)
-        Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupBox1.Location = New System.Drawing.Point(246, 22)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(135, 202)
-        Me.GroupBox1.TabIndex = 16
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Mat. Ext. Nivel 2"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label22)
-        Me.GroupBox2.Controls.Add(Me.TbBerkLevel1)
-        Me.GroupBox2.Controls.Add(Me.Label25)
-        Me.GroupBox2.Controls.Add(Me.TbPrepLevel1)
-        Me.GroupBox2.Controls.Add(Me.Label24)
-        Me.GroupBox2.Controls.Add(Me.TbOtherLevel1)
-        Me.GroupBox2.Controls.Add(Me.Label23)
-        Me.GroupBox2.Controls.Add(Me.TbPlasticLevel1)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(110, 22)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(136, 202)
-        Me.GroupBox2.TabIndex = 17
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Mat. Ext. Nivel 1"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.TbCastigoxresistencia)
-        Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Controls.Add(Me.Label6)
-        Me.GroupBox3.Controls.Add(Me.TbCastigoxmicro)
-        Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.TbCastigoxUI)
-        Me.GroupBox3.Controls.Add(Me.TbCastigoxlargo)
-        Me.GroupBox3.Controls.Add(Me.Label13)
-        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 22)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(107, 202)
-        Me.GroupBox3.TabIndex = 18
-        Me.GroupBox3.TabStop = False
-        '
         'VentaPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -825,6 +826,7 @@ Partial Class VentaPago
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1518, 764)
         Me.Name = "VentaPago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -835,6 +837,12 @@ Partial Class VentaPago
         Me.GbPagoFinal.ResumeLayout(False)
         Me.GbPagoFinal.PerformLayout()
         Me.GbCastigos.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
@@ -842,12 +850,6 @@ Partial Class VentaPago
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

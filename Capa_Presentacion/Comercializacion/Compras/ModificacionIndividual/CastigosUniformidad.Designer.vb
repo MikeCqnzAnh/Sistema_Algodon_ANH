@@ -22,6 +22,7 @@ Partial Class CastigosUniformidad
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CastigosUniformidad))
         Me.DgvCastigoUniformidad = New System.Windows.Forms.DataGridView()
         CType(Me.DgvCastigoUniformidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,6 +53,7 @@ Partial Class CastigosUniformidad
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(397, 505)
         Me.Controls.Add(Me.DgvCastigoUniformidad)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CastigosUniformidad"
         Me.Text = "CastigosUniformidad"
         CType(Me.DgvCastigoUniformidad, System.ComponentModel.ISupportInitialize).EndInit()

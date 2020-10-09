@@ -132,6 +132,7 @@ Partial Class Tierras
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -178,11 +179,11 @@ Partial Class Tierras
         Me.GroupBox2.Controls.Add(Me.TbTituloAgua)
         Me.GroupBox2.Controls.Add(Me.TbFolioRpp)
         Me.GroupBox2.Controls.Add(Me.DtFechaRegistro)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 299)
         Me.GroupBox2.MinimumSize = New System.Drawing.Size(671, 176)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(671, 194)
+        Me.GroupBox2.Size = New System.Drawing.Size(671, 184)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos de Escritura del Regimen Publico de la Propiedad"

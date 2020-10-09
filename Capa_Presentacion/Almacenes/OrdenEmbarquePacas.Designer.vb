@@ -1254,6 +1254,7 @@ Partial Class OrdenEmbarquePacas
         Me.Controls.Add(Me.GbProceso)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "OrdenEmbarquePacas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Orden de Embarque para Pacas"

@@ -41,6 +41,7 @@ Partial Class TiposIncidencias
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -73,9 +74,10 @@ Partial Class TiposIncidencias
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdTipoIncidencia)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 111)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(982, 111)
         Me.GbDatosGenerales.TabIndex = 2
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -140,15 +142,16 @@ Partial Class TiposIncidencias
         Me.DgvTipoIncidencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvTipoIncidencia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvTipoIncidencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvTipoIncidencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvTipoIncidencia.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvTipoIncidencia.Location = New System.Drawing.Point(13, 144)
+        Me.DgvTipoIncidencia.Location = New System.Drawing.Point(0, 135)
         Me.DgvTipoIncidencia.MultiSelect = False
         Me.DgvTipoIncidencia.Name = "DgvTipoIncidencia"
         Me.DgvTipoIncidencia.ReadOnly = True
         Me.DgvTipoIncidencia.RowHeadersVisible = False
         Me.DgvTipoIncidencia.RowHeadersWidth = 40
         Me.DgvTipoIncidencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvTipoIncidencia.Size = New System.Drawing.Size(957, 266)
+        Me.DgvTipoIncidencia.Size = New System.Drawing.Size(982, 288)
         Me.DgvTipoIncidencia.TabIndex = 14
         '
         'TiposIncidencias

@@ -94,15 +94,14 @@ Public Class CambiarClave
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub BtCancelar_Click(sender As Object, e As EventArgs) Handles BtCancelar.Click
-        Close()
-    End Sub
-
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
         If TbUsuario.Text <> "" And TbClaveActual.Text <> "" And TbClaveNueva.Text <> "" And TbClaveConfirma.Text <> "" Then
             ConsultaBDD()
         Else
             MsgBox("No se puede continuar con campos vacios, revise de nuevo!")
         End If
+    End Sub
+    Private Sub BtCancelar_Click(sender As Object, e As EventArgs) Handles BtCancelar.Click
+        Close()
     End Sub
 End Class

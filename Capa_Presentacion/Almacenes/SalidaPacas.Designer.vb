@@ -28,6 +28,7 @@ Partial Class SalidaPacas
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.TbNoLote = New System.Windows.Forms.TextBox()
@@ -78,7 +79,6 @@ Partial Class SalidaPacas
         Me.TbTara = New System.Windows.Forms.TextBox()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -120,6 +120,12 @@ Partial Class SalidaPacas
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'EmbarqueToolStripMenuItem
+        '
+        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
+        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
         '
         'SalirToolStripMenuItem
         '
@@ -623,12 +629,6 @@ Partial Class SalidaPacas
         Me.DgvPacas.Size = New System.Drawing.Size(1115, 358)
         Me.DgvPacas.TabIndex = 2
         '
-        'EmbarqueToolStripMenuItem
-        '
-        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
-        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
-        '
         'SalidaPacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -638,6 +638,7 @@ Partial Class SalidaPacas
         Me.Controls.Add(Me.GbPacas)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "SalidaPacas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

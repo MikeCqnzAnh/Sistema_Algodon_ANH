@@ -22,6 +22,7 @@ Partial Class RestaurarRespaldo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RestaurarRespaldo))
         Me.OfArchivoRestaurar = New System.Windows.Forms.OpenFileDialog()
         Me.BtRestaurar = New System.Windows.Forms.Button()
         Me.TbBDD = New System.Windows.Forms.TextBox()
@@ -154,6 +155,7 @@ Partial Class RestaurarRespaldo
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.TbBDD)
         Me.Controls.Add(Me.BtRestaurar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "RestaurarRespaldo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Tag = "0,0"

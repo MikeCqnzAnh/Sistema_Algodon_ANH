@@ -46,7 +46,7 @@ Public Class SeleccionaConexion
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            MessageBox.Show("Base de datos actualizada con exito.")
+            MsgBox("Base de datos actualizada con exito.", MsgBoxStyle.Information, "Aviso")
         End Try
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

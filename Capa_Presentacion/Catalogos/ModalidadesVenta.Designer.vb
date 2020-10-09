@@ -22,6 +22,7 @@ Partial Class ModalidadesVenta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModalidadesVenta))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DgvClasificacion = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -156,6 +157,7 @@ Partial Class ModalidadesVenta
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -189,6 +191,7 @@ Partial Class ModalidadesVenta
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DgvModosVenta)
         Me.Controls.Add(Me.MsMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModalidadesVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Modalidades de Venta"

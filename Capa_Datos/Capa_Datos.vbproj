@@ -167,7 +167,7 @@
       <Name>Capa_Entidad</Name>
     </ProjectReference>
     <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
-      <Project>{474d9897-44a4-4125-80d5-a579dd360e5c}</Project>
+      <Project>{3a1e6801-5527-4d29-b798-24ce9afa623f}</Project>
       <Name>Capa_Operacion</Name>
     </ProjectReference>
   </ItemGroup>

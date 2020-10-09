@@ -61,15 +61,18 @@ Partial Class ConsultaClientes
         Me.DgvConsultaClientes.RowHeadersVisible = False
         Me.DgvConsultaClientes.RowHeadersWidth = 40
         Me.DgvConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvConsultaClientes.Size = New System.Drawing.Size(1070, 510)
+        Me.DgvConsultaClientes.Size = New System.Drawing.Size(819, 293)
         Me.DgvConsultaClientes.TabIndex = 10
         '
         'BtBuscar
         '
-        Me.BtBuscar.Location = New System.Drawing.Point(983, 28)
+        Me.BtBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtBuscar.Location = New System.Drawing.Point(732, 28)
+        Me.BtBuscar.MaximumSize = New System.Drawing.Size(75, 23)
+        Me.BtBuscar.MinimumSize = New System.Drawing.Size(75, 23)
         Me.BtBuscar.Name = "BtBuscar"
         Me.BtBuscar.Size = New System.Drawing.Size(75, 23)
-        Me.BtBuscar.TabIndex = 11
+        Me.BtBuscar.TabIndex = 2
         Me.BtBuscar.Text = "Consultar"
         Me.BtBuscar.UseVisualStyleBackColor = True
         '
@@ -83,8 +86,8 @@ Partial Class ConsultaClientes
         Me.GbParametros.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbParametros.Location = New System.Drawing.Point(0, 0)
         Me.GbParametros.Name = "GbParametros"
-        Me.GbParametros.Size = New System.Drawing.Size(1070, 100)
-        Me.GbParametros.TabIndex = 12
+        Me.GbParametros.Size = New System.Drawing.Size(819, 100)
+        Me.GbParametros.TabIndex = 0
         Me.GbParametros.TabStop = False
         '
         'TbNombre
@@ -93,7 +96,7 @@ Partial Class ConsultaClientes
         Me.TbNombre.MaxLength = 100
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(440, 20)
-        Me.TbNombre.TabIndex = 12
+        Me.TbNombre.TabIndex = 1
         '
         'TbIdCliente
         '
@@ -101,7 +104,7 @@ Partial Class ConsultaClientes
         Me.TbIdCliente.MaxLength = 10
         Me.TbIdCliente.Name = "TbIdCliente"
         Me.TbIdCliente.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdCliente.TabIndex = 12
+        Me.TbIdCliente.TabIndex = 0
         '
         'Label2
         '
@@ -116,10 +119,11 @@ Partial Class ConsultaClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1070, 610)
+        Me.ClientSize = New System.Drawing.Size(819, 393)
         Me.Controls.Add(Me.DgvConsultaClientes)
         Me.Controls.Add(Me.GbParametros)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(835, 432)
         Me.Name = "ConsultaClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta de Clientes"

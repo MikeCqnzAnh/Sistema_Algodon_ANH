@@ -1,5 +1,6 @@
 ﻿Imports System.Deployment.Application
 Imports System.Drawing.Drawing2D
+Imports System.Runtime.InteropServices
 Imports System.IO
 Imports Capa_Operacion.Configuracion
 Public Class Acceso
@@ -7,15 +8,45 @@ Public Class Acceso
     Dim archivo As String = "cnn.ini"
     Private Sub Acceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CompruebaConexionInicial()
-        TbUsuario.Select()
+        TbUsuario.Text = My.Settings.user
+        If TbUsuario.Text = "" Then
+            TbUsuario.Select()
+        Else
+            TbClave.Select()
+        End If
+        If My.Settings.CkRecordar = True Then
+            CkRecuerda.Checked = My.Settings.CkRecordar
+            TbClave.Text = My.Settings.password
+        End If
         llenaCombos()
         Versionapp()
     End Sub
+#Region "Drag Form - Arrastrar/ mover Formulario"
+
+    <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
+    Private Shared Sub ReleaseCapture()
+    End Sub
+    <DllImport("user32.DLL", EntryPoint:="SendMessage")>
+    Private Shared Sub SendMessage(hWnd As IntPtr, wMsg As Integer, wParam As Integer, lParam As Integer)
+    End Sub
+    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        ReleaseCapture()
+        SendMessage(Me.Handle, &H112&, &HF012&, 0)
+    End Sub
+    Private Sub Panel1_MouseDown(sender As Object, e As MouseEventArgs) Handles Panel1.MouseDown
+        ReleaseCapture()
+        SendMessage(Me.Handle, &H112&, &HF012&, 0)
+    End Sub
+    Private Sub PictureBox1_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDown
+        ReleaseCapture()
+        SendMessage(Me.Handle, &H112&, &HF012&, 0)
+    End Sub
+#End Region
     Private Sub compruebaConexionServidor()
-        Dim IpServer As String
-        Dim UsuarioDB As String
-        Dim PasswordDB As String
-        Dim Instancia As String 
+        Dim IpServer As String = String.Empty
+        Dim UsuarioDB As String = String.Empty
+        Dim PasswordDB As String = String.Empty
+        Dim Instancia As String = String.Empty
         Dim DataBase As String
         Dim DataBasePerfiles As String
         Dim ccnppl As String
@@ -62,7 +93,7 @@ Public Class Acceso
         End Try
     End Function
     Public Sub Versionapp()
-        Label4.Text = "V" & My.Application.Info.Version.ToString
+        Label4.Text = "Version " & My.Application.Info.Version.ToString
     End Sub
     Private Sub llenaCombos()
         Dim tabla As New DataTable
@@ -79,7 +110,7 @@ Public Class Acceso
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAccesar.Click
         Login()
     End Sub
-    Private Sub TbClave_keydown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbClave.KeyDown
+    Private Sub TbClave_keydown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbClave.KeyDown, CbBaseDeDatos.KeyDown
         If e.KeyCode = Keys.Enter Then
             Login()
         End If
@@ -105,6 +136,14 @@ Public Class Acceso
         Try
             If UsuarioRegistrado(TbUsuario.Text) = True Then
                 GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
+                My.Settings.user = TbUsuario.Text
+                If CkRecuerda.Checked = True Then
+                    My.Settings.password = TbClave.Text
+                    My.Settings.CkRecordar = CkRecuerda.Checked
+                Else
+                    My.Settings.CkRecordar = CkRecuerda.Checked
+                End If
+                My.Settings.Save()
                 Me.Hide()
                 MenuPrincipal.ShowDialog()
             End If
@@ -113,7 +152,7 @@ Public Class Acceso
         End Try
     End Sub
     Private Sub BtCancelar_Click(sender As Object, e As EventArgs) Handles BtCancelar.Click
-        End
+        Application.ExitThread()
     End Sub
     Private Function UsuarioRegistrado(ByVal Usuario As String) As String
         Dim EntidadAcceso As New Capa_Entidad.Acceso

@@ -30,7 +30,7 @@ Public Class Maquinaria
         Dim EntidadMaquinaria1 = New Capa_Entidad.Maquinaria
         EntidadMaquinaria1 = EntidadMaquinaria
         EntidadMaquinaria1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

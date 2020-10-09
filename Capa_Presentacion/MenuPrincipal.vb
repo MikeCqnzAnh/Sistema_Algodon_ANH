@@ -1,7 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
 Imports System.Data.SqlClient
 Imports System.Drawing.Drawing2D
-Imports Capa_Presentacion.WebServiceBanxico
 Imports System.Net
 Imports System.Text.RegularExpressions
 Imports System.IO
@@ -140,10 +139,10 @@ Public Class MenuPrincipal
             NegocioMenuPrincipal.Consultar(EntidadMenuPrincipal)
             tabla = EntidadMenuPrincipal.TablaConsulta
             Resultado = tabla.Rows(0).Item("Respuesta")
-            Return Resultado
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        Return Resultado
     End Function
     Private Sub ConsultaTipoCambio()
         Dim tabla As New DataTable

@@ -22,6 +22,7 @@ Partial Class Roles
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Roles))
         Me.TVRoles = New System.Windows.Forms.TreeView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,8 +36,6 @@ Partial Class Roles
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TbNombreNodo = New System.Windows.Forms.TextBox()
         Me.CkEstatus = New System.Windows.Forms.CheckBox()
-        Me.Bt = New System.Windows.Forms.Button()
-        Me.Tb = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtDespliega = New System.Windows.Forms.Button()
         Me.BtContraer = New System.Windows.Forms.Button()
@@ -55,6 +54,7 @@ Partial Class Roles
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -149,24 +149,6 @@ Partial Class Roles
         Me.CkEstatus.Text = "Estatus"
         Me.CkEstatus.UseVisualStyleBackColor = True
         '
-        'Bt
-        '
-        Me.Bt.Location = New System.Drawing.Point(243, 430)
-        Me.Bt.Name = "Bt"
-        Me.Bt.Size = New System.Drawing.Size(75, 23)
-        Me.Bt.TabIndex = 4
-        Me.Bt.Text = "Agregar"
-        Me.Bt.UseVisualStyleBackColor = True
-        Me.Bt.Visible = False
-        '
-        'Tb
-        '
-        Me.Tb.Location = New System.Drawing.Point(243, 404)
-        Me.Tb.Name = "Tb"
-        Me.Tb.Size = New System.Drawing.Size(100, 20)
-        Me.Tb.TabIndex = 2
-        Me.Tb.Visible = False
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.BtDespliega)
@@ -218,10 +200,9 @@ Partial Class Roles
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1299, 695)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Tb)
-        Me.Controls.Add(Me.Bt)
         Me.Controls.Add(Me.TVRoles)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Roles"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -249,8 +230,6 @@ Partial Class Roles
     Friend WithEvents Label3 As Label
     Friend WithEvents TbNombreNodo As TextBox
     Friend WithEvents CkEstatus As CheckBox
-    Friend WithEvents Bt As Button
-    Friend WithEvents Tb As TextBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtContraer As Button
     Friend WithEvents BtDespliega As Button

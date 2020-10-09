@@ -54,25 +54,40 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MSISTEMAS;Initial Catalog=ALGODON_2V;Persist Security Info=True;User "& _ 
-            "ID=sa;Password=Usuario01")>  _
-        Public ReadOnly Property ALGODON_2V() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property user() As String
             Get
-                Return CType(Me("ALGODON_2V"),String)
+                Return CType(Me("user"),String)
             End Get
+            Set
+                Me("user") = value
+            End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://www.banxico.org.mx/DgieWSWeb/DgieWS")>  _
-        Public ReadOnly Property Capa_Presentacion_WebServiceBanxico_DgieWS() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property password() As String
             Get
-                Return CType(Me("Capa_Presentacion_WebServiceBanxico_DgieWS"),String)
+                Return CType(Me("password"),String)
             End Get
+            Set
+                Me("password") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property CkRecordar() As Boolean
+            Get
+                Return CType(Me("CkRecordar"),Boolean)
+            End Get
+            Set
+                Me("CkRecordar") = value
+            End Set
         End Property
     End Class
 End Namespace

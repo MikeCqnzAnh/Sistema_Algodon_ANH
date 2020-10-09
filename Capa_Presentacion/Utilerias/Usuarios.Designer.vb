@@ -23,6 +23,7 @@ Partial Class Usuarios
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
         Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.TbUsuario = New System.Windows.Forms.TextBox()
         Me.CbTipoUsuario = New System.Windows.Forms.ComboBox()
@@ -124,6 +125,7 @@ Partial Class Usuarios
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.TipoUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -146,7 +148,7 @@ Partial Class Usuarios
         'TipoUsuarioToolStripMenuItem
         '
         Me.TipoUsuarioToolStripMenuItem.Name = "TipoUsuarioToolStripMenuItem"
-        Me.TipoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.TipoUsuarioToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.TipoUsuarioToolStripMenuItem.Text = "Tipo Usuario"
         '
         'SalirToolStripMenuItem
@@ -297,6 +299,7 @@ Partial Class Usuarios
         Me.Controls.Add(Me.DgvControlTreeview)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MinimumSize = New System.Drawing.Size(940, 559)
         Me.Name = "Usuarios"

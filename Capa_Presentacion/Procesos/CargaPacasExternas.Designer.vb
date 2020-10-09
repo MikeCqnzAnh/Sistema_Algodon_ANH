@@ -102,6 +102,7 @@ Partial Class CargaPacasExternas
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ExcelParaImportarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -486,6 +487,7 @@ Partial Class CargaPacasExternas
         Me.Controls.Add(Me.GbCentro)
         Me.Controls.Add(Me.GbEncabezado)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "CargaPacasExternas"
         Me.Text = "Carga Pacas Externas"

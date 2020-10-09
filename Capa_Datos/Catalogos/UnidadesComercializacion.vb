@@ -27,7 +27,7 @@ Public Class UnidadesComercializacion
         Dim EntidadUnidadesComercializacion1 = New Capa_Entidad.UnidadesComercializacion
         EntidadUnidadesComercializacion1 = EntidadUnidadesComercializacion
         EntidadUnidadesComercializacion1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

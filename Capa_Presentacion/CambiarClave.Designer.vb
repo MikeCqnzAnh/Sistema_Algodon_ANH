@@ -22,6 +22,7 @@ Partial Class CambiarClave
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CambiarClave))
         Me.TbUsuario = New System.Windows.Forms.TextBox()
         Me.TbClaveActual = New System.Windows.Forms.TextBox()
         Me.TbClaveNueva = New System.Windows.Forms.TextBox()
@@ -109,7 +110,7 @@ Partial Class CambiarClave
         '
         'BtAceptar
         '
-        Me.BtAceptar.Location = New System.Drawing.Point(139, 221)
+        Me.BtAceptar.Location = New System.Drawing.Point(161, 221)
         Me.BtAceptar.Name = "BtAceptar"
         Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
         Me.BtAceptar.TabIndex = 4
@@ -118,7 +119,7 @@ Partial Class CambiarClave
         '
         'BtCancelar
         '
-        Me.BtCancelar.Location = New System.Drawing.Point(263, 221)
+        Me.BtCancelar.Location = New System.Drawing.Point(260, 221)
         Me.BtCancelar.Name = "BtCancelar"
         Me.BtCancelar.Size = New System.Drawing.Size(75, 23)
         Me.BtCancelar.TabIndex = 5
@@ -150,6 +151,7 @@ Partial Class CambiarClave
         Me.Controls.Add(Me.TbClaveNueva)
         Me.Controls.Add(Me.TbClaveActual)
         Me.Controls.Add(Me.TbUsuario)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CambiarClave"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Cambiar Contraseña"

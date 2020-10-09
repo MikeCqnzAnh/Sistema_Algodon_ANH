@@ -96,6 +96,7 @@ Partial Class Plantas
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -129,15 +130,16 @@ Partial Class Plantas
         Me.DgvPlantas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPlantas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvPlantas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPlantas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPlantas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvPlantas.Location = New System.Drawing.Point(15, 170)
+        Me.DgvPlantas.Location = New System.Drawing.Point(0, 161)
         Me.DgvPlantas.MultiSelect = False
         Me.DgvPlantas.Name = "DgvPlantas"
         Me.DgvPlantas.ReadOnly = True
         Me.DgvPlantas.RowHeadersVisible = False
         Me.DgvPlantas.RowHeadersWidth = 40
         Me.DgvPlantas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPlantas.Size = New System.Drawing.Size(957, 266)
+        Me.DgvPlantas.Size = New System.Drawing.Size(987, 291)
         Me.DgvPlantas.TabIndex = 12
         '
         'CbEstatus
@@ -167,9 +169,10 @@ Partial Class Plantas
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.LbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.TbRegistro)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(15, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 137)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(987, 137)
         Me.GbDatosGenerales.TabIndex = 15
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -179,8 +182,8 @@ Partial Class Plantas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 452)
-        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.DgvPlantas)
+        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu

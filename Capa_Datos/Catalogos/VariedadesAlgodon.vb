@@ -30,7 +30,7 @@ Public Class VariedadesAlgodon
         Dim EntidadVariedadesAlgodon1 = New Capa_Entidad.VariedadesAlgodon
         EntidadVariedadesAlgodon1 = EntidadVariedadesAlgodon
         EntidadVariedadesAlgodon1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

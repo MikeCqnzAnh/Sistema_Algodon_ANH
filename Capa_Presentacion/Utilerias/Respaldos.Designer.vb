@@ -22,6 +22,7 @@ Partial Class Respaldos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Respaldos))
         Me.GbOrigen = New System.Windows.Forms.GroupBox()
         Me.lblConnStatus = New System.Windows.Forms.Label()
         Me.pbConnStatus = New System.Windows.Forms.PictureBox()
@@ -306,6 +307,7 @@ Partial Class Respaldos
         Me.ClientSize = New System.Drawing.Size(862, 322)
         Me.Controls.Add(Me.GbInfo)
         Me.Controls.Add(Me.GbOrigen)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(878, 361)
         Me.MinimumSize = New System.Drawing.Size(878, 361)
         Me.Name = "Respaldos"

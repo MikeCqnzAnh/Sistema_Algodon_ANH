@@ -23,6 +23,7 @@ Partial Class CapturaBoletasPorLotes
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CapturaBoletasPorLotes))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +46,7 @@ Partial Class CapturaBoletasPorLotes
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -176,6 +178,7 @@ Partial Class CapturaBoletasPorLotes
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GbGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "CapturaBoletasPorLotes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

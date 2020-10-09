@@ -22,6 +22,7 @@ Partial Class Asociaciones
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Asociaciones))
         Me.MsMenu = New System.Windows.Forms.MenuStrip()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,6 +43,7 @@ Partial Class Asociaciones
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -80,9 +82,10 @@ Partial Class Asociaciones
         Me.GbDatosGenerales.Controls.Add(Me.Label2)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdAsociacion)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(15, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 104)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(984, 104)
         Me.GbDatosGenerales.TabIndex = 4
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -147,15 +150,16 @@ Partial Class Asociaciones
         Me.DgvAsociaciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvAsociaciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvAsociaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvAsociaciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvAsociaciones.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvAsociaciones.Location = New System.Drawing.Point(15, 137)
+        Me.DgvAsociaciones.Location = New System.Drawing.Point(0, 128)
         Me.DgvAsociaciones.MultiSelect = False
         Me.DgvAsociaciones.Name = "DgvAsociaciones"
         Me.DgvAsociaciones.ReadOnly = True
         Me.DgvAsociaciones.RowHeadersVisible = False
         Me.DgvAsociaciones.RowHeadersWidth = 40
         Me.DgvAsociaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvAsociaciones.Size = New System.Drawing.Size(957, 281)
+        Me.DgvAsociaciones.Size = New System.Drawing.Size(984, 313)
         Me.DgvAsociaciones.TabIndex = 9
         '
         'Asociaciones
@@ -166,6 +170,7 @@ Partial Class Asociaciones
         Me.Controls.Add(Me.DgvAsociaciones)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MsMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MsMenu
         Me.Name = "Asociaciones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

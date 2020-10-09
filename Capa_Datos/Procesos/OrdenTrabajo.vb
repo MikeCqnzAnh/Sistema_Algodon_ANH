@@ -46,9 +46,7 @@ Public Class OrdenTrabajo
                     cmdGuardar.Parameters.Add(New SqlParameter("@FlagRevisada", False))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", 1))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdUSuarioCreacion", 1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", Now))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", 1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", Now))
                     cmdGuardar.ExecuteNonQuery()
                     index += 1
                 Loop Until index = EntidadOrdenTrabajo1.RangoFin + 1

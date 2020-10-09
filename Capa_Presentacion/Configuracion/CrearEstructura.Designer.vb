@@ -22,6 +22,7 @@ Partial Class CrearEstructura
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CrearEstructura))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GbEstableceDatos = New System.Windows.Forms.GroupBox()
         Me.GbDestino = New System.Windows.Forms.GroupBox()
@@ -537,6 +538,7 @@ Partial Class CrearEstructura
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -565,6 +567,7 @@ Partial Class CrearEstructura
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.MsMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MsMenu
         Me.Name = "CrearEstructura"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

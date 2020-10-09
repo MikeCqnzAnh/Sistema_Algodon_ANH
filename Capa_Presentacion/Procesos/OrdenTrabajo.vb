@@ -102,12 +102,12 @@ Public Class OrdenTrabajo
         CbEstatus.SelectedValue = 1
     End Sub
 
-    Private Sub TbIdProductor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdProductor.KeyDown
-        Select Case e.KeyData
-            Case Keys.Enter
-                ConsultaCliente()
-        End Select
-    End Sub
+    'Private Sub TbIdProductor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdProductor.KeyDown
+    '    Select Case e.KeyData
+    '        Case Keys.Enter
+    '            ConsultaCliente()
+    '    End Select
+    'End Sub
     Private Sub ConsultarUltimoRango()
         Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
@@ -157,7 +157,25 @@ Public Class OrdenTrabajo
         End If
     End Sub
     Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
-        ConsultaCliente()
+        Dim EntidadClientes As New Capa_Entidad.Clientes
+        Dim NegocioClientes As New Capa_Negocio.Clientes
+        Dim Tabla As New DataTable
+        ConsultaClientes.ShowDialog()
+        Try
+            EntidadClientes.IdCliente = ConsultaClientes.IdCliente
+            EntidadClientes.Consulta = Consulta.ConsultaDetallada
+            NegocioClientes.Consultar(EntidadClientes)
+            Tabla = EntidadClientes.TablaConsulta
+            If Tabla.Rows.Count = 0 Then
+                Exit Sub
+            Else
+                TbIdProductor.Text = Tabla.Rows(0).Item("IdCliente")
+                TbNombre.Text = Tabla.Rows(0).Item("Nombre")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        'ConsultaCliente()
     End Sub
 
     Private Sub DgvCapturaLotes_DoubleClick(sender As Object, e As EventArgs) Handles DgvCapturaLotes.DoubleClick

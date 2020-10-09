@@ -129,7 +129,6 @@ Public Class CapturaBoletasPorLotes
     End Sub
     Private Sub propiedadesDgv()
         DgvModulos.Columns("IdPlanta").HeaderText = "ID Planta"
-        DgvModulos.Columns("FechaOrden").HeaderText = "Fecha de Orden"
         DgvModulos.Columns("Bruto").HeaderText = "Bruto"
         DgvModulos.Columns("Tara").HeaderText = "Tara"
         DgvModulos.Columns("Total").HeaderText = "Total"
@@ -140,7 +139,8 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.Columns("FlagRevisada").HeaderText = "Revisado"
         DgvModulos.Columns("IdBoleta").Visible = True
         DgvModulos.Columns("IdPlanta").ReadOnly = True
-        DgvModulos.Columns("FechaOrden").ReadOnly = True
+        DgvModulos.Columns("FechaEntrada").ReadOnly = True
+        DgvModulos.Columns("FechaSalida").ReadOnly = True
         DgvModulos.Columns("Bruto").ReadOnly = False
         DgvModulos.Columns("Tara").ReadOnly = False
         DgvModulos.Columns("Total").ReadOnly = True

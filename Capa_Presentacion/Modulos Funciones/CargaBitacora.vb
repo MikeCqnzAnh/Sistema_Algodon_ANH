@@ -20,7 +20,8 @@ Module CargaBitacora
         NegocioBitacora.InsertaBitacora(EntidadBitacora)
     End Sub
     Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")
-        Dim operacion, observaciones As String
+        Dim operacion As String = String.Empty
+        Dim observaciones As String = String.Empty
         Try
             Select Case Opcion
                 Case "Guardar"

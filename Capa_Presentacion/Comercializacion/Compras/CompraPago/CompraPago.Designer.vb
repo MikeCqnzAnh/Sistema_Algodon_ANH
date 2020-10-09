@@ -328,6 +328,7 @@ Partial Class CompraPago
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.EnviarEmailToolStripMenuItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeCompraItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -544,6 +545,7 @@ Partial Class CompraPago
         Me.Controls.Add(Me.TbPrecioQuintal)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.MaximizeBox = False
         Me.Name = "CompraPago"

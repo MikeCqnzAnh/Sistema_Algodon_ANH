@@ -51,7 +51,7 @@ Public Class MenuPrincipal
         EntidadMenuPrincipal1.TablaConsulta = New DataTable()
         EntidadMenuPrincipal1.TablaGeneral = New DataTable()
         Dim cmdActualizar As SqlCommand
-        Dim sqldat1 As SqlDataAdapter
+        'Dim sqldat1 As SqlDataAdapter
         Try
             cnn.Open()
             cmdActualizar = New SqlCommand("Sp_ActualizaTipoCambioDiario", cnn)

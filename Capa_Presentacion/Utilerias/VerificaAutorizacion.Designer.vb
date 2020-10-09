@@ -22,6 +22,7 @@ Partial Class VerificaAutorizacion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VerificaAutorizacion))
         Me.BtCancelar = New System.Windows.Forms.Button()
         Me.BtAceptar = New System.Windows.Forms.Button()
         Me.TbClave = New System.Windows.Forms.TextBox()
@@ -75,6 +76,7 @@ Partial Class VerificaAutorizacion
         Me.Controls.Add(Me.BtAceptar)
         Me.Controls.Add(Me.TbClave)
         Me.Controls.Add(Me.Label2)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(551, 335)
         Me.MinimumSize = New System.Drawing.Size(551, 335)
         Me.Name = "VerificaAutorizacion"

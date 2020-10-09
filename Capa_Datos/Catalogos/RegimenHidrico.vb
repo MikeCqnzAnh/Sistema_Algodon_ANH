@@ -30,7 +30,7 @@ Public Class RegimenHidrico
         Dim EntidadRegimenHidrico1 = New Capa_Entidad.RegimenHidrico
         EntidadRegimenHidrico1 = EntidadRegimenHidrico
         EntidadRegimenHidrico1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

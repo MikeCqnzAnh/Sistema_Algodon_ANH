@@ -32,7 +32,7 @@ Public Class CastigoPorQuintal
         Dim EntidadCastigoPorQuintal1 = New Capa_Entidad.CastigoPorQuintal
         EntidadCastigoPorQuintal1 = EntidadCastigoPorQuintal
         EntidadCastigoPorQuintal1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

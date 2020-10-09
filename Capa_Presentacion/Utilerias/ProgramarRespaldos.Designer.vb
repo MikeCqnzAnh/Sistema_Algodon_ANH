@@ -23,6 +23,7 @@ Partial Class ProgramarRespaldos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProgramarRespaldos))
         Me.GbInfo = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.BtSelectDir = New System.Windows.Forms.Button()
@@ -371,6 +372,7 @@ Partial Class ProgramarRespaldos
         Me.Controls.Add(Me.GbInfo)
         Me.Controls.Add(Me.GbOrigen)
         Me.Controls.Add(Me.GbJobActivos)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ProgramarRespaldos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Programar Respaldos Automaticos"

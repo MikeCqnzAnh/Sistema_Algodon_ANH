@@ -31,7 +31,7 @@ Public Class Plantas
         Dim EntidadPlanta1 = New Capa_Entidad.Plantas
         EntidadPlanta1 = EntidadPlanta
         EntidadPlanta1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

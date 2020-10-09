@@ -1,12 +1,12 @@
---CREATE procedure sp_ConsultaModulosExterno
-declare 
-@idordentrabajo int =462
---as
+create procedure sp_ConsultaModulosExterno
+@idordentrabajo int 
+as
 select 
 	   Bo.IdBoleta,
 	   Bo.IdPlanta, 
 	   Bo.NoTransporte,
-	   Bo.FechaOrden, 
+	   Bo.FechaEntrada,
+	   Bo.FechaSalida, 
 	   Bo.Bruto, 
 	   Bo.Tara, 
 	   Bo.Total, 

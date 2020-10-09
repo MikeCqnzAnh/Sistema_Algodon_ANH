@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.75.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.79.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -1169,11 +1169,6 @@
     <Compile Include="Utilerias\VerificaAutorizacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Web References\WebServiceBanxico\Reference.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Acceso.resx">
@@ -1751,11 +1746,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Reportes\RPT\PacasExt.xltx" />
-    <None Include="Web References\WebServiceBanxico\DgieWS.wsdl" />
-    <None Include="Web References\WebServiceBanxico\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Entidad\Capa_Entidad.vbproj">
@@ -1767,7 +1757,7 @@
       <Name>Capa_Negocio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
-      <Project>{474d9897-44a4-4125-80d5-a579dd360e5c}</Project>
+      <Project>{3a1e6801-5527-4d29-b798-24ce9afa623f}</Project>
       <Name>Capa_Operacion</Name>
     </ProjectReference>
   </ItemGroup>
@@ -1804,19 +1794,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://www.banxico.org.mx/DgieWSWeb/DgieWS%3fWSDL">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebServiceBanxico\</RelPath>
-      <UpdateFromURL>http://www.banxico.org.mx/DgieWSWeb/DgieWS%3fWSDL</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Capa_Presentacion_WebServiceBanxico_DgieWS</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

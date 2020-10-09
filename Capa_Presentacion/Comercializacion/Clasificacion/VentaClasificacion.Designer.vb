@@ -438,6 +438,7 @@ Partial Class VentaClasificacion
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -504,7 +505,7 @@ Partial Class VentaClasificacion
         'ArchivoExcelToolStripMenuItem
         '
         Me.ArchivoExcelToolStripMenuItem.Name = "ArchivoExcelToolStripMenuItem"
-        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ArchivoExcelToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ArchivoExcelToolStripMenuItem.Text = "Archivo Excel"
         '
         'ArchivoAccessToolStripMenuItem
@@ -565,6 +566,7 @@ Partial Class VentaClasificacion
         Me.Controls.Add(Me.GbSeleccionarTodasPacas)
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "VentaClasificacion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

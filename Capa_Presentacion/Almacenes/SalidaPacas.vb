@@ -136,6 +136,7 @@ Public Class SalidaPacas
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub GuardarSalida()
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas

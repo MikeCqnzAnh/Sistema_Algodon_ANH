@@ -81,7 +81,7 @@ Public Class ExistenciaBodegaPacas
         Dim EntidadExistenciaBodegaPacas1 As New Capa_Entidad.ExistenciaBodegaPacas
         EntidadExistenciaBodegaPacas1 = EntidadExistenciaBodegaPacas
         Dim cnn As New SqlConnection(conexionPrincipal)
-        Dim cmdGuardar As SqlCommand
+        'Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
             'cmdGuardar = New SqlCommand("Sp_ActualizaExistenciaBodegaPacas", cnn)
