@@ -158,6 +158,7 @@ Partial Class MenuPrincipal
         Me.ProgramarRespaldoAutomaticoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RolesTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarActualizacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -1046,7 +1047,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.ToolStripMenuItem1, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem, Me.BuscarActualizacionesToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.ToolStripMenuItem1, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem, Me.RolesTestToolStripMenuItem, Me.BuscarActualizacionesToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Tag = "107,0"
@@ -1157,6 +1158,14 @@ Partial Class MenuPrincipal
         Me.RolesToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
         Me.RolesToolStripMenuItem.Tag = "121,107"
         Me.RolesToolStripMenuItem.Text = "Roles"
+        '
+        'RolesTestToolStripMenuItem
+        '
+        Me.RolesTestToolStripMenuItem.Name = "RolesTestToolStripMenuItem"
+        Me.RolesTestToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
+        Me.RolesTestToolStripMenuItem.Tag = "0,0"
+        Me.RolesTestToolStripMenuItem.Text = "RolesTest"
+        Me.RolesTestToolStripMenuItem.Visible = False
         '
         'BuscarActualizacionesToolStripMenuItem
         '
@@ -1498,4 +1507,5 @@ Partial Class MenuPrincipal
     Friend WithEvents CargaPacasExternasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscarActualizacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguracionDeParametrosBanxicoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RolesTestToolStripMenuItem As ToolStripMenuItem
 End Class

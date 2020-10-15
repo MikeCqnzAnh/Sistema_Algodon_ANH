@@ -397,6 +397,7 @@ Public Class MenuPrincipal
         ConfiguraConexionInicial.ShowDialog()
     End Sub
     Private Sub LotesDetalleConMódulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesDetalleConMódulosToolStripMenuItem.Click
+        Dim RepLotesPorModulo As New RepLotesPorModulo()
         RepLotesPorModulo.ShowDialog()
     End Sub
     Private Sub PacasPorLotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorLotesToolStripMenuItem.Click
@@ -459,6 +460,11 @@ Public Class MenuPrincipal
 
     Private Sub PacasSinVenderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasSinVenderToolStripMenuItem.Click
         RepPacasSinVender.ShowDialog()
+    End Sub
+
+    Private Sub RolesTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesTestToolStripMenuItem.Click
+        Dim Roltst As New Roltest()
+        Roltst.ShowDialog()
     End Sub
 
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click

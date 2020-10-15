@@ -233,7 +233,7 @@ Public Class CapturaBoletasPorLotes
             End If
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
 
     End Sub

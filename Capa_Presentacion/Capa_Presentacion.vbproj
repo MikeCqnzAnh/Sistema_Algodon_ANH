@@ -789,6 +789,9 @@
     <Compile Include="Configuracion\BanxicoTipo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TriStateTreeView.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utilerias\BuscarActualizacion.Designer.vb">
       <DependentUpon>BuscarActualizacion.vb</DependentUpon>
     </Compile>
@@ -818,6 +821,12 @@
       <DependentUpon>Roles.vb</DependentUpon>
     </Compile>
     <Compile Include="Utilerias\Roles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilerias\Roltest.Designer.vb">
+      <DependentUpon>Roltest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\Roltest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilerias\TiposUsuario.Designer.vb">
@@ -1534,6 +1543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\Roles.resx">
       <DependentUpon>Roles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\Roltest.resx">
+      <DependentUpon>Roltest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\TiposUsuario.resx">
       <DependentUpon>TiposUsuario.vb</DependentUpon>
