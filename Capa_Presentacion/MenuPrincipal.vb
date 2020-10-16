@@ -381,7 +381,8 @@ Public Class MenuPrincipal
         DatosEmpresa.ShowDialog()
     End Sub
     Private Sub ConfiguracionDeParametrosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosToolStripMenuItem1.Click
-        ConfiguracionParametros.ShowDialog()
+        Dim ConfigParam As New ConfiguracionParametros()
+        ConfigParam.ShowDialog()
     End Sub
     Private Sub SeleccionaConexionToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SeleccionaConexionToolStripMenuItem1.Click
         SeleccionaConexion.ShowDialog()

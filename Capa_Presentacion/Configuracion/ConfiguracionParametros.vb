@@ -12,11 +12,22 @@ Public Class ConfiguracionParametros
         GetSerialPortNames()
         GetNameHost()
         CargaCombos()
+        CargaComboBaudRate()
+        CargaComboParity()
+        CargaComboDataBits()
+        CargaComboStopBits()
+        CargaComboHandshake()
+        CargaComboEstatusDtr()
         ConsultaParametrosBanxico()
         'ConsultaParametros()
         LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
         LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+    End Sub
+    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbReceivedBytesThreshold.KeyPress, TbReadBuffersize.KeyPress, TbWriteBuffersize.KeyPress
+        If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
     End Sub
     Private Sub CargaCombos()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -53,6 +64,201 @@ Public Class ConfiguracionParametros
         Catch ex As Exception
         End Try
     End Sub
+    Private Sub CargaComboBaudRate()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = "1"
+        dr("Descripcion") = 110
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "2"
+        dr("Descripcion") = 300
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "3"
+        dr("Descripcion") = 1200
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "4"
+        dr("Descripcion") = 2400
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "5"
+        dr("Descripcion") = 4800
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "6"
+        dr("Descripcion") = 9600
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "7"
+        dr("Descripcion") = 19200
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "8"
+        dr("Descripcion") = 38400
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "9"
+        dr("Descripcion") = 57600
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "10"
+        dr("Descripcion") = 115200
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "11"
+        dr("Descripcion") = 230400
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "12"
+        dr("Descripcion") = 460800
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "13"
+        dr("Descripcion") = 921600
+        dt.Rows.Add(dr)
+        CbBaudRate.DataSource = dt
+        CbBaudRate.ValueMember = "Id"
+        CbBaudRate.DisplayMember = "Descripcion"
+        CbBaudRate.SelectedValue = 1
+    End Sub
+    Private Sub CargaComboParity()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = 0
+        dr("Descripcion") = "Ninguno"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 1
+        dr("Descripcion") = "Impar"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 2
+        dr("Descripcion") = "Par"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 3
+        dr("Descripcion") = "Marca"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 4
+        dr("Descripcion") = "Espacio"
+        dt.Rows.Add(dr)
+
+        CbParity.DataSource = dt
+        CbParity.ValueMember = "Id"
+        CbParity.DisplayMember = "Descripcion"
+        CbParity.SelectedValue = 1
+    End Sub
+    Private Sub CargaComboDataBits()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = 1
+        dr("Descripcion") = 5
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 2
+        dr("Descripcion") = 6
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 3
+        dr("Descripcion") = 7
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 4
+        dr("Descripcion") = 8
+        dt.Rows.Add(dr)
+
+        CbDataBits.DataSource = dt
+        CbDataBits.ValueMember = "Id"
+        CbDataBits.DisplayMember = "Descripcion"
+        CbDataBits.SelectedValue = 1
+    End Sub
+    Private Sub CargaComboStopBits()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = 0
+        dr("Descripcion") = "Ninguno"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 1
+        dr("Descripcion") = "1"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 2
+        dr("Descripcion") = "1.5"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 3
+        dr("Descripcion") = "2"
+        dt.Rows.Add(dr)
+
+        CbStopBits.DataSource = dt
+        CbStopBits.ValueMember = "Id"
+        CbStopBits.DisplayMember = "Descripcion"
+        CbStopBits.SelectedValue = 1
+    End Sub
+    Private Sub CargaComboHandshake()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = 0
+        dr("Descripcion") = "Ninguno"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 1
+        dr("Descripcion") = "XOn / XOff"
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = 2
+        dr("Descripcion") = "HardWare"
+        dt.Rows.Add(dr)
+
+        CbHanshake.DataSource = dt
+        CbHanshake.ValueMember = "Id"
+        CbHanshake.DisplayMember = "Descripcion"
+        CbHanshake.SelectedValue = 1
+    End Sub
+    Private Sub CargaComboEstatusDtr()
+        '---------------------------COMBO ESTATUS
+        Dim dt As DataTable = New DataTable("Tabla")
+        dt.Columns.Add("Id")
+        dt.Columns.Add("Descripcion")
+        Dim dr As DataRow
+        dr = dt.NewRow()
+        dr("Id") = "0"
+        dr("Descripcion") = False
+        dt.Rows.Add(dr)
+        dr = dt.NewRow()
+        dr("Id") = "1"
+        dr("Descripcion") = True
+        dt.Rows.Add(dr)
+
+        CbDtrEnable.DataSource = dt
+        CbDtrEnable.ValueMember = "Id"
+        CbDtrEnable.DisplayMember = "Descripcion"
+        CbDtrEnable.SelectedValue = 1
+    End Sub
     Private Sub Setup_Puerto_Serie()
         Try
             With SpCapturaAuto
@@ -63,23 +269,23 @@ Public Class ConfiguracionParametros
                 End If
                 .PortName = CbPuertosSeriales.Text
 
-                .BaudRate = 9600 '// 9600 baud rate
+                .BaudRate = CbBaudRate.Text '// 9600 baud rate
 
-                .DataBits = 8 '// 8 data bits
+                .DataBits = CInt(CbDataBits.Text) '// 8 data bits
 
-                .StopBits = IO.Ports.StopBits.One '// 1 Stop bit
+                .StopBits = CbStopBits.SelectedValue 'IO.Ports.StopBits.One '// 1 Stop bit
 
-                .Parity = IO.Ports.Parity.None '
+                .Parity = CbParity.SelectedValue 'IO.Ports.Parity.None '
 
-                .DtrEnable = False
+                .DtrEnable = CbDtrEnable.Text
 
-                .Handshake = IO.Ports.Handshake.None
+                .Handshake = CbHanshake.SelectedValue 'IO.Ports.Handshake.None
 
-                .ReadBufferSize = 4096
+                .ReadBufferSize = CInt(TbReadBuffersize.Text)
 
-                .WriteBufferSize = 2048
+                .WriteBufferSize = CInt(TbWriteBuffersize.Text) ' 2048
 
-                '.ReceivedBytesThreshold = 1
+                .ReceivedBytesThreshold = CInt(TbReceivedBytesThreshold.Text)
 
                 .WriteTimeout = 500
 
@@ -440,7 +646,7 @@ Public Class ConfiguracionParametros
         Try
 
             ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text & vbCrLf & "PlantaElabora=" & CbPlantaElabora.SelectedValue)
+            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text & vbCrLf & "BaudRate=" & CbBaudRate.Text & vbCrLf & "DataBits=" & CbDataBits.Text & vbCrLf & "StopBits=" & CbStopBits.SelectedValue & vbCrLf & "Parity=" & CbParity.SelectedValue & vbCrLf & "Handshake=" & CbHanshake.SelectedValue & vbCrLf & "EstatusDtr=" & CbDtrEnable.SelectedValue & vbCrLf & "ReadBuffersize=" & TbReadBuffersize.Text & vbCrLf & "WriteBuffersize=" & TbWriteBuffersize.Text & vbCrLf & "ReceivedBytesThreshold=" & TbReceivedBytesThreshold.Text & vbCrLf & "PlantaElabora=" & CbPlantaElabora.SelectedValue)
             escribir.Close()
             ':::Limpiamos los TextBox
             ':::Llamamos nuestro procedimiento para leer el archivo TXT
@@ -498,7 +704,16 @@ Public Class ConfiguracionParametros
                 NuPacasPosicionNeto.Value = ObtenerValor(ArregloCadena(29))
                 NuPacasCaracterNeto.Value = ObtenerValor(ArregloCadena(30))
                 CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
-                CbPlantaElabora.SelectedValue = ObtenerValor(ArregloCadena(32))
+                CbBaudRate.Text = ObtenerValor(ArregloCadena(32))
+                CbDataBits.Text = ObtenerValor(ArregloCadena(33))
+                CbStopBits.SelectedValue = ObtenerValor(ArregloCadena(34))
+                CbParity.SelectedValue = ObtenerValor(ArregloCadena(35))
+                CbHanshake.SelectedValue = ObtenerValor(ArregloCadena(36))
+                CbDtrEnable.SelectedValue = ObtenerValor(ArregloCadena(37))
+                TbReadBuffersize.Text = ObtenerValor(ArregloCadena(38))
+                TbWriteBuffersize.Text = ObtenerValor(ArregloCadena(39))
+                TbReceivedBytesThreshold.Text = ObtenerValor(ArregloCadena(40))
+                CbPlantaElabora.SelectedValue = ObtenerValor(ArregloCadena(41))
             End While
 
             leer.Close()

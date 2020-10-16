@@ -5,7 +5,7 @@ Public Class CapturaBoletasPorLotes
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
     Dim archivo As String = "config.ini"
     Dim PuertoSerial, IndicadorID, IndicadorEntrada, IndicadorSalida, IndicadorPesoBruto, IndicadorTara, IndicadorNeto As String
-    Dim IdConfiguracion, PosicionID, PosicionModulo, PosicionEntrada, PosicionSalida, PosicionPesoBruto, PosicionTara, PosicionNeto As Integer
+    Dim IdConfiguracion, PosicionID, PosicionModulo, PosicionEntrada, PosicionSalida, PosicionPesoBruto, PosicionTara, PosicionNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
     Dim CaracterID, CaracterModulo, CaracterEntrada, CaracterSalida, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
     Dim Puerto As String
     Private Sub CapturaBoletasPorLotes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,6 +15,55 @@ Public Class CapturaBoletasPorLotes
         LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
+    End Sub
+    Private Sub ObtenerArchivoConfiguracion()
+        Dim leer As New IO.StreamReader(Ruta & archivo)
+
+        Try
+            While leer.Peek <> -1
+                Dim linea As String = leer.ReadToEnd()
+                If String.IsNullOrEmpty(linea) Then
+                    Continue While
+                End If
+                Dim ArregloCadena() As String = Split(linea, vbCrLf)
+                IndicadorID = ObtenerValor(ArregloCadena(0))
+                PosicionID = ObtenerValor(ArregloCadena(1))
+                CaracterID = ObtenerValor(ArregloCadena(2))
+                'TbIndicadorModulo.Text = ObtenerValor(ArregloCadena(3))
+                PosicionModulo = ObtenerValor(ArregloCadena(4))
+                CaracterModulo = ObtenerValor(ArregloCadena(5))
+                IndicadorEntrada = ObtenerValor(ArregloCadena(6))
+                PosicionEntrada = ObtenerValor(ArregloCadena(7))
+                CaracterEntrada = ObtenerValor(ArregloCadena(8))
+                IndicadorSalida = ObtenerValor(ArregloCadena(9))
+                PosicionSalida = ObtenerValor(ArregloCadena(10))
+                CaracterSalida = ObtenerValor(ArregloCadena(11))
+                IndicadorPesoBruto = ObtenerValor(ArregloCadena(12))
+                PosicionPesoBruto = ObtenerValor(ArregloCadena(13))
+                CaracterPesoBruto = ObtenerValor(ArregloCadena(14))
+                IndicadorTara = ObtenerValor(ArregloCadena(15))
+                PosicionTara = ObtenerValor(ArregloCadena(16))
+                CaracterTara = ObtenerValor(ArregloCadena(17))
+                IndicadorNeto = ObtenerValor(ArregloCadena(18))
+                PosicionNeto = ObtenerValor(ArregloCadena(19))
+                CaracterNeto = ObtenerValor(ArregloCadena(20))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
+                BaudRate = ObtenerValor(ArregloCadena(32))
+                DataBits = ObtenerValor(ArregloCadena(33))
+                StopBits = ObtenerValor(ArregloCadena(34))
+                Parity = ObtenerValor(ArregloCadena(35))
+                HandShake = ObtenerValor(ArregloCadena(36))
+                DtrEnable = ObtenerValor(ArregloCadena(37))
+                ReadBufferSize = ObtenerValor(ArregloCadena(38))
+                WriteBufferSize = ObtenerValor(ArregloCadena(39))
+                ReceivedBytesThreshold = ObtenerValor(ArregloCadena(40))
+            End While
+
+            leer.Close()
+
+        Catch ex As Exception
+            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        End Try
     End Sub
     Private Sub Setup_Puerto_Serie()
         Try
@@ -26,23 +75,23 @@ Public Class CapturaBoletasPorLotes
                 End If
                 .PortName = CbPuertosSeriales.Text
 
-                .BaudRate = 9600 '// 9600 baud rate
+                .BaudRate = BaudRate '// 9600 baud rate
 
-                .DataBits = 8 '// 8 data bits
+                .DataBits = DataBits '// 8 data bits
 
-                .StopBits = IO.Ports.StopBits.One '// 1 Stop bit
+                .StopBits = StopBits 'IO.Ports.StopBits.One '// 1 Stop bit
 
-                .Parity = IO.Ports.Parity.None '
+                .Parity = Parity 'IO.Ports.Parity.None '
 
-                .DtrEnable = False
+                .DtrEnable = DtrEnable
 
-                .Handshake = IO.Ports.Handshake.None
+                .Handshake = HandShake 'IO.Ports.Handshake.None
 
-                .ReadBufferSize = 4096
+                .ReadBufferSize = ReadBufferSize
 
-                .WriteBufferSize = 2048
+                .WriteBufferSize = WriteBufferSize
 
-                '.ReceivedBytesThreshold = 1
+                .ReceivedBytesThreshold = ReceivedBytesThreshold
 
                 .WriteTimeout = 500
 
@@ -331,46 +380,7 @@ Public Class CapturaBoletasPorLotes
             MessageBox.Show("No se ha configurado el puerto serial para captura automatica, Contactar al Administrador del sistema para resolverlo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
-    Private Sub ObtenerArchivoConfiguracion()
-        Dim leer As New IO.StreamReader(Ruta & archivo)
 
-        Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadToEnd()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim ArregloCadena() As String = Split(linea, vbCrLf)
-                IndicadorID = ObtenerValor(ArregloCadena(0))
-                PosicionID = ObtenerValor(ArregloCadena(1))
-                CaracterID = ObtenerValor(ArregloCadena(2))
-                'TbIndicadorModulo.Text = ObtenerValor(ArregloCadena(3))
-                PosicionModulo = ObtenerValor(ArregloCadena(4))
-                CaracterModulo = ObtenerValor(ArregloCadena(5))
-                IndicadorEntrada = ObtenerValor(ArregloCadena(6))
-                PosicionEntrada = ObtenerValor(ArregloCadena(7))
-                CaracterEntrada = ObtenerValor(ArregloCadena(8))
-                IndicadorSalida = ObtenerValor(ArregloCadena(9))
-                PosicionSalida = ObtenerValor(ArregloCadena(10))
-                CaracterSalida = ObtenerValor(ArregloCadena(11))
-                IndicadorPesoBruto = ObtenerValor(ArregloCadena(12))
-                PosicionPesoBruto = ObtenerValor(ArregloCadena(13))
-                CaracterPesoBruto = ObtenerValor(ArregloCadena(14))
-                IndicadorTara = ObtenerValor(ArregloCadena(15))
-                PosicionTara = ObtenerValor(ArregloCadena(16))
-                CaracterTara = ObtenerValor(ArregloCadena(17))
-                IndicadorNeto = ObtenerValor(ArregloCadena(18))
-                PosicionNeto = ObtenerValor(ArregloCadena(19))
-                CaracterNeto = ObtenerValor(ArregloCadena(20))
-                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
-            End While
-
-            leer.Close()
-
-        Catch ex As Exception
-            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
-    End Sub
     Private Function ObtenerValor(ByVal cadena As String)
         Dim Resultado As String
         Dim ArregloCadena() As String = Split(cadena, "=")
