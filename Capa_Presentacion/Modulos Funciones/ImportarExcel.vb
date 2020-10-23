@@ -127,7 +127,7 @@ Module ImportarExcel
             Dim da As OleDbDataAdapter
             Dim dt As DataTable
             Dim conn As OleDbConnection
-            dbAccess = InputBox("Digite el nombre de la tabla que desea importar", "Complete")
+            dbAccess = InputBox("Digite el nombre de la tabla que desea importar", "Complete", "SystemTestData")
             conn = New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & AccessFile)
             Try
                 da = New OleDbDataAdapter("SELECT * FROM " & dbAccess, conn)

@@ -89,8 +89,12 @@ Public Class ConsultaCompraProductor
 
         Return dt
     End Function
-
-    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown
+    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbIdCompra.KeyPress
+        If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
+    Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbNombre.KeyDown, TbIdCompra.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
                 ConsultaCompra()

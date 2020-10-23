@@ -284,7 +284,8 @@ Public Class PaquetesHVI
                         PropiedadesDGV()
                         If DgvPaquetesHVI.Rows.Count > 0 Then IdentificaEstatusPacas()
                         'BtSeleccionar.Enabled = False
-                        If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
+                        TbIdPaqueteHVI.Text = vReturn(1)
+                        'If DgvPaquetesHVI.RowCount > 0 Then TbIdPaqueteHVI.Text = DgvPaquetesHVI.Rows(0).Cells("IdHviEnc").Value
                         If DgvPaquetesHVI.RowCount > 0 Then CbPlanta.SelectedValue = DgvPaquetesHVI.Rows(0).Cells("IdPlantaOrigen").Value
                         ContarFilas()
                     End If

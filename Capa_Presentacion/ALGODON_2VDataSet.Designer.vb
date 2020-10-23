@@ -6720,6 +6720,12 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnQuintales As Global.System.Data.DataColumn
         
+        Private columnIdOrdenTrabajo As Global.System.Data.DataColumn
+        
+        Private columnNumeroModulos As Global.System.Data.DataColumn
+        
+        Private columnpredio As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -6796,6 +6802,30 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdOrdenTrabajoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdOrdenTrabajo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NumeroModulosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNumeroModulos
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property predioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpredio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6832,9 +6862,9 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportePacasPorClasesRow(ByVal Nombre As String, ByVal Clase As String, ByVal Pacas As Integer, ByVal Kilos As Integer, ByVal Quintales As Double) As ReportePacasPorClasesRow
+        Public Overloads Function AddReportePacasPorClasesRow(ByVal Nombre As String, ByVal Clase As String, ByVal Pacas As Integer, ByVal Kilos As Integer, ByVal Quintales As Double, ByVal IdOrdenTrabajo As Integer, ByVal NumeroModulos As Integer, ByVal predio As String) As ReportePacasPorClasesRow
             Dim rowReportePacasPorClasesRow As ReportePacasPorClasesRow = CType(Me.NewRow,ReportePacasPorClasesRow)
-            Dim columnValuesArray() As Object = New Object() {Nombre, Clase, Pacas, Kilos, Quintales}
+            Dim columnValuesArray() As Object = New Object() {Nombre, Clase, Pacas, Kilos, Quintales, IdOrdenTrabajo, NumeroModulos, predio}
             rowReportePacasPorClasesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReportePacasPorClasesRow)
             Return rowReportePacasPorClasesRow
@@ -6862,6 +6892,9 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnPacas = MyBase.Columns("Pacas")
             Me.columnKilos = MyBase.Columns("Kilos")
             Me.columnQuintales = MyBase.Columns("Quintales")
+            Me.columnIdOrdenTrabajo = MyBase.Columns("IdOrdenTrabajo")
+            Me.columnNumeroModulos = MyBase.Columns("NumeroModulos")
+            Me.columnpredio = MyBase.Columns("predio")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6877,6 +6910,12 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnKilos)
             Me.columnQuintales = New Global.System.Data.DataColumn("Quintales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuintales)
+            Me.columnIdOrdenTrabajo = New Global.System.Data.DataColumn("IdOrdenTrabajo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdOrdenTrabajo)
+            Me.columnNumeroModulos = New Global.System.Data.DataColumn("NumeroModulos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNumeroModulos)
+            Me.columnpredio = New Global.System.Data.DataColumn("predio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpredio)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16812,6 +16851,53 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdOrdenTrabajo() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacasPorClases.IdOrdenTrabajoColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdOrdenTrabajo' de la tabla 'ReportePacasPorClases' es DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacasPorClases.IdOrdenTrabajoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NumeroModulos() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacasPorClases.NumeroModulosColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NumeroModulos' de la tabla 'ReportePacasPorClases' es DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacasPorClases.NumeroModulosColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property predio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacasPorClases.predioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'predio' de la tabla 'ReportePacasPorClases' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacasPorClases.predioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsNombreNull() As Boolean
             Return Me.IsNull(Me.tableReportePacasPorClases.NombreColumn)
         End Function
@@ -16868,6 +16954,42 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetQuintalesNull()
             Me(Me.tableReportePacasPorClases.QuintalesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdOrdenTrabajoNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacasPorClases.IdOrdenTrabajoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdOrdenTrabajoNull()
+            Me(Me.tableReportePacasPorClases.IdOrdenTrabajoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNumeroModulosNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacasPorClases.NumeroModulosColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNumeroModulosNull()
+            Me(Me.tableReportePacasPorClases.NumeroModulosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspredioNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacasPorClases.predioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpredioNull()
+            Me(Me.tableReportePacasPorClases.predioColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

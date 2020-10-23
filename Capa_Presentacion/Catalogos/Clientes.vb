@@ -189,7 +189,7 @@ Public Class Clientes
         CbEstadoFis.DataSource = tabla
         CbEstadoFis.ValueMember = "IdEstado"
         CbEstadoFis.DisplayMember = "Descripcion"
-        CbEstadoFis.SelectedValue = 6
+        CbEstadoFis.SelectedValue = 8
 
         '---------------------------CONSULTA TIPO PERSONA
         Dim tabla3 As New DataTable
@@ -208,7 +208,7 @@ Public Class Clientes
         CbEstadoMovilizacion.DataSource = tabla4
         CbEstadoMovilizacion.ValueMember = "IdEstado"
         CbEstadoMovilizacion.DisplayMember = "Descripcion"
-        CbEstadoMovilizacion.SelectedValue = 6
+        CbEstadoMovilizacion.SelectedValue = 8
 
         '---------------------------CONSULTA ESTADOS MORAL
         'Dim tabla6 As New DataTable
@@ -227,7 +227,7 @@ Public Class Clientes
         CbEstadoMoral.DataSource = tabla7
         CbEstadoMoral.ValueMember = "IdEstado"
         CbEstadoMoral.DisplayMember = "Descripcion"
-        CbEstadoMoral.SelectedValue = 6
+        CbEstadoMoral.SelectedValue = 8
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
         dt.Columns.Add("Id")
@@ -300,17 +300,17 @@ Public Class Clientes
             e.KeyChar = CChar("")
         End If
     End Sub
-    Private Sub TbCalleFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCalleFis.KeyPress
-        If Char.IsLetter(e.KeyChar) Then
-            e.Handled = False
-        ElseIf Char.IsControl(e.KeyChar) Then
-            e.Handled = False
-        ElseIf e.KeyChar.IsSeparator(e.KeyChar) Then
-            e.Handled = False
-        Else
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub TbCalleFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbCalleFis.KeyPress
+    '    If Char.IsLetter(e.KeyChar) Then
+    '        e.Handled = False
+    '    ElseIf Char.IsControl(e.KeyChar) Then
+    '        e.Handled = False
+    '    ElseIf e.KeyChar.IsSeparator(e.KeyChar) Then
+    '        e.Handled = False
+    '    Else
+    '        e.Handled = True
+    '    End If
+    'End Sub
     Private Sub TbColoniaFis_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbColoniaFis.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
