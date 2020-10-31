@@ -1,5 +1,8 @@
 alter proc Sp_ActualizaBoletaPeso
 @IdBoleta int,
+@NoTransporte int,
+@FechaEntrada datetime,
+@FechaSalida datetime,
 @Bruto float,
 @Tara float,
 @Total float,
@@ -7,7 +10,10 @@ alter proc Sp_ActualizaBoletaPeso
 @FlagCancelada bit
 as
 update OrdenTrabajoDetalle
-set Bruto = @Bruto,
+set NoTransporte = @NoTransporte,
+	FechaEntrada = @FechaEntrada,
+	FechaSalida = @FechaSalida,
+	Bruto = @Bruto,
 	Tara = @Tara,
 	Total = @Total,
 	FlagCancelada = @FlagCancelada,

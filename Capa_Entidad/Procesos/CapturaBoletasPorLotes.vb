@@ -9,4 +9,6 @@
     Public FlagCancelada As Boolean
     Public TipoFlete As String
     Public IdOrdenTrabajo As Integer
+    Public FechaEntrada As DateTime
+    Public FechaSalida As DateTime
 End Class

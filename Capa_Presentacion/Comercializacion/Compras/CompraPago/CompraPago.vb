@@ -252,7 +252,12 @@ Public Class CompraPago
     End Sub
 
     Private Sub ImpResumenDeLiquidacionesItem_Click(sender As Object, e As EventArgs) Handles ImpResumenDeLiquidacionesItem.Click
-
+        If TbIdCompra.Text <> "" Then
+            Dim ReporteLiquidacionPacasResumen As New RepLiquidacionPacasResumen(TbIdCompra.Text, TbIdProductor.Text, TbNombreProductor.Text)
+            ReporteLiquidacionPacasResumen.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Private Sub ImpDetallesDeCompraItem_Click(sender As Object, e As EventArgs) Handles ImpDetallesDeCompraItem.Click

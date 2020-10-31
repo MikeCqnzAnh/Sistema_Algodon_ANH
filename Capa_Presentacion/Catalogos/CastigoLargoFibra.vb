@@ -228,6 +228,12 @@ Public Class CastigoLargoFibra
             ConsultaModosEquivalenteDetalle()
         End If
     End Sub
+    Private Sub CargarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem.Click
+        importarExcelExterno(DgvLargoDetalle)
+    End Sub
+    Private Sub CargarExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem1.Click
+        importarExcelExterno(DgvEquivalente)
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub

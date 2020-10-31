@@ -3,7 +3,7 @@ Imports System.Net
 Imports System.IO
 Public Class BuscarActualizacion
     Dim proces As New Process()
-    Dim CarpetaOrigen As String = "\\192.168.10.29\Scanner\Miguel\UPDATE"
+    Dim CarpetaOrigen As String = "\\192.168.10.29\Scanner\Miguel\update"
     Dim CarpetaDestino As String = My.Computer.FileSystem.CurrentDirectory + "\update\SetupAlgodon.zip"
     Dim Version As String
     Dim NombreArchivo As String = "\Version.txt"
@@ -43,8 +43,8 @@ Public Class BuscarActualizacion
     Private Sub CopiarArchivo()
         If My.Computer.FileSystem.FileExists(CarpetaOrigen + "\SetupAlgodon.zip") = True Then
             My.Computer.FileSystem.CopyFile(CarpetaOrigen + "\SetupAlgodon.zip", CarpetaDestino)
-            descomprimir()
-
+            'descomprimir()
+            DescomprimeZip()
             proces.StartInfo.FileName = My.Computer.FileSystem.CurrentDirectory + "\update\Setup.exe"
             proces.Start()
             Application.ExitThread()
@@ -72,19 +72,35 @@ Public Class BuscarActualizacion
             MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
         End Try
     End Sub
-    Private Sub descomprimir()
-        Dim descomprimir As New Shell32.Shell()
-        Dim output As Shell32.Folder = descomprimir.NameSpace(My.Computer.FileSystem.CurrentDirectory + "\Update") 'Directorio donde se encuentre el archivo a descomprimir
-        Dim input As Shell32.Folder = descomprimir.NameSpace(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.zip")
+    'Private Sub descomprimir()
+    '    Dim descomprimir As New Shell32.Shell()
+    '    Dim output As Shell32.Folder = descomprimir.NameSpace(My.Computer.FileSystem.CurrentDirectory + "\Update") 'Directorio donde se encuentre el archivo a descomprimir
+    '    Dim input As Shell32.Folder = descomprimir.NameSpace(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.zip")
+    '    If System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.msi") = True And System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\Update\Setup.exe") = True Then
+    '        System.IO.File.Delete(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.msi")
+    '        System.IO.File.Delete(My.Computer.FileSystem.CurrentDirectory + "\Update\Setup.exe")
+    '    End If
+    '    output.CopyHere(input.Items, 4)
+
+    '    Dim Borrarzip As String
+    '    Borrarzip = (My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.zip")
+
+    '    'comprobamos que el archivo existe
+    '    If System.IO.File.Exists(Borrarzip) = True Then
+    '        System.IO.File.Delete(Borrarzip)
+    '    End If
+    'End Sub
+    Private Sub DescomprimeZip()
+        Dim directorioOrigen As String = My.Computer.FileSystem.CurrentDirectory + "\Update"
+        Dim directorioZip As String = My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.zip"
         If System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.msi") = True And System.IO.File.Exists(My.Computer.FileSystem.CurrentDirectory + "\Update\Setup.exe") = True Then
             System.IO.File.Delete(My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.msi")
             System.IO.File.Delete(My.Computer.FileSystem.CurrentDirectory + "\Update\Setup.exe")
         End If
-        output.CopyHere(input.Items, 4)
-
         Dim Borrarzip As String
         Borrarzip = (My.Computer.FileSystem.CurrentDirectory + "\Update\SetupAlgodon.zip")
-
+        'ZipFile.CreateFromDirectory(directorioOrigen, directorioZip)
+        ZipFile.ExtractToDirectory(directorioZip, directorioOrigen)
         'comprobamos que el archivo existe
         If System.IO.File.Exists(Borrarzip) = True Then
             System.IO.File.Delete(Borrarzip)

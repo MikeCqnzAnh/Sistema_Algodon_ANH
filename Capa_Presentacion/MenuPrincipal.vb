@@ -7,7 +7,7 @@ Imports System.IO
 
 Public Class MenuPrincipal
     Dim Sitio, Serie, Token As String
-    Dim PosicionValorBanxico, LongitudValorBanxico As Integer
+    'Dim PosicionValorBanxico, LongitudValorBanxico As Integer
     Dim TablaEnc As New DataTable
     Dim valor As String = ""
     Dim Version As String
@@ -17,11 +17,10 @@ Public Class MenuPrincipal
         LeerArchivo()
         If Version > Application.ProductVersion Then
             BuscarActualizacion.ShowDialog()
-        Else
-            consultaItems()
-            ConsultaParametros()
-            TipoUsuario()
         End If
+        consultaItems()
+        ConsultaParametros()
+        TipoUsuario()
     End Sub
     Private Sub LeerArchivo()
         Dim leer As New StreamReader(CarpetaOrigen & NombreArchivo)
@@ -278,7 +277,8 @@ Public Class MenuPrincipal
         ContratoSemillas.ShowDialog()
     End Sub
     Private Sub CastigosPorLargosDeFibraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorLargosDeFibraToolStripMenuItem.Click
-        CastigoLargoFibra.ShowDialog()
+        Dim CastLargoFibra As New CastigoLargoFibra()
+        CastLargoFibra.ShowDialog()
     End Sub
     Private Sub CastigosPorResistenciaDeFibraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorResistenciaDeFibraToolStripMenuItem.Click
         CastigoResistenciaFibra.ShowDialog()

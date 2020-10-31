@@ -58,6 +58,7 @@
         ReporteDisponibilidadPacasProductor = 20
         ReportePesosSalidaPacas = 21
         ReportePacasSinVender = 22
+        ReporteResumenLiquidacion = 23
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

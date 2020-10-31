@@ -4,7 +4,7 @@ Imports System.Net
 Public Class Produccion
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
     Dim archivo As String = "config.ini"
-    Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
+    Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
     Dim UltimaSecuencia, EtiquetaEscaneada As Integer
     Dim IdProduccionDetalle As Integer = 0
@@ -125,27 +125,27 @@ Public Class Produccion
                 End If
                 .PortName = CbPuertosSeriales.Text
 
-                '.BaudRate = 9600 '// 9600 baud rate
+                .BaudRate = BaudRate '// 9600 baud rate
 
-                '.DataBits = 8 '// 8 data bits
+                .DataBits = DataBits '// 8 data bits
 
-                '.StopBits = IO.Ports.StopBits.One '// 1 Stop bit
+                .StopBits = StopBits '// 1 Stop bit
 
-                '.Parity = IO.Ports.Parity.None '
+                .Parity = Parity '
 
-                '.DtrEnable = False
+                .DtrEnable = DtrEnable
 
-                '.Handshake = IO.Ports.Handshake.None
+                .Handshake = HandShake
 
-                '.ReadBufferSize = 4096
+                .ReadBufferSize = ReadBufferSize
 
-                '.WriteBufferSize = 2048
+                .WriteBufferSize = WriteBufferSize
 
-                ''.ReceivedBytesThreshold = 1
+                .ReceivedBytesThreshold = ReceivedBytesThreshold
 
-                '.WriteTimeout = 500
+                .WriteTimeout = 500
 
-                '.Encoding = System.Text.Encoding.Default
+                .Encoding = System.Text.Encoding.Default
 
                 .Open() ' ABRE EL PUERTO SERIE
             End With
@@ -1670,7 +1670,15 @@ Public Class Produccion
                 PosicionNeto = ObtenerValor(ArregloCadena(29))
                 CaracterNeto = ObtenerValor(ArregloCadena(30))
                 CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
-                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(32))
+                BaudRate = ObtenerValor(ArregloCadena(32))
+                DataBits = ObtenerValor(ArregloCadena(33))
+                StopBits = ObtenerValor(ArregloCadena(34))
+                Parity = ObtenerValor(ArregloCadena(35))
+                Handshake = ObtenerValor(ArregloCadena(36))
+                DtrEnable = ObtenerValor(ArregloCadena(37))
+                ReadBufferSize = ObtenerValor(ArregloCadena(38))
+                WriteBufferSize = ObtenerValor(ArregloCadena(39))
+                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(41))
             End While
             leer.Close()
         Catch ex As Exception

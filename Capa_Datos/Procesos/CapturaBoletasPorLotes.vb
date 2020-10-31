@@ -43,6 +43,9 @@ Public Class CapturaBoletasPorLotes
             cmdGuardar = New SqlCommand("sp_ActualizaBoletaPeso", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@Idboleta", EntidadCapturaBoletasPorLotes1.Idboleta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@NoTransporte", EntidadCapturaBoletasPorLotes1.NoTransporte))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaEntrada", EntidadCapturaBoletasPorLotes1.FechaEntrada))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaSalida", EntidadCapturaBoletasPorLotes1.FechaSalida))
             cmdGuardar.Parameters.Add(New SqlParameter("@Bruto", EntidadCapturaBoletasPorLotes1.Bruto))
             cmdGuardar.Parameters.Add(New SqlParameter("@Tara", EntidadCapturaBoletasPorLotes1.Tara))
             cmdGuardar.Parameters.Add(New SqlParameter("@Total", EntidadCapturaBoletasPorLotes1.Neto))
@@ -50,6 +53,7 @@ Public Class CapturaBoletasPorLotes
             cmdGuardar.Parameters.Add(New SqlParameter("@FlagCancelada", EntidadCapturaBoletasPorLotes1.FlagCancelada))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadCapturaBoletasPorLotes = EntidadCapturaBoletasPorLotes1

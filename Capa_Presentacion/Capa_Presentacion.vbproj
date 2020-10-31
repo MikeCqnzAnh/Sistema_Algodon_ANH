@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.82.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.90.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -229,6 +229,12 @@
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompra.Designer.vb">
+      <DependentUpon>PreliquidacionCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Ventas\ComparacionVentaVsCliente.Designer.vb">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </Compile>
@@ -283,6 +289,12 @@
     <Compile Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.Designer.vb">
+      <DependentUpon>PreliquidacionVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaAlmacen.Designer.vb">
       <DependentUpon>ConsultaAlmacen.vb</DependentUpon>
     </Compile>
@@ -319,6 +331,7 @@
     <Compile Include="Consultas\ConsultaSalidas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataGridViewCalendarColumn.vb" />
     <Compile Include="DsReportes.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -549,6 +562,12 @@
     <Compile Include="Reportes\RepDisponibilidadPacasProductor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepLiquidacionPacasResumen.Designer.vb">
+      <DependentUpon>RepLiquidacionPacasResumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepLiquidacionPacasResumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepLiquidacionRomaneaje.Designer.vb">
       <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
     </Compile>
@@ -691,6 +710,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTClasificacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTLiquidacionResumen.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTLiquidacionResumen.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTLiquidacionRomaneaje.vb">
@@ -1306,6 +1331,9 @@
     <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.resx">
       <DependentUpon>CastigosUniformidad.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\PreliquidacionCompra.resx">
+      <DependentUpon>PreliquidacionCompra.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Ventas\ComparacionVentaVsCliente.resx">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -1332,6 +1360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Ventas\ModificacionIndividual\CastigosUniformidadVenta.resx">
       <DependentUpon>CastigosUniformidadVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\PreliquidacionVenta.resx">
+      <DependentUpon>PreliquidacionVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
@@ -1381,6 +1412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepDisponibilidadPacasProductor.resx">
       <DependentUpon>RepDisponibilidadPacasProductor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepLiquidacionPacasResumen.resx">
+      <DependentUpon>RepLiquidacionPacasResumen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepLiquidacionRomaneaje.resx">
       <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
@@ -1465,6 +1499,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTClasificacion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTClasificacion.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionResumen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTLiquidacionResumen.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneaje.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1792,6 +1830,8 @@
     <None Include="Iconos\png\attachment.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
+    <None Include="Imagenes\excel.png" />
+    <None Include="Imagenes\delete.png" />
     <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

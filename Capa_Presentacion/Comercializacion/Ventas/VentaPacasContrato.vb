@@ -1610,6 +1610,11 @@ Public Class VentaPacasContrato
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
+
+    End Sub
+
     Private Sub PropiedadesDgvLiquidacionesVendidas()
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True

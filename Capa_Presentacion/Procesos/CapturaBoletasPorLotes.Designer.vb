@@ -50,7 +50,7 @@ Partial Class CapturaBoletasPorLotes
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1205, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1157, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -81,7 +81,7 @@ Partial Class CapturaBoletasPorLotes
         Me.GbGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbGenerales.Name = "GbGenerales"
-        Me.GbGenerales.Size = New System.Drawing.Size(1205, 102)
+        Me.GbGenerales.Size = New System.Drawing.Size(1157, 102)
         Me.GbGenerales.TabIndex = 30
         Me.GbGenerales.TabStop = False
         Me.GbGenerales.Text = "Datos Generales"
@@ -100,7 +100,7 @@ Partial Class CapturaBoletasPorLotes
         Me.LbStatus.AutoSize = True
         Me.LbStatus.Dock = System.Windows.Forms.DockStyle.Right
         Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbStatus.Location = New System.Drawing.Point(1117, 16)
+        Me.LbStatus.Location = New System.Drawing.Point(1069, 16)
         Me.LbStatus.Name = "LbStatus"
         Me.LbStatus.Size = New System.Drawing.Size(85, 29)
         Me.LbStatus.TabIndex = 64
@@ -137,7 +137,7 @@ Partial Class CapturaBoletasPorLotes
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 126)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1205, 592)
+        Me.GroupBox2.Size = New System.Drawing.Size(1157, 581)
         Me.GroupBox2.TabIndex = 31
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Informacion"
@@ -159,7 +159,7 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos.RowHeadersVisible = False
         Me.DgvModulos.RowHeadersWidth = 40
         Me.DgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvModulos.Size = New System.Drawing.Size(1199, 573)
+        Me.DgvModulos.Size = New System.Drawing.Size(1151, 562)
         Me.DgvModulos.TabIndex = 30
         '
         'TiActualizaDgvModulos
@@ -174,7 +174,7 @@ Partial Class CapturaBoletasPorLotes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1205, 718)
+        Me.ClientSize = New System.Drawing.Size(1157, 707)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GbGenerales)
         Me.Controls.Add(Me.MSMenu)

@@ -10,7 +10,6 @@ Public Class CapturaBoletasPorLotes
     Dim Puerto As String
     Private Sub CapturaBoletasPorLotes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConsultaModulos()
-        ConsultaParametros()
         GetSerialPortNames()
         LeerArchivoConfiguracion()
         CheckForIllegalCrossThreadCalls = False
@@ -18,7 +17,6 @@ Public Class CapturaBoletasPorLotes
     End Sub
     Private Sub ObtenerArchivoConfiguracion()
         Dim leer As New IO.StreamReader(Ruta & archivo)
-
         Try
             While leer.Peek <> -1
                 Dim linea As String = leer.ReadToEnd()
@@ -104,11 +102,65 @@ Public Class CapturaBoletasPorLotes
         End Try
     End Sub
     Private Sub ConsultaModulos()
+
+        If DgvModulos.Columns("IdBoleta") Is Nothing Then
+            Dim colIdBoleta As New DataGridViewTextBoxColumn()
+            colIdBoleta.Name = "IdBoleta"
+            colIdBoleta.DataPropertyName = "IdBoleta"
+            Dim colIdPlanta As New DataGridViewTextBoxColumn()
+            colIdPlanta.Name = "IdPlanta"
+            colIdPlanta.DataPropertyName = "IdPlanta"
+            Dim ColNoTransporte As New DataGridViewTextBoxColumn()
+            ColNoTransporte.Name = "NoTransporte"
+            ColNoTransporte.DataPropertyName = "NoTransporte"
+            Dim colFechaEntrada As New DataGridViewCalendarColumn()
+            colFechaEntrada.Name = "FechaEntrada"
+            colFechaEntrada.DataPropertyName = "FechaEntrada"
+            Dim colFechaSalida As New DataGridViewCalendarColumn()
+            colFechaSalida.Name = "FechaSalida"
+            colFechaSalida.DataPropertyName = "FechaSalida"
+            Dim colBruto As New DataGridViewTextBoxColumn()
+            colBruto.Name = "Bruto"
+            colBruto.DataPropertyName = "Bruto"
+            Dim colTara As New DataGridViewTextBoxColumn()
+            colTara.Name = "Tara"
+            colTara.DataPropertyName = "Tara"
+            Dim colTotal As New DataGridViewTextBoxColumn()
+            colTotal.Name = "Total"
+            colTotal.DataPropertyName = "Total"
+            Dim colNombre As New DataGridViewTextBoxColumn()
+            colNombre.Name = "Nombre"
+            colNombre.DataPropertyName = "Nombre"
+            Dim colIdOrdenTrabajo As New DataGridViewTextBoxColumn()
+            colIdOrdenTrabajo.Name = "IdOrdenTrabajo"
+            colIdOrdenTrabajo.DataPropertyName = "IdOrdenTrabajo"
+            Dim colFlagCancelada As New DataGridViewCheckBoxColumn()
+            colFlagCancelada.Name = "FlagCancelada"
+            colFlagCancelada.DataPropertyName = "FlagCancelada"
+            Dim colFlagRevisada As New DataGridViewCheckBoxColumn()
+            colFlagRevisada.Name = "FlagRevisada"
+            colFlagRevisada.DataPropertyName = "FlagRevisada"
+
+            DgvModulos.Columns.Add(colIdBoleta)
+            DgvModulos.Columns.Add(colIdPlanta)
+            DgvModulos.Columns.Add(ColNoTransporte)
+            DgvModulos.Columns.Add(colFechaEntrada)
+            DgvModulos.Columns.Add(colFechaSalida)
+            DgvModulos.Columns.Add(colBruto)
+            DgvModulos.Columns.Add(colTara)
+            DgvModulos.Columns.Add(colTotal)
+            DgvModulos.Columns.Add(colNombre)
+            DgvModulos.Columns.Add(colIdOrdenTrabajo)
+            DgvModulos.Columns.Add(colFlagCancelada)
+            DgvModulos.Columns.Add(colFlagRevisada)
+        End If
+
         Dim EntidadCapturaBoletasPorLotes As New Capa_Entidad.CapturaBoletasPorLotes
         Dim NegocioCapturaBoletasPorLotes As New Capa_Negocio.CapturaBoletasPorLotes
         Dim Tabla As New DataTable
         EntidadCapturaBoletasPorLotes.Consulta = Consulta.ConsultaDetallada
         NegocioCapturaBoletasPorLotes.Consultar(EntidadCapturaBoletasPorLotes)
+
         DgvModulos.DataSource = EntidadCapturaBoletasPorLotes.TablaConsulta
         propiedadesDgv()
     End Sub
@@ -177,6 +229,7 @@ Public Class CapturaBoletasPorLotes
         returnStr = ""
     End Sub
     Private Sub propiedadesDgv()
+        'Dim DGVCalendar = New DataGridViewCalendarColumn()
         DgvModulos.Columns("IdPlanta").HeaderText = "ID Planta"
         DgvModulos.Columns("Bruto").HeaderText = "Bruto"
         DgvModulos.Columns("Tara").HeaderText = "Tara"
@@ -186,10 +239,10 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.Columns("IdOrdenTrabajo").HeaderText = "Orden de Trabajo"
         DgvModulos.Columns("FlagCancelada").HeaderText = "Cancelado"
         DgvModulos.Columns("FlagRevisada").HeaderText = "Revisado"
-        DgvModulos.Columns("IdBoleta").Visible = True
+        DgvModulos.Columns("IdBoleta").ReadOnly = True
         DgvModulos.Columns("IdPlanta").ReadOnly = True
-        DgvModulos.Columns("FechaEntrada").ReadOnly = True
-        DgvModulos.Columns("FechaSalida").ReadOnly = True
+        'DgvModulos.Columns("FechaEntrada").ReadOnly = True
+        'DgvModulos.Columns("FechaSalida").ReadOnly = True
         DgvModulos.Columns("Bruto").ReadOnly = False
         DgvModulos.Columns("Tara").ReadOnly = False
         DgvModulos.Columns("Total").ReadOnly = True
@@ -197,6 +250,8 @@ Public Class CapturaBoletasPorLotes
         DgvModulos.Columns("IdOrdenTrabajo").ReadOnly = True
         DgvModulos.Columns("FlagCancelada").ReadOnly = False
         DgvModulos.Columns("FlagRevisada").ReadOnly = False
+
+        'DgvModulos.Columns("FechaEntrada").CellTemplate = DGVCalendar
     End Sub
     Private Sub DataGridView1_RowEnter(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DgvModulos.CellEnter, DgvModulos.CellContentClick
         Dim Total, Bruto, Tara As Double
@@ -209,7 +264,8 @@ Public Class CapturaBoletasPorLotes
         Else
             Total = Bruto - Tara
             DgvModulos.CurrentRow.Cells("Total").Value = Total
-            ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, Bruto, Tara, Total, CType(Me.DgvModulos.CurrentRow.Cells("FlagRevisada").EditedFormattedValue, Boolean), CType(Me.DgvModulos.CurrentRow.Cells("FlagCancelada").EditedFormattedValue, Boolean))
+            ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, DgvModulos.CurrentRow.Cells("NoTransporte").Value, DgvModulos.CurrentRow.Cells("FechaEntrada").Value, DgvModulos.CurrentRow.Cells("FechaSalida").Value, Bruto, Tara, Total, CType(Me.DgvModulos.CurrentRow.Cells("FlagRevisada").EditedFormattedValue, Boolean), CType(Me.DgvModulos.CurrentRow.Cells("FlagCancelada").EditedFormattedValue, Boolean))
+            'ActualizaPesoModuloManual(DgvModulos.CurrentRow.Cells("IdBoleta").Value, Bruto, Tara, Total, CType(Me.DgvModulos.CurrentRow.Cells("FlagRevisada").EditedFormattedValue, Boolean), CType(Me.DgvModulos.CurrentRow.Cells("FlagCancelada").EditedFormattedValue, Boolean))
             ActualizaPesoOrdenTrabajo(DgvModulos.CurrentRow.Cells("IdOrdenTrabajo").Value)
         End If
     End Sub
@@ -221,10 +277,15 @@ Public Class CapturaBoletasPorLotes
             NegocioCapturaBoletasPorLotes.ActualizaPesoOrden(EntidadCapturaBoletasPorLotes)
         End If
     End Sub
-    Private Sub ActualizaPesoModuloManual(ByVal IdBoleta As Integer, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
+
+    Private Sub ActualizaPesoModuloManual(ByVal IdBoleta As Integer, ByVal NoTransporte As Integer, ByVal FechaEntrada As DateTime, ByVal FechaSalida As DateTime, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
+        'Private Sub ActualizaPesoModuloManual(ByVal IdBoleta As Integer, ByVal Bruto As Double, ByVal Tara As Double, ByVal Total As Double, ByVal Revisada As Boolean, ByVal Cancelada As Boolean)
         Dim EntidadCapturaBoletasPorLotes As New Capa_Entidad.CapturaBoletasPorLotes
         Dim NegocioCapturaBoletasPorLotes As New Capa_Negocio.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes.Idboleta = IdBoleta
+        EntidadCapturaBoletasPorLotes.NoTransporte = NoTransporte
+        EntidadCapturaBoletasPorLotes.FechaEntrada = FechaEntrada
+        EntidadCapturaBoletasPorLotes.FechaSalida = FechaSalida
         EntidadCapturaBoletasPorLotes.Bruto = Bruto
         EntidadCapturaBoletasPorLotes.Tara = Tara
         EntidadCapturaBoletasPorLotes.Neto = Total

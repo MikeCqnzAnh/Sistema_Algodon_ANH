@@ -337,6 +337,7 @@ Partial Class Produccion
         Me.Label21.Size = New System.Drawing.Size(51, 13)
         Me.Label21.TabIndex = 44
         Me.Label21.Text = "Operador"
+        Me.Label21.Visible = False
         '
         'BtAbrirProduccion
         '
@@ -458,6 +459,7 @@ Partial Class Produccion
         Me.CbOperador.Name = "CbOperador"
         Me.CbOperador.Size = New System.Drawing.Size(121, 21)
         Me.CbOperador.TabIndex = 55
+        Me.CbOperador.Visible = False
         '
         'CbTurno
         '
@@ -563,6 +565,7 @@ Partial Class Produccion
         Me.BtAgregarExcel.TabIndex = 58
         Me.BtAgregarExcel.Text = "Agregar Pacas desde Archivo de Excel"
         Me.BtAgregarExcel.UseVisualStyleBackColor = True
+        Me.BtAgregarExcel.Visible = False
         '
         'NumericUpDown1
         '
@@ -570,6 +573,7 @@ Partial Class Produccion
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 59
+        Me.NumericUpDown1.Visible = False
         '
         'BtImprimir
         '
@@ -579,6 +583,7 @@ Partial Class Produccion
         Me.BtImprimir.TabIndex = 60
         Me.BtImprimir.Text = "Imprimir"
         Me.BtImprimir.UseVisualStyleBackColor = True
+        Me.BtImprimir.Visible = False
         '
         'BtIncidencias
         '
@@ -588,6 +593,7 @@ Partial Class Produccion
         Me.BtIncidencias.TabIndex = 61
         Me.BtIncidencias.Text = "Incidencias"
         Me.BtIncidencias.UseVisualStyleBackColor = True
+        Me.BtIncidencias.Visible = False
         '
         'GbCapturaAutomatica
         '
@@ -652,6 +658,7 @@ Partial Class Produccion
         Me.GbLotes.TabIndex = 63
         Me.GbLotes.TabStop = False
         Me.GbLotes.Text = "Lotes"
+        Me.GbLotes.Visible = False
         '
         'BtFin
         '

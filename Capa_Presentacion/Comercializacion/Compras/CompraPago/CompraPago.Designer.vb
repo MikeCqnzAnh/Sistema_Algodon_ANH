@@ -366,7 +366,6 @@ Partial Class CompraPago
         Me.ImpResumenDeLiquidacionesItem.Name = "ImpResumenDeLiquidacionesItem"
         Me.ImpResumenDeLiquidacionesItem.Size = New System.Drawing.Size(184, 20)
         Me.ImpResumenDeLiquidacionesItem.Text = "Imp.Resumen de Liquidaciones"
-        Me.ImpResumenDeLiquidacionesItem.Visible = False
         '
         'SalirToolStripMenuItem
         '

@@ -7327,6 +7327,8 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnStrength As Global.System.Data.DataColumn
         
+        Private columnUniformidad As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -7451,6 +7453,14 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UniformidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUniformidad
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7487,9 +7497,9 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportePacasDetalladoRow(ByVal FolioCIA As Integer, ByVal IdOrdenTrabajo As Integer, ByVal Nombre As String, ByVal Planta As Integer, ByVal KilosHueso As Double, ByVal Kilos As Double, ByVal Fecha As Date, ByVal Clase As String, ByVal Mic As Double, ByVal UHML As Double, ByVal Strength As Double) As ReportePacasDetalladoRow
+        Public Overloads Function AddReportePacasDetalladoRow(ByVal FolioCIA As Integer, ByVal IdOrdenTrabajo As Integer, ByVal Nombre As String, ByVal Planta As Integer, ByVal KilosHueso As Double, ByVal Kilos As Double, ByVal Fecha As Date, ByVal Clase As String, ByVal Mic As Double, ByVal UHML As Double, ByVal Strength As Double, ByVal Uniformidad As Double) As ReportePacasDetalladoRow
             Dim rowReportePacasDetalladoRow As ReportePacasDetalladoRow = CType(Me.NewRow,ReportePacasDetalladoRow)
-            Dim columnValuesArray() As Object = New Object() {FolioCIA, IdOrdenTrabajo, Nombre, Planta, KilosHueso, Kilos, Fecha, Clase, Mic, UHML, Strength}
+            Dim columnValuesArray() As Object = New Object() {FolioCIA, IdOrdenTrabajo, Nombre, Planta, KilosHueso, Kilos, Fecha, Clase, Mic, UHML, Strength, Uniformidad}
             rowReportePacasDetalladoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReportePacasDetalladoRow)
             Return rowReportePacasDetalladoRow
@@ -7523,6 +7533,7 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnMic = MyBase.Columns("Mic")
             Me.columnUHML = MyBase.Columns("UHML")
             Me.columnStrength = MyBase.Columns("Strength")
+            Me.columnUniformidad = MyBase.Columns("Uniformidad")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7550,6 +7561,8 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnUHML)
             Me.columnStrength = New Global.System.Data.DataColumn("Strength", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStrength)
+            Me.columnUniformidad = New Global.System.Data.DataColumn("Uniformidad", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUniformidad)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17220,6 +17233,22 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Uniformidad() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacasDetallado.UniformidadColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Uniformidad' de la tabla 'ReportePacasDetallado' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacasDetallado.UniformidadColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsFolioCIANull() As Boolean
             Return Me.IsNull(Me.tableReportePacasDetallado.FolioCIAColumn)
         End Function
@@ -17348,6 +17377,18 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetStrengthNull()
             Me(Me.tableReportePacasDetallado.StrengthColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsUniformidadNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacasDetallado.UniformidadColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetUniformidadNull()
+            Me(Me.tableReportePacasDetallado.UniformidadColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

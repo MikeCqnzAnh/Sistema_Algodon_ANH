@@ -1083,7 +1083,7 @@ Public Class CompraPacasContrato
     End Sub
     Private Sub BtBuscarProductor_Click(sender As Object, e As EventArgs) Handles BtBuscarProductor.Click
         Dim _ConsultaProductorContratoCompras As New ConsultaProductorContratoCompras
-
+        Nuevo()
         _ConsultaProductorContratoCompras.MdiParent = Me.MdiParent
         _ConsultaProductorContratoCompras.Opener = CType(Me, IForm)
 
