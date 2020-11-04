@@ -1,5 +1,5 @@
-create proc sp_ExistePacaProduccion 
-@FolioCIA as int ,
+alter proc sp_ExistePacaProduccion 
+@FolioCIA as bigint ,
 @IdPlantaOrigen as int
 as 
 if exists (select  foliocia from ProduccionDetalle where FolioCIA = @FolioCIA and IdPlantaOrigen = @IdPlantaOrigen)

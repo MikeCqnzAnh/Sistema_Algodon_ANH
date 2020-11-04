@@ -363,7 +363,7 @@ Partial Class Produccion
         Me.TbFolioCIA.Location = New System.Drawing.Point(6, 46)
         Me.TbFolioCIA.MaxLength = 10
         Me.TbFolioCIA.Name = "TbFolioCIA"
-        Me.TbFolioCIA.Size = New System.Drawing.Size(283, 62)
+        Me.TbFolioCIA.Size = New System.Drawing.Size(302, 62)
         Me.TbFolioCIA.TabIndex = 47
         '
         'TbKilos
@@ -372,7 +372,7 @@ Partial Class Produccion
         Me.TbKilos.Location = New System.Drawing.Point(6, 143)
         Me.TbKilos.MaxLength = 10
         Me.TbKilos.Name = "TbKilos"
-        Me.TbKilos.Size = New System.Drawing.Size(283, 62)
+        Me.TbKilos.Size = New System.Drawing.Size(302, 62)
         Me.TbKilos.TabIndex = 49
         '
         'Label22
@@ -429,6 +429,7 @@ Partial Class Produccion
         '
         Me.TbFolioInicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbFolioInicial.Location = New System.Drawing.Point(6, 125)
+        Me.TbFolioInicial.MaxLength = 10
         Me.TbFolioInicial.Name = "TbFolioInicial"
         Me.TbFolioInicial.Size = New System.Drawing.Size(174, 29)
         Me.TbFolioInicial.TabIndex = 57
@@ -785,7 +786,7 @@ Partial Class Produccion
         '
         Me.CkLeersaco.AutoSize = True
         Me.CkLeersaco.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CkLeersaco.Location = New System.Drawing.Point(295, 19)
+        Me.CkLeersaco.Location = New System.Drawing.Point(295, 12)
         Me.CkLeersaco.Name = "CkLeersaco"
         Me.CkLeersaco.Size = New System.Drawing.Size(121, 28)
         Me.CkLeersaco.TabIndex = 53

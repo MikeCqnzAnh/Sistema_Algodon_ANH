@@ -1,14 +1,14 @@
 alter Procedure Sp_ConsultaPacasFaltantes
 @IdPlanta int ,
-@RangoInicial int,
-@RangoFinal int ,
-@Valor int = 0
+@RangoInicial bigint,
+@RangoFinal bigint ,
+@Valor bigint = 0
 as
 IF OBJECT_ID('tempdb..#Fuente') is not null
 	begin
 		DROP TABLE #Fuente
 	end
-		CREATE TABLE #Fuente (numero int)
+		CREATE TABLE #Fuente (numero bigint)
 
 IF @RangoInicial > 0 AND @IdPlanta = 0
 	BEGIN 
@@ -43,7 +43,7 @@ IF OBJECT_ID('tempdb..#Rangos') is not null
 		DROP TABLE #Rangos 
 	end
 
-		CREATE TABLE #Rangos (numero int)
+		CREATE TABLE #Rangos (numero bigint)
 	
 set @Valor = (select min(numero) from #Fuente)
 WHILE @valor <= (SELECT ISNULL(MAX(numero),0) FROM #Fuente)

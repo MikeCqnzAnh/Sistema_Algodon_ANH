@@ -92,6 +92,7 @@ Public Class Produccion
             '    EntidadProduccion1.IdProduccion = cmdGuardar.Parameters("@IdProduccion").Value
             'End If
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadProduccion = EntidadProduccion1

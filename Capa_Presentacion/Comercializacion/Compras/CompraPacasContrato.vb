@@ -59,7 +59,8 @@ Public Class CompraPacasContrato
             VarGlob2.IdModalidadCompra = CbModalidadCompra.SelectedValue
 
             _Tabla = Table()
-            CompraPago.ShowDialog()
+            Dim ventanacompra As New CompraPago
+            ventanacompra.ShowDialog()
             'ConsultaCompra()
             consultaDatosdgv()
         Else
@@ -437,7 +438,7 @@ Public Class CompraPacasContrato
         CbModalidadCompra.DataSource = Tabla3
         CbModalidadCompra.ValueMember = "IdModoEncabezado"
         CbModalidadCompra.DisplayMember = "Descripcion"
-        CbModalidadCompra.SelectedValue = 11
+        CbModalidadCompra.SelectedValue = 1
         '------------------------COMBO MICROS VENTA
         Dim Tabla2 As New DataTable
         EntidadContratosAlgodon.Consulta = Consulta.ConsultaMicrosCompraCmb
@@ -1312,9 +1313,6 @@ Public Class CompraPacasContrato
         ElseIf (TbDesdePaca.Text > TbHastaPaca.Text) Or TbHastaPaca.Text = "" Or TbDesdePaca.Text = "" Then
             MsgBox("El Campo De Inicio no puede ser mayor al campo final o contener campos vacios")
         End If
-    End Sub
-    Private Sub BtFiltroCompra_Click(sender As Object, e As EventArgs) Handles BtFiltroCompra.Click
-
     End Sub
     Private Sub filtraPacasClases()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato

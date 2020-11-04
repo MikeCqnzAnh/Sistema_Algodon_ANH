@@ -1,8 +1,8 @@
-Alter procedure sp_ConsultaPacasVentasFiltro
+alter procedure sp_ConsultaPacasVentasFiltro
 --declare
 @Seleccionar bit =0 ,
-@PacaIni int,
-@PacaFin int,
+@PacaIni bigint,
+@PacaFin bigint,
 @Clase varchar(4),
 @IdPlanta int,
 @IdPaquete int

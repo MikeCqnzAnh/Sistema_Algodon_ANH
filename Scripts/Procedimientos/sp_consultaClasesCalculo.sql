@@ -1,6 +1,6 @@
 alter proc sp_consultaClasesCalculo
 --DECLARE
-@NumPaca int ,
+@NumPaca bigint ,
 @IdPlanta int,
 @IdPaquete int
 as
@@ -37,7 +37,7 @@ if @NumPaca = 0
 			,hd.[UV]
 			,0 as FlagTerminado
 			,Pd.IdOrdenTrabajo
-		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA and hd.IdOrdenTrabajo = pd.IdOrdenTrabajo and hd.IdPlantaOrigen = pd.IdPlantaOrigen
+		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
   		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta
@@ -112,7 +112,7 @@ else
 			,hd.[UV]
 			,0 as FlagTerminado
 			,Pd.IdOrdenTrabajo
-		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA and hd.IdOrdenTrabajo = pd.IdOrdenTrabajo and hd.IdPlantaOrigen = pd.IdPlantaOrigen
+		from [dbo].[HVIDetalle] Hd inner join ProduccionDetalle Pd on Hd.BaleID = Pd.FolioCIA
 						   inner join GradosClasificacion Gc on Hd.ColorGrade = Gc.GradoColor and Hd.TrashID = Gc.TrashId
 						   inner join ClasesClasificacion Cc on Gc.IdClase = Cc.IdClasificacion
 		where Pd.FolioCIA = @NumPaca and hd.IdPlantaOrigen = @IdPlanta 

@@ -20,7 +20,7 @@
     Public PlacaCaja1 As String
     Public PlacaCaja2 As String
     Public PlacaCaja As String
-    Public BaleID As Integer
+    Public BaleID As Long
     Public IdPlanta As Integer
     Public IdEmbarqueDetalle As Integer
     Public IdSalida As Integer

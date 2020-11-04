@@ -1,11 +1,11 @@
 ﻿Public Class ClasificacionVentaPaquetes
     Inherits Tarjeta
     Public IdClasificacion As Integer
-    Public NumeroPaca As Integer
+    Public NumeroPaca As Long
     Public TrashId As Integer
     Public LotID As Integer
     Public GradoColor As String
-    Public BaleID As Integer
+    Public BaleID As Long
     '------
     Public IdPaquete As Integer
     Public IdComprador As Integer

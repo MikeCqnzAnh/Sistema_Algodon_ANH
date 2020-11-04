@@ -8,7 +8,7 @@
     Public Ruta As String
     Public IdEstatus As Integer
     Public LotId As Integer
-    Public BaleID As Integer
+    Public BaleID As Long
     Public BaleGroup As String
     Public Operatr As String
     Public FechaAn As DateTime

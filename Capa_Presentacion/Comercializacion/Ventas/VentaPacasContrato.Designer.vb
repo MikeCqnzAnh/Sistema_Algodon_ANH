@@ -1407,6 +1407,7 @@ Partial Class VentaPacasContrato
         '
         Me.TbHastaPaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbHastaPaca.Location = New System.Drawing.Point(117, 18)
+        Me.TbHastaPaca.MaxLength = 10
         Me.TbHastaPaca.Name = "TbHastaPaca"
         Me.TbHastaPaca.Size = New System.Drawing.Size(56, 18)
         Me.TbHastaPaca.TabIndex = 31
@@ -1435,6 +1436,7 @@ Partial Class VentaPacasContrato
         '
         Me.TbDesdePaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbDesdePaca.Location = New System.Drawing.Point(31, 18)
+        Me.TbDesdePaca.MaxLength = 10
         Me.TbDesdePaca.Name = "TbDesdePaca"
         Me.TbDesdePaca.Size = New System.Drawing.Size(56, 18)
         Me.TbDesdePaca.TabIndex = 25

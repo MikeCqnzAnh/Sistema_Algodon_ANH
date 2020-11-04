@@ -1,7 +1,7 @@
-Create procedure Sp_ActualizaIdPaqueteDePaca
+alter procedure Sp_ActualizaIdPaqueteDePaca
 @IdPaquete int,
 @IdPlanta int,
-@BaleId int
+@BaleId bigint
 as
 update CalculoClasificacion
 set LotID = @IdPaquete

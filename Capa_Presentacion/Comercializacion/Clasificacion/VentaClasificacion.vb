@@ -482,7 +482,7 @@ Public Class VentaClasificacion
         DgvPacasClasificacion.Sort(DgvPacasClasificacion.Columns("BaleID"), System.ComponentModel.ListSortDirection.Descending)
         ContarPacas()
     End Sub
-    Private Sub InsertaPaca(ByVal NoPaca As Integer)
+    Private Sub InsertaPaca(ByVal NoPaca As Long)
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         Dim Tabla As New DataTable
@@ -504,7 +504,7 @@ Public Class VentaClasificacion
         ContarPacas()
         GeneraPromedioUI()
     End Sub
-    Public Function VerificaPacaRepetida(ByVal VerificaDuplicado As Boolean, ByVal NoPaca As Integer)
+    Public Function VerificaPacaRepetida(ByVal VerificaDuplicado As Boolean, ByVal NoPaca As Long)
         VerificaDuplicado = False
         For Each row As DataGridViewRow In DgvPacasClasificacion.Rows
             'Dim NoPaca As Integer = TbNoPaca.Text
@@ -553,7 +553,7 @@ Public Class VentaClasificacion
         TablaClasificacionGrid.Columns.Add(New DataColumn("IdPlantaOrigen", System.Type.GetType("System.Int32")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Double")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("LotID", System.Type.GetType("System.Int32")))
-        TablaClasificacionGrid.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int32")))
+        TablaClasificacionGrid.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int64")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("BaleGroup", System.Type.GetType("System.String")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("Operator", System.Type.GetType("System.String")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("Date", System.Type.GetType("System.DateTime")))
@@ -728,7 +728,7 @@ Public Class VentaClasificacion
         End If
         Return Contador
     End Function
-    Function ExistePacaHVI(ByVal IdPaca As Integer) As Boolean
+    Function ExistePacaHVI(ByVal IdPaca As Long) As Boolean
         Dim Tabla As New DataTable
         Dim resultado As Boolean
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
@@ -741,7 +741,7 @@ Public Class VentaClasificacion
         resultado = Tabla.Rows(0).Item("ExistePaca")
         Return resultado
     End Function
-    Private Function VerificaPacaPlanta(ByVal IdPaca As Integer) As String
+    Private Function VerificaPacaPlanta(ByVal IdPaca As Long) As String
         Dim Tabla As New DataTable
         'Dim Resultado As Boolean
         Dim vReturn(1) As String
@@ -762,7 +762,7 @@ Public Class VentaClasificacion
         'End If
         Return vReturn(0)
     End Function
-    Function ExistePacaPaquete(ByVal IdPaca As Integer) As Boolean
+    Function ExistePacaPaquete(ByVal IdPaca As Long) As Boolean
         Dim Tabla As New DataTable
         Dim Resultado As Boolean
         IdPaqueteEncabezadoVerifica = 0
@@ -884,7 +884,7 @@ Public Class VentaClasificacion
 
         dt.Columns.Clear()
         dt.Columns.Add("LotID", Type.GetType("System.Int32"))
-        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("SCI", Type.GetType("System.Single"))
         dt.Columns.Add("Grade", Type.GetType("System.String"))
         dt.Columns.Add("Moist", Type.GetType("System.Single"))

@@ -1,9 +1,9 @@
-CREATE procedure sp_InsertarPaquetesHVIDet
+alter procedure sp_InsertarPaquetesHVIDet
 @IdHviDet int,
 @IdHviEnc int,
 @IdPlantaOrigen int,
 @LotID int,
-@BaleID int,
+@BaleID bigint,
 @BaleGroup varchar(5),
 @Operator varchar(25),
 @Date datetime,
@@ -167,7 +167,8 @@ INSERT (IdHviEnc
 	   ,TrashID
 	   ,SCI
 	   ,Nep
-	   ,UV)
+	   ,UV
+	   ,EstatusCompra)
         VALUES (
 		source.IdHviEnc
 	   ,source.IdPlantaOrigen
@@ -196,5 +197,6 @@ INSERT (IdHviEnc
 	   ,source.TrashID
 	   ,source.SCI
 	   ,source.Nep
-	   ,source.UV);		
+	   ,source.UV
+	   ,1);		
 END

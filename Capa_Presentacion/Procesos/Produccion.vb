@@ -6,9 +6,9 @@ Public Class Produccion
     Dim archivo As String = "config.ini"
     Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
-    Dim UltimaSecuencia, EtiquetaEscaneada As Integer
+    Dim UltimaSecuencia, EtiquetaEscaneada As Long
     Dim IdProduccionDetalle As Integer = 0
-    Dim FolioCIAReturn As Integer = 0
+    Dim FolioCIAReturn As Long = 0
     Dim Puerto As String
     Private Sub Produccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Limpiar()
@@ -951,7 +951,7 @@ Public Class Produccion
         BtAbrirProduccion.Enabled = True
         BtCerrarProduccion.Enabled = False
     End Sub
-    Private Function ConsultarPacaExistente(ByVal FolioCIA As Integer, ByVal IdPlantaElabora As Integer)
+    Private Function ConsultarPacaExistente(ByVal FolioCIA As Long, ByVal IdPlantaElabora As Integer)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
@@ -1488,7 +1488,7 @@ Public Class Produccion
         EntidadProduccion.FolioInicial = Val(Folio)
         NegocioProduccion.UpsertFolioInicial(EntidadProduccion)
     End Sub
-    Private Sub EliminaPaca(ByVal FolioCIA As Integer, ByVal IdOrdenTrabajo As Integer)
+    Private Sub EliminaPaca(ByVal FolioCIA As Long, ByVal IdOrdenTrabajo As Integer)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
@@ -1678,6 +1678,7 @@ Public Class Produccion
                 DtrEnable = ObtenerValor(ArregloCadena(37))
                 ReadBufferSize = ObtenerValor(ArregloCadena(38))
                 WriteBufferSize = ObtenerValor(ArregloCadena(39))
+                ReceivedBytesThreshold = ObtenerValor(ArregloCadena(40))
                 CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(41))
             End While
             leer.Close()

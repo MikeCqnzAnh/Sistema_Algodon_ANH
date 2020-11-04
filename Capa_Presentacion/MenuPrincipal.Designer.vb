@@ -71,9 +71,11 @@ Partial Class MenuPrincipal
         Me.AltaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransferenciaDeRegistrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LiquidacionFinalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreliquidacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreliquidacionACompradorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDeLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -448,6 +450,7 @@ Partial Class MenuPrincipal
         Me.ContratosDeSemillaToolStripMenuItem1.Size = New System.Drawing.Size(338, 24)
         Me.ContratosDeSemillaToolStripMenuItem1.Tag = "30,27"
         Me.ContratosDeSemillaToolStripMenuItem1.Text = "Contratos de Semilla"
+        Me.ContratosDeSemillaToolStripMenuItem1.Visible = False
         '
         'ClasificacionToolStripMenuItem
         '
@@ -485,6 +488,7 @@ Partial Class MenuPrincipal
         Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1.Size = New System.Drawing.Size(328, 24)
         Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1.Tag = "35,31"
         Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1.Text = "Clasificación de Pacas (Con Certificado)"
+        Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1.Visible = False
         '
         'ClasificaciónDePacasConArchivoExcelToolStripMenuItem1
         '
@@ -492,10 +496,11 @@ Partial Class MenuPrincipal
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Size = New System.Drawing.Size(328, 24)
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Tag = "36,31"
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Text = "Clasificación de Pacas (Con Archivo Excel)"
+        Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Visible = False
         '
         'ComprasToolStripMenuItem
         '
-        Me.ComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompraDePacasAProductoresPorContratoToolStripMenuItem, Me.CompraDePacasToolStripMenuItem, Me.AltaDePacasToolStripMenuItem, Me.TransferenciaDeRegistrosToolStripMenuItem, Me.LiquidacionFinalToolStripMenuItem})
+        Me.ComprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompraDePacasAProductoresPorContratoToolStripMenuItem, Me.PreliquidacionToolStripMenuItem, Me.CompraDePacasToolStripMenuItem, Me.AltaDePacasToolStripMenuItem, Me.TransferenciaDeRegistrosToolStripMenuItem, Me.LiquidacionFinalToolStripMenuItem})
         Me.ComprasToolStripMenuItem.Name = "ComprasToolStripMenuItem"
         Me.ComprasToolStripMenuItem.Size = New System.Drawing.Size(309, 24)
         Me.ComprasToolStripMenuItem.Tag = "37,26"
@@ -514,6 +519,7 @@ Partial Class MenuPrincipal
         Me.CompraDePacasToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
         Me.CompraDePacasToolStripMenuItem.Tag = "39,37"
         Me.CompraDePacasToolStripMenuItem.Text = "Compra de Pacas"
+        Me.CompraDePacasToolStripMenuItem.Visible = False
         '
         'AltaDePacasToolStripMenuItem
         '
@@ -521,6 +527,7 @@ Partial Class MenuPrincipal
         Me.AltaDePacasToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
         Me.AltaDePacasToolStripMenuItem.Tag = "40,37"
         Me.AltaDePacasToolStripMenuItem.Text = "Alta de Pacas"
+        Me.AltaDePacasToolStripMenuItem.Visible = False
         '
         'TransferenciaDeRegistrosToolStripMenuItem
         '
@@ -528,6 +535,7 @@ Partial Class MenuPrincipal
         Me.TransferenciaDeRegistrosToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
         Me.TransferenciaDeRegistrosToolStripMenuItem.Tag = "41,37"
         Me.TransferenciaDeRegistrosToolStripMenuItem.Text = "Transferencia de Registros"
+        Me.TransferenciaDeRegistrosToolStripMenuItem.Visible = False
         '
         'LiquidacionFinalToolStripMenuItem
         '
@@ -536,9 +544,16 @@ Partial Class MenuPrincipal
         Me.LiquidacionFinalToolStripMenuItem.Tag = "42,37"
         Me.LiquidacionFinalToolStripMenuItem.Text = "Liquidacion Final"
         '
+        'PreliquidacionToolStripMenuItem
+        '
+        Me.PreliquidacionToolStripMenuItem.Name = "PreliquidacionToolStripMenuItem"
+        Me.PreliquidacionToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
+        Me.PreliquidacionToolStripMenuItem.Tag = "0,0"
+        Me.PreliquidacionToolStripMenuItem.Text = "Preliquidacion a productor"
+        '
         'VentasToolStripMenuItem
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDePacasPorContratoToolStripMenuItem, Me.VentaDePacasToolStripMenuItem})
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDePacasPorContratoToolStripMenuItem, Me.PreliquidacionACompradorToolStripMenuItem, Me.VentaDePacasToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
         Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(309, 24)
         Me.VentasToolStripMenuItem.Tag = "43,26"
@@ -557,6 +572,14 @@ Partial Class MenuPrincipal
         Me.VentaDePacasToolStripMenuItem.Size = New System.Drawing.Size(261, 24)
         Me.VentaDePacasToolStripMenuItem.Tag = "45,43"
         Me.VentaDePacasToolStripMenuItem.Text = "Venta de Pacas"
+        Me.VentaDePacasToolStripMenuItem.Visible = False
+        '
+        'PreliquidacionACompradorToolStripMenuItem
+        '
+        Me.PreliquidacionACompradorToolStripMenuItem.Name = "PreliquidacionACompradorToolStripMenuItem"
+        Me.PreliquidacionACompradorToolStripMenuItem.Size = New System.Drawing.Size(261, 24)
+        Me.PreliquidacionACompradorToolStripMenuItem.Tag = "0,0"
+        Me.PreliquidacionACompradorToolStripMenuItem.Text = "Preliquidacion a comprador"
         '
         'AsignarCompradoresAPaquetesHVIToolStripMenuItem
         '
@@ -1508,4 +1531,6 @@ Partial Class MenuPrincipal
     Friend WithEvents BuscarActualizacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguracionDeParametrosBanxicoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RolesTestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PreliquidacionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PreliquidacionACompradorToolStripMenuItem As ToolStripMenuItem
 End Class

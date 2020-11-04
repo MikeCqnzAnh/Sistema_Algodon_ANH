@@ -4,7 +4,7 @@ Imports System.Data.OleDb
 Public Class PaquetesHVI
     Public TablaPaquetesHVIGlobal As DataTable
     'Public Paquete As Integer
-    Public NumeroPacas As Integer
+    Public NumeroPacas As Long
     'Dim IdEncabezadoExiste As Integer
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         'Call ShowDialog.

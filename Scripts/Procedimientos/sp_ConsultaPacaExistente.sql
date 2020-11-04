@@ -1,6 +1,6 @@
-CREATE procedure sp_ConsultaPacaExistente  
+alter procedure sp_ConsultaPacaExistente  
 --DECLARE  
-@FolioCIA int ,  
+@FolioCIA bigint ,  
 @IdPlantaOrigen int ,
 @IdProduccion int   
 AS  
@@ -21,4 +21,4 @@ IF exists (select 1 from [dbo].[ProduccionDetalle] a where a.FolioCIA = @FolioCI
 END 
 
 
-select * from ProduccionDetalle
+--select * from ProduccionDetalle

@@ -210,7 +210,7 @@ Public Class OrdenEmbarquePacas
         TbPacasVendidasContrato.Text = DgvPacasEmbarcadas.RowCount
         GuardarEncabezado()
     End Sub
-    Private Sub DeseleccionarPacas(ByVal BaleID As Integer, ByVal IdVentaEnc As Integer)
+    Private Sub DeseleccionarPacas(ByVal BaleID As Long, ByVal IdVentaEnc As Integer)
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Try
@@ -305,7 +305,7 @@ Public Class OrdenEmbarquePacas
             GbProceso.Enabled = False
         End Try
     End Sub
-    Private Sub GuardaDetalle(ByVal IdVenta As Integer, ByVal IdPlanta As Integer, ByVal BaleID As Integer, ByVal Kilos As Integer)
+    Private Sub GuardaDetalle(ByVal IdVenta As Integer, ByVal IdPlanta As Integer, ByVal BaleID As Long, ByVal Kilos As Integer)
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Try

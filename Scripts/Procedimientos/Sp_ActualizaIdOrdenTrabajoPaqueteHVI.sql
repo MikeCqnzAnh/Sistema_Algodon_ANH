@@ -1,13 +1,12 @@
-Create Procedure Sp_ActualizaIdOrdenTrabajoPaqueteHVI
+alter Procedure Sp_ActualizaIdOrdenTrabajoPaqueteHVI
 @IdPlanta int,
-@BaleId int
+@BaleId bigint
 as
 update hvi
 set hvi.IdOrdenTrabajo = pd.IdOrdenTrabajo,
 	hvi.Kilos = pd.kilos,
-	hvi.Quintales = (hvi.kilos /46.02),
+	hvi.Quintales = round((pd.kilos /46.02),4,0),
 	hvi.Grade = cc.clavecorta,
-	hvi.EstatusCompra = 1,
 	FlagTerminado = 1
 from hvidetalle hvi inner join producciondetalle pd on hvi.idplantaorigen = pd.IdPlantaOrigen and hvi.BaleID = pd.FolioCIA
 					left join GradosClasificacion Gc on hvi.ColorGrade = Gc.GradoColor and hvi.TrashID = Gc.TrashId

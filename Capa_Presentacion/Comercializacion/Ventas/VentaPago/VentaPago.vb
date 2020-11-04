@@ -199,7 +199,7 @@ Public Class VentaPago
         Dim dt As New DataTable
         Dim r As DataRow
 
-        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("IdVentaEnc", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVenta", Type.GetType("System.Int32"))
 

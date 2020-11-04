@@ -3,7 +3,7 @@ Public Class Etiquetas
     Dim IdProduccion As Integer
     Dim IdOrdenTrabajo As Integer
     Dim IdPlantaOrigen As Integer
-    Dim UltimaSecuencia As Integer
+    Dim UltimaSecuencia As Long
     Dim LeerEtiqueta As Boolean
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
     Dim archivo As String = "config.ini"
@@ -292,7 +292,7 @@ Public Class Etiquetas
     '            End If
     '    End Select
     'End Sub
-    Private Function ConsultarPacaExistente(ByVal FolioCIA As Integer, ByVal IdPlantaElabora As Integer)
+    Private Function ConsultarPacaExistente(ByVal FolioCIA As Long, ByVal IdPlantaElabora As Integer)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable

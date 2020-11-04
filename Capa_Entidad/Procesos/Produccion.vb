@@ -9,7 +9,7 @@ Public Class Produccion
     Public IdCliente As Integer
     Public Fecha As Date
     Public IdEstatus As Integer
-    Public FolioInicial As Integer
+    Public FolioInicial As Long
 
     Public TotalHueso As Double
     Public Pacas As Integer
@@ -27,7 +27,7 @@ Public Class Produccion
     Public IdProduccionDetalle As Integer
     Public Tipo As String
     Public Kilos As Double
-    Public FolioCIA As Integer
+    Public FolioCIA As Long
     Public BandExiste As Boolean
     Public IdTurno As Integer
     Public IdBaja As Integer

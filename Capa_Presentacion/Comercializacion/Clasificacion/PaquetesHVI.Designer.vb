@@ -184,7 +184,7 @@ Partial Class PaquetesHVI
         Me.TbNoPacaConsulta.Location = New System.Drawing.Point(93, 39)
         Me.TbNoPacaConsulta.MaxLength = 10
         Me.TbNoPacaConsulta.Name = "TbNoPacaConsulta"
-        Me.TbNoPacaConsulta.Size = New System.Drawing.Size(131, 26)
+        Me.TbNoPacaConsulta.Size = New System.Drawing.Size(184, 26)
         Me.TbNoPacaConsulta.TabIndex = 0
         '
         'NuCantidadPacas

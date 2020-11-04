@@ -1,5 +1,5 @@
-Create Procedure Sp_CargaPacasExcel
-@baleid int
+alter Procedure Sp_CargaPacasExcel
+@baleid bigint
 as
 		select
 		     Hd.[IdPlantaOrigen]
@@ -38,5 +38,5 @@ as
 		where Pd.FolioCIA = @baleid
 			order by BaleID asc
 
-			select * from GradosClasificacion
-			select * from ClasesClasificacion
+			--select * from GradosClasificacion
+			--select * from ClasesClasificacion

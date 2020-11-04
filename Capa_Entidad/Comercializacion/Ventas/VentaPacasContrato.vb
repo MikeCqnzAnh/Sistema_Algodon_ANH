@@ -31,15 +31,15 @@
     Public SubTotal As Double
     Public CastigoDls As Double
     Public AnticipoDls As Double
-    Public PacasInicio As Integer
-    Public PacasFin As Integer
+    Public PacasInicio As Long
+    Public PacasFin As Long
     Public PrecioDolar As Double
     Public FacturaVenta As String
     Public TotalDlls As Double
     Public TotalPesosMx As Double
     Public NoPacas As Integer
-    Public InicioPaca As Integer
-    Public FinPaca As Integer
+    Public InicioPaca As Long
+    Public FinPaca As Long
     Public Clase As String
     Public IdPaquete As Integer
     Public IdEstatusVenta As Integer

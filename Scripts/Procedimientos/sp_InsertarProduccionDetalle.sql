@@ -1,9 +1,9 @@
-CREATE procedure sp_InsertarProduccionDetalle
+alter procedure sp_InsertarProduccionDetalle
 @IdProduccionDetalle int,
 @IdProduccion int,
 @IdOrdenTrabajo int,
 @IdPlantaOrigen int,
-@FolioCIA int,
+@FolioCIA bigint,
 @Tipo varchar(15),
 @Kilos float,
 @BandExiste bit,

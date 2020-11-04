@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.90.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.93.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -293,6 +293,12 @@
       <DependentUpon>PreliquidacionVenta.vb</DependentUpon>
     </Compile>
     <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaClientePreliquidacion.Designer.vb">
+      <DependentUpon>ConsultaClientePreliquidacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaClientePreliquidacion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaAlmacen.Designer.vb">
@@ -616,6 +622,12 @@
     <Compile Include="Reportes\RepPaquetesVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPreliquidacionCompra.Designer.vb">
+      <DependentUpon>RepPreliquidacionCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPreliquidacionCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepSalidaPacas.Designer.vb">
       <DependentUpon>RepSalidaPacas.vb</DependentUpon>
     </Compile>
@@ -770,6 +782,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTPaquetesVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPreliquidacionCompra.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPreliquidacionCompra.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTReporteClientes.vb">
@@ -1367,6 +1385,9 @@
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaClientePreliquidacion.resx">
+      <DependentUpon>ConsultaClientePreliquidacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaAlmacen.resx">
       <DependentUpon>ConsultaAlmacen.vb</DependentUpon>
     </EmbeddedResource>
@@ -1439,6 +1460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPaquetesVenta.resx">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPreliquidacionCompra.resx">
+      <DependentUpon>RepPreliquidacionCompra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepSalidaPacas.resx">
       <DependentUpon>RepSalidaPacas.vb</DependentUpon>
@@ -1539,6 +1563,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTPaquetesVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPaquetesVenta.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPreliquidacionCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPreliquidacionCompra.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

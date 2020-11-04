@@ -24,6 +24,7 @@ Partial Class Etiquetas
     Private Sub InitializeComponent()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TbEtiquetaActual = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -33,7 +34,6 @@ Partial Class Etiquetas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PControles = New System.Windows.Forms.Panel()
-        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.PControles.SuspendLayout()
@@ -53,6 +53,12 @@ Partial Class Etiquetas
         Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
+        'ActualizarToolStripMenuItem
+        '
+        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
+        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.ActualizarToolStripMenuItem.Text = "Actualizar"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
@@ -62,18 +68,18 @@ Partial Class Etiquetas
         'TbEtiquetaActual
         '
         Me.TbEtiquetaActual.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbEtiquetaActual.Location = New System.Drawing.Point(20, 86)
-        Me.TbEtiquetaActual.MaxLength = 9
+        Me.TbEtiquetaActual.Location = New System.Drawing.Point(3, 86)
+        Me.TbEtiquetaActual.MaxLength = 10
         Me.TbEtiquetaActual.Multiline = True
         Me.TbEtiquetaActual.Name = "TbEtiquetaActual"
-        Me.TbEtiquetaActual.Size = New System.Drawing.Size(533, 120)
+        Me.TbEtiquetaActual.Size = New System.Drawing.Size(618, 120)
         Me.TbEtiquetaActual.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(7, 7)
+        Me.Label2.Location = New System.Drawing.Point(61, 7)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(482, 76)
         Me.Label2.TabIndex = 4
@@ -92,19 +98,19 @@ Partial Class Etiquetas
         '
         Me.TbEtiquetaSiguiente.Enabled = False
         Me.TbEtiquetaSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbEtiquetaSiguiente.Location = New System.Drawing.Point(20, 288)
-        Me.TbEtiquetaSiguiente.MaxLength = 9
+        Me.TbEtiquetaSiguiente.Location = New System.Drawing.Point(3, 288)
+        Me.TbEtiquetaSiguiente.MaxLength = 10
         Me.TbEtiquetaSiguiente.Multiline = True
         Me.TbEtiquetaSiguiente.Name = "TbEtiquetaSiguiente"
         Me.TbEtiquetaSiguiente.ReadOnly = True
-        Me.TbEtiquetaSiguiente.Size = New System.Drawing.Size(533, 120)
+        Me.TbEtiquetaSiguiente.Size = New System.Drawing.Size(618, 120)
         Me.TbEtiquetaSiguiente.TabIndex = 3
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(7, 209)
+        Me.Label6.Location = New System.Drawing.Point(16, 209)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(573, 76)
         Me.Label6.TabIndex = 4
@@ -137,14 +143,8 @@ Partial Class Etiquetas
         Me.PControles.Controls.Add(Me.Label2)
         Me.PControles.Location = New System.Drawing.Point(38, 115)
         Me.PControles.Name = "PControles"
-        Me.PControles.Size = New System.Drawing.Size(576, 424)
+        Me.PControles.Size = New System.Drawing.Size(624, 424)
         Me.PControles.TabIndex = 17
-        '
-        'ActualizarToolStripMenuItem
-        '
-        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
-        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
-        Me.ActualizarToolStripMenuItem.Text = "Actualizar"
         '
         'Etiquetas
         '

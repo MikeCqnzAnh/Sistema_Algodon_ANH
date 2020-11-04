@@ -20,3 +20,4 @@ select LR.IdLiquidacion,
 		where hvid.FlagTerminado = 1 and lr.IdCliente = @IdProductor 
 		group by LR.IdLiquidacion,LR.IdOrdenTrabajo,lr.TotalHueso, lr.TotalSemilla
 		having   count(case when hvid.EstatusCompra = 2 then hvid.BaleID end) < Count(hvid.BaleID)
+		order by LR.IdLiquidacion

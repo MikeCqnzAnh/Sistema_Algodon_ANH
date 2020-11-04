@@ -1,5 +1,5 @@
-Create Procedure Sp_EliminaPacasSeleccionadas
-@FolioCIA int,
+alter Procedure Sp_EliminaPacasSeleccionadas
+@FolioCIA bigint,
 @IdOrdenTrabajo int 
 as
 delete  from producciondetalle 

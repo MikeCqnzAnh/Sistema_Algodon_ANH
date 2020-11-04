@@ -40,7 +40,7 @@ Public Class CargaPacasExternas
         TbRangoFin.Text = (Tabla.Rows(0).Item("RangoFin") + 1)
         TbNoModulos.Text = CInt((TbRangoFin.Text - TbRangoInicio.Text) + 1)
     End Sub
-    Function ExistePacaProduccion(ByVal IdPaca As Integer) As Boolean
+    Function ExistePacaProduccion(ByVal IdPaca As Long) As Boolean
         Dim Tabla As New DataTable
         Dim resultado As Boolean
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
@@ -340,7 +340,7 @@ Public Class CargaPacasExternas
             Next
         End If
     End Sub
-    Private Sub GuardaProduccionPacaDet(ByVal NoPaca As Integer, ByVal Kilos As Integer)
+    Private Sub GuardaProduccionPacaDet(ByVal NoPaca As Long, ByVal Kilos As Integer)
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Try
@@ -384,7 +384,7 @@ Public Class CargaPacasExternas
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub ActualizarUltimaEtiqueta(ByVal NoPaca As Integer)
+    Private Sub ActualizarUltimaEtiqueta(ByVal NoPaca As Long)
         'If CkLeersaco.CheckState = False Then
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion

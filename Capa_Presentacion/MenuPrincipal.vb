@@ -561,6 +561,17 @@ Public Class MenuPrincipal
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
+
+    Private Sub PreliquidacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreliquidacionToolStripMenuItem.Click
+        Dim preliqcompra As New PreliquidacionCompra
+        preliqcompra.ShowDialog()
+    End Sub
+
+    Private Sub PreliquidacionACompradorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreliquidacionACompradorToolStripMenuItem.Click
+        Dim preliqventa As New PreliquidacionVenta
+        preliqventa.ShowDialog()
+    End Sub
+
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub

@@ -1,5 +1,5 @@
-Create proc sp_ExistePacaPaquete
-@FolioCIA int ,
+alter proc sp_ExistePacaPaquete
+@FolioCIA bigint ,
 @IdPlanta int 
 as 
 if exists (select  BaleID from CalculoClasificacion where BaleID = @FolioCIA and IdPlantaOrigen = @IdPlanta)

@@ -1401,7 +1401,7 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddRepClasificacionRow(ByVal BaleId As Integer, ByVal Mic As Double, ByVal ColorGrade As String, ByVal TrashId As Integer, ByVal Clase As String, ByVal LargoFibra As Double, ByVal ResistenciaFibra As Double, ByVal SCI As Integer, ByVal IdHviDetalle As Integer) As RepClasificacionRow
+        Public Overloads Function AddRepClasificacionRow(ByVal BaleId As Long, ByVal Mic As Double, ByVal ColorGrade As String, ByVal TrashId As Integer, ByVal Clase As String, ByVal LargoFibra As Double, ByVal ResistenciaFibra As Double, ByVal SCI As Integer, ByVal IdHviDetalle As Integer) As RepClasificacionRow
             Dim rowRepClasificacionRow As RepClasificacionRow = CType(Me.NewRow,RepClasificacionRow)
             Dim columnValuesArray() As Object = New Object() {BaleId, Mic, ColorGrade, TrashId, Clase, LargoFibra, ResistenciaFibra, SCI, IdHviDetalle}
             rowRepClasificacionRow.ItemArray = columnValuesArray
@@ -1440,7 +1440,7 @@ Partial Public Class ALGODON_2VDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnBaleId = New Global.System.Data.DataColumn("BaleId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnBaleId = New Global.System.Data.DataColumn("BaleId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleId)
             Me.columnMic = New Global.System.Data.DataColumn("Mic", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMic)
@@ -1992,7 +1992,7 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal TrashArea As Double,  _
                     ByVal Nep As Integer,  _
                     ByVal UV As Double,  _
-                    ByVal BaleID As Integer,  _
+                    ByVal BaleID As Long,  _
                     ByVal Mic As Double,  _
                     ByVal ColorGrade As String,  _
                     ByVal Clase As String,  _
@@ -2109,7 +2109,7 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnNep)
             Me.columnUV = New Global.System.Data.DataColumn("UV", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUV)
-            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleID)
             Me.columnMic = New Global.System.Data.DataColumn("Mic", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMic)
@@ -4955,7 +4955,7 @@ Partial Public Class ALGODON_2VDataSet
         Public Overloads Function AddReporteRomaneajeDetRow( _
                     ByVal IdOrdenTrabajo As Integer,  _
                     ByVal IdPlantaOrigen As Integer,  _
-                    ByVal EtiquetaPaca As Integer,  _
+                    ByVal EtiquetaPaca As Long,  _
                     ByVal Kilos As Integer,  _
                     ByVal Temperature As Double,  _
                     ByVal Humidity As Double,  _
@@ -5038,7 +5038,7 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnIdOrdenTrabajo)
             Me.columnIdPlantaOrigen = New Global.System.Data.DataColumn("IdPlantaOrigen", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdPlantaOrigen)
-            Me.columnEtiquetaPaca = New Global.System.Data.DataColumn("EtiquetaPaca", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnEtiquetaPaca = New Global.System.Data.DataColumn("EtiquetaPaca", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEtiquetaPaca)
             Me.columnKilos = New Global.System.Data.DataColumn("Kilos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKilos)
@@ -5662,7 +5662,7 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal Nombre As String,  _
                     ByVal Descripcion As String,  _
                     ByVal CantidadPacas As Integer,  _
-                    ByVal BaleID As Integer,  _
+                    ByVal BaleID As Long,  _
                     ByVal BaleGroup As String,  _
                     ByVal _Operator As String,  _
                     ByVal _Date As Date,  _
@@ -5769,7 +5769,7 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnDescripcion)
             Me.columnCantidadPacas = New Global.System.Data.DataColumn("CantidadPacas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCantidadPacas)
-            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleID)
             Me.columnBaleGroup = New Global.System.Data.DataColumn("BaleGroup", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleGroup)
@@ -7135,7 +7135,7 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportePacasFaltantesRow(ByVal Numero As Integer) As ReportePacasFaltantesRow
+        Public Overloads Function AddReportePacasFaltantesRow(ByVal Numero As Long) As ReportePacasFaltantesRow
             Dim rowReportePacasFaltantesRow As ReportePacasFaltantesRow = CType(Me.NewRow,ReportePacasFaltantesRow)
             Dim columnValuesArray() As Object = New Object() {Numero}
             rowReportePacasFaltantesRow.ItemArray = columnValuesArray
@@ -7166,7 +7166,7 @@ Partial Public Class ALGODON_2VDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnNumero = New Global.System.Data.DataColumn("Numero", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNumero = New Global.System.Data.DataColumn("Numero", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNumero)
         End Sub
         
@@ -7497,7 +7497,7 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportePacasDetalladoRow(ByVal FolioCIA As Integer, ByVal IdOrdenTrabajo As Integer, ByVal Nombre As String, ByVal Planta As Integer, ByVal KilosHueso As Double, ByVal Kilos As Double, ByVal Fecha As Date, ByVal Clase As String, ByVal Mic As Double, ByVal UHML As Double, ByVal Strength As Double, ByVal Uniformidad As Double) As ReportePacasDetalladoRow
+        Public Overloads Function AddReportePacasDetalladoRow(ByVal FolioCIA As Long, ByVal IdOrdenTrabajo As Integer, ByVal Nombre As String, ByVal Planta As Integer, ByVal KilosHueso As Double, ByVal Kilos As Double, ByVal Fecha As Date, ByVal Clase As String, ByVal Mic As Double, ByVal UHML As Double, ByVal Strength As Double, ByVal Uniformidad As Double) As ReportePacasDetalladoRow
             Dim rowReportePacasDetalladoRow As ReportePacasDetalladoRow = CType(Me.NewRow,ReportePacasDetalladoRow)
             Dim columnValuesArray() As Object = New Object() {FolioCIA, IdOrdenTrabajo, Nombre, Planta, KilosHueso, Kilos, Fecha, Clase, Mic, UHML, Strength, Uniformidad}
             rowReportePacasDetalladoRow.ItemArray = columnValuesArray
@@ -7539,7 +7539,7 @@ Partial Public Class ALGODON_2VDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnFolioCIA = New Global.System.Data.DataColumn("FolioCIA", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnFolioCIA = New Global.System.Data.DataColumn("FolioCIA", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFolioCIA)
             Me.columnIdOrdenTrabajo = New Global.System.Data.DataColumn("IdOrdenTrabajo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdOrdenTrabajo)
@@ -8481,7 +8481,7 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReporteCompraPacaDetalleRow(ByVal IdCliente As Integer, ByVal Nombre As String, ByVal IdCompra As Integer, ByVal IdPlantaOrigen As Integer, ByVal BaleID As Integer, ByVal Quintales As Double, ByVal Kilos As Integer, ByVal Grade As String, ByVal Mic As Double, ByVal Strength As Double, ByVal UHML As Double, ByVal UI As Double) As ReporteCompraPacaDetalleRow
+        Public Overloads Function AddReporteCompraPacaDetalleRow(ByVal IdCliente As Integer, ByVal Nombre As String, ByVal IdCompra As Integer, ByVal IdPlantaOrigen As Integer, ByVal BaleID As Long, ByVal Quintales As Double, ByVal Kilos As Integer, ByVal Grade As String, ByVal Mic As Double, ByVal Strength As Double, ByVal UHML As Double, ByVal UI As Double) As ReporteCompraPacaDetalleRow
             Dim rowReporteCompraPacaDetalleRow As ReporteCompraPacaDetalleRow = CType(Me.NewRow,ReporteCompraPacaDetalleRow)
             Dim columnValuesArray() As Object = New Object() {IdCliente, Nombre, IdCompra, IdPlantaOrigen, BaleID, Quintales, Kilos, Grade, Mic, Strength, UHML, UI}
             rowReporteCompraPacaDetalleRow.ItemArray = columnValuesArray
@@ -8531,7 +8531,7 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnIdCompra)
             Me.columnIdPlantaOrigen = New Global.System.Data.DataColumn("IdPlantaOrigen", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdPlantaOrigen)
-            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnBaleID = New Global.System.Data.DataColumn("BaleID", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleID)
             Me.columnQuintales = New Global.System.Data.DataColumn("Quintales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuintales)
@@ -10260,7 +10260,7 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReporteDetalleVentaRow(ByVal IdComprador As Integer, ByVal Nombre As String, ByVal IdVenta As Integer, ByVal IdPlantaOrigen As Integer, ByVal BaleId As Integer, ByVal Quintales As Double, ByVal Kilos As Double, ByVal Grade As String, ByVal Mic As Double, ByVal Strength As Double, ByVal UHML As Double, ByVal UI As Double, ByVal Descripcion As String, ByVal ValorConversion As Double) As ReporteDetalleVentaRow
+        Public Overloads Function AddReporteDetalleVentaRow(ByVal IdComprador As Integer, ByVal Nombre As String, ByVal IdVenta As Integer, ByVal IdPlantaOrigen As Integer, ByVal BaleId As Long, ByVal Quintales As Double, ByVal Kilos As Double, ByVal Grade As String, ByVal Mic As Double, ByVal Strength As Double, ByVal UHML As Double, ByVal UI As Double, ByVal Descripcion As String, ByVal ValorConversion As Double) As ReporteDetalleVentaRow
             Dim rowReporteDetalleVentaRow As ReporteDetalleVentaRow = CType(Me.NewRow,ReporteDetalleVentaRow)
             Dim columnValuesArray() As Object = New Object() {IdComprador, Nombre, IdVenta, IdPlantaOrigen, BaleId, Quintales, Kilos, Grade, Mic, Strength, UHML, UI, Descripcion, ValorConversion}
             rowReporteDetalleVentaRow.ItemArray = columnValuesArray
@@ -10312,7 +10312,7 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnIdVenta)
             Me.columnIdPlantaOrigen = New Global.System.Data.DataColumn("IdPlantaOrigen", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdPlantaOrigen)
-            Me.columnBaleId = New Global.System.Data.DataColumn("BaleId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnBaleId = New Global.System.Data.DataColumn("BaleId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBaleId)
             Me.columnQuintales = New Global.System.Data.DataColumn("Quintales", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuintales)
@@ -10602,10 +10602,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BaleId() As Integer
+        Public Property BaleId() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableRepClasificacion.BaleIdColumn),Integer)
+                    Return CType(Me(Me.tableRepClasificacion.BaleIdColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'BaleId' de la tabla 'RepClasificacion' es DBNull.", e)
                 End Try
@@ -11193,10 +11193,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BaleID() As Integer
+        Public Property BaleID() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableConsultaPacasHVI.BaleIDColumn),Integer)
+                    Return CType(Me(Me.tableConsultaPacasHVI.BaleIDColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'BaleID' de la tabla 'ConsultaPacasHVI' es DBNull.", e)
                 End Try
@@ -14525,10 +14525,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property EtiquetaPaca() As Integer
+        Public Property EtiquetaPaca() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableReporteRomaneajeDet.EtiquetaPacaColumn),Integer)
+                    Return CType(Me(Me.tableReporteRomaneajeDet.EtiquetaPacaColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'EtiquetaPaca' de la tabla 'ReporteRomaneajeDet' es DBNull"& _ 
                             ".", e)
@@ -15306,10 +15306,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BaleID() As Integer
+        Public Property BaleID() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableTbRepHviDetalle.BaleIDColumn),Integer)
+                    Return CType(Me(Me.tableTbRepHviDetalle.BaleIDColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'BaleID' de la tabla 'TbRepHviDetalle' es DBNull.", e)
                 End Try
@@ -17023,10 +17023,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Numero() As Integer
+        Public Property Numero() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableReportePacasFaltantes.NumeroColumn),Integer)
+                    Return CType(Me(Me.tableReportePacasFaltantes.NumeroColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Numero' de la tabla 'ReportePacasFaltantes' es DBNull.", e)
                 End Try
@@ -17066,10 +17066,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FolioCIA() As Integer
+        Public Property FolioCIA() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableReportePacasDetallado.FolioCIAColumn),Integer)
+                    Return CType(Me(Me.tableReportePacasDetallado.FolioCIAColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'FolioCIA' de la tabla 'ReportePacasDetallado' es DBNull.", e)
                 End Try
@@ -18172,10 +18172,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BaleID() As Integer
+        Public Property BaleID() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableReporteCompraPacaDetalle.BaleIDColumn),Integer)
+                    Return CType(Me(Me.tableReporteCompraPacaDetalle.BaleIDColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'BaleID' de la tabla 'ReporteCompraPacaDetalle' es DBNull."& _ 
                             "", e)
@@ -19853,10 +19853,10 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BaleId() As Integer
+        Public Property BaleId() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableReporteDetalleVenta.BaleIdColumn),Integer)
+                    Return CType(Me(Me.tableReporteDetalleVenta.BaleIdColumn),Long)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'BaleId' de la tabla 'ReporteDetalleVenta' es DBNull.", e)
                 End Try

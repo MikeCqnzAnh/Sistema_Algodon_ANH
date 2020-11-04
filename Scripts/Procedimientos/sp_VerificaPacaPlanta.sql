@@ -1,6 +1,6 @@
-CREATE proc sp_VerificaPacaPlanta 
+alter proc sp_VerificaPacaPlanta 
 --declare
-@FolioCIA int ,
+@FolioCIA bigint ,
 @IdPlantaOrigen int
 as
 if exists (select BaleID from HVIDetalle where IdPlantaOrigen = @IdPlantaOrigen and BaleID = @FolioCIA)
@@ -11,3 +11,4 @@ else
 	begin
 		select 0 ExistePacaPlanta, 0 as IdPlantaOrigen
 	end
+			 

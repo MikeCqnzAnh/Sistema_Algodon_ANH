@@ -1,5 +1,5 @@
-Create proc sp_ExistePacaHVI
-@FolioCIA int  ,
+alter proc sp_ExistePacaHVI
+@FolioCIA bigint  ,
 @IdPlanta int 
 as 
 if exists (select hvid.BaleID from HVIEncabezado hvie right join HVIDetalle HVId on hvie.IdHviEnc = HVId.IdHviEnc where hvie.IdPlanta = @IdPlanta and hvid.BaleID = @FolioCIA)

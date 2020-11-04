@@ -1,5 +1,13 @@
-Create Procedure Sp_EliminaPacaEmbarque
-@IdEmbarqueDetalle int
+alter Procedure Sp_EliminaPacaEmbarque
+@IdVentaEnc int,
+@BaleID bigint
 as
-delete from EmbarqueDetalle
-where IdEmbarqueDetalle = @IdEmbarqueDetalle
+update CalculoClasificacion
+set IdEmbarqueEncabezado = null
+   ,IdComprador = null
+   ,NoContenedor = null
+   ,NoLote = null
+   ,PlacaCaja = null
+   ,EstatusEmbarque = null
+   ,EstatusSalida = null
+where BaleID = @BaleID and IdVentaEnc = @IdVentaEnc

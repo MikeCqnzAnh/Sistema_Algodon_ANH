@@ -1,7 +1,7 @@
 alter procedure sp_ActualizaEstatusCompraPaca
 @IdProductor int ,
 @IdPlanta int,
-@BaleID int ,
+@BaleID bigint ,
 @IdLiquidacion int,
 @IdCompraEnc int,
 @PrecioDls float,

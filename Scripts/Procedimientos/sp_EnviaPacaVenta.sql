@@ -1,5 +1,5 @@
 alter procedure sp_EnviaPacaVenta
-@BaleID					 int ,
+@BaleID					 bigint ,
 @IdLiquidacion			 int,
 @IdVentaEnc				 int,
 @PrecioDls				 float,
