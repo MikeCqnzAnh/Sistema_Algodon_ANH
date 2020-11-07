@@ -54,6 +54,7 @@ Public Class Bitacora
                     '    sqldat1.Fill(EntidadBitacora1.TablaGeneral)
             End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadBitacora = EntidadBitacora1

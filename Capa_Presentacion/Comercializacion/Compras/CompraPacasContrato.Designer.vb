@@ -818,9 +818,9 @@ Partial Class CompraPacasContrato
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(320, 95)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(73, 13)
+        Me.Label14.Size = New System.Drawing.Size(37, 13)
         Me.Label14.TabIndex = 48
-        Me.Label14.Text = "Precio Quintal"
+        Me.Label14.Text = "Precio"
         '
         'TbPrecioQuintal
         '
@@ -832,15 +832,15 @@ Partial Class CompraPacasContrato
         '
         'TbHastaPaca
         '
-        Me.TbHastaPaca.Location = New System.Drawing.Point(168, 13)
+        Me.TbHastaPaca.Location = New System.Drawing.Point(162, 13)
         Me.TbHastaPaca.Name = "TbHastaPaca"
-        Me.TbHastaPaca.Size = New System.Drawing.Size(45, 20)
+        Me.TbHastaPaca.Size = New System.Drawing.Size(71, 20)
         Me.TbHastaPaca.TabIndex = 31
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(132, 16)
+        Me.Label11.Location = New System.Drawing.Point(136, 16)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(25, 13)
         Me.Label11.TabIndex = 28
@@ -849,7 +849,7 @@ Partial Class CompraPacasContrato
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(9, 16)
+        Me.Label10.Location = New System.Drawing.Point(5, 16)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(59, 13)
         Me.Label10.TabIndex = 26
@@ -857,9 +857,9 @@ Partial Class CompraPacasContrato
         '
         'TbDesdePaca
         '
-        Me.TbDesdePaca.Location = New System.Drawing.Point(74, 13)
+        Me.TbDesdePaca.Location = New System.Drawing.Point(64, 13)
         Me.TbDesdePaca.Name = "TbDesdePaca"
-        Me.TbDesdePaca.Size = New System.Drawing.Size(45, 20)
+        Me.TbDesdePaca.Size = New System.Drawing.Size(71, 20)
         Me.TbDesdePaca.TabIndex = 25
         '
         'MSMenu
@@ -1207,14 +1207,14 @@ Partial Class CompraPacasContrato
         '
         'GbFiltrado
         '
+        Me.GbFiltrado.Controls.Add(Me.TbDesdePaca)
+        Me.GbFiltrado.Controls.Add(Me.TbHastaPaca)
         Me.GbFiltrado.Controls.Add(Me.BtReiniciaFiltro)
         Me.GbFiltrado.Controls.Add(Me.BtFiltro)
         Me.GbFiltrado.Controls.Add(Me.CbClasesPacasAcomprar)
         Me.GbFiltrado.Controls.Add(Me.Label10)
-        Me.GbFiltrado.Controls.Add(Me.TbDesdePaca)
         Me.GbFiltrado.Controls.Add(Me.Label11)
         Me.GbFiltrado.Controls.Add(Me.Label8)
-        Me.GbFiltrado.Controls.Add(Me.TbHastaPaca)
         Me.GbFiltrado.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbFiltrado.Location = New System.Drawing.Point(3, 3)
         Me.GbFiltrado.Name = "GbFiltrado"

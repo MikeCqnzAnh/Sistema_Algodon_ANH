@@ -245,6 +245,16 @@ Public Class VentaPago
             MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Sub ImpDetalleDeCastigosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImpDetalleDeCastigosToolStripMenuItem.Click
+        If TbIdVenta.Text <> "" Then
+            Dim ReporteVentaDetalleCastigo As New RepVentaDetalleCastigo(TbIdVenta.Text)
+            ReporteVentaDetalleCastigo.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
     Private Sub ImpDetallesDeVentaItem_Click(sender As Object, e As EventArgs) Handles ImpDetallesDeVentaItem.Click
         If TbIdVenta.Text <> "" Then
             Dim ReporteVentaPacasDetallado As New RepVentaPacasDetallado(TbIdVenta.Text)

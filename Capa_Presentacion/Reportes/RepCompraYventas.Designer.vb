@@ -28,29 +28,30 @@ Partial Class RepCompraYventas
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TcCompraVentas = New System.Windows.Forms.TabControl()
         Me.TpCompras = New System.Windows.Forms.TabPage()
-        Me.TpVentas = New System.Windows.Forms.TabPage()
-        Me.GbFiltrosCompras = New System.Windows.Forms.GroupBox()
-        Me.GbFiltrosVentas = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TbIdProductor = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TbIdCompra = New System.Windows.Forms.TextBox()
-        Me.BtAceptar = New System.Windows.Forms.Button()
         Me.DgvCompras = New System.Windows.Forms.DataGridView()
-        Me.DgvVentas = New System.Windows.Forms.DataGridView()
+        Me.GbFiltrosCompras = New System.Windows.Forms.GroupBox()
+        Me.BtAceptar = New System.Windows.Forms.Button()
+        Me.TbIdCompra = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.BtBuscarProductor = New System.Windows.Forms.Button()
+        Me.TbIdProductor = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TpVentas = New System.Windows.Forms.TabPage()
+        Me.DgvVentas = New System.Windows.Forms.DataGridView()
+        Me.GbFiltrosVentas = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TcCompraVentas.SuspendLayout()
         Me.TpCompras.SuspendLayout()
-        Me.TpVentas.SuspendLayout()
-        Me.GbFiltrosCompras.SuspendLayout()
         CType(Me.DgvCompras, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbFiltrosCompras.SuspendLayout()
+        Me.TpVentas.SuspendLayout()
         CType(Me.DgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -99,17 +100,14 @@ Partial Class RepCompraYventas
         Me.TpCompras.Text = "Compras"
         Me.TpCompras.UseVisualStyleBackColor = True
         '
-        'TpVentas
+        'DgvCompras
         '
-        Me.TpVentas.Controls.Add(Me.DgvVentas)
-        Me.TpVentas.Controls.Add(Me.GbFiltrosVentas)
-        Me.TpVentas.Location = New System.Drawing.Point(4, 22)
-        Me.TpVentas.Name = "TpVentas"
-        Me.TpVentas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TpVentas.Size = New System.Drawing.Size(1001, 554)
-        Me.TpVentas.TabIndex = 1
-        Me.TpVentas.Text = "Ventas"
-        Me.TpVentas.UseVisualStyleBackColor = True
+        Me.DgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCompras.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCompras.Location = New System.Drawing.Point(3, 60)
+        Me.DgvCompras.Name = "DgvCompras"
+        Me.DgvCompras.Size = New System.Drawing.Size(995, 491)
+        Me.DgvCompras.TabIndex = 1
         '
         'GbFiltrosCompras
         '
@@ -128,39 +126,22 @@ Partial Class RepCompraYventas
         Me.GbFiltrosCompras.TabStop = False
         Me.GbFiltrosCompras.Text = "Filtros"
         '
-        'GbFiltrosVentas
+        'BtAceptar
         '
-        Me.GbFiltrosVentas.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GbFiltrosVentas.Location = New System.Drawing.Point(3, 3)
-        Me.GbFiltrosVentas.Name = "GbFiltrosVentas"
-        Me.GbFiltrosVentas.Size = New System.Drawing.Size(995, 100)
-        Me.GbFiltrosVentas.TabIndex = 0
-        Me.GbFiltrosVentas.TabStop = False
-        Me.GbFiltrosVentas.Text = "Filtros"
+        Me.BtAceptar.Location = New System.Drawing.Point(855, 15)
+        Me.BtAceptar.Name = "BtAceptar"
+        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.BtAceptar.TabIndex = 6
+        Me.BtAceptar.Text = "Aceptar"
+        Me.BtAceptar.UseVisualStyleBackColor = True
         '
-        'Label1
+        'TbIdCompra
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Productor :"
-        '
-        'TbIdProductor
-        '
-        Me.TbIdProductor.Location = New System.Drawing.Point(72, 17)
-        Me.TbIdProductor.MaxLength = 10
-        Me.TbIdProductor.Name = "TbIdProductor"
-        Me.TbIdProductor.Size = New System.Drawing.Size(58, 20)
-        Me.TbIdProductor.TabIndex = 1
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(166, 17)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(448, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.TbIdCompra.Location = New System.Drawing.Point(675, 17)
+        Me.TbIdCompra.MaxLength = 10
+        Me.TbIdCompra.Name = "TbIdCompra"
+        Me.TbIdCompra.Size = New System.Drawing.Size(63, 20)
+        Me.TbIdCompra.TabIndex = 5
         '
         'Label2
         '
@@ -171,40 +152,12 @@ Partial Class RepCompraYventas
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Compra :"
         '
-        'TbIdCompra
+        'TextBox2
         '
-        Me.TbIdCompra.Location = New System.Drawing.Point(675, 17)
-        Me.TbIdCompra.MaxLength = 10
-        Me.TbIdCompra.Name = "TbIdCompra"
-        Me.TbIdCompra.Size = New System.Drawing.Size(63, 20)
-        Me.TbIdCompra.TabIndex = 5
-        '
-        'BtAceptar
-        '
-        Me.BtAceptar.Location = New System.Drawing.Point(855, 15)
-        Me.BtAceptar.Name = "BtAceptar"
-        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAceptar.TabIndex = 6
-        Me.BtAceptar.Text = "Aceptar"
-        Me.BtAceptar.UseVisualStyleBackColor = True
-        '
-        'DgvCompras
-        '
-        Me.DgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCompras.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvCompras.Location = New System.Drawing.Point(3, 60)
-        Me.DgvCompras.Name = "DgvCompras"
-        Me.DgvCompras.Size = New System.Drawing.Size(995, 491)
-        Me.DgvCompras.TabIndex = 1
-        '
-        'DgvVentas
-        '
-        Me.DgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvVentas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvVentas.Location = New System.Drawing.Point(3, 103)
-        Me.DgvVentas.Name = "DgvVentas"
-        Me.DgvVentas.Size = New System.Drawing.Size(995, 448)
-        Me.DgvVentas.TabIndex = 1
+        Me.TextBox2.Location = New System.Drawing.Point(166, 17)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(448, 20)
+        Me.TextBox2.TabIndex = 3
         '
         'BtBuscarProductor
         '
@@ -215,6 +168,54 @@ Partial Class RepCompraYventas
         Me.BtBuscarProductor.Size = New System.Drawing.Size(24, 23)
         Me.BtBuscarProductor.TabIndex = 2
         Me.BtBuscarProductor.UseVisualStyleBackColor = True
+        '
+        'TbIdProductor
+        '
+        Me.TbIdProductor.Location = New System.Drawing.Point(72, 17)
+        Me.TbIdProductor.MaxLength = 10
+        Me.TbIdProductor.Name = "TbIdProductor"
+        Me.TbIdProductor.Size = New System.Drawing.Size(58, 20)
+        Me.TbIdProductor.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(7, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(59, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Productor :"
+        '
+        'TpVentas
+        '
+        Me.TpVentas.Controls.Add(Me.DgvVentas)
+        Me.TpVentas.Controls.Add(Me.GbFiltrosVentas)
+        Me.TpVentas.Location = New System.Drawing.Point(4, 22)
+        Me.TpVentas.Name = "TpVentas"
+        Me.TpVentas.Padding = New System.Windows.Forms.Padding(3)
+        Me.TpVentas.Size = New System.Drawing.Size(1001, 554)
+        Me.TpVentas.TabIndex = 1
+        Me.TpVentas.Text = "Ventas"
+        Me.TpVentas.UseVisualStyleBackColor = True
+        '
+        'DgvVentas
+        '
+        Me.DgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvVentas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvVentas.Location = New System.Drawing.Point(3, 103)
+        Me.DgvVentas.Name = "DgvVentas"
+        Me.DgvVentas.Size = New System.Drawing.Size(995, 448)
+        Me.DgvVentas.TabIndex = 1
+        '
+        'GbFiltrosVentas
+        '
+        Me.GbFiltrosVentas.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbFiltrosVentas.Location = New System.Drawing.Point(3, 3)
+        Me.GbFiltrosVentas.Name = "GbFiltrosVentas"
+        Me.GbFiltrosVentas.Size = New System.Drawing.Size(995, 100)
+        Me.GbFiltrosVentas.TabIndex = 0
+        Me.GbFiltrosVentas.TabStop = False
+        Me.GbFiltrosVentas.Text = "Filtros"
         '
         'RepCompraYventas
         '
@@ -232,10 +233,10 @@ Partial Class RepCompraYventas
         Me.MenuStrip1.PerformLayout()
         Me.TcCompraVentas.ResumeLayout(False)
         Me.TpCompras.ResumeLayout(False)
-        Me.TpVentas.ResumeLayout(False)
+        CType(Me.DgvCompras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbFiltrosCompras.ResumeLayout(False)
         Me.GbFiltrosCompras.PerformLayout()
-        CType(Me.DgvCompras, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TpVentas.ResumeLayout(False)
         CType(Me.DgvVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

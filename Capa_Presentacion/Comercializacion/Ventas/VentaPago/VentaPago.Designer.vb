@@ -90,6 +90,7 @@ Partial Class VentaPago
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ImpDetalleDeCastigosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbPagoFinal.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
@@ -742,7 +743,7 @@ Partial Class VentaPago
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeVentaItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeVentaItem, Me.ImpDetalleDeCastigosToolStripMenuItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1502, 24)
@@ -816,6 +817,12 @@ Partial Class VentaPago
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1502, 72)
         Me.Panel3.TabIndex = 47
+        '
+        'ImpDetalleDeCastigosToolStripMenuItem
+        '
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Name = "ImpDetalleDeCastigosToolStripMenuItem"
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Size = New System.Drawing.Size(144, 20)
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Text = "Imp. Detalle de castigos"
         '
         'VentaPago
         '
@@ -922,4 +929,5 @@ Partial Class VentaPago
     Friend WithEvents Label9 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label
+    Friend WithEvents ImpDetalleDeCastigosToolStripMenuItem As ToolStripMenuItem
 End Class

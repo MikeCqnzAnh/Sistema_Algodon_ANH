@@ -475,7 +475,8 @@ Public Class MenuPrincipal
     End Sub
 
     Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
-
+        Dim RepLiquid As New RepResumenLiquidaciones
+        RepLiquid.ShowDialog()
     End Sub
 
     Private Sub PacasEnGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasEnGeneralToolStripMenuItem.Click

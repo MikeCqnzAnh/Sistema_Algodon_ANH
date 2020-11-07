@@ -160,7 +160,7 @@ Public Class CompraPacasContrato
         Dim r As DataRow
 
         dt.Columns.Add("IdProductor", Type.GetType("System.Int32"))
-        dt.Columns.Add("BaleID", Type.GetType("System.Int32"))
+        dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("Quintales", Type.GetType("System.Single"))
         dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
         dt.Columns.Add("IdPlantaOrigen", Type.GetType("System.Int32"))

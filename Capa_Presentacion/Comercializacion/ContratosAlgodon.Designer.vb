@@ -149,8 +149,8 @@ Partial Class ContratosAlgodon
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
+        Me.GuardarToolStripMenuItem.Text = "Generar contrato"
         '
         'EnviarEmailToolStripMenuItem
         '
@@ -962,9 +962,9 @@ Partial Class ContratosAlgodon
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(397, 19)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(73, 13)
+        Me.Label7.Size = New System.Drawing.Size(37, 13)
         Me.Label7.TabIndex = 13
-        Me.Label7.Text = "Precio Quintal"
+        Me.Label7.Text = "Precio"
         '
         'Label6
         '

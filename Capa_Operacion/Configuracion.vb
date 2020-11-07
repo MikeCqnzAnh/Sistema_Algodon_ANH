@@ -59,6 +59,8 @@
         ReportePesosSalidaPacas = 21
         ReportePacasSinVender = 22
         ReporteResumenLiquidacion = 23
+        ReporteResumenLiqGeneral = 24
+        ReporteVentaDetalleCastigo = 25
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

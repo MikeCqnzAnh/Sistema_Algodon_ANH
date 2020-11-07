@@ -22,6 +22,7 @@ Partial Class LiquidacionesPorRomaneaje
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LiquidacionesPorRomaneaje))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -87,6 +88,7 @@ Partial Class LiquidacionesPorRomaneaje
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -102,8 +104,8 @@ Partial Class LiquidacionesPorRomaneaje
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(122, 20)
+        Me.GuardarToolStripMenuItem.Text = "Generar liquidacion"
         '
         'ConsultarToolStripMenuItem
         '
@@ -619,6 +621,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GbModulos)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "LiquidacionesPorRomaneaje"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -9,7 +9,7 @@ Public Class LiquidacionesPorRomaneaje
         TablaComparacion.Columns.Add(New DataColumn("IdBoleta", System.Type.GetType("System.Int32")))
         LlenarCombos()
         Limpiar()
-        TbIdOrden.Focus()
+        TbIdOrden.Select()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -72,6 +72,7 @@ Public Class LiquidacionesPorRomaneaje
         TbTotalBoletas.Text = ""
         ChClaseMicros.Checked = False
         TbIdOrden.Enabled = True
+        TbIdOrden.Select()
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click, ToolStripMenuItem1.Click
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
@@ -212,6 +213,7 @@ Public Class LiquidacionesPorRomaneaje
         Else
             MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+        TbIdOrden.Select()
     End Sub
 
     Private Sub Guardar()

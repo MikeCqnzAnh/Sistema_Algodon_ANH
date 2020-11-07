@@ -11,8 +11,8 @@
     Public CheckStatus As Boolean
     Public IdPaquete As Integer
     Public IdPlanta As Integer
-    Public PacaInicial As Integer
-    Public PacaFinal As Integer
+    Public PacaInicial As Long
+    Public PacaFinal As Long
     Public IdCompra As Integer
     Public IdVenta As Integer
     Public CantidadPacas As Integer
@@ -25,5 +25,7 @@
     Public Nombre As String
     Public Valor As String
     Public Clase As String
+    Public Desde As Integer
+    Public Hasta As Integer
     '------------------------------
 End Class

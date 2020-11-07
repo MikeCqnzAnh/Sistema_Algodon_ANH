@@ -156,6 +156,13 @@ Public Class Reportes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteVentaDetalleCastigo
+                    sqlcom1 = New SqlCommand("Sp_ReporteVentaDetalleCastigo", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteOrdenEmbarque
                     sqlcom1 = New SqlCommand("Sp_ConsultaReporteOrdenEmbarque", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -197,6 +204,16 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadReportes1.IdProductor))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
                     sqlcom1.Parameters.Add(New SqlParameter("@NombreProductor", EntidadReportes1.Nombre))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteResumenLiqGeneral
+                    sqlcom1 = New SqlCommand("Sp_ReporteResumenLiquidacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadReportes1.IdProductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Desde", EntidadReportes1.Desde))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Hasta", EntidadReportes1.Hasta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
