@@ -508,7 +508,8 @@ Public Class MenuPrincipal
     End Sub
 
     Private Sub PacasSinComprarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasSinComprarToolStripMenuItem.Click
-
+        Dim RepSinComprar As New RepPacasSinComprar
+        RepSinComprar.ShowDialog()
     End Sub
 
     Private Sub PacasPorClienteAgrupadoPorClasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorClienteAgrupadoPorClasesToolStripMenuItem.Click

@@ -35,11 +35,11 @@
     Public AnticipoDls As Double
     Public Subtotal As Double
     Public IdEstatusCompra As Boolean
-    Public PacasInicio As Integer
-    Public PacasFin As Integer
+    Public PacasInicio As Long
+    Public PacasFin As Long
     Public FacturaVenta As String
-    Public InicioPaca As Integer
-    Public FinPaca As Integer
+    Public InicioPaca As Long
+    Public FinPaca As Long
     Public Clase As String
     Public Micros As Double
     Public LargoFibra As Double

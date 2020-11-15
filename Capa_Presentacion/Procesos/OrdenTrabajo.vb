@@ -11,36 +11,35 @@ Public Class OrdenTrabajo
         ConsultarUltimoRango()
         ConsultarCapturas()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
-        EntidadOrdenTrabajo.IdOrdenTrabajo = IIf(TbIdOrdenTrabajo.Text = "", 0, TbIdOrdenTrabajo.Text)
-        EntidadOrdenTrabajo.IdPlanta = CbPlantas.SelectedValue
-        EntidadOrdenTrabajo.IdProductor = TbIdProductor.Text
-        EntidadOrdenTrabajo.RangoInicio = TbRangoInicio.Text
-        EntidadOrdenTrabajo.RangoFin = TbRangoFin.Text
-        EntidadOrdenTrabajo.IdVariedadAlgodon = CbVariedad.SelectedValue
-        EntidadOrdenTrabajo.IdColonia = CbColonia.SelectedValue
-        EntidadOrdenTrabajo.Predio = TbPredio.Text
-        EntidadOrdenTrabajo.NoModulos = TbNoModulos.Text
-        EntidadOrdenTrabajo.IdEstatus = CbEstatus.SelectedValue
-        EntidadOrdenTrabajo.IdUsuarioCreacion = 1
-        EntidadOrdenTrabajo.FechaCreacion = Now
-        EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
-        EntidadOrdenTrabajo.FechaActualizacion = Now
-        NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
-        TbIdOrdenTrabajo.Text = EntidadOrdenTrabajo.IdOrdenTrabajo
-        MsgBox("Realizado Correctamente")
-        ConsultarCapturas()
+        Try
+            EntidadOrdenTrabajo.IdOrdenTrabajo = IIf(TbIdOrdenTrabajo.Text = "", 0, TbIdOrdenTrabajo.Text)
+            EntidadOrdenTrabajo.IdPlanta = CbPlantas.SelectedValue
+            EntidadOrdenTrabajo.IdProductor = TbIdProductor.Text
+            EntidadOrdenTrabajo.RangoInicio = TbRangoInicio.Text
+            EntidadOrdenTrabajo.RangoFin = TbRangoFin.Text
+            EntidadOrdenTrabajo.IdVariedadAlgodon = CbVariedad.SelectedValue
+            EntidadOrdenTrabajo.IdColonia = CbColonia.SelectedValue
+            EntidadOrdenTrabajo.Predio = TbPredio.Text
+            EntidadOrdenTrabajo.NoModulos = TbNoModulos.Text
+            EntidadOrdenTrabajo.IdEstatus = CbEstatus.SelectedValue
+            EntidadOrdenTrabajo.IdUsuarioCreacion = 1
+            EntidadOrdenTrabajo.FechaCreacion = Now
+            EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
+            EntidadOrdenTrabajo.FechaActualizacion = Now
+            NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
+            TbIdOrdenTrabajo.Text = EntidadOrdenTrabajo.IdOrdenTrabajo
+            MsgBox("Realizado Correctamente")
+            ConsultarCapturas()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
-
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
 
-    End Sub
-
-    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Close()
     End Sub
     Private Sub Limpiar()
         TbIdOrdenTrabajo.Text = ""
@@ -180,5 +179,8 @@ Public Class OrdenTrabajo
 
     Private Sub DgvCapturaLotes_DoubleClick(sender As Object, e As EventArgs) Handles DgvCapturaLotes.DoubleClick
 
+    End Sub
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Close()
     End Sub
 End Class

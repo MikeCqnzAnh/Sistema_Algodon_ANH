@@ -51,7 +51,7 @@ Partial Class RepPacasFaltantes
         Me.GbParametros.Location = New System.Drawing.Point(0, 24)
         Me.GbParametros.Name = "GbParametros"
         Me.GbParametros.Size = New System.Drawing.Size(349, 705)
-        Me.GbParametros.TabIndex = 0
+        Me.GbParametros.TabIndex = 1
         Me.GbParametros.TabStop = False
         '
         'BtConsultar
@@ -95,7 +95,7 @@ Partial Class RepPacasFaltantes
         Me.TbFolioFinal.Location = New System.Drawing.Point(229, 169)
         Me.TbFolioFinal.Name = "TbFolioFinal"
         Me.TbFolioFinal.Size = New System.Drawing.Size(100, 20)
-        Me.TbFolioFinal.TabIndex = 1
+        Me.TbFolioFinal.TabIndex = 2
         '
         'TbFolioInicial
         '
@@ -137,7 +137,7 @@ Partial Class RepPacasFaltantes
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1214, 24)
-        Me.MenuStrip1.TabIndex = 4
+        Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'NuevoToolStripMenuItem

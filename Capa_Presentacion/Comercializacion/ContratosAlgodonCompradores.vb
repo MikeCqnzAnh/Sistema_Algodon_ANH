@@ -150,20 +150,25 @@ Public Class ContratosAlgodonCompradores
             Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
             Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
             Dim Tabla As New DataTable
-            EntidadContratosAlgodonCompradores.IdExterno = CbModalidad.SelectedValue
-            EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDiferenciales
-            NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
-            Tabla = EntidadContratosAlgodonCompradores.TablaConsulta
-            TbSM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(0).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(1).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(2).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbSLMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(3).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbSLM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(4).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbLMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(5).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbLM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(6).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbSGO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(7).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbGO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(8).Item("Diferencial")) - TbPrecioQuintal.Text)
-            TbO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(9).Item("Diferencial")) - TbPrecioQuintal.Text)
+            Try
+                EntidadContratosAlgodonCompradores.IdExterno = CbModalidad.SelectedValue
+                EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDiferenciales
+                NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+                Tabla = EntidadContratosAlgodonCompradores.TablaConsulta
+                TbSM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(0).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(1).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(2).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbSLMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(3).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbSLM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(4).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbLMP.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(5).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbLM.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(6).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbSGO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(7).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbGO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(8).Item("Diferencial")) - TbPrecioQuintal.Text)
+                TbO.Text = (CDbl(Val(TbPuntos.Text) + Tabla.Rows(9).Item("Diferencial")) - TbPrecioQuintal.Text)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
         Else
             MsgBox("Ingrese precio de quintal o los puntos")
         End If

@@ -10,7 +10,7 @@ Public Class CompraPacasContrato
     End Sub
     Private Sub CrearTablaPacasAgrupadas()
         TablaPacasAgrupadas.Columns.Clear()
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int32")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int64")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Grade", System.Type.GetType("System.String")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Cantidad", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Double")))
@@ -1237,7 +1237,7 @@ Public Class CompraPacasContrato
         Dim TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI As Double
         For j As Integer = 0 To dtCopy.Rows.Count - 2
             Dim item = dtCopy.Rows(j)
-            Dim BaleID = Convert.ToInt32(item(0))
+            Dim BaleID = Convert.ToInt64(item(0))
             Dim Clase = Convert.ToString(item(1))
             Dim Cantidad = Convert.ToInt32(item(2))
             Dim Kilos = Convert.ToDouble(item(3))

@@ -192,6 +192,7 @@
         ConsultaParametrosContratoCompra = 103
         ConsultaUniformidad = 104
         ConsultaAlmacenLote = 105
+        ConsultaPasasSinClase = 106
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

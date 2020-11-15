@@ -70,7 +70,7 @@ Public Class LiquidacionesPorRomaneaje
         TbComentarios.Text = ""
         DgvModulos.DataSource = ""
         TbTotalBoletas.Text = ""
-        ChClaseMicros.Checked = False
+        ChClaseMicros.Checked = True
         TbIdOrden.Enabled = True
         TbIdOrden.Select()
     End Sub
@@ -129,6 +129,10 @@ Public Class LiquidacionesPorRomaneaje
                     Exit Sub
                 End If
             Next
+            If VerificaPacasSinClasificar(TbIdOrden.Text) = True Then
+                MsgBox("Aun existen pacas sin clasificar en la orden No " & TbIdOrden.Text & " revise con clasificacion para continuar con la liquidacion.", MsgBoxStyle.Exclamation, "Aun existen pacas sin clasificar.")
+                Exit Sub
+            End If
             Guardar()
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
             'VerificarBoletasTerminadas()
@@ -140,7 +144,22 @@ Public Class LiquidacionesPorRomaneaje
             'End If
         End If
     End Sub
-
+    Private Function VerificaPacasSinClasificar(ByVal Idordentrabajo As Integer) As Boolean
+        Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
+        Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
+        Dim Tabla As New DataTable
+        Dim resultado As Boolean = False
+        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = Idordentrabajo
+        EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaPasasSinClase
+        NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+        Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+        If Tabla.Rows(0).Item("Contar") > 0 Then
+            resultado = True
+        Else
+            resultado = False
+        End If
+        Return resultado
+    End Function
     Private Sub TbIdOrden_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdOrden.KeyDown
         Select Case e.KeyData
             Case Keys.Enter

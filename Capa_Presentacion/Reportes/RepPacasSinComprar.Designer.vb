@@ -24,7 +24,7 @@ Partial Class RepPacasSinComprar
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RepPacasSinComprar))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DgvPacasSinVender = New System.Windows.Forms.DataGridView()
+        Me.DgvPacasSinComprar = New System.Windows.Forms.DataGridView()
         Me.GbEncabezado = New System.Windows.Forms.GroupBox()
         Me.TbCantidadPacas = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -46,7 +46,7 @@ Partial Class RepPacasSinComprar
         Me.ExportaAExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
-        CType(Me.DgvPacasSinVender, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvPacasSinComprar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbEncabezado.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -54,7 +54,7 @@ Partial Class RepPacasSinComprar
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.DgvPacasSinVender)
+        Me.Panel1.Controls.Add(Me.DgvPacasSinComprar)
         Me.Panel1.Controls.Add(Me.GbEncabezado)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(204, 24)
@@ -62,26 +62,26 @@ Partial Class RepPacasSinComprar
         Me.Panel1.Size = New System.Drawing.Size(894, 636)
         Me.Panel1.TabIndex = 23
         '
-        'DgvPacasSinVender
+        'DgvPacasSinComprar
         '
-        Me.DgvPacasSinVender.AllowUserToAddRows = False
-        Me.DgvPacasSinVender.AllowUserToDeleteRows = False
-        Me.DgvPacasSinVender.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvPacasSinVender.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvPacasSinVender.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvPacasSinVender.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvPacasSinVender.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvPacasSinVender.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvPacasSinVender.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvPacasSinVender.Location = New System.Drawing.Point(0, 43)
-        Me.DgvPacasSinVender.MultiSelect = False
-        Me.DgvPacasSinVender.Name = "DgvPacasSinVender"
-        Me.DgvPacasSinVender.ReadOnly = True
-        Me.DgvPacasSinVender.RowHeadersVisible = False
-        Me.DgvPacasSinVender.RowHeadersWidth = 40
-        Me.DgvPacasSinVender.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasSinVender.Size = New System.Drawing.Size(894, 593)
-        Me.DgvPacasSinVender.TabIndex = 15
+        Me.DgvPacasSinComprar.AllowUserToAddRows = False
+        Me.DgvPacasSinComprar.AllowUserToDeleteRows = False
+        Me.DgvPacasSinComprar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvPacasSinComprar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvPacasSinComprar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvPacasSinComprar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvPacasSinComprar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPacasSinComprar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvPacasSinComprar.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvPacasSinComprar.Location = New System.Drawing.Point(0, 43)
+        Me.DgvPacasSinComprar.MultiSelect = False
+        Me.DgvPacasSinComprar.Name = "DgvPacasSinComprar"
+        Me.DgvPacasSinComprar.ReadOnly = True
+        Me.DgvPacasSinComprar.RowHeadersVisible = False
+        Me.DgvPacasSinComprar.RowHeadersWidth = 40
+        Me.DgvPacasSinComprar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvPacasSinComprar.Size = New System.Drawing.Size(894, 593)
+        Me.DgvPacasSinComprar.TabIndex = 15
         '
         'GbEncabezado
         '
@@ -150,9 +150,10 @@ Partial Class RepPacasSinComprar
         '
         'TbRangoFin
         '
-        Me.TbRangoFin.Location = New System.Drawing.Point(103, 148)
+        Me.TbRangoFin.Location = New System.Drawing.Point(83, 148)
+        Me.TbRangoFin.MaxLength = 10
         Me.TbRangoFin.Name = "TbRangoFin"
-        Me.TbRangoFin.Size = New System.Drawing.Size(75, 20)
+        Me.TbRangoFin.Size = New System.Drawing.Size(95, 20)
         Me.TbRangoFin.TabIndex = 18
         '
         'Label1
@@ -166,9 +167,10 @@ Partial Class RepPacasSinComprar
         '
         'TbRangoInicio
         '
-        Me.TbRangoInicio.Location = New System.Drawing.Point(103, 122)
+        Me.TbRangoInicio.Location = New System.Drawing.Point(83, 122)
+        Me.TbRangoInicio.MaxLength = 10
         Me.TbRangoInicio.Name = "TbRangoInicio"
-        Me.TbRangoInicio.Size = New System.Drawing.Size(75, 20)
+        Me.TbRangoInicio.Size = New System.Drawing.Size(95, 20)
         Me.TbRangoInicio.TabIndex = 17
         '
         'Label2
@@ -274,7 +276,7 @@ Partial Class RepPacasSinComprar
         Me.Text = "Pacas sin comprar"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.DgvPacasSinVender, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvPacasSinComprar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbEncabezado.ResumeLayout(False)
         Me.GbEncabezado.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -287,7 +289,7 @@ Partial Class RepPacasSinComprar
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents DgvPacasSinVender As DataGridView
+    Friend WithEvents DgvPacasSinComprar As DataGridView
     Friend WithEvents GbEncabezado As GroupBox
     Friend WithEvents TbCantidadPacas As TextBox
     Friend WithEvents Label4 As Label

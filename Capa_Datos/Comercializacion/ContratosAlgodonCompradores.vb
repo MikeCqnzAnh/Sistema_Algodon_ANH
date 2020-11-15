@@ -102,7 +102,7 @@ Public Class ContratosAlgodonCompradores
                     sqldat1 = New SqlDataAdapter("sp_ConsultaModosVenta", cnn)
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDiferenciales
-                    sqlcom1 = New SqlCommand("sp_ConsultaDiferenciales", cnn)
+                    sqlcom1 = New SqlCommand("sp_ConsultaDiferencialesVenta", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
