@@ -96,6 +96,7 @@ Public Class CastigoLargoFibra
         TablaDetalles.Columns.Add(New DataColumn("ColorGrade", Type.GetType("System.String")))
         TablaDetalles.Columns.Add(New DataColumn("Castigo", Type.GetType("System.Decimal")))
         TablaDetalles.Columns.Add(New DataColumn("IdEstatus", Type.GetType("System.Int32")))
+        TablaDetalles.Columns.Add(New DataColumn("Seleccionar", Type.GetType("System.Boolean")))
     End Sub
     Private Sub AgregaCamposTablaEquivalente()
         TablaEquivalente.Columns.Clear()
@@ -105,17 +106,30 @@ Public Class CastigoLargoFibra
         TablaEquivalente.Columns.Add(New DataColumn("Rango1", Type.GetType("System.Decimal")))
         TablaEquivalente.Columns.Add(New DataColumn("Rango2", Type.GetType("System.Decimal")))
         TablaEquivalente.Columns.Add(New DataColumn("LenghtNDS", Type.GetType("System.Int32")))
+        TablaEquivalente.Columns.Add(New DataColumn("Seleccionar", Type.GetType("System.Boolean")))
     End Sub
     Private Sub PropiedadesDgvEncabezado()
         DgvEncabezado.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub PropiedadesDgvDetalles()
+        If DgvLargoDetalle.Columns("Sel") Is Nothing Then
+            Dim colSel As New DataGridViewCheckBoxColumn
+            colSel.Name = "Sel"
+            colSel.HeaderText = "Seleccionar"
+            DgvLargoDetalle.Columns.Insert(7, colSel)
+        End If
         DgvLargoDetalle.Columns("IdModoDetalle").Visible = False
         DgvLargoDetalle.Columns("IdModoEncabezado").Visible = False
         DgvLargoDetalle.Columns("ColorGrade").Visible = False
         DgvLargoDetalle.Columns("IdEstatus").Visible = False
     End Sub
     Private Sub PropiedadesDgvEquivalente()
+        If DgvEquivalente.Columns("Sel") Is Nothing Then
+            Dim colSel As New DataGridViewCheckBoxColumn
+            colSel.Name = "Sel"
+            colSel.HeaderText = "Seleccionar"
+            DgvEquivalente.Columns.Insert(6, colSel)
+        End If
         DgvEquivalente.Columns("IdLargoFibraDetalle").Visible = False
         DgvEquivalente.Columns("IdModoEncabezado").Visible = False
         DgvEquivalente.Columns("ModoComercializacion").Visible = False

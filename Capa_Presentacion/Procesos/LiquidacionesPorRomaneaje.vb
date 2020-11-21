@@ -79,7 +79,7 @@ Public Class LiquidacionesPorRomaneaje
         Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
         Dim Tabla As New DataTable
         ConsultaOrdenTrabajo.ShowDialog()
-        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = ConsultaOrdenTrabajo.Id
+        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = ConsultaOrdenTrabajo.IdConsulta
         EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaOrden
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta

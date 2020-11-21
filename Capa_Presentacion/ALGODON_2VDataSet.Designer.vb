@@ -4177,6 +4177,8 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnCheckStatus As Global.System.Data.DataColumn
         
+        Private columnIdLiquidacion As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4349,6 +4351,14 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdLiquidacionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdLiquidacion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4402,9 +4412,10 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal TotalPacas As Integer,  _
                     ByVal TotalSemilla As Double,  _
                     ByVal PorcentajeSemilla As Double,  _
-                    ByVal CheckStatus As Boolean) As ReporteRomaneajeEncRow
+                    ByVal CheckStatus As Boolean,  _
+                    ByVal IdLiquidacion As Integer) As ReporteRomaneajeEncRow
             Dim rowReporteRomaneajeEncRow As ReporteRomaneajeEncRow = CType(Me.NewRow,ReporteRomaneajeEncRow)
-            Dim columnValuesArray() As Object = New Object() {IdOrdenTrabajo, IdCliente, Nombre, Fecha, Modulos, Comentarios, Totalhueso, TotalPluma, PorcentajePluma, TotalBorregos, TotalPlumaBorregos, TotalMerma, PorcentajeMerma, TotalPacas, TotalSemilla, PorcentajeSemilla, CheckStatus}
+            Dim columnValuesArray() As Object = New Object() {IdOrdenTrabajo, IdCliente, Nombre, Fecha, Modulos, Comentarios, Totalhueso, TotalPluma, PorcentajePluma, TotalBorregos, TotalPlumaBorregos, TotalMerma, PorcentajeMerma, TotalPacas, TotalSemilla, PorcentajeSemilla, CheckStatus, IdLiquidacion}
             rowReporteRomaneajeEncRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReporteRomaneajeEncRow)
             Return rowReporteRomaneajeEncRow
@@ -4444,6 +4455,7 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnTotalSemilla = MyBase.Columns("TotalSemilla")
             Me.columnPorcentajeSemilla = MyBase.Columns("PorcentajeSemilla")
             Me.columnCheckStatus = MyBase.Columns("CheckStatus")
+            Me.columnIdLiquidacion = MyBase.Columns("IdLiquidacion")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4483,6 +4495,8 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnPorcentajeSemilla)
             Me.columnCheckStatus = New Global.System.Data.DataColumn("CheckStatus", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCheckStatus)
+            Me.columnIdLiquidacion = New Global.System.Data.DataColumn("IdLiquidacion", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdLiquidacion)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14273,6 +14287,22 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdLiquidacion() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReporteRomaneajeEnc.IdLiquidacionColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdLiquidacion' de la tabla 'ReporteRomaneajeEnc' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReporteRomaneajeEnc.IdLiquidacionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdOrdenTrabajoNull() As Boolean
             Return Me.IsNull(Me.tableReporteRomaneajeEnc.IdOrdenTrabajoColumn)
         End Function
@@ -14473,6 +14503,18 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCheckStatusNull()
             Me(Me.tableReporteRomaneajeEnc.CheckStatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdLiquidacionNull() As Boolean
+            Return Me.IsNull(Me.tableReporteRomaneajeEnc.IdLiquidacionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdLiquidacionNull()
+            Me(Me.tableReporteRomaneajeEnc.IdLiquidacionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -1,0 +1,2 @@
+SELECT TOP 5000 Baleid,IdPlantaOrigen,Kilos,operator,[date],temperature,Humidity,Amount,UHML,UI,Strength,Elongation,SFI,Maturity,Grade,Moist,Mic,Rd,Plusb,ColorGrade,TrashCount,TrashArea,TrashID,SCI,Nep,UV FROM CalculoClasificacion WHERE IdPlantaOrigen = 1 ORDER BY BaleID
+SELECT TOP 5000 Baleid,IdPlantaOrigen,Kilos,operator,[date],temperature,Humidity,Amount,UHML,UI,Strength,Elongation,SFI,Maturity,Grade,Moist,Mic,Rd,Plusb,ColorGrade,TrashCount,TrashArea,TrashID,SCI,Nep,UV FROM CalculoClasificacion WHERE IdPlantaOrigen = 3 ORDER BY BaleID

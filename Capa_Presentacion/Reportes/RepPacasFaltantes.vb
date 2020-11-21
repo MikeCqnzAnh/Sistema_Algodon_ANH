@@ -25,6 +25,8 @@ Public Class RepPacasFaltantes
         CbPlanta.SelectedValue = -1
     End Sub
     Private Sub RepPacasFaltantes_Load(sender As Object, e As EventArgs) Handles Me.Load
+        CRVPacasFaltantes.ReportSource = Nothing
+        CRVPacasFaltantes.Refresh()
         CargaCombos()
     End Sub
 
@@ -59,6 +61,8 @@ Public Class RepPacasFaltantes
             CRVPacasFaltantes.Show()
         Else
             MsgBox("No hay registros con los parametros aplicados!!", MsgBoxStyle.Exclamation)
+            CRVPacasFaltantes.ReportSource = Nothing
+            CRVPacasFaltantes.Refresh()
         End If
     End Sub
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbFolioInicial.KeyPress, TbFolioFinal.KeyPress
@@ -73,5 +77,13 @@ Public Class RepPacasFaltantes
 
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         Consultar()
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        CbPlanta.SelectedValue = -1
+        TbFolioInicial.Text = ""
+        TbFolioFinal.Text = ""
+        CRVPacasFaltantes.ReportSource = Nothing
+        CRVPacasFaltantes.Refresh()
     End Sub
 End Class

@@ -97,6 +97,20 @@ Public Class OrdenTrabajo
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadOrdenTrabajo1.IdProductor))
                     sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenEmbarqueEncabezado
+                    sqlcom1 = New SqlCommand("Sp_ConsultaOrdentrabajoEnc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaOrden
+                    sqlcom1 = New SqlCommand("Sp_SeleccionOrdentrabajoEnc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

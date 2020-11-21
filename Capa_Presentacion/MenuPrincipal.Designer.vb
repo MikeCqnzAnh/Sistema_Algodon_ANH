@@ -67,15 +67,15 @@ Partial Class MenuPrincipal
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PreliquidacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompraDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransferenciaDeRegistrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LiquidacionFinalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PreliquidacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreliquidacionACompradorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDeLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -85,6 +85,7 @@ Partial Class MenuPrincipal
         Me.CapturaDeProducciónPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CapturaDePacasConTecladoFijoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChequearEtiquetaDePacaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RevisionDeProduccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LiquidacionesPorRomaneajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -513,6 +514,13 @@ Partial Class MenuPrincipal
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Tag = "38,37"
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Text = "Compra de Pacas a Productores (Por Contrato)"
         '
+        'PreliquidacionToolStripMenuItem
+        '
+        Me.PreliquidacionToolStripMenuItem.Name = "PreliquidacionToolStripMenuItem"
+        Me.PreliquidacionToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
+        Me.PreliquidacionToolStripMenuItem.Tag = "0,0"
+        Me.PreliquidacionToolStripMenuItem.Text = "Preliquidacion a productor"
+        '
         'CompraDePacasToolStripMenuItem
         '
         Me.CompraDePacasToolStripMenuItem.Name = "CompraDePacasToolStripMenuItem"
@@ -544,13 +552,6 @@ Partial Class MenuPrincipal
         Me.LiquidacionFinalToolStripMenuItem.Tag = "42,37"
         Me.LiquidacionFinalToolStripMenuItem.Text = "Liquidacion Final"
         '
-        'PreliquidacionToolStripMenuItem
-        '
-        Me.PreliquidacionToolStripMenuItem.Name = "PreliquidacionToolStripMenuItem"
-        Me.PreliquidacionToolStripMenuItem.Size = New System.Drawing.Size(364, 24)
-        Me.PreliquidacionToolStripMenuItem.Tag = "0,0"
-        Me.PreliquidacionToolStripMenuItem.Text = "Preliquidacion a productor"
-        '
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDePacasPorContratoToolStripMenuItem, Me.PreliquidacionACompradorToolStripMenuItem, Me.VentaDePacasToolStripMenuItem})
@@ -566,6 +567,13 @@ Partial Class MenuPrincipal
         Me.VentaDePacasPorContratoToolStripMenuItem.Tag = "44,43"
         Me.VentaDePacasPorContratoToolStripMenuItem.Text = "Venta de Pacas (Por Contrato)"
         '
+        'PreliquidacionACompradorToolStripMenuItem
+        '
+        Me.PreliquidacionACompradorToolStripMenuItem.Name = "PreliquidacionACompradorToolStripMenuItem"
+        Me.PreliquidacionACompradorToolStripMenuItem.Size = New System.Drawing.Size(261, 24)
+        Me.PreliquidacionACompradorToolStripMenuItem.Tag = "0,0"
+        Me.PreliquidacionACompradorToolStripMenuItem.Text = "Preliquidacion a comprador"
+        '
         'VentaDePacasToolStripMenuItem
         '
         Me.VentaDePacasToolStripMenuItem.Name = "VentaDePacasToolStripMenuItem"
@@ -573,13 +581,6 @@ Partial Class MenuPrincipal
         Me.VentaDePacasToolStripMenuItem.Tag = "45,43"
         Me.VentaDePacasToolStripMenuItem.Text = "Venta de Pacas"
         Me.VentaDePacasToolStripMenuItem.Visible = False
-        '
-        'PreliquidacionACompradorToolStripMenuItem
-        '
-        Me.PreliquidacionACompradorToolStripMenuItem.Name = "PreliquidacionACompradorToolStripMenuItem"
-        Me.PreliquidacionACompradorToolStripMenuItem.Size = New System.Drawing.Size(261, 24)
-        Me.PreliquidacionACompradorToolStripMenuItem.Tag = "0,0"
-        Me.PreliquidacionACompradorToolStripMenuItem.Text = "Preliquidacion a comprador"
         '
         'AsignarCompradoresAPaquetesHVIToolStripMenuItem
         '
@@ -590,7 +591,7 @@ Partial Class MenuPrincipal
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem, Me.CargaPacasExternasToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.RevisionDeProduccionToolStripMenuItem, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem, Me.CargaPacasExternasToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ProcesosToolStripMenuItem.Tag = "47,0"
@@ -647,6 +648,14 @@ Partial Class MenuPrincipal
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Tag = "54,47"
         Me.ChequearEtiquetaDePacaToolStripMenuItem.Text = "Etiqueta de Paca"
+        '
+        'RevisionDeProduccionToolStripMenuItem
+        '
+        Me.RevisionDeProduccionToolStripMenuItem.Name = "RevisionDeProduccionToolStripMenuItem"
+        Me.RevisionDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
+        Me.RevisionDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.RevisionDeProduccionToolStripMenuItem.Text = "Revision de Produccion"
+        Me.RevisionDeProduccionToolStripMenuItem.Visible = False
         '
         'LiquidacionesPorRomaneajeToolStripMenuItem
         '
@@ -1533,4 +1542,5 @@ Partial Class MenuPrincipal
     Friend WithEvents RolesTestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PreliquidacionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PreliquidacionACompradorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RevisionDeProduccionToolStripMenuItem As ToolStripMenuItem
 End Class

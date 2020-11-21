@@ -12,7 +12,7 @@ Public Class Etiquetas
         Limpiar()
         LeerArchivoConfiguracion()
         ConsultaUltimaSecuencia()
-        Centrar(PControles)
+        'Centrar(PControles)
     End Sub
     Private Sub Centrar(ByVal Objeto As Object)
 

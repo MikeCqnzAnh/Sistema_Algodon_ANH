@@ -202,6 +202,13 @@ Public Class PaquetesHVI
                     sqlcom1.Parameters.Add(New SqlParameter("@BaleID", EntidadPaquetesHVI1.BaleID))
                     'sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadPaquetesHVI1.IdPlanta))
                     sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacaPlanta
+                    sqlcom1 = New SqlCommand("sp_VerificaPacaPlantaProduccion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@FolioCIA", EntidadPaquetesHVI1.BaleID))
+                    sqldat1.Fill(EntidadPaquetesHVI1.TablaConsulta)
             End Select
         Catch ex As Exception
             cnn.Close()

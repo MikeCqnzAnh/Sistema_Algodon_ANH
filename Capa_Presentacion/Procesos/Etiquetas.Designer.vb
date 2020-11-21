@@ -22,6 +22,7 @@ Partial Class Etiquetas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Etiquetas))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,6 +42,7 @@ Partial Class Etiquetas
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ActualizarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -137,11 +139,12 @@ Partial Class Etiquetas
         '
         'PControles
         '
+        Me.PControles.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PControles.Controls.Add(Me.TbEtiquetaSiguiente)
         Me.PControles.Controls.Add(Me.TbEtiquetaActual)
         Me.PControles.Controls.Add(Me.Label6)
         Me.PControles.Controls.Add(Me.Label2)
-        Me.PControles.Location = New System.Drawing.Point(38, 115)
+        Me.PControles.Location = New System.Drawing.Point(249, 169)
         Me.PControles.Name = "PControles"
         Me.PControles.Size = New System.Drawing.Size(624, 424)
         Me.PControles.TabIndex = 17
@@ -155,6 +158,7 @@ Partial Class Etiquetas
         Me.Controls.Add(Me.PControles)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Etiquetas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

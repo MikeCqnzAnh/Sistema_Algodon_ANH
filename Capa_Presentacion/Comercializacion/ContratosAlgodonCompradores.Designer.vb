@@ -116,6 +116,9 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TbPesoTara = New System.Windows.Forms.TextBox()
+        Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbParametros.SuspendLayout()
@@ -162,6 +165,9 @@ Partial Class ContratosAlgodonCompradores
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.CkTara)
+        Me.GbDatosGenerales.Controls.Add(Me.TbPesoTara)
+        Me.GbDatosGenerales.Controls.Add(Me.Label24)
         Me.GbDatosGenerales.Controls.Add(Me.GbParametros)
         Me.GbDatosGenerales.Controls.Add(Me.TbPacasVendidas)
         Me.GbDatosGenerales.Controls.Add(Me.TbPacasDisponibles)
@@ -1023,6 +1029,34 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
         Me.DgvContratoAlgodon.TabIndex = 14
         '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(244, 231)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(28, 13)
+        Me.Label24.TabIndex = 38
+        Me.Label24.Text = "Kgs "
+        '
+        'TbPesoTara
+        '
+        Me.TbPesoTara.Enabled = False
+        Me.TbPesoTara.Location = New System.Drawing.Point(197, 228)
+        Me.TbPesoTara.MaxLength = 4
+        Me.TbPesoTara.Name = "TbPesoTara"
+        Me.TbPesoTara.Size = New System.Drawing.Size(41, 20)
+        Me.TbPesoTara.TabIndex = 39
+        '
+        'CkTara
+        '
+        Me.CkTara.AutoSize = True
+        Me.CkTara.Location = New System.Drawing.Point(117, 231)
+        Me.CkTara.Name = "CkTara"
+        Me.CkTara.Size = New System.Drawing.Size(74, 17)
+        Me.CkTara.TabIndex = 40
+        Me.CkTara.Text = "Peso neto"
+        Me.CkTara.UseVisualStyleBackColor = True
+        '
         'ContratosAlgodonCompradores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1149,4 +1183,7 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents BtConsultaRF As Button
     Friend WithEvents BtConsultaLF As Button
     Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CkTara As CheckBox
+    Friend WithEvents TbPesoTara As TextBox
+    Friend WithEvents Label24 As Label
 End Class

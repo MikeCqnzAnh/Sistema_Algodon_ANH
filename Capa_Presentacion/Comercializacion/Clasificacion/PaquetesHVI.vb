@@ -49,6 +49,27 @@ Public Class PaquetesHVI
             MsgBox("Campo Planta y Paquete es requerido para continuar.", MsgBoxStyle.Exclamation, "Aviso")
         End If
     End Sub
+    Private Function VerificaPacaPlanta(ByVal IdPaca As Long) As String()
+        Dim Tabla As New DataTable
+        'Dim Resultado As Boolean
+        Dim vReturn(2) As String
+        'PlantaVerifica = ""
+        Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
+        Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
+        EntidadPaquetesHVI.Consulta = Consulta.ConsultaPacaPlanta
+        EntidadPaquetesHVI.BaleID = IdPaca
+        NegocioPaquetesHVI.Consultar(EntidadPaquetesHVI)
+        Tabla = EntidadPaquetesHVI.TablaConsulta
+        'If Tabla.Rows(0).Item("ExistePacaPlanta") = False Then
+        'Resultado = True
+        vReturn(0) = Tabla.Rows(0).Item("ExistePacaPlanta")
+        vReturn(1) = Tabla.Rows(0).Item("IdPlantaOrigen")
+        vReturn(2) = Tabla.Rows(0).Item("Planta")
+        'Else
+        '    Resultado = False
+        'End If
+        Return vReturn
+    End Function
     Private Sub BtCargaExcel_Click(sender As Object, e As EventArgs) Handles BtCargaExcel.Click
         importarExcelExterno(DgvPaquetesHVI)
         PropiedadesDGVCarga()
@@ -180,6 +201,16 @@ Public Class PaquetesHVI
         BtSeleccionar.Enabled = True
     End Sub
     Private Sub Guardar()
+        For Each row As DataGridViewRow In DgvPaquetesHVI.Rows
+            Dim vReturn(2) As String
+            vReturn = VerificaPacaPlanta(row.Cells("BaleID").Value)
+            If vReturn(0) = True And vReturn(1) = CbPlanta.SelectedValue Then
+
+            Else
+                MsgBox("La Paca con la etiqueta " & row.Cells("BaleID").Value & " no existe en la planta " & CbPlanta.Text & ", la planta correcta es " & vReturn(2))
+                Exit Sub
+            End If
+        Next
         Try
             Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
             Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI
@@ -272,6 +303,7 @@ Public Class PaquetesHVI
                     vReturn = ExistePaqueteHVI(TbPaquete.Text)
                     If vReturn(0) = False And vReturn(1) = False Then
                         MsgBox("El paquete consultado no se encuentra registrado!", MsgBoxStyle.Information, "Aviso")
+                        TbPaquete.Text = ""
                     Else
                         Dim EntidadPaquetesHVI As New Capa_Entidad.PaquetesHVI
                         Dim NegocioPaquetesHVI As New Capa_Negocio.PaquetesHVI

@@ -1,4 +1,4 @@
-alter procedure sp_InsertarBoletasPorOrden
+Create procedure sp_InsertarBoletasPorOrden
 @IdBoleta int output,
 @IdOrdenTrabajo int,
 @IdPlanta int,
@@ -26,14 +26,8 @@ UPDATE SET
 IdOrdenTrabajo = source.IdOrdenTrabajo,
 IdPlanta = source.IdPlanta,
 FechaOrden = source.FechaOrden,
-Bruto = source.Bruto,
-Tara = source.Tara,
-Total = source.Total,
 IdProductor = source.IdProductor,
 IdBodega = source.IdBodega,
-NoTransporte = source.NoTransporte,
-FlagCancelada = source.FlagCancelada,
-FlagRevisada = source.FlagRevisada,
 IdEstatus = source.IdEstatus,
 IdUsuarioActualizacion = source.IdUsuarioActualizacion
 WHEN NOT MATCHED THEN

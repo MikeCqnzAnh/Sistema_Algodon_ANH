@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.99.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -530,6 +530,12 @@
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
     </Compile>
     <Compile Include="Procesos\CargaPacasExternas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\RevisionProduccion.Designer.vb">
+      <DependentUpon>RevisionProduccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\RevisionProduccion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepClasesVenta.Designer.vb">
@@ -1446,6 +1452,9 @@
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\RevisionProduccion.resx">
+      <DependentUpon>RevisionProduccion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepClasesVenta.resx">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1902,10 +1911,12 @@
     <None Include="Resources\light_yellow.png" />
     <None Include="Iconos\png\search.png" />
     <None Include="Iconos\png\attachment.png" />
+    <None Include="Imagenes\add.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
     <None Include="Imagenes\excel.png" />
     <None Include="Imagenes\delete.png" />
+    <None Include="Imagenes\quit.png" />
     <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -25,9 +25,9 @@ Public Class OrdenTrabajo
             EntidadOrdenTrabajo.Predio = TbPredio.Text
             EntidadOrdenTrabajo.NoModulos = TbNoModulos.Text
             EntidadOrdenTrabajo.IdEstatus = CbEstatus.SelectedValue
-            EntidadOrdenTrabajo.IdUsuarioCreacion = 1
+            EntidadOrdenTrabajo.IdUsuarioCreacion = IdUsuario
             EntidadOrdenTrabajo.FechaCreacion = Now
-            EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
+            EntidadOrdenTrabajo.IdUsuarioActualizacion = IdUsuario
             EntidadOrdenTrabajo.FechaActualizacion = Now
             NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
             TbIdOrdenTrabajo.Text = EntidadOrdenTrabajo.IdOrdenTrabajo
@@ -39,7 +39,7 @@ Public Class OrdenTrabajo
         End Try
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
-
+        ConsultarOrden()
     End Sub
     Private Sub Limpiar()
         TbIdOrdenTrabajo.Text = ""
@@ -48,6 +48,7 @@ Public Class OrdenTrabajo
         TbNombre.Text = ""
         TbRangoInicio.Text = ""
         TbRangoFin.Text = ""
+        TbNoModulos.Text = ""
         CbVariedad.SelectedValue = 1
         CbColonia.SelectedValue = 1
         TbPredio.Text = ""
@@ -133,6 +134,36 @@ Public Class OrdenTrabajo
         NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
         Tabla = EntidadOrdenTrabajo.TablaConsulta
         DgvCapturaLotes.DataSource = Tabla
+    End Sub
+    Private Sub ConsultarOrden()
+        Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+        Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Dim Tabla As New DataTable
+        Dim ConsultaOrden As New ConsultaOrdenTrabajo()
+        ConsultaOrden.ShowDialog()
+        Try
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrden
+            EntidadOrdenTrabajo.IdOrdenTrabajo = ConsultaOrden.IdConsulta
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            Tabla = EntidadOrdenTrabajo.TablaConsulta
+            If Tabla.Rows.Count = 0 Then
+                Exit Sub
+            Else
+                TbIdOrdenTrabajo.Text = Tabla.Rows(0).Item("IdOrdenTrabajo")
+                CbPlantas.SelectedValue = Tabla.Rows(0).Item("IdPlanta")
+                TbIdProductor.Text = Tabla.Rows(0).Item("IdProductor")
+                TbNombre.Text = Tabla.Rows(0).Item("Nombre")
+                TbRangoInicio.Text = Tabla.Rows(0).Item("RangoInicio")
+                TbRangoFin.Text = Tabla.Rows(0).Item("RangoFin")
+                TbNoModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
+                CbVariedad.SelectedValue = Tabla.Rows(0).Item("IdVariedadAlgodon")
+                CbColonia.SelectedValue = Tabla.Rows(0).Item("IdColonia")
+                TbPredio.Text = Tabla.Rows(0).Item("Predio")
+                CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub ConsultaCliente()
         If TbIdProductor.Text <> "" Then

@@ -417,7 +417,8 @@ Public Class MenuPrincipal
         VentaClasificacion.ShowDialog()
     End Sub
     Private Sub PacasFaltantesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasFaltantesToolStripMenuItem.Click
-        RepPacasFaltantes.ShowDialog()
+        Dim RepPacasFalt As New RepPacasFaltantes
+        RepPacasFalt.ShowDialog()
     End Sub
     Private Sub ModalidadDeCompraToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ModalidadDeCompraToolStripMenuItem.Click
         ModalidadesCompra.ShowDialog()
@@ -572,6 +573,11 @@ Public Class MenuPrincipal
     Private Sub PreliquidacionACompradorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreliquidacionACompradorToolStripMenuItem.Click
         Dim preliqventa As New PreliquidacionVenta
         preliqventa.ShowDialog()
+    End Sub
+
+    Private Sub RevisionDeProduccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RevisionDeProduccionToolStripMenuItem.Click
+        Dim RevProd As New RevisionProduccion
+        RevProd.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
