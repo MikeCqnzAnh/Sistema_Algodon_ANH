@@ -268,6 +268,15 @@ Public Class Produccion
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlantaOrigen", EntidadProduccion.IdPlantaOrigen))
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaProduccionRevision
+                    sqlcom1 = New SqlCommand("Sp_ConsultaProduccionRevision", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion.IdProduccion))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadProduccion.NombreProductor))
+                    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

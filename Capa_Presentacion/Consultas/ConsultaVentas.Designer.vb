@@ -66,7 +66,7 @@ Partial Class ConsultaVentas
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(926, 146)
-        Me.Panel1.TabIndex = 15
+        Me.Panel1.TabIndex = 0
         '
         'TbNombre
         '

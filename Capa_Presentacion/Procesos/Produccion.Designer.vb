@@ -370,7 +370,7 @@ Partial Class Produccion
         '
         Me.TbKilos.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbKilos.Location = New System.Drawing.Point(6, 143)
-        Me.TbKilos.MaxLength = 10
+        Me.TbKilos.MaxLength = 3
         Me.TbKilos.Name = "TbKilos"
         Me.TbKilos.Size = New System.Drawing.Size(302, 62)
         Me.TbKilos.TabIndex = 49

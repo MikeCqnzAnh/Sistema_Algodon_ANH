@@ -139,6 +139,8 @@ Public Class VentaPacasContrato
             CbModoPlastic.SelectedValue = TablaParametros.Rows(0).Item("IdModoPlastic")
             ChPlasticLevel1.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel1")
             ChPlasticLevel2.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel2")
+            NuPesoTara.Value = TablaParametros.Rows(0).Item("KilosNeto")
+            CkTara.Checked = TablaParametros.Rows(0).Item("EstatusPesoNeto")
         End If
     End Sub
 
@@ -177,16 +179,17 @@ Public Class VentaPacasContrato
                 MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
             Else
                 GuardarVentaEnc()
-                VarGlob2.IdVenta = TbIdVentaPaca.Text
-                VarGlob2.IdContrato = TbIdContrato.Text
-                VarGlob2.IdComprador = TbIdComprador.Text
-                VarGlob2.NombreComprador = TbNombreComprador.Text
-                VarGlob2.PrecioQuintal = TbPrecioQuintal.Text
-                VarGlob2.IdModalidadVenta = CbModalidadVenta.SelectedValue
-                VarGlob2.IdUnidadPeso = CbUnidadPeso.SelectedValue
-                VarGlob2.ValorConversion = Val(TbValorConversion.Text)
-                _Tabla = Table()
-                VentaPago.ShowDialog()
+                'VarGlob2.IdVenta = TbIdVentaPaca.Text
+                'VarGlob2.IdContrato = TbIdContrato.Text
+                'VarGlob2.IdComprador = TbIdComprador.Text
+                'VarGlob2.NombreComprador = TbNombreComprador.Text
+                'VarGlob2.PrecioQuintal = TbPrecioQuintal.Text
+                'VarGlob2.IdModalidadVenta = CbModalidadVenta.SelectedValue
+                'VarGlob2.IdUnidadPeso = CbUnidadPeso.SelectedValue
+                'VarGlob2.ValorConversion = Val(TbValorConversion.Text)
+                '_Tabla = Table()
+                Dim Ventapag As New VentaPago(TbIdVentaPaca.Text, TbIdComprador.Text, TbIdContrato.Text, CbModalidadVenta.SelectedValue, CbUnidadPeso.SelectedValue, TbNombreComprador.Text, TbPrecioQuintal.Text, Val(TbValorConversion.Text), CkTara.Checked, NuPesoTara.Value, Table())
+                Ventapag.ShowDialog()
             End If
         Else
             MsgBox("No hay pacas seleccionadas para continuar con la venta.", MsgBoxStyle.Exclamation)
@@ -230,6 +233,7 @@ Public Class VentaPacasContrato
         TbNoPacas.Text = ""
         TbKilosVendidos.Text = ""
         TbIdPaqVtaVender.Text = ""
+        NuPesoTara.Value = 0
         CbPlantaVender.SelectedIndex = -1
         TbPacasVendidasContrato.Text = ""
         DgvContratos.DataSource = Nothing
@@ -469,6 +473,8 @@ Public Class VentaPacasContrato
             ChResistenciaFibra.Checked = False
             ChLargoFibra.Checked = False
             ChUniformidad.Checked = False
+            CkTara.Checked = False
+            NuPesoTara.Value = 0
             CbModoLargoFibra.SelectedIndex = -1
             CbModoMicros.SelectedIndex = -1
             CbModoResistenciaFibra.SelectedIndex = -1
@@ -534,7 +540,7 @@ Public Class VentaPacasContrato
                 Dim Quintales As Double = Math.Round(CDbl(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
                 Dim TotalDlls As Double = Quintales * CDbl(TbPrecioQuintal.Text)
 
-                Dim Kilos As Integer = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
+                Dim Kilos As Double = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
                 Dim Libras As Double = Kilos * Val(TbValorConversion.Text)
                 'Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
 
@@ -624,8 +630,8 @@ Public Class VentaPacasContrato
         Dim dtCopy = query.CopyToDataTable()
         dtCopy.Rows.Add()
         Dim dr As DataRow = dtCopy.NewRow()
-        Dim i, value, TotalPacas As Integer
-        Dim TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As Double
+        Dim i, TotalPacas As Integer
+        Dim value, TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As Double
         For j As Integer = 0 To dtCopy.Rows.Count - 2
             Dim item = dtCopy.Rows(j)
             Dim BaleID = Convert.ToInt64(item(0))
@@ -907,7 +913,7 @@ Public Class VentaPacasContrato
         dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
         dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
         dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Int32"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
         dt.Columns.Add("Quintales", Type.GetType("System.Single"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
@@ -915,7 +921,7 @@ Public Class VentaPacasContrato
         If CbUnidadPeso.SelectedValue = 1 Then
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
-                Dim Kilos As Integer = Fila.Cells("Kilos").Value
+                Dim Kilos As Double = Fila.Cells("Kilos").Value
                 Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
                 r("BaleID") = Fila.Cells("BaleID").Value
                 r("IdLiquidacion") = Fila.Cells("IdLiquidacion").Value
@@ -933,7 +939,7 @@ Public Class VentaPacasContrato
         ElseIf CbUnidadPeso.SelectedValue = 2 Then
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
-                Dim Kilos As Integer = Fila.Cells("Kilos").Value
+                Dim Kilos As Double = Fila.Cells("Kilos").Value
                 Dim Libras As Double = Math.Round(Kilos * Val(TbValorConversion.Text), 4)
                 r("BaleID") = Fila.Cells("BaleID").Value
                 r("IdLiquidacion") = Fila.Cells("IdLiquidacion").Value
@@ -962,7 +968,7 @@ Public Class VentaPacasContrato
         dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
         dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
         dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Int32"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
         dt.Columns.Add("Quintales", Type.GetType("System.Single"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
@@ -972,7 +978,7 @@ Public Class VentaPacasContrato
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
                 If Fila.Cells("Seleccionar").Value = True Then
-                    Dim Kilos As Integer = Fila.Cells("Kilos").Value + Val(TbKdAd.Text)
+                    Dim Kilos As Double = (Fila.Cells("Kilos").Value + Val(TbKdAd.Text)) - NuPesoTara.Value
                     Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
                     r("BaleID") = Fila.Cells("BaleID").Value
                     r("IdLiquidacion") = Fila.Cells("IdLiquidacion").Value
@@ -993,7 +999,7 @@ Public Class VentaPacasContrato
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
                 If Fila.Cells("Seleccionar").Value = True Then
-                    Dim Kilos As Integer = Fila.Cells("Kilos").Value + Val(TbKdAd.Text)
+                    Dim Kilos As Double = (Fila.Cells("Kilos").Value + Val(TbKdAd.Text)) - NuPesoTara.Value
                     Dim Libras As Double = Math.Round(Kilos * Val(TbValorConversion.Text), 4)
                     r("BaleID") = Fila.Cells("BaleID").Value
                     r("IdLiquidacion") = Fila.Cells("IdLiquidacion").Value
@@ -1025,7 +1031,7 @@ Public Class VentaPacasContrato
         dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
         dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
         dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Int32"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
         dt.Columns.Add("Quintales", Type.GetType("System.Single"))
         dt.Columns.Add("Resistencia", Type.GetType("System.Single"))
         dt.Columns.Add("Micros", Type.GetType("System.Single"))
@@ -1049,7 +1055,7 @@ Public Class VentaPacasContrato
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Integer = DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)
+                    Dim Kilos As Double = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - NuPesoTara.Value
                     Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
@@ -1078,7 +1084,7 @@ Public Class VentaPacasContrato
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Integer = DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)
+                    Dim Kilos As Double = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - NuPesoTara.Value
                     Dim Libras As Double = Kilos * Val(TbValorConversion.Text)
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
@@ -1629,7 +1635,7 @@ Public Class VentaPacasContrato
 
     Private Sub ResumenDeVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeVentaToolStripMenuItem.Click
         If TbIdVentaPaca.Text <> "" Then
-            Dim ReporteVentaPacasResumen As New RepVentaPacasResumen(TbIdVentaPaca.Text)
+            Dim ReporteVentaPacasResumen As New RepVentaPacasResumen(TbIdVentaPaca.Text, CkTara.Checked, NuPesoTara.Value)
             ReporteVentaPacasResumen.ShowDialog()
         Else
             MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -1859,7 +1865,7 @@ Public Class VentaPacasContrato
     End Sub
     Private Sub MarcaSeleccionDisponibles()
         Dim Contador As Integer = 0
-        Dim Kilos As Integer = 0
+        Dim Kilos As Double = 0
         For i As Integer = 0 To DgvPacasVender.Rows.Count - 1
             Dim Seleccion As Boolean = CType(Me.DgvPacasVender.Rows(i).Cells("Seleccionar").EditedFormattedValue, Boolean)
             If Seleccion = True Then
@@ -1872,7 +1878,7 @@ Public Class VentaPacasContrato
     End Sub
     Private Sub SumaKilosVendidos()
         Dim Contador As Integer = 0
-        Dim Kilos As Integer = 0
+        Dim Kilos As Double = 0
         For i As Integer = 0 To DgvPacasIndVendidas.Rows.Count - 1
             'Dim Seleccion As Boolean = CType(Me.DgvPacasIndVendidas.Rows(i).Cells("Seleccionar").EditedFormattedValue, Boolean)
             'If Seleccion = True Then

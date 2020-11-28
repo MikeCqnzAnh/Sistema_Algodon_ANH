@@ -114,6 +114,8 @@ Public Class Reportes
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Estatus", EntidadReportes1.CheckStatus))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Tara", EntidadReportes1.Tara))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteCompraPacasDetallado
                     sqlcom1 = New SqlCommand("Sp_ReporteCompraPacaDetalle", cnn)
@@ -217,7 +219,7 @@ Public Class Reportes
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
-            MsgBox(ex)
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadReportes = EntidadReportes1

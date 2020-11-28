@@ -1,6 +1,7 @@
 alter Procedure Sp_ReporteVentaResumen
---declare
-@IdVenta int 
+@IdVenta int,
+@Estatus as bit,
+@Tara as float
 as 
 Select VePa.IdVenta
 	  ,Comp.Nombre
@@ -38,6 +39,8 @@ Select VePa.IdVenta
 	  ,CoVe.PrecioO
 	  ,VePa.Fecha
 	  ,ClCl.IdClasificacion
+	  ,@Estatus as Estatus
+	  ,@Tara as Tara
 from CalculoClasificacion CaCl inner join VentaPacas VePa on CaCl.IdVentaEnc = VePa.IdVenta
 							   inner join ContratoVenta CoVe on VePa.IdContratoAlgodon = CoVe.IdContratoAlgodon and VePa.IdComprador = CoVe.IdComprador
 							   inner join Compradores Comp on CoVe.IdComprador = Comp.IdComprador

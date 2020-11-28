@@ -13,9 +13,13 @@ Imports System.Windows.Forms
 Imports System.IO
 Public Class RepVentaPacasResumen
     Dim IdVenta As Integer
-    Public Sub New(ByVal Id As Integer)
+    Dim EstatusPesoNeto As Boolean
+    Dim KilosNeto As Double
+    Public Sub New(ByVal Id As Integer, ByVal Estatus As Boolean, ByVal KiloNet As Double)
         InitializeComponent()
         IdVenta = Id
+        EstatusPesoNeto = Estatus
+        KilosNeto = KiloNet
     End Sub
     Private Sub RepCompraPacasResumen_Load(sender As Object, e As EventArgs) Handles Me.Load
         ConsultaReporte()
@@ -29,6 +33,8 @@ Public Class RepVentaPacasResumen
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTVenta.rpt"
         EntidadReportes.Reporte = Reporte.ReporteVentaPacasResumen
         EntidadReportes.IdVenta = IdVenta
+        EntidadReportes.CheckStatus = EstatusPesoNeto
+        EntidadReportes.Tara = KilosNeto
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)

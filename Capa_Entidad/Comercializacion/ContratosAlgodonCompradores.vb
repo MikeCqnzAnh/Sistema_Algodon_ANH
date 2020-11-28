@@ -49,4 +49,6 @@
     Public IdModoPlastic As Integer
     Public CheckPlasticLevel1 As Boolean
     Public CheckPlasticLevel2 As Boolean
+    Public EstatusPesoNeto As Boolean
+    Public KilosNeto As Double
 End Class

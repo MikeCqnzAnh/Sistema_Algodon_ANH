@@ -41,28 +41,32 @@ Public Class RepPacasFaltantes
         End Select
     End Sub
     Private Sub Consultar()
-        Dim EntidadReportes As New Capa_Entidad.Reportes
-        Dim NegocioReportes As New Capa_Negocio.Reportes
-        Dim Tabla As New DataTable
-        Dim ds As New DataSet
-        Dim CrReport As RPTPacasFaltantes = New RPTPacasFaltantes
-        Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTPacasFaltantes.rpt"
-        EntidadReportes.Reporte = Reporte.ReportePacasFaltantes
-        EntidadReportes.IdPlanta = IIf(CbPlanta.SelectedValue = Nothing, 0, CbPlanta.SelectedValue)
-        EntidadReportes.PacaInicial = IIf(TbFolioInicial.Text = "", 0, TbFolioInicial.Text)
-        EntidadReportes.PacaFinal = IIf(TbFolioFinal.Text = "", 0, TbFolioFinal.Text)
-        NegocioReportes.Consultar(EntidadReportes)
-        Tabla = EntidadReportes.TablaConsulta
-        If Tabla.Rows.Count > 0 Then
-            ds.Tables.Add(Tabla)
-            CrReport.Load(Ruta)
-            CrReport.SetDataSource(ds.Tables("table1"))
-            CRVPacasFaltantes.ReportSource = CrReport
-            CRVPacasFaltantes.Show()
+        If CbPlanta.Text <> "" And Val(TbFolioInicial.Text) > 0 And Val(TbFolioFinal.Text) > Val(TbFolioInicial.Text) Then
+            Dim EntidadReportes As New Capa_Entidad.Reportes
+            Dim NegocioReportes As New Capa_Negocio.Reportes
+            Dim Tabla As New DataTable
+            Dim ds As New DataSet
+            Dim CrReport As RPTPacasFaltantes = New RPTPacasFaltantes
+            Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTPacasFaltantes.rpt"
+            EntidadReportes.Reporte = Reporte.ReportePacasFaltantes
+            EntidadReportes.IdPlanta = CbPlanta.SelectedValue
+            EntidadReportes.PacaInicial = Val(TbFolioInicial.Text)
+            EntidadReportes.PacaFinal = Val(TbFolioFinal.Text)
+            NegocioReportes.Consultar(EntidadReportes)
+            Tabla = EntidadReportes.TablaConsulta
+            If Tabla.Rows.Count > 0 Then
+                ds.Tables.Add(Tabla)
+                CrReport.Load(Ruta)
+                CrReport.SetDataSource(ds.Tables("table1"))
+                CRVPacasFaltantes.ReportSource = CrReport
+                CRVPacasFaltantes.Show()
+            Else
+                MsgBox("No hay registros con los parametros aplicados!!", MsgBoxStyle.Exclamation)
+                CRVPacasFaltantes.ReportSource = Nothing
+                CRVPacasFaltantes.Refresh()
+            End If
         Else
-            MsgBox("No hay registros con los parametros aplicados!!", MsgBoxStyle.Exclamation)
-            CRVPacasFaltantes.ReportSource = Nothing
-            CRVPacasFaltantes.Refresh()
+            MsgBox("No se permite continuar con parametros vacios.", MsgBoxStyle.Information, "Aviso")
         End If
     End Sub
     Private Sub ValidaNumeros(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbFolioInicial.KeyPress, TbFolioFinal.KeyPress

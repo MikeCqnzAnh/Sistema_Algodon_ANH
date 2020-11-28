@@ -24,7 +24,10 @@ Partial Class VentaPago
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VentaPago))
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
+        Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
         Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TbTotalPacas = New System.Windows.Forms.TextBox()
@@ -85,13 +88,14 @@ Partial Class VentaPago
         Me.PagarItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDePacasItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpDetallesDeVentaItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImpDetalleDeCastigosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDeLiquidacionesItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.ImpDetalleDeCastigosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -107,7 +111,10 @@ Partial Class VentaPago
         'GbDatosGenerales
         '
         Me.GbDatosGenerales.BackColor = System.Drawing.Color.Gainsboro
+        Me.GbDatosGenerales.Controls.Add(Me.NuPesoTara)
+        Me.GbDatosGenerales.Controls.Add(Me.CkTara)
         Me.GbDatosGenerales.Controls.Add(Me.Label7)
+        Me.GbDatosGenerales.Controls.Add(Me.Label26)
         Me.GbDatosGenerales.Controls.Add(Me.CbUnidadPeso)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.TbTotalPacas)
@@ -122,6 +129,28 @@ Partial Class VentaPago
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'NuPesoTara
+        '
+        Me.NuPesoTara.DecimalPlaces = 2
+        Me.NuPesoTara.Enabled = False
+        Me.NuPesoTara.Location = New System.Drawing.Point(115, 189)
+        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NuPesoTara.Name = "NuPesoTara"
+        Me.NuPesoTara.Size = New System.Drawing.Size(61, 26)
+        Me.NuPesoTara.TabIndex = 40
+        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CkTara
+        '
+        Me.CkTara.AutoSize = True
+        Me.CkTara.Enabled = False
+        Me.CkTara.Location = New System.Drawing.Point(9, 190)
+        Me.CkTara.Name = "CkTara"
+        Me.CkTara.Size = New System.Drawing.Size(100, 24)
+        Me.CkTara.TabIndex = 39
+        Me.CkTara.Text = "Peso neto"
+        Me.CkTara.UseVisualStyleBackColor = True
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -131,6 +160,15 @@ Partial Class VentaPago
         Me.Label7.Size = New System.Drawing.Size(113, 18)
         Me.Label7.TabIndex = 60
         Me.Label7.Text = "Unidad de Peso"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(182, 190)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(40, 20)
+        Me.Label26.TabIndex = 41
+        Me.Label26.Text = "Kgs "
         '
         'CbUnidadPeso
         '
@@ -768,6 +806,12 @@ Partial Class VentaPago
         Me.ImpDetallesDeVentaItem.Size = New System.Drawing.Size(132, 20)
         Me.ImpDetallesDeVentaItem.Text = "Imp.Detalles de Venta"
         '
+        'ImpDetalleDeCastigosToolStripMenuItem
+        '
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Name = "ImpDetalleDeCastigosToolStripMenuItem"
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Size = New System.Drawing.Size(144, 20)
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Text = "Imp. Detalle de castigos"
+        '
         'ImpResumenDeLiquidacionesItem
         '
         Me.ImpResumenDeLiquidacionesItem.Name = "ImpResumenDeLiquidacionesItem"
@@ -818,12 +862,6 @@ Partial Class VentaPago
         Me.Panel3.Size = New System.Drawing.Size(1502, 72)
         Me.Panel3.TabIndex = 47
         '
-        'ImpDetalleDeCastigosToolStripMenuItem
-        '
-        Me.ImpDetalleDeCastigosToolStripMenuItem.Name = "ImpDetalleDeCastigosToolStripMenuItem"
-        Me.ImpDetalleDeCastigosToolStripMenuItem.Size = New System.Drawing.Size(144, 20)
-        Me.ImpDetalleDeCastigosToolStripMenuItem.Text = "Imp. Detalle de castigos"
-        '
         'VentaPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -841,6 +879,7 @@ Partial Class VentaPago
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbPagoFinal.ResumeLayout(False)
         Me.GbPagoFinal.PerformLayout()
         Me.GbCastigos.ResumeLayout(False)
@@ -930,4 +969,7 @@ Partial Class VentaPago
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents ImpDetalleDeCastigosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuPesoTara As NumericUpDown
+    Friend WithEvents CkTara As CheckBox
+    Friend WithEvents Label26 As Label
 End Class

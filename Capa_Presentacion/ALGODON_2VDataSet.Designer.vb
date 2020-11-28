@@ -9391,6 +9391,10 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnIdUnidadPeso As Global.System.Data.DataColumn
         
+        Private columnEstatus As Global.System.Data.DataColumn
+        
+        Private columnTara As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -9715,6 +9719,22 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EstatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TaraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTara
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -9787,9 +9807,11 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal PrecioO As Double,  _
                     ByVal Fecha As Date,  _
                     ByVal IdClasificacion As Integer,  _
-                    ByVal IdUnidadPeso As Integer) As ReporteResumenVentaRow
+                    ByVal IdUnidadPeso As Integer,  _
+                    ByVal Estatus As Boolean,  _
+                    ByVal Tara As Double) As ReporteResumenVentaRow
             Dim rowReporteResumenVentaRow As ReporteResumenVentaRow = CType(Me.NewRow,ReporteResumenVentaRow)
-            Dim columnValuesArray() As Object = New Object() {IdVenta, Nombre, Grade, Cantidad, Kilos, Quintales, PrecioClase, PrecioDls, CastigoUIVenta, CastigoMicVenta, CastigoResistenciaFibraVenta, CastigoLargoFibraVenta, CastigoBarkLevel1Venta, CastigoBarkLevel2Venta, CastigoPrepLevel1Venta, CastigoPrepLevel2Venta, CastigoOtherLevel1Venta, CastigoOtherLevel2Venta, CastigoPlasticLevel1Venta, CastigoPlasticLevel2Venta, PrecioQuintal, Descripcion, ValorConversion, Puntos, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Fecha, IdClasificacion, IdUnidadPeso}
+            Dim columnValuesArray() As Object = New Object() {IdVenta, Nombre, Grade, Cantidad, Kilos, Quintales, PrecioClase, PrecioDls, CastigoUIVenta, CastigoMicVenta, CastigoResistenciaFibraVenta, CastigoLargoFibraVenta, CastigoBarkLevel1Venta, CastigoBarkLevel2Venta, CastigoPrepLevel1Venta, CastigoPrepLevel2Venta, CastigoOtherLevel1Venta, CastigoOtherLevel2Venta, CastigoPlasticLevel1Venta, CastigoPlasticLevel2Venta, PrecioQuintal, Descripcion, ValorConversion, Puntos, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Fecha, IdClasificacion, IdUnidadPeso, Estatus, Tara}
             rowReporteResumenVentaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReporteResumenVentaRow)
             Return rowReporteResumenVentaRow
@@ -9848,6 +9870,8 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnFecha = MyBase.Columns("Fecha")
             Me.columnIdClasificacion = MyBase.Columns("IdClasificacion")
             Me.columnIdUnidadPeso = MyBase.Columns("IdUnidadPeso")
+            Me.columnEstatus = MyBase.Columns("Estatus")
+            Me.columnTara = MyBase.Columns("Tara")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9925,6 +9949,10 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnIdClasificacion)
             Me.columnIdUnidadPeso = New Global.System.Data.DataColumn("IdUnidadPeso", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdUnidadPeso)
+            Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstatus)
+            Me.columnTara = New Global.System.Data.DataColumn("Tara", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTara)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19385,6 +19413,36 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Estatus() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableReporteResumenVenta.EstatusColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estatus' de la tabla 'ReporteResumenVenta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReporteResumenVenta.EstatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Tara() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableReporteResumenVenta.TaraColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Tara' de la tabla 'ReporteResumenVenta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReporteResumenVenta.TaraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdVentaNull() As Boolean
             Return Me.IsNull(Me.tableReporteResumenVenta.IdVentaColumn)
         End Function
@@ -19813,6 +19871,30 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetIdUnidadPesoNull()
             Me(Me.tableReporteResumenVenta.IdUnidadPesoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEstatusNull() As Boolean
+            Return Me.IsNull(Me.tableReporteResumenVenta.EstatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEstatusNull()
+            Me(Me.tableReporteResumenVenta.EstatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTaraNull() As Boolean
+            Return Me.IsNull(Me.tableReporteResumenVenta.TaraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTaraNull()
+            Me(Me.tableReporteResumenVenta.TaraColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

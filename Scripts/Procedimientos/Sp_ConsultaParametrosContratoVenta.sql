@@ -1,4 +1,4 @@
-Create Procedure Sp_ConsultaParametrosContratoVenta
+alter Procedure Sp_ConsultaParametrosContratoVenta
 @IdContratoVenta int
 as
 Select IdParametroContrato
@@ -27,5 +27,7 @@ Select IdParametroContrato
 	  ,IdModoPlastic
 	  ,CheckPlasticLevel1
 	  ,CheckPlasticLevel2
+	  ,EstatusPesoNeto
+	  ,KilosNeto
 From ParametrosContratoVenta
 where IdContratoVenta = @IdContratoVenta

@@ -1,4 +1,4 @@
-Create Procedure Sp_InsertaParametrosContratoVenta
+alter Procedure Sp_InsertaParametrosContratoVenta
 @IdParametroContrato int output,
 @IdContratoVenta Int ,
 @CheckMicros bit,
@@ -24,7 +24,9 @@ Create Procedure Sp_InsertaParametrosContratoVenta
 @CheckPlastic bit,
 @IdModoPlastic int,
 @CheckPlasticLevel1 bit,
-@CheckPlasticLevel2 bit
+@CheckPlasticLevel2 bit,
+@EstatusPesoNeto bit,
+@KilosNeto float
 as
 begin
 set nocount on 
@@ -55,6 +57,8 @@ merge ParametrosContratoVenta as target
 			   ,@IdModoPlastic
 			   ,@CheckPlasticLevel1
 			   ,@CheckPlasticLevel2
+			   ,@EstatusPesoNeto
+			   ,@KilosNeto
 		) as Source 
 		(	   IdParametroContrato
 			   ,IdContratoVenta
@@ -82,6 +86,8 @@ merge ParametrosContratoVenta as target
 			   ,IdModoPlastic
 			   ,CheckPlasticLevel1
 			   ,CheckPlasticLevel2
+			   ,EstatusPesoNeto
+			   ,KilosNeto
 		)
  on (target.IdContratoVenta = Source.IdContratoVenta)
  when matched then
@@ -109,6 +115,8 @@ merge ParametrosContratoVenta as target
 			   ,IdModoPlastic = Source.IdModoPlastic
 			   ,CheckPlasticLevel1 = Source.CheckPlasticLevel1
 			   ,CheckPlasticLevel2 = Source.CheckPlasticLevel2
+			   ,EstatusPesoNeto = Source.EstatusPesoNeto
+			   ,KilosNeto = Source.KilosNeto
  when not matched then
 	insert ( IdContratoVenta
 			,CheckMicros
@@ -134,7 +142,9 @@ merge ParametrosContratoVenta as target
 			,CheckPlastic
 			,IdModoPlastic
 			,CheckPlasticLevel1
-			,CheckPlasticLevel2)
+			,CheckPlasticLevel2
+			,EstatusPesoNeto
+			,KilosNeto)
 	values ( Source.IdContratoVenta
 			,Source.CheckMicros
 			,Source.IdModoMicros
@@ -159,7 +169,9 @@ merge ParametrosContratoVenta as target
 			,Source.IdModoPlastic
 			,Source.IdModoPlastic
 			,Source.CheckPlasticLevel1
-			,Source.CheckPlasticLevel2);
+			,Source.CheckPlasticLevel2
+			,Source.EstatusPesoNeto
+			,Source.KilosNeto);
 	set @IdParametroContrato = SCOPE_IDENTITY()
 end
 return @IdParametroContrato

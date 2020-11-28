@@ -22,6 +22,7 @@ Public Class Produccion
     Public PorcentajePluma As Double
     Public PorcentajeSemilla As Double
     Public PorcentajeMerma As Double
+    Public NombreProductor As String
 
     '---------------------------------Produccion Detalle
     Public IdProduccionDetalle As Integer

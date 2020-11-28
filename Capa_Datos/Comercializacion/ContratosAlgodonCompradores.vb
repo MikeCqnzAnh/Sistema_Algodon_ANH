@@ -70,6 +70,8 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@IdModoPlastic", EntidadContratosAlgodonCompradores1.IdModoPlastic))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel1", EntidadContratosAlgodonCompradores1.CheckPlasticLevel1))
             cmdGuardar.Parameters.Add(New SqlParameter("@CheckPlasticLevel2", EntidadContratosAlgodonCompradores1.CheckPlasticLevel2))
+            cmdGuardar.Parameters.Add(New SqlParameter("@EstatusPesoNeto", EntidadContratosAlgodonCompradores1.EstatusPesoNeto))
+            cmdGuardar.Parameters.Add(New SqlParameter("@KilosNeto", EntidadContratosAlgodonCompradores1.KilosNeto))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
         Finally

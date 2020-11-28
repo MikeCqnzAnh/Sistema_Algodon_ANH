@@ -55,6 +55,7 @@ Public Class ConsultaVentas
         TbNombre.Text = ""
         DgvVentas.DataSource = ""
         DgvVentas.Columns.Clear()
+        TbIdVenta.Select()
     End Sub
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         ConsultaVenta()
@@ -71,6 +72,7 @@ Public Class ConsultaVentas
             e.Cancel = Not estadoOperacion
         End If
     End Sub
+
     Private Function LoadDataTable() As DataTable
         Dim dt As New DataTable
         dt.Columns.Add("IDVenta")
@@ -89,4 +91,11 @@ Public Class ConsultaVentas
 
         Return dt
     End Function
+
+    Private Sub TbIdVenta_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdVenta.KeyDown, TbNombre.KeyDown
+        Select Case e.KeyData
+            Case Keys.Enter
+                ConsultaVenta()
+        End Select
+    End Sub
 End Class

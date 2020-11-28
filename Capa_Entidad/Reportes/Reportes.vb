@@ -27,5 +27,6 @@
     Public Clase As String
     Public Desde As Integer
     Public Hasta As Integer
+    Public Tara As Double
     '------------------------------
 End Class

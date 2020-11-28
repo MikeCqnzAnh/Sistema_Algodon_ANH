@@ -134,6 +134,8 @@ Public Class ContratosAlgodonCompradores
             EntidadContratosAlgodonCompradores.IdModoPlastic = CbModoPlastic.SelectedValue
             EntidadContratosAlgodonCompradores.CheckPlasticLevel1 = ChPlasticLevel1.Checked
             EntidadContratosAlgodonCompradores.CheckPlasticLevel2 = ChPlasticLevel2.Checked
+            EntidadContratosAlgodonCompradores.EstatusPesoNeto = CkTara.Checked
+            EntidadContratosAlgodonCompradores.KilosNeto = NuPesoTara.Value
             EntidadContratosAlgodonCompradores.TablaConsulta = _Tabla
             NegocioContratosAlgodonCompradores.Guardar(EntidadContratosAlgodonCompradores)
             TbIdContratoAlgodon.Text = EntidadContratosAlgodonCompradores.IdContratoAlgodon
@@ -361,6 +363,8 @@ Public Class ContratosAlgodonCompradores
         ChResistenciaFibra.Checked = True
         ChLargoFibra.Checked = True
         ChUniformidad.Checked = True
+        CkTara.Checked = False
+        NuPesoTara.Value = 0
         CbModoLargoFibra.SelectedIndex = 0
         CbModoMicros.SelectedIndex = 0
         CbModoResistenciaFibra.SelectedIndex = 0
@@ -397,9 +401,6 @@ Public Class ContratosAlgodonCompradores
         If InStr(1, "0123456789." & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
         End If
-    End Sub
-    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
-        Close()
     End Sub
     Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
@@ -467,6 +468,8 @@ Public Class ContratosAlgodonCompradores
             CbModoPlastic.SelectedValue = TablaParametros.Rows(0).Item("IdModoPlastic")
             ChPlasticLevel1.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel1")
             ChPlasticLevel2.Checked = TablaParametros.Rows(0).Item("CheckPlasticLevel2")
+            CkTara.Checked = TablaParametros.Rows(0).Item("EstatusPesoNeto")
+            NuPesoTara.Value = TablaParametros.Rows(0).Item("KilosNeto")
         End If
         InhabilitarBotones()
     End Sub
@@ -494,5 +497,18 @@ Public Class ContratosAlgodonCompradores
         Else
             MsgBox("Seleccione un contrato para enviar por email.", MsgBoxStyle.Information, "Aviso")
         End If
+    End Sub
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Close()
+    End Sub
+
+    Private Sub CkTara_CheckedChanged(sender As Object, e As EventArgs) Handles CkTara.CheckedChanged
+        If CkTara.Checked = True Then
+            NuPesoTara.Enabled = True
+        Else
+            NuPesoTara.Enabled = False
+            NuPesoTara.Value = 0
+        End If
+
     End Sub
 End Class

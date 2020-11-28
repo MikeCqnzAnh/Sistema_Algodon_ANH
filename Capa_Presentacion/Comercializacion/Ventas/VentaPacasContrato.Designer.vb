@@ -91,7 +91,16 @@ Partial Class VentaPacasContrato
         Me.BtCastigoMicros = New System.Windows.Forms.Button()
         Me.BtCastLarFib = New System.Windows.Forms.Button()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.DgvAgrupadasClases = New System.Windows.Forms.DataGridView()
@@ -118,7 +127,9 @@ Partial Class VentaPacasContrato
         Me.DgvPacasVender = New System.Windows.Forms.DataGridView()
         Me.GbFiltrado = New System.Windows.Forms.GroupBox()
         Me.Label28 = New System.Windows.Forms.Label()
+        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
         Me.CbPlantaVender = New System.Windows.Forms.ComboBox()
+        Me.BtMarcarTodo = New System.Windows.Forms.Button()
         Me.TbIdPaqVtaVender = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BtFiltro = New System.Windows.Forms.Button()
@@ -130,6 +141,9 @@ Partial Class VentaPacasContrato
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TbDesdePaca = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.BtExcel = New System.Windows.Forms.Button()
+        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
+        Me.BtSeleccionar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TP2LiquidacionesVendidas = New System.Windows.Forms.TabPage()
         Me.DgvLiqVendidas = New System.Windows.Forms.DataGridView()
@@ -157,20 +171,9 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.BtDesmarcaTodo = New System.Windows.Forms.Button()
-        Me.BtMarcarTodo = New System.Windows.Forms.Button()
-        Me.BtExcel = New System.Windows.Forms.Button()
-        Me.BtSeleccionar2 = New System.Windows.Forms.Button()
-        Me.BtSeleccionar = New System.Windows.Forms.Button()
-        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
+        Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -203,6 +206,7 @@ Partial Class VentaPacasContrato
         CType(Me.DgvPacasIndVendidas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox8.SuspendLayout()
         Me.GbCompraActual.SuspendLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GbDatosGenerales
@@ -263,6 +267,9 @@ Partial Class VentaPacasContrato
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.CkTara)
+        Me.Panel3.Controls.Add(Me.NuPesoTara)
+        Me.Panel3.Controls.Add(Me.Label24)
         Me.Panel3.Controls.Add(Me.CbModalidadVenta)
         Me.Panel3.Controls.Add(Me.TbValorConversion)
         Me.Panel3.Controls.Add(Me.Label26)
@@ -922,11 +929,71 @@ Partial Class VentaPacasContrato
         Me.MSMenu.Size = New System.Drawing.Size(1728, 24)
         Me.MSMenu.TabIndex = 3
         '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'GuardarToolStripMenuItem
+        '
+        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
+        Me.GuardarToolStripMenuItem.Text = "Guardar / Actualizar"
+        '
+        'ConsultarToolStripMenuItem
+        '
+        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
+        Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
+        '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteHVIToolStripMenuItem1, Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'ReporteHVIToolStripMenuItem1
+        '
+        Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
+        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
+        '
+        'ResumenDeVentaToolStripMenuItem
+        '
+        Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
+        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeVentaToolStripMenuItem.Text = "Resumen de Venta"
+        '
+        'DetalleDeVentaToolStripMenuItem
+        '
+        Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
+        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta"
+        '
+        'ResumenDeLiquidacionesToolStripMenuItem
+        '
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Liquidaciones"
+        '
         'ComparacionToolStripMenuItem
         '
         Me.ComparacionToolStripMenuItem.Name = "ComparacionToolStripMenuItem"
         Me.ComparacionToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
         Me.ComparacionToolStripMenuItem.Text = "Comparacion"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'GbCompras
         '
@@ -1242,6 +1309,20 @@ Partial Class VentaPacasContrato
         Me.Label28.TabIndex = 62
         Me.Label28.Text = "Planta:"
         '
+        'BtDesmarcaTodo
+        '
+        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
+        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
+        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtDesmarcaTodo.TabIndex = 62
+        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
+        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
+        '
         'CbPlantaVender
         '
         Me.CbPlantaVender.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1250,6 +1331,20 @@ Partial Class VentaPacasContrato
         Me.CbPlantaVender.Name = "CbPlantaVender"
         Me.CbPlantaVender.Size = New System.Drawing.Size(110, 20)
         Me.CbPlantaVender.TabIndex = 61
+        '
+        'BtMarcarTodo
+        '
+        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
+        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
+        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.Name = "BtMarcarTodo"
+        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
+        Me.BtMarcarTodo.TabIndex = 61
+        Me.BtMarcarTodo.Tag = "Seleccionar todo"
+        Me.BtMarcarTodo.UseVisualStyleBackColor = True
         '
         'TbIdPaqVtaVender
         '
@@ -1363,6 +1458,37 @@ Partial Class VentaPacasContrato
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(44, 281)
         Me.Panel5.TabIndex = 3
+        '
+        'BtExcel
+        '
+        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
+        Me.BtExcel.Name = "BtExcel"
+        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
+        Me.BtExcel.TabIndex = 3
+        Me.BtExcel.Text = "..."
+        Me.BtExcel.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar2
+        '
+        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
+        Me.BtSeleccionar2.Name = "BtSeleccionar2"
+        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar2.TabIndex = 0
+        Me.BtSeleccionar2.UseVisualStyleBackColor = True
+        '
+        'BtSeleccionar
+        '
+        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
+        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
+        Me.BtSeleccionar.Name = "BtSeleccionar"
+        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
+        Me.BtSeleccionar.TabIndex = 0
+        Me.BtSeleccionar.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -1677,124 +1803,35 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'BtDesmarcaTodo
+        'Label24
         '
-        Me.BtDesmarcaTodo.BackgroundImage = CType(resources.GetObject("BtDesmarcaTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtDesmarcaTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtDesmarcaTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtDesmarcaTodo.Location = New System.Drawing.Point(569, 16)
-        Me.BtDesmarcaTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.Name = "BtDesmarcaTodo"
-        Me.BtDesmarcaTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtDesmarcaTodo.TabIndex = 62
-        Me.BtDesmarcaTodo.Tag = "Deseleccionar todo"
-        Me.BtDesmarcaTodo.UseVisualStyleBackColor = True
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(3, 104)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(29, 13)
+        Me.Label24.TabIndex = 61
+        Me.Label24.Text = "Tara"
         '
-        'BtMarcarTodo
+        'NuPesoTara
         '
-        Me.BtMarcarTodo.BackgroundImage = CType(resources.GetObject("BtMarcarTodo.BackgroundImage"), System.Drawing.Image)
-        Me.BtMarcarTodo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtMarcarTodo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtMarcarTodo.Location = New System.Drawing.Point(538, 16)
-        Me.BtMarcarTodo.MaximumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.MinimumSize = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.Name = "BtMarcarTodo"
-        Me.BtMarcarTodo.Size = New System.Drawing.Size(25, 23)
-        Me.BtMarcarTodo.TabIndex = 61
-        Me.BtMarcarTodo.Tag = "Seleccionar todo"
-        Me.BtMarcarTodo.UseVisualStyleBackColor = True
+        Me.NuPesoTara.DecimalPlaces = 2
+        Me.NuPesoTara.Enabled = False
+        Me.NuPesoTara.Location = New System.Drawing.Point(82, 102)
+        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NuPesoTara.Name = "NuPesoTara"
+        Me.NuPesoTara.Size = New System.Drawing.Size(61, 20)
+        Me.NuPesoTara.TabIndex = 62
+        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'BtExcel
+        'CkTara
         '
-        Me.BtExcel.BackgroundImage = CType(resources.GetObject("BtExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtExcel.Location = New System.Drawing.Point(5, 59)
-        Me.BtExcel.Name = "BtExcel"
-        Me.BtExcel.Size = New System.Drawing.Size(33, 34)
-        Me.BtExcel.TabIndex = 3
-        Me.BtExcel.Text = "..."
-        Me.BtExcel.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar2
-        '
-        Me.BtSeleccionar2.BackgroundImage = CType(resources.GetObject("BtSeleccionar2.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar2.Location = New System.Drawing.Point(5, 139)
-        Me.BtSeleccionar2.Name = "BtSeleccionar2"
-        Me.BtSeleccionar2.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar2.TabIndex = 0
-        Me.BtSeleccionar2.UseVisualStyleBackColor = True
-        '
-        'BtSeleccionar
-        '
-        Me.BtSeleccionar.BackgroundImage = CType(resources.GetObject("BtSeleccionar.BackgroundImage"), System.Drawing.Image)
-        Me.BtSeleccionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtSeleccionar.Location = New System.Drawing.Point(5, 99)
-        Me.BtSeleccionar.Name = "BtSeleccionar"
-        Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
-        Me.BtSeleccionar.TabIndex = 0
-        Me.BtSeleccionar.UseVisualStyleBackColor = True
-        '
-        'NuevoToolStripMenuItem
-        '
-        Me.NuevoToolStripMenuItem.Image = CType(resources.GetObject("NuevoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'GuardarToolStripMenuItem
-        '
-        Me.GuardarToolStripMenuItem.Image = CType(resources.GetObject("GuardarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar / Actualizar"
-        '
-        'ConsultarToolStripMenuItem
-        '
-        Me.ConsultarToolStripMenuItem.Image = CType(resources.GetObject("ConsultarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
-        Me.ConsultarToolStripMenuItem.Text = "Consultar Venta"
-        '
-        'ReportesToolStripMenuItem
-        '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReporteHVIToolStripMenuItem1, Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem})
-        Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
-        Me.ReportesToolStripMenuItem.Text = "Reportes"
-        '
-        'ReporteHVIToolStripMenuItem1
-        '
-        Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
-        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
-        Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
-        '
-        'ResumenDeVentaToolStripMenuItem
-        '
-        Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
-        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ResumenDeVentaToolStripMenuItem.Text = "Resumen de Venta"
-        '
-        'DetalleDeVentaToolStripMenuItem
-        '
-        Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
-        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta"
-        '
-        'ResumenDeLiquidacionesToolStripMenuItem
-        '
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Liquidaciones"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
+        Me.CkTara.AutoSize = True
+        Me.CkTara.Enabled = False
+        Me.CkTara.Location = New System.Drawing.Point(149, 104)
+        Me.CkTara.Name = "CkTara"
+        Me.CkTara.Size = New System.Drawing.Size(15, 14)
+        Me.CkTara.TabIndex = 15
+        Me.CkTara.UseVisualStyleBackColor = True
         '
         'VentaPacasContrato
         '
@@ -1855,6 +1892,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox8.PerformLayout()
         Me.GbCompraActual.ResumeLayout(False)
         Me.GbCompraActual.PerformLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2007,4 +2045,7 @@ Partial Class VentaPacasContrato
     Friend WithEvents DetalleDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenDeLiquidacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtExcel As Button
+    Friend WithEvents NuPesoTara As NumericUpDown
+    Friend WithEvents Label24 As Label
+    Friend WithEvents CkTara As CheckBox
 End Class

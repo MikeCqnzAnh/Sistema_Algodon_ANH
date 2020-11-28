@@ -1,18 +1,43 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class VentaPago
-    Dim IdModalidadVenta, IdunidadPeso As Integer
-    Dim ValorConversion As Double
+    Dim ValorConversion, PrecioQuintal, KilosNeto As Double
+    Dim IdVenta, IdComprador, IdContrato, IdModalidadVenta, IdUnidadPeso As Integer
+    Dim Nombrecomprador As String
+    Dim EstatusPesoNeto As Boolean
+    Dim TablaResumen As New DataTable
+    Public Sub New(ByVal IdVent As Integer, ByVal IdComp As Integer, ByVal IdCont As Integer, ByVal IdModVenta As Integer, ByVal IdUniPeso As Integer, ByVal Nombre As String, ByVal Quintal As Double, ByVal Conversion As Double, ByVal EstatusNeto As Boolean, ByVal KilosNet As Double, ByVal TbResumen As DataTable)
+        InitializeComponent()
+        IdVenta = IdVent
+        IdComprador = IdComp
+        IdContrato = IdCont
+        IdModalidadVenta = IdModVenta
+        IdUnidadPeso = IdUniPeso
+        Nombrecomprador = Nombre
+        PrecioQuintal = Quintal
+        ValorConversion = Conversion
+        EstatusPesoNeto = EstatusNeto
+        KilosNeto = KilosNet
+        TablaResumen = TbResumen
+    End Sub
     Private Sub VentaPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiarControles()
-        TbIdComprador.Text = VarGlob2.IdComprador
-        TbNombreComprador.Text = VarGlob2.NombreComprador
-        TbPrecioQuintal.Text = VarGlob2.PrecioQuintal
-        TbIdContrato.Text = VarGlob2.IdContrato
-        TbIdVenta.Text = VarGlob2.IdVenta
-        IdModalidadVenta = VarGlob2.IdModalidadVenta
-        IdunidadPeso = VarGlob2.IdUnidadPeso
-        ValorConversion = VarGlob2.ValorConversion
-        DgvResumenPagoPacas.DataSource = _Tabla
+        'TbIdComprador.Text = VarGlob2.IdComprador
+        'TbNombreComprador.Text = VarGlob2.NombreComprador
+        'TbPrecioQuintal.Text = VarGlob2.PrecioQuintal
+        'TbIdContrato.Text = VarGlob2.IdContrato
+        'TbIdVenta.Text = VarGlob2.IdVenta
+        'IdModalidadVenta = VarGlob2.IdModalidadVenta
+        'IdunidadPeso = VarGlob2.IdUnidadPeso
+        'ValorConversion = VarGlob2.ValorConversion
+        'DgvResumenPagoPacas.DataSource = TablaResumen
+        TbIdComprador.Text = IdComprador
+        TbNombreComprador.Text = Nombrecomprador
+        TbPrecioQuintal.Text = PrecioQuintal
+        TbIdContrato.Text = IdContrato
+        TbIdVenta.Text = IdVenta
+        CkTara.Checked = EstatusPesoNeto
+        NuPesoTara.Value = KilosNeto
+        DgvResumenPagoPacas.DataSource = TablaResumen
         PropiedadesDgv()
         CargarCombos(IdunidadPeso)
         SumasTotales()
@@ -76,6 +101,8 @@ Public Class VentaPago
         TbOtherLevel2.Text = 0
         TbPlasticLevel1.Text = 0
         TbPlasticLevel2.Text = 0
+        CkTara.Checked = False
+        NuPesoTara.Value = 0
     End Sub
     Private Sub TotalVenta()
         Dim SubTotal As Double = CDbl(TbSubtotal.Text)
@@ -95,7 +122,7 @@ Public Class VentaPago
             If row.Cells("Grade").Value.ToString.Contains(Word) Then
                 Dim font = DgvResumenPagoPacas.DefaultCellStyle.Font
                 TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
-                TotalPeso = Val(TotalPeso + CDbl(row.Cells("Kilos").Value))
+                TotalPeso = TotalPeso + row.Cells("Kilos").Value
                 TbSubtotal.Text = Val(TbSubtotal.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
                 TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + CDbl(row.Cells("CastigoUI").Value)
                 TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + CDbl(row.Cells("CastigoLargoFibra").Value)
@@ -239,7 +266,7 @@ Public Class VentaPago
     End Sub
     Private Sub ImpResumenDePacasItem_Click(sender As Object, e As EventArgs) Handles ImpResumenDePacasItem.Click
         If TbIdVenta.Text <> "" Then
-            Dim ReporteVentaPacasResumen As New RepVentaPacasResumen(TbIdVenta.Text)
+            Dim ReporteVentaPacasResumen As New RepVentaPacasResumen(TbIdVenta.Text, EstatusPesoNeto, KilosNeto)
             ReporteVentaPacasResumen.ShowDialog()
         Else
             MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)

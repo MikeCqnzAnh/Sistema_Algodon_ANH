@@ -29,6 +29,8 @@ Partial Class ContratosAlgodonCompradores
         Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CkTara = New System.Windows.Forms.CheckBox()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.GbParametros = New System.Windows.Forms.GroupBox()
         Me.GbCastigos = New System.Windows.Forms.GroupBox()
         Me.BtConsultaPlastic = New System.Windows.Forms.Button()
@@ -116,9 +118,7 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TbPesoTara = New System.Windows.Forms.TextBox()
-        Me.CkTara = New System.Windows.Forms.CheckBox()
+        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbParametros.SuspendLayout()
@@ -127,6 +127,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -165,8 +166,8 @@ Partial Class ContratosAlgodonCompradores
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.NuPesoTara)
         Me.GbDatosGenerales.Controls.Add(Me.CkTara)
-        Me.GbDatosGenerales.Controls.Add(Me.TbPesoTara)
         Me.GbDatosGenerales.Controls.Add(Me.Label24)
         Me.GbDatosGenerales.Controls.Add(Me.GbParametros)
         Me.GbDatosGenerales.Controls.Add(Me.TbPacasVendidas)
@@ -206,6 +207,25 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'CkTara
+        '
+        Me.CkTara.AutoSize = True
+        Me.CkTara.Location = New System.Drawing.Point(117, 231)
+        Me.CkTara.Name = "CkTara"
+        Me.CkTara.Size = New System.Drawing.Size(74, 17)
+        Me.CkTara.TabIndex = 10
+        Me.CkTara.Text = "Peso neto"
+        Me.CkTara.UseVisualStyleBackColor = True
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(244, 231)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(28, 13)
+        Me.Label24.TabIndex = 38
+        Me.Label24.Text = "Kgs "
+        '
         'GbParametros
         '
         Me.GbParametros.Controls.Add(Me.GbCastigos)
@@ -214,7 +234,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GbParametros.Location = New System.Drawing.Point(790, 16)
         Me.GbParametros.Name = "GbParametros"
         Me.GbParametros.Size = New System.Drawing.Size(666, 316)
-        Me.GbParametros.TabIndex = 37
+        Me.GbParametros.TabIndex = 18
         Me.GbParametros.TabStop = False
         '
         'GbCastigos
@@ -249,7 +269,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GbCastigos.Location = New System.Drawing.Point(3, 170)
         Me.GbCastigos.Name = "GbCastigos"
         Me.GbCastigos.Size = New System.Drawing.Size(660, 143)
-        Me.GbCastigos.TabIndex = 36
+        Me.GbCastigos.TabIndex = 1
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Parametros para deduccion"
         '
@@ -501,7 +521,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbModoUniformidad.Location = New System.Drawing.Point(122, 110)
         Me.CbModoUniformidad.Name = "CbModoUniformidad"
         Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoUniformidad.TabIndex = 7
+        Me.CbModoUniformidad.TabIndex = 3
         '
         'CbModoResistenciaFibra
         '
@@ -509,7 +529,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(122, 86)
         Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
         Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoResistenciaFibra.TabIndex = 6
+        Me.CbModoResistenciaFibra.TabIndex = 2
         '
         'CbModoLargoFibra
         '
@@ -517,7 +537,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbModoLargoFibra.Location = New System.Drawing.Point(122, 62)
         Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
         Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 21)
-        Me.CbModoLargoFibra.TabIndex = 5
+        Me.CbModoLargoFibra.TabIndex = 1
         '
         'ChUniformidad
         '
@@ -593,7 +613,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GbPrecioQuintal.Location = New System.Drawing.Point(3, 16)
         Me.GbPrecioQuintal.Name = "GbPrecioQuintal"
         Me.GbPrecioQuintal.Size = New System.Drawing.Size(660, 154)
-        Me.GbPrecioQuintal.TabIndex = 16
+        Me.GbPrecioQuintal.TabIndex = 0
         Me.GbPrecioQuintal.TabStop = False
         Me.GbPrecioQuintal.Text = "Precio de Quintal Por Clase"
         '
@@ -831,7 +851,7 @@ Partial Class ContratosAlgodonCompradores
         Me.BtGenerar.Location = New System.Drawing.Point(690, 68)
         Me.BtGenerar.Name = "BtGenerar"
         Me.BtGenerar.Size = New System.Drawing.Size(94, 23)
-        Me.BtGenerar.TabIndex = 13
+        Me.BtGenerar.TabIndex = 15
         Me.BtGenerar.Text = "Generar"
         Me.BtGenerar.UseVisualStyleBackColor = True
         '
@@ -855,7 +875,7 @@ Partial Class ContratosAlgodonCompradores
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(408, 126)
+        Me.Label13.Location = New System.Drawing.Point(408, 129)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 25
@@ -867,7 +887,7 @@ Partial Class ContratosAlgodonCompradores
         Me.CbEstatus.Location = New System.Drawing.Point(521, 123)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 15
+        Me.CbEstatus.TabIndex = 17
         '
         'Label12
         '
@@ -883,7 +903,7 @@ Partial Class ContratosAlgodonCompradores
         Me.TbTemporada.Location = New System.Drawing.Point(521, 97)
         Me.TbTemporada.Name = "TbTemporada"
         Me.TbTemporada.Size = New System.Drawing.Size(100, 20)
-        Me.TbTemporada.TabIndex = 14
+        Me.TbTemporada.TabIndex = 16
         '
         'Label11
         '
@@ -909,14 +929,14 @@ Partial Class ContratosAlgodonCompradores
         Me.CbModalidad.Location = New System.Drawing.Point(521, 70)
         Me.CbModalidad.Name = "CbModalidad"
         Me.CbModalidad.Size = New System.Drawing.Size(163, 21)
-        Me.CbModalidad.TabIndex = 12
+        Me.CbModalidad.TabIndex = 14
         '
         'TbPresidente
         '
         Me.TbPresidente.Location = New System.Drawing.Point(521, 44)
         Me.TbPresidente.Name = "TbPresidente"
         Me.TbPresidente.Size = New System.Drawing.Size(263, 20)
-        Me.TbPresidente.TabIndex = 11
+        Me.TbPresidente.TabIndex = 13
         '
         'Label9
         '
@@ -932,7 +952,7 @@ Partial Class ContratosAlgodonCompradores
         Me.DtpFechaLiquidacion.Location = New System.Drawing.Point(521, 18)
         Me.DtpFechaLiquidacion.Name = "DtpFechaLiquidacion"
         Me.DtpFechaLiquidacion.Size = New System.Drawing.Size(200, 20)
-        Me.DtpFechaLiquidacion.TabIndex = 10
+        Me.DtpFechaLiquidacion.TabIndex = 12
         '
         'Label8
         '
@@ -1029,33 +1049,16 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
         Me.DgvContratoAlgodon.TabIndex = 14
         '
-        'Label24
+        'NuPesoTara
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(244, 231)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(28, 13)
-        Me.Label24.TabIndex = 38
-        Me.Label24.Text = "Kgs "
-        '
-        'TbPesoTara
-        '
-        Me.TbPesoTara.Enabled = False
-        Me.TbPesoTara.Location = New System.Drawing.Point(197, 228)
-        Me.TbPesoTara.MaxLength = 4
-        Me.TbPesoTara.Name = "TbPesoTara"
-        Me.TbPesoTara.Size = New System.Drawing.Size(41, 20)
-        Me.TbPesoTara.TabIndex = 39
-        '
-        'CkTara
-        '
-        Me.CkTara.AutoSize = True
-        Me.CkTara.Location = New System.Drawing.Point(117, 231)
-        Me.CkTara.Name = "CkTara"
-        Me.CkTara.Size = New System.Drawing.Size(74, 17)
-        Me.CkTara.TabIndex = 40
-        Me.CkTara.Text = "Peso neto"
-        Me.CkTara.UseVisualStyleBackColor = True
+        Me.NuPesoTara.DecimalPlaces = 2
+        Me.NuPesoTara.Enabled = False
+        Me.NuPesoTara.Location = New System.Drawing.Point(188, 230)
+        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NuPesoTara.Name = "NuPesoTara"
+        Me.NuPesoTara.Size = New System.Drawing.Size(50, 20)
+        Me.NuPesoTara.TabIndex = 11
+        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ContratosAlgodonCompradores
         '
@@ -1085,6 +1088,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1184,6 +1188,6 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents BtConsultaLF As Button
     Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CkTara As CheckBox
-    Friend WithEvents TbPesoTara As TextBox
     Friend WithEvents Label24 As Label
+    Friend WithEvents NuPesoTara As NumericUpDown
 End Class

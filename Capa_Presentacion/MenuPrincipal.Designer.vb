@@ -655,7 +655,6 @@ Partial Class MenuPrincipal
         Me.RevisionDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
         Me.RevisionDeProduccionToolStripMenuItem.Tag = "0,0"
         Me.RevisionDeProduccionToolStripMenuItem.Text = "Revision de Produccion"
-        Me.RevisionDeProduccionToolStripMenuItem.Visible = False
         '
         'LiquidacionesPorRomaneajeToolStripMenuItem
         '
