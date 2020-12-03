@@ -277,6 +277,16 @@ Public Class Produccion
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion.IdOrdenTrabajo))
                     sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadProduccion.NombreProductor))
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaProduccionPesos
+                    sqlcom1 = New SqlCommand("Sp_ConsultaProduccionPesos", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdentrabajo", EntidadProduccion.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@KilosElegir", EntidadProduccion.Kilos))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NumRegistros", EntidadProduccion.NumeroRegistro))
+                    sqlcom1.Parameters.Add(New SqlParameter("@PesoElegir", EntidadProduccion.PesoElegir))
+                    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

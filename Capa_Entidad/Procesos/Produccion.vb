@@ -10,6 +10,8 @@ Public Class Produccion
     Public Fecha As Date
     Public IdEstatus As Integer
     Public FolioInicial As Long
+    Public NumeroRegistro As Integer
+    Public PesoElegir As Boolean
 
     Public TotalHueso As Double
     Public Pacas As Integer

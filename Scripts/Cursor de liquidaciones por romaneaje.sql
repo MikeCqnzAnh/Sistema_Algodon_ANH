@@ -61,4 +61,4 @@ close ordeninfo
 deallocate ordeninfo
 
 
-						 
+select * from 	##TablaTempModulos					 

@@ -195,6 +195,7 @@
         ConsultaPasasSinClase = 106
         ConsultaOrdenRevision = 107
         ConsultaProduccionRevision = 108
+        ConsultaProduccionPesos = 109
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

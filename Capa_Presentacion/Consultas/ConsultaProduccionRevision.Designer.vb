@@ -50,6 +50,7 @@ Partial Class ConsultaProduccionRevision
         Me.DgvProducciones.Location = New System.Drawing.Point(0, 81)
         Me.DgvProducciones.MultiSelect = False
         Me.DgvProducciones.Name = "DgvProducciones"
+        Me.DgvProducciones.ReadOnly = True
         Me.DgvProducciones.RowHeadersVisible = False
         Me.DgvProducciones.RowHeadersWidth = 40
         Me.DgvProducciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

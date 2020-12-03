@@ -16,7 +16,7 @@ select bo.IdOrdenTrabajo,
 	   --bo.FlagRevisada 
 from [dbo].[OrdenTrabajoDetalle] Bo inner join [dbo].[Clientes] Cl  on Bo.IdProductor = Cl.IdCliente
 									inner join plantas pl on bo.idplanta = pl.idplanta
-where BO.Bruto IS NOT NULL AND BO.Bruto > 0
+--where BO.Bruto IS NOT NULL AND BO.Bruto > 0
 order by bo.IdBoleta asc
 
 select * from Plantas

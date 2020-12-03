@@ -1,6 +1,7 @@
-Create Procedure Sp_ConsultarOrdenRevision
-@IdOrdenTrabajo int
-as
+--Create Procedure Sp_ConsultarOrdenRevision
+declare
+@IdOrdenTrabajo int = 243
+--as
 select IdOrdenTrabajo
 	  ,IdProduccion
 	  ,IdplantaOrigen

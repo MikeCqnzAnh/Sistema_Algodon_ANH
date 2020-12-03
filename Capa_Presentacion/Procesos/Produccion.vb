@@ -109,6 +109,7 @@ Public Class Produccion
         TbFolioCIA.Text = ""
         TbKilos.Text = ""
         TbModulos.Text = ""
+        DtpFechaProduccion.Value = Now
         TbTotalModulos.Text = ""
         DgvPacas.DataSource = Nothing
         DeshabilitarControles()

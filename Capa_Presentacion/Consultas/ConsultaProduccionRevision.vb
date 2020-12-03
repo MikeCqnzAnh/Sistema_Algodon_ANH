@@ -1,12 +1,12 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class ConsultaProduccionRevision
-    Private _IdProduccion As Integer
-    Public Property IdProduccion() As Integer
+    Private _IdOrdenTrabajo As Integer
+    Public Property IdOrdenTrabajo() As Integer
         Get
-            Return _IdProduccion
+            Return _IdOrdenTrabajo
         End Get
         Set(value As Integer)
-            _IdProduccion = value
+            _IdOrdenTrabajo = value
         End Set
     End Property
     Private Sub ConsultaClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -35,7 +35,7 @@ Public Class ConsultaProduccionRevision
         Else
             Dim index As Integer
             index = DgvProducciones.CurrentCell.RowIndex
-            _IdProduccion = DgvProducciones.Rows(index).Cells("IdProduccion").Value
+            _IdOrdenTrabajo = DgvProducciones.Rows(index).Cells("IdOrdenTrabajo").Value
             Close()
         End If
     End Sub

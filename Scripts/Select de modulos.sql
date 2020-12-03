@@ -22,14 +22,16 @@ group by od.IdOrdenTrabajo,
 		 pl.Descripcion
 order by od.IdOrdenTrabajo
 
-select od.idordentrabajo,cl.nombre ,pl.Descripcion as Planta,count(od.IdOrdenTrabajo) as 'Cantidad Modulos',CONVERT(DATE,od.fechaentrada) as Fecha
+select od.idordentrabajo,cl.nombre ,pl.Descripcion as Planta,count(od.IdOrdenTrabajo) as 'Cantidad Modulos',od.Total,CONVERT(DATE,od.fechaentrada) as Fecha
 from ordentrabajodetalle od inner join clientes cl on od.idproductor = cl.idcliente 
 									 inner join plantas pl on od.IdPlanta = pl.IdPlanta
-where od.fechaentrada >= '01-10-2020 00:00:00.000' and  od.fechaentrada <= '31-10-2020 12:59:59.000'
+--where od.fechaentrada >= '01-10-2020 00:00:00.000' and  od.fechaentrada <= '31-10-2020 12:59:59.000'
+where od.IdOrdenTrabajo = 71
 group by cl.nombre,
 		 od.idordentrabajo,
+		 od.Total,
 		 CONVERT(DATE,od.fechaentrada),
-		 pl.Descripcion
-
-		
+		 pl.Descripcion		
 order by od.IdOrdenTrabajo
+
+select * from ordentrabajodetalle
