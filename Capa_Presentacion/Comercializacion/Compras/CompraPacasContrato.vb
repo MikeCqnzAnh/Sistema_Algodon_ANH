@@ -584,66 +584,66 @@ Public Class CompraPacasContrato
             MsgBox("Seleccionar a un productor para ver sus contratos", MsgBoxStyle.Exclamation)
         Else
             '---Consultar contratos del productor---
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPorId
-            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            DgvContratos.Columns.Clear()
-            DgvContratos.DataSource = Tabla
-            Dim colSelCon As New DataGridViewCheckBoxColumn()
-            colSelCon.Name = "Seleccionar"
-            colSelCon.FalseValue = False
-            colSelCon.Visible = True
-            DgvContratos.Columns.Insert(22, colSelCon)
-            PropiedadesDgvContratos()
+            'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPorId
+            'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            'Tabla = EntidadCompraPacasContrato.TablaConsulta
+            'DgvContratos.Columns.Clear()
+            'DgvContratos.DataSource = Tabla
+            'Dim colSelCon As New DataGridViewCheckBoxColumn()
+            'colSelCon.Name = "Seleccionar"
+            'colSelCon.FalseValue = False
+            'colSelCon.Visible = True
+            'DgvContratos.Columns.Insert(22, colSelCon)
+            'PropiedadesDgvContratos()
             '---Consultar liquidaciones del productor con compras
             EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidacionesCompras
-            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
+            EntidadCompraPacasContrato.IdProductor = 414 'CInt(TbIdProductor.Text)
+            EntidadCompraPacasContrato.IdCompra = 75 'CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
             NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
             Tabla = EntidadCompraPacasContrato.TablaConsulta
             DgvLiqCompradas.Columns.Clear()
             DgvLiqCompradas.DataSource = Tabla
             PropiedadesDgvLiquidacionesCompradas()
             '---Consultar liquidaciones del productor
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidaciones
-            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            DgvDatosLiquidacion.Columns.Clear()
-            DgvDatosLiquidacion.DataSource = Tabla
-            'Dim colSelLiq As New DataGridViewCheckBoxColumn()
-            'colSelLiq.Name = "Seleccionar"
-            'colSelLiq.FalseValue = False
-            'colSelLiq.Visible = True
-            'DgvDatosLiquidacion.Columns.Insert(6, colSelLiq)
-            PropiedadesDgvLiquidacionesComprar()
+            'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaLiquidaciones
+            'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            'Tabla = EntidadCompraPacasContrato.TablaConsulta
+            'DgvDatosLiquidacion.Columns.Clear()
+            'DgvDatosLiquidacion.DataSource = Tabla
+            ''Dim colSelLiq As New DataGridViewCheckBoxColumn()
+            ''colSelLiq.Name = "Seleccionar"
+            ''colSelLiq.FalseValue = False
+            ''colSelLiq.Visible = True
+            ''DgvDatosLiquidacion.Columns.Insert(6, colSelLiq)
+            'PropiedadesDgvLiquidacionesComprar()
 
-            '---Consultar pacas compradas
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
-            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-            EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            DgvPacasIndCompradas.Columns.Clear()
-            DgvPacasIndCompradas.DataSource = Tabla
-            PropiedadesDgvPacasIndCompradas()
-            '---Consultar las pacas ya clasificadas del productor
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPaca
-            EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            DgvPacasComprar.Columns.Clear()
-            DgvPacasComprar.DataSource = Tabla
+            ''---Consultar pacas compradas
+            'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
+            'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            'EntidadCompraPacasContrato.IdCompra = CInt(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
+            'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            'Tabla = EntidadCompraPacasContrato.TablaConsulta
+            'DgvPacasIndCompradas.Columns.Clear()
+            'DgvPacasIndCompradas.DataSource = Tabla
+            'PropiedadesDgvPacasIndCompradas()
+            ''---Consultar las pacas ya clasificadas del productor
+            'EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPaca
+            'EntidadCompraPacasContrato.IdProductor = CInt(TbIdProductor.Text)
+            'NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+            'Tabla = EntidadCompraPacasContrato.TablaConsulta
+            'DgvPacasComprar.Columns.Clear()
+            'DgvPacasComprar.DataSource = Tabla
 
-            'ConsultaCompra()
+            ''ConsultaCompra()
 
-            PropiedadesDgvPacasComprar()
-            ConsultaCantidadPacas()
-            TotalPacasContrato()
-            MarcaSeleccionDisponibles()
-            SeleccionaContratoConsultado()
-            TbPacasCompradasContrato.Text = DgvPacasIndCompradas.Rows.Count
+            'PropiedadesDgvPacasComprar()
+            'ConsultaCantidadPacas()
+            'TotalPacasContrato()
+            'MarcaSeleccionDisponibles()
+            'SeleccionaContratoConsultado()
+            'TbPacasCompradasContrato.Text = DgvPacasIndCompradas.Rows.Count
         End If
     End Sub
     Private Sub SeleccionaContratoConsultado()
@@ -659,19 +659,19 @@ Public Class CompraPacasContrato
                     If Tabla.Rows(0).Item("IdContratoAlgodon").ToString = Fila.Cells("IdContratoAlgodon").Value.ToString Then
                         Fila.Cells("Seleccionar").Value = True
                         TbIdContrato.Text = Fila.Cells("IdContratoAlgodon").Value
-                        TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
+                        TbPrecioQuintal.Text = Fila.Cells("PrecioSM").Value
                         TbNoPacas.Text = Fila.Cells("Pacas").Value
                         CbModalidadCompra.SelectedValue = Fila.Cells("IdModalidadCompra").Value
-                        PrecioSM = -1 * Fila.Cells("PrecioSM").Value
-                        PrecioMP = -1 * Fila.Cells("PrecioMP").Value
-                        PrecioM = -1 * Fila.Cells("PrecioM").Value
-                        PrecioSLMP = -1 * Fila.Cells("PrecioSLMP").Value
-                        PrecioSLM = -1 * Fila.Cells("PrecioSLM").Value
-                        PrecioLMP = -1 * Fila.Cells("PrecioLMP").Value
-                        PrecioLM = -1 * Fila.Cells("PrecioLM").Value
-                        PrecioSGO = -1 * Fila.Cells("PrecioSGO").Value
-                        PrecioGO = -1 * Fila.Cells("PrecioGO").Value
-                        PrecioO = -1 * Fila.Cells("PrecioO").Value
+                        PrecioSM = Fila.Cells("PrecioSM").Value
+                        PrecioMP = Fila.Cells("PrecioMP").Value
+                        PrecioM = Fila.Cells("PrecioM").Value
+                        PrecioSLMP = Fila.Cells("PrecioSLMP").Value
+                        PrecioSLM = Fila.Cells("PrecioSLM").Value
+                        PrecioLMP = Fila.Cells("PrecioLMP").Value
+                        PrecioLM = Fila.Cells("PrecioLM").Value
+                        PrecioSGO = Fila.Cells("PrecioSGO").Value
+                        PrecioGO = Fila.Cells("PrecioGO").Value
+                        PrecioO = Fila.Cells("PrecioO").Value
                     End If
                 Next
             End If
@@ -900,20 +900,20 @@ Public Class CompraPacasContrato
             Dim Index As Integer = Convert.ToUInt64(row.Index)
             If Index = filaSeleccionada And DgvContratos.Rows(Index).Cells("Seleccionar").Value = False Then
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = True
-                TbPrecioQuintal.Text = -1 * DgvContratos.Rows(Index).Cells("PrecioSM").Value
+                TbPrecioQuintal.Text = DgvContratos.Rows(Index).Cells("PrecioSM").Value
                 TbNoPacas.Text = DgvContratos.Rows(Index).Cells("Pacas").Value
                 TbIdContrato.Text = DgvContratos.Rows(Index).Cells("IdCOntratoAlgodon").Value
                 CbModalidadCompra.SelectedValue = DgvContratos.Rows(Index).Cells("IdModalidadCompra").Value
-                PrecioSM = -1 * DgvContratos.Rows(Index).Cells("PrecioSM").Value
-                PrecioMP = -1 * DgvContratos.Rows(Index).Cells("PrecioMP").Value
-                PrecioM = -1 * DgvContratos.Rows(Index).Cells("PrecioM").Value
-                PrecioSLMP = -1 * DgvContratos.Rows(Index).Cells("PrecioSLMP").Value
-                PrecioSLM = -1 * DgvContratos.Rows(Index).Cells("PrecioSLM").Value
-                PrecioLMP = -1 * DgvContratos.Rows(Index).Cells("PrecioLMP").Value
-                PrecioLM = -1 * DgvContratos.Rows(Index).Cells("PrecioLM").Value
-                PrecioSGO = -1 * DgvContratos.Rows(Index).Cells("PrecioSGO").Value
-                PrecioGO = -1 * DgvContratos.Rows(Index).Cells("PrecioGO").Value
-                PrecioO = -1 * DgvContratos.Rows(Index).Cells("PrecioO").Value
+                PrecioSM = DgvContratos.Rows(Index).Cells("PrecioSM").Value
+                PrecioMP = DgvContratos.Rows(Index).Cells("PrecioMP").Value
+                PrecioM = DgvContratos.Rows(Index).Cells("PrecioM").Value
+                PrecioSLMP = DgvContratos.Rows(Index).Cells("PrecioSLMP").Value
+                PrecioSLM = DgvContratos.Rows(Index).Cells("PrecioSLM").Value
+                PrecioLMP = DgvContratos.Rows(Index).Cells("PrecioLMP").Value
+                PrecioLM = DgvContratos.Rows(Index).Cells("PrecioLM").Value
+                PrecioSGO = DgvContratos.Rows(Index).Cells("PrecioSGO").Value
+                PrecioGO = DgvContratos.Rows(Index).Cells("PrecioGO").Value
+                PrecioO = DgvContratos.Rows(Index).Cells("PrecioO").Value
                 ConsultaParametrosCompra()
             Else
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = False

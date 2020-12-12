@@ -50,6 +50,7 @@ Partial Class ConsultaTierrasChecks
         Me.DgvConsultaTierrasChecks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvConsultaTierrasChecks.Location = New System.Drawing.Point(12, 12)
         Me.DgvConsultaTierrasChecks.Name = "DgvConsultaTierrasChecks"
+        Me.DgvConsultaTierrasChecks.ReadOnly = True
         Me.DgvConsultaTierrasChecks.RowHeadersVisible = False
         Me.DgvConsultaTierrasChecks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvConsultaTierrasChecks.ShowEditingIcon = False

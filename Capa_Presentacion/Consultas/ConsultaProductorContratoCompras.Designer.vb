@@ -72,6 +72,7 @@ Partial Class ConsultaProductorContratoCompras
         Me.DgvProductores.Location = New System.Drawing.Point(0, 81)
         Me.DgvProductores.MultiSelect = False
         Me.DgvProductores.Name = "DgvProductores"
+        Me.DgvProductores.ReadOnly = True
         Me.DgvProductores.RowHeadersVisible = False
         Me.DgvProductores.RowHeadersWidth = 40
         Me.DgvProductores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

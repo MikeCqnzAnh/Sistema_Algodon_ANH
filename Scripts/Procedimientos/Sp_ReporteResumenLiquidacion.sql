@@ -7,6 +7,7 @@ as
 if @IdProductor = 0 and @IdPlanta = 0 and @Desde = 0 and @Hasta = 0
 begin
 select li.IdLiquidacion
+	  ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -26,6 +27,7 @@ end
 else if @IdProductor > 0 and @IdPlanta = 0 and @Desde = 0 and @Hasta = 0
 begin
 select li.IdLiquidacion
+	  ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -46,6 +48,7 @@ end
 else if @IdProductor > 0 and @IdPlanta > 0 and @Desde = 0 and @Hasta = 0
 begin
 select li.IdLiquidacion
+	   ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -66,6 +69,7 @@ end
 else if @IdProductor = 0 and @IdPlanta > 0 and @Desde = 0 and @Hasta = 0
 begin
 select li.IdLiquidacion
+	   ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -86,6 +90,7 @@ end
 else if @IdProductor > 0 and @IdPlanta = 0 and @Desde > 0 and @Hasta > 0
 begin
 select li.IdLiquidacion
+	   ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -106,6 +111,7 @@ end
 else if @IdProductor > 0 and @IdPlanta > 0 and @Desde > 0 and @Hasta > 0
 begin
 select li.IdLiquidacion
+	   ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
@@ -126,6 +132,7 @@ end
 else if @IdProductor = 0 and @IdPlanta > 0 and @Desde > 0 and @Hasta > 0
 begin
 select li.IdLiquidacion
+	  ,ot.idordentrabajo
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre

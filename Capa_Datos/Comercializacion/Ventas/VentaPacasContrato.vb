@@ -131,8 +131,8 @@ Public Class VentaPacasContrato
         Dim EntidadVentaPacasContrato1 As New Capa_Entidad.VentaPacasContrato
         EntidadVentaPacasContrato1 = EntidadVentaPacasContrato
         EntidadVentaPacasContrato1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
-        Dim sqldat1 As SqlDataAdapter
+        Dim sqlcom1 As New SqlCommand
+        Dim sqldat1 As New SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
             cnn.Open()

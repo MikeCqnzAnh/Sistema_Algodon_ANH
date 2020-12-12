@@ -54,11 +54,15 @@ Public Class RepClasificacion
 
         oExcel = CreateObject("Excel.Application")
 
+
         oBook = oExcel.Workbooks.Add
 
         'Agregar datos a las celdas de la primera hoja en el libro nuevo
 
         oSheet = oBook.Worksheets(1)
+        With oSheet
+            .Cells.NumberFormat = "@"
+        End With
 
         ' Datos de Encabezado
         oSheet.Range("A1").Value = "ALGODONERA NUEVA HOLANDA S.P.R. DE R.L. DE C.V."
@@ -96,26 +100,26 @@ Public Class RepClasificacion
         oSheet.Range("A2").Font.ColorIndex = 3
         ' Columnas
 
-        oSheet.Range("A10").Value = "Bale ID"
-        oSheet.Range("B10").Value = "SCI"
-        oSheet.Range("C10").Value = "GRADE"
-        oSheet.Range("D10").Value = "MST"
-        oSheet.Range("E10").Value = "MIC"
-        oSheet.Range("F10").Value = "MAT"
-        oSheet.Range("G10").Value = "UHML"
-        oSheet.Range("H10").Value = "UI"
-        oSheet.Range("I10").Value = "SF"
-        oSheet.Range("J10").Value = "STR"
-        oSheet.Range("K10").Value = "ELG"
-        oSheet.Range("L10").Value = "RD"
-        oSheet.Range("M10").Value = "+B"
-        oSheet.Range("N10").Value = "CGRD"
-        oSheet.Range("O10").Value = "TRCNT"
-        oSheet.Range("P10").Value = "TRAR"
-        oSheet.Range("Q10").Value = "TRID"
-        oSheet.Range("R10").Value = "AMT"
+        oSheet.Range("B10").Value = "Bale ID"
+        oSheet.Range("C10").Value = "SCI"
+        oSheet.Range("D10").Value = "GRADE"
+        oSheet.Range("E10").Value = "MST"
+        oSheet.Range("F10").Value = "MIC"
+        oSheet.Range("G10").Value = "MAT"
+        oSheet.Range("H10").Value = "UHML"
+        oSheet.Range("I10").Value = "UI"
+        oSheet.Range("J10").Value = "SF"
+        oSheet.Range("K10").Value = "STR"
+        oSheet.Range("L10").Value = "ELG"
+        oSheet.Range("M10").Value = "RD"
+        oSheet.Range("N10").Value = "+B"
+        oSheet.Range("O10").Value = "CGRD"
+        oSheet.Range("P10").Value = "TRCNT"
+        oSheet.Range("Q10").Value = "TRAR"
+        oSheet.Range("R10").Value = "TRID"
+        oSheet.Range("S10").Value = "AMT"
         ' Formato Columnas
-        oSheet.Range("A10:R10").Font.FontStyle = "Bold"
+        oSheet.Range("B10:S10").Font.FontStyle = "Bold"
 
         'Desde aqui empezaremos a exportar la lista
 

@@ -115,6 +115,7 @@ Public Class CompraPacasContrato
                     sqlcom1 = New SqlCommand("sp_ConLiqProdComprada", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 1800
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadCompraPacasContrato1.IdProductor))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadCompraPacasContrato1.IdCompra))

@@ -3980,6 +3980,8 @@ Partial Public Class DsReportes
         
         Private columnPacaFin As Global.System.Data.DataColumn
         
+        Private columnIdOrdenTrabajo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4112,6 +4114,14 @@ Partial Public Class DsReportes
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdOrdenTrabajoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdOrdenTrabajo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4148,9 +4158,9 @@ Partial Public Class DsReportes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReporteResumenLiquidacionRow(ByVal IdLiquidacion As Integer, ByVal Planta As String, ByVal IdCliente As Integer, ByVal Nombre As String, ByVal Fecha As Date, ByVal TotalBoletas As Integer, ByVal TotalHueso As Double, ByVal TotalPacas As Double, ByVal TotalPluma As Double, ByVal TotalSemilla As Double, ByVal PacaIni As Long, ByVal PacaFin As Long) As ReporteResumenLiquidacionRow
+        Public Overloads Function AddReporteResumenLiquidacionRow(ByVal IdLiquidacion As Integer, ByVal Planta As String, ByVal IdCliente As Integer, ByVal Nombre As String, ByVal Fecha As Date, ByVal TotalBoletas As Integer, ByVal TotalHueso As Double, ByVal TotalPacas As Double, ByVal TotalPluma As Double, ByVal TotalSemilla As Double, ByVal PacaIni As Long, ByVal PacaFin As Long, ByVal IdOrdenTrabajo As Integer) As ReporteResumenLiquidacionRow
             Dim rowReporteResumenLiquidacionRow As ReporteResumenLiquidacionRow = CType(Me.NewRow,ReporteResumenLiquidacionRow)
-            Dim columnValuesArray() As Object = New Object() {IdLiquidacion, Planta, IdCliente, Nombre, Fecha, TotalBoletas, TotalHueso, TotalPacas, TotalPluma, TotalSemilla, PacaIni, PacaFin}
+            Dim columnValuesArray() As Object = New Object() {IdLiquidacion, Planta, IdCliente, Nombre, Fecha, TotalBoletas, TotalHueso, TotalPacas, TotalPluma, TotalSemilla, PacaIni, PacaFin, IdOrdenTrabajo}
             rowReporteResumenLiquidacionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReporteResumenLiquidacionRow)
             Return rowReporteResumenLiquidacionRow
@@ -4185,6 +4195,7 @@ Partial Public Class DsReportes
             Me.columnTotalSemilla = MyBase.Columns("TotalSemilla")
             Me.columnPacaIni = MyBase.Columns("PacaIni")
             Me.columnPacaFin = MyBase.Columns("PacaFin")
+            Me.columnIdOrdenTrabajo = MyBase.Columns("IdOrdenTrabajo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4214,6 +4225,8 @@ Partial Public Class DsReportes
             MyBase.Columns.Add(Me.columnPacaIni)
             Me.columnPacaFin = New Global.System.Data.DataColumn("PacaFin", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPacaFin)
+            Me.columnIdOrdenTrabajo = New Global.System.Data.DataColumn("IdOrdenTrabajo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdOrdenTrabajo)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8621,6 +8634,22 @@ Partial Public Class DsReportes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdOrdenTrabajo() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReporteResumenLiquidacion.IdOrdenTrabajoColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdOrdenTrabajo' de la tabla 'ReporteResumenLiquidacion' e"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReporteResumenLiquidacion.IdOrdenTrabajoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdLiquidacionNull() As Boolean
             Return Me.IsNull(Me.tableReporteResumenLiquidacion.IdLiquidacionColumn)
         End Function
@@ -8761,6 +8790,18 @@ Partial Public Class DsReportes
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetPacaFinNull()
             Me(Me.tableReporteResumenLiquidacion.PacaFinColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdOrdenTrabajoNull() As Boolean
+            Return Me.IsNull(Me.tableReporteResumenLiquidacion.IdOrdenTrabajoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdOrdenTrabajoNull()
+            Me(Me.tableReporteResumenLiquidacion.IdOrdenTrabajoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
