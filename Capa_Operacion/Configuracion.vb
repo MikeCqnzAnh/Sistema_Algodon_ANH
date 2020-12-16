@@ -61,6 +61,7 @@
         ReporteResumenLiquidacion = 23
         ReporteResumenLiqGeneral = 24
         ReporteVentaDetalleCastigo = 25
+        ReporteVentaPacasExcel = 26
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

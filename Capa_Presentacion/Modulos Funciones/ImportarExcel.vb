@@ -99,7 +99,7 @@ Module ImportarExcel
             xSheet = InputBox("Digite el nombre de la Hoja que desea importar", "Complete")
             conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
             Try
-                da = New OleDbDataAdapter("SELECT * FROM  [" & xSheet & "$]", conn)
+                da = New OleDbDataAdapter("SELECT LotID	,	BaleID	,	BaleGroup	,	Operator	,	Date	,	Temperature	,	Humidity	,	Amount	,	UHML	,	UI	,	Strength	,	Elongation	,	SFI	,	Maturity	,	Grade	,	Moist	,	Mic	,	Rd	,	PlusB	,	ColorGrade	,	TrashCount	,	TrashArea	,	TrashID	,	SCI	,	Nep	,	UV FROM  [" & xSheet & "$]", conn)
                 conn.Open()
                 da.Fill(ds, "MyData")
                 dt = ds.Tables("MyData")

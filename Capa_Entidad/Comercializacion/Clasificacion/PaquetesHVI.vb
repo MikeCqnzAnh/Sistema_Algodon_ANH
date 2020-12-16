@@ -11,7 +11,7 @@
     Public BaleID As Long
     Public BaleGroup As String
     Public Operatr As String
-    Public FechaAn As DateTime
+    Public FechaAn As Date
     Public Temperature As Double
     Public Humidity As Double
     Public Amount As Double

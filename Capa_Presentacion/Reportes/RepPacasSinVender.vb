@@ -104,4 +104,7 @@ Public Class RepPacasSinVender
         Close()
     End Sub
 
+    Private Sub ExportarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarToolStripMenuItem.Click
+
+    End Sub
 End Class

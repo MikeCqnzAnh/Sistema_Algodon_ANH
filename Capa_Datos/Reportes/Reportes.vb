@@ -158,6 +158,13 @@ Public Class Reportes
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteVentaPacasExcel
+                    sqlcom1 = New SqlCommand("sp_ReporteVentapaqueteExcel", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteVentaDetalleCastigo
                     sqlcom1 = New SqlCommand("Sp_ReporteVentaDetalleCastigo", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
