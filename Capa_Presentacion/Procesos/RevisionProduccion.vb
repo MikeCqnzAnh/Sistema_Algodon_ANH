@@ -402,6 +402,11 @@ Public Class RevisionProduccion
     End Sub
     Private Sub CapturaPacasSinSaco()
         If TbIdOrdenTrabajo.Text <> "" Then
+            If TbKilos.Text <> "" Then
+                TbConsecutivoInicial.Text = Val(TbConsecutivoInicial.Text) + 1
+                TbFolioCIA.Text = TbConsecutivoInicial.Text
+                TbKilos.Text = ""
+            End If
             'If TbKilos.Text <> "" And TbFolioCIA.Text <> "" Then
             '    If ConsultarPacaExistente(TbFolioCIA.Text, CbPlanta.SelectedValue) = 1 Then
             '        'MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
@@ -643,6 +648,13 @@ Public Class RevisionProduccion
         If RbActualizar.Checked = True And Val(TbIdOrdenTrabajo.Text) > 0 Then
             TbFolioCIA.Text = ""
             TbConsecutivoInicial.Text = ""
+        End If
+    End Sub
+
+    Private Sub BtEstablecefolio_Click(sender As Object, e As EventArgs) Handles BtEstablecefolio.Click
+        If TbConsecutivoInicial.Text <> "" Then
+            TbFolioCIA.Text = TbConsecutivoInicial.Text
+            TbKilos.Select()
         End If
     End Sub
 End Class

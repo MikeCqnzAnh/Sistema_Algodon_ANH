@@ -11,6 +11,7 @@
     Public CheckStatus As Boolean
     Public IdPaquete As Integer
     Public IdPlanta As Integer
+    Public FolioCia As Long
     Public PacaInicial As Long
     Public PacaFinal As Long
     Public IdCompra As Integer
@@ -28,5 +29,7 @@
     Public Desde As Integer
     Public Hasta As Integer
     Public Tara As Double
+    Public FechaIni As DateTime
+    Public FechaFin As DateTime
     '------------------------------
 End Class

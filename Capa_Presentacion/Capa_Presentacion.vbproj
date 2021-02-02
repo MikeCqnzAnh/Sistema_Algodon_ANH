@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.12.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.15.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -223,6 +223,12 @@
     <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Compras\IntegraciondeCompras.Designer.vb">
+      <DependentUpon>IntegraciondeCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\IntegraciondeCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.Designer.vb">
       <DependentUpon>CastigosUniformidad.vb</DependentUpon>
     </Compile>
@@ -341,6 +347,12 @@
       <DependentUpon>ConsultaSalidas.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaSalidas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaXML.Designer.vb">
+      <DependentUpon>ConsultaXML.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaXML.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataGridViewCalendarColumn.vb" />
@@ -531,6 +543,7 @@
     <Compile Include="Interfaces\IForm.vb" />
     <Compile Include="Interfaces\IForm1.vb" />
     <Compile Include="Modulos Funciones\EnviarEmail.vb" />
+    <Compile Include="Modulos Funciones\ExtraeXml.vb" />
     <Compile Include="Modulos Funciones\RespaldosAutomaticos.vb" />
     <Compile Include="Procesos\CargaPacasExternas.Designer.vb">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
@@ -566,6 +579,30 @@
       <DependentUpon>RepCompraYventas.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepCompraYventas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaCompras.Designer.vb">
+      <DependentUpon>RepConsultaCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaPacasDetalleCompra.Designer.vb">
+      <DependentUpon>RepConsultaPacasDetalleCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaPacasDetalleCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaPacasDetalleVenta.Designer.vb">
+      <DependentUpon>RepConsultaPacasDetalleVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaPacasDetalleVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaVentas.Designer.vb">
+      <DependentUpon>RepConsultaVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepConsultaVentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepContratoProductor.Designer.vb">
@@ -634,6 +671,12 @@
     <Compile Include="Reportes\RepPacasSinVender.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepPaquetesPorVenta.Designer.vb">
+      <DependentUpon>RepPaquetesPorVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPaquetesPorVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPaquetesVenta.Designer.vb">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
     </Compile>
@@ -646,6 +689,12 @@
     <Compile Include="Reportes\RepPreliquidacionCompra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepProduccion.Designer.vb">
+      <DependentUpon>RepProduccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepProduccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepResumenLiquidaciones.Designer.vb">
       <DependentUpon>RepResumenLiquidaciones.vb</DependentUpon>
     </Compile>
@@ -656,6 +705,12 @@
       <DependentUpon>RepResumenLiqVisPrev.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepResumenLiqVisPrev.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepResumenProducciones.Designer.vb">
+      <DependentUpon>RepResumenProducciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepResumenProducciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepSalidaPacas.Designer.vb">
@@ -796,6 +851,18 @@
       <DependentUpon>RPTPacasDetallado.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTPacasDetalleCompra.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPacasDetalleCompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPacasDetalleVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPacasDetalleVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTPacasFaltantes.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -812,6 +879,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTPacasSinVender.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTPaquetesPorVenta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPaquetesPorVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTPaquetesVenta.vb">
@@ -836,6 +909,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTResumenLiquidaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTResumenproduccion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTResumenproduccion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTSalidaPacas.vb">
@@ -1388,6 +1467,9 @@
       <DependentUpon>VentaClasificacion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\IntegraciondeCompras.resx">
+      <DependentUpon>IntegraciondeCompras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Compras\ModificacionIndividual\CastigosUniformidad.resx">
       <DependentUpon>CastigosUniformidad.vb</DependentUpon>
     </EmbeddedResource>
@@ -1457,6 +1539,9 @@
     <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaXML.resx">
+      <DependentUpon>ConsultaXML.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Procesos\CargaPacasExternas.resx">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1475,6 +1560,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepCompraYventas.resx">
       <DependentUpon>RepCompraYventas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepConsultaCompras.resx">
+      <DependentUpon>RepConsultaCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepConsultaPacasDetalleCompra.resx">
+      <DependentUpon>RepConsultaPacasDetalleCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepConsultaPacasDetalleVenta.resx">
+      <DependentUpon>RepConsultaPacasDetalleVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepConsultaVentas.resx">
+      <DependentUpon>RepConsultaVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
@@ -1509,17 +1606,26 @@
     <EmbeddedResource Include="Reportes\RepPacasSinVender.resx">
       <DependentUpon>RepPacasSinVender.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPaquetesPorVenta.resx">
+      <DependentUpon>RepPaquetesPorVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPaquetesVenta.resx">
       <DependentUpon>RepPaquetesVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPreliquidacionCompra.resx">
       <DependentUpon>RepPreliquidacionCompra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepProduccion.resx">
+      <DependentUpon>RepProduccion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepResumenLiquidaciones.resx">
       <DependentUpon>RepResumenLiquidaciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepResumenLiqVisPrev.resx">
       <DependentUpon>RepResumenLiqVisPrev.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepResumenProducciones.resx">
+      <DependentUpon>RepResumenProducciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepSalidaPacas.resx">
       <DependentUpon>RepSalidaPacas.vb</DependentUpon>
@@ -1608,6 +1714,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasDetallado.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPacasDetalleCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPacasDetalleCompra.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPacasDetalleVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPacasDetalleVenta.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPacasFaltantes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasFaltantes.vb</LastGenOutput>
@@ -1619,6 +1733,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTPacasSinVender.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPacasSinVender.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPaquetesPorVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPaquetesPorVenta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPaquetesVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1635,6 +1753,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTResumenLiquidaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTResumenLiquidaciones.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTResumenproduccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTResumenproduccion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTSalidaPacas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

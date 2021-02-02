@@ -470,6 +470,7 @@ Public Class VentaClasificacion
                 For i As Integer = 0 To Tabla.Rows.Count - 1
                     DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(i).Item("IdOrdenTrabajo"), Tabla.Rows(i).Item("IdPlantaOrigen"), Tabla.Rows(i).Item("Kilos"), Tabla.Rows(i).Item("lotID"), Tabla.Rows(i).Item("BaleID"), Tabla.Rows(i).Item("BaleGroup"), Tabla.Rows(i).Item("Operator"), Tabla.Rows(i).Item("Date"), Tabla.Rows(i).Item("Temperature"), Tabla.Rows(i).Item("Humidity"), Tabla.Rows(i).Item("Amount"), Tabla.Rows(i).Item("UHML"), Tabla.Rows(i).Item("UI"), Tabla.Rows(i).Item("Strength"), Tabla.Rows(i).Item("Elongation"), Tabla.Rows(i).Item("SFI"), Tabla.Rows(i).Item("Maturity"), Tabla.Rows(i).Item("Grade"), Tabla.Rows(i).Item("Moist"), Tabla.Rows(i).Item("Mic"), Tabla.Rows(i).Item("Rd"), Tabla.Rows(i).Item("Plusb"), Tabla.Rows(i).Item("ColorGrade"), Tabla.Rows(i).Item("TrashCount"), Tabla.Rows(i).Item("TrashArea"), Tabla.Rows(i).Item("TrashID"), Tabla.Rows(i).Item("SCI"), Tabla.Rows(i).Item("Nep"), Tabla.Rows(i).Item("UV"), Tabla.Rows(i).Item("FlagTerminado"))
                 Next
+                IdentificaEstatusPacas()
             Else
                 MsgBox("No se encontraron registros con esos criterios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                 TbIdPaquete.Enabled = True
@@ -481,6 +482,13 @@ Public Class VentaClasificacion
         End If
         DgvPacasClasificacion.Sort(DgvPacasClasificacion.Columns("BaleID"), System.ComponentModel.ListSortDirection.Descending)
         ContarPacas()
+    End Sub
+    Private Sub IdentificaEstatusPacas()
+        For Each fila As DataGridViewRow In DgvPacasClasificacion.Rows
+            If fila.Cells("EstatusVenta").Value > 1 Then
+                fila.DefaultCellStyle.BackColor = Color.SkyBlue
+            End If
+        Next
     End Sub
     Private Sub InsertaPaca(ByVal NoPaca As Long)
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
@@ -1062,11 +1070,6 @@ Public Class VentaClasificacion
     Private Sub ArchivoExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoExcelToolStripMenuItem.Click
         ExportExcel(DgvPacasClasificacion)
     End Sub
-
-    Private Sub ExportarToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
     End Sub

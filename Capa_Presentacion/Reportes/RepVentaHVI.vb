@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-'Imports Microsoft.Office.Interop.Excel
 Imports Capa_Operacion.Configuracion
 Imports System.Data.Sql
 Imports System.Data
@@ -513,10 +512,10 @@ Public Class RepVentaHVI
         Dim app As New Excel.Application
         Dim wb As Excel.Workbook = app.Workbooks.Add()
         Dim ws As Excel.Worksheet
-        If Not Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel") Then
-            Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel")
+        If Not Directory.Exists(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel" & "\" & BaseDeDatos) Then
+            Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel" & "\" & BaseDeDatos)
         End If
-        Dim strFN As String = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel\Detalle_hvi_ID_Venta_" & IdVenta & ".xlsx"   'must have ".xlsx" extension
+        Dim strFN As String = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\SIA Export ventas excel" & "\" & BaseDeDatos & "\Detalle_hvi_ID_Venta_" & IdVenta & ".xlsx"   'must have ".xlsx" extension
 
         'Standard code for filling a DataTable from SQL Server
         Dim strSym As String = "Detalle HVI"
@@ -538,25 +537,6 @@ Public Class RepVentaHVI
         wb.Close()
         MsgBox("Exportacion completada.")
         System.Diagnostics.Process.Start(strFN)
-
-        'Dim EntidadReportes As New Capa_Entidad.Reportes
-        'Dim NegocioReportes As New Capa_Negocio.Reportes
-        'Dim Tabla, TablaGeneral As New Data.DataTable
-        'Dim dgvexport As New DataGridView
-        'Dim ds As New DataSet
-        'Dim CrReport As RPTVentaHVI = New RPTVentaHVI
-        'Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Reportes\RPT\RPTVentaHvi.rpt"
-        'EntidadReportes.Reporte = Reporte.ReporteVentaHVI
-        'EntidadReportes.IdVenta = IdVenta
-        'NegocioReportes.Consultar(EntidadReportes)
-        'Tabla = EntidadReportes.TablaConsulta
-        'dgvexport.DataSource = EntidadReportes.TablaConsulta
-        'exportaHVIexcel(Tabla)
-        'ExportExcel(dgvexport)
-        'ds.Tables.Add(Tabla)
-        'CrReport.Load(Ruta)
-        'CrReport.SetDataSource(ds.Tables("table1"))
-        'CRVVentaHVI.ReportSource = CrReport
     End Sub
     Private Sub DataTableToExcel(dt As DataTable, ws As Excel.Worksheet, TabName As String)
         Dim arr(dt.Rows.Count, dt.Columns.Count) As Object
@@ -577,12 +557,6 @@ Public Class RepVentaHVI
             c += 1
         Next
         'add the data starting in cell A2
-        ws.Range(ws.Cells(2, 1), ws.Cells(dt.Rows.Count, dt.Columns.Count)).Value = arr
+        ws.Range(ws.Cells(2, 1), ws.Cells(dt.Rows.Count + 1, dt.Columns.Count)).Value = arr
     End Sub
-    'Private Sub ExportaExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportaExcelToolStripMenuItem.Click
-    '    exportaHVIexcel(VarGlob2.TablaExporta)
-    'End Sub
-    'Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-    '    VarGlob2.TablaExporta.Rows.Clear()
-    'End Sub
 End Class

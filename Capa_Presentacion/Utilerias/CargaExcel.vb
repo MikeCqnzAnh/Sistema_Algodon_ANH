@@ -18,7 +18,7 @@ Public Class CargaExcel
         TablaExcel.Rows.Clear()
         Dim r As DataRow
         Try
-            TablaExcel.Columns.Add("BaleID", Type.GetType("System.Int32"))
+            TablaExcel.Columns.Add("BaleID", Type.GetType("System.Int64"))
             For i = 0 To DgvPacas.Rows.Count - 1
                 r = TablaExcel.NewRow
                 r("BaleID") = DgvPacas.Item(0, i).Value

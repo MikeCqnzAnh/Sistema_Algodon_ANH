@@ -189,6 +189,8 @@ Public Class CompraPago
         EntidadCompraPacasContrato.TotalDlls = TbTotalDls.Text
         EntidadCompraPacasContrato.TotalPesosMx = TbTotalMxn.Text
         EntidadCompraPacasContrato.IdEstatusCompra = 1
+        EntidadCompraPacasContrato.FechaCreacion = Now.Date
+        EntidadCompraPacasContrato.FechaActualizacion = Now
         NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
         TbIdCompra.Text = EntidadCompraPacasContrato.IdCompra
     End Sub

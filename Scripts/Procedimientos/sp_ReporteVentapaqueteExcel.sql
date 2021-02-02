@@ -1,4 +1,4 @@
-create procedure sp_ReporteVentapaqueteExcel
+alter procedure sp_ReporteVentapaqueteExcel
 @idventa int
 as
 select BaleID
@@ -19,7 +19,7 @@ select BaleID
 	  ,TrashArea
 	  ,TrashID
 	  ,Amount
-	  ,Kilos 
+	  ,cast(Kilos as numeric(32,2)) as Kilos
 from CalculoClasificacion
 where IdVentaEnc = @idventa 
 order by idpaqueteencabezado, BaleID

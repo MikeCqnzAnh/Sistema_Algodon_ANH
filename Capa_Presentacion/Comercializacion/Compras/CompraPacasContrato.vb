@@ -105,6 +105,8 @@ Public Class CompraPacasContrato
         EntidadCompraPacasContrato.TotalDlls = 0
         EntidadCompraPacasContrato.TotalPesosMx = 0
         EntidadCompraPacasContrato.IdEstatusCompra = 0
+        EntidadCompraPacasContrato.FechaCreacion = Now.Date
+        EntidadCompraPacasContrato.FechaActualizacion = Now
         NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
         TbIdCompraPaca.Text = EntidadCompraPacasContrato.IdCompra
     End Sub
@@ -811,8 +813,8 @@ Public Class CompraPacasContrato
         DgvLiqCompradas.Columns("PacasDisponibles").Visible = False
         DgvLiqCompradas.Columns("PesoPluma").Visible = False
         DgvLiqCompradas.Columns("TotalSemilla").Visible = False
-        DgvLiqCompradas.Columns("IdCliente").Visible = False
-        DgvLiqCompradas.Columns("IdCompraEnc").Visible = False
+        'DgvLiqCompradas.Columns("IdCliente").Visible = False
+        'DgvLiqCompradas.Columns("IdCompraEnc").Visible = False
     End Sub
     Private Sub PropiedadesDgvLiquidacionesComprar()
         DgvDatosLiquidacion.Columns("IdLiquidacion").Visible = False

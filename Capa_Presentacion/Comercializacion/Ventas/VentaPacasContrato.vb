@@ -1671,6 +1671,15 @@ Public Class VentaPacasContrato
     End Sub
 
     Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
+        If TbIdVentaPaca.Text <> "" Then
+            Dim ReportePaquetesPorVenta As New RepPaquetesPorVenta(TbIdVentaPaca.Text)
+            ReportePaquetesPorVenta.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ReporteHVIAExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteHVIAExcelToolStripMenuItem.Click
 
     End Sub
 

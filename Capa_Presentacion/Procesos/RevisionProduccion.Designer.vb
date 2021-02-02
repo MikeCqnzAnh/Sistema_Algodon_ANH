@@ -29,6 +29,7 @@ Partial Class RevisionProduccion
         Me.GbDatos = New System.Windows.Forms.GroupBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.GbFolioInicial = New System.Windows.Forms.GroupBox()
+        Me.BtEstablecefolio = New System.Windows.Forms.Button()
         Me.TbConsecutivoInicial = New System.Windows.Forms.TextBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -41,7 +42,6 @@ Partial Class RevisionProduccion
         Me.Label26 = New System.Windows.Forms.Label()
         Me.RbActualizar = New System.Windows.Forms.RadioButton()
         Me.RbAgregar = New System.Windows.Forms.RadioButton()
-        Me.BtEliminarPacas = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TbPacasProducidas = New System.Windows.Forms.TextBox()
@@ -82,6 +82,7 @@ Partial Class RevisionProduccion
         Me.TbTotalModulos = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TbModulos = New System.Windows.Forms.TextBox()
+        Me.BtEliminarPacas = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -191,6 +192,7 @@ Partial Class RevisionProduccion
         '
         'GbFolioInicial
         '
+        Me.GbFolioInicial.Controls.Add(Me.BtEstablecefolio)
         Me.GbFolioInicial.Controls.Add(Me.TbConsecutivoInicial)
         Me.GbFolioInicial.Controls.Add(Me.Label32)
         Me.GbFolioInicial.Controls.Add(Me.Label27)
@@ -210,6 +212,16 @@ Partial Class RevisionProduccion
         Me.GbFolioInicial.Size = New System.Drawing.Size(472, 167)
         Me.GbFolioInicial.TabIndex = 23
         Me.GbFolioInicial.TabStop = False
+        '
+        'BtEstablecefolio
+        '
+        Me.BtEstablecefolio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtEstablecefolio.Location = New System.Drawing.Point(290, 95)
+        Me.BtEstablecefolio.Name = "BtEstablecefolio"
+        Me.BtEstablecefolio.Size = New System.Drawing.Size(122, 33)
+        Me.BtEstablecefolio.TabIndex = 85
+        Me.BtEstablecefolio.Text = "Establece folio inicial"
+        Me.BtEstablecefolio.UseVisualStyleBackColor = True
         '
         'TbConsecutivoInicial
         '
@@ -325,19 +337,6 @@ Partial Class RevisionProduccion
         Me.RbAgregar.TabStop = True
         Me.RbAgregar.Text = "Agregar pacas"
         Me.RbAgregar.UseVisualStyleBackColor = True
-        '
-        'BtEliminarPacas
-        '
-        Me.BtEliminarPacas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtEliminarPacas.Location = New System.Drawing.Point(77, 172)
-        Me.BtEliminarPacas.MaximumSize = New System.Drawing.Size(173, 23)
-        Me.BtEliminarPacas.MinimumSize = New System.Drawing.Size(173, 23)
-        Me.BtEliminarPacas.Name = "BtEliminarPacas"
-        Me.BtEliminarPacas.Size = New System.Drawing.Size(173, 23)
-        Me.BtEliminarPacas.TabIndex = 72
-        Me.BtEliminarPacas.Text = "Eliminar Pacas Seleccionadas"
-        Me.BtEliminarPacas.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -746,6 +745,19 @@ Partial Class RevisionProduccion
         Me.TbModulos.Name = "TbModulos"
         Me.TbModulos.Size = New System.Drawing.Size(1229, 58)
         Me.TbModulos.TabIndex = 0
+        '
+        'BtEliminarPacas
+        '
+        Me.BtEliminarPacas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtEliminarPacas.Location = New System.Drawing.Point(77, 172)
+        Me.BtEliminarPacas.MaximumSize = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.MinimumSize = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.Name = "BtEliminarPacas"
+        Me.BtEliminarPacas.Size = New System.Drawing.Size(173, 23)
+        Me.BtEliminarPacas.TabIndex = 72
+        Me.BtEliminarPacas.Text = "Eliminar Pacas Seleccionadas"
+        Me.BtEliminarPacas.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -1491,4 +1503,5 @@ Partial Class RevisionProduccion
     Friend WithEvents BtConsultarFaltante As Button
     Friend WithEvents TbConsecutivoInicial As TextBox
     Friend WithEvents Label32 As Label
+    Friend WithEvents BtEstablecefolio As Button
 End Class

@@ -38,13 +38,13 @@ Partial Class RepPacasSinComprar
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CbClase = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.BtConsultarExcel = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportaAExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtConsultarExcel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvPacasSinComprar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbEncabezado.SuspendLayout()
@@ -209,16 +209,6 @@ Partial Class RepPacasSinComprar
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Paca inicial:"
         '
-        'BtConsultarExcel
-        '
-        Me.BtConsultarExcel.BackgroundImage = CType(resources.GetObject("BtConsultarExcel.BackgroundImage"), System.Drawing.Image)
-        Me.BtConsultarExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtConsultarExcel.Location = New System.Drawing.Point(139, 216)
-        Me.BtConsultarExcel.Name = "BtConsultarExcel"
-        Me.BtConsultarExcel.Size = New System.Drawing.Size(39, 38)
-        Me.BtConsultarExcel.TabIndex = 10
-        Me.BtConsultarExcel.UseVisualStyleBackColor = True
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -262,6 +252,16 @@ Partial Class RepPacasSinComprar
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'BtConsultarExcel
+        '
+        Me.BtConsultarExcel.BackgroundImage = CType(resources.GetObject("BtConsultarExcel.BackgroundImage"), System.Drawing.Image)
+        Me.BtConsultarExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtConsultarExcel.Location = New System.Drawing.Point(139, 216)
+        Me.BtConsultarExcel.Name = "BtConsultarExcel"
+        Me.BtConsultarExcel.Size = New System.Drawing.Size(39, 38)
+        Me.BtConsultarExcel.TabIndex = 10
+        Me.BtConsultarExcel.UseVisualStyleBackColor = True
         '
         'RepPacasSinComprar
         '

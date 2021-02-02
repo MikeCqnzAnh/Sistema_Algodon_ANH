@@ -149,6 +149,8 @@ Partial Class CompraPacasContrato
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TP4IndividualCompradas = New System.Windows.Forms.TabPage()
         Me.DgvPacasIndCompradas = New System.Windows.Forms.DataGridView()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -226,7 +228,7 @@ Partial Class CompraPacasContrato
         Me.Panel6.Controls.Add(Me.ChMicros)
         Me.Panel6.Controls.Add(Me.CbModoMicros)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel6.Location = New System.Drawing.Point(565, 16)
+        Me.Panel6.Location = New System.Drawing.Point(611, 16)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(288, 149)
         Me.Panel6.TabIndex = 57
@@ -621,9 +623,9 @@ Partial Class CompraPacasContrato
         '
         Me.GroupBox6.Controls.Add(Me.DgvContratos)
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupBox6.Location = New System.Drawing.Point(853, 16)
+        Me.GroupBox6.Location = New System.Drawing.Point(899, 16)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(592, 149)
+        Me.GroupBox6.Size = New System.Drawing.Size(546, 149)
         Me.GroupBox6.TabIndex = 2
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Contratos"
@@ -645,11 +647,12 @@ Partial Class CompraPacasContrato
         Me.DgvContratos.RowHeadersVisible = False
         Me.DgvContratos.RowHeadersWidth = 40
         Me.DgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratos.Size = New System.Drawing.Size(586, 130)
+        Me.DgvContratos.Size = New System.Drawing.Size(540, 130)
         Me.DgvContratos.TabIndex = 12
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.DtFechaActualizacion)
         Me.Panel2.Controls.Add(Me.BtBuscarProductor)
         Me.Panel2.Controls.Add(Me.CbModalidadCompra)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -663,6 +666,7 @@ Partial Class CompraPacasContrato
         Me.Panel2.Controls.Add(Me.Label17)
         Me.Panel2.Controls.Add(Me.Label12)
         Me.Panel2.Controls.Add(Me.DtFechaCompra)
+        Me.Panel2.Controls.Add(Me.Label25)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.TbNombreProductor)
@@ -671,12 +675,12 @@ Partial Class CompraPacasContrato
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(3, 16)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(562, 149)
+        Me.Panel2.Size = New System.Drawing.Size(608, 149)
         Me.Panel2.TabIndex = 3
         '
         'BtBuscarProductor
         '
-        Me.BtBuscarProductor.Location = New System.Drawing.Point(519, 37)
+        Me.BtBuscarProductor.Location = New System.Drawing.Point(574, 37)
         Me.BtBuscarProductor.Name = "BtBuscarProductor"
         Me.BtBuscarProductor.Size = New System.Drawing.Size(28, 23)
         Me.BtBuscarProductor.TabIndex = 58
@@ -705,7 +709,7 @@ Partial Class CompraPacasContrato
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(320, 121)
+        Me.Label6.Location = New System.Drawing.Point(423, 120)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 46
@@ -723,9 +727,9 @@ Partial Class CompraPacasContrato
         'TbNoPacas
         '
         Me.TbNoPacas.Enabled = False
-        Me.TbNoPacas.Location = New System.Drawing.Point(399, 118)
+        Me.TbNoPacas.Location = New System.Drawing.Point(488, 117)
         Me.TbNoPacas.Name = "TbNoPacas"
-        Me.TbNoPacas.Size = New System.Drawing.Size(145, 20)
+        Me.TbNoPacas.Size = New System.Drawing.Size(114, 20)
         Me.TbNoPacas.TabIndex = 39
         '
         'TbIdProductor
@@ -739,41 +743,43 @@ Partial Class CompraPacasContrato
         'TbIdContrato
         '
         Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(399, 66)
+        Me.TbIdContrato.Location = New System.Drawing.Point(488, 65)
         Me.TbIdContrato.Name = "TbIdContrato"
-        Me.TbIdContrato.Size = New System.Drawing.Size(145, 20)
+        Me.TbIdContrato.Size = New System.Drawing.Size(114, 20)
         Me.TbIdContrato.TabIndex = 34
         '
         'CbPlanta
         '
         Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(120, 65)
+        Me.CbPlanta.Location = New System.Drawing.Point(488, 12)
         Me.CbPlanta.Name = "CbPlanta"
-        Me.CbPlanta.Size = New System.Drawing.Size(139, 21)
+        Me.CbPlanta.Size = New System.Drawing.Size(117, 21)
         Me.CbPlanta.TabIndex = 20
+        Me.CbPlanta.Visible = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1, 68)
+        Me.Label2.Location = New System.Drawing.Point(423, 16)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(37, 13)
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "Planta"
+        Me.Label2.Visible = False
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(0, 121)
+        Me.Label17.Location = New System.Drawing.Point(3, 119)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(113, 13)
+        Me.Label17.Size = New System.Drawing.Size(110, 13)
         Me.Label17.TabIndex = 37
-        Me.Label17.Text = "Modalidad de Compra:"
+        Me.Label17.Text = "Modalidad de Compra"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(320, 69)
+        Me.Label12.Location = New System.Drawing.Point(423, 68)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(59, 13)
         Me.Label12.TabIndex = 37
@@ -782,19 +788,19 @@ Partial Class CompraPacasContrato
         'DtFechaCompra
         '
         Me.DtFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaCompra.Location = New System.Drawing.Point(120, 93)
+        Me.DtFechaCompra.Location = New System.Drawing.Point(120, 65)
         Me.DtFechaCompra.Name = "DtFechaCompra"
-        Me.DtFechaCompra.Size = New System.Drawing.Size(139, 20)
+        Me.DtFechaCompra.Size = New System.Drawing.Size(99, 20)
         Me.DtFechaCompra.TabIndex = 29
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(1, 94)
+        Me.Label4.Location = New System.Drawing.Point(1, 66)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 30
-        Me.Label4.Text = "Fecha"
+        Me.Label4.Text = "Fecha de creacion"
         '
         'Label5
         '
@@ -810,13 +816,13 @@ Partial Class CompraPacasContrato
         Me.TbNombreProductor.Enabled = False
         Me.TbNombreProductor.Location = New System.Drawing.Point(206, 39)
         Me.TbNombreProductor.Name = "TbNombreProductor"
-        Me.TbNombreProductor.Size = New System.Drawing.Size(311, 20)
+        Me.TbNombreProductor.Size = New System.Drawing.Size(362, 20)
         Me.TbNombreProductor.TabIndex = 39
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(320, 95)
+        Me.Label14.Location = New System.Drawing.Point(423, 94)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(37, 13)
         Me.Label14.TabIndex = 48
@@ -825,9 +831,9 @@ Partial Class CompraPacasContrato
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(399, 92)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(488, 91)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
-        Me.TbPrecioQuintal.Size = New System.Drawing.Size(145, 20)
+        Me.TbPrecioQuintal.Size = New System.Drawing.Size(114, 20)
         Me.TbPrecioQuintal.TabIndex = 44
         '
         'TbHastaPaca
@@ -1529,6 +1535,23 @@ Partial Class CompraPacasContrato
         Me.DgvPacasIndCompradas.Size = New System.Drawing.Size(741, 225)
         Me.DgvPacasIndCompradas.TabIndex = 14
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(3, 94)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(70, 13)
+        Me.Label25.TabIndex = 30
+        Me.Label25.Text = "Actualizacion"
+        '
+        'DtFechaActualizacion
+        '
+        Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaActualizacion.Location = New System.Drawing.Point(120, 91)
+        Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
+        Me.DtFechaActualizacion.Size = New System.Drawing.Size(99, 20)
+        Me.DtFechaActualizacion.TabIndex = 59
+        '
         'CompraPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1715,4 +1738,6 @@ Partial Class CompraPacasContrato
     Friend WithEvents ChMicros As CheckBox
     Friend WithEvents CbModoMicros As ComboBox
     Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DtFechaActualizacion As DateTimePicker
+    Friend WithEvents Label25 As Label
 End Class

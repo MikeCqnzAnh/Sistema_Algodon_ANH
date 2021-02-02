@@ -101,6 +101,7 @@
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
     <Compile Include="Catalogos\UnidadesComercializacion.vb" />
+    <Compile Include="Comercializacion\Compras\IntegraciondeCompras.vb" />
     <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
     <Compile Include="Utilerias\ProgramarRespaldos.vb" />

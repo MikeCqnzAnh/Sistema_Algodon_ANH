@@ -964,7 +964,7 @@ Public Class Produccion
         NegocioProduccion.Consultar(EntidadProduccion)
         Tabla = EntidadProduccion.TablaConsulta
         If Tabla.Rows(0).Item("Resultado") = 1 Then
-            IdProduccionDetalle = Tabla.Rows(0).Item("IdProduccionDetalle")
+            IdProduccionDetalle = Tabla.Rows(0).Item("idproduccion")
             FolioCIAReturn = Tabla.Rows(0).Item("FolioCIA")
             Return 1
         Else

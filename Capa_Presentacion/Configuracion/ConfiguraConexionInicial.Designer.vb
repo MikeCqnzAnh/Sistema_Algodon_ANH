@@ -164,7 +164,6 @@ Partial Class ConfiguraConexionInicial
         '
         'CbOrigenInstancia
         '
-        Me.CbOrigenInstancia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbOrigenInstancia.FormattingEnabled = True
         Me.CbOrigenInstancia.Location = New System.Drawing.Point(18, 118)
         Me.CbOrigenInstancia.Name = "CbOrigenInstancia"

@@ -62,6 +62,13 @@
         ReporteResumenLiqGeneral = 24
         ReporteVentaDetalleCastigo = 25
         ReporteVentaPacasExcel = 26
+        ReporteResumenProduccion = 27
+        ReportePaquetePorVenta = 28
+        ReportePacasSinComprar = 29
+        ReporteVentas = 30
+        ReporteCompras = 31
+        ReportePacaDetalleCompra = 32
+        ReportePacaDetalleVenta = 33
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

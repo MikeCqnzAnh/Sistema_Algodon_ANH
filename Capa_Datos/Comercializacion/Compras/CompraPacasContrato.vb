@@ -45,6 +45,8 @@ Public Class CompraPacasContrato
                     cmdGuardar.Parameters.Add(New SqlParameter("@TotalDlls", EntidadCompraPacasContrato1.TotalDlls))
                     cmdGuardar.Parameters.Add(New SqlParameter("@TotalPesosMx", EntidadCompraPacasContrato1.TotalPesosMx))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatusCompra", EntidadCompraPacasContrato1.IdEstatusCompra))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadCompraPacasContrato1.FechaCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadCompraPacasContrato1.FechaActualizacion))
                     cmdGuardar.Parameters("@IdCompra").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
                     If EntidadCompraPacasContrato1.IdCompra = 0 Then

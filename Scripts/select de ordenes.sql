@@ -1,11 +1,13 @@
-CREATE procedure [dbo].[sp_ConsultaModulos]
-as
-select bo.IdOrdenTrabajo,
+--CREATE procedure [dbo].[sp_ConsultaModulos]
+--as
+select distinct bo.IdOrdenTrabajo,
 	   Bo.IdBoleta as 'No Modulo',
 	   --Bo.IdPlanta, 
+	   ot.Predio,
 	   pl.descripcion as Planta,
 	   --Bo.NoTransporte,
 	   isnull(Bo.FechaEntrada,0) as FechaEntrada,
+	   --(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = bo.Idordentrabajo) as FechaProduccion,
 	   --isnull(Bo.FechaSalida,0) as FechaSalida, 
 	   Bo.Bruto, 
 	   Bo.Tara, 
@@ -16,8 +18,14 @@ select bo.IdOrdenTrabajo,
 	   --bo.FlagRevisada 
 from [dbo].[OrdenTrabajoDetalle] Bo inner join [dbo].[Clientes] Cl  on Bo.IdProductor = Cl.IdCliente
 									inner join plantas pl on bo.idplanta = pl.idplanta
---where BO.Bruto IS NOT NULL AND BO.Bruto > 0
-order by bo.IdBoleta asc
+									inner join ordentrabajo ot on ot.idordentrabajo = Bo.IdOrdenTrabajo
+where  Bo.FechaEntrada >= '01/12/2020' and  Bo.FechaEntrada <= '31/12/2020'
 
-select * from Plantas
-select * from [OrdenTrabajoDetalle]
+order by cl.Nombre,ot.Predio,bo.idboleta
+
+--select * from Plantas
+--select * from OrdenTrabajo
+--select * from [OrdenTrabajoDetalle]
+
+
+--select * from ProduccionDetalle

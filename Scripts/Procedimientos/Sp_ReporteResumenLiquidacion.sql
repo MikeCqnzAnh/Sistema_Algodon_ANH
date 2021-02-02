@@ -11,7 +11,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -31,7 +31,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -52,7 +52,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -73,7 +73,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -94,7 +94,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -115,7 +115,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
@@ -136,7 +136,7 @@ select li.IdLiquidacion
 	  ,pl.Descripcion as Planta
 	  ,cl.IdCliente
 	  ,cl.Nombre
-	  ,li.Fecha
+	  ,(select MIN(Fecha) from ProduccionDetalle where IdOrdenTrabajo = li.Idordentrabajo) as Fecha 
 	  ,li.totalboletas
 	  ,li.totalhueso
 	  ,li.TotalPacas
