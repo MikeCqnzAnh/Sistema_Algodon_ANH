@@ -16,8 +16,23 @@ Public Class RepConsultaPacasDetalleVenta
     Private Sub RepConsultaPacasDetalleVenta_Load(sender As Object, e As EventArgs) Handles Me.Load
         CargaCombos()
     End Sub
+    Private Sub LimpiarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarToolStripMenuItem.Click
+        Limpiar()
+    End Sub
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         Consultar()
+    End Sub
+    Private Sub Limpiar()
+        TbPaca.Text = ""
+        TbIdOrdenTrabajo.Text = ""
+        TbNoLote.Text = ""
+        TbInicio.Text = ""
+        TbFin.Text = ""
+        TbIdLiquidacion.Text = ""
+        TbIdVenta.Text = ""
+        TbIdEmbarque.Text = ""
+        TbIdSalida.Text = ""
+        CargaCombos()
     End Sub
     Private Sub Consultar()
         Dim EntidadReportes As New Capa_Entidad.Reportes
@@ -32,6 +47,11 @@ Public Class RepConsultaPacasDetalleVenta
         EntidadReportes.IdLiquidacionRomaneaje = Val(TbIdLiquidacion.Text)
         EntidadReportes.IdVenta = Val(TbIdVenta.Text)
         EntidadReportes.IdPlanta = CbPlanta.SelectedValue
+        EntidadReportes.IdSalidaPacas = Val(TbIdSalida.Text)
+        EntidadReportes.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
+        EntidadReportes.NoLote = TbNoLote.Text
+        EntidadReportes.PacaInicial = Val(TbInicio.Text)
+        EntidadReportes.PacaFinal = Val(TbFin.Text)
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)
@@ -53,7 +73,12 @@ Public Class RepConsultaPacasDetalleVenta
         CbPlanta.DisplayMember = "Descripcion"
         CbPlanta.SelectedValue = -1
     End Sub
-    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbPaca.KeyPress, TbIdVenta.KeyPress, TbIdOrdenTrabajo.KeyPress, TbIdLiquidacion.KeyPress
+    Private Sub EnterConsulta(sender As Object, e As KeyEventArgs) Handles TbPaca.KeyDown, TbIdOrdenTrabajo.KeyDown, TbNoLote.KeyDown, TbInicio.KeyDown, TbFin.KeyDown, TbIdEmbarque.KeyDown, TbIdLiquidacion.KeyDown, TbIdVenta.KeyDown, TbIdSalida.KeyDown, CbPlanta.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Consultar()
+        End If
+    End Sub
+    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbPaca.KeyPress, TbIdVenta.KeyPress, TbIdOrdenTrabajo.KeyPress, TbIdLiquidacion.KeyPress, TbIdEmbarque.KeyPress, TbIdSalida.KeyPress, TbInicio.KeyPress, TbFin.KeyPress
         If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
         End If
@@ -84,6 +109,11 @@ Public Class RepConsultaPacasDetalleVenta
         EntidadReportes.IdLiquidacionRomaneaje = Val(TbIdLiquidacion.Text)
         EntidadReportes.IdVenta = Val(TbIdVenta.Text)
         EntidadReportes.IdPlanta = CbPlanta.SelectedValue
+        EntidadReportes.IdSalidaPacas = Val(TbIdSalida.Text)
+        EntidadReportes.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
+        EntidadReportes.NoLote = TbNoLote.Text
+        EntidadReportes.PacaInicial = Val(TbInicio.Text)
+        EntidadReportes.PacaFinal = Val(TbFin.Text)
         NegocioReportes.Consultar(EntidadReportes)
         MyTable = EntidadReportes.TablaConsulta
         'Add a sheet to the workbook and fill it with data from MyTable

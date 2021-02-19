@@ -1,29 +1,117 @@
-﻿Imports System.Xml
+﻿Imports Capa_Operacion.Configuracion
+Imports System.Xml
+Imports System.ComponentModel
 Public Class ConsultaXML
+    Private dsxml_ As DataSet
+    Public Property dsxml As DataSet
+        Get
+            Return dsxml_
+        End Get
+        Set(value As DataSet)
+            dsxml_ = value
+        End Set
+    End Property
+    Private Sub ConsultaXML_Load(sender As Object, e As EventArgs) Handles Me.Load
+        abreXML()
+    End Sub
     Private Sub listarXML(ByVal ruta As String)
         propiedadesDgvFactura()
+        Dim increment As Integer = 0
+        ProgressBar.Refresh()
         Try
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim Total = My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, "*.xml")
-            LblTotal.Text = "Total Archivos de Texto: " + CStr(Total.Count)
-
+            'LblTotal.Text = "Total Archivos de Texto: " + CStr(Total.Count)
+            ProgressBar.Value = increment
+            ProgressBar.Minimum = increment
+            ProgressBar.Maximum = Total.Count
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, "*.xml")
-                ExtraerXML(archivos)
+                ExtraerXML(archivos, TbFiltro.Text)
+                ProgressBar.Value += 1
             Next
         Catch ex As Exception
             MsgBox("No se realizó la operación por: " & ex.Message)
         End Try
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtSeleccionarCarpeta.Click
-        Dim rutafolder As String
-        If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
-            rutafolder = FolderBrowserDialog1.SelectedPath
-            DgvFacturas.Rows.Clear()
-            listarXML(rutafolder)
+    Private Sub BtSeleccionarXML_Click(sender As Object, e As EventArgs) Handles BtSeleccionarXML.Click
+        If DgvFacturas.RowCount > 0 Then
+            dsxml_ = DgvSeleccion(DgvFacturas)
+            Me.Close()
+        Else
+            MsgBox("No hay registros para seleccionar.")
         End If
+    End Sub
+    Private Sub filtrarDgv(ByVal DgvFiltrado As DataGridView)
+        Dim ds As New DataSet
+        ds.Tables.Add("RegistroXML")
+        Try
+            Dim col As DataColumn
+            For Each dgvcol As DataGridViewColumn In DgvFiltrado.Columns
+                col = New DataColumn(dgvcol.Name)
+                ds.Tables("RegistroXML").Columns.Add(col)
+            Next
+            Dim row As DataRow
+            Dim colcount As Integer = DgvFiltrado.Columns.Count - 1
+            For i As Integer = 0 To DgvFiltrado.Rows.Count - 1
+                DgvFiltrado.Rows.Item(i).Cells("sel").Value = False
+                row = ds.Tables("RegistroXML").Rows.Add
+                For Each column As DataGridViewColumn In DgvFiltrado.Columns
+                    row.Item(column.Index) = DgvFiltrado.Rows.Item(i).Cells(column.Index).Value
+                Next
+            Next
+            Dim table = ds.Tables("RegistroXML")
+            'datos = ds.Tables("RegistroXML").DefaultView
+            DgvFacturas.Columns.Clear()
+            '
+            table.DefaultView.RowFilter = "Emisor LIKE '%" & Trim(TbFiltro.Text) & "%'"
+            DgvFacturas.DataSource = table
+            propiedadesDgvFactura()
+            'table.DefaultView.RowFilter = "[Emisor] like " & TbFiltro.Text
 
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Function DgvSeleccion(ByVal dgv As DataGridView) As DataSet
+        Dim ds As New DataSet
+        Try
+            ds.Tables.Add("RegistroXML")
+            Dim col As DataColumn
+            For Each dgvcol As DataGridViewColumn In dgv.Columns
+                col = New DataColumn(dgvcol.Name)
+                ds.Tables("RegistroXML").Columns.Add(col)
+            Next
+            Dim row As DataRow
+            Dim colcount As Integer = dgv.Columns.Count - 1
+            For i As Integer = 0 To dgv.Rows.Count - 1
+                If dgv.Rows.Item(i).Cells("sel").Value = True Then
+                    dgv.Rows.Item(i).Cells("sel").Value = False
+                    row = ds.Tables("RegistroXML").Rows.Add
+                    For Each column As DataGridViewColumn In dgv.Columns
+                        row.Item(column.Index) = dgv.Rows.Item(i).Cells(column.Index).Value
+                    Next
+                End If
+            Next
+            Return ds
+        Catch ex As Exception
+            MsgBox("ERROR CRITICO : Se detectó una excepción al convertir dataGridView a DataSet (DgvFacturas).. " & Chr(10) & ex.Message)
+            Return Nothing
+        End Try
+    End Function
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtSeleccionarCarpeta.Click
+        abreXML()
+    End Sub
+    Private Sub abreXML()
+        Dim rutafolder As String
+        rutafolder = TbRuta.Text
+        DgvFacturas.Rows.Clear()
+        listarXML(rutafolder)
+        DgvFacturas.Sort(DgvFacturas.Columns("Emisor"), ListSortDirection.Ascending)
+        Label3.Text = DgvFacturas.RowCount
+        'If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
+        'rutafolder = FolderBrowserDialog1.SelectedPath
+        'End If
     End Sub
     Private Sub propiedadesDgvFactura()
         'DgvData.Columns.Clear()
@@ -32,20 +120,20 @@ Public Class ConsultaXML
             Dim colEmisor As New DataGridViewTextBoxColumn
             colEmisor.Name = "Emisor"
             'colIdHviDetalle.HeaderText = "No Paca"
-            colEmisor.Visible = True
+            colEmisor.ReadOnly = True
             DgvFacturas.Columns.Insert(0, colEmisor)
 
             Dim colRfcEmisor As New DataGridViewTextBoxColumn
             colRfcEmisor.Name = "RFC"
             'colIdHviDetalle.HeaderText = "No Paca"
-            colRfcEmisor.Visible = True
+            colRfcEmisor.ReadOnly = True
             DgvFacturas.Columns.Insert(1, colRfcEmisor)
 
             Dim colUUID As New DataGridViewTextBoxColumn
             colUUID.Name = "UUID"
             colUUID.HeaderText = "UUID"
             'colCantidad.DefaultCellStyle.Format = "C2"
-            colUUID.ReadOnly = True
+            colUUID.Visible = False
             DgvFacturas.Columns.Insert(2, colUUID)
 
             Dim colFecha As New DataGridViewTextBoxColumn
@@ -86,7 +174,7 @@ Public Class ConsultaXML
             colSello.Name = "Sello"
             'colSello.DefaultCellStyle.Format = "C2"
             'colIdHviDetalle.HeaderText = "No Paca"
-            colSello.ReadOnly = True
+            colSello.Visible = False
             DgvFacturas.Columns.Insert(8, colSello)
 
             Dim colRutaXML As New DataGridViewTextBoxColumn
@@ -105,7 +193,7 @@ Public Class ConsultaXML
             DgvFacturas.Columns.Insert(10, colSel)
         End If
     End Sub
-    Private Sub ExtraerXML(ByVal Cadena As String)
+    Private Sub ExtraerXML(ByVal Cadena As String, Optional ByVal filtro As String = "")
         Dim Version_xml As String
         Dim implocaltraladados As Decimal
         Dim implocalretenidos As Decimal
@@ -153,34 +241,73 @@ Public Class ConsultaXML
             trasladados = VarDocumentoXML.SelectSingleNode("/cfdi:Comprobante/cfdi:Impuestos/@TotalImpuestosTrasladados", VarManager).InnerText
             Subtotal = VarDocumentoXML.SelectSingleNode("/cfdi:Comprobante/@SubTotal", VarManager).InnerText
             VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
-            'TbEmisorNombre.Text = Emisor_Nombre
-            'TbRfcEmisor.Text = Emisor_Rfc
-            'TbUUID.Text = UUID
-            'TbTotal.Text = total.ToString("c")
-
-            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
-
-            'propiedadesDgvData()
-
-            'For Each node In VarConceptos
-            '    Unidad = node.attributes("Unidad").value
-            '    ClaveUnidad = node.attributes("ClaveUnidad").value
-            '    valor_noIdentificacion = node.attributes("NoIdentificacion").value
-            '    ClaveProdServ = node.attributes("ClaveProdServ").value
-            '    valor_noIdentificacion = node.attributes("NoIdentificacion").value
-            '    preciounitarioxml = node.attributes("ValorUnitario").value
-            '    importeconcepto = node.attributes("Importe").value
-            '    cantidadvendida = node.attributes("Cantidad").value
-            '    subtotalclave = node.attributes("SubTotal").value
-            '    descripcionxml = node.attributes("Descripcion").value
-
-            '    DgvData.Rows.Add(ClaveProdServ, valor_noIdentificacion, cantidadvendida, ClaveUnidad, Unidad, descripcionxml, preciounitarioxml, Subtotal, importeconcepto)
-
-            'Next
-            'DgvData.DataSource = dt
+            For Each node In VarConceptos
+                If node.attributes("ClaveProdServ").value = TbClaveProducto.Text And node.attributes("ClaveUnidad").value = TbUnidad.Text Then
+                    If filtro <> "" Then
+                        If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            Exit For
+                        End If
+                    Else
+                        If ConsultarXML(UUID) = False Then
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            Exit For
+                        End If
+                    End If
+                ElseIf node.attributes("ClaveProdServ").value = TbClaveProducto.Text And TbUnidad.Text = "" Then
+                    If filtro <> "" Then
+                        If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            Exit For
+                        End If
+                    Else
+                        If ConsultarXML(UUID) = False Then
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            Exit For
+                        End If
+                    End If
+                End If
+            Next
         Else
             MsgBox("Archivo XML no es una factura version 3.3")
         End If
     End Sub
-
+    Private Function ConsultarXML(ByVal UUIDc As String)
+        Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
+        Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
+        Dim Tabla As New DataTable
+        Dim Existe As Boolean = False
+        Try
+            EntidadIntegraciondeCompras.Consulta = Consulta.ConsultaBasica
+            EntidadIntegraciondeCompras.UUID = UUIDc
+            NegocioIntegraciondeCompras.Consultar(EntidadIntegraciondeCompras)
+            Tabla = EntidadIntegraciondeCompras.TablaConsulta
+            If Tabla.Rows.Count > 0 Then
+                Dim row As DataRow = Tabla.Rows(Tabla.Rows.Count - 1)
+                If CStr(row("UUID")) = UUIDc Then Existe = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return Existe
+    End Function
+    Private Sub TbFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TbFiltro.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            abreXML()
+        End If
+    End Sub
+    Private Sub BtMarcar_Click(sender As Object, e As EventArgs) Handles BtMarcar.Click
+        For Each dgv As DataGridViewRow In DgvFacturas.Rows
+            If dgv.Cells("sel").Value = False Then
+                dgv.Cells("sel").Value = True
+            End If
+        Next
+    End Sub
+    Private Sub BtDesmarcar_Click(sender As Object, e As EventArgs) Handles BtDesmarcar.Click
+        For Each dgv As DataGridViewRow In DgvFacturas.Rows
+            If dgv.Cells("sel").Value = True Then
+                dgv.Cells("sel").Value = False
+            End If
+        Next
+    End Sub
 End Class

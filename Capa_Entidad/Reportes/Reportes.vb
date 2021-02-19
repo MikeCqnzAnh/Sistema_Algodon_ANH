@@ -11,6 +11,7 @@
     Public CheckStatus As Boolean
     Public IdPaquete As Integer
     Public IdPlanta As Integer
+    Public LotID As Integer
     Public FolioCia As Long
     Public PacaInicial As Long
     Public PacaFinal As Long
@@ -26,8 +27,8 @@
     Public Nombre As String
     Public Valor As String
     Public Clase As String
-    Public Desde As Integer
-    Public Hasta As Integer
+    Public Desde As Long
+    Public Hasta As Long
     Public Tara As Double
     Public FechaIni As DateTime
     Public FechaFin As DateTime

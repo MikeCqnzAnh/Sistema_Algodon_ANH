@@ -11,9 +11,6 @@ Public Class Reportes
         Try
             cnn.Open()
             Select Case EntidadReportes1.Reporte
-                'Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
-                '    sqldat1 = New SqlDataAdapter("sp_ConsultaPlantas", cnn)
-                '    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReporteClientes
                     sqlcom1 = New SqlCommand("sp_RepClientes", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -283,6 +280,9 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdLiquidacion", EntidadReportes1.IdLiquidacionRomaneaje))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@LotID", EntidadReportes1.LotID))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Inicio", EntidadReportes1.Desde))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Fin", EntidadReportes1.Hasta))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReportePacaDetalleVenta
                     sqlcom1 = New SqlCommand("Pa_ConsultaPacaDetallesVenta", cnn)
@@ -294,6 +294,11 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdLiquidacion", EntidadReportes1.IdLiquidacionRomaneaje))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdSalida", EntidadReportes1.IdSalidaPacas))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarque", EntidadReportes1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadReportes1.NoLote))
+                    sqlcom1.Parameters.Add(New SqlParameter("@PacaInicial", EntidadReportes1.PacaInicial))
+                    sqlcom1.Parameters.Add(New SqlParameter("@PacaFinal", EntidadReportes1.PacaFinal))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception

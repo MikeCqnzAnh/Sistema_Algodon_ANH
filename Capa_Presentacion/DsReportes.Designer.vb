@@ -6438,6 +6438,12 @@ Partial Public Class DsReportes
         
         Private columnCastigoPlasticLevel2Venta As Global.System.Data.DataColumn
         
+        Private columnIdEmbarque As Global.System.Data.DataColumn
+        
+        Private columnIdSalida As Global.System.Data.DataColumn
+        
+        Private columnNoLote As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -6706,6 +6712,30 @@ Partial Public Class DsReportes
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdEmbarqueColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdEmbarque
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdSalidaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdSalida
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NoLoteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNoLote
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6771,9 +6801,12 @@ Partial Public Class DsReportes
                     ByVal CastigoOtherLevel1Venta As Decimal,  _
                     ByVal CastigoOtherLevel2Venta As Decimal,  _
                     ByVal CastigoPlasticLevel1Venta As Decimal,  _
-                    ByVal CastigoPlasticLevel2Venta As Decimal) As ReportePacaDetalleVentaRow
+                    ByVal CastigoPlasticLevel2Venta As Decimal,  _
+                    ByVal IdEmbarque As Integer,  _
+                    ByVal IdSalida As Integer,  _
+                    ByVal NoLote As String) As ReportePacaDetalleVentaRow
             Dim rowReportePacaDetalleVentaRow As ReportePacaDetalleVentaRow = CType(Me.NewRow,ReportePacaDetalleVentaRow)
-            Dim columnValuesArray() As Object = New Object() {FolioCIA, IdLiquidacion, IdOrdenTrabajo, IdPaquete, IdVenta, Planta, KilosProduccion, Tara, KilosVenta, Grade, Quintales, PrecioClase, PrecioDls, Uniformidad, Micros, Resistencia, Largo, CastigoUIVenta, CastigoMicVenta, CastigoResistenciaFibraVenta, CastigoLargoFibraVenta, CastigoBarkLevel1Venta, CastigoBarkLevel2Venta, CastigoPrepLevel1Venta, CastigoPrepLevel2Venta, CastigoOtherLevel1Venta, CastigoOtherLevel2Venta, CastigoPlasticLevel1Venta, CastigoPlasticLevel2Venta}
+            Dim columnValuesArray() As Object = New Object() {FolioCIA, IdLiquidacion, IdOrdenTrabajo, IdPaquete, IdVenta, Planta, KilosProduccion, Tara, KilosVenta, Grade, Quintales, PrecioClase, PrecioDls, Uniformidad, Micros, Resistencia, Largo, CastigoUIVenta, CastigoMicVenta, CastigoResistenciaFibraVenta, CastigoLargoFibraVenta, CastigoBarkLevel1Venta, CastigoBarkLevel2Venta, CastigoPrepLevel1Venta, CastigoPrepLevel2Venta, CastigoOtherLevel1Venta, CastigoOtherLevel2Venta, CastigoPlasticLevel1Venta, CastigoPlasticLevel2Venta, IdEmbarque, IdSalida, NoLote}
             rowReportePacaDetalleVentaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReportePacaDetalleVentaRow)
             Return rowReportePacaDetalleVentaRow
@@ -6825,6 +6858,9 @@ Partial Public Class DsReportes
             Me.columnCastigoOtherLevel2Venta = MyBase.Columns("CastigoOtherLevel2Venta")
             Me.columnCastigoPlasticLevel1Venta = MyBase.Columns("CastigoPlasticLevel1Venta")
             Me.columnCastigoPlasticLevel2Venta = MyBase.Columns("CastigoPlasticLevel2Venta")
+            Me.columnIdEmbarque = MyBase.Columns("IdEmbarque")
+            Me.columnIdSalida = MyBase.Columns("IdSalida")
+            Me.columnNoLote = MyBase.Columns("NoLote")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6888,6 +6924,12 @@ Partial Public Class DsReportes
             MyBase.Columns.Add(Me.columnCastigoPlasticLevel1Venta)
             Me.columnCastigoPlasticLevel2Venta = New Global.System.Data.DataColumn("CastigoPlasticLevel2Venta", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCastigoPlasticLevel2Venta)
+            Me.columnIdEmbarque = New Global.System.Data.DataColumn("IdEmbarque", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdEmbarque)
+            Me.columnIdSalida = New Global.System.Data.DataColumn("IdSalida", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdSalida)
+            Me.columnNoLote = New Global.System.Data.DataColumn("NoLote", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNoLote)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13343,6 +13385,53 @@ Partial Public Class DsReportes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdEmbarque() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacaDetalleVenta.IdEmbarqueColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdEmbarque' de la tabla 'ReportePacaDetalleVenta' es DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacaDetalleVenta.IdEmbarqueColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdSalida() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacaDetalleVenta.IdSalidaColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdSalida' de la tabla 'ReportePacaDetalleVenta' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacaDetalleVenta.IdSalidaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NoLote() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableReportePacaDetalleVenta.NoLoteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NoLote' de la tabla 'ReportePacaDetalleVenta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReportePacaDetalleVenta.NoLoteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsFolioCIANull() As Boolean
             Return Me.IsNull(Me.tableReportePacaDetalleVenta.FolioCIAColumn)
         End Function
@@ -13687,6 +13776,42 @@ Partial Public Class DsReportes
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCastigoPlasticLevel2VentaNull()
             Me(Me.tableReportePacaDetalleVenta.CastigoPlasticLevel2VentaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdEmbarqueNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacaDetalleVenta.IdEmbarqueColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdEmbarqueNull()
+            Me(Me.tableReportePacaDetalleVenta.IdEmbarqueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdSalidaNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacaDetalleVenta.IdSalidaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdSalidaNull()
+            Me(Me.tableReportePacaDetalleVenta.IdSalidaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNoLoteNull() As Boolean
+            Return Me.IsNull(Me.tableReportePacaDetalleVenta.NoLoteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNoLoteNull()
+            Me(Me.tableReportePacaDetalleVenta.NoLoteColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

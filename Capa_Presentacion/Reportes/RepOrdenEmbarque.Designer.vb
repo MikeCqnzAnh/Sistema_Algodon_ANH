@@ -23,12 +23,12 @@ Partial Class RepOrdenEmbarque
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GbDatosEmbarque = New System.Windows.Forms.GroupBox()
+        Me.ChKilos = New System.Windows.Forms.CheckBox()
         Me.CbNoLote = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbIdEmbarque = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CRVOrdenEmbarque = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.ChKilos = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosEmbarque.SuspendLayout()
@@ -45,10 +45,21 @@ Partial Class RepOrdenEmbarque
         Me.GbDatosEmbarque.Dock = System.Windows.Forms.DockStyle.Left
         Me.GbDatosEmbarque.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosEmbarque.Name = "GbDatosEmbarque"
-        Me.GbDatosEmbarque.Size = New System.Drawing.Size(252, 620)
+        Me.GbDatosEmbarque.Size = New System.Drawing.Size(214, 620)
         Me.GbDatosEmbarque.TabIndex = 0
         Me.GbDatosEmbarque.TabStop = False
         Me.GbDatosEmbarque.Text = "Datos de Embarque"
+        '
+        'ChKilos
+        '
+        Me.ChKilos.AutoSize = True
+        Me.ChKilos.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ChKilos.Location = New System.Drawing.Point(9, 126)
+        Me.ChKilos.Name = "ChKilos"
+        Me.ChKilos.Size = New System.Drawing.Size(95, 17)
+        Me.ChKilos.TabIndex = 4
+        Me.ChKilos.Text = "Visualizar Kilos"
+        Me.ChKilos.UseVisualStyleBackColor = True
         '
         'CbNoLote
         '
@@ -90,30 +101,20 @@ Partial Class RepOrdenEmbarque
         Me.CRVOrdenEmbarque.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CRVOrdenEmbarque.Cursor = System.Windows.Forms.Cursors.Default
         Me.CRVOrdenEmbarque.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CRVOrdenEmbarque.Location = New System.Drawing.Point(252, 24)
+        Me.CRVOrdenEmbarque.Location = New System.Drawing.Point(214, 24)
         Me.CRVOrdenEmbarque.Name = "CRVOrdenEmbarque"
         Me.CRVOrdenEmbarque.ShowCloseButton = False
         Me.CRVOrdenEmbarque.ShowGroupTreeButton = False
         Me.CRVOrdenEmbarque.ShowLogo = False
         Me.CRVOrdenEmbarque.ShowParameterPanelButton = False
         Me.CRVOrdenEmbarque.ShowRefreshButton = False
-        Me.CRVOrdenEmbarque.Size = New System.Drawing.Size(844, 620)
+        Me.CRVOrdenEmbarque.Size = New System.Drawing.Size(882, 620)
         Me.CRVOrdenEmbarque.TabIndex = 3
         Me.CRVOrdenEmbarque.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'ChKilos
-        '
-        Me.ChKilos.AutoSize = True
-        Me.ChKilos.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ChKilos.Location = New System.Drawing.Point(9, 126)
-        Me.ChKilos.Name = "ChKilos"
-        Me.ChKilos.Size = New System.Drawing.Size(95, 17)
-        Me.ChKilos.TabIndex = 4
-        Me.ChKilos.Text = "Visualizar Kilos"
-        Me.ChKilos.UseVisualStyleBackColor = True
-        '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImprimirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"

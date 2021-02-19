@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.15.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.19.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -319,6 +319,12 @@
     <Compile Include="Consultas\ConsultaCompradoresSalidas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaCompraIntegracion.Designer.vb">
+      <DependentUpon>ConsultaCompraIntegracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCompraIntegracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarque.Designer.vb">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </Compile>
@@ -359,9 +365,6 @@
     <Compile Include="DsReportes.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DsReportes.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DsReportes.vb">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
@@ -1518,6 +1521,9 @@
     <EmbeddedResource Include="Consultas\ConsultaCompradoresSalidas.resx">
       <DependentUpon>ConsultaCompradoresSalidas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaCompraIntegracion.resx">
+      <DependentUpon>ConsultaCompraIntegracion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarque.resx">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </EmbeddedResource>
@@ -1989,9 +1995,9 @@
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
     <None Include="DsReportes.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsReportes.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DsReportes.xss">
       <DependentUpon>DsReportes.xsd</DependentUpon>

@@ -84,6 +84,9 @@
         GuardarSalidaPacas = 7
         GuardarEncabezado = 8
         GuardarDetalle = 9
+        GuardarIntegracion = 10
+        GuardarFactura = 11
+        GuardarDetalleFactura = 12
     End Enum
     '    '==============================================================================
     '    Public Class Formato
