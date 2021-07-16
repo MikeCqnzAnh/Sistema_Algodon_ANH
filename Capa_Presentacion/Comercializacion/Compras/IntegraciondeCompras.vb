@@ -2,7 +2,25 @@
 Imports System.Xml
 Public Class IntegraciondeCompras
     Private Sub GuardarIntegracionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarIntegracionToolStripMenuItem.Click
-        GuardarEncabezado()
+        If Val(TbIdCompra.Text) = 0 Then
+            MsgBox("No hay Compra seleccionada para guardar.")
+        ElseIf DgvFacturas.Rows.Count = 0 Then
+            MsgBox("No hay factura seleccionada para guardar.")
+        Else
+            If Val(TbPacasCompra.Text) <> Val(TbTotalPacasFacturas.Text) Then
+                Dim opc As DialogResult = MsgBox("La cantidad de pacas de compra y facturas no coincide ¿Desea guardar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Aviso")
+                If opc = DialogResult.Yes Then
+                    GuardarEncabezado()
+                End If
+            ElseIf Val(TbImporteDls.Text) <> Val(TbImporteTotalFacturas.Text) Then
+                Dim opc As DialogResult = MsgBox("La cantidad de importe de compra y facturas no coincide ¿Desea guardar?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Aviso")
+                If opc = DialogResult.Yes Then
+                    GuardarEncabezado()
+                End If
+            Else
+                GuardarEncabezado()
+            End If
+        End If
     End Sub
     Private Sub GuardarEncabezado()
         Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
@@ -21,22 +39,22 @@ Public Class IntegraciondeCompras
             NegocioIntegraciondeCompras.Guardar(EntidadIntegraciondeCompras)
             TbIdIntegracion.Text = EntidadIntegraciondeCompras.IdIntegracion
 
-            GuardarFacturas()
+            GuardarFacturas(Val(TbIdIntegracion.Text))
             MsgBox("Realizado Correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-    Private Sub GuardarFacturas()
+    Private Sub GuardarFacturas(ByVal IdIntegracion As Integer)
         Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
         Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
-        Dim IdFacturaEncabezado As Integer = 0
+        Dim IdFactura As Integer = 0
         If DgvFacturas.RowCount > 0 Then
             Try
                 For Each row As DataGridViewRow In DgvFacturas.Rows
                     EntidadIntegraciondeCompras.Guarda = Guardar.GuardarFactura
-                    EntidadIntegraciondeCompras.IdFacturaEncabezado = IdFacturaEncabezado
-                    EntidadIntegraciondeCompras.IdIntegracion = Val(TbIdIntegracion.Text)
+                    EntidadIntegraciondeCompras.IdFacturaEncabezado = 0
+                    EntidadIntegraciondeCompras.IdIntegracion = IdIntegracion
                     EntidadIntegraciondeCompras.NombreProductor = row.Cells("Emisor").Value.ToString
                     EntidadIntegraciondeCompras.RFC = row.Cells("RFC").Value.ToString
                     EntidadIntegraciondeCompras.UUID = row.Cells("UUID").Value.ToString
@@ -52,82 +70,51 @@ Public Class IntegraciondeCompras
                     EntidadIntegraciondeCompras.FechaCreacion = Now
                     EntidadIntegraciondeCompras.FechaActualizacion = Now
                     NegocioIntegraciondeCompras.Guardar(EntidadIntegraciondeCompras)
-                    TbIdIntegracion.Text = EntidadIntegraciondeCompras.IdFacturaEncabezado
-
-                    GuardarDetalleFacturas(row.Cells("ruta").Value.ToString, 2)
                 Next
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
         End If
     End Sub
-    Private Sub GuardarDetalleFacturas(ByVal Cadena As String, ByVal detalle As Integer)
-        Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
-        Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
-        Dim Version_xml As String
-        Dim Subtotal As Decimal
-        Dim ClaveUnidad As String
-        Dim Unidad As String
-        Dim ClaveProdServ As String
-        Dim valor_noIdentificacion As String
-        Dim preciounitarioxml As Decimal
-        Dim importeconcepto As Decimal
-        Dim cantidadvendida As Decimal
-        Dim subtotalclave As Decimal = 0
-        Dim descripcionxml As String
-        Dim VarConceptos As XmlNodeList
-        Dim VarDocumentoXML As XmlDocument = New XmlDocument()
-        Dim VarManager As XmlNamespaceManager = New XmlNamespaceManager(VarDocumentoXML.NameTable)
-        VarDocumentoXML.Load(Cadena)  'Aqui puedes definir la ruta del archivo mediante un OpenFileDialog o  algun otro metodo para especificar la ubicacion del XML
-        VarManager.AddNamespace("cfdi", "http://www.sat.gob.mx/cfd/3")
-        VarManager.AddNamespace("tfd", "http://www.sat.gob.mx/TimbreFiscalDigital")
-        VarManager.AddNamespace("implocal", "http://www.sat.gob.mx/implocal")
-        Version_xml = VarDocumentoXML.SelectSingleNode("/cfdi:Comprobante/@Version", VarManager).InnerText
-        If Version_xml = "3.3" Then
-            If detalle = 2 Then
-                VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
-                propiedadesDgvData()
+    'Private Sub GuardarDetalleFacturas(ByVal Cadena As String, ByVal detalle As Integer, ByVal IdFactura As Integer)
+    '    Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
+    '    Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
+    '    Dim Version_xml As String
+    '    Dim subtotalclave As Decimal = 0
+    '    Dim VarConceptos As XmlNodeList
+    '    Dim VarDocumentoXML As XmlDocument = New XmlDocument()
+    '    Dim VarManager As XmlNamespaceManager = New XmlNamespaceManager(VarDocumentoXML.NameTable)
+    '    VarDocumentoXML.Load(Cadena)  'Aqui puedes definir la ruta del archivo mediante un OpenFileDialog o  algun otro metodo para especificar la ubicacion del XML
+    '    VarManager.AddNamespace("cfdi", "http://www.sat.gob.mx/cfd/3")
+    '    VarManager.AddNamespace("tfd", "http://www.sat.gob.mx/TimbreFiscalDigital")
+    '    VarManager.AddNamespace("implocal", "http://www.sat.gob.mx/implocal")
+    '    Version_xml = VarDocumentoXML.SelectSingleNode("/cfdi:Comprobante/@Version", VarManager).InnerText
+    '    Try
+    '        If Version_xml = "3.3" Then
+    '            If detalle = 2 Then
+    '                VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
+    '                For Each node In VarConceptos
+    '                    EntidadIntegraciondeCompras.Guarda = Guardar.GuardarDetalleFactura
+    '                    EntidadIntegraciondeCompras.IdExterno = 0
+    '                    EntidadIntegraciondeCompras.IdFacturaEncabezado = IdFactura
+    '                    EntidadIntegraciondeCompras.Unidad = node.attributes("Unidad").value
+    '                    EntidadIntegraciondeCompras.ClaveUnidad = node.attributes("ClaveUnidad").value
+    '                    EntidadIntegraciondeCompras.ClaveProdServ = node.attributes("ClaveProdServ").value
+    '                    EntidadIntegraciondeCompras.preciounitarioxml = node.attributes("ValorUnitario").value
+    '                    EntidadIntegraciondeCompras.importeconcepto = node.attributes("Importe").value
+    '                    EntidadIntegraciondeCompras.cantidadvendida = node.attributes("Cantidad").value
+    '                    EntidadIntegraciondeCompras.descripcionxml = node.attributes("Descripcion").value
+    '                    EntidadIntegraciondeCompras.FechaCreacion = Now
+    '                    EntidadIntegraciondeCompras.FechaActualizacion = Now
+    '                    NegocioIntegraciondeCompras.Guardar(EntidadIntegraciondeCompras)
 
-                For Each node In VarConceptos
-                    Unidad = node.attributes("Unidad").value
-                    ClaveUnidad = node.attributes("ClaveUnidad").value
-                    valor_noIdentificacion = node.attributes("NoIdentificacion").value
-                    ClaveProdServ = node.attributes("ClaveProdServ").value
-                    valor_noIdentificacion = node.attributes("NoIdentificacion").value
-                    preciounitarioxml = node.attributes("ValorUnitario").value
-                    importeconcepto = node.attributes("Importe").value
-                    cantidadvendida = node.attributes("Cantidad").value
-                    subtotalclave = node.attributes("SubTotal").value
-                    descripcionxml = node.attributes("Descripcion").value
-
-                    DgvData.Rows.Add(ClaveProdServ, valor_noIdentificacion, cantidadvendida, ClaveUnidad, Unidad, descripcionxml, preciounitarioxml, Subtotal, importeconcepto)
-
-                Next
-            End If
-
-        Else
-            MsgBox("Archivo XML no es una factura version 3.3")
-        End If
-        Try
-
-
-            EntidadIntegraciondeCompras.Guarda = Guardar.GuardarDetalleFactura
-            EntidadIntegraciondeCompras.IdIntegracion = IIf(TbIdIntegracion.Text = "", 0, TbIdIntegracion.Text)
-            EntidadIntegraciondeCompras.IdContrato = TbIdContratoCompra.Text
-            EntidadIntegraciondeCompras.IdCompra = TbIdCompra.Text
-            EntidadIntegraciondeCompras.IdProductor = TbIDCliente.Text
-            EntidadIntegraciondeCompras.ImporteFacturas = CDec(TbImporteTotalFacturas.Text)
-            EntidadIntegraciondeCompras.TotalToneladas = CDec(TbTotalToneladasFacturas.Text)
-            EntidadIntegraciondeCompras.TotalPacas = TbTotalPacasFacturas.Text
-            EntidadIntegraciondeCompras.FechaCreacion = Now
-            EntidadIntegraciondeCompras.FechaActualizacion = Now
-            NegocioIntegraciondeCompras.Guardar(EntidadIntegraciondeCompras)
-            TbIdIntegracion.Text = EntidadIntegraciondeCompras.IdIntegracion
-            MsgBox("Realizado Correctamente")
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+    '                Next
+    '            End If
+    '        End If
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
     Private Sub BuscarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem.Click
         Dim ConsultaCompra As New ConsultaCompraIntegracion
         ConsultaCompra.ShowDialog()
@@ -148,10 +135,65 @@ Public Class IntegraciondeCompras
             BtSeleccionaXML.Enabled = True
         End If
     End Sub
+    Private Sub ConsultarIntegracionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarIntegracionToolStripMenuItem.Click
+        Dim ConsIntegracion As New ConsultaIntegracion
+        ConsIntegracion.ShowDialog()
+        If ConsIntegracion.IdIntegracion > 0 Then
+            limpiar()
+            TbIdIntegracion.Text = ConsIntegracion.IdIntegracion
+            TbIdCompra.Text = ConsIntegracion.IdCompra
+            TbIdContratoCompra.Text = ConsIntegracion.IdContrato
+            TbIDCliente.Text = ConsIntegracion.IdCliente
+            TbNombre.Text = ConsIntegracion.NombreProductor
+            TbRfcEmisor.Text = ConsIntegracion.Rfc
+            TbPrecioCompra.Text = Format(ConsIntegracion.PrecioQuintal, "$ #,##0.00")
+            TbPacasCompra.Text = Format(ConsIntegracion.TotalPacas, " #,##0")
+            TbTotalKilos.Text = Format(ConsIntegracion.Kilos / 1000, " #,##0.0000")
+            TbSubTotalDls.Text = Format(ConsIntegracion.SubTotal, "$ #,##0.000")
+            TbCastigoDls.Text = Format(ConsIntegracion.CastigoDls, "$ #,##0.000")
+            TbImporteDls.Text = Format(ConsIntegracion.TotalDls, "$ #,##0.000")
+            TbImporteTotalFacturas.Text = Format(ConsIntegracion.ImporteFacturas, "$ #,##0.000")
+            TbTotalToneladasFacturas.Text = Format(ConsIntegracion.TotalToneladasFacturas, "$ #,##0.000")
+            TbTotalPacasFacturas.Text = Format(ConsIntegracion.TotalPacasFacturas, " #,##0")
+
+            DtFechaCreacion.Value = ConsIntegracion.FechaCreacion
+            DtFechaActualizacion.Value = ConsIntegracion.FechaActualizacion
+            BtSeleccionaXML.Enabled = True
+
+            FacturaIntegracion(Val(TbIdIntegracion.Text))
+        End If
+    End Sub
+    Private Sub FacturaIntegracion(ByVal IdIntegracion As Integer)
+        Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
+        Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
+        Try
+            If IdIntegracion > 0 Then
+                EntidadIntegraciondeCompras.Consulta = Consulta.ConsultaDetallada
+                EntidadIntegraciondeCompras.IdIntegracion = IdIntegracion
+                NegocioIntegraciondeCompras.Consultar(EntidadIntegraciondeCompras)
+                TbIdIntegracion.Text = EntidadIntegraciondeCompras.IdIntegracion
+                Tabla = EntidadIntegraciondeCompras.TablaConsulta
+                If Tabla.Rows.Count > 0 Then
+                    DgvFacturas.Columns.Clear()
+                    For Each dr As DataRow In Tabla.Rows
+                        If ValidaExiste(dr("UUID").ToString) = False Then
+                            ExtraerXML(dr("ruta").ToString, 1, dr("TotalPacas"))
+                        End If
+                    Next
+                    DgvFacturas.Sort(DgvFacturas.Columns("Emisor"), ListSortDirection.Ascending)
+                    TbCantidadFacturas.Text = DgvFacturas.RowCount
+
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Sumar()
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-    Private Sub ExtraerXML(ByVal Cadena As String, ByVal detalle As Integer)
+    Private Sub ExtraerXML(ByVal Cadena As String, ByVal detalle As Integer, Optional ByVal TotalPacas As Decimal = 0)
         Dim Version_xml As String
         Dim implocaltraladados As Decimal
         Dim implocalretenidos As Decimal
@@ -206,7 +248,7 @@ Public Class IntegraciondeCompras
                 For Each node In VarConceptos
                     totaltoneladas += node.attributes("Cantidad").value
                 Next
-                DgvFacturas.Rows.Add(IIf(Emisor_Nombre Is Nothing, "", Emisor_Nombre), Emisor_Rfc, UUID, Fecha, totaltoneladas, 0, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                DgvFacturas.Rows.Add(IIf(Emisor_Nombre Is Nothing, "", Emisor_Nombre), Emisor_Rfc, UUID, Fecha, totaltoneladas, IIf(TotalPacas > 0, TotalPacas, 0), Subtotal, total, Moneda, TipoCambio, sello, Cadena)
 
             ElseIf detalle = 2 Then
                 VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
@@ -217,7 +259,6 @@ Public Class IntegraciondeCompras
                     ClaveUnidad = node.attributes("ClaveUnidad").value
                     valor_noIdentificacion = node.attributes("NoIdentificacion").value
                     ClaveProdServ = node.attributes("ClaveProdServ").value
-                    valor_noIdentificacion = node.attributes("NoIdentificacion").value
                     preciounitarioxml = node.attributes("ValorUnitario").value
                     importeconcepto = node.attributes("Importe").value
                     cantidadvendida = node.attributes("Cantidad").value
@@ -408,6 +449,8 @@ Public Class IntegraciondeCompras
     End Sub
 
     Private Sub BtQuitarXML_Click(sender As Object, e As EventArgs) Handles BtQuitarXML.Click
+        Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
+        Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
         DgvFacturas.EndEdit()
         DgvData.Rows.Clear()
         Dim i As Integer = (DgvFacturas.Rows.Count - 1)
@@ -415,14 +458,33 @@ Public Class IntegraciondeCompras
             i = (i - 1)
             For Each dr As DataGridViewRow In DgvFacturas.Rows
                 If dr.Cells("sel").Value = True Then
+                    EntidadIntegraciondeCompras.Eliminar = Eliminar.EliminarRegistro
+                    EntidadIntegraciondeCompras.UUID = dr.Cells("UUID").Value.ToString
+                    NegocioIntegraciondeCompras.Eliminar(EntidadIntegraciondeCompras)
                     DgvFacturas.Rows.Remove(dr)
                 End If
             Next
         Loop
         TbCantidadFacturas.Text = DgvFacturas.RowCount
         Sumar()
+        SumaPacas()
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtSeleccionaXML.Click
+    Private Sub EliminarFactura()
+        Dim EntidadIntegraciondeCompras As New Capa_Entidad.IntegraciondeCompras
+        Dim NegocioIntegraciondeCompras As New Capa_Negocio.IntegraciondeCompras
+        Try
+            For Each dgv As DataGridViewRow In DgvFacturas.Rows
+                If dgv.Cells("sel").Value = True Then
+                    EntidadIntegraciondeCompras.Eliminar = Eliminar.EliminarRegistro
+                    EntidadIntegraciondeCompras.UUID = dgv.Cells("UUID").Value.ToString
+                    NegocioIntegraciondeCompras.Eliminar(EntidadIntegraciondeCompras)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub BtSeleccionaXML_Click(sender As Object, e As EventArgs) Handles BtSeleccionaXML.Click
         Dim cargaxml As New ConsultaXML
         cargaxml.ShowDialog()
         If cargaxml.dsxml IsNot Nothing Then
@@ -484,17 +546,7 @@ Public Class IntegraciondeCompras
         TbIdIntegracion.Clear()
     End Sub
     Private Sub DgvFacturas_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvFacturas.CellEndEdit
-        Dim totalA As Integer = 0
-        Dim TotalB As Decimal = 0
-
-        For Each fila As DataGridViewRow In DgvFacturas.Rows
-            If fila.Cells("TotalPacas").Value Is Nothing Then
-                Exit Sub
-            Else
-                totalA += Convert.ToInt32(fila.Cells("TotalPacas").Value)
-            End If
-            TbTotalPacasFacturas.Text = Format(totalA, "#,##0")
-        Next
+        SumaPacas()
         extraedetallexml()
     End Sub
     Private Sub extraedetallexml()
@@ -507,7 +559,21 @@ Public Class IntegraciondeCompras
             MsgBox("No hay registros para validar.")
         End If
     End Sub
+    Private Sub SumaPacas()
+        Dim totalA As Integer = 0
+        Dim TotalB As Decimal = 0
 
+        For Each fila As DataGridViewRow In DgvFacturas.Rows
+            If fila.Cells("TotalPacas").Value Is Nothing Then
+                TbTotalPacasFacturas.Text = 0
+            Else
+                totalA += Convert.ToInt32(fila.Cells("TotalPacas").Value)
+            End If
+            TbTotalPacasFacturas.Text = Format(totalA, "#,##0")
+        Next
+
+        If DgvFacturas.RowCount = 0 Then TbTotalPacasFacturas.Text = 0
+    End Sub
     Private Sub BtSeleccionar_Click(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         For Each dgv As DataGridViewRow In DgvFacturas.Rows
             If dgv.Cells("sel").Value = False Then
@@ -525,4 +591,6 @@ Public Class IntegraciondeCompras
     Private Sub DgvFacturas_KeyUp(sender As Object, e As KeyEventArgs) Handles DgvFacturas.KeyUp
         extraedetallexml()
     End Sub
+
+
 End Class

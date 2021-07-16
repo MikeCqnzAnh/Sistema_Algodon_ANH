@@ -147,7 +147,6 @@ Public Class ConsultaCompraIntegracion
     Private Sub BtConsultar_Click(sender As Object, e As EventArgs) Handles BtConsultar.Click
         ConsultaCompra()
     End Sub
-
     Private Sub DgvCompras_DoubleClick(sender As Object, e As EventArgs) Handles DgvCompras.DoubleClick
         If DgvCompras.DataSource Is Nothing Then
             MsgBox("No hay registros disponibles")
@@ -155,8 +154,8 @@ Public Class ConsultaCompraIntegracion
             Dim index As Integer
             index = DgvCompras.CurrentCell.RowIndex
             _IdCompra = DgvCompras.Rows(index).Cells("IdCompra").Value
-            _IdContrato = DgvCompras.Rows(index).Cells("IdCompra").Value
-            _IdCliente = DgvCompras.Rows(index).Cells("IdCompra").Value
+            _IdContrato = DgvCompras.Rows(index).Cells("IdContratoAlgodon").Value
+            _IdCliente = DgvCompras.Rows(index).Cells("Idcliente").Value
             _NombreProductor = DgvCompras.Rows(index).Cells("Nombre").Value
             _Rfc = DgvCompras.Rows(index).Cells("Rfc").Value
             _PrecioQuintal = DgvCompras.Rows(index).Cells("PrecioQuintal").Value

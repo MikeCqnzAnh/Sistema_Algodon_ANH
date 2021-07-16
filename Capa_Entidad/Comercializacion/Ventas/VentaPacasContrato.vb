@@ -46,6 +46,15 @@
     Public NombreComprador As String
     Public PacasVendidas As Integer
     Public PacasDisponibles As Integer
+    Public IdModoMic As Integer
+    Public IdModoRes As Integer
+    Public IdModoLargo As Integer
+    Public IdModoUI As Integer
+    Public CkMic As Boolean
+    Public CkRes As Boolean
+    Public CkUI As Boolean
+    Public CkLargo As Boolean
+
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

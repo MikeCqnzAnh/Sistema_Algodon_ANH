@@ -1,4 +1,4 @@
-ALTER Procedure Sp_InsertaCompraPacas
+Create Procedure Sp_InsertaCompraPacas
  @IdCompra int output
 ,@IdContratoAlgodon int 
 ,@IdProductor int
@@ -33,6 +33,9 @@ ALTER Procedure Sp_InsertaCompraPacas
 ,@TotalDlls float
 ,@TotalPesosMx float
 ,@IdEstatusCompra int
+,@FechaCreacion datetime
+,@FechaActualizacion datetime 
+
 as
 begin 
 set nocount on

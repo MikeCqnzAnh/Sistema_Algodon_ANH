@@ -104,14 +104,17 @@ Public Class ConsultaXML
     End Sub
     Private Sub abreXML()
         Dim rutafolder As String
-        rutafolder = TbRuta.Text
-        DgvFacturas.Rows.Clear()
-        listarXML(rutafolder)
-        DgvFacturas.Sort(DgvFacturas.Columns("Emisor"), ListSortDirection.Ascending)
+        FolderBrowserDialog1.SelectedPath = "\\servidor\Scanner\Miguel\XML"
+        If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
+            TbRuta.Text = FolderBrowserDialog1.SelectedPath
+            rutafolder = TbRuta.Text
+            DgvFacturas.Rows.Clear()
+            listarXML(rutafolder)
+            DgvFacturas.Sort(DgvFacturas.Columns("Emisor"), ListSortDirection.Ascending)
+        End If
+
         Label3.Text = DgvFacturas.RowCount
-        'If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
-        'rutafolder = FolderBrowserDialog1.SelectedPath
-        'End If
+
     End Sub
     Private Sub propiedadesDgvFactura()
         'DgvData.Columns.Clear()

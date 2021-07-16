@@ -35,6 +35,7 @@ Public Class ConsultaClientes
             Dim index As Integer
             index = DgvConsultaClientes.CurrentCell.RowIndex
             _IdCliente = DgvConsultaClientes.Rows(index).Cells("IdCliente").Value
+            _Nombre = DgvConsultaClientes.Rows(index).Cells("Nombre").Value
             Close()
         End If
     End Sub

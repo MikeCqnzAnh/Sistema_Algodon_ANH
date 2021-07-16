@@ -261,7 +261,7 @@ Public Class OrdenEmbarquePacas
         Dim Contador As Integer = 0
         IdPaquete = DgvPaquetesDisponibles.Rows(filaSeleccionada).Cells("IdPaqueteEncabezado").Value
         For Each row As DataGridViewRow In DgvPacasDisponibles.Rows
-            Dim Index As Integer = Convert.ToUInt64(row.Index)
+            'Dim Index As Integer = Convert.ToUInt64(row.Index)
             If row.Cells("Seleccionar").Value = True Then
                 GuardaDetalle(row.Cells("IdVentaEnc").Value, row.Cells("IdPlantaOrigen").Value, row.Cells("BaleID").Value, row.Cells("Kilos").Value)
                 Contador = Contador + 1

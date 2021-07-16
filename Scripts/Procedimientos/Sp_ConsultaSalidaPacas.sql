@@ -1,5 +1,5 @@
-Create Procedure Sp_ConsultaSalidaPacas
-@IdSalidaPacas int,
+alter Procedure Sp_ConsultaSalidaPacas
+@IdSalidaPacas int ,
 @NombreComprador varchar(100)
 as
 if @IdSalidaPacas = 0 and @NombreComprador = ''
@@ -19,17 +19,18 @@ select SP.IdSalidaEncabezado
 	  ,ee.PlacaCaja1
 	  ,ee.NoContenedorCaja2
 	  ,ee.PlacaCaja2
+	  ,(select count(baleid) from calculoclasificacion where idsalidaencabezado = SP.IdSalidaEncabezado) as CantidadPacas
 	  ,ee.Fecha
 	  ,sp.NoLote
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
-	  ,sp.FolioSalida
+	  ,isnull(sp.FolioSalida,0) as FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
-	  ,sp.Observaciones
+	  ,'"'+sp.Observaciones+'"' as Observaciones
 	  ,sp.EstatusSalida
 from SalidaPacasEncabezado SP inner join EmbarqueEncabezado EE on SP.IdEmbarqueEncabezado = EE.IdEmbarqueEncabezado
 							  inner join Compradores CO on EE.IdComprador = CO.IdComprador
@@ -51,17 +52,18 @@ select SP.IdSalidaEncabezado
 	  ,ee.PlacaCaja1
 	  ,ee.NoContenedorCaja2
 	  ,ee.PlacaCaja2
+	  ,(select count(baleid) from calculoclasificacion where idsalidaencabezado = SP.IdSalidaEncabezado) as CantidadPacas
 	  ,ee.Fecha
 	  ,sp.NoLote
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
-	  ,sp.FolioSalida
+	  ,isnull(sp.FolioSalida,0) as FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
-	  ,sp.Observaciones
+	  ,'"'+sp.Observaciones+'"' as Observaciones
 	  ,sp.EstatusSalida
 from SalidaPacasEncabezado SP inner join EmbarqueEncabezado EE on SP.IdEmbarqueEncabezado = EE.IdEmbarqueEncabezado
 							  inner join Compradores CO on EE.IdComprador = CO.IdComprador
@@ -84,17 +86,18 @@ select SP.IdSalidaEncabezado
 	  ,ee.PlacaCaja1
 	  ,ee.NoContenedorCaja2
 	  ,ee.PlacaCaja2
+	  ,(select count(baleid) from calculoclasificacion where idsalidaencabezado = SP.IdSalidaEncabezado) as CantidadPacas
 	  ,ee.Fecha
 	  ,sp.NoLote
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
-	  ,sp.FolioSalida
+	  ,isnull(sp.FolioSalida,0) as FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
-	  ,sp.Observaciones
+	  ,'"'+sp.Observaciones+'"' as Observaciones
 	  ,sp.EstatusSalida
 from SalidaPacasEncabezado SP inner join EmbarqueEncabezado EE on SP.IdEmbarqueEncabezado = EE.IdEmbarqueEncabezado
 							  inner join Compradores CO on EE.IdComprador = CO.IdComprador
@@ -117,17 +120,18 @@ select SP.IdSalidaEncabezado
 	  ,ee.PlacaCaja1
 	  ,ee.NoContenedorCaja2
 	  ,ee.PlacaCaja2
+	  ,(select count(baleid) from calculoclasificacion where idsalidaencabezado = SP.IdSalidaEncabezado) as CantidadPacas
 	  ,ee.Fecha
 	  ,sp.NoLote
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
 	  ,sp.Destino
-	  ,sp.FolioSalida
+	  ,isnull(sp.FolioSalida,0) as FolioSalida
 	  ,sp.NoFactura
 	  ,sp.FechaEntrada
 	  ,sp.FechaSalida
-	  ,sp.Observaciones
+	  ,'"'+sp.Observaciones+'"' as Observaciones
 	  ,sp.EstatusSalida
 from SalidaPacasEncabezado SP inner join EmbarqueEncabezado EE on SP.IdEmbarqueEncabezado = EE.IdEmbarqueEncabezado
 							  inner join Compradores CO on EE.IdComprador = CO.IdComprador

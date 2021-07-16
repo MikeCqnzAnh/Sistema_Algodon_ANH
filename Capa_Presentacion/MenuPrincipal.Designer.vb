@@ -98,6 +98,8 @@ Partial Class MenuPrincipal
         Me.SalidaDePacasDeBorraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDeBasuraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaEnBodegaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaPacasOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeEmbarquePToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaccionesAClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CartaDeDepositoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -133,6 +135,8 @@ Partial Class MenuPrincipal
         Me.PacasPorPaquetesHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilidadDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HVIDetalladoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DetalleDePacasCompraMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PacasPorDetalleDeVentaMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RecapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteGeneralToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BoletasMódulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -141,6 +145,7 @@ Partial Class MenuPrincipal
         Me.PacasFaltantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExistenciaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SagarpaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesDeEventosPorIncidenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDiarioDeTrabajoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -188,8 +193,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.DetalleDePacasCompraMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PacasPorDetalleDeVentaMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -698,7 +701,7 @@ Partial Class MenuPrincipal
         '
         'AlmacenesToolStripMenuItem
         '
-        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem})
+        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem, Me.SalidaPacasOrdenToolStripMenuItem, Me.OrdenDeEmbarquePToolStripMenuItem})
         Me.AlmacenesToolStripMenuItem.Name = "AlmacenesToolStripMenuItem"
         Me.AlmacenesToolStripMenuItem.Size = New System.Drawing.Size(86, 23)
         Me.AlmacenesToolStripMenuItem.Tag = "58,0"
@@ -746,6 +749,20 @@ Partial Class MenuPrincipal
         Me.ExistenciaEnBodegaToolStripMenuItem.Tag = "63,58"
         Me.ExistenciaEnBodegaToolStripMenuItem.Text = "Existencia en Bodega Pacas"
         '
+        'SalidaPacasOrdenToolStripMenuItem
+        '
+        Me.SalidaPacasOrdenToolStripMenuItem.Name = "SalidaPacasOrdenToolStripMenuItem"
+        Me.SalidaPacasOrdenToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.SalidaPacasOrdenToolStripMenuItem.Tag = "0,0"
+        Me.SalidaPacasOrdenToolStripMenuItem.Text = "Salida Pacas Orden"
+        '
+        'OrdenDeEmbarquePToolStripMenuItem
+        '
+        Me.OrdenDeEmbarquePToolStripMenuItem.Name = "OrdenDeEmbarquePToolStripMenuItem"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "0,0"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Text = "Orden de Embarque p"
+        '
         'AdministraciónToolStripMenuItem
         '
         Me.AdministraciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TransaccionesAClientesToolStripMenuItem, Me.CartaDeDepositoToolStripMenuItem})
@@ -770,7 +787,7 @@ Partial Class MenuPrincipal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeProduccionToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.SalidasToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeProduccionToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.SalidasToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.ExistenciaDePacasToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ReportesToolStripMenuItem.Tag = "67,0"
@@ -998,6 +1015,20 @@ Partial Class MenuPrincipal
         Me.HVIDetalladoToolStripMenuItem.Tag = "88,75"
         Me.HVIDetalladoToolStripMenuItem.Text = "HVI Detallado"
         '
+        'DetalleDePacasCompraMenuItem
+        '
+        Me.DetalleDePacasCompraMenuItem.Name = "DetalleDePacasCompraMenuItem"
+        Me.DetalleDePacasCompraMenuItem.Size = New System.Drawing.Size(350, 24)
+        Me.DetalleDePacasCompraMenuItem.Tag = "0,0"
+        Me.DetalleDePacasCompraMenuItem.Text = "Pacas Por Detalle de Compra"
+        '
+        'PacasPorDetalleDeVentaMenuItem
+        '
+        Me.PacasPorDetalleDeVentaMenuItem.Name = "PacasPorDetalleDeVentaMenuItem"
+        Me.PacasPorDetalleDeVentaMenuItem.Size = New System.Drawing.Size(350, 24)
+        Me.PacasPorDetalleDeVentaMenuItem.Tag = "0,0"
+        Me.PacasPorDetalleDeVentaMenuItem.Text = "Pacas Por Detalle de Venta"
+        '
         'RecapToolStripMenuItem
         '
         Me.RecapToolStripMenuItem.Name = "RecapToolStripMenuItem"
@@ -1053,6 +1084,13 @@ Partial Class MenuPrincipal
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Tag = "95,67"
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Text = "Existencia de Semilla en Patios"
+        '
+        'ExistenciaDePacasToolStripMenuItem
+        '
+        Me.ExistenciaDePacasToolStripMenuItem.Name = "ExistenciaDePacasToolStripMenuItem"
+        Me.ExistenciaDePacasToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
+        Me.ExistenciaDePacasToolStripMenuItem.Tag = "0,0"
+        Me.ExistenciaDePacasToolStripMenuItem.Text = "Existencia de Pacas"
         '
         'SagarpaToolStripMenuItem
         '
@@ -1382,20 +1420,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'DetalleDePacasCompraMenuItem
-        '
-        Me.DetalleDePacasCompraMenuItem.Name = "DetalleDePacasCompraMenuItem"
-        Me.DetalleDePacasCompraMenuItem.Size = New System.Drawing.Size(350, 24)
-        Me.DetalleDePacasCompraMenuItem.Tag = "0,0"
-        Me.DetalleDePacasCompraMenuItem.Text = "Pacas Por Detalle de Compra"
-        '
-        'PacasPorDetalleDeVentaMenuItem
-        '
-        Me.PacasPorDetalleDeVentaMenuItem.Name = "PacasPorDetalleDeVentaMenuItem"
-        Me.PacasPorDetalleDeVentaMenuItem.Size = New System.Drawing.Size(350, 24)
-        Me.PacasPorDetalleDeVentaMenuItem.Tag = "0,0"
-        Me.PacasPorDetalleDeVentaMenuItem.Text = "Pacas Por Detalle de Venta"
-        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1588,4 +1612,7 @@ Partial Class MenuPrincipal
     Friend WithEvents ResComprasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DetalleDePacasCompraMenuItem As ToolStripMenuItem
     Friend WithEvents PacasPorDetalleDeVentaMenuItem As ToolStripMenuItem
+    Friend WithEvents ExistenciaDePacasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalidaPacasOrdenToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenDeEmbarquePToolStripMenuItem As ToolStripMenuItem
 End Class

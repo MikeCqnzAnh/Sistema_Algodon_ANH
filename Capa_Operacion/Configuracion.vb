@@ -69,6 +69,8 @@
         ReporteCompras = 31
         ReportePacaDetalleCompra = 32
         ReportePacaDetalleVenta = 33
+        ReporteExistenciasResumen = 34
+        ReporteExistenciasDetalle = 35
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -87,6 +89,8 @@
         GuardarIntegracion = 10
         GuardarFactura = 11
         GuardarDetalleFactura = 12
+        GuardaPacas = 13
+        GuardarEmbarqueDetalleLotes = 14
     End Enum
     '    '==============================================================================
     '    Public Class Formato
@@ -207,6 +211,22 @@
         ConsultaOrdenRevision = 107
         ConsultaProduccionRevision = 108
         ConsultaProduccionPesos = 109
+        ConsultaIntegracion = 110
+        ConsultaDetallesCastigoPacas = 111
+        ConsultaComboLotes = 112
+        ConsultaLotes = 113
+        ConsultaComboLotesPacas = 114
+        ConsultaPaquetesembarques = 115
+        ConsultaPacasEmbarques = 116
+        ConsultaComboEmbarqueLotes = 117
+        ConsultaPaqueteDisponibleSalida = 118
+        ConsultaPacasDisponibleSalida = 119
+        ConsultaPacasSalidas = 120
+        ConsultaPaquetesSalida = 121
+        ConsultaComboCompradoresAcuenta = 122
+        ConsultaSalidaEncabezado = 123
+        ConsultaPaqueteSalidaSeleccionado = 124
+        ConsultaPacaSalidaSeleccionado = 125
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

@@ -204,6 +204,22 @@ Public Class VentaPacasContrato
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
                     sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallesCastigoPacas
+                    sqlcom1 = New SqlCommand("Pa_ConsultaPacasCastigoDetalle", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoMicEnc", EntidadVentaPacasContrato1.IdModoMic))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoResEnc", EntidadVentaPacasContrato1.IdModoRes))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoUIEnc", EntidadVentaPacasContrato1.IdModoUI))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoLargoEnc", EntidadVentaPacasContrato1.IdModoLargo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@UnidadPeso", EntidadVentaPacasContrato1.IdUnidadPeso))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkMic", EntidadVentaPacasContrato1.CkMic))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkRes", EntidadVentaPacasContrato1.CkRes))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkUI", EntidadVentaPacasContrato1.CkUI))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkLargo", EntidadVentaPacasContrato1.CkLargo))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
             End Select
         Catch ex As Exception
             cnn.Close()

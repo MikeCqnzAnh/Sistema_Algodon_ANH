@@ -1,16 +1,16 @@
-alter procedure Pa_InsertarFactura
-@IdFactura int output,
+Create procedure Pa_InsertarFactura
+@IdFactura int ,
 @IdIntegracionCompra int,
 @Emisor varchar(max),
 @RFC varchar(13),
 @UUID varchar(36),
 @Fecha datetime,
-@TotalToneladas decimal,
-@TotalPacas decimal,
-@subtotal decimal,
-@total decimal,
+@TotalToneladas decimal(18,5),
+@TotalPacas decimal(18,5),
+@subtotal decimal(18,5),
+@total decimal(18,5),
 @moneda varchar(3),
-@tipocambio decimal,
+@tipocambio decimal(18,5),
 @sello varchar(345),
 @ruta varchar(max),
 @FechaCreacion datetime,
@@ -66,7 +66,6 @@ UPDATE SET IdIntegracionCompra = SOURCE.IdIntegracionCompra,
 		   tipocambio = SOURCE.tipocambio,
 		   sello = SOURCE.sello,
 		   ruta = SOURCE.ruta,
-		   FechaCreacion = SOURCE.FechaCreacion,
 		   FechaActualizacion = SOURCE.FechaActualizacion 
 WHEN NOT MATCHED THEN
 INSERT (IdIntegracionCompra,
@@ -101,4 +100,3 @@ INSERT (IdIntegracionCompra,
 			   ,source.FechaActualizacion);
 		SET @IdFactura = SCOPE_IDENTITY()
 		END
-RETURN @IdFactura

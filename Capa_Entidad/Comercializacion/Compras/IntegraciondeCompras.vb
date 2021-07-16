@@ -18,4 +18,15 @@
     Public ruta As String
     Public NombreProductor As String
     Public IdFacturaEncabezado As Integer
+
+    Public Unidad As String
+    Public ClaveUnidad As String
+    Public NoIdentificacion As String
+    Public ClaveProdServ As String
+    Public preciounitarioxml As Decimal
+    Public importeconcepto As Decimal
+    Public cantidadvendida As Decimal
+    Public subtotalclave As Decimal
+    Public descripcionxml As String
+
 End Class

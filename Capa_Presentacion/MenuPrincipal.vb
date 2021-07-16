@@ -321,7 +321,8 @@ Public Class MenuPrincipal
         Etiquetas.Show()
     End Sub
     Private Sub SalidaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDePacasToolStripMenuItem.Click
-        SalidaPacas.ShowDialog()
+        Dim SalidasPac As New SalidaPacas
+        SalidasPac.ShowDialog()
     End Sub
     Private Sub SalidaDeSemillaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaDeSemillaToolStripMenuItem.Click
         SalidaSemilla.ShowDialog()
@@ -526,6 +527,21 @@ Public Class MenuPrincipal
     Private Sub PacasPorDetalleDeVentaMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorDetalleDeVentaMenuItem.Click
         Dim ConsultaPacaDetalle As New RepConsultaPacasDetalleVenta
         ConsultaPacaDetalle.ShowDialog()
+    End Sub
+
+    Private Sub ExistenciaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaDePacasToolStripMenuItem.Click
+        Dim ConsultaExistencias As New RepPacasExistencias
+        ConsultaExistencias.ShowDialog()
+    End Sub
+
+    Private Sub SalidaPacasOrdenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaPacasOrdenToolStripMenuItem.Click
+        Dim ConsultaSalidaPacas As New SalidasPorOrden
+        ConsultaSalidaPacas.ShowDialog()
+    End Sub
+
+    Private Sub OrdenDeEmbarquePToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePToolStripMenuItem.Click
+        Dim OrdenEmbpa As New OrdenEmbarquePorPacas
+        OrdenEmbpa.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

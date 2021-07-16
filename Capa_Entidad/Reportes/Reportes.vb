@@ -32,5 +32,13 @@
     Public Tara As Double
     Public FechaIni As DateTime
     Public FechaFin As DateTime
+    Public SoloCompradas As Boolean
+    Public SoloSinComprar As Boolean
+    Public SoloVendidas As Boolean
+    Public SoloSinVender As Boolean
+    Public SoloEmbarques As Boolean
+    Public SoloSinEmbarques As Boolean
+    Public SoloSalidas As Boolean
+    Public SoloSinSalida As Boolean
     '------------------------------
 End Class

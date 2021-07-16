@@ -1676,6 +1676,15 @@ Public Class VentaPacasContrato
 
     End Sub
 
+    Private Sub ReporteDeCastigoPorPacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeCastigoPorPacasToolStripMenuItem.Click
+        If TbIdVentaPaca.Text <> "" Then
+            Dim DetalleCastigoPaca As New RepDetalleCastigoPaca(Val(TbIdVentaPaca.Text), CbModoMicros.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoUniformidad.SelectedValue, CbUnidadPeso.SelectedValue, Val(TbValorConversion.Text), ChMicros.Checked, ChLargoFibra.Checked, ChResistenciaFibra.Checked, ChUniformidad.Checked)
+            DetalleCastigoPaca.ShowDialog()
+        Else
+            MsgBox("No hay una venta seleccionada.", MsgBoxStyle.Information, "Aviso")
+        End If
+    End Sub
+
     Private Sub PropiedadesDgvLiquidacionesVendidas()
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True

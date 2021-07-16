@@ -28,6 +28,7 @@ Partial Class VentaPacasContrato
         Me.DgvContratos = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.TbPesoTara = New System.Windows.Forms.TextBox()
         Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -175,7 +176,7 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.TbPesoTara = New System.Windows.Forms.TextBox()
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -301,6 +302,14 @@ Partial Class VentaPacasContrato
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(700, 140)
         Me.Panel3.TabIndex = 57
+        '
+        'TbPesoTara
+        '
+        Me.TbPesoTara.Location = New System.Drawing.Point(170, 102)
+        Me.TbPesoTara.Name = "TbPesoTara"
+        Me.TbPesoTara.ReadOnly = True
+        Me.TbPesoTara.Size = New System.Drawing.Size(100, 20)
+        Me.TbPesoTara.TabIndex = 63
         '
         'CkTara
         '
@@ -985,7 +994,7 @@ Partial Class VentaPacasContrato
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1, Me.ReporteHVIAExcelToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.ReporteDeCastigoPorPacasToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1, Me.ReporteHVIAExcelToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
@@ -994,31 +1003,31 @@ Partial Class VentaPacasContrato
         'ResumenDeVentaToolStripMenuItem
         '
         Me.ResumenDeVentaToolStripMenuItem.Name = "ResumenDeVentaToolStripMenuItem"
-        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ResumenDeVentaToolStripMenuItem.Text = "Reporte de Venta"
         '
         'DetalleDeVentaToolStripMenuItem
         '
         Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
-        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.DetalleDeVentaToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.DetalleDeVentaToolStripMenuItem.Text = "Detalle de Venta por Paca"
         '
         'ResumenDeLiquidacionesToolStripMenuItem
         '
         Me.ResumenDeLiquidacionesToolStripMenuItem.Name = "ResumenDeLiquidacionesToolStripMenuItem"
-        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.ResumenDeLiquidacionesToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ResumenDeLiquidacionesToolStripMenuItem.Text = "Resumen de Paquetes"
         '
         'ReporteHVIToolStripMenuItem1
         '
         Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
-        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(207, 22)
+        Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(223, 22)
         Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
         '
         'ReporteHVIAExcelToolStripMenuItem
         '
         Me.ReporteHVIAExcelToolStripMenuItem.Name = "ReporteHVIAExcelToolStripMenuItem"
-        Me.ReporteHVIAExcelToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.ReporteHVIAExcelToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ReporteHVIAExcelToolStripMenuItem.Text = "Reporte HVI a Excel"
         '
         'ComparacionToolStripMenuItem
@@ -1842,13 +1851,11 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'TbPesoTara
+        'ReporteDeCastigoPorPacasToolStripMenuItem
         '
-        Me.TbPesoTara.Location = New System.Drawing.Point(170, 102)
-        Me.TbPesoTara.Name = "TbPesoTara"
-        Me.TbPesoTara.ReadOnly = True
-        Me.TbPesoTara.Size = New System.Drawing.Size(100, 20)
-        Me.TbPesoTara.TabIndex = 63
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Name = "ReporteDeCastigoPorPacasToolStripMenuItem"
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Text = "Detalle de Castigo por Pacas"
         '
         'VentaPacasContrato
         '
@@ -2067,4 +2074,5 @@ Partial Class VentaPacasContrato
     Friend WithEvents CkTara As CheckBox
     Friend WithEvents ReporteHVIAExcelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbPesoTara As TextBox
+    Friend WithEvents ReporteDeCastigoPorPacasToolStripMenuItem As ToolStripMenuItem
 End Class

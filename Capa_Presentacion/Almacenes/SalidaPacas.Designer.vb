@@ -560,8 +560,9 @@ Partial Class SalidaPacas
         Me.GbPesos.Controls.Add(Me.Label18)
         Me.GbPesos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbPesos.Location = New System.Drawing.Point(0, 266)
+        Me.GbPesos.MinimumSize = New System.Drawing.Size(310, 377)
         Me.GbPesos.Name = "GbPesos"
-        Me.GbPesos.Size = New System.Drawing.Size(362, 377)
+        Me.GbPesos.Size = New System.Drawing.Size(310, 377)
         Me.GbPesos.TabIndex = 2
         Me.GbPesos.TabStop = False
         Me.GbPesos.Text = "Captura Peso"
@@ -601,9 +602,9 @@ Partial Class SalidaPacas
         '
         Me.GbPacas.Controls.Add(Me.DgvPacas)
         Me.GbPacas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbPacas.Location = New System.Drawing.Point(362, 266)
+        Me.GbPacas.Location = New System.Drawing.Point(310, 266)
         Me.GbPacas.Name = "GbPacas"
-        Me.GbPacas.Size = New System.Drawing.Size(1121, 377)
+        Me.GbPacas.Size = New System.Drawing.Size(1173, 377)
         Me.GbPacas.TabIndex = 80
         Me.GbPacas.TabStop = False
         Me.GbPacas.Text = "Pacas de lote"
@@ -626,7 +627,7 @@ Partial Class SalidaPacas
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(1115, 358)
+        Me.DgvPacas.Size = New System.Drawing.Size(1167, 358)
         Me.DgvPacas.TabIndex = 2
         '
         'SalidaPacas

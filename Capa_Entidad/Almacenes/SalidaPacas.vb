@@ -15,4 +15,14 @@
     Public FechaSalida As DateTime
     Public Observaciones As String
     Public EstatusSalida As Integer
+    Public IdComprador As Integer
+    Public IdCompradoAcuentade As Integer
+    Public NoLoteInd As String
+    Public NombreChofer As String
+    Public PlacaTractoCamion As String
+    Public NoLicencia As String
+    Public Telefono As String
+    Public CantidadPacas As Integer
+    Public IdPlanta As Integer
+    Public BaleID As Long
 End Class

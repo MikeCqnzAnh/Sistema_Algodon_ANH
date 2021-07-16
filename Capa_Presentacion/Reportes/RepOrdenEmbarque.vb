@@ -25,7 +25,8 @@ Public Class RepOrdenEmbarque
     Private Sub RepOrdenEmbarque_Load(sender As Object, e As EventArgs) Handles Me.Load
         Limpiar()
         TbIdEmbarque.Text = IdEmbarque
-        ObtenerDatosEncabezado()
+        CargaComboEmbarque()
+        'ObtenerDatosEncabezado()
     End Sub
     Private Sub ObtenerDatosEncabezado()
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
@@ -44,6 +45,23 @@ Public Class RepOrdenEmbarque
         ElseIf Tabla.Rows(0).Item("CantidadCajas") = 2 Then
             CargaCombo(Tabla.Rows(0).Item("CantidadCajas"), Tabla.Rows(0).Item("NoLote1"), Tabla.Rows(0).Item("NoLote2"))
         End If
+    End Sub
+    Private Sub CargaComboEmbarque()
+        Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
+        Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
+        Dim Tabla As New DataTable
+        Try
+            EntidadOrdenEmbarquePacas.Consulta = Capa_Operacion.Configuracion.Consulta.ConsultaComboEmbarqueLotes
+            EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = TbIdEmbarque.Text
+            NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
+            Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
+            CbNoLote.DataSource = Tabla
+            CbNoLote.ValueMember = "IdEmbarqueDet"
+            CbNoLote.DisplayMember = "Nolote"
+            CbNoLote.SelectedIndex = -1
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub CargaCombo(ByVal CantidadLotes As Integer, ByVal NoLote1 As String, Optional ByVal NoLote2 As String = "")
         '---------------------------COMBO ESTATUS

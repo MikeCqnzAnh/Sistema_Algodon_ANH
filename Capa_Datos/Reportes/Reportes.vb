@@ -270,6 +270,35 @@ Public Class Reportes
                     'sqlcom1.Parameters.Add(New SqlParameter("@Fechaini", EntidadReportes1.FechaIni))
                     'sqlcom1.Parameters.Add(New SqlParameter("@Fechafin", EntidadReportes1.FechaFin))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteExistenciasResumen
+                    sqlcom1 = New SqlCommand("Pa_ConsultaExistencias", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteExistenciasDetalle
+                    sqlcom1 = New SqlCommand("Pa_ConsultaExistenciasDetallado", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPaqVenta", EntidadReportes1.IdPaquete))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarque", EntidadReportes1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdSalida", EntidadReportes1.IdSalidaPacas))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdComprador", EntidadReportes1.IdComprador))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadReportes1.IdProductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkCompradas", EntidadReportes1.SoloCompradas))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CksinComprar", EntidadReportes1.SoloSinComprar))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkVendidas", EntidadReportes1.SoloVendidas))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkSinVender", EntidadReportes1.SoloSinVender))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkEmbarque", EntidadReportes1.SoloEmbarques))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkSinEmbarque", EntidadReportes1.SoloSinEmbarques))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkSalidas", EntidadReportes1.SoloSalidas))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CkExistencias", EntidadReportes1.SoloSinSalida))
+
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Reporte.ReportePacaDetalleCompra
                     sqlcom1 = New SqlCommand("Pa_ConsultaPacaDetallesCompra", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

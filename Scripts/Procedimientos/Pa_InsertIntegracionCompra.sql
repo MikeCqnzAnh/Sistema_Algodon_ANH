@@ -1,10 +1,10 @@
-alter Procedure Pa_InsertIntegracionCompra
+Create Procedure Pa_InsertIntegracionCompra
 @IdIntegracionCompra int output,
 @IdContrato int,
 @IdCompra int,
 @IdProductor int,
-@ImporteFacturas decimal(18,4),
-@TotalToneladasFacturas decimal(18,4),
+@ImporteFacturas decimal(18,5),
+@TotalToneladasFacturas decimal(18,5),
 @TotalPacasFacturas integer,
 @FechaCreacion datetime,
 @FechaActualizacion datetime

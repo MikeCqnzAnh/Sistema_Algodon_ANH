@@ -40,6 +40,7 @@ Partial Class ConsultaXML
         Me.TbRuta = New System.Windows.Forms.TextBox()
         Me.DgvFacturas = New System.Windows.Forms.DataGridView()
         Me.ProgressBar = New System.Windows.Forms.ProgressBar()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DgvFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -210,6 +211,10 @@ Partial Class ConsultaXML
         Me.ProgressBar.Step = 1
         Me.ProgressBar.TabIndex = 6
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'ConsultaXML
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -244,4 +249,5 @@ Partial Class ConsultaXML
     Friend WithEvents TbUnidad As TextBox
     Friend WithEvents BtMarcar As Button
     Friend WithEvents BtDesmarcar As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class

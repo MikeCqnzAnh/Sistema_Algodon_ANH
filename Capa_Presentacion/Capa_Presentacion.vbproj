@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.19.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.23.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -157,6 +157,12 @@
     <Compile Include="Almacenes\OrdenEmbarquePacas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Almacenes\OrdenEmbarquePorPacas.Designer.vb">
+      <DependentUpon>OrdenEmbarquePorPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\OrdenEmbarquePorPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Almacenes\SalidaBasura.Designer.vb">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
     </Compile>
@@ -179,6 +185,12 @@
       <DependentUpon>SalidaSemilla.vb</DependentUpon>
     </Compile>
     <Compile Include="Almacenes\SalidaSemilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacenes\SalidasPorOrden.Designer.vb">
+      <DependentUpon>SalidasPorOrden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidasPorOrden.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogos\CastigoMicros.Designer.vb">
@@ -325,10 +337,28 @@
     <Compile Include="Consultas\ConsultaCompraIntegracion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaEmbarquesParaSalidas.Designer.vb">
+      <DependentUpon>ConsultaEmbarquesParaSalidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaEmbarquesParaSalidas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaIntegracion.Designer.vb">
+      <DependentUpon>ConsultaIntegracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaIntegracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarque.Designer.vb">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueComprador.Designer.vb">
+      <DependentUpon>ConsultaOrdenEmbarqueComprador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenEmbarqueComprador.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarqueEncabezado.Designer.vb">
@@ -347,6 +377,12 @@
       <DependentUpon>ConsultaProduccionRevision.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaProduccionRevision.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultarSalidasPacas.Designer.vb">
+      <DependentUpon>ConsultarSalidasPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultarSalidasPacas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaSalidas.Designer.vb">
@@ -614,6 +650,12 @@
     <Compile Include="Reportes\RepContratoProductor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepDetalleCastigoPaca.Designer.vb">
+      <DependentUpon>RepDetalleCastigoPaca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepDetalleCastigoPaca.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepDisponibilidadPacasProductor.Designer.vb">
       <DependentUpon>RepDisponibilidadPacasProductor.vb</DependentUpon>
     </Compile>
@@ -648,6 +690,12 @@
       <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepPacasDetalleAgrupadoPorClase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepPacasExistencias.Designer.vb">
+      <DependentUpon>RepPacasExistencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepPacasExistencias.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepPacasFaltantes.Designer.vb">
@@ -804,6 +852,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTDisponibilidadPacasProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTExistenciaPacasDetalle.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTExistenciaPacasDetalle.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTHviDetalle.vb">
@@ -1357,6 +1411,9 @@
     <EmbeddedResource Include="Almacenes\OrdenEmbarquePacas.resx">
       <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\OrdenEmbarquePorPacas.resx">
+      <DependentUpon>OrdenEmbarquePorPacas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaBasura.resx">
       <DependentUpon>SalidaBasura.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1369,6 +1426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaSemilla.resx">
       <DependentUpon>SalidaSemilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\SalidasPorOrden.resx">
+      <DependentUpon>SalidasPorOrden.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarClave.resx">
       <DependentUpon>CambiarClave.vb</DependentUpon>
@@ -1524,8 +1584,17 @@
     <EmbeddedResource Include="Consultas\ConsultaCompraIntegracion.resx">
       <DependentUpon>ConsultaCompraIntegracion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaEmbarquesParaSalidas.resx">
+      <DependentUpon>ConsultaEmbarquesParaSalidas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaIntegracion.resx">
+      <DependentUpon>ConsultaIntegracion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarque.resx">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueComprador.resx">
+      <DependentUpon>ConsultaOrdenEmbarqueComprador.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueEncabezado.resx">
       <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
@@ -1538,6 +1607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultarSalidasPacas.resx">
+      <DependentUpon>ConsultarSalidasPacas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaSalidas.resx">
       <DependentUpon>ConsultaSalidas.vb</DependentUpon>
@@ -1582,6 +1654,9 @@
     <EmbeddedResource Include="Reportes\RepContratoProductor.resx">
       <DependentUpon>RepContratoProductor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepDetalleCastigoPaca.resx">
+      <DependentUpon>RepDetalleCastigoPaca.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepDisponibilidadPacasProductor.resx">
       <DependentUpon>RepDisponibilidadPacasProductor.vb</DependentUpon>
     </EmbeddedResource>
@@ -1599,6 +1674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasDetalleAgrupadoPorClase.resx">
       <DependentUpon>RepPacasDetalleAgrupadoPorClase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepPacasExistencias.resx">
+      <DependentUpon>RepPacasExistencias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPacasFaltantes.resx">
       <DependentUpon>RepPacasFaltantes.vb</DependentUpon>
@@ -1687,6 +1765,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTDisponibilidadPacasProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTDisponibilidadPacasProductor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTExistenciaPacasDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTExistenciaPacasDetalle.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTHviDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2014,7 +2096,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Reportes\RPT\PacasExt.xltx" />
   </ItemGroup>
   <ItemGroup>
@@ -2049,6 +2133,8 @@
     <None Include="Iconos\png\search.png" />
     <None Include="Iconos\png\attachment.png" />
     <None Include="Imagenes\add.png" />
+    <None Include="Iconos\png\play-button.png" />
+    <None Include="Iconos\png\back-button.png" />
     <Content Include="Imagenes\Black Icon Package Icon 28.ico" />
     <Content Include="Iconos\logo_cotton.ico" />
     <None Include="Imagenes\excel.png" />

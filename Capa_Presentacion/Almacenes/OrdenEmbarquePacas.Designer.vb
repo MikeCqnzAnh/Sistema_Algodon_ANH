@@ -126,6 +126,10 @@ Partial Class OrdenEmbarquePacas
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TbCantidadPacas1 = New System.Windows.Forms.TextBox()
+        Me.TbCantidadPacas2 = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.GbProceso.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.TcCompras.SuspendLayout()
@@ -156,9 +160,9 @@ Partial Class OrdenEmbarquePacas
         Me.GbProceso.Controls.Add(Me.Panel4)
         Me.GbProceso.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbProceso.Enabled = False
-        Me.GbProceso.Location = New System.Drawing.Point(0, 208)
+        Me.GbProceso.Location = New System.Drawing.Point(0, 234)
         Me.GbProceso.Name = "GbProceso"
-        Me.GbProceso.Size = New System.Drawing.Size(1835, 535)
+        Me.GbProceso.Size = New System.Drawing.Size(1835, 509)
         Me.GbProceso.TabIndex = 1
         Me.GbProceso.TabStop = False
         '
@@ -172,7 +176,7 @@ Partial Class OrdenEmbarquePacas
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 16)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1829, 516)
+        Me.Panel4.Size = New System.Drawing.Size(1829, 490)
         Me.Panel4.TabIndex = 7
         '
         'TcCompras
@@ -183,7 +187,7 @@ Partial Class OrdenEmbarquePacas
         Me.TcCompras.Location = New System.Drawing.Point(0, 51)
         Me.TcCompras.Name = "TcCompras"
         Me.TcCompras.SelectedIndex = 0
-        Me.TcCompras.Size = New System.Drawing.Size(907, 410)
+        Me.TcCompras.Size = New System.Drawing.Size(907, 384)
         Me.TcCompras.TabIndex = 0
         '
         'TP1PaquetesDisponibles
@@ -194,7 +198,7 @@ Partial Class OrdenEmbarquePacas
         Me.TP1PaquetesDisponibles.Location = New System.Drawing.Point(4, 22)
         Me.TP1PaquetesDisponibles.Name = "TP1PaquetesDisponibles"
         Me.TP1PaquetesDisponibles.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1PaquetesDisponibles.Size = New System.Drawing.Size(899, 384)
+        Me.TP1PaquetesDisponibles.Size = New System.Drawing.Size(899, 358)
         Me.TP1PaquetesDisponibles.TabIndex = 0
         Me.TP1PaquetesDisponibles.Text = "Paquetes Disponibles"
         '
@@ -215,7 +219,7 @@ Partial Class OrdenEmbarquePacas
         Me.DgvPaquetesDisponibles.RowHeadersVisible = False
         Me.DgvPaquetesDisponibles.RowHeadersWidth = 40
         Me.DgvPaquetesDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPaquetesDisponibles.Size = New System.Drawing.Size(893, 333)
+        Me.DgvPaquetesDisponibles.Size = New System.Drawing.Size(893, 307)
         Me.DgvPaquetesDisponibles.TabIndex = 1
         '
         'GroupBox3
@@ -471,7 +475,7 @@ Partial Class OrdenEmbarquePacas
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel5.Location = New System.Drawing.Point(907, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(44, 461)
+        Me.Panel5.Size = New System.Drawing.Size(44, 435)
         Me.Panel5.TabIndex = 3
         '
         'BtExcel
@@ -512,7 +516,7 @@ Partial Class OrdenEmbarquePacas
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(951, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(878, 461)
+        Me.Panel2.Size = New System.Drawing.Size(878, 435)
         Me.Panel2.TabIndex = 2
         '
         'TabControl1
@@ -523,7 +527,7 @@ Partial Class OrdenEmbarquePacas
         Me.TabControl1.Location = New System.Drawing.Point(0, 51)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(878, 410)
+        Me.TabControl1.Size = New System.Drawing.Size(878, 384)
         Me.TabControl1.TabIndex = 1
         '
         'TP2PaquetesEmbarcados
@@ -533,7 +537,7 @@ Partial Class OrdenEmbarquePacas
         Me.TP2PaquetesEmbarcados.Location = New System.Drawing.Point(4, 22)
         Me.TP2PaquetesEmbarcados.Name = "TP2PaquetesEmbarcados"
         Me.TP2PaquetesEmbarcados.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP2PaquetesEmbarcados.Size = New System.Drawing.Size(870, 384)
+        Me.TP2PaquetesEmbarcados.Size = New System.Drawing.Size(870, 358)
         Me.TP2PaquetesEmbarcados.TabIndex = 1
         Me.TP2PaquetesEmbarcados.Text = "Paquetes Embarcados"
         Me.TP2PaquetesEmbarcados.UseVisualStyleBackColor = True
@@ -555,7 +559,7 @@ Partial Class OrdenEmbarquePacas
         Me.DgvPaqueteEmbarcado.RowHeadersVisible = False
         Me.DgvPaqueteEmbarcado.RowHeadersWidth = 40
         Me.DgvPaqueteEmbarcado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPaqueteEmbarcado.Size = New System.Drawing.Size(864, 333)
+        Me.DgvPaqueteEmbarcado.Size = New System.Drawing.Size(864, 307)
         Me.DgvPaqueteEmbarcado.TabIndex = 1
         '
         'GroupBox7
@@ -759,7 +763,7 @@ Partial Class OrdenEmbarquePacas
         Me.GbCompraActual.Controls.Add(Me.Label24)
         Me.GbCompraActual.Controls.Add(Me.Label25)
         Me.GbCompraActual.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GbCompraActual.Location = New System.Drawing.Point(0, 461)
+        Me.GbCompraActual.Location = New System.Drawing.Point(0, 435)
         Me.GbCompraActual.Name = "GbCompraActual"
         Me.GbCompraActual.Size = New System.Drawing.Size(1829, 55)
         Me.GbCompraActual.TabIndex = 2
@@ -855,7 +859,7 @@ Partial Class OrdenEmbarquePacas
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1835, 184)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1835, 210)
         Me.GbDatosGenerales.TabIndex = 0
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -895,6 +899,8 @@ Partial Class OrdenEmbarquePacas
         '
         'GbCaja2
         '
+        Me.GbCaja2.Controls.Add(Me.Label30)
+        Me.GbCaja2.Controls.Add(Me.TbCantidadPacas2)
         Me.GbCaja2.Controls.Add(Me.TbNoLote2)
         Me.GbCaja2.Controls.Add(Me.TbNoContenedor2)
         Me.GbCaja2.Controls.Add(Me.Label26)
@@ -903,7 +909,7 @@ Partial Class OrdenEmbarquePacas
         Me.GbCaja2.Controls.Add(Me.Label23)
         Me.GbCaja2.Location = New System.Drawing.Point(1054, 68)
         Me.GbCaja2.Name = "GbCaja2"
-        Me.GbCaja2.Size = New System.Drawing.Size(262, 106)
+        Me.GbCaja2.Size = New System.Drawing.Size(262, 136)
         Me.GbCaja2.TabIndex = 9
         Me.GbCaja2.TabStop = False
         Me.GbCaja2.Text = "Datos Caja 2"
@@ -911,7 +917,7 @@ Partial Class OrdenEmbarquePacas
         'TbNoLote2
         '
         Me.TbNoLote2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoLote2.Location = New System.Drawing.Point(109, 22)
+        Me.TbNoLote2.Location = New System.Drawing.Point(117, 54)
         Me.TbNoLote2.Name = "TbNoLote2"
         Me.TbNoLote2.Size = New System.Drawing.Size(139, 20)
         Me.TbNoLote2.TabIndex = 0
@@ -919,7 +925,7 @@ Partial Class OrdenEmbarquePacas
         'TbNoContenedor2
         '
         Me.TbNoContenedor2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoContenedor2.Location = New System.Drawing.Point(109, 48)
+        Me.TbNoContenedor2.Location = New System.Drawing.Point(117, 80)
         Me.TbNoContenedor2.Name = "TbNoContenedor2"
         Me.TbNoContenedor2.Size = New System.Drawing.Size(139, 20)
         Me.TbNoContenedor2.TabIndex = 1
@@ -927,7 +933,7 @@ Partial Class OrdenEmbarquePacas
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(6, 51)
+        Me.Label26.Location = New System.Drawing.Point(14, 83)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(82, 13)
         Me.Label26.TabIndex = 57
@@ -936,7 +942,7 @@ Partial Class OrdenEmbarquePacas
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(6, 77)
+        Me.Label27.Location = New System.Drawing.Point(14, 109)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(73, 13)
         Me.Label27.TabIndex = 66
@@ -945,7 +951,7 @@ Partial Class OrdenEmbarquePacas
         'TbPlacaCaja2
         '
         Me.TbPlacaCaja2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbPlacaCaja2.Location = New System.Drawing.Point(109, 74)
+        Me.TbPlacaCaja2.Location = New System.Drawing.Point(117, 106)
         Me.TbPlacaCaja2.Name = "TbPlacaCaja2"
         Me.TbPlacaCaja2.Size = New System.Drawing.Size(139, 20)
         Me.TbPlacaCaja2.TabIndex = 2
@@ -953,7 +959,7 @@ Partial Class OrdenEmbarquePacas
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(6, 25)
+        Me.Label23.Location = New System.Drawing.Point(14, 57)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(48, 13)
         Me.Label23.TabIndex = 58
@@ -961,6 +967,8 @@ Partial Class OrdenEmbarquePacas
         '
         'GbCaja1
         '
+        Me.GbCaja1.Controls.Add(Me.Label29)
+        Me.GbCaja1.Controls.Add(Me.TbCantidadPacas1)
         Me.GbCaja1.Controls.Add(Me.TbNoContenedor1)
         Me.GbCaja1.Controls.Add(Me.Label3)
         Me.GbCaja1.Controls.Add(Me.Label19)
@@ -969,7 +977,7 @@ Partial Class OrdenEmbarquePacas
         Me.GbCaja1.Controls.Add(Me.TbNoLote1)
         Me.GbCaja1.Location = New System.Drawing.Point(779, 68)
         Me.GbCaja1.Name = "GbCaja1"
-        Me.GbCaja1.Size = New System.Drawing.Size(269, 106)
+        Me.GbCaja1.Size = New System.Drawing.Size(269, 136)
         Me.GbCaja1.TabIndex = 8
         Me.GbCaja1.TabStop = False
         Me.GbCaja1.Text = "Datos Caja 1"
@@ -977,7 +985,7 @@ Partial Class OrdenEmbarquePacas
         'TbNoContenedor1
         '
         Me.TbNoContenedor1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoContenedor1.Location = New System.Drawing.Point(109, 48)
+        Me.TbNoContenedor1.Location = New System.Drawing.Point(124, 80)
         Me.TbNoContenedor1.Name = "TbNoContenedor1"
         Me.TbNoContenedor1.Size = New System.Drawing.Size(139, 20)
         Me.TbNoContenedor1.TabIndex = 1
@@ -985,7 +993,7 @@ Partial Class OrdenEmbarquePacas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 51)
+        Me.Label3.Location = New System.Drawing.Point(21, 83)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(82, 13)
         Me.Label3.TabIndex = 57
@@ -994,7 +1002,7 @@ Partial Class OrdenEmbarquePacas
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 77)
+        Me.Label19.Location = New System.Drawing.Point(21, 109)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(73, 13)
         Me.Label19.TabIndex = 66
@@ -1003,7 +1011,7 @@ Partial Class OrdenEmbarquePacas
         'TbPlacaCaja1
         '
         Me.TbPlacaCaja1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbPlacaCaja1.Location = New System.Drawing.Point(109, 74)
+        Me.TbPlacaCaja1.Location = New System.Drawing.Point(124, 106)
         Me.TbPlacaCaja1.Name = "TbPlacaCaja1"
         Me.TbPlacaCaja1.Size = New System.Drawing.Size(139, 20)
         Me.TbPlacaCaja1.TabIndex = 2
@@ -1011,7 +1019,7 @@ Partial Class OrdenEmbarquePacas
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 25)
+        Me.Label12.Location = New System.Drawing.Point(21, 57)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(48, 13)
         Me.Label12.TabIndex = 58
@@ -1020,7 +1028,7 @@ Partial Class OrdenEmbarquePacas
         'TbNoLote1
         '
         Me.TbNoLote1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoLote1.Location = New System.Drawing.Point(109, 22)
+        Me.TbNoLote1.Location = New System.Drawing.Point(124, 54)
         Me.TbNoLote1.Name = "TbNoLote1"
         Me.TbNoLote1.Size = New System.Drawing.Size(139, 20)
         Me.TbNoLote1.TabIndex = 0
@@ -1246,6 +1254,38 @@ Partial Class OrdenEmbarquePacas
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'TbCantidadPacas1
+        '
+        Me.TbCantidadPacas1.Location = New System.Drawing.Point(124, 28)
+        Me.TbCantidadPacas1.Name = "TbCantidadPacas1"
+        Me.TbCantidadPacas1.Size = New System.Drawing.Size(139, 20)
+        Me.TbCantidadPacas1.TabIndex = 67
+        '
+        'TbCantidadPacas2
+        '
+        Me.TbCantidadPacas2.Location = New System.Drawing.Point(117, 28)
+        Me.TbCantidadPacas2.Name = "TbCantidadPacas2"
+        Me.TbCantidadPacas2.Size = New System.Drawing.Size(139, 20)
+        Me.TbCantidadPacas2.TabIndex = 67
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(21, 31)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(57, 13)
+        Me.Label29.TabIndex = 68
+        Me.Label29.Text = "No. Pacas"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(14, 31)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(57, 13)
+        Me.Label30.TabIndex = 68
+        Me.Label30.Text = "No. Pacas"
+        '
         'OrdenEmbarquePacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1399,4 +1439,8 @@ Partial Class OrdenEmbarquePacas
     Friend WithEvents Label23 As Label
     Friend WithEvents EmbarqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtExcel As Button
+    Friend WithEvents Label30 As Label
+    Friend WithEvents TbCantidadPacas2 As TextBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents TbCantidadPacas1 As TextBox
 End Class
