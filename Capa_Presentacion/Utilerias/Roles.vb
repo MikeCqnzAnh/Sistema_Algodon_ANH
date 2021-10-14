@@ -2,6 +2,8 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Roles
     Dim TablaEnc As New DataTable
     Private Sub BtAgregar_Click(sender As Object, e As EventArgs) Handles BtAgregar.Click
@@ -13,19 +15,6 @@ Public Class Roles
         Limpiar()
         llenaTablaMenuRoles()
         CrearNodosDelPadre(0, Nothing)
-    End Sub
-    Private Sub TVRoles_GotFocus(sender As Object, e As EventArgs) Handles TVRoles.MouseDoubleClick
-        If TVRoles.SelectedNode IsNot Nothing Then
-            Dim lineText As String = TVRoles.SelectedNode.Tag
-            Dim ArrayText() As String
-            ArrayText = lineText.Split(",")
-            For Each s In ArrayText
-                TbIdNodo.Text = ArrayText(0)
-                TbNombreNodo.Text = ArrayText(1).ToString
-                TbIdPadre.Text = ArrayText(2)
-                CkEstatus.Checked = ArrayText(3)
-            Next
-        End If
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
@@ -147,5 +136,19 @@ Public Class Roles
 
     Private Sub BtContraer_Click(sender As Object, e As EventArgs) Handles BtContraer.Click
         TVRoles.CollapseAll()
+    End Sub
+
+    Private Sub TVRoles_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TVRoles.MouseDoubleClick
+        If TVRoles.SelectedNode IsNot Nothing Then
+            Dim lineText As String = TVRoles.SelectedNode.Tag
+            Dim ArrayText() As String
+            ArrayText = lineText.Split(",")
+            For Each s In ArrayText
+                TbIdNodo.Text = ArrayText(0)
+                TbNombreNodo.Text = ArrayText(1).ToString
+                TbIdPadre.Text = ArrayText(2)
+                CkEstatus.Checked = ArrayText(3)
+            Next
+        End If
     End Sub
 End Class

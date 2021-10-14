@@ -1271,6 +1271,7 @@ Partial Class RevisionProduccion
         Me.GbLotes.TabIndex = 63
         Me.GbLotes.TabStop = False
         Me.GbLotes.Text = "Lotes"
+        Me.GbLotes.Visible = False
         '
         'BtFin
         '
@@ -1316,6 +1317,7 @@ Partial Class RevisionProduccion
         Me.BtAgregarExcel.TabIndex = 58
         Me.BtAgregarExcel.Text = "Agregar Pacas desde Archivo de Excel"
         Me.BtAgregarExcel.UseVisualStyleBackColor = True
+        Me.BtAgregarExcel.Visible = False
         '
         'BtImprimir
         '
@@ -1325,6 +1327,7 @@ Partial Class RevisionProduccion
         Me.BtImprimir.TabIndex = 60
         Me.BtImprimir.Text = "Imprimir"
         Me.BtImprimir.UseVisualStyleBackColor = True
+        Me.BtImprimir.Visible = False
         '
         'NumericUpDown1
         '
@@ -1332,6 +1335,7 @@ Partial Class RevisionProduccion
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 59
+        Me.NumericUpDown1.Visible = False
         '
         'RevisionProduccion
         '

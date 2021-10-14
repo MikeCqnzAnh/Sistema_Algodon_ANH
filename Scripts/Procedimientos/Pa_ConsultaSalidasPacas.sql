@@ -1,4 +1,4 @@
-alter Procedure Pa_ConsultaSalidasPacas
+Create Procedure Pa_ConsultaSalidasPacas
 @IdSalidaEncabezado int,
 @NombreComprador varchar(20)
 as
@@ -7,7 +7,7 @@ begin
 select sp.IdSalidaEncabezado
 	  ,sp.IdEmbarqueEncabezado
 	  ,em.IdComprador
-	  ,co.Nombre
+	  ,co.Nombre as Comprador
 	  ,sp.NombreChofer
 	  ,sp.PlacaTractoCamion 
 	  ,sp.NoLicencia
@@ -21,6 +21,7 @@ select sp.IdSalidaEncabezado
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
+	  ,sp.IdCompradorPorCuentaDe
 	  ,sp.EstatusSalida
 from salidapacasencabezado sp inner join EmbarqueEncabezado em on sp.IdEmbarqueEncabezado = em.IdEmbarqueEncabezado
 							  inner join Compradores co on em.IdComprador = co.IdComprador
@@ -31,7 +32,7 @@ begin
 select sp.IdSalidaEncabezado
 	  ,sp.IdEmbarqueEncabezado
 	  ,em.IdComprador
-	  ,co.Nombre
+	  ,co.Nombre as Comprador
 	  ,sp.NombreChofer
 	  ,sp.PlacaTractoCamion 
 	  ,sp.NoLicencia
@@ -45,6 +46,7 @@ select sp.IdSalidaEncabezado
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
+	  ,sp.IdCompradorPorCuentaDe
 	  ,sp.EstatusSalida
 from salidapacasencabezado sp inner join EmbarqueEncabezado em on sp.IdEmbarqueEncabezado = em.IdEmbarqueEncabezado
 							  inner join Compradores co on em.IdComprador = co.IdComprador
@@ -55,7 +57,7 @@ begin
 select sp.IdSalidaEncabezado
 	  ,sp.IdEmbarqueEncabezado
 	  ,em.IdComprador
-	  ,co.Nombre
+	  ,co.Nombre as Comprador
 	  ,sp.NombreChofer
 	  ,sp.PlacaTractoCamion 
 	  ,sp.NoLicencia
@@ -69,6 +71,7 @@ select sp.IdSalidaEncabezado
 	  ,sp.PesoBruto
 	  ,sp.PesoTara
 	  ,sp.PesoNeto
+	  ,sp.IdCompradorPorCuentaDe
 	  ,sp.EstatusSalida
 from salidapacasencabezado sp inner join EmbarqueEncabezado em on sp.IdEmbarqueEncabezado = em.IdEmbarqueEncabezado
 							  inner join Compradores co on em.IdComprador = co.IdComprador

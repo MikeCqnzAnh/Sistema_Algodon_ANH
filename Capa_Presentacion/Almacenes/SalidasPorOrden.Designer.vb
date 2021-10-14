@@ -108,10 +108,10 @@ Partial Class SalidasPorOrden
         Me.CbLotesDisponible = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarNuevaSalidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GenerarNuevaSalidaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGeneral.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -291,6 +291,7 @@ Partial Class SalidasPorOrden
         'TbFolioSalida
         '
         Me.TbFolioSalida.Location = New System.Drawing.Point(112, 91)
+        Me.TbFolioSalida.MaxLength = 10
         Me.TbFolioSalida.Name = "TbFolioSalida"
         Me.TbFolioSalida.Size = New System.Drawing.Size(100, 20)
         Me.TbFolioSalida.TabIndex = 95
@@ -374,6 +375,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbDestino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDestino.Location = New System.Drawing.Point(112, 117)
+        Me.TbDestino.MaxLength = 150
         Me.TbDestino.Name = "TbDestino"
         Me.TbDestino.Size = New System.Drawing.Size(570, 20)
         Me.TbDestino.TabIndex = 98
@@ -382,6 +384,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbNoFactura.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoFactura.Location = New System.Drawing.Point(332, 91)
+        Me.TbNoFactura.MaxLength = 12
         Me.TbNoFactura.Name = "TbNoFactura"
         Me.TbNoFactura.Size = New System.Drawing.Size(115, 20)
         Me.TbNoFactura.TabIndex = 96
@@ -408,6 +411,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbObservaciones.Location = New System.Drawing.Point(112, 170)
+        Me.TbObservaciones.MaxLength = 200
         Me.TbObservaciones.Multiline = True
         Me.TbObservaciones.Name = "TbObservaciones"
         Me.TbObservaciones.Size = New System.Drawing.Size(397, 56)
@@ -417,6 +421,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTelefono.Location = New System.Drawing.Point(523, 65)
+        Me.TbTelefono.MaxLength = 13
         Me.TbTelefono.Name = "TbTelefono"
         Me.TbTelefono.Size = New System.Drawing.Size(100, 20)
         Me.TbTelefono.TabIndex = 93
@@ -425,6 +430,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbNombreChofer.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombreChofer.Location = New System.Drawing.Point(112, 65)
+        Me.TbNombreChofer.MaxLength = 80
         Me.TbNombreChofer.Name = "TbNombreChofer"
         Me.TbNombreChofer.Size = New System.Drawing.Size(335, 20)
         Me.TbNombreChofer.TabIndex = 92
@@ -433,6 +439,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbNoLicencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoLicencia.Location = New System.Drawing.Point(523, 91)
+        Me.TbNoLicencia.MaxLength = 15
         Me.TbNoLicencia.Name = "TbNoLicencia"
         Me.TbNoLicencia.Size = New System.Drawing.Size(121, 20)
         Me.TbNoLicencia.TabIndex = 97
@@ -441,6 +448,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbPlacaTractoCamion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPlacaTractoCamion.Location = New System.Drawing.Point(756, 64)
+        Me.TbPlacaTractoCamion.MaxLength = 15
         Me.TbPlacaTractoCamion.Name = "TbPlacaTractoCamion"
         Me.TbPlacaTractoCamion.Size = New System.Drawing.Size(115, 20)
         Me.TbPlacaTractoCamion.TabIndex = 94
@@ -449,6 +457,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbNoContenedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNoContenedor.Location = New System.Drawing.Point(112, 143)
+        Me.TbNoContenedor.MaxLength = 12
         Me.TbNoContenedor.Name = "TbNoContenedor"
         Me.TbNoContenedor.Size = New System.Drawing.Size(100, 20)
         Me.TbNoContenedor.TabIndex = 100
@@ -457,6 +466,7 @@ Partial Class SalidasPorOrden
         '
         Me.TbPlacaCaja.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbPlacaCaja.Location = New System.Drawing.Point(332, 143)
+        Me.TbPlacaCaja.MaxLength = 12
         Me.TbPlacaCaja.Name = "TbPlacaCaja"
         Me.TbPlacaCaja.Size = New System.Drawing.Size(115, 20)
         Me.TbPlacaCaja.TabIndex = 101
@@ -1027,6 +1037,12 @@ Partial Class SalidasPorOrden
         Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.LimpiarToolStripMenuItem.Text = "Limpiar"
         '
+        'GenerarNuevaSalidaToolStripMenuItem
+        '
+        Me.GenerarNuevaSalidaToolStripMenuItem.Name = "GenerarNuevaSalidaToolStripMenuItem"
+        Me.GenerarNuevaSalidaToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
+        Me.GenerarNuevaSalidaToolStripMenuItem.Text = "Genera Salida"
+        '
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
@@ -1044,12 +1060,6 @@ Partial Class SalidasPorOrden
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'GenerarNuevaSalidaToolStripMenuItem
-        '
-        Me.GenerarNuevaSalidaToolStripMenuItem.Name = "GenerarNuevaSalidaToolStripMenuItem"
-        Me.GenerarNuevaSalidaToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
-        Me.GenerarNuevaSalidaToolStripMenuItem.Text = "Genera Salida"
         '
         'SalidasPorOrden
         '

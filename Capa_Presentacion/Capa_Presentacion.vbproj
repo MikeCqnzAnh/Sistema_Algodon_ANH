@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.23.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.28.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -88,6 +88,9 @@
     <ApplicationIcon>Resources\logo_cotton.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomaticUpdater">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\wyBuild\AutomaticUpdater\Microsoft .NET 4.0\AutomaticUpdater.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -221,6 +224,12 @@
       <DependentUpon>AgregaPacasRangos.vb</DependentUpon>
     </Compile>
     <Compile Include="Comercializacion\Clasificacion\AgregaPacasRangos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\EntradaSalidadeEquipo.Designer.vb">
+      <DependentUpon>EntradaSalidadeEquipo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Clasificacion\EntradaSalidadeEquipo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comercializacion\Clasificacion\MatExtCompras.Designer.vb">
@@ -1522,6 +1531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\AgregaPacasRangos.resx">
       <DependentUpon>AgregaPacasRangos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Clasificacion\EntradaSalidadeEquipo.resx">
+      <DependentUpon>EntradaSalidadeEquipo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\MatExtCompras.resx">
       <DependentUpon>MatExtCompras.vb</DependentUpon>

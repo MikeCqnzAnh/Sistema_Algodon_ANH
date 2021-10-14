@@ -1,4 +1,4 @@
-Create Procedure Pa_ConsultaEmbarqueSinSalida
+CREATE Procedure Pa_ConsultaEmbarqueSinSalida
 --declare
 @IdEmbarqueEncabezado int,
 @NombreComprador varchar(30),

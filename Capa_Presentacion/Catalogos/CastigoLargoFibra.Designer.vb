@@ -31,43 +31,45 @@ Partial Class CastigoLargoFibra
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
-        Me.DgvLargoDetalle = New System.Windows.Forms.DataGridView()
         Me.DgvEncabezado = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DgvEquivalente = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
+        Me.CargarExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarSelecToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.CargarExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarSelecToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CbTipoContrato = New System.Windows.Forms.ComboBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.CargarExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarSelecToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CargarExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarSelecToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DgvLargoDetalle = New System.Windows.Forms.DataGridView()
+        Me.PlantillaDeCargaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PlantillaDeCargaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
-        CType(Me.DgvLargoDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DgvEquivalente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.MenuStrip2.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.MenuStrip2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.DgvLargoDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -131,22 +133,6 @@ Partial Class CastigoLargoFibra
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 3
         '
-        'DgvLargoDetalle
-        '
-        Me.DgvLargoDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvLargoDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvLargoDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvLargoDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvLargoDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvLargoDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvLargoDetalle.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvLargoDetalle.Location = New System.Drawing.Point(38, 40)
-        Me.DgvLargoDetalle.MultiSelect = False
-        Me.DgvLargoDetalle.Name = "DgvLargoDetalle"
-        Me.DgvLargoDetalle.RowHeadersWidth = 40
-        Me.DgvLargoDetalle.Size = New System.Drawing.Size(779, 375)
-        Me.DgvLargoDetalle.TabIndex = 0
-        '
         'DgvEncabezado
         '
         Me.DgvEncabezado.AllowUserToAddRows = False
@@ -197,29 +183,6 @@ Partial Class CastigoLargoFibra
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles"
         '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.DgvLargoDetalle)
-        Me.GroupBox4.Controls.Add(Me.Panel1)
-        Me.GroupBox4.Controls.Add(Me.MenuStrip1)
-        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 16)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(820, 418)
-        Me.GroupBox4.TabIndex = 0
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Largos de Fibra"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem, Me.EliminarSelecToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(3, 16)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(814, 24)
-        Me.MenuStrip1.TabIndex = 1
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.DgvEquivalente)
@@ -233,15 +196,137 @@ Partial Class CastigoLargoFibra
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Equivalentes"
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel2.Controls.Add(Me.Button4)
+        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(3, 40)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(35, 375)
+        Me.Panel2.TabIndex = 2
+        '
+        'Button4
+        '
+        Me.Button4.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.quit
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Location = New System.Drawing.Point(3, 74)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(30, 30)
+        Me.Button4.TabIndex = 1
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.add
+        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Location = New System.Drawing.Point(3, 25)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(30, 30)
+        Me.Button3.TabIndex = 0
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'MenuStrip2
         '
         Me.MenuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem1, Me.EliminarSelecToolStripMenuItem1})
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem1, Me.EliminarSelecToolStripMenuItem1, Me.PlantillaDeCargaToolStripMenuItem1})
         Me.MenuStrip2.Location = New System.Drawing.Point(3, 16)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(459, 24)
         Me.MenuStrip2.TabIndex = 1
         Me.MenuStrip2.Text = "MenuStrip2"
+        '
+        'CargarExcelToolStripMenuItem1
+        '
+        Me.CargarExcelToolStripMenuItem1.Image = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.CargarExcelToolStripMenuItem1.Name = "CargarExcelToolStripMenuItem1"
+        Me.CargarExcelToolStripMenuItem1.Size = New System.Drawing.Size(100, 20)
+        Me.CargarExcelToolStripMenuItem1.Text = "Cargar excel"
+        '
+        'EliminarSelecToolStripMenuItem1
+        '
+        Me.EliminarSelecToolStripMenuItem1.Image = Global.Capa_Presentacion.My.Resources.Resources.delete
+        Me.EliminarSelecToolStripMenuItem1.Name = "EliminarSelecToolStripMenuItem1"
+        Me.EliminarSelecToolStripMenuItem1.Size = New System.Drawing.Size(107, 20)
+        Me.EliminarSelecToolStripMenuItem1.Text = "Eliminar selec"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.DgvLargoDetalle)
+        Me.GroupBox4.Controls.Add(Me.Panel1)
+        Me.GroupBox4.Controls.Add(Me.MenuStrip1)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GroupBox4.Location = New System.Drawing.Point(3, 16)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(820, 418)
+        Me.GroupBox4.TabIndex = 0
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Largos de Fibra"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(3, 40)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(35, 375)
+        Me.Panel1.TabIndex = 2
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Button2.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.quit
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(3, 74)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(30, 30)
+        Me.Button2.TabIndex = 1
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.add
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(3, 25)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(30, 30)
+        Me.Button1.TabIndex = 0
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem, Me.EliminarSelecToolStripMenuItem, Me.PlantillaDeCargaToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(3, 16)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(814, 24)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'CargarExcelToolStripMenuItem
+        '
+        Me.CargarExcelToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.CargarExcelToolStripMenuItem.Name = "CargarExcelToolStripMenuItem"
+        Me.CargarExcelToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
+        Me.CargarExcelToolStripMenuItem.Text = "Cargar excel"
+        '
+        'EliminarSelecToolStripMenuItem
+        '
+        Me.EliminarSelecToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.delete
+        Me.EliminarSelecToolStripMenuItem.Name = "EliminarSelecToolStripMenuItem"
+        Me.EliminarSelecToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
+        Me.EliminarSelecToolStripMenuItem.Text = "Eliminar selec"
         '
         'GroupBox5
         '
@@ -293,104 +378,36 @@ Partial Class CastigoLargoFibra
         Me.CbTipoContrato.Size = New System.Drawing.Size(121, 21)
         Me.CbTipoContrato.TabIndex = 2
         '
-        'Panel1
+        'DgvLargoDetalle
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(3, 40)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(35, 375)
-        Me.Panel1.TabIndex = 2
+        Me.DgvLargoDetalle.AllowUserToAddRows = False
+        Me.DgvLargoDetalle.AllowUserToDeleteRows = False
+        Me.DgvLargoDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvLargoDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvLargoDetalle.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvLargoDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvLargoDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvLargoDetalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvLargoDetalle.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvLargoDetalle.Location = New System.Drawing.Point(38, 40)
+        Me.DgvLargoDetalle.MultiSelect = False
+        Me.DgvLargoDetalle.Name = "DgvLargoDetalle"
+        Me.DgvLargoDetalle.RowHeadersVisible = False
+        Me.DgvLargoDetalle.RowHeadersWidth = 40
+        Me.DgvLargoDetalle.Size = New System.Drawing.Size(779, 375)
+        Me.DgvLargoDetalle.TabIndex = 0
         '
-        'Panel2
+        'PlantillaDeCargaToolStripMenuItem
         '
-        Me.Panel2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Panel2.Controls.Add(Me.Button4)
-        Me.Panel2.Controls.Add(Me.Button3)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(3, 40)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(35, 375)
-        Me.Panel2.TabIndex = 2
+        Me.PlantillaDeCargaToolStripMenuItem.Name = "PlantillaDeCargaToolStripMenuItem"
+        Me.PlantillaDeCargaToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
+        Me.PlantillaDeCargaToolStripMenuItem.Text = "Plantilla de carga"
         '
-        'CargarExcelToolStripMenuItem
+        'PlantillaDeCargaToolStripMenuItem1
         '
-        Me.CargarExcelToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.excel
-        Me.CargarExcelToolStripMenuItem.Name = "CargarExcelToolStripMenuItem"
-        Me.CargarExcelToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
-        Me.CargarExcelToolStripMenuItem.Text = "Cargar excel"
-        '
-        'EliminarSelecToolStripMenuItem
-        '
-        Me.EliminarSelecToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.delete
-        Me.EliminarSelecToolStripMenuItem.Name = "EliminarSelecToolStripMenuItem"
-        Me.EliminarSelecToolStripMenuItem.Size = New System.Drawing.Size(107, 20)
-        Me.EliminarSelecToolStripMenuItem.Text = "Eliminar selec"
-        '
-        'CargarExcelToolStripMenuItem1
-        '
-        Me.CargarExcelToolStripMenuItem1.Image = Global.Capa_Presentacion.My.Resources.Resources.excel
-        Me.CargarExcelToolStripMenuItem1.Name = "CargarExcelToolStripMenuItem1"
-        Me.CargarExcelToolStripMenuItem1.Size = New System.Drawing.Size(100, 20)
-        Me.CargarExcelToolStripMenuItem1.Text = "Cargar excel"
-        '
-        'EliminarSelecToolStripMenuItem1
-        '
-        Me.EliminarSelecToolStripMenuItem1.Image = Global.Capa_Presentacion.My.Resources.Resources.delete
-        Me.EliminarSelecToolStripMenuItem1.Name = "EliminarSelecToolStripMenuItem1"
-        Me.EliminarSelecToolStripMenuItem1.Size = New System.Drawing.Size(107, 20)
-        Me.EliminarSelecToolStripMenuItem1.Text = "Eliminar selec"
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.add
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(3, 25)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(30, 30)
-        Me.Button1.TabIndex = 0
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.Button2.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.quit
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(3, 74)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(30, 30)
-        Me.Button2.TabIndex = 1
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.add
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(3, 25)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(30, 30)
-        Me.Button3.TabIndex = 0
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.quit
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(3, 74)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(30, 30)
-        Me.Button4.TabIndex = 1
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.PlantillaDeCargaToolStripMenuItem1.Name = "PlantillaDeCargaToolStripMenuItem1"
+        Me.PlantillaDeCargaToolStripMenuItem1.Size = New System.Drawing.Size(109, 20)
+        Me.PlantillaDeCargaToolStripMenuItem1.Text = "Plantilla de carga"
         '
         'CastigoLargoFibra
         '
@@ -409,23 +426,23 @@ Partial Class CastigoLargoFibra
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
-        CType(Me.DgvLargoDetalle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DgvEquivalente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
+        CType(Me.DgvLargoDetalle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -439,7 +456,6 @@ Partial Class CastigoLargoFibra
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents CbEstatus As ComboBox
-    Friend WithEvents DgvLargoDetalle As DataGridView
     Friend WithEvents DgvEncabezado As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DgvEquivalente As DataGridView
@@ -463,4 +479,7 @@ Partial Class CastigoLargoFibra
     Friend WithEvents Button1 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents DgvLargoDetalle As DataGridView
+    Friend WithEvents PlantillaDeCargaToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents PlantillaDeCargaToolStripMenuItem As ToolStripMenuItem
 End Class

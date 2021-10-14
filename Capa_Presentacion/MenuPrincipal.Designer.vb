@@ -65,6 +65,7 @@ Partial Class MenuPrincipal
         Me.PaquetesParaVentaPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntradaYSalidaDeEquipoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreliquidacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -92,14 +93,14 @@ Partial Class MenuPrincipal
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeEmbarquePToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidaPacasOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDeSemillaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDePacasDeBorraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaDeBasuraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaEnBodegaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidaPacasOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OrdenDeEmbarquePToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministraciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaccionesAClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CartaDeDepositoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -463,7 +464,7 @@ Partial Class MenuPrincipal
         '
         'ClasificacionToolStripMenuItem
         '
-        Me.ClasificacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaquetesHVIToolStripMenuItem1, Me.PaquetesParaVentaToolStripMenuItem, Me.PaquetesParaVentaPorRangosToolStripMenuItem, Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1, Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1})
+        Me.ClasificacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaquetesHVIToolStripMenuItem1, Me.PaquetesParaVentaToolStripMenuItem, Me.PaquetesParaVentaPorRangosToolStripMenuItem, Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1, Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1, Me.EntradaYSalidaDeEquipoToolStripMenuItem})
         Me.ClasificacionToolStripMenuItem.Name = "ClasificacionToolStripMenuItem"
         Me.ClasificacionToolStripMenuItem.Size = New System.Drawing.Size(309, 24)
         Me.ClasificacionToolStripMenuItem.Tag = "31,26"
@@ -506,6 +507,13 @@ Partial Class MenuPrincipal
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Tag = "36,31"
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Text = "Clasificación de Pacas (Con Archivo Excel)"
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1.Visible = False
+        '
+        'EntradaYSalidaDeEquipoToolStripMenuItem
+        '
+        Me.EntradaYSalidaDeEquipoToolStripMenuItem.Name = "EntradaYSalidaDeEquipoToolStripMenuItem"
+        Me.EntradaYSalidaDeEquipoToolStripMenuItem.Size = New System.Drawing.Size(328, 24)
+        Me.EntradaYSalidaDeEquipoToolStripMenuItem.Tag = "0,0"
+        Me.EntradaYSalidaDeEquipoToolStripMenuItem.Text = "Entrada y Salida de Equipo"
         '
         'ComprasToolStripMenuItem
         '
@@ -701,11 +709,25 @@ Partial Class MenuPrincipal
         '
         'AlmacenesToolStripMenuItem
         '
-        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem, Me.SalidaPacasOrdenToolStripMenuItem, Me.OrdenDeEmbarquePToolStripMenuItem})
+        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenDeEmbarquePToolStripMenuItem, Me.SalidaPacasOrdenToolStripMenuItem, Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem})
         Me.AlmacenesToolStripMenuItem.Name = "AlmacenesToolStripMenuItem"
         Me.AlmacenesToolStripMenuItem.Size = New System.Drawing.Size(86, 23)
         Me.AlmacenesToolStripMenuItem.Tag = "58,0"
         Me.AlmacenesToolStripMenuItem.Text = "Almacenes"
+        '
+        'OrdenDeEmbarquePToolStripMenuItem
+        '
+        Me.OrdenDeEmbarquePToolStripMenuItem.Name = "OrdenDeEmbarquePToolStripMenuItem"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "0,0"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Text = "Orden de Embarque p"
+        '
+        'SalidaPacasOrdenToolStripMenuItem
+        '
+        Me.SalidaPacasOrdenToolStripMenuItem.Name = "SalidaPacasOrdenToolStripMenuItem"
+        Me.SalidaPacasOrdenToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
+        Me.SalidaPacasOrdenToolStripMenuItem.Tag = "0,0"
+        Me.SalidaPacasOrdenToolStripMenuItem.Text = "Salida Pacas Orden"
         '
         'OrdenDeEmbarquePacasToolStripMenuItem
         '
@@ -713,6 +735,7 @@ Partial Class MenuPrincipal
         Me.OrdenDeEmbarquePacasToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
         Me.OrdenDeEmbarquePacasToolStripMenuItem.Tag = "244,58"
         Me.OrdenDeEmbarquePacasToolStripMenuItem.Text = "Orden de Embarque Pacas"
+        Me.OrdenDeEmbarquePacasToolStripMenuItem.Visible = False
         '
         'SalidaDePacasToolStripMenuItem
         '
@@ -720,6 +743,7 @@ Partial Class MenuPrincipal
         Me.SalidaDePacasToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
         Me.SalidaDePacasToolStripMenuItem.Tag = "59,58"
         Me.SalidaDePacasToolStripMenuItem.Text = "Salida de Pacas"
+        Me.SalidaDePacasToolStripMenuItem.Visible = False
         '
         'SalidaDeSemillaToolStripMenuItem
         '
@@ -748,20 +772,6 @@ Partial Class MenuPrincipal
         Me.ExistenciaEnBodegaToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
         Me.ExistenciaEnBodegaToolStripMenuItem.Tag = "63,58"
         Me.ExistenciaEnBodegaToolStripMenuItem.Text = "Existencia en Bodega Pacas"
-        '
-        'SalidaPacasOrdenToolStripMenuItem
-        '
-        Me.SalidaPacasOrdenToolStripMenuItem.Name = "SalidaPacasOrdenToolStripMenuItem"
-        Me.SalidaPacasOrdenToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.SalidaPacasOrdenToolStripMenuItem.Tag = "0,0"
-        Me.SalidaPacasOrdenToolStripMenuItem.Text = "Salida Pacas Orden"
-        '
-        'OrdenDeEmbarquePToolStripMenuItem
-        '
-        Me.OrdenDeEmbarquePToolStripMenuItem.Name = "OrdenDeEmbarquePToolStripMenuItem"
-        Me.OrdenDeEmbarquePToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "0,0"
-        Me.OrdenDeEmbarquePToolStripMenuItem.Text = "Orden de Embarque p"
         '
         'AdministraciónToolStripMenuItem
         '
@@ -1615,4 +1625,5 @@ Partial Class MenuPrincipal
     Friend WithEvents ExistenciaDePacasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalidaPacasOrdenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenDeEmbarquePToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EntradaYSalidaDeEquipoToolStripMenuItem As ToolStripMenuItem
 End Class

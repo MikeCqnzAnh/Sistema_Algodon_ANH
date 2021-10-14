@@ -294,4 +294,8 @@ Public Class CrearEstructura
             End If
         Next
     End Sub
+
+    Private Sub GbCreaBdd_Enter(sender As Object, e As EventArgs) Handles GbCreaBdd.Enter
+
+    End Sub
 End Class

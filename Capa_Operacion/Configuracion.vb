@@ -1,40 +1,4 @@
 ﻿Namespace Configuracion
-    'Namespace Constante
-    '    'para uso en VENTA ==============================================================
-    '    Public Enum TipoVenta
-    '        Credito = 1
-    '        Contado = 2
-    '        Apartado = 3
-    '        Ninguno = 4
-    '    End Enum
-    '    Public Enum DasboardOpcion
-    '        Grafica1 = 1
-    '        Grafica2 = 2
-    '        Grafica3 = 3
-    '        Grafica4 = 4
-    '        Grafica5 = 5
-    '        Grafica6 = 6
-    '    End Enum
-    '    Public Enum TipoEntrega
-    '        DelCliente = 1
-    '        EnMano = 2
-    '        ClientePasa = 3
-    '    End Enum
-    '    Public Enum TipoVentaEstado
-    '        AUTORIZADO = 1
-    '        CANCELADO = 2
-    '        RECHAZADO = 3
-    '        ACTIVO = 4
-    '        LIQUIDADO = 5
-    '        PENDIENTE = 6
-    '    End Enum
-    '    Public Enum Cantidad
-    '        Ninguno = 1
-    '        Agregar = 2
-    '        Quitar = 3
-    '        Descuento = 4
-    '        Cantidad = 5
-    '    End Enum
     Public Enum Reporte
         ReporteClientes = 1
         ReporteContratoCompra = 2
@@ -92,13 +56,6 @@
         GuardaPacas = 13
         GuardarEmbarqueDetalleLotes = 14
     End Enum
-    '    '==============================================================================
-    '    Public Class Formato
-    '        Public Shared Miles As String = "#,###,##0.00"
-    '        Public Shared Porcentaje As String = "##0.##%"
-    '        Public Shared FechaCorta As String = "{0:d}"
-    '        Public Shared Moneda As String = "$#,###,##0.00"
-    '    End Class
     Public Enum Consulta
         ConsultaEstado = 1
         ConsultaMunicipio = 2
@@ -227,6 +184,8 @@
         ConsultaSalidaEncabezado = 123
         ConsultaPaqueteSalidaSeleccionado = 124
         ConsultaPacaSalidaSeleccionado = 125
+        ConsultaPacasSalidasFiltro = 126
+        ConsultaExisteNoLote = 127
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -260,5 +219,48 @@
         AgregaRol = 2
         AgregaRolPredefinido = 3
     End Enum
+    'Namespace Constante
+    '    'para uso en VENTA ==============================================================
+    '    Public Enum TipoVenta
+    '        Credito = 1
+    '        Contado = 2
+    '        Apartado = 3
+    '        Ninguno = 4
+    '    End Enum
+    '    Public Enum DasboardOpcion
+    '        Grafica1 = 1
+    '        Grafica2 = 2
+    '        Grafica3 = 3
+    '        Grafica4 = 4
+    '        Grafica5 = 5
+    '        Grafica6 = 6
+    '    End Enum
+    '    Public Enum TipoEntrega
+    '        DelCliente = 1
+    '        EnMano = 2
+    '        ClientePasa = 3
+    '    End Enum
+    '    Public Enum TipoVentaEstado
+    '        AUTORIZADO = 1
+    '        CANCELADO = 2
+    '        RECHAZADO = 3
+    '        ACTIVO = 4
+    '        LIQUIDADO = 5
+    '        PENDIENTE = 6
+    '    End Enum
+    '    Public Enum Cantidad
+    '        Ninguno = 1
+    '        Agregar = 2
+    '        Quitar = 3
+    '        Descuento = 4
+    '        Cantidad = 5
+    '    End Enum
+    '    '==============================================================================
+    '    Public Class Formato
+    '        Public Shared Miles As String = "#,###,##0.00"
+    '        Public Shared Porcentaje As String = "##0.##%"
+    '        Public Shared FechaCorta As String = "{0:d}"
+    '        Public Shared Moneda As String = "$#,###,##0.00"
+    '    End Class
 End Namespace
 

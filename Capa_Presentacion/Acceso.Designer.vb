@@ -99,6 +99,7 @@ Partial Class Acceso
         '
         Me.TbClave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TbClave.Location = New System.Drawing.Point(89, 293)
+        Me.TbClave.MaxLength = 10
         Me.TbClave.Name = "TbClave"
         Me.TbClave.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TbClave.Size = New System.Drawing.Size(209, 26)

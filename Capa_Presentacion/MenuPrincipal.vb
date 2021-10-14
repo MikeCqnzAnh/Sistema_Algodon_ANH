@@ -205,7 +205,8 @@ Public Class MenuPrincipal
         Asociaciones.ShowDialog()
     End Sub
     Private Sub CompradoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompradoresToolStripMenuItem.Click
-        Compradores.ShowDialog()
+        Dim compradores As New Compradores
+        compradores.ShowDialog()
     End Sub
     Private Sub ColoniasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColoniasToolStripMenuItem.Click
         Colonias.ShowDialog()
@@ -542,6 +543,11 @@ Public Class MenuPrincipal
     Private Sub OrdenDeEmbarquePToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePToolStripMenuItem.Click
         Dim OrdenEmbpa As New OrdenEmbarquePorPacas
         OrdenEmbpa.ShowDialog()
+    End Sub
+
+    Private Sub EntradaYSalidaDeEquipoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaYSalidaDeEquipoToolStripMenuItem.Click
+        Dim entradasalidaequ As New EntradaSalidadeEquipo
+        entradasalidaequ.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

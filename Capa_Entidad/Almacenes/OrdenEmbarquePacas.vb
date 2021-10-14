@@ -3,6 +3,7 @@
     Public IdComprador As Integer
     Public IdVentaEnc As Integer
     Public IdEmbarqueEncabezado As Integer
+    Public Identificador As Integer
     Public NombreChofer As String
     Public Fecha As DateTime
     Public PlacaTractoCamion As String
@@ -28,4 +29,5 @@
     Public EstatusEmbarque As Integer
     Public EstatusSalida As Integer
     Public NombreComprador As String
+    Public ObservacionLote As String
 End Class

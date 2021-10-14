@@ -248,7 +248,7 @@ Public Class ConsultarSalidasPacas
             _Destino = DgvSalidas.Rows(index).Cells("Destino").Value
             _FolioSalida = DgvSalidas.Rows(index).Cells("FolioSalida").Value
             _NoFactura = DgvSalidas.Rows(index).Cells("NoFactura").Value
-            _FechaSalida = DgvSalidas.Rows(index).Cells("FechaSalida").Value
+            _FechaSalida = IIf(IsDBNull(DgvSalidas.Rows(index).Cells("FechaSalida").Value), Now, DgvSalidas.Rows(index).Cells("FechaSalida").Value)
             _FechaEntrada = DgvSalidas.Rows(index).Cells("FechaEntrada").Value
             _Observaciones = DgvSalidas.Rows(index).Cells("Observaciones").Value
             _IdCompradorAcuenta = DgvSalidas.Rows(index).Cells("IdCompradorPorCuentaDe").Value
@@ -257,6 +257,4 @@ Public Class ConsultarSalidasPacas
             Close()
         End If
     End Sub
-
-
 End Class

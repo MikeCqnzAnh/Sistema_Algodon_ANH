@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Capa_Entidad
+Imports Capa_Operacion.Configuracion
 Public Class Roles
     Public Overridable Sub Consultar(ByRef EntidadRoles As Capa_Entidad.Roles)
         Dim EntidadRoles1 = New Capa_Entidad.Roles
@@ -12,10 +14,10 @@ Public Class Roles
         Try
             cnn.Open()
             Select Case EntidadRoles1.Consulta
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                Case Consulta.ConsultaBasica
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaMenuRoles", cnn)
                     sqldat1.Fill(EntidadRoles1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                Case Consulta.ConsultaDetallada
                     sqlcom1 = New SqlCommand("Sp_ConsultaRolesPredefinidos", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
@@ -23,7 +25,7 @@ Public Class Roles
                     sqlcom1.Parameters.Add(New SqlParameter("@IdUsuario", EntidadRoles1.IdUsuario))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdTipoUsuario", EntidadRoles1.IdTipoUsuario))
                     sqldat1.Fill(EntidadRoles1.TablaConsulta)
-                Case Capa_Operacion.Configuracion.Consulta.ConsultaPerfilUsuario
+                Case Consulta.ConsultaPerfilUsuario
                     sqlcom1 = New SqlCommand("Sp_ConsultaPerfilUsuario", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure

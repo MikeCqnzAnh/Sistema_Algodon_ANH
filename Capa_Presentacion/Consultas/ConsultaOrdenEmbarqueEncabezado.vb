@@ -62,7 +62,7 @@ Public Class ConsultaOrdenEmbarqueEncabezado
         End Select
     End Sub
     Private Sub DgvConsultaEmbarque_DoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaEmbarque.DoubleClick
-        If DgvConsultaEmbarque.DataSource Is Nothing Then
+        If DgvConsultaEmbarque.RowCount = 0 Then
             MsgBox("No hay registros disponibles")
         Else
             Dim index As Integer

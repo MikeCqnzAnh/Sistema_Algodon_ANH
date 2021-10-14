@@ -17,8 +17,6 @@ Public Class ImportarCatalogos
             Me.BtIniciar.Text = "Iniciar importacion."
             Me.BtIniciar.Enabled = True
             Me.BtIniciar.Refresh()
-
-
         End If
     End Sub
     Private Sub CbOrigenDB_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CbOrigenInstancia.SelectedIndexChanged

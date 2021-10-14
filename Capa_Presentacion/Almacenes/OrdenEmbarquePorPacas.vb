@@ -24,15 +24,38 @@ Public Class OrdenEmbarquePorPacas
     End Sub
     Private Sub BtAgregar_Click(sender As Object, e As EventArgs) Handles BtAgregar.Click
         If TbNoLote.Text <> "" And Val(TbCantidadPacas.Text) > 0 Then
-            GuardaEncabezado()
-            GuardaLote()
+            If ExisteLote() = False Then
+                GuardaEncabezado()
+                GuardaLote()
 
-            ConsultaLotes()
-            ConsultaCombo()
+                ConsultaLotes()
+                ConsultaCombo()
+            Else
+                MsgBox("Ya existe ese lote en el embarque " & TbIdEmbarque.Text)
+            End If
         Else
             MsgBox("Campos vacios")
         End If
     End Sub
+    Private Function ExisteLote()
+        Dim valida As Boolean = False
+        Try
+            Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
+            Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
+            Dim Tabla As New DataTable
+            EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaExisteNoLote
+            EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
+            EntidadOrdenEmbarquePacas.NoLoteInd = TbNoLote.Text
+            NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
+            Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
+            Dim row As DataRow = Tabla.Rows(Tabla.Rows.Count - 1)
+            If row("Valida") <> 0 Then valida = True
+            'propiedadesPaqueteDisponible(DgvPaqueteDisponible)
+            Return valida
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Function
     Private Sub BtnBuscarProd_Click(sender As Object, e As EventArgs) Handles BtnBuscarProd.Click
         Dim _ConsultaCompradorEmbarque As New ConsultaOrdenEmbarqueComprador
         _ConsultaCompradorEmbarque.ShowDialog()
@@ -228,6 +251,7 @@ Public Class OrdenEmbarquePorPacas
     Private Sub limpiar()
         TbIdEmbarque.Clear()
         TbIdComprador.Clear()
+        TbIdLoteDet.Clear()
         TbNombre.Clear()
         TbObservaciones.Clear()
         TbNoPacas.Clear()
@@ -284,12 +308,13 @@ Public Class OrdenEmbarquePorPacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Try
             EntidadOrdenEmbarquePacas.Guarda = Guardar.GuardarEmbarqueDetalleLotes
-            EntidadOrdenEmbarquePacas.IdEmbarqueDetalle = 0
+            EntidadOrdenEmbarquePacas.IdEmbarqueDetalle = IIf(TbIdLoteDet.Text = "", 0, Val(TbIdLoteDet.Text))
             EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = TbIdEmbarque.Text
             EntidadOrdenEmbarquePacas.NoPacas = Val(TbCantidadPacas.Text)
             EntidadOrdenEmbarquePacas.NoContenedorInd = ""
             EntidadOrdenEmbarquePacas.NoLoteInd = TbNoLote.Text
             EntidadOrdenEmbarquePacas.PlacaCaja = ""
+            EntidadOrdenEmbarquePacas.ObservacionLote = TbObservacionNoLote.Text
             EntidadOrdenEmbarquePacas.Fecha = DtpFecha.Value
             EntidadOrdenEmbarquePacas.FechaActualizacion = Now
             NegocioOrdenEmbarquePacas.Guardar(EntidadOrdenEmbarquePacas)
@@ -297,6 +322,8 @@ Public Class OrdenEmbarquePorPacas
 
             TbNoLote.Text = ""
             TbCantidadPacas.Text = ""
+            TbObservacionNoLote.Text = ""
+            TbIdLoteDet.Text = ""
             'MsgBox("Guardado con exito", MsgBoxStyle.Information, "Aviso")
             'GbProceso.Enabled = True
             'GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, "SE REMOVIERON " & DgvPacas.Rows.Count & " PACAS PARA EL COMPRADOR " & TbNombre.Text & ".")
@@ -327,6 +354,8 @@ Public Class OrdenEmbarquePorPacas
         Try
             Dim tabla As New DataTable
             EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaComboLotes
+            EntidadOrdenEmbarquePacas.EstatusSalida = 0
+            EntidadOrdenEmbarquePacas.IdSalida = 0
             EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = IIf(TbIdEmbarque.Text = "", 0, TbIdEmbarque.Text)
             NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
             tabla = EntidadOrdenEmbarquePacas.TablaConsulta
@@ -929,5 +958,16 @@ Public Class OrdenEmbarquePorPacas
         End Try
     End Sub
 
-
+    Private Sub DgvLotes_DoubleClick(sender As Object, e As EventArgs) Handles DgvLotes.DoubleClick
+        If DgvLotes.RowCount = 0 Then
+            MsgBox("No hay registros disponibles")
+        Else
+            Dim index As Integer
+            index = DgvLotes.CurrentCell.RowIndex
+            TbIdLoteDet.Text = DgvLotes.Rows(index).Cells("IdEmbarqueDet").Value
+            TbNoLote.Text = DgvLotes.Rows(index).Cells("NoLote").Value
+            TbObservacionNoLote.Text = DgvLotes.Rows(index).Cells("ObservacionLote").Value
+            TbCantidadPacas.Text = DgvLotes.Rows(index).Cells("CantidadPacas").Value
+        End If
+    End Sub
 End Class

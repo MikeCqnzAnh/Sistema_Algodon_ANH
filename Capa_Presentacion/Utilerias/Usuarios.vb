@@ -20,6 +20,54 @@ Public Class Usuarios
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Nuevo()
     End Sub
+    Private Sub CbTipoUsuario_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoUsuario.SelectionChangeCommitted
+        ConsultaRolPredefinido(0, CbTipoUsuario.SelectedValue)
+        CallRecursive(TVRoles)
+    End Sub
+    Private Sub DgvUsuarios_DoubleClick(sender As Object, e As EventArgs) Handles DgvUsuarios.DoubleClick
+        If DgvUsuarios.DataSource Is Nothing Then
+            MsgBox("No hay registros disponibles")
+        Else
+            TbIdUsuario.Text = ""
+            TbNombre.Text = ""
+            TbUsuario.Text = ""
+            TbPassword.Text = ""
+            CbTipoUsuario.SelectedIndex = -1
+            CbEstatus.SelectedIndex = -1
+            Dim index As Integer
+            index = DgvUsuarios.CurrentCell.RowIndex
+            TbIdUsuario.Text = DgvUsuarios.Rows(index).Cells("IdUsuario").Value
+            TbNombre.Text = DgvUsuarios.Rows(index).Cells("Nombre").Value
+            TbUsuario.Text = DgvUsuarios.Rows(index).Cells("Usuario").Value
+            CbTipoUsuario.SelectedValue = DgvUsuarios.Rows(index).Cells("Tipo").Value
+            CbEstatus.SelectedValue = DgvUsuarios.Rows(index).Cells("Estatus").Value
+
+            ConsultaRolPredefinido(TbIdUsuario.Text, CbTipoUsuario.SelectedValue)
+            CallRecursive(TVRoles)
+        End If
+    End Sub
+    Private Sub TipoUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TipoUsuarioToolStripMenuItem.Click
+        TiposUsuario.ShowDialog()
+        LlenaCombo()
+    End Sub
+    Private Sub TVRoles_AfterCheck(sender As Object, e As TreeViewEventArgs) Handles TVRoles.AfterCheck
+        If (e.Action = TreeViewAction.Unknown) Then Return
+        If (e.Node.Nodes.Count > 0) Then
+            Me.CheckAllChildNodes(e.Node, e.Node.Checked)
+        Else
+            Dim parent As TreeNode = e.Node.Parent
+            If (Not parent Is Nothing) Then
+                If (Not e.Node.Checked) Then
+                    parent.Checked = False
+                Else
+                    Dim items As TreeNode() = (From item As TreeNode In parent.Nodes.OfType(Of TreeNode)()
+                                               Where item.Checked
+                                               Select item).ToArray()
+                    parent.Checked = (items.Count = parent.Nodes.Count)
+                End If
+            End If
+        End If
+    End Sub
     Private Sub LlenaCombo()
         Dim tabla As New DataTable
         Dim EntidadUsuarios As New Capa_Entidad.Usuarios
@@ -108,28 +156,7 @@ Public Class Usuarios
         llenaTablaMenuRoles()
         CrearNodosDelPadre(0, Nothing)
     End Sub
-    Private Sub DgvUsuarios_DoubleClick(sender As Object, e As EventArgs) Handles DgvUsuarios.DoubleClick
-        If DgvUsuarios.DataSource Is Nothing Then
-            MsgBox("No hay registros disponibles")
-        Else
-            TbIdUsuario.Text = ""
-            TbNombre.Text = ""
-            TbUsuario.Text = ""
-            TbPassword.Text = ""
-            CbTipoUsuario.SelectedIndex = -1
-            CbEstatus.SelectedIndex = -1
-            Dim index As Integer
-            index = DgvUsuarios.CurrentCell.RowIndex
-            TbIdUsuario.Text = DgvUsuarios.Rows(index).Cells("IdUsuario").Value
-            TbNombre.Text = DgvUsuarios.Rows(index).Cells("Nombre").Value
-            TbUsuario.Text = DgvUsuarios.Rows(index).Cells("Usuario").Value
-            CbTipoUsuario.SelectedValue = DgvUsuarios.Rows(index).Cells("Tipo").Value
-            CbEstatus.SelectedValue = DgvUsuarios.Rows(index).Cells("Estatus").Value
 
-            ConsultaRolPredefinido(TbIdUsuario.Text, CbTipoUsuario.SelectedValue)
-            CallRecursive(TVRoles)
-        End If
-    End Sub
     Private Sub llenaTablaMenuRoles()
         Dim EntidadRoles As New Capa_Entidad.Roles
         Dim NegocioRoles As New Capa_Negocio.Roles
@@ -154,28 +181,6 @@ Public Class Usuarios
             CrearNodosDelPadre(Int32.Parse(dataRowCurrent("IdMenuRoles").ToString()), nuevoNodo)
         Next dataRowCurrent
     End Sub
-    Private Sub TipoUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TipoUsuarioToolStripMenuItem.Click
-        TiposUsuario.ShowDialog()
-        LlenaCombo()
-    End Sub
-    Private Sub TVRoles_AfterCheck(sender As Object, e As TreeViewEventArgs) Handles TVRoles.AfterCheck
-        If (e.Action = TreeViewAction.Unknown) Then Return
-        If (e.Node.Nodes.Count > 0) Then
-            Me.CheckAllChildNodes(e.Node, e.Node.Checked)
-        Else
-            Dim parent As TreeNode = e.Node.Parent
-            If (Not parent Is Nothing) Then
-                If (Not e.Node.Checked) Then
-                    parent.Checked = False
-                Else
-                    Dim items As TreeNode() = (From item As TreeNode In parent.Nodes.OfType(Of TreeNode)()
-                                               Where item.Checked
-                                               Select item).ToArray()
-                    parent.Checked = (items.Count = parent.Nodes.Count)
-                End If
-            End If
-        End If
-    End Sub
     Private Sub CheckAllChildNodes(treeNode As TreeNode, nodeChecked As Boolean)
         For Each node As TreeNode In treeNode.Nodes
             node.Checked = nodeChecked
@@ -189,10 +194,6 @@ Public Class Usuarios
     End Sub
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
         TVRoles.CollapseAll()
-    End Sub
-    Private Sub CbTipoUsuario_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbTipoUsuario.SelectionChangeCommitted
-        ConsultaRolPredefinido(0, CbTipoUsuario.SelectedValue)
-        CallRecursive(TVRoles)
     End Sub
     Private Sub ConsultaRolPredefinido(ByVal IdUsuario As Integer, ByVal IdTipoUsuario As Integer)
         Dim EntidadRoles As New Capa_Entidad.Roles

@@ -37,6 +37,8 @@ Partial Class OrdenEmbarquePorPacas
         Me.Label21 = New System.Windows.Forms.Label()
         Me.DtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TbObservacionNoLote = New System.Windows.Forms.TextBox()
         Me.DgvLotes = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BtQuitar = New System.Windows.Forms.Button()
@@ -81,6 +83,7 @@ Partial Class OrdenEmbarquePorPacas
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TbIdLoteDet = New System.Windows.Forms.TextBox()
         Me.MSMenu.SuspendLayout()
         Me.GbEncabezado.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -172,7 +175,7 @@ Partial Class OrdenEmbarquePorPacas
         '
         'BtnBuscarProd
         '
-        Me.BtnBuscarProd.Location = New System.Drawing.Point(538, 39)
+        Me.BtnBuscarProd.Location = New System.Drawing.Point(491, 40)
         Me.BtnBuscarProd.Name = "BtnBuscarProd"
         Me.BtnBuscarProd.Size = New System.Drawing.Size(41, 23)
         Me.BtnBuscarProd.TabIndex = 49
@@ -203,7 +206,7 @@ Partial Class OrdenEmbarquePorPacas
         Me.TbObservaciones.Location = New System.Drawing.Point(95, 68)
         Me.TbObservaciones.Multiline = True
         Me.TbObservaciones.Name = "TbObservaciones"
-        Me.TbObservaciones.Size = New System.Drawing.Size(484, 48)
+        Me.TbObservaciones.Size = New System.Drawing.Size(437, 48)
         Me.TbObservaciones.TabIndex = 32
         '
         'Label21
@@ -218,13 +221,16 @@ Partial Class OrdenEmbarquePorPacas
         'DtpFecha
         '
         Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpFecha.Location = New System.Drawing.Point(461, 122)
+        Me.DtpFecha.Location = New System.Drawing.Point(414, 122)
         Me.DtpFecha.Name = "DtpFecha"
         Me.DtpFecha.Size = New System.Drawing.Size(118, 20)
         Me.DtpFecha.TabIndex = 30
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.TbIdLoteDet)
+        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Controls.Add(Me.TbObservacionNoLote)
         Me.Panel1.Controls.Add(Me.DgvLotes)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.BtQuitar)
@@ -233,10 +239,28 @@ Partial Class OrdenEmbarquePorPacas
         Me.Panel1.Controls.Add(Me.TbNoLote)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(585, 16)
+        Me.Panel1.Location = New System.Drawing.Point(538, 16)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(782, 140)
+        Me.Panel1.Size = New System.Drawing.Size(829, 140)
         Me.Panel1.TabIndex = 5
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(4, 61)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(105, 13)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "Observacion de lote:"
+        '
+        'TbObservacionNoLote
+        '
+        Me.TbObservacionNoLote.Location = New System.Drawing.Point(7, 77)
+        Me.TbObservacionNoLote.MaxLength = 200
+        Me.TbObservacionNoLote.Multiline = True
+        Me.TbObservacionNoLote.Name = "TbObservacionNoLote"
+        Me.TbObservacionNoLote.Size = New System.Drawing.Size(225, 60)
+        Me.TbObservacionNoLote.TabIndex = 20
         '
         'DgvLotes
         '
@@ -249,9 +273,10 @@ Partial Class OrdenEmbarquePorPacas
         Me.DgvLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvLotes.Dock = System.Windows.Forms.DockStyle.Right
         Me.DgvLotes.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvLotes.Location = New System.Drawing.Point(191, 0)
+        Me.DgvLotes.Location = New System.Drawing.Point(238, 0)
         Me.DgvLotes.MultiSelect = False
         Me.DgvLotes.Name = "DgvLotes"
+        Me.DgvLotes.ReadOnly = True
         Me.DgvLotes.RowHeadersVisible = False
         Me.DgvLotes.RowHeadersWidth = 40
         Me.DgvLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -261,17 +286,17 @@ Partial Class OrdenEmbarquePorPacas
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(4, 45)
+        Me.Label5.Location = New System.Drawing.Point(4, 35)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 13)
+        Me.Label5.Size = New System.Drawing.Size(78, 13)
         Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Pacas por lote"
+        Me.Label5.Text = "Pacas por lote:"
         '
         'BtQuitar
         '
         Me.BtQuitar.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.quit
         Me.BtQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtQuitar.Location = New System.Drawing.Point(155, 36)
+        Me.BtQuitar.Location = New System.Drawing.Point(202, 32)
         Me.BtQuitar.Name = "BtQuitar"
         Me.BtQuitar.Size = New System.Drawing.Size(30, 30)
         Me.BtQuitar.TabIndex = 5
@@ -281,7 +306,7 @@ Partial Class OrdenEmbarquePorPacas
         '
         Me.BtAgregar.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.add
         Me.BtAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtAgregar.Location = New System.Drawing.Point(155, 0)
+        Me.BtAgregar.Location = New System.Drawing.Point(202, 0)
         Me.BtAgregar.Name = "BtAgregar"
         Me.BtAgregar.Size = New System.Drawing.Size(30, 30)
         Me.BtAgregar.TabIndex = 3
@@ -289,7 +314,7 @@ Partial Class OrdenEmbarquePorPacas
         '
         'TbCantidadPacas
         '
-        Me.TbCantidadPacas.Location = New System.Drawing.Point(85, 42)
+        Me.TbCantidadPacas.Location = New System.Drawing.Point(102, 32)
         Me.TbCantidadPacas.Name = "TbCantidadPacas"
         Me.TbCantidadPacas.Size = New System.Drawing.Size(64, 20)
         Me.TbCantidadPacas.TabIndex = 1
@@ -297,7 +322,7 @@ Partial Class OrdenEmbarquePorPacas
         'TbNoLote
         '
         Me.TbNoLote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNoLote.Location = New System.Drawing.Point(49, 6)
+        Me.TbNoLote.Location = New System.Drawing.Point(66, 2)
         Me.TbNoLote.MaxLength = 15
         Me.TbNoLote.Name = "TbNoLote"
         Me.TbNoLote.Size = New System.Drawing.Size(100, 20)
@@ -306,18 +331,18 @@ Partial Class OrdenEmbarquePorPacas
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(4, 9)
+        Me.Label3.Location = New System.Drawing.Point(4, 5)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 13)
+        Me.Label3.Size = New System.Drawing.Size(44, 13)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "No lote"
+        Me.Label3.Text = "No lote:"
         '
         'TbNombre
         '
         Me.TbNombre.Enabled = False
         Me.TbNombre.Location = New System.Drawing.Point(164, 42)
         Me.TbNombre.Name = "TbNombre"
-        Me.TbNombre.Size = New System.Drawing.Size(368, 20)
+        Me.TbNombre.Size = New System.Drawing.Size(321, 20)
         Me.TbNombre.TabIndex = 4
         '
         'TbIdComprador
@@ -717,6 +742,16 @@ Partial Class OrdenEmbarquePorPacas
         Me.GroupBox2.TabIndex = 19
         Me.GroupBox2.TabStop = False
         '
+        'TbIdLoteDet
+        '
+        Me.TbIdLoteDet.Font = New System.Drawing.Font("Microsoft Sans Serif", 4.0!)
+        Me.TbIdLoteDet.Location = New System.Drawing.Point(115, 60)
+        Me.TbIdLoteDet.MaxLength = 10
+        Me.TbIdLoteDet.Name = "TbIdLoteDet"
+        Me.TbIdLoteDet.Size = New System.Drawing.Size(51, 14)
+        Me.TbIdLoteDet.TabIndex = 22
+        Me.TbIdLoteDet.Visible = False
+        '
         'OrdenEmbarquePorPacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -819,4 +854,7 @@ Partial Class OrdenEmbarquePorPacas
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents BtExcel As Button
+    Friend WithEvents Label12 As Label
+    Friend WithEvents TbObservacionNoLote As TextBox
+    Friend WithEvents TbIdLoteDet As TextBox
 End Class

@@ -65,6 +65,26 @@ Public Class SalidasPorOrden
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedIndex = -1
     End Sub
+    Private Sub TextBox3_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbFolioSalida.KeyPress
+        Dim Cadena = "0123456789"
+        If InStr(Cadena, e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub TextBox2_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbBruto.KeyPress, TbTara.KeyPress
+        Dim Cadena = ".0123456789"
+        If InStr(Cadena, e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
     Private Sub CargaComboAcuentaDE()
         Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
         Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
@@ -85,23 +105,25 @@ Public Class SalidasPorOrden
     End Sub
     Private Sub BtnBuscarEmbarque_Click(sender As Object, e As EventArgs) Handles BtnBuscarEmbarque.Click
         'Nuevo()
-        Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
-        Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
+        Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
+        Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
         Dim Tabla As New DataTable
         ConsultaOrdenEmbarqueSalidas.ShowDialog()
         If ConsultaOrdenEmbarqueSalidas.Id = 0 Then
             Exit Sub
         End If
-        EntidadSalidaPacas.Consulta = Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
-        EntidadSalidaPacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarqueSalidas.Id
-        EntidadSalidaPacas.NombreComprador = ConsultaOrdenEmbarqueSalidas.NombreComprador
-        EntidadSalidaPacas.NoLoteInd = ConsultaOrdenEmbarqueSalidas.NoLote
+        EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueParaSalidaSinSelecionar
+        EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = ConsultaOrdenEmbarqueSalidas.Id
+        EntidadOrdenEmbarquePacas.NombreComprador = ConsultaOrdenEmbarqueSalidas.NombreComprador
+        EntidadOrdenEmbarquePacas.NoLoteInd = ConsultaOrdenEmbarqueSalidas.NoLote
         'EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaEmbarqueEncabezado
-        NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
-        Tabla = EntidadSalidaPacas.TablaConsulta
+        NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
+        Tabla = EntidadOrdenEmbarquePacas.TablaConsulta
         If Tabla.Rows.Count = 0 Then
             Exit Sub
         End If
+        limpiar()
+
         Try
             TbIdEmbarque.Text = Tabla.Rows(0).Item("IdEmbarqueEncabezado")
             TbIdComprador.Text = Tabla.Rows(0).Item("IdComprador")
@@ -110,8 +132,8 @@ Public Class SalidasPorOrden
             TbPlacaTractoCamion.Text = Tabla.Rows(0).Item("PlacaTractoCamion")
             TbNoLicencia.Text = Tabla.Rows(0).Item("NoLicencia")
             TbTelefono.Text = Tabla.Rows(0).Item("Telefono")
-            TbNoContenedor.Text = Tabla.Rows(0).Item("NoContenedor")
-            TbPlacaCaja.Text = Tabla.Rows(0).Item("PlacaCaja")
+            'TbNoContenedor.Text = Tabla.Rows(0).Item("NoContenedor")
+            'TbPlacaCaja.Text = Tabla.Rows(0).Item("PlacaCaja")
             TbNoLote.Text = Tabla.Rows(0).Item("NoLote")
             'DtpFechaEntrada.Value = Tabla.Rows(0).Item("Fecha")
             'TbObservaciones.Text = Tabla.Rows(0).Item("Observaciones")
@@ -126,6 +148,7 @@ Public Class SalidasPorOrden
             CargaPaquetesDisponibles()
             CargaPacasDisponibles()
             ConsultaCombo()
+            CargaPacasSeleccionFiltro()
             CargaComboAcuentaDE()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -192,7 +215,7 @@ Public Class SalidasPorOrden
             EntidadSalidaPacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
             NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
             DgvOrdenes.DataSource = EntidadSalidaPacas.TablaConsulta
-            'propiedadesPaqueteDisponible(DgvOrdenes)
+            propiedadesPaqueteDisponible(DgvOrdenes)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -206,7 +229,36 @@ Public Class SalidasPorOrden
             EntidadSalidaPacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
             NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
             DgvOrdenesDetalle.DataSource = EntidadSalidaPacas.TablaConsulta
-            'propiedadesPacasDisponible(DgvOrdenesDetalle)
+            propiedadesPacasDisponible(DgvOrdenesDetalle)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub CargaPacasDisponibleFiltro()
+        Try
+            Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
+            Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
+            Dim Tabla As New DataTable
+            EntidadSalidaPacas.Consulta = Consulta.ConsultaPacasSalidasFiltro
+            EntidadSalidaPacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
+            EntidadSalidaPacas.NoLote = CbLotesDisponible.Text
+            NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
+            DgvOrdenesDetalle.DataSource = EntidadSalidaPacas.TablaConsulta
+            propiedadesPaqueteDisponible(DgvOrdenes)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub CargaPaquetesDisponiblesFiltro()
+        Try
+            Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
+            Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
+            Dim Tabla As New DataTable
+            EntidadSalidaPacas.Consulta = Consulta.ConsultaPaqueteDisponibleSalida
+            EntidadSalidaPacas.IdEmbarqueEncabezado = Val(TbIdEmbarque.Text)
+            NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
+            DgvOrdenes.DataSource = EntidadSalidaPacas.TablaConsulta
+            propiedadesPaqueteDisponible(DgvOrdenes)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -241,6 +293,7 @@ Public Class SalidasPorOrden
             CargaPaquetesDisponibles()
             CargaPacasDisponibles()
             ConsultaCombo()
+            CargaPacasSeleccionFiltro()
             ConsultarPacasSeleccionadas()
             ConsultarPaquetesSeleccionados()
             GbDatos.Enabled = True
@@ -256,6 +309,7 @@ Public Class SalidasPorOrden
         EntidadSalidaPacas.IdSalidaEncabezado = Val(TbIdSalida.Text)
         NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
         DgvSalidaPacas.DataSource = EntidadSalidaPacas.TablaConsulta
+        propiedadesPacasDisponible(DgvSalidaPacas)
     End Sub
     Private Sub ConsultarPaquetesSeleccionados()
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
@@ -265,6 +319,8 @@ Public Class SalidasPorOrden
         EntidadSalidaPacas.IdSalidaEncabezado = Val(TbIdSalida.Text)
         NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
         DgvSalidas.DataSource = EntidadSalidaPacas.TablaConsulta
+        propiedadesPaqueteDisponible(DgvSalidas)
+
     End Sub
     Private Sub DgvOrdenes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvOrdenes.CellContentClick
         Dim filaSeleccionada As Integer = DgvOrdenes.CurrentRow.Index
@@ -306,6 +362,8 @@ Public Class SalidasPorOrden
             TbPacasLoteadas.Text = DgvSalidaPacas.RowCount
             TbPacasDisponibles.Text = DgvOrdenesDetalle.RowCount
             TbPacasMarcadas.Text = 0
+            ConsultaCombo()
+            CargaPacasSeleccionFiltro()
             'Else
             '    MsgBox("Las pacas seleccionadas exceden la cantidad del lote " & CbLotes.Text & " " & TbCantidadPacasCombo.Text)
             'End If
@@ -355,6 +413,8 @@ Public Class SalidasPorOrden
         TbPacasLoteadas.Text = DgvSalidaPacas.RowCount
         TbPacasMarcadasLotes.Text = 0
         TbPacasDisponibles.Text = DgvOrdenesDetalle.RowCount
+        ConsultaCombo()
+        CargaPacasSeleccionFiltro()
     End Sub
     Private Sub BtExcel_Click(sender As Object, e As EventArgs) Handles BtExcel.Click
         CargaExcel.ShowDialog()
@@ -754,6 +814,8 @@ Public Class SalidasPorOrden
         dgv.Columns("Kilos").ReadOnly = True
         dgv.Columns("Seleccionar").ReadOnly = False
 
+
+        dgv.Columns("Kilos").DefaultCellStyle.Format = "N2"
         dgv.Columns("IdPaqueteEncabezado").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgv.Columns("IdVentaEnc").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgv.Columns("BaleID").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
@@ -767,12 +829,13 @@ Public Class SalidasPorOrden
         dgv.Columns("Kilos").ReadOnly = True
         dgv.Columns("Seleccionar").ReadOnly = False
 
+        dgv.Columns("Kilos").DefaultCellStyle.Format = "N2"
         dgv.Columns("IdPaqueteEncabezado").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgv.Columns("Cantidad").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         dgv.Columns("Kilos").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
 
     End Sub
-    Private Sub GuardaSalida()
+    Private Sub GuardaSalida(Optional ByVal EstatusSalida As Integer = 0)
         Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
         Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
         Try
@@ -790,17 +853,18 @@ Public Class SalidasPorOrden
             EntidadSalidaPacas.Destino = TbDestino.Text
             EntidadSalidaPacas.FolioSalida = TbFolioSalida.Text
             EntidadSalidaPacas.NoFactura = TbNoFactura.Text
-            'EntidadSalidaPacas.CantidadPacas = Val(TbNoPacas.Text)
+            'EntidadSalidaPacas.NoContenedor = TbNoContenedor.Text
+            'EntidadSalidaPacas.PlacaCaja = TbPlacaCaja.Text
             EntidadSalidaPacas.FechaEntrada = DtpFechaEntrada.Value
             EntidadSalidaPacas.FechaSalida = DtFechaSalida.Value
             EntidadSalidaPacas.Observaciones = TbObservaciones.Text
-            EntidadSalidaPacas.EstatusSalida = CbEstatus.SelectedValue
+            EntidadSalidaPacas.EstatusSalida = EstatusSalida
             NegocioSalidaPacas.GuardarSalida(EntidadSalidaPacas)
             TbIdSalida.Text = EntidadSalidaPacas.IdSalidaEncabezado
 
             TbNoLote.Text = ""
             'TbCantidadPacas.Text = ""
-            'MsgBox("Guardado con exito", MsgBoxStyle.Information, "Aviso")
+            MsgBox("Guardado con exito", MsgBoxStyle.Information, "Aviso")
             'GbProceso.Enabled = True
             'GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdEmbarque.Text, "SE REMOVIERON " & DgvPacas.Rows.Count & " PACAS PARA EL COMPRADOR " & TbNombre.Text & ".")
         Catch ex As Exception
@@ -860,10 +924,10 @@ Public Class SalidasPorOrden
                         GuardaPacas(recorrepaca.Cells("BaleID").Value, recorrepaca.Cells("Nolote").Value, recorrepaca.Cells("IdPlantaOrigen").Value, Val(TbIdSalida.Text), Val(TbIdEmbarque.Text), Val(TbIdComprador.Text), 1)
                     End If
                 Next
-                consultaPacasEmbarque()
-                consultaPaqueteEmbarque()
                 CargaPaquetesDisponibles()
                 CargaPacasDisponibles()
+                ConsultarPacasSeleccionadas()
+                ConsultarPaquetesSeleccionados()
             End If
             'MsgBox("Salida guardado")
         Catch ex As Exception
@@ -877,19 +941,27 @@ Public Class SalidasPorOrden
                     GuardaPacas(recorrepaca.Cells("BaleID").Value, recorrepaca.Cells("Nolote").Value, recorrepaca.Cells("IdPlantaOrigen").Value, 0, Val(TbIdEmbarque.Text), 0, 0)
                 End If
             Next
-            consultaPacasEmbarque()
-            consultaPaqueteEmbarque()
             CargaPaquetesDisponibles()
             CargaPacasDisponibles()
+            ConsultarPacasSeleccionadas()
+            ConsultarPaquetesSeleccionados()
         End If
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbIdEmbarque.Text <> "" Then
-            GuardaSalida()
+            If CbEstatus.SelectedValue = 0 And Val(TbNeto.Text) > 0 Then
+                Dim opc As DialogResult = MsgBox("Elija SI para guardar la salida con estatus EMBARCADO, Elija NO para guardar sin cambiar el estatus", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
+                If opc = DialogResult.Yes Then
+                    GuardaSalida(1)
+                    CbEstatus.SelectedValue = 1
+                    GbDatos.Enabled = True
+                Else
+                    GuardaSalida(0)
+                    GbDatos.Enabled = True
+                End If
+            Else
 
-            GbDatos.Enabled = True
-            GroupBox1.Enabled = True
-            Panel3.Enabled = True
+            End If
         Else
             MsgBox("No hay embarque seleccionado!", MsgBoxStyle.Information, "Aviso")
         End If
@@ -926,7 +998,7 @@ Public Class SalidasPorOrden
     End Sub
 
     Private Sub TbBruto_TextChanged(sender As Object, e As EventArgs) Handles TbBruto.TextChanged, TbTara.TextChanged
-        TbNeto.Text = FormatNumber(IIf((Val(TbBruto.Text) - Val(TbTara.Text)) < 0, 0, Val(TbBruto.Text) - Val(TbTara.Text)), 1)
+        TbNeto.Text = IIf((Val(TbBruto.Text) - Val(TbTara.Text)) < 0, 0, Val(TbBruto.Text) - Val(TbTara.Text))
     End Sub
 
     'Private Sub TbTara_LostFocus(sender As Object, e As EventArgs) Handles TbTara.LostFocus
@@ -945,14 +1017,16 @@ Public Class SalidasPorOrden
     '    TbTara.SelectAll()
     'End Sub
     Private Sub ConsultaCombo()
-        Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
-        Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
+        Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
+        Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
         Try
             Dim tabla As New DataTable
-            EntidadOrdenEmbarquePacas.Consulta = Consulta.ConsultaComboLotes
-            EntidadOrdenEmbarquePacas.IdEmbarqueEncabezado = IIf(TbIdEmbarque.Text = "", 0, TbIdEmbarque.Text)
-            NegocioOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)
-            tabla = EntidadOrdenEmbarquePacas.TablaConsulta
+            EntidadSalidaPacas.Consulta = Consulta.ConsultaComboLotes
+            EntidadSalidaPacas.EstatusSalida = 0
+            EntidadSalidaPacas.IdSalida = 0
+            EntidadSalidaPacas.IdEmbarqueEncabezado = IIf(TbIdEmbarque.Text = "", 0, TbIdEmbarque.Text)
+            NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
+            tabla = EntidadSalidaPacas.TablaConsulta
             CbLotesDisponible.DataSource = tabla
             CbLotesDisponible.ValueMember = "IdEmbarqueDet"
             CbLotesDisponible.DisplayMember = "Nolote"
@@ -961,17 +1035,45 @@ Public Class SalidasPorOrden
             MsgBox(ex.Message)
         End Try
     End Sub
-
+    Private Sub CargaPacasSeleccionFiltro()
+        Dim EntidadSalidaPacas As New Capa_Entidad.SalidaPacas
+        Dim NegocioSalidaPacas As New Capa_Negocio.SalidaPacas
+        Try
+            Dim tabla As New DataTable
+            EntidadSalidaPacas.Consulta = Consulta.ConsultaComboLotes
+            EntidadSalidaPacas.EstatusSalida = 1
+            EntidadSalidaPacas.IdSalida = Val(TbIdSalida.Text)
+            EntidadSalidaPacas.IdEmbarqueEncabezado = IIf(TbIdEmbarque.Text = "", 0, TbIdEmbarque.Text)
+            NegocioSalidaPacas.Consultar(EntidadSalidaPacas)
+            tabla = EntidadSalidaPacas.TablaConsulta
+            CbLotesSeleccionadas.DataSource = tabla
+            CbLotesSeleccionadas.ValueMember = "IdEmbarqueDet"
+            CbLotesSeleccionadas.DisplayMember = "Nolote"
+            CbLotesSeleccionadas.SelectedIndex = -1
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub BtFiltroDisponible_Click(sender As Object, e As EventArgs) Handles BtFiltroDisponible.Click
         CargaPaquetesDisponibles()
-        CargaPacasDisponibles()
+        'CargaPacasDisponibles()
+        'CargaPaquetesDisponiblesFiltro()
+        CargaPacasDisponibleFiltro()
     End Sub
+    Private Sub BtFiltroSeleccion_Click(sender As Object, e As EventArgs) Handles BtFiltroSeleccion.Click
+
+    End Sub
+
 
     Private Sub GenerarNuevaSalidaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarNuevaSalidaToolStripMenuItem.Click
         If TbIdEmbarque.Text <> "" Then
             GuardaSalida()
+            GroupBox1.Enabled = True
+            Panel3.Enabled = True
         Else
             MsgBox("No hay Embarque seleccionado para continuar!", MsgBoxStyle.Critical, "Aviso")
         End If
     End Sub
+
+
 End Class

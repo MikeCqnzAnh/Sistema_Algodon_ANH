@@ -194,6 +194,24 @@ Public Class SalidaPacas
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdSalidaEncabezado", EntidadSalidaPacas1.IdSalidaEncabezado))
                     sqldat1.Fill(EntidadSalidaPacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPacasSalidasFiltro
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPacasDisponiblesSalidas", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadSalidaPacas1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadSalidaPacas1.NoLote))
+                    sqldat1.Fill(EntidadSalidaPacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaComboLotes
+                    sqlcom1 = New SqlCommand("Pa_LlenaComboLotes", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadSalidaPacas1.EstatusSalida))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEnc", EntidadSalidaPacas1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdSalidaEnc", EntidadSalidaPacas1.IdSalida))
+                    sqldat1.Fill(EntidadSalidaPacas1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

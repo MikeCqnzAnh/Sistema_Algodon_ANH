@@ -22,8 +22,20 @@ Partial Class RepPacasExistencias
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.CbPlanta = New System.Windows.Forms.ComboBox()
+        Me.CkSinEmbarque = New System.Windows.Forms.CheckBox()
+        Me.CkEmbarques = New System.Windows.Forms.CheckBox()
+        Me.BtComprador = New System.Windows.Forms.Button()
+        Me.BtProductor = New System.Windows.Forms.Button()
+        Me.TbComprador = New System.Windows.Forms.TextBox()
+        Me.TbIdComprador = New System.Windows.Forms.TextBox()
+        Me.TbProductor = New System.Windows.Forms.TextBox()
+        Me.TbIdProductor = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.CkExistencias = New System.Windows.Forms.CheckBox()
         Me.CkSalidas = New System.Windows.Forms.CheckBox()
         Me.CkSinVender = New System.Windows.Forms.CheckBox()
@@ -48,18 +60,6 @@ Partial Class RepPacasExistencias
         Me.ExportarAExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CRVReporteExistencias = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TbIdProductor = New System.Windows.Forms.TextBox()
-        Me.TbProductor = New System.Windows.Forms.TextBox()
-        Me.TbIdComprador = New System.Windows.Forms.TextBox()
-        Me.TbComprador = New System.Windows.Forms.TextBox()
-        Me.BtProductor = New System.Windows.Forms.Button()
-        Me.BtComprador = New System.Windows.Forms.Button()
-        Me.CkEmbarques = New System.Windows.Forms.CheckBox()
-        Me.CkSinEmbarque = New System.Windows.Forms.CheckBox()
-        Me.CbPlanta = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GbTotales.SuspendLayout()
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,6 +103,113 @@ Partial Class RepPacasExistencias
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1458, 218)
         Me.Panel1.TabIndex = 0
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(157, 134)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(37, 13)
+        Me.Label8.TabIndex = 39
+        Me.Label8.Text = "Planta"
+        '
+        'CbPlanta
+        '
+        Me.CbPlanta.FormattingEnabled = True
+        Me.CbPlanta.Location = New System.Drawing.Point(200, 131)
+        Me.CbPlanta.Name = "CbPlanta"
+        Me.CbPlanta.Size = New System.Drawing.Size(121, 21)
+        Me.CbPlanta.TabIndex = 38
+        '
+        'CkSinEmbarque
+        '
+        Me.CkSinEmbarque.AutoSize = True
+        Me.CkSinEmbarque.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CkSinEmbarque.Location = New System.Drawing.Point(341, 76)
+        Me.CkSinEmbarque.Name = "CkSinEmbarque"
+        Me.CkSinEmbarque.Size = New System.Drawing.Size(92, 17)
+        Me.CkSinEmbarque.TabIndex = 37
+        Me.CkSinEmbarque.Text = "Sin Embarque"
+        Me.CkSinEmbarque.UseVisualStyleBackColor = True
+        '
+        'CkEmbarques
+        '
+        Me.CkEmbarques.AutoSize = True
+        Me.CkEmbarques.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CkEmbarques.Location = New System.Drawing.Point(259, 76)
+        Me.CkEmbarques.Name = "CkEmbarques"
+        Me.CkEmbarques.Size = New System.Drawing.Size(79, 17)
+        Me.CkEmbarques.TabIndex = 36
+        Me.CkEmbarques.Text = "Embarques"
+        Me.CkEmbarques.UseVisualStyleBackColor = True
+        '
+        'BtComprador
+        '
+        Me.BtComprador.Location = New System.Drawing.Point(548, 183)
+        Me.BtComprador.Name = "BtComprador"
+        Me.BtComprador.Size = New System.Drawing.Size(30, 20)
+        Me.BtComprador.TabIndex = 35
+        Me.BtComprador.Text = "..."
+        Me.BtComprador.UseVisualStyleBackColor = True
+        '
+        'BtProductor
+        '
+        Me.BtProductor.Location = New System.Drawing.Point(548, 157)
+        Me.BtProductor.Name = "BtProductor"
+        Me.BtProductor.Size = New System.Drawing.Size(30, 20)
+        Me.BtProductor.TabIndex = 34
+        Me.BtProductor.Text = "..."
+        Me.BtProductor.UseVisualStyleBackColor = True
+        '
+        'TbComprador
+        '
+        Me.TbComprador.Enabled = False
+        Me.TbComprador.Location = New System.Drawing.Point(157, 183)
+        Me.TbComprador.Name = "TbComprador"
+        Me.TbComprador.Size = New System.Drawing.Size(385, 20)
+        Me.TbComprador.TabIndex = 33
+        '
+        'TbIdComprador
+        '
+        Me.TbIdComprador.Enabled = False
+        Me.TbIdComprador.Location = New System.Drawing.Point(92, 183)
+        Me.TbIdComprador.Name = "TbIdComprador"
+        Me.TbIdComprador.Size = New System.Drawing.Size(59, 20)
+        Me.TbIdComprador.TabIndex = 32
+        '
+        'TbProductor
+        '
+        Me.TbProductor.Enabled = False
+        Me.TbProductor.Location = New System.Drawing.Point(157, 157)
+        Me.TbProductor.Name = "TbProductor"
+        Me.TbProductor.Size = New System.Drawing.Size(385, 20)
+        Me.TbProductor.TabIndex = 31
+        '
+        'TbIdProductor
+        '
+        Me.TbIdProductor.Enabled = False
+        Me.TbIdProductor.Location = New System.Drawing.Point(92, 157)
+        Me.TbIdProductor.Name = "TbIdProductor"
+        Me.TbIdProductor.Size = New System.Drawing.Size(59, 20)
+        Me.TbIdProductor.TabIndex = 30
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 186)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(58, 13)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "Comprador"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(12, 160)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 28
+        Me.Label6.Text = "Productor"
         '
         'CkExistencias
         '
@@ -271,14 +378,14 @@ Partial Class RepPacasExistencias
         Me.DgvPacas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DgvPacas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPacas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvPacas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPacas.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -343,113 +450,6 @@ Partial Class RepPacasExistencias
         Me.CRVReporteExistencias.Size = New System.Drawing.Size(1458, 488)
         Me.CRVReporteExistencias.TabIndex = 1
         Me.CRVReporteExistencias.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 160)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 13)
-        Me.Label6.TabIndex = 28
-        Me.Label6.Text = "Productor"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 186)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(58, 13)
-        Me.Label7.TabIndex = 29
-        Me.Label7.Text = "Comprador"
-        '
-        'TbIdProductor
-        '
-        Me.TbIdProductor.Enabled = False
-        Me.TbIdProductor.Location = New System.Drawing.Point(92, 157)
-        Me.TbIdProductor.Name = "TbIdProductor"
-        Me.TbIdProductor.Size = New System.Drawing.Size(59, 20)
-        Me.TbIdProductor.TabIndex = 30
-        '
-        'TbProductor
-        '
-        Me.TbProductor.Enabled = False
-        Me.TbProductor.Location = New System.Drawing.Point(157, 157)
-        Me.TbProductor.Name = "TbProductor"
-        Me.TbProductor.Size = New System.Drawing.Size(385, 20)
-        Me.TbProductor.TabIndex = 31
-        '
-        'TbIdComprador
-        '
-        Me.TbIdComprador.Enabled = False
-        Me.TbIdComprador.Location = New System.Drawing.Point(92, 183)
-        Me.TbIdComprador.Name = "TbIdComprador"
-        Me.TbIdComprador.Size = New System.Drawing.Size(59, 20)
-        Me.TbIdComprador.TabIndex = 32
-        '
-        'TbComprador
-        '
-        Me.TbComprador.Enabled = False
-        Me.TbComprador.Location = New System.Drawing.Point(157, 183)
-        Me.TbComprador.Name = "TbComprador"
-        Me.TbComprador.Size = New System.Drawing.Size(385, 20)
-        Me.TbComprador.TabIndex = 33
-        '
-        'BtProductor
-        '
-        Me.BtProductor.Location = New System.Drawing.Point(548, 157)
-        Me.BtProductor.Name = "BtProductor"
-        Me.BtProductor.Size = New System.Drawing.Size(30, 20)
-        Me.BtProductor.TabIndex = 34
-        Me.BtProductor.Text = "..."
-        Me.BtProductor.UseVisualStyleBackColor = True
-        '
-        'BtComprador
-        '
-        Me.BtComprador.Location = New System.Drawing.Point(548, 183)
-        Me.BtComprador.Name = "BtComprador"
-        Me.BtComprador.Size = New System.Drawing.Size(30, 20)
-        Me.BtComprador.TabIndex = 35
-        Me.BtComprador.Text = "..."
-        Me.BtComprador.UseVisualStyleBackColor = True
-        '
-        'CkEmbarques
-        '
-        Me.CkEmbarques.AutoSize = True
-        Me.CkEmbarques.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CkEmbarques.Location = New System.Drawing.Point(259, 76)
-        Me.CkEmbarques.Name = "CkEmbarques"
-        Me.CkEmbarques.Size = New System.Drawing.Size(79, 17)
-        Me.CkEmbarques.TabIndex = 36
-        Me.CkEmbarques.Text = "Embarques"
-        Me.CkEmbarques.UseVisualStyleBackColor = True
-        '
-        'CkSinEmbarque
-        '
-        Me.CkSinEmbarque.AutoSize = True
-        Me.CkSinEmbarque.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CkSinEmbarque.Location = New System.Drawing.Point(341, 76)
-        Me.CkSinEmbarque.Name = "CkSinEmbarque"
-        Me.CkSinEmbarque.Size = New System.Drawing.Size(92, 17)
-        Me.CkSinEmbarque.TabIndex = 37
-        Me.CkSinEmbarque.Text = "Sin Embarque"
-        Me.CkSinEmbarque.UseVisualStyleBackColor = True
-        '
-        'CbPlanta
-        '
-        Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(200, 131)
-        Me.CbPlanta.Name = "CbPlanta"
-        Me.CbPlanta.Size = New System.Drawing.Size(121, 21)
-        Me.CbPlanta.TabIndex = 38
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(157, 134)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(37, 13)
-        Me.Label8.TabIndex = 39
-        Me.Label8.Text = "Planta"
         '
         'RepPacasExistencias
         '

@@ -1,6 +1,5 @@
-alter Procedure Sp_ConsultaEmbarqueSalidaSinSeleccionar
---declare
-@IdEmbarqueEncabezado int,
+Create Procedure Sp_ConsultaEmbarqueSalidaSinSeleccionar
+@IdEmbarqueEncabezado int ,
 @NombreComprador varchar(30),
 @NoLote varchar(15)
 as
@@ -20,7 +19,7 @@ begin
 	  ,count(ed.BaleID) as NoPacas
 	from CalculoClasificacion ed inner join Compradores CO on ed.idcomprador = co.IdComprador
 							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado
-	where ed.EstatusSalida = 0 and ed.IdEmbarqueEncabezado = @IdEmbarqueEncabezado and ed.IdSalidaEncabezado is null
+	where  ed.IdEmbarqueEncabezado = @IdEmbarqueEncabezado and ed.EstatusSalida is null and ed.IdSalidaEncabezado is null
 	group by ed.IdSalidaEncabezado
 		,ee.NombreChofer
 		,ee.Telefono
@@ -49,8 +48,8 @@ begin
 	  ,ed.PlacaCaja
 	  ,count(ed.BaleID) as NoPacas
 	from CalculoClasificacion ed inner join Compradores CO on ed.idcomprador = co.IdComprador
-							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado and ed.IdSalidaEncabezado is null
-	where EstatusSalida = 0 and ed.NoLote like '%'+@NoLote+'%' and ed.IdSalidaEncabezado is null
+							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado 
+	where EstatusSalida is null and ed.NoLote like '%'+@NoLote+'%' and ed.IdSalidaEncabezado is null
 	group by ed.IdSalidaEncabezado
 		,ee.NombreChofer
 		,ee.Telefono
@@ -79,8 +78,8 @@ begin
 	  ,ed.PlacaCaja
 	  ,count(ed.BaleID) as NoPacas
 	from CalculoClasificacion ed inner join Compradores CO on ed.idcomprador = co.IdComprador
-							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado and ed.IdSalidaEncabezado is null
-	where EstatusSalida = 0 and co.Nombre like '%'+@NombreComprador+'%' and ed.IdSalidaEncabezado is null
+							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado 
+	where EstatusSalida is null and co.Nombre like '%'+@NombreComprador+'%' and ed.IdSalidaEncabezado is null
 	group by ed.IdSalidaEncabezado
 		,ee.NombreChofer
 		,ee.Telefono
@@ -94,7 +93,7 @@ begin
 		,ed.IdEmbarqueEncabezado
 	order by ed.IdEmbarqueEncabezado
 end
-if @IdEmbarqueEncabezado > 0 and @NoLote <> '' and @NombreComprador <> ''
+else if @IdEmbarqueEncabezado > 0 and @NoLote <> '' and @NombreComprador <> ''
 begin
 	select ed.IdEmbarqueEncabezado
 	  ,ed.IdComprador
@@ -110,7 +109,7 @@ begin
 	  ,count(ed.BaleID) as NoPacas
 	from CalculoClasificacion ed inner join Compradores CO on ed.idcomprador = co.IdComprador
 							inner join EmbarqueEncabezado ee on ed.IdEmbarqueEncabezado = ee.IdEmbarqueEncabezado
-	where ed.EstatusSalida = 0 and ed.IdEmbarqueEncabezado = @IdEmbarqueEncabezado and ed.IdSalidaEncabezado is null and ed.NoLote like '%'+@NoLote+'%'
+	where ed.EstatusSalida is null and ed.IdEmbarqueEncabezado = @IdEmbarqueEncabezado and ed.IdSalidaEncabezado is null and ed.NoLote like '%'+@NoLote+'%'
 	group by ed.IdSalidaEncabezado
 		,ee.NombreChofer
 		,ee.Telefono

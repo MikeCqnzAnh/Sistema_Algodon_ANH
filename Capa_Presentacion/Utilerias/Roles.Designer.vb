@@ -170,9 +170,9 @@ Partial Class Roles
         '
         'BtDespliega
         '
-        Me.BtDespliega.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtDespliega.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtDespliega.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtDespliega.Location = New System.Drawing.Point(827, 0)
+        Me.BtDespliega.Location = New System.Drawing.Point(857, 3)
         Me.BtDespliega.MaximumSize = New System.Drawing.Size(30, 30)
         Me.BtDespliega.MinimumSize = New System.Drawing.Size(30, 30)
         Me.BtDespliega.Name = "BtDespliega"
@@ -183,9 +183,9 @@ Partial Class Roles
         '
         'BtContraer
         '
-        Me.BtContraer.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BtContraer.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtContraer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtContraer.Location = New System.Drawing.Point(857, 0)
+        Me.BtContraer.Location = New System.Drawing.Point(857, 39)
         Me.BtContraer.MaximumSize = New System.Drawing.Size(30, 30)
         Me.BtContraer.MinimumSize = New System.Drawing.Size(30, 30)
         Me.BtContraer.Name = "BtContraer"

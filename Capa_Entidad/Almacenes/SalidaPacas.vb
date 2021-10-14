@@ -20,9 +20,11 @@
     Public NoLoteInd As String
     Public NombreChofer As String
     Public PlacaTractoCamion As String
+    Public PlacaCaja As String
     Public NoLicencia As String
     Public Telefono As String
     Public CantidadPacas As Integer
     Public IdPlanta As Integer
     Public BaleID As Long
+    Public IdSalida As Integer
 End Class

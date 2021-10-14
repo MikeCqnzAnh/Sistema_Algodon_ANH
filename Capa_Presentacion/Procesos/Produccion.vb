@@ -6,6 +6,7 @@ Public Class Produccion
     Dim archivo As String = "config.ini"
     Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
+    Dim TextoIzq As Boolean
     Dim UltimaSecuencia, EtiquetaEscaneada As Long
     Dim IdProduccionDetalle As Integer = 0
     Dim FolioCIAReturn As Long = 0
@@ -1075,18 +1076,25 @@ Public Class Produccion
         End Try
         Try
             If IndicadorPesoBruto <> "" Then
-                If returnStr.Contains(IndicadorPesoBruto) Then
-                    Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(IndicadorPesoBruto)), returnStr.Length - returnStr.IndexOf(RTrim(IndicadorPesoBruto)))
+                If returnStr.Contains(IndicadorPesoBruto) And TextoIzq = False Then
+                    Resultado = returnStr.Substring(returnStr.IndexOf(Trim(IndicadorPesoBruto)), returnStr.Length - returnStr.IndexOf(Trim(IndicadorPesoBruto)))
                     Bruto = LTrim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
                     TbKilos.Text = Bruto
                     FechaActualizacion = Now
+                    ActualizaPesoModuloAutomatico(Bruto, FechaActualizacion)
+                ElseIf returnStr.Contains(IndicadorPesoBruto) And TextoIzq = True Then
+                    Dim largo As Integer = returnStr.Length - returnStr.IndexOf(Trim(IndicadorPesoBruto))
+                    Dim inicio As Integer = returnStr.IndexOf(Trim(IndicadorPesoBruto)) - CaracterPesoBruto
+                    Resultado = returnStr.Substring(inicio, largo)
+                    Bruto = Trim(Resultado.Substring(inicio, largo))
+                    TbKilos.Text = Bruto
                     ActualizaPesoModuloAutomatico(Bruto, FechaActualizacion)
                 End If
             Else
                 MessageBox.Show("Campo indicador de peso vacio, continuar con captura manual." & vbCrLf & " Si el problema continuna contactar al Administrador del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
-            MsgBox(ex)
+            MsgBox(ex.Message)
         End Try
         returnStr = ""
     End Sub
@@ -1147,7 +1155,6 @@ Public Class Produccion
                             TbFolioInicial.Text = UltimaSecuencia
                             TbKilos.Select()
                         Else
-
                             'TbFolioCIA.Text = EtiquetaEscaneada
                             Dim EntidadProduccion As New Capa_Entidad.Produccion
                             Dim NegocioProduccion As New Capa_Negocio.Produccion
@@ -1670,17 +1677,18 @@ Public Class Produccion
                 IndicadorNeto = ObtenerValor(ArregloCadena(28))
                 PosicionNeto = ObtenerValor(ArregloCadena(29))
                 CaracterNeto = ObtenerValor(ArregloCadena(30))
-                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
-                BaudRate = ObtenerValor(ArregloCadena(32))
-                DataBits = ObtenerValor(ArregloCadena(33))
-                StopBits = ObtenerValor(ArregloCadena(34))
-                Parity = ObtenerValor(ArregloCadena(35))
-                Handshake = ObtenerValor(ArregloCadena(36))
-                DtrEnable = ObtenerValor(ArregloCadena(37))
-                ReadBufferSize = ObtenerValor(ArregloCadena(38))
-                WriteBufferSize = ObtenerValor(ArregloCadena(39))
-                ReceivedBytesThreshold = ObtenerValor(ArregloCadena(40))
-                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(41))
+                TextoIzq = ObtenerValor(ArregloCadena(31))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(32))
+                BaudRate = ObtenerValor(ArregloCadena(33))
+                DataBits = ObtenerValor(ArregloCadena(34))
+                StopBits = ObtenerValor(ArregloCadena(35))
+                Parity = ObtenerValor(ArregloCadena(36))
+                HandShake = ObtenerValor(ArregloCadena(37))
+                DtrEnable = ObtenerValor(ArregloCadena(38))
+                ReadBufferSize = ObtenerValor(ArregloCadena(39))
+                WriteBufferSize = ObtenerValor(ArregloCadena(40))
+                ReceivedBytesThreshold = ObtenerValor(ArregloCadena(41))
+                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(42))
             End While
             leer.Close()
         Catch ex As Exception

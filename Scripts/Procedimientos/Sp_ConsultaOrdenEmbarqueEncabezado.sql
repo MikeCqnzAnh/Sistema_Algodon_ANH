@@ -1,55 +1,54 @@
-Create Procedure Sp_ConsultaOrdenEmbarqueEncabezado
+alter Procedure Sp_ConsultaOrdenEmbarqueEncabezado
 @IdEmbarqueEncabezado int,
 @NombreComprador varchar(30)
 as
 if @IdEmbarqueEncabezado <> 0 and @NombreComprador = ''
 	begin
-		select ee.IdEmbarqueEncabezado
-			  ,ee.IdComprador
+		select distinct cc.IdEmbarqueEncabezado
+			  ,cc.IdComprador
 			  ,co.Nombre
-			  ,ee.NombreChofer
-			  ,ee.PlacaTractoCamion
-			  ,ee.NoLicencia
-			  ,ee.CantidadCajas
-			  ,ee.NoLote1
-			  ,ee.NoLote2
-			  ,ee.CantidadPacas
-		from EmbarqueEncabezado ee inner join compradores co 
-		on ee.IdComprador = co.IdComprador
-		where ee.IdEmbarqueEncabezado = @IdEmbarqueEncabezado
-		order by ee.IdEmbarqueEncabezado
+			  ,isnull(se.NombreChofer ,'') as NombreChofer
+			  ,isnull(se.PlacaTractoCamion,'') as PlacaTractoCamion
+			  ,isnull(se.NoLicencia,'') as NoLicencia
+			  ,cc.NoLote
+			  ,ed.CantidadPacas
+		from CalculoClasificacion cc inner join embarqueencabezado ee on cc.idembarqueencabezado = ee.idembarqueencabezado and cc.idcomprador = ee.idcomprador
+									 inner join Compradores co on cc.idcomprador = co.idcomprador
+									 left join SalidaPacasEncabezado se on cc.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and cc.IdSalidaEncabezado = se.IdSalidaEncabezado
+									 inner join Embarquedet ed on cc.idembarqueencabezado = ed.IdEmbarqueEnc and cc.NoLote = ed.NoLote
+		where cc.IdEmbarqueEncabezado = @IdEmbarqueEncabezado
+		order by cc.IdEmbarqueEncabezado desc
 	end
 else if @IdEmbarqueEncabezado = 0 and @NombreComprador <> ''
 	begin
-		select ee.IdEmbarqueEncabezado
-			  ,ee.IdComprador
+		select distinct cc.IdEmbarqueEncabezado
+			  ,cc.IdComprador
 			  ,co.Nombre
-			  ,ee.NombreChofer
-			  ,ee.PlacaTractoCamion
-			  ,ee.NoLicencia
-			  ,ee.CantidadCajas
-			  ,ee.NoLote1
-			  ,ee.NoLote2
-			  ,ee.CantidadPacas 
-		from EmbarqueEncabezado ee inner join compradores co 
-		on ee.IdComprador = co.IdComprador
+			  ,isnull(se.NombreChofer ,'') as NombreChofer
+			  ,isnull(se.PlacaTractoCamion,'') as PlacaTractoCamion
+			  ,isnull(se.NoLicencia,'') as NoLicencia
+			  ,cc.NoLote
+			  ,ed.CantidadPacas
+		from CalculoClasificacion cc inner join embarqueencabezado ee on cc.idembarqueencabezado = ee.idembarqueencabezado and cc.idcomprador = ee.idcomprador
+									 inner join Compradores co on cc.idcomprador = co.idcomprador
+									 left join SalidaPacasEncabezado se on cc.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and cc.IdSalidaEncabezado = se.IdSalidaEncabezado
+									 inner join Embarquedet ed on cc.idembarqueencabezado = ed.IdEmbarqueEnc and cc.NoLote = ed.NoLote
 		where co.Nombre like '%'+@NombreComprador+'%'
-		order by ee.IdEmbarqueEncabezado
+		order by cc.IdEmbarqueEncabezado desc
 	end
 else 
 	begin
-		select ee.IdEmbarqueEncabezado
-			  ,ee.IdComprador
+		select distinct cc.IdEmbarqueEncabezado
+			  ,cc.IdComprador
 			  ,co.Nombre
-			  ,ee.NombreChofer
-			  ,ee.PlacaTractoCamion
-			  ,ee.NoLicencia
-			  ,ee.CantidadCajas
-			  ,ee.NoLote1
-			  ,ee.NoLote2
-			  ,ee.CantidadPacas 
-		from EmbarqueEncabezado ee inner join compradores co 
-		on ee.IdComprador = co.IdComprador
-		order by ee.IdEmbarqueEncabezado
+			  ,isnull(se.NombreChofer ,'') as NombreChofer
+			  ,isnull(se.PlacaTractoCamion,'') as PlacaTractoCamion
+			  ,isnull(se.NoLicencia,'') as NoLicencia
+			  ,cc.NoLote
+			  ,ed.CantidadPacas
+		from CalculoClasificacion cc inner join embarqueencabezado ee on cc.idembarqueencabezado = ee.idembarqueencabezado and cc.idcomprador = ee.idcomprador
+									 inner join Compradores co on cc.idcomprador = co.idcomprador
+									 left join SalidaPacasEncabezado se on cc.IdEmbarqueEncabezado = se.IdEmbarqueEncabezado and cc.IdSalidaEncabezado = se.IdSalidaEncabezado
+									 inner join Embarquedet ed on cc.idembarqueencabezado = ed.IdEmbarqueEnc and cc.NoLote = ed.NoLote
+		order by cc.IdEmbarqueEncabezado desc
 	end
-	select * from embarqueencabezado

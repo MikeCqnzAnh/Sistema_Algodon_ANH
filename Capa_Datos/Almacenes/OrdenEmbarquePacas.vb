@@ -35,20 +35,21 @@ Public Class OrdenEmbarquePacas
                 Case Capa_Operacion.Configuracion.Guardar.GuardarEmbarqueDetalleLotes
                     'For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
                     cmdGuardar = New SqlCommand("Pa_InsertaEmbarqueDet", cnn)
-                        cmdGuardar.CommandType = CommandType.StoredProcedure
-                        cmdGuardar.Parameters.Clear()
-                        cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueDet", EntidadOrdenEmbarquePacas1.IdEmbarqueDetalle))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEnc", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadOrdenEmbarquePacas1.NoPacas))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedor", EntidadOrdenEmbarquePacas1.NoContenedorInd))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja", EntidadOrdenEmbarquePacas1.PlacaCaja))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@fecha", EntidadOrdenEmbarquePacas1.Fecha))
-                        cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadOrdenEmbarquePacas1.FechaActualizacion))
-                        'cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja", EntidadOrdenEmbarquePacas1.PlacaCaja))
-                        'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", EntidadOrdenEmbarquePacas1.EstatusEmbarque))
-                        'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadOrdenEmbarquePacas1.EstatusSalida))
-                        cmdGuardar.ExecuteNonQuery()
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Clear()
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueDet", EntidadOrdenEmbarquePacas1.IdEmbarqueDetalle))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEnc", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadOrdenEmbarquePacas1.NoPacas))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedor", EntidadOrdenEmbarquePacas1.NoContenedorInd))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja", EntidadOrdenEmbarquePacas1.PlacaCaja))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@ObservacionLote", EntidadOrdenEmbarquePacas1.ObservacionLote))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@fecha", EntidadOrdenEmbarquePacas1.Fecha))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadOrdenEmbarquePacas1.FechaActualizacion))
+                    'cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja", EntidadOrdenEmbarquePacas1.PlacaCaja))
+                    'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", EntidadOrdenEmbarquePacas1.EstatusEmbarque))
+                    'cmdGuardar.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadOrdenEmbarquePacas1.EstatusSalida))
+                    cmdGuardar.ExecuteNonQuery()
                     'Next
                         Case Capa_Operacion.Configuracion.Guardar.GuardarEmbarqueDetalle
                     cmdGuardar = New SqlCommand("Sp_InsertaEmbarqueDetalle", cnn)
@@ -144,7 +145,7 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenEmbarqueEncabezado
-                    sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezado", cnn)
+                    sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezadoporlote", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.CommandTimeout = 0
@@ -169,7 +170,7 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaComboLotes
-                    sqlcom1 = New SqlCommand("Pa_LlenaComboLotes", cnn)
+                    sqlcom1 = New SqlCommand("Pa_LlenaComboLotesEmbarques", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.CommandTimeout = 0
@@ -223,6 +224,15 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.CommandTimeout = 0
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdComprador", EntidadOrdenEmbarquePacas1.IdComprador))
+                    sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExisteNoLote
+                    sqlcom1 = New SqlCommand("Pa_ExisteNoloteEmbarque", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarque", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
+                    sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
             End Select
         Catch ex As Exception

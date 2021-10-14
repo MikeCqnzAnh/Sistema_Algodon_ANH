@@ -2,6 +2,7 @@
 Imports System.Net.NetworkInformation
 Imports Capa_Operacion.Configuracion
 Imports System.IO.Ports
+Imports vb = Microsoft.VisualBasic
 Public Class ConfiguracionParametros
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
     Dim archivo As String = "config.ini"
@@ -24,7 +25,7 @@ Public Class ConfiguracionParametros
         CheckForIllegalCrossThreadCalls = False
         LbStatusPuerto.Text = "CAPTURA AUTOMATICA DESACTIVADA"
     End Sub
-    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbReceivedBytesThreshold.KeyPress, TbReadBuffersize.KeyPress, TbWriteBuffersize.KeyPress
+    Private Sub SoloNumeros_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbWriteBuffersize.KeyPress, TbReceivedBytesThreshold.KeyPress, TbReadBuffersize.KeyPress
         If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
         End If
@@ -269,7 +270,7 @@ Public Class ConfiguracionParametros
                 End If
                 .PortName = CbPuertosSeriales.Text
 
-                .BaudRate = CbBaudRate.Text '// 9600 baud rate
+                .BaudRate = CInt(CbBaudRate.Text) '// 9600 baud rate
 
                 .DataBits = CInt(CbDataBits.Text) '// 8 data bits
 
@@ -277,19 +278,19 @@ Public Class ConfiguracionParametros
 
                 .Parity = CbParity.SelectedValue 'IO.Ports.Parity.None '
 
-                .DtrEnable = CbDtrEnable.Text
-
                 .Handshake = CbHanshake.SelectedValue 'IO.Ports.Handshake.None
 
-                .ReadBufferSize = CInt(TbReadBuffersize.Text)
+                .Encoding = System.Text.Encoding.GetEncoding(28591)
 
-                .WriteBufferSize = CInt(TbWriteBuffersize.Text) ' 2048
+                '.DtrEnable = CbDtrEnable.Text
 
-                .ReceivedBytesThreshold = CInt(TbReceivedBytesThreshold.Text)
+                '.ReadBufferSize = CInt(TbReadBuffersize.Text)
 
-                .WriteTimeout = 500
+                '.WriteBufferSize = CInt(TbWriteBuffersize.Text) ' 2048
 
-                .Encoding = System.Text.Encoding.Default
+                '.ReceivedBytesThreshold = CInt(TbReceivedBytesThreshold.Text)
+
+                '.WriteTimeout = 500
 
                 .Open() ' ABRE EL PUERTO SERIE
             End With
@@ -532,44 +533,8 @@ Public Class ConfiguracionParametros
             SpCapturaAuto.Close()
         End If
     End Sub
-    Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
-        'While bandera = True
-        Dim TipoFlete As String = ""
-        Dim returnStr As String = ""
-        'Dim FechaActualizacion As DateTime
-        Dim numeroRecorrido As Integer = 0
-        Dim az As String     'utilizada para almacenar los datos que se reciben por el puerto
-        Dim sib As Integer    ' sera utilizada como contador
-        Dim msn(1000) As String
-        Try
-            If IndicadorBoton = 1 Then
-                az = SpCapturaAuto.ReadExisting.Trim
+    Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs)
 
-                msn(sib) = az
-
-                returnStr += msn(sib) + " "
-
-                sib = sib + 1
-            ElseIf IndicadorBoton = 2 Then
-                az = SpCapturaAuto.ReadLine.Trim
-
-                msn(sib) = az
-
-                returnStr += msn(sib) + " "
-
-                sib = sib + 1
-            End If
-
-        Catch ex As TimeoutException
-            returnStr = "Error: Serial Port read timed out."
-        Finally
-        End Try
-        If CbPuertosSeriales.Text <> "" Then
-            TbCadenaPuertoSerial.Text += returnStr + vbCrLf
-        Else
-            MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
-        End If
-        returnStr = ""
     End Sub
     Private Sub CadenaModulosParametros(ByVal returnStr As String)
         Dim Resultado As String = ""
@@ -599,10 +564,23 @@ Public Class ConfiguracionParametros
     End Sub
     Private Sub CadenaPacasParametros(ByVal returnStr As String)
         Dim Resultado As String = ""
-        If returnStr.Contains(TbPacasIndicadorBruto.Text) Then
-            Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)), returnStr.Length - returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)))
-            TbBruto.Text = LTrim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
-        End If
+        Try
+            If CkTextoIzq.Checked = False Then
+                If returnStr.Contains(TbPacasIndicadorBruto.Text) Then
+                    Resultado = returnStr.Substring(returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)), returnStr.Length - returnStr.IndexOf(RTrim(TbPacasIndicadorBruto.Text)))
+                    TbBruto.Text = LTrim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
+                End If
+            Else
+                If returnStr.Contains(TbPacasIndicadorBruto.Text) Then
+                    Dim largo As Integer = returnStr.Length - returnStr.IndexOf(Trim(TbPacasIndicadorBruto.Text))
+                    Dim inicio As Integer = returnStr.IndexOf(Trim(TbPacasIndicadorBruto.Text)) - NuPacasCaracterBruto.Value
+                    Resultado = returnStr.Substring(inicio, largo)
+                    TbBruto.Text = Trim(Resultado.Substring(NuPacasPosicionBruto.Value, NuPacasCaracterBruto.Value))
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox("Error " & ex.Message)
+        End Try
     End Sub
 
     Private Sub BtProbarConfiguracion_Click(sender As Object, e As EventArgs) Handles BtProbarConfiguracion.Click
@@ -646,7 +624,7 @@ Public Class ConfiguracionParametros
         Try
 
             ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text & vbCrLf & "BaudRate=" & CbBaudRate.Text & vbCrLf & "DataBits=" & CbDataBits.Text & vbCrLf & "StopBits=" & CbStopBits.SelectedValue & vbCrLf & "Parity=" & CbParity.SelectedValue & vbCrLf & "Handshake=" & CbHanshake.SelectedValue & vbCrLf & "EstatusDtr=" & CbDtrEnable.SelectedValue & vbCrLf & "ReadBuffersize=" & TbReadBuffersize.Text & vbCrLf & "WriteBuffersize=" & TbWriteBuffersize.Text & vbCrLf & "ReceivedBytesThreshold=" & TbReceivedBytesThreshold.Text & vbCrLf & "PlantaElabora=" & CbPlantaElabora.SelectedValue)
+            escribir.WriteLine("IndicadorID=" & TbIndicadorID.Text & vbCrLf & "PosicionID=" & NuPosicionID.Value & vbCrLf & "NoCaracteresID=" & NuCaracterId.Value & vbCrLf & "IndicadorModulo=" & TbIndicadorModulo.Text & vbCrLf & "PosicionModulo=" & NuPosicionModulo.Value & vbCrLf & "NoCaracteresModulo=" & NuCaracterModulo.Value & vbCrLf & "IndicadorEntrada=" & TbIndicadorEntrada.Text & vbCrLf & "PosicionEntrada=" & NuPosicionEntrada.Value & vbCrLf & "NoCaracteresEntrada=" & NuCaracterEntrada.Value & vbCrLf & "IndicadorSalida=" & TbIndicadorSalida.Text & vbCrLf & "PosicionSalida=" & NuPosicionSalida.Value & vbCrLf & "NoCaracteresSalida=" & NuCaracterSalida.Value & vbCrLf & "IndicadorBruto=" & TbIndicadorBruto.Text & vbCrLf & "PosicionBruto=" & NuPosicionBruto.Value & vbCrLf & "NoCaracteresBruto=" & NuCaracterBruto.Value & vbCrLf & "IndicadorTara=" & TbIndicadorTara.Text & vbCrLf & "PosicionTara=" & NuPosicionTara.Value & vbCrLf & "NoCaracteresTara=" & NuCaracterTara.Value & vbCrLf & "IndicadorNeto=" & TbIndicadorNeto.Text & vbCrLf & "PosicionNeto=" & NuPosicionNeto.Value & vbCrLf & "NoCaracteresNeto=" & NuCaracterNeto.Value & vbCrLf & "PesoMinPaca=" & NuPesoMinimoPaca.Value & vbCrLf & "IndicadorPacaBruto=" & TbPacasIndicadorBruto.Text & vbCrLf & "PosicionPacaBruto=" & NuPacasPosicionBruto.Value & vbCrLf & "NoCaracterPacaBruto=" & NuPacasCaracterBruto.Value & vbCrLf & "IndicadorPacaTara=" & TbPacasIndicadorTara.Text & vbCrLf & "PosicionPacaTara=" & NuPacasPosicionTara.Value & vbCrLf & "NoCaracteresPacaTara=" & NuPacasCaracterTara.Value & vbCrLf & "IndicadorPacaNeto=" & TbPacasIndicadorNeto.Text & vbCrLf & "PosicionPacaNeto=" & NuPacasPosicionNeto.Value & vbCrLf & "NoCaracteresPacaNeto=" & NuPacasCaracterNeto.Value & vbCrLf & "TextoIzquierda=" & CkTextoIzq.Checked & vbCrLf & "PuertoSerial=" & CbPuertosSeriales.Text & vbCrLf & "BaudRate=" & CbBaudRate.Text & vbCrLf & "DataBits=" & CbDataBits.Text & vbCrLf & "StopBits=" & CbStopBits.SelectedValue & vbCrLf & "Parity=" & CbParity.SelectedValue & vbCrLf & "Handshake=" & CbHanshake.SelectedValue & vbCrLf & "EstatusDtr=" & CbDtrEnable.SelectedValue & vbCrLf & "ReadBuffersize=" & TbReadBuffersize.Text & vbCrLf & "WriteBuffersize=" & TbWriteBuffersize.Text & vbCrLf & "ReceivedBytesThreshold=" & TbReceivedBytesThreshold.Text & vbCrLf & "PlantaElabora=" & CbPlantaElabora.SelectedValue)
             escribir.Close()
             ':::Limpiamos los TextBox
             ':::Llamamos nuestro procedimiento para leer el archivo TXT
@@ -703,17 +681,18 @@ Public Class ConfiguracionParametros
                 TbPacasIndicadorNeto.Text = ObtenerValor(ArregloCadena(28))
                 NuPacasPosicionNeto.Value = ObtenerValor(ArregloCadena(29))
                 NuPacasCaracterNeto.Value = ObtenerValor(ArregloCadena(30))
-                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(31))
-                CbBaudRate.Text = ObtenerValor(ArregloCadena(32))
-                CbDataBits.Text = ObtenerValor(ArregloCadena(33))
-                CbStopBits.SelectedValue = ObtenerValor(ArregloCadena(34))
-                CbParity.SelectedValue = ObtenerValor(ArregloCadena(35))
-                CbHanshake.SelectedValue = ObtenerValor(ArregloCadena(36))
-                CbDtrEnable.SelectedValue = ObtenerValor(ArregloCadena(37))
-                TbReadBuffersize.Text = ObtenerValor(ArregloCadena(38))
-                TbWriteBuffersize.Text = ObtenerValor(ArregloCadena(39))
-                TbReceivedBytesThreshold.Text = ObtenerValor(ArregloCadena(40))
-                CbPlantaElabora.SelectedValue = ObtenerValor(ArregloCadena(41))
+                CkTextoIzq.Checked = ObtenerValor(ArregloCadena(31))
+                CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(32))
+                CbBaudRate.Text = ObtenerValor(ArregloCadena(33))
+                CbDataBits.Text = ObtenerValor(ArregloCadena(34))
+                CbStopBits.SelectedValue = ObtenerValor(ArregloCadena(35))
+                CbParity.SelectedValue = ObtenerValor(ArregloCadena(36))
+                CbHanshake.SelectedValue = ObtenerValor(ArregloCadena(37))
+                CbDtrEnable.SelectedValue = ObtenerValor(ArregloCadena(38))
+                TbReadBuffersize.Text = ObtenerValor(ArregloCadena(39))
+                TbWriteBuffersize.Text = ObtenerValor(ArregloCadena(40))
+                TbReceivedBytesThreshold.Text = ObtenerValor(ArregloCadena(41))
+                CbPlantaElabora.SelectedValue = ObtenerValor(ArregloCadena(42))
             End While
 
             leer.Close()
@@ -728,4 +707,44 @@ Public Class ConfiguracionParametros
         Resultado = ArregloCadena(1)
         Return Resultado
     End Function
+
+    Private Sub SpCapturaAuto_DataReceived(sender As Object, e As SerialDataReceivedEventArgs) Handles SpCapturaAuto.DataReceived
+        'While bandera = True
+        Dim TipoFlete As String = ""
+        Dim returnStr As String = ""
+        'Dim FechaActualizacion As DateTime
+        Dim numeroRecorrido As Integer = 0
+        Dim az As String     'utilizada para almacenar los datos que se reciben por el puerto
+        Dim sib As Integer    ' sera utilizada como contador
+        Dim msn(1000) As String
+        Try
+            If IndicadorBoton = 1 Then
+                az = SpCapturaAuto.ReadExisting.Trim
+
+                msn(sib) = az
+
+                returnStr += msn(sib) + " "
+
+                sib = sib + 1
+            ElseIf IndicadorBoton = 2 Then
+                az = SpCapturaAuto.ReadExisting.Trim
+
+                msn(sib) = az
+
+                returnStr += msn(sib) + " "
+
+                sib = sib + 1
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error " & ex.Message)
+        Finally
+        End Try
+        If CbPuertosSeriales.Text <> "" Then
+            TbCadenaPuertoSerial.Text += returnStr + vbCrLf
+        Else
+            MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
+        End If
+        returnStr = ""
+    End Sub
 End Class

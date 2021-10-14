@@ -48,9 +48,9 @@ Partial Class ConfiguraConexionInicial
         '
         Me.Panel1.Controls.Add(Me.GbOrigen)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(381, 0)
+        Me.Panel1.Location = New System.Drawing.Point(384, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(360, 403)
+        Me.Panel1.Size = New System.Drawing.Size(360, 411)
         Me.Panel1.TabIndex = 0
         '
         'GbOrigen
@@ -73,7 +73,7 @@ Partial Class ConfiguraConexionInicial
         Me.GbOrigen.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbOrigen.Location = New System.Drawing.Point(0, 0)
         Me.GbOrigen.Name = "GbOrigen"
-        Me.GbOrigen.Size = New System.Drawing.Size(360, 403)
+        Me.GbOrigen.Size = New System.Drawing.Size(360, 411)
         Me.GbOrigen.TabIndex = 0
         Me.GbOrigen.TabStop = False
         Me.GbOrigen.Text = "Instancia:"
@@ -82,7 +82,7 @@ Partial Class ConfiguraConexionInicial
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(273, 64)
+        Me.Label8.Location = New System.Drawing.Point(300, 64)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(11, 13)
         Me.Label8.TabIndex = 6
@@ -92,7 +92,7 @@ Partial Class ConfiguraConexionInicial
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(223, 63)
+        Me.Label3.Location = New System.Drawing.Point(246, 64)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(11, 13)
         Me.Label3.TabIndex = 6
@@ -102,7 +102,7 @@ Partial Class ConfiguraConexionInicial
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(177, 64)
+        Me.Label2.Location = New System.Drawing.Point(192, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(11, 13)
         Me.Label2.TabIndex = 6
@@ -111,7 +111,7 @@ Partial Class ConfiguraConexionInicial
         'TbDireccionIP1
         '
         Me.TbDireccionIP1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.TbDireccionIP1.Location = New System.Drawing.Point(144, 60)
+        Me.TbDireccionIP1.Location = New System.Drawing.Point(155, 60)
         Me.TbDireccionIP1.Mask = "999"
         Me.TbDireccionIP1.Name = "TbDireccionIP1"
         Me.TbDireccionIP1.Size = New System.Drawing.Size(31, 20)
@@ -120,7 +120,7 @@ Partial Class ConfiguraConexionInicial
         'TbDireccionIP2
         '
         Me.TbDireccionIP2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.TbDireccionIP2.Location = New System.Drawing.Point(190, 60)
+        Me.TbDireccionIP2.Location = New System.Drawing.Point(209, 60)
         Me.TbDireccionIP2.Mask = "999"
         Me.TbDireccionIP2.Name = "TbDireccionIP2"
         Me.TbDireccionIP2.Size = New System.Drawing.Size(31, 20)
@@ -129,7 +129,7 @@ Partial Class ConfiguraConexionInicial
         'TbDireccionIP3
         '
         Me.TbDireccionIP3.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.TbDireccionIP3.Location = New System.Drawing.Point(236, 60)
+        Me.TbDireccionIP3.Location = New System.Drawing.Point(263, 60)
         Me.TbDireccionIP3.Mask = "999"
         Me.TbDireccionIP3.Name = "TbDireccionIP3"
         Me.TbDireccionIP3.Size = New System.Drawing.Size(31, 20)
@@ -138,7 +138,7 @@ Partial Class ConfiguraConexionInicial
         'TbDireccionIP4
         '
         Me.TbDireccionIP4.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.TbDireccionIP4.Location = New System.Drawing.Point(290, 60)
+        Me.TbDireccionIP4.Location = New System.Drawing.Point(317, 60)
         Me.TbDireccionIP4.Mask = "999"
         Me.TbDireccionIP4.Name = "TbDireccionIP4"
         Me.TbDireccionIP4.Size = New System.Drawing.Size(31, 20)
@@ -217,7 +217,7 @@ Partial Class ConfiguraConexionInicial
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(741, 403)
+        Me.ClientSize = New System.Drawing.Size(744, 411)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConfiguraConexionInicial"
