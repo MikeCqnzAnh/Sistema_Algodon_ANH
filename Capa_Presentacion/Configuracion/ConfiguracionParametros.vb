@@ -727,24 +727,25 @@ Public Class ConfiguracionParametros
 
                 sib = sib + 1
             ElseIf IndicadorBoton = 2 Then
-                az = SpCapturaAuto.ReadExisting.Trim
+                az = SpCapturaAuto.ReadLine.Trim
+                If az <> "" Then
+                    msn(sib) = az
 
-                msn(sib) = az
+                    returnStr += msn(sib) + vbCrLf + vbCrLf
 
-                returnStr += msn(sib) + " "
-
-                sib = sib + 1
+                    sib = sib + 1
+                End If
             End If
 
         Catch ex As Exception
             MsgBox("Error " & ex.Message)
         Finally
         End Try
-        If CbPuertosSeriales.Text <> "" Then
-            TbCadenaPuertoSerial.Text += returnStr + vbCrLf
-        Else
-            MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
-        End If
-        returnStr = ""
+        'If returnStr <> "" Then
+        TbCadenaPuertoSerial.Text += returnStr
+        'Else
+        '    MsgBox("No hay un puerto seleccionado.", MsgBoxStyle.OkOnly, "Aviso")
+        'End If
+        'returnStr = ""
     End Sub
 End Class

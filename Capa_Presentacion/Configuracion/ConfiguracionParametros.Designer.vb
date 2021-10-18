@@ -43,11 +43,13 @@ Partial Class ConfiguracionParametros
         Me.LbStatusPuerto = New System.Windows.Forms.Label()
         Me.BtLimpiar = New System.Windows.Forms.Button()
         Me.GbPesoPacas = New System.Windows.Forms.GroupBox()
+        Me.CkTextoIzq = New System.Windows.Forms.CheckBox()
         Me.BtTestPacas = New System.Windows.Forms.Button()
         Me.TbPacasIndicadorNeto = New System.Windows.Forms.TextBox()
         Me.TbPacasIndicadorTara = New System.Windows.Forms.TextBox()
         Me.TbPacasIndicadorBruto = New System.Windows.Forms.TextBox()
         Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NuPacasCaracterNeto = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -110,17 +112,27 @@ Partial Class ConfiguracionParametros
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GbPuerto = New System.Windows.Forms.GroupBox()
         Me.Label43 = New System.Windows.Forms.Label()
+        Me.TbReceivedBytesThreshold = New System.Windows.Forms.TextBox()
+        Me.TbWriteBuffersize = New System.Windows.Forms.TextBox()
+        Me.TbReadBuffersize = New System.Windows.Forms.TextBox()
         Me.CbPlantaElabora = New System.Windows.Forms.ComboBox()
+        Me.CbHanshake = New System.Windows.Forms.ComboBox()
         Me.CbStopBits = New System.Windows.Forms.ComboBox()
         Me.CbParity = New System.Windows.Forms.ComboBox()
         Me.CbDataBits = New System.Windows.Forms.ComboBox()
         Me.CbBaudRate = New System.Windows.Forms.ComboBox()
+        Me.CbDtrEnable = New System.Windows.Forms.ComboBox()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsNombrePc = New System.Windows.Forms.ToolStripStatusLabel()
@@ -135,18 +147,6 @@ Partial Class ConfiguracionParametros
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.CkTextoIzq = New System.Windows.Forms.CheckBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.CbDtrEnable = New System.Windows.Forms.ComboBox()
-        Me.CbHanshake = New System.Windows.Forms.ComboBox()
-        Me.TbReadBuffersize = New System.Windows.Forms.TextBox()
-        Me.TbWriteBuffersize = New System.Windows.Forms.TextBox()
-        Me.TbReceivedBytesThreshold = New System.Windows.Forms.TextBox()
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
         Me.PanelParametrosBascula.SuspendLayout()
         Me.GbPruebaSerial.SuspendLayout()
@@ -404,6 +404,16 @@ Partial Class ConfiguracionParametros
         Me.GbPesoPacas.TabStop = False
         Me.GbPesoPacas.Text = "Peso De Pacas"
         '
+        'CkTextoIzq
+        '
+        Me.CkTextoIzq.AutoSize = True
+        Me.CkTextoIzq.Location = New System.Drawing.Point(650, 50)
+        Me.CkTextoIzq.Name = "CkTextoIzq"
+        Me.CkTextoIzq.Size = New System.Drawing.Size(139, 17)
+        Me.CkTextoIzq.TabIndex = 22
+        Me.CkTextoIzq.Text = "Texto a la Izquierda"
+        Me.CkTextoIzq.UseVisualStyleBackColor = True
+        '
         'BtTestPacas
         '
         Me.BtTestPacas.Dock = System.Windows.Forms.DockStyle.Right
@@ -445,6 +455,16 @@ Partial Class ConfiguracionParametros
         Me.Label38.Size = New System.Drawing.Size(80, 13)
         Me.Label38.TabIndex = 3
         Me.Label38.Text = "Indicador Neto:"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.Location = New System.Drawing.Point(547, 50)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(97, 13)
+        Me.Label48.TabIndex = 3
+        Me.Label48.Text = "Posicion del Texto:"
         '
         'Label1
         '
@@ -1092,6 +1112,30 @@ Partial Class ConfiguracionParametros
         Me.Label43.TabIndex = 0
         Me.Label43.Text = "Planta Elabora:"
         '
+        'TbReceivedBytesThreshold
+        '
+        Me.TbReceivedBytesThreshold.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbReceivedBytesThreshold.Location = New System.Drawing.Point(920, 61)
+        Me.TbReceivedBytesThreshold.Name = "TbReceivedBytesThreshold"
+        Me.TbReceivedBytesThreshold.Size = New System.Drawing.Size(88, 20)
+        Me.TbReceivedBytesThreshold.TabIndex = 10
+        '
+        'TbWriteBuffersize
+        '
+        Me.TbWriteBuffersize.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbWriteBuffersize.Location = New System.Drawing.Point(680, 61)
+        Me.TbWriteBuffersize.Name = "TbWriteBuffersize"
+        Me.TbWriteBuffersize.Size = New System.Drawing.Size(93, 20)
+        Me.TbWriteBuffersize.TabIndex = 9
+        '
+        'TbReadBuffersize
+        '
+        Me.TbReadBuffersize.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbReadBuffersize.Location = New System.Drawing.Point(486, 61)
+        Me.TbReadBuffersize.Name = "TbReadBuffersize"
+        Me.TbReadBuffersize.Size = New System.Drawing.Size(93, 20)
+        Me.TbReadBuffersize.TabIndex = 8
+        '
         'CbPlantaElabora
         '
         Me.CbPlantaElabora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -1101,6 +1145,15 @@ Partial Class ConfiguracionParametros
         Me.CbPlantaElabora.Name = "CbPlantaElabora"
         Me.CbPlantaElabora.Size = New System.Drawing.Size(121, 21)
         Me.CbPlantaElabora.TabIndex = 0
+        '
+        'CbHanshake
+        '
+        Me.CbHanshake.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbHanshake.FormattingEnabled = True
+        Me.CbHanshake.Location = New System.Drawing.Point(91, 61)
+        Me.CbHanshake.Name = "CbHanshake"
+        Me.CbHanshake.Size = New System.Drawing.Size(121, 21)
+        Me.CbHanshake.TabIndex = 6
         '
         'CbStopBits
         '
@@ -1138,6 +1191,15 @@ Partial Class ConfiguracionParametros
         Me.CbBaudRate.Size = New System.Drawing.Size(93, 21)
         Me.CbBaudRate.TabIndex = 2
         '
+        'CbDtrEnable
+        '
+        Me.CbDtrEnable.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbDtrEnable.FormattingEnabled = True
+        Me.CbDtrEnable.Location = New System.Drawing.Point(301, 61)
+        Me.CbDtrEnable.Name = "CbDtrEnable"
+        Me.CbDtrEnable.Size = New System.Drawing.Size(84, 21)
+        Me.CbDtrEnable.TabIndex = 7
+        '
         'CbPuertosSeriales
         '
         Me.CbPuertosSeriales.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1146,6 +1208,16 @@ Partial Class ConfiguracionParametros
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
         Me.CbPuertosSeriales.Size = New System.Drawing.Size(84, 21)
         Me.CbPuertosSeriales.TabIndex = 1
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(10, 64)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(80, 13)
+        Me.Label18.TabIndex = 0
+        Me.Label18.Text = "Control de flujo:"
         '
         'Label17
         '
@@ -1187,6 +1259,16 @@ Partial Class ConfiguracionParametros
         Me.Label14.TabIndex = 0
         Me.Label14.Text = "Bits por segundo:"
         '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.Location = New System.Drawing.Point(225, 64)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(62, 13)
+        Me.Label44.TabIndex = 0
+        Me.Label44.Text = "Estatus Dtr:"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -1196,6 +1278,36 @@ Partial Class ConfiguracionParametros
         Me.Label2.Size = New System.Drawing.Size(70, 13)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Puerto Serial:"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.Location = New System.Drawing.Point(779, 64)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(135, 13)
+        Me.Label47.TabIndex = 3
+        Me.Label47.Text = "Received Bytes Threshold:"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label46.Location = New System.Drawing.Point(585, 64)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(89, 13)
+        Me.Label46.TabIndex = 3
+        Me.Label46.Text = "Write Buffer Size:"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.Location = New System.Drawing.Point(391, 64)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(90, 13)
+        Me.Label45.TabIndex = 3
+        Me.Label45.Text = "Read Buffer Size:"
         '
         'StatusStrip1
         '
@@ -1286,117 +1398,10 @@ Partial Class ConfiguracionParametros
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'Label48
+        'SpCapturaAuto
         '
-        Me.Label48.AutoSize = True
-        Me.Label48.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label48.Location = New System.Drawing.Point(547, 50)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(97, 13)
-        Me.Label48.TabIndex = 3
-        Me.Label48.Text = "Posicion del Texto:"
-        '
-        'CkTextoIzq
-        '
-        Me.CkTextoIzq.AutoSize = True
-        Me.CkTextoIzq.Location = New System.Drawing.Point(650, 50)
-        Me.CkTextoIzq.Name = "CkTextoIzq"
-        Me.CkTextoIzq.Size = New System.Drawing.Size(139, 17)
-        Me.CkTextoIzq.TabIndex = 22
-        Me.CkTextoIzq.Text = "Texto a la Izquierda"
-        Me.CkTextoIzq.UseVisualStyleBackColor = True
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label45.Location = New System.Drawing.Point(391, 64)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(90, 13)
-        Me.Label45.TabIndex = 3
-        Me.Label45.Text = "Read Buffer Size:"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label46.Location = New System.Drawing.Point(585, 64)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(89, 13)
-        Me.Label46.TabIndex = 3
-        Me.Label46.Text = "Write Buffer Size:"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(779, 64)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(135, 13)
-        Me.Label47.TabIndex = 3
-        Me.Label47.Text = "Received Bytes Threshold:"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(225, 64)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(62, 13)
-        Me.Label44.TabIndex = 0
-        Me.Label44.Text = "Estatus Dtr:"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(10, 64)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(80, 13)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Control de flujo:"
-        '
-        'CbDtrEnable
-        '
-        Me.CbDtrEnable.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbDtrEnable.FormattingEnabled = True
-        Me.CbDtrEnable.Location = New System.Drawing.Point(301, 61)
-        Me.CbDtrEnable.Name = "CbDtrEnable"
-        Me.CbDtrEnable.Size = New System.Drawing.Size(84, 21)
-        Me.CbDtrEnable.TabIndex = 7
-        '
-        'CbHanshake
-        '
-        Me.CbHanshake.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbHanshake.FormattingEnabled = True
-        Me.CbHanshake.Location = New System.Drawing.Point(91, 61)
-        Me.CbHanshake.Name = "CbHanshake"
-        Me.CbHanshake.Size = New System.Drawing.Size(121, 21)
-        Me.CbHanshake.TabIndex = 6
-        '
-        'TbReadBuffersize
-        '
-        Me.TbReadBuffersize.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbReadBuffersize.Location = New System.Drawing.Point(486, 61)
-        Me.TbReadBuffersize.Name = "TbReadBuffersize"
-        Me.TbReadBuffersize.Size = New System.Drawing.Size(93, 20)
-        Me.TbReadBuffersize.TabIndex = 8
-        '
-        'TbWriteBuffersize
-        '
-        Me.TbWriteBuffersize.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbWriteBuffersize.Location = New System.Drawing.Point(680, 61)
-        Me.TbWriteBuffersize.Name = "TbWriteBuffersize"
-        Me.TbWriteBuffersize.Size = New System.Drawing.Size(93, 20)
-        Me.TbWriteBuffersize.TabIndex = 9
-        '
-        'TbReceivedBytesThreshold
-        '
-        Me.TbReceivedBytesThreshold.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbReceivedBytesThreshold.Location = New System.Drawing.Point(920, 61)
-        Me.TbReceivedBytesThreshold.Name = "TbReceivedBytesThreshold"
-        Me.TbReceivedBytesThreshold.Size = New System.Drawing.Size(88, 20)
-        Me.TbReceivedBytesThreshold.TabIndex = 10
+        Me.SpCapturaAuto.DiscardNull = True
+        Me.SpCapturaAuto.DtrEnable = True
         '
         'ConfiguracionParametros
         '
