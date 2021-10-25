@@ -965,7 +965,7 @@ Public Class Produccion
         NegocioProduccion.Consultar(EntidadProduccion)
         Tabla = EntidadProduccion.TablaConsulta
         If Tabla.Rows(0).Item("Resultado") = 1 Then
-            IdProduccionDetalle = Tabla.Rows(0).Item("idproduccion")
+            IdProduccionDetalle = Tabla.Rows(0).Item("idproducciondetalle")
             FolioCIAReturn = Tabla.Rows(0).Item("FolioCIA")
             Return 1
         Else
@@ -1068,6 +1068,7 @@ Public Class Produccion
             msn(sib) = az
 
             returnStr += msn(sib) + " "
+            'returnStr += msn(sib) + vbCrLf + vbCrLf
 
             sib = sib + 1
         Catch ex As TimeoutException

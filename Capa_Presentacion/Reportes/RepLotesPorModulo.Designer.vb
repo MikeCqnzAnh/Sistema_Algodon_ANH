@@ -23,10 +23,10 @@ Partial Class RepLotesPorModulo
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GbDatos = New System.Windows.Forms.GroupBox()
-        Me.CrLotesPorModulo = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.TbIdOrdenTrabajo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.BtConsultar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TbIdOrdenTrabajo = New System.Windows.Forms.TextBox()
+        Me.CrLotesPorModulo = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.GbDatos.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -41,6 +41,31 @@ Partial Class RepLotesPorModulo
         Me.GbDatos.Size = New System.Drawing.Size(277, 738)
         Me.GbDatos.TabIndex = 0
         Me.GbDatos.TabStop = False
+        '
+        'BtConsultar
+        '
+        Me.BtConsultar.Location = New System.Drawing.Point(49, 183)
+        Me.BtConsultar.Name = "BtConsultar"
+        Me.BtConsultar.Size = New System.Drawing.Size(121, 23)
+        Me.BtConsultar.TabIndex = 2
+        Me.BtConsultar.Text = "Consultar"
+        Me.BtConsultar.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 58)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Lote:"
+        '
+        'TbIdOrdenTrabajo
+        '
+        Me.TbIdOrdenTrabajo.Location = New System.Drawing.Point(49, 55)
+        Me.TbIdOrdenTrabajo.Name = "TbIdOrdenTrabajo"
+        Me.TbIdOrdenTrabajo.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdOrdenTrabajo.TabIndex = 0
         '
         'CrLotesPorModulo
         '
@@ -60,31 +85,6 @@ Partial Class RepLotesPorModulo
         Me.CrLotesPorModulo.TabIndex = 1
         Me.CrLotesPorModulo.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'TbIdOrdenTrabajo
-        '
-        Me.TbIdOrdenTrabajo.Location = New System.Drawing.Point(49, 55)
-        Me.TbIdOrdenTrabajo.Name = "TbIdOrdenTrabajo"
-        Me.TbIdOrdenTrabajo.Size = New System.Drawing.Size(100, 20)
-        Me.TbIdOrdenTrabajo.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 58)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Lote:"
-        '
-        'BtConsultar
-        '
-        Me.BtConsultar.Location = New System.Drawing.Point(49, 183)
-        Me.BtConsultar.Name = "BtConsultar"
-        Me.BtConsultar.Size = New System.Drawing.Size(121, 23)
-        Me.BtConsultar.TabIndex = 2
-        Me.BtConsultar.Text = "Consultar"
-        Me.BtConsultar.UseVisualStyleBackColor = True
-        '
         'RepLotesPorModulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -94,7 +94,7 @@ Partial Class RepLotesPorModulo
         Me.Controls.Add(Me.GbDatos)
         Me.Name = "RepLotesPorModulo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "RepLotesPorModulo"
+        Me.Text = "Lotes Por Modulo"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
