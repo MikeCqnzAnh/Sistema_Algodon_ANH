@@ -918,6 +918,7 @@ Public Class Produccion
         PropiedadesDGV()
     End Sub
     Private Sub PropiedadesDGV()
+        DgvPacas.Columns("Sel").ReadOnly = False
         DgvPacas.Columns("IdProduccionDetalle").Visible = False
         DgvPacas.Columns("IdPlantaOrigen").Visible = False
         DgvPacas.Columns("IdOrdenTrabajo").Visible = False
@@ -1067,8 +1068,8 @@ Public Class Produccion
 
             msn(sib) = az
 
-            returnStr += msn(sib) + " "
-            'returnStr += msn(sib) + vbCrLf + vbCrLf
+            'returnStr += msn(sib) + " "
+            returnStr += msn(sib) + vbCrLf + vbCrLf
 
             sib = sib + 1
         Catch ex As TimeoutException

@@ -89,7 +89,6 @@ Partial Class Produccion
         Me.BtAnterior = New System.Windows.Forms.Button()
         Me.LbStatus = New System.Windows.Forms.Label()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.CkPaca = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GbTipoCaptura = New System.Windows.Forms.GroupBox()
         Me.CkLeersaco = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -728,7 +727,6 @@ Partial Class Produccion
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvPacas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CkPaca})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -755,16 +753,6 @@ Partial Class Produccion
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvPacas.Size = New System.Drawing.Size(798, 360)
         Me.DgvPacas.TabIndex = 64
-        '
-        'CkPaca
-        '
-        Me.CkPaca.FalseValue = "False"
-        Me.CkPaca.FillWeight = 50.0!
-        Me.CkPaca.HeaderText = "Sel"
-        Me.CkPaca.Name = "CkPaca"
-        Me.CkPaca.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CkPaca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.CkPaca.TrueValue = "True"
         '
         'GbTipoCaptura
         '
@@ -940,7 +928,6 @@ Partial Class Produccion
     Friend WithEvents CbPuertosSeriales As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents CkLeersaco As CheckBox
-    Friend WithEvents CkPaca As DataGridViewCheckBoxColumn
     Friend WithEvents BtEliminarPacas As Button
     Friend WithEvents TbTotalKilos As TextBox
     Friend WithEvents Label11 As Label
