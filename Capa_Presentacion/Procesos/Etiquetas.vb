@@ -81,7 +81,7 @@ Public Class Etiquetas
                     Continue While
                 End If
                 Dim ArregloCadena() As String = Split(linea, vbCrLf)
-                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(41))
+                CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(42))
             End While
             leer.Close()
         Catch ex As Exception

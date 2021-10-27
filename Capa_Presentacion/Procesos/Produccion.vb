@@ -909,13 +909,23 @@ Public Class Produccion
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
-        EntidadProduccion.Consulta = Consulta.ConsultaBasica
-        EntidadProduccion.IdProduccion = CInt(TbIdProduccion.Text)
-        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-        NegocioProduccion.Consultar(EntidadProduccion)
-        Tabla = EntidadProduccion.TablaConsulta
-        DgvPacas.DataSource = Tabla
-        PropiedadesDGV()
+        Try
+            EntidadProduccion.Consulta = Consulta.ConsultaBasica
+            EntidadProduccion.IdProduccion = CInt(TbIdProduccion.Text)
+            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+            NegocioProduccion.Consultar(EntidadProduccion)
+            Tabla = EntidadProduccion.TablaConsulta
+            DgvPacas.DataSource = Tabla
+            PropiedadesDGV()
+
+            If DgvPacas.Rows.Count > 0 Then
+                TbTotalPacas.Text = DgvPacas.Rows.Count
+                TbTotalKilos.Text = SumaKilos()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
     Private Sub PropiedadesDGV()
         DgvPacas.Columns("Sel").ReadOnly = False
@@ -1149,7 +1159,7 @@ Public Class Produccion
                             EntidadProduccion.ResistenciaFibra = 0
                             NegocioProduccion.GuardarDetalle(EntidadProduccion)
                             ActualizarUltimaEtiqueta()
-                            Consultar()
+                            'Consultar()
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
                             ConsultaUltimaSecuencia()
@@ -1196,7 +1206,7 @@ Public Class Produccion
                             EntidadProduccion.ResistenciaFibra = 0
                             NegocioProduccion.GuardarDetalle(EntidadProduccion)
                             'ActualizarUltimaEtiqueta()
-                            Consultar()
+                            'Consultar()
                             TbFolioCIA.Text = ""
                             TbKilos.Text = ""
                             ConsultaUltimaSecuencia()
@@ -1246,7 +1256,7 @@ Public Class Produccion
                         EntidadProduccion.ResistenciaFibra = 0
                         NegocioProduccion.GuardarDetalle(EntidadProduccion)
                         ActualizarUltimaEtiqueta()
-                        Consultar()
+                        'Consultar()
                         TbFolioCIA.Text = ""
                         TbKilos.Text = ""
                         ConsultaUltimaSecuencia()
@@ -1294,7 +1304,7 @@ Public Class Produccion
                         'TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
                         'UpsertFolioInicial(TbFolioCIA.Text)
                         'ActualizarUltimaEtiqueta()
-                        Consultar()
+                        'Consultar()
                         TbFolioCIA.Text = ""
                         TbKilos.Text = ""
                         ConsultaUltimaSecuencia()
@@ -1346,7 +1356,7 @@ Public Class Produccion
                     EntidadProduccion.ResistenciaFibra = 0
                     NegocioProduccion.GuardarDetalle(EntidadProduccion)
                     ActualizarUltimaEtiqueta()
-                    Consultar()
+                    'Consultar()
                     TbFolioCIA.Text = ""
                     TbKilos.Text = ""
                     ConsultaUltimaSecuencia()
@@ -1395,7 +1405,7 @@ Public Class Produccion
                     'TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
                     'UpsertFolioInicial(TbFolioCIA.Text)
                     'ActualizarUltimaEtiqueta()
-                    Consultar()
+                    'Consultar()
                     TbFolioCIA.Text = ""
                     TbKilos.Text = ""
                     ConsultaUltimaSecuencia()
