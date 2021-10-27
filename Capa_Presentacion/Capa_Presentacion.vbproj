@@ -2084,6 +2084,7 @@
     <None Include="ALGODON_2VDataSet.xss">
       <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
     </None>
+    <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="DsReportes.xsc">
       <DependentUpon>DsReportes.xsd</DependentUpon>
@@ -2104,9 +2105,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
