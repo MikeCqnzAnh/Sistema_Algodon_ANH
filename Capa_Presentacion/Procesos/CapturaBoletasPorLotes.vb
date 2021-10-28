@@ -81,19 +81,9 @@ Public Class CapturaBoletasPorLotes
 
                 .Parity = Parity 'IO.Ports.Parity.None '
 
-                .DtrEnable = DtrEnable
-
                 .Handshake = HandShake 'IO.Ports.Handshake.None
 
-                .ReadBufferSize = ReadBufferSize
-
-                .WriteBufferSize = WriteBufferSize
-
-                .ReceivedBytesThreshold = ReceivedBytesThreshold
-
-                .WriteTimeout = 500
-
-                .Encoding = System.Text.Encoding.Default
+                .Encoding = System.Text.Encoding.GetEncoding(28591)
 
                 .Open() ' ABRE EL PUERTO SERIE
             End With
