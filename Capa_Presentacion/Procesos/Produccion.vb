@@ -1432,209 +1432,7 @@ Public Class Produccion
     Private Sub ActualizacionPacaAutoSinSaco(ByVal Bruto As Double, ByVal FechaActualizacion As DateTime)
         If TbIdOrdenTrabajo.Text <> "" Then
             If TbKilos.Text <> "" And TbFolioCIA.Text <> "" Then
-                ConsultaUltimaSecuencia()
-                If TbFolioCIA.Text <> EtiquetaEscaneada Then
-                    Dim opc = MessageBox.Show("El folio no coincide, ¿Desea reemplazarlo por el consecutivo" + " " + CStr(EtiquetaEscaneada) + " " + "siguiente?", "Aviso", MessageBoxButtons.YesNo)
-                    If opc = DialogResult.Yes Then
-                        If ConsultarPacaExistente(EtiquetaEscaneada, CbPlantaOrigen.SelectedValue) = 1 Then
-                            'MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
-                            'TbKilos.Text = ""
-                            'ActualizarUltimaEtiqueta()
-                            Dim EntidadProduccion As New Capa_Entidad.Produccion
-                            Dim NegocioProduccion As New Capa_Negocio.Produccion
-                            EntidadProduccion.IdProduccionDetalle = IIf(IdProduccionDetalle = 0, 0, IdProduccionDetalle)
-                            EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
-                            EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-                            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                            EntidadProduccion.FolioCIA = EtiquetaEscaneada
-                            EntidadProduccion.Tipo = CbTipoProducto.Text
-                            EntidadProduccion.Kilos = Bruto
-                            EntidadProduccion.BandExiste = True
-                            EntidadProduccion.IdTurno = CbTurno.SelectedValue
-                            EntidadProduccion.IdEstatus = 1
-                            EntidadProduccion.Fecha = Now
-                            EntidadProduccion.IdBaja = 0
-                            EntidadProduccion.FechaBaja = Now
-                            EntidadProduccion.ClaveClasificacion = 0
-                            EntidadProduccion.Micros = 0
-                            EntidadProduccion.Castigo = 0
-                            EntidadProduccion.CastigoMicCpa = 0
-                            EntidadProduccion.CastigoMicVta = 0
-                            EntidadProduccion.CastigoLargoFibra = 0
-                            EntidadProduccion.CastigoLargoFibraCpa = 0
-                            EntidadProduccion.CastigoLargoFibraVta = 0
-                            EntidadProduccion.CastigoResistenciaFibra = 0
-                            EntidadProduccion.CastigoResistenciaFibraCpa = 0
-                            EntidadProduccion.CastigoResistenciaFibraVta = 0
-                            EntidadProduccion.ClaveClasificacionCpa = 0
-                            EntidadProduccion.ClaveClasificacionVta = 0
-                            EntidadProduccion.FechaClasificacion = Now
-                            EntidadProduccion.Libras = 0
-                            EntidadProduccion.ClaveCertificado = 0
-                            EntidadProduccion.ClaveContratoAlgodon = 0
-                            EntidadProduccion.ClaveContratoAlgodon2 = 0
-                            EntidadProduccion.ClavePaqueteHVI = 0
-                            EntidadProduccion.LargoFibra = 0
-                            EntidadProduccion.ResistenciaFibra = 0
-                            NegocioProduccion.GuardarDetalle(EntidadProduccion)
-                            ActualizarUltimaEtiqueta()
-                            'Consultar()
-                            TbFolioCIA.Text = ""
-                            TbKilos.Text = ""
-                            ConsultaUltimaSecuencia()
-                            TbFolioCIA.Text = UltimaSecuencia
-                            TbFolioInicial.Text = UltimaSecuencia
-                            TbKilos.Select()
-                        Else
-
-                            'TbFolioCIA.Text = EtiquetaEscaneada
-                            Dim EntidadProduccion As New Capa_Entidad.Produccion
-                            Dim NegocioProduccion As New Capa_Negocio.Produccion
-                            EntidadProduccion.IdProduccionDetalle = 0
-                            EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
-                            EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-                            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                            EntidadProduccion.FolioCIA = EtiquetaEscaneada
-                            EntidadProduccion.Tipo = CbTipoProducto.Text
-                            EntidadProduccion.Kilos = Bruto
-                            EntidadProduccion.BandExiste = True
-                            EntidadProduccion.IdTurno = CbTurno.SelectedValue
-                            EntidadProduccion.IdEstatus = 1
-                            EntidadProduccion.Fecha = Now
-                            EntidadProduccion.IdBaja = 0
-                            EntidadProduccion.FechaBaja = Now
-                            EntidadProduccion.ClaveClasificacion = 0
-                            EntidadProduccion.Micros = 0
-                            EntidadProduccion.Castigo = 0
-                            EntidadProduccion.CastigoMicCpa = 0
-                            EntidadProduccion.CastigoMicVta = 0
-                            EntidadProduccion.CastigoLargoFibra = 0
-                            EntidadProduccion.CastigoLargoFibraCpa = 0
-                            EntidadProduccion.CastigoLargoFibraVta = 0
-                            EntidadProduccion.CastigoResistenciaFibra = 0
-                            EntidadProduccion.CastigoResistenciaFibraCpa = 0
-                            EntidadProduccion.CastigoResistenciaFibraVta = 0
-                            EntidadProduccion.ClaveClasificacionCpa = 0
-                            EntidadProduccion.ClaveClasificacionVta = 0
-                            EntidadProduccion.FechaClasificacion = Now
-                            EntidadProduccion.Libras = 0
-                            EntidadProduccion.ClaveCertificado = 0
-                            EntidadProduccion.ClaveContratoAlgodon = 0
-                            EntidadProduccion.ClaveContratoAlgodon2 = 0
-                            EntidadProduccion.ClavePaqueteHVI = 0
-                            EntidadProduccion.LargoFibra = 0
-                            EntidadProduccion.ResistenciaFibra = 0
-                            NegocioProduccion.GuardarDetalle(EntidadProduccion)
-                            'ActualizarUltimaEtiqueta()
-                            'Consultar()
-                            TbFolioCIA.Text = ""
-                            TbKilos.Text = ""
-                            ConsultaUltimaSecuencia()
-                            TbFolioInicial.Text = UltimaSecuencia
-                            TbFolioCIA.Text = UltimaSecuencia
-                            TbKilos.Select()
-                        End If
-                    ElseIf ConsultarPacaExistente(TbFolioCIA.Text, CbPlantaOrigen.SelectedValue) = 1 Then
-                        'MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
-                        'TbKilos.Text = ""
-                        'ActualizarUltimaEtiqueta()
-                        Dim EntidadProduccion As New Capa_Entidad.Produccion
-                        Dim NegocioProduccion As New Capa_Negocio.Produccion
-                        EntidadProduccion.IdProduccionDetalle = IIf(IdProduccionDetalle = 0, 0, IdProduccionDetalle)
-                        EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
-                        EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-                        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                        EntidadProduccion.FolioCIA = FolioCIAReturn
-                        EntidadProduccion.Tipo = CbTipoProducto.Text
-                        EntidadProduccion.Kilos = Bruto
-                        EntidadProduccion.BandExiste = True
-                        EntidadProduccion.IdTurno = CbTurno.SelectedValue
-                        EntidadProduccion.IdEstatus = 1
-                        EntidadProduccion.Fecha = Now
-                        EntidadProduccion.IdBaja = 0
-                        EntidadProduccion.FechaBaja = Now
-                        EntidadProduccion.ClaveClasificacion = 0
-                        EntidadProduccion.Micros = 0
-                        EntidadProduccion.Castigo = 0
-                        EntidadProduccion.CastigoMicCpa = 0
-                        EntidadProduccion.CastigoMicVta = 0
-                        EntidadProduccion.CastigoLargoFibra = 0
-                        EntidadProduccion.CastigoLargoFibraCpa = 0
-                        EntidadProduccion.CastigoLargoFibraVta = 0
-                        EntidadProduccion.CastigoResistenciaFibra = 0
-                        EntidadProduccion.CastigoResistenciaFibraCpa = 0
-                        EntidadProduccion.CastigoResistenciaFibraVta = 0
-                        EntidadProduccion.ClaveClasificacionCpa = 0
-                        EntidadProduccion.ClaveClasificacionVta = 0
-                        EntidadProduccion.FechaClasificacion = Now
-                        EntidadProduccion.Libras = 0
-                        EntidadProduccion.ClaveCertificado = 0
-                        EntidadProduccion.ClaveContratoAlgodon = 0
-                        EntidadProduccion.ClaveContratoAlgodon2 = 0
-                        EntidadProduccion.ClavePaqueteHVI = 0
-                        EntidadProduccion.LargoFibra = 0
-                        EntidadProduccion.ResistenciaFibra = 0
-                        NegocioProduccion.GuardarDetalle(EntidadProduccion)
-                        ActualizarUltimaEtiqueta()
-                        'Consultar()
-                        TbFolioCIA.Text = ""
-                        TbKilos.Text = ""
-                        ConsultaUltimaSecuencia()
-                        TbFolioCIA.Text = UltimaSecuencia
-                        TbFolioInicial.Text = UltimaSecuencia
-                        TbKilos.Select()
-                    Else
-                        Dim EntidadProduccion As New Capa_Entidad.Produccion
-                        Dim NegocioProduccion As New Capa_Negocio.Produccion
-                        EntidadProduccion.IdProduccionDetalle = 0
-                        EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
-                        EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-                        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                        EntidadProduccion.FolioCIA = TbFolioCIA.Text
-                        EntidadProduccion.Tipo = CbTipoProducto.Text
-                        EntidadProduccion.Kilos = Bruto
-                        EntidadProduccion.BandExiste = True
-                        EntidadProduccion.IdTurno = CbTurno.SelectedValue
-                        EntidadProduccion.IdEstatus = 1
-                        EntidadProduccion.Fecha = Now
-                        EntidadProduccion.IdBaja = 0
-                        EntidadProduccion.FechaBaja = Now
-                        EntidadProduccion.ClaveClasificacion = 0
-                        EntidadProduccion.Micros = 0
-                        EntidadProduccion.Castigo = 0
-                        EntidadProduccion.CastigoMicCpa = 0
-                        EntidadProduccion.CastigoMicVta = 0
-                        EntidadProduccion.CastigoLargoFibra = 0
-                        EntidadProduccion.CastigoLargoFibraCpa = 0
-                        EntidadProduccion.CastigoLargoFibraVta = 0
-                        EntidadProduccion.CastigoResistenciaFibra = 0
-                        EntidadProduccion.CastigoResistenciaFibraCpa = 0
-                        EntidadProduccion.CastigoResistenciaFibraVta = 0
-                        EntidadProduccion.ClaveClasificacionCpa = 0
-                        EntidadProduccion.ClaveClasificacionVta = 0
-                        EntidadProduccion.FechaClasificacion = Now
-                        EntidadProduccion.Libras = 0
-                        EntidadProduccion.ClaveCertificado = 0
-                        EntidadProduccion.ClaveContratoAlgodon = 0
-                        EntidadProduccion.ClaveContratoAlgodon2 = 0
-                        EntidadProduccion.ClavePaqueteHVI = 0
-                        EntidadProduccion.LargoFibra = 0
-                        EntidadProduccion.ResistenciaFibra = 0
-                        NegocioProduccion.GuardarDetalle(EntidadProduccion)
-                        'TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
-                        'UpsertFolioInicial(TbFolioCIA.Text)
-                        'ActualizarUltimaEtiqueta()
-                        'Consultar()
-                        TbFolioCIA.Text = ""
-                        TbKilos.Text = ""
-                        ConsultaUltimaSecuencia()
-                        'TbFolioCIA.Text = EtiquetaEscaneada
-                        TbFolioInicial.Text = UltimaSecuencia
-                        TbFolioCIA.Text = UltimaSecuencia
-                        TbKilos.Select()
-
-                    End If
-                ElseIf ConsultarPacaExistente(TbFolioCIA.Text, CbPlantaOrigen.SelectedValue) = 1 Then
+                If ConsultarPacaExistente(TbFolioCIA.Text, CbPlantaOrigen.SelectedValue) = 1 Then
                     'MsgBox("Folio existente para esta planta, verificar", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                     'TbKilos.Text = ""
                     'ActualizarUltimaEtiqueta()
@@ -1683,63 +1481,156 @@ Public Class Produccion
                     TbFolioCIA.Text = EtiquetaEscaneada
                     TbKilos.Select()
 
+                    Exit Sub
                 Else
-
-                    Dim EntidadProduccion As New Capa_Entidad.Produccion
-                    Dim NegocioProduccion As New Capa_Negocio.Produccion
-                    EntidadProduccion.IdProduccionDetalle = 0
-                    EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
-                    EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
-                    EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
-                    EntidadProduccion.FolioCIA = TbFolioCIA.Text
-                    EntidadProduccion.Tipo = CbTipoProducto.Text
-                    EntidadProduccion.Kilos = Bruto
-                    EntidadProduccion.BandExiste = True
-                    EntidadProduccion.IdTurno = CbTurno.SelectedValue
-                    EntidadProduccion.IdEstatus = 1
-                    EntidadProduccion.Fecha = Now
-                    EntidadProduccion.IdBaja = 0
-                    EntidadProduccion.FechaBaja = Now
-                    EntidadProduccion.ClaveClasificacion = 0
-                    EntidadProduccion.Micros = 0
-                    EntidadProduccion.Castigo = 0
-                    EntidadProduccion.CastigoMicCpa = 0
-                    EntidadProduccion.CastigoMicVta = 0
-                    EntidadProduccion.CastigoLargoFibra = 0
-                    EntidadProduccion.CastigoLargoFibraCpa = 0
-                    EntidadProduccion.CastigoLargoFibraVta = 0
-                    EntidadProduccion.CastigoResistenciaFibra = 0
-                    EntidadProduccion.CastigoResistenciaFibraCpa = 0
-                    EntidadProduccion.CastigoResistenciaFibraVta = 0
-                    EntidadProduccion.ClaveClasificacionCpa = 0
-                    EntidadProduccion.ClaveClasificacionVta = 0
-                    EntidadProduccion.FechaClasificacion = Now
-                    EntidadProduccion.Libras = 0
-                    EntidadProduccion.ClaveCertificado = 0
-                    EntidadProduccion.ClaveContratoAlgodon = 0
-                    EntidadProduccion.ClaveContratoAlgodon2 = 0
-                    EntidadProduccion.ClavePaqueteHVI = 0
-                    EntidadProduccion.LargoFibra = 0
-                    EntidadProduccion.ResistenciaFibra = 0
-                    NegocioProduccion.GuardarDetalle(EntidadProduccion)
-                    'TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
-                    'UpsertFolioInicial(TbFolioCIA.Text)
-                    'ActualizarUltimaEtiqueta()
-                    'Consultar()
-                    TbFolioCIA.Text = ""
-                    TbKilos.Text = ""
                     ConsultaUltimaSecuencia()
-                    'TbFolioCIA.Text = EtiquetaEscaneada
-                    TbFolioInicial.Text = UltimaSecuencia
-                    TbFolioCIA.Text = UltimaSecuencia
-                    TbKilos.Select()
+                    If TbFolioCIA.Text <> UltimaSecuencia Then
+                        Dim opc = MessageBox.Show("El folio no coincide, ¿Desea reemplazarlo por el consecutivo" + " " + CStr(UltimaSecuencia) + " " + "siguiente?", "Aviso", MessageBoxButtons.YesNo)
+                        If opc = DialogResult.Yes Then
+                            'TbFolioCIA.Text = EtiquetaEscaneada
+                            Dim EntidadProduccion As New Capa_Entidad.Produccion
+                            Dim NegocioProduccion As New Capa_Negocio.Produccion
+                            EntidadProduccion.IdProduccionDetalle = 0
+                            EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
+                            EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
+                            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+                            EntidadProduccion.FolioCIA = UltimaSecuencia
+                            EntidadProduccion.Tipo = CbTipoProducto.Text
+                            EntidadProduccion.Kilos = Bruto
+                            EntidadProduccion.BandExiste = True
+                            EntidadProduccion.IdTurno = CbTurno.SelectedValue
+                            EntidadProduccion.IdEstatus = 1
+                            EntidadProduccion.Fecha = Now
+                            EntidadProduccion.IdBaja = 0
+                            EntidadProduccion.FechaBaja = Now
+                            EntidadProduccion.ClaveClasificacion = 0
+                            EntidadProduccion.Micros = 0
+                            EntidadProduccion.Castigo = 0
+                            EntidadProduccion.CastigoMicCpa = 0
+                            EntidadProduccion.CastigoMicVta = 0
+                            EntidadProduccion.CastigoLargoFibra = 0
+                            EntidadProduccion.CastigoLargoFibraCpa = 0
+                            EntidadProduccion.CastigoLargoFibraVta = 0
+                            EntidadProduccion.CastigoResistenciaFibra = 0
+                            EntidadProduccion.CastigoResistenciaFibraCpa = 0
+                            EntidadProduccion.CastigoResistenciaFibraVta = 0
+                            EntidadProduccion.ClaveClasificacionCpa = 0
+                            EntidadProduccion.ClaveClasificacionVta = 0
+                            EntidadProduccion.FechaClasificacion = Now
+                            EntidadProduccion.Libras = 0
+                            EntidadProduccion.ClaveCertificado = 0
+                            EntidadProduccion.ClaveContratoAlgodon = 0
+                            EntidadProduccion.ClaveContratoAlgodon2 = 0
+                            EntidadProduccion.ClavePaqueteHVI = 0
+                            EntidadProduccion.LargoFibra = 0
+                            EntidadProduccion.ResistenciaFibra = 0
+                            NegocioProduccion.GuardarDetalle(EntidadProduccion)
+                            ActualizarUltimaEtiqueta()
+                            'Consultar()
+                            TbFolioCIA.Text = ""
+                            TbKilos.Text = ""
+                            ConsultaUltimaSecuencia()
+                            TbFolioInicial.Text = UltimaSecuencia
+                            TbFolioCIA.Text = UltimaSecuencia
+                            TbKilos.Select()
+
+                        Else
+                            Dim EntidadProduccion As New Capa_Entidad.Produccion
+                            Dim NegocioProduccion As New Capa_Negocio.Produccion
+                            EntidadProduccion.IdProduccionDetalle = 0
+                            EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
+                            EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
+                            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+                            EntidadProduccion.FolioCIA = TbFolioCIA.Text
+                            EntidadProduccion.Tipo = CbTipoProducto.Text
+                            EntidadProduccion.Kilos = Bruto
+                            EntidadProduccion.BandExiste = True
+                            EntidadProduccion.IdTurno = CbTurno.SelectedValue
+                            EntidadProduccion.IdEstatus = 1
+                            EntidadProduccion.Fecha = Now
+                            EntidadProduccion.IdBaja = 0
+                            EntidadProduccion.FechaBaja = Now
+                            EntidadProduccion.ClaveClasificacion = 0
+                            EntidadProduccion.Micros = 0
+                            EntidadProduccion.Castigo = 0
+                            EntidadProduccion.CastigoMicCpa = 0
+                            EntidadProduccion.CastigoMicVta = 0
+                            EntidadProduccion.CastigoLargoFibra = 0
+                            EntidadProduccion.CastigoLargoFibraCpa = 0
+                            EntidadProduccion.CastigoLargoFibraVta = 0
+                            EntidadProduccion.CastigoResistenciaFibra = 0
+                            EntidadProduccion.CastigoResistenciaFibraCpa = 0
+                            EntidadProduccion.CastigoResistenciaFibraVta = 0
+                            EntidadProduccion.ClaveClasificacionCpa = 0
+                            EntidadProduccion.ClaveClasificacionVta = 0
+                            EntidadProduccion.FechaClasificacion = Now
+                            EntidadProduccion.Libras = 0
+                            EntidadProduccion.ClaveCertificado = 0
+                            EntidadProduccion.ClaveContratoAlgodon = 0
+                            EntidadProduccion.ClaveContratoAlgodon2 = 0
+                            EntidadProduccion.ClavePaqueteHVI = 0
+                            EntidadProduccion.LargoFibra = 0
+                            EntidadProduccion.ResistenciaFibra = 0
+                            NegocioProduccion.GuardarDetalle(EntidadProduccion)
+                            'Consultar()
+                            TbFolioCIA.Text = ""
+                            TbKilos.Text = ""
+                            ConsultaUltimaSecuencia()
+                            TbFolioCIA.Text = UltimaSecuencia
+                            TbKilos.Select()
+                        End If
+                    Else
+                        Dim EntidadProduccion As New Capa_Entidad.Produccion
+                        Dim NegocioProduccion As New Capa_Negocio.Produccion
+                        EntidadProduccion.IdProduccionDetalle = 0
+                        EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
+                        EntidadProduccion.IdOrdenTrabajo = TbIdOrdenTrabajo.Text
+                        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+                        EntidadProduccion.FolioCIA = TbFolioCIA.Text
+                        EntidadProduccion.Tipo = CbTipoProducto.Text
+                        EntidadProduccion.Kilos = Bruto
+                        EntidadProduccion.BandExiste = True
+                        EntidadProduccion.IdTurno = CbTurno.SelectedValue
+                        EntidadProduccion.IdEstatus = 1
+                        EntidadProduccion.Fecha = Now
+                        EntidadProduccion.IdBaja = 0
+                        EntidadProduccion.FechaBaja = Now
+                        EntidadProduccion.ClaveClasificacion = 0
+                        EntidadProduccion.Micros = 0
+                        EntidadProduccion.Castigo = 0
+                        EntidadProduccion.CastigoMicCpa = 0
+                        EntidadProduccion.CastigoMicVta = 0
+                        EntidadProduccion.CastigoLargoFibra = 0
+                        EntidadProduccion.CastigoLargoFibraCpa = 0
+                        EntidadProduccion.CastigoLargoFibraVta = 0
+                        EntidadProduccion.CastigoResistenciaFibra = 0
+                        EntidadProduccion.CastigoResistenciaFibraCpa = 0
+                        EntidadProduccion.CastigoResistenciaFibraVta = 0
+                        EntidadProduccion.ClaveClasificacionCpa = 0
+                        EntidadProduccion.ClaveClasificacionVta = 0
+                        EntidadProduccion.FechaClasificacion = Now
+                        EntidadProduccion.Libras = 0
+                        EntidadProduccion.ClaveCertificado = 0
+                        EntidadProduccion.ClaveContratoAlgodon = 0
+                        EntidadProduccion.ClaveContratoAlgodon2 = 0
+                        EntidadProduccion.ClavePaqueteHVI = 0
+                        EntidadProduccion.LargoFibra = 0
+                        EntidadProduccion.ResistenciaFibra = 0
+                        NegocioProduccion.GuardarDetalle(EntidadProduccion)
+                        'TbFolioInicial.Text = Val(TbFolioCIA.Text) + 1
+                        'UpsertFolioInicial(TbFolioCIA.Text)
+                        ActualizarUltimaEtiqueta()
+                        'Consultar()
+                        TbFolioCIA.Text = ""
+                        TbKilos.Text = ""
+                        ConsultaUltimaSecuencia()
+                        'TbFolioCIA.Text = EtiquetaEscaneada
+                        TbFolioInicial.Text = UltimaSecuencia
+                        TbFolioCIA.Text = UltimaSecuencia
+                        TbKilos.Select()
+
+                    End If
                 End If
-                'If 
-
-                '    Exit Sub
-                'Else
-
-                'End If
             Else
                 MsgBox("Verificar peso y folio", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             End If
