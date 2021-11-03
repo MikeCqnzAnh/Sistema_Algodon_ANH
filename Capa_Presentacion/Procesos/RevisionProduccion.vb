@@ -332,6 +332,7 @@ Public Class RevisionProduccion
         PropiedadesDGV()
     End Sub
     Private Sub PropiedadesDGV()
+        DgvPacas.Columns("Sel").ReadOnly = False
         DgvPacas.Columns("IdProduccionDetalle").Visible = False
         DgvPacas.Columns("IdPlantaOrigen").Visible = False
         DgvPacas.Columns("IdOrdenTrabajo").Visible = False

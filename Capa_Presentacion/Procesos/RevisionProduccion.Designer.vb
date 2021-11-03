@@ -125,7 +125,6 @@ Partial Class RevisionProduccion
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
-        Me.CkPaca = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GbCapturaAutomatica = New System.Windows.Forms.GroupBox()
         Me.GbLotes = New System.Windows.Forms.GroupBox()
         Me.BtFin = New System.Windows.Forms.Button()
@@ -1207,7 +1206,6 @@ Partial Class RevisionProduccion
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DgvPacas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvPacas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CkPaca})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1234,16 +1232,6 @@ Partial Class RevisionProduccion
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvPacas.Size = New System.Drawing.Size(887, 182)
         Me.DgvPacas.TabIndex = 64
-        '
-        'CkPaca
-        '
-        Me.CkPaca.FalseValue = "False"
-        Me.CkPaca.FillWeight = 50.0!
-        Me.CkPaca.HeaderText = "Sel"
-        Me.CkPaca.Name = "CkPaca"
-        Me.CkPaca.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CkPaca.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.CkPaca.TrueValue = "True"
         '
         'GbCapturaAutomatica
         '
@@ -1460,7 +1448,6 @@ Partial Class RevisionProduccion
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DgvPacas As DataGridView
-    Friend WithEvents CkPaca As DataGridViewCheckBoxColumn
     Friend WithEvents GbCapturaAutomatica As GroupBox
     Friend WithEvents GbLotes As GroupBox
     Friend WithEvents BtFin As Button

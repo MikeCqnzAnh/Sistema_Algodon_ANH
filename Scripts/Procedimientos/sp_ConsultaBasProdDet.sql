@@ -17,4 +17,4 @@ from [dbo].[ProduccionDetalle] a
 where a.IdEstatus = 1
 and   a.IdProduccion = @IdProduccion
 and   a.IdPlantaOrigen = @IdPlantaOrigen
-order by Fecha desc
+order by a.FolioCIA desc

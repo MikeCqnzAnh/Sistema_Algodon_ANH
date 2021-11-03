@@ -280,7 +280,7 @@ Public Class ConfiguracionParametros
 
                 .Handshake = CbHanshake.SelectedValue 'IO.Ports.Handshake.None
 
-                .Encoding = System.Text.Encoding.GetEncoding(28591)
+                '.Encoding = System.Text.Encoding.GetEncoding(28591)
 
                 '.DtrEnable = CbDtrEnable.Text
 
@@ -727,11 +727,11 @@ Public Class ConfiguracionParametros
 
                 sib = sib + 1
             ElseIf IndicadorBoton = 2 Then
-                az = SpCapturaAuto.ReadLine.Trim
+                az = SpCapturaAuto.ReadLine
                 If az <> "" Then
                     msn(sib) = az
 
-                    returnStr += msn(sib) + vbCrLf + vbCrLf
+                    returnStr += msn(sib)
 
                     sib = sib + 1
                 End If

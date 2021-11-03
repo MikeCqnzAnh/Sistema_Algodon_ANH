@@ -4,7 +4,7 @@ Imports System.Net
 Public Class Produccion
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\Conf\"
     Dim archivo As String = "config.ini"
-    Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
+    Dim PesoMinimoPaca, PosicionPesoBruto, PosicionTara, PosicionNeto, CaracterPesoBruto, CaracterTara, CaracterNeto, BaudRatev, DataBitsv, StopBitsv, Parityv, HandShakev, DtrEnablev, ReadBufferSizev, WriteBufferSizev, ReceivedBytesThresholdv As Integer
     Dim IndicadorPesoBruto, IndicadorTara, IndicadorNeto, NombrePuerto As String
     Dim TextoIzq As Boolean
     Dim UltimaSecuencia, EtiquetaEscaneada As Long
@@ -127,17 +127,17 @@ Public Class Produccion
                 End If
                 .PortName = CbPuertosSeriales.Text
 
-                .BaudRate = BaudRate '// 9600 baud rate
+                .BaudRate = BaudRatev '// 9600 baud rate
 
-                .DataBits = DataBits '// 8 data bits
+                .DataBits = DataBitsv '// 8 data bits
 
-                .StopBits = StopBits '// 1 Stop bit
+                .StopBits = StopBitsv '// 1 Stop bit
 
-                .Parity = Parity '
+                .Parity = Parityv '
 
-                .Handshake = HandShake
+                .Handshake = HandShakev
 
-                .Encoding = System.Text.Encoding.GetEncoding(28591)
+                '.Encoding = System.Text.Encoding.GetEncoding(28591)
 
                 .Open() ' ABRE EL PUERTO SERIE
             End With
@@ -1064,12 +1064,12 @@ Public Class Produccion
         Dim sib As Integer    ' sera utilizada como contador
         Dim msn(1000) As String
         Try
-            az = SpCapturaAutomatica.ReadLine.Trim
+            az = SpCapturaAutomatica.ReadLine
 
             msn(sib) = az
 
-            'returnStr += msn(sib) + " "
-            returnStr += msn(sib) + vbCrLf + vbCrLf
+            returnStr += msn(sib)
+            'returnStr += msn(sib) + vbCrLf + vbCrLf
 
             sib = sib + 1
         Catch ex As TimeoutException
@@ -1092,7 +1092,7 @@ Public Class Produccion
                     Dim largo As Integer = returnStr.Length - returnStr.IndexOf(Trim(IndicadorPesoBruto))
                     Dim inicio As Integer = returnStr.IndexOf(Trim(IndicadorPesoBruto)) - CaracterPesoBruto
                     Resultado = returnStr.Substring(inicio, largo)
-                    Bruto = Trim(Resultado.Substring(inicio, largo))
+                    Bruto = Trim(Resultado.Substring(PosicionPesoBruto, CaracterPesoBruto))
                     TbKilos.Text = Bruto
                     If CkLeersaco.Checked = True Then
                         ActualizaPesoModuloAutomatico(Bruto, FechaActualizacion)
@@ -1899,15 +1899,15 @@ Public Class Produccion
                 CaracterNeto = ObtenerValor(ArregloCadena(30))
                 TextoIzq = ObtenerValor(ArregloCadena(31))
                 CbPuertosSeriales.Text = ObtenerValor(ArregloCadena(32))
-                BaudRate = ObtenerValor(ArregloCadena(33))
-                DataBits = ObtenerValor(ArregloCadena(34))
-                StopBits = ObtenerValor(ArregloCadena(35))
-                Parity = ObtenerValor(ArregloCadena(36))
-                HandShake = ObtenerValor(ArregloCadena(37))
-                DtrEnable = ObtenerValor(ArregloCadena(38))
-                ReadBufferSize = ObtenerValor(ArregloCadena(39))
-                WriteBufferSize = ObtenerValor(ArregloCadena(40))
-                ReceivedBytesThreshold = ObtenerValor(ArregloCadena(41))
+                BaudRatev = ObtenerValor(ArregloCadena(33))
+                DataBitsv = ObtenerValor(ArregloCadena(34))
+                StopBitsv = ObtenerValor(ArregloCadena(35))
+                Parityv = ObtenerValor(ArregloCadena(36))
+                HandShakev = ObtenerValor(ArregloCadena(37))
+                DtrEnablev = ObtenerValor(ArregloCadena(38))
+                ReadBufferSizev = ObtenerValor(ArregloCadena(39))
+                WriteBufferSizev = ObtenerValor(ArregloCadena(40))
+                ReceivedBytesThresholdv = ObtenerValor(ArregloCadena(41))
                 CbPlantaOrigen.SelectedValue = ObtenerValor(ArregloCadena(42))
             End While
             leer.Close()
