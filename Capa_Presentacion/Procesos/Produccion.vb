@@ -1052,10 +1052,10 @@ Public Class Produccion
     Private Sub TiActualizaDgvPacas__Tick(sender As Object, e As EventArgs) Handles TiActualizaDgvPacas.Tick
         Consultar()
     End Sub
-    Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAutomatica.DataReceived
+    Private Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAutomatica.DataReceived
         'While bandera = True
         Dim Resultado As String = ""
-        Dim Bruto
+        Dim Bruto = 0
         Dim TipoFlete As String = ""
         Dim returnStr As String = ""
         Dim FechaActualizacion As DateTime
