@@ -30,7 +30,6 @@ Partial Class VentaPacasContrato
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.TbPesoTara = New System.Windows.Forms.TextBox()
         Me.CkTara = New System.Windows.Forms.CheckBox()
-        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.CbModalidadVenta = New System.Windows.Forms.ComboBox()
         Me.TbValorConversion = New System.Windows.Forms.TextBox()
@@ -100,6 +99,7 @@ Partial Class VentaPacasContrato
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -176,13 +176,12 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.ReporteDeCastigoPorPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PbCargapacas = New System.Windows.Forms.ProgressBar()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
@@ -272,7 +271,6 @@ Partial Class VentaPacasContrato
         '
         Me.Panel3.Controls.Add(Me.TbPesoTara)
         Me.Panel3.Controls.Add(Me.CkTara)
-        Me.Panel3.Controls.Add(Me.NuPesoTara)
         Me.Panel3.Controls.Add(Me.Label24)
         Me.Panel3.Controls.Add(Me.CbModalidadVenta)
         Me.Panel3.Controls.Add(Me.TbValorConversion)
@@ -305,10 +303,10 @@ Partial Class VentaPacasContrato
         '
         'TbPesoTara
         '
-        Me.TbPesoTara.Location = New System.Drawing.Point(170, 102)
+        Me.TbPesoTara.Location = New System.Drawing.Point(82, 102)
         Me.TbPesoTara.Name = "TbPesoTara"
         Me.TbPesoTara.ReadOnly = True
-        Me.TbPesoTara.Size = New System.Drawing.Size(100, 20)
+        Me.TbPesoTara.Size = New System.Drawing.Size(61, 20)
         Me.TbPesoTara.TabIndex = 63
         '
         'CkTara
@@ -320,17 +318,6 @@ Partial Class VentaPacasContrato
         Me.CkTara.Size = New System.Drawing.Size(15, 14)
         Me.CkTara.TabIndex = 15
         Me.CkTara.UseVisualStyleBackColor = True
-        '
-        'NuPesoTara
-        '
-        Me.NuPesoTara.DecimalPlaces = 2
-        Me.NuPesoTara.Enabled = False
-        Me.NuPesoTara.Location = New System.Drawing.Point(82, 102)
-        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.NuPesoTara.Name = "NuPesoTara"
-        Me.NuPesoTara.Size = New System.Drawing.Size(61, 20)
-        Me.NuPesoTara.TabIndex = 62
-        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label24
         '
@@ -1006,6 +993,12 @@ Partial Class VentaPacasContrato
         Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ResumenDeVentaToolStripMenuItem.Text = "Reporte de Venta"
         '
+        'ReporteDeCastigoPorPacasToolStripMenuItem
+        '
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Name = "ReporteDeCastigoPorPacasToolStripMenuItem"
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Text = "Detalle de Castigo por Pacas"
+        '
         'DetalleDeVentaToolStripMenuItem
         '
         Me.DetalleDeVentaToolStripMenuItem.Name = "DetalleDeVentaToolStripMenuItem"
@@ -1233,6 +1226,7 @@ Partial Class VentaPacasContrato
         Me.Panel4.Controls.Add(Me.TcCompras)
         Me.Panel4.Controls.Add(Me.Panel5)
         Me.Panel4.Controls.Add(Me.TabControl1)
+        Me.Panel4.Controls.Add(Me.PbCargapacas)
         Me.Panel4.Controls.Add(Me.GbCompraActual)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 16)
@@ -1248,7 +1242,7 @@ Partial Class VentaPacasContrato
         Me.TcCompras.Location = New System.Drawing.Point(0, 0)
         Me.TcCompras.Name = "TcCompras"
         Me.TcCompras.SelectedIndex = 0
-        Me.TcCompras.Size = New System.Drawing.Size(855, 281)
+        Me.TcCompras.Size = New System.Drawing.Size(855, 271)
         Me.TcCompras.TabIndex = 1
         '
         'TP1LiquidacionesAVender
@@ -1299,7 +1293,7 @@ Partial Class VentaPacasContrato
         Me.TP3PacasAVender.Location = New System.Drawing.Point(4, 22)
         Me.TP3PacasAVender.Name = "TP3PacasAVender"
         Me.TP3PacasAVender.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP3PacasAVender.Size = New System.Drawing.Size(847, 255)
+        Me.TP3PacasAVender.Size = New System.Drawing.Size(847, 245)
         Me.TP3PacasAVender.TabIndex = 2
         Me.TP3PacasAVender.Text = "Pacas a Vender"
         Me.TP3PacasAVender.UseVisualStyleBackColor = True
@@ -1321,7 +1315,7 @@ Partial Class VentaPacasContrato
         Me.DgvPacasVender.RowHeadersVisible = False
         Me.DgvPacasVender.RowHeadersWidth = 40
         Me.DgvPacasVender.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasVender.Size = New System.Drawing.Size(841, 204)
+        Me.DgvPacasVender.Size = New System.Drawing.Size(841, 194)
         Me.DgvPacasVender.TabIndex = 13
         '
         'GbFiltrado
@@ -1504,7 +1498,7 @@ Partial Class VentaPacasContrato
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel5.Location = New System.Drawing.Point(855, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(44, 281)
+        Me.Panel5.Size = New System.Drawing.Size(44, 271)
         Me.Panel5.TabIndex = 3
         '
         'BtExcel
@@ -1546,7 +1540,7 @@ Partial Class VentaPacasContrato
         Me.TabControl1.Location = New System.Drawing.Point(899, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(823, 281)
+        Me.TabControl1.Size = New System.Drawing.Size(823, 271)
         Me.TabControl1.TabIndex = 4
         '
         'TP2LiquidacionesVendidas
@@ -1556,7 +1550,7 @@ Partial Class VentaPacasContrato
         Me.TP2LiquidacionesVendidas.Location = New System.Drawing.Point(4, 22)
         Me.TP2LiquidacionesVendidas.Name = "TP2LiquidacionesVendidas"
         Me.TP2LiquidacionesVendidas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(815, 255)
+        Me.TP2LiquidacionesVendidas.Size = New System.Drawing.Size(815, 245)
         Me.TP2LiquidacionesVendidas.TabIndex = 1
         Me.TP2LiquidacionesVendidas.Text = "Paquetes Vendidos"
         Me.TP2LiquidacionesVendidas.UseVisualStyleBackColor = True
@@ -1578,7 +1572,7 @@ Partial Class VentaPacasContrato
         Me.DgvLiqVendidas.RowHeadersVisible = False
         Me.DgvLiqVendidas.RowHeadersWidth = 40
         Me.DgvLiqVendidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvLiqVendidas.Size = New System.Drawing.Size(809, 204)
+        Me.DgvLiqVendidas.Size = New System.Drawing.Size(809, 194)
         Me.DgvLiqVendidas.TabIndex = 14
         '
         'GroupBox7
@@ -1851,11 +1845,13 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
-        'ReporteDeCastigoPorPacasToolStripMenuItem
+        'PbCargapacas
         '
-        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Name = "ReporteDeCastigoPorPacasToolStripMenuItem"
-        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.ReporteDeCastigoPorPacasToolStripMenuItem.Text = "Detalle de Castigo por Pacas"
+        Me.PbCargapacas.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PbCargapacas.Location = New System.Drawing.Point(0, 271)
+        Me.PbCargapacas.Name = "PbCargapacas"
+        Me.PbCargapacas.Size = New System.Drawing.Size(1722, 10)
+        Me.PbCargapacas.TabIndex = 14
         '
         'VentaPacasContrato
         '
@@ -1879,7 +1875,6 @@ Partial Class VentaPacasContrato
         Me.GroupBox5.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
@@ -2069,10 +2064,10 @@ Partial Class VentaPacasContrato
     Friend WithEvents DetalleDeVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenDeLiquidacionesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtExcel As Button
-    Friend WithEvents NuPesoTara As NumericUpDown
     Friend WithEvents Label24 As Label
     Friend WithEvents CkTara As CheckBox
     Friend WithEvents ReporteHVIAExcelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbPesoTara As TextBox
     Friend WithEvents ReporteDeCastigoPorPacasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PbCargapacas As ProgressBar
 End Class

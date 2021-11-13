@@ -347,7 +347,8 @@ Public Class MenuPrincipal
         ClasificacionPacasExcel.ShowDialog()
     End Sub
     Private Sub ContratosDeAlgodónConProductoresToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeAlgodónConProductoresToolStripMenuItem1.Click
-        ContratosAlgodon.ShowDialog()
+        Dim ContAlgodon As New ContratosAlgodon
+        ContAlgodon.ShowDialog()
     End Sub
     Private Sub ContratosDeAlgodónConCompradoresToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeAlgodónConCompradoresToolStripMenuItem1.Click
         ContratosAlgodonCompradores.ShowDialog()
@@ -372,7 +373,8 @@ Public Class MenuPrincipal
         Almacenes.ShowDialog()
     End Sub
     Private Sub RealizarRespaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RealizarRespaldoToolStripMenuItem.Click
-        Respaldos.ShowDialog()
+        Dim Respaldospeticion As New Respaldos
+        Respaldospeticion.ShowDialog()
     End Sub
     Private Sub RestaurarRespaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestaurarRespaldoToolStripMenuItem.Click
         RestaurarRespaldo.ShowDialog()

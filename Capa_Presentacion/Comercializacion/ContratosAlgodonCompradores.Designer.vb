@@ -29,6 +29,7 @@ Partial Class ContratosAlgodonCompradores
         Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.GbParametros = New System.Windows.Forms.GroupBox()
@@ -95,7 +96,6 @@ Partial Class ContratosAlgodonCompradores
         Me.TbValorConversion = New System.Windows.Forms.TextBox()
         Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.BtGenerar = New System.Windows.Forms.Button()
         Me.BtnBuscarProductor = New System.Windows.Forms.Button()
         Me.TbComprador = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -118,16 +118,15 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbParametros.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -177,7 +176,6 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.Controls.Add(Me.TbValorConversion)
         Me.GbDatosGenerales.Controls.Add(Me.CbUnidadPeso)
         Me.GbDatosGenerales.Controls.Add(Me.Label3)
-        Me.GbDatosGenerales.Controls.Add(Me.BtGenerar)
         Me.GbDatosGenerales.Controls.Add(Me.BtnBuscarProductor)
         Me.GbDatosGenerales.Controls.Add(Me.TbComprador)
         Me.GbDatosGenerales.Controls.Add(Me.Label13)
@@ -206,6 +204,17 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'NuPesoTara
+        '
+        Me.NuPesoTara.DecimalPlaces = 2
+        Me.NuPesoTara.Enabled = False
+        Me.NuPesoTara.Location = New System.Drawing.Point(188, 230)
+        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NuPesoTara.Name = "NuPesoTara"
+        Me.NuPesoTara.Size = New System.Drawing.Size(50, 20)
+        Me.NuPesoTara.TabIndex = 11
+        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CkTara
         '
@@ -846,15 +855,6 @@ Partial Class ContratosAlgodonCompradores
         Me.Label3.TabIndex = 31
         Me.Label3.Text = "Unidad de peso"
         '
-        'BtGenerar
-        '
-        Me.BtGenerar.Location = New System.Drawing.Point(690, 68)
-        Me.BtGenerar.Name = "BtGenerar"
-        Me.BtGenerar.Size = New System.Drawing.Size(94, 23)
-        Me.BtGenerar.TabIndex = 15
-        Me.BtGenerar.Text = "Generar"
-        Me.BtGenerar.UseVisualStyleBackColor = True
-        '
         'BtnBuscarProductor
         '
         Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
@@ -1049,17 +1049,6 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
         Me.DgvContratoAlgodon.TabIndex = 14
         '
-        'NuPesoTara
-        '
-        Me.NuPesoTara.DecimalPlaces = 2
-        Me.NuPesoTara.Enabled = False
-        Me.NuPesoTara.Location = New System.Drawing.Point(188, 230)
-        Me.NuPesoTara.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.NuPesoTara.Name = "NuPesoTara"
-        Me.NuPesoTara.Size = New System.Drawing.Size(50, 20)
-        Me.NuPesoTara.TabIndex = 11
-        Me.NuPesoTara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'ContratosAlgodonCompradores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1078,6 +1067,7 @@ Partial Class ContratosAlgodonCompradores
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbParametros.ResumeLayout(False)
         Me.GbCastigos.ResumeLayout(False)
         Me.GbCastigos.PerformLayout()
@@ -1088,7 +1078,6 @@ Partial Class ContratosAlgodonCompradores
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1099,7 +1088,6 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GbDatosGenerales As GroupBox
-    Friend WithEvents BtGenerar As Button
     Friend WithEvents GbPrecioQuintal As GroupBox
     Friend WithEvents Label23 As Label
     Friend WithEvents TbO As TextBox

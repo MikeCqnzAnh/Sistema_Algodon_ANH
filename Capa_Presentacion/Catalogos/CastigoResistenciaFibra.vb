@@ -66,7 +66,7 @@ Public Class CastigoResistenciaFibra
         EntidadCastigoResistenciaFibra.Consulta = Consulta.ConsultaEncabezado
         NegocioCastigoResistenciaFibra.Consultar(EntidadCastigoResistenciaFibra)
         DgvEncabezado.DataSource = EntidadCastigoResistenciaFibra.TablaConsulta
-        'PropiedadesDgModos()
+        PropiedadesDgModos()
     End Sub
     Private Sub ConsultaModosDetalle()
         Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra
@@ -165,6 +165,9 @@ Public Class CastigoResistenciaFibra
         DgvDetalle.Columns("IdModoDetalle").Visible = False
         DgvDetalle.Columns("IdModoEncabezado").Visible = False
         DgvDetalle.Columns("IdEstatus").Visible = False
+    End Sub
+    Private Sub PropiedadesDgModos()
+        DgvEncabezado.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

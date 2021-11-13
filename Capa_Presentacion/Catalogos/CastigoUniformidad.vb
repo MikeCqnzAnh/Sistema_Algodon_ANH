@@ -58,8 +58,9 @@ Public Class CastigoUniformidad
         EntidadCastigoUniformidad.Consulta = Consulta.ConsultaEncabezado
         NegocioCastigoUniformidad.Consultar(EntidadCastigoUniformidad)
         DgvEncabezado.DataSource = EntidadCastigoUniformidad.TablaConsulta
-        'PropiedadesDgModos()
+        PropiedadesDgModos()
     End Sub
+
     Private Sub ConsultaModosDetalle()
         Dim EntidadCastigoUniformidad As New Capa_Entidad.CastigoUniformidad
         Dim NegocioCastigoUniformidad As New Capa_Negocio.CastigoUniformidad
@@ -136,6 +137,9 @@ Public Class CastigoUniformidad
         DgvDetalle.Columns("IdModoDetalle").Visible = False
         DgvDetalle.Columns("IdModoEncabezado").Visible = False
         DgvDetalle.Columns("IdEstatus").Visible = False
+    End Sub
+    Private Sub PropiedadesDgModos()
+        DgvEncabezado.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub DgvEncabezado_DoubleClick(sender As Object, e As EventArgs) Handles DgvEncabezado.DoubleClick
         If DgvEncabezado.DataSource Is Nothing Then

@@ -320,10 +320,10 @@ Partial Class RevisionProduccion
         Me.RbActualizar.AutoSize = True
         Me.RbActualizar.Location = New System.Drawing.Point(6, 141)
         Me.RbActualizar.Name = "RbActualizar"
-        Me.RbActualizar.Size = New System.Drawing.Size(98, 17)
+        Me.RbActualizar.Size = New System.Drawing.Size(94, 17)
         Me.RbActualizar.TabIndex = 74
         Me.RbActualizar.TabStop = True
-        Me.RbActualizar.Text = "Actualizar paca"
+        Me.RbActualizar.Text = "Modificar peso"
         Me.RbActualizar.UseVisualStyleBackColor = True
         '
         'RbAgregar

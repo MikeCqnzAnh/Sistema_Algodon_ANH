@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.33.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.36.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -409,6 +409,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DsReportes.vb">
+      <DependentUpon>DsReportes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
     <Compile Include="CambiarClave.Designer.vb">
       <DependentUpon>CambiarClave.vb</DependentUpon>
@@ -686,6 +689,12 @@
     <Compile Include="Reportes\RepLotesPorModulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepModulosConPeso.Designer.vb">
+      <DependentUpon>RepModulosConPeso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepModulosConPeso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepOrdenEmbarque.Designer.vb">
       <DependentUpon>RepOrdenEmbarque.vb</DependentUpon>
     </Compile>
@@ -894,6 +903,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTLiquidacionRomaneajeDet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTModulosConPeso.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTModulosConPeso.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTModulosPorProductor.vb">
@@ -1678,6 +1693,9 @@
     <EmbeddedResource Include="Reportes\RepLotesPorModulo.resx">
       <DependentUpon>RepLotesPorModulo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepModulosConPeso.resx">
+      <DependentUpon>RepModulosConPeso.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepOrdenEmbarque.resx">
       <DependentUpon>RepOrdenEmbarque.vb</DependentUpon>
     </EmbeddedResource>
@@ -1798,6 +1816,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTLiquidacionRomaneajeDet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTLiquidacionRomaneajeDet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTModulosConPeso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTModulosConPeso.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTModulosPorProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

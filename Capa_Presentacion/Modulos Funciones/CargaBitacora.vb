@@ -7,17 +7,21 @@ Module CargaBitacora
         Dim Computadora As String = Dns.GetHostName()
         Dim DireccionIP As String = Dns.Resolve(Computadora).AddressList(0).ToString()
         Dim Tabla As New DataTable
-        EntidadBitacora.Fecha = Now
-        EntidadBitacora.Computadora = Computadora
-        EntidadBitacora.DireccionIP = DireccionIP
-        EntidadBitacora.IdUsuario = IdUsuario
-        EntidadBitacora.Usuario = Usuario
-        EntidadBitacora.Modulo = Modulo
-        EntidadBitacora.Opcion = Opcion
-        EntidadBitacora.Operacion = Operacion
-        EntidadBitacora.Observaciones = Observaciones
-        EntidadBitacora.BaseDeDatos = BaseDeDatos
-        NegocioBitacora.InsertaBitacora(EntidadBitacora)
+        Try
+            EntidadBitacora.Fecha = Now
+            EntidadBitacora.Computadora = Computadora
+            EntidadBitacora.DireccionIP = DireccionIP
+            EntidadBitacora.IdUsuario = IdUsuario
+            EntidadBitacora.Usuario = Usuario
+            EntidadBitacora.Modulo = Modulo
+            EntidadBitacora.Opcion = Opcion
+            EntidadBitacora.Operacion = Operacion
+            EntidadBitacora.Observaciones = Observaciones
+            EntidadBitacora.BaseDeDatos = BaseDeDatos
+            NegocioBitacora.InsertaBitacora(EntidadBitacora)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Public Sub GeneraRegistroBitacora(ByVal Modulo As String, ByVal Opcion As String, Optional ByVal IdAdicional As Long = 0, Optional ByVal ReferenciaAdicional As String = "")
         Dim operacion As String = String.Empty

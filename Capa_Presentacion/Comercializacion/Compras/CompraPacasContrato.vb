@@ -160,47 +160,50 @@ Public Class CompraPacasContrato
     Private Function DataGridADatatable(ByVal EstatusCompraUpdate As Integer, ByVal EstatusCompraBusqueda As Integer, ByVal DataGridEnvia As DataGridView, ByVal IdCompraEnc As Integer, Optional valcastigo As Integer = 0) As DataTable
         Dim dt As New DataTable
         Dim r As DataRow
+        Try
+            dt.Columns.Add("IdProductor", Type.GetType("System.Int32"))
+            dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
+            dt.Columns.Add("Quintales", Type.GetType("System.Single"))
+            dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
+            dt.Columns.Add("IdPlantaOrigen", Type.GetType("System.Int32"))
+            dt.Columns.Add("IdLiquidacion", Type.GetType("System.Int32"))
+            dt.Columns.Add("IdCompraEnc", Type.GetType("System.Int32"))
+            dt.Columns.Add("PrecioDls", Type.GetType("System.Single"))
+            dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
+            dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
+            dt.Columns.Add("CastigoUniformidad", Type.GetType("System.Single"))
+            dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Single"))
+            dt.Columns.Add("CastigoMicros", Type.GetType("System.Single"))
+            dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Single"))
+            dt.Columns.Add("estatuscompraUpdate", Type.GetType("System.Int32"))
+            dt.Columns.Add("estatuscompraBusqueda", Type.GetType("System.Int32"))
 
-        dt.Columns.Add("IdProductor", Type.GetType("System.Int32"))
-        dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
-        dt.Columns.Add("Quintales", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
-        dt.Columns.Add("IdPlantaOrigen", Type.GetType("System.Int32"))
-        dt.Columns.Add("IdLiquidacion", Type.GetType("System.Int32"))
-        dt.Columns.Add("IdCompraEnc", Type.GetType("System.Int32"))
-        dt.Columns.Add("PrecioDls", Type.GetType("System.Single"))
-        dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoUniformidad", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoMicros", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Single"))
-        dt.Columns.Add("estatuscompraUpdate", Type.GetType("System.Int32"))
-        dt.Columns.Add("estatuscompraBusqueda", Type.GetType("System.Int32"))
-
-        For i = 0 To DataGridEnvia.Rows.Count - 1
-            r = dt.NewRow
-            If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                Dim Quintales As Double = Math.Round(DataGridEnvia.Item("Quintales", i).Value, 4)
-                r("IdProductor") = TbIdProductor.Text
-                r("IdPlantaOrigen") = DataGridEnvia.Item("IdPlantaOrigen", i).Value.ToString
-                r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
-                r("Quintales") = Math.Truncate(Quintales * 10000) / 10000
-                r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
-                r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value.ToString
-                r("IdCompraEnc") = IdCompraEnc
-                r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
-                r("TipoCambio") = 0
-                r("PrecioMxn") = 0
-                r("CastigoUniformidad") = IIf(ChUniformidad.Checked = True, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
-                r("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
-                r("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
-                r("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
-                r("estatuscompraUpdate") = EstatusCompraUpdate
-                r("EstatusCompraBusqueda") = EstatusCompraBusqueda
-                dt.Rows.Add(r)
-            End If
-        Next
+            For i = 0 To DataGridEnvia.Rows.Count - 1
+                r = dt.NewRow
+                If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
+                    Dim Quintales As Double = Math.Round(DataGridEnvia.Item("Quintales", i).Value, 4)
+                    r("IdProductor") = TbIdProductor.Text
+                    r("IdPlantaOrigen") = DataGridEnvia.Item("IdPlantaOrigen", i).Value.ToString
+                    r("BaleID") = DataGridEnvia.Item("BaleID", i).Value.ToString
+                    r("Quintales") = Math.Truncate(Quintales * 10000) / 10000
+                    r("PrecioClase") = PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)
+                    r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value.ToString
+                    r("IdCompraEnc") = IdCompraEnc
+                    r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(DataGridEnvia.Item("Grade", i).Value.ToString)) * 10000) / 10000
+                    r("TipoCambio") = 0
+                    r("PrecioMxn") = 0
+                    r("CastigoUniformidad") = IIf(ChUniformidad.Checked = True, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("estatuscompraUpdate") = EstatusCompraUpdate
+                    r("EstatusCompraBusqueda") = EstatusCompraBusqueda
+                    dt.Rows.Add(r)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
         Return dt
     End Function
     Private Sub CuentaPacasMarcadas() Handles DgvPacasComprar.CellContentClick
@@ -249,75 +252,85 @@ Public Class CompraPacasContrato
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
-            EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
-            EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
-        Else
-            Castigo = 0
-            Return Castigo
-        End If
-
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+                EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
+                EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Else
+                Castigo = 0
+            End If
+        Catch ex As Exception
+            MsgBox("Error, excede limites de Micros. " & ex.Message)
+        End Try
+        Return Castigo
     End Function
     Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
-        Else
-            Castigo = 0
-            Return Castigo
-        End If
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Else
+                Castigo = 0
 
+            End If
+        Catch ex As Exception
+            MsgBox("Error, excede limites de Resistencia de fibra. " & ex.Message)
+        End Try
+        Return Castigo
     End Function
     Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
-        Else
-            Castigo = 0
-            Return Castigo
-        End If
-
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+            Else
+                Castigo = 0
+            End If
+        Catch ex As Exception
+            MsgBox("Error, excede limites de Largo de fibra. " & ex.Message)
+        End Try
+        Return Castigo
     End Function
     Private Function ConsultaCastigoUniformidad(ByVal ValUniformidad As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
-            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
-            EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
-        Else
-            Castigo = 0
-            Return Castigo
-        End If
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
+                EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
+                EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+            Else
+                Castigo = 0
+            End If
+        Catch ex As Exception
+            MsgBox("Error, excede limites de Uniformidad. " & ex.Message)
+        End Try
+        Return Castigo
     End Function
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Dim _ConsultaCompraProductor As New ConsultaCompraProductor

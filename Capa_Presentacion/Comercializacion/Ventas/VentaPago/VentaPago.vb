@@ -5,7 +5,7 @@ Public Class VentaPago
     Dim Nombrecomprador As String
     Dim EstatusPesoNeto As Boolean
     Dim TablaResumen As New DataTable
-    Public Sub New(ByVal IdVent As Integer, ByVal IdComp As Integer, ByVal IdCont As Integer, ByVal IdModVenta As Integer, ByVal IdUniPeso As Integer, ByVal Nombre As String, ByVal Quintal As Double, ByVal Conversion As Double, ByVal EstatusNeto As Boolean, ByVal KilosNet As Double, ByVal TbResumen As DataTable)
+    Public Sub New(ByVal IdVent As Integer, ByVal IdComp As Integer, ByVal IdCont As Integer, ByVal IdModVenta As Integer, ByVal IdUniPeso As Integer, ByVal Nombre As String, ByVal Quintal As Double, ByVal Conversion As Double, ByVal EstatusNeto As Boolean, ByVal KilosNet As Double)
         InitializeComponent()
         IdVenta = IdVent
         IdComprador = IdComp
@@ -17,7 +17,7 @@ Public Class VentaPago
         ValorConversion = Conversion
         EstatusPesoNeto = EstatusNeto
         KilosNeto = KilosNet
-        TablaResumen = TbResumen
+        'TablaResumen = TbResumen
     End Sub
     Private Sub VentaPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LimpiarControles()
@@ -37,7 +37,8 @@ Public Class VentaPago
         TbIdVenta.Text = IdVenta
         CkTara.Checked = EstatusPesoNeto
         NuPesoTara.Value = KilosNeto
-        DgvResumenPagoPacas.DataSource = TablaResumen
+        'DgvResumenPagoPacas.DataSource = TablaResumen
+        CargaDetalleVentaPacas()
         PropiedadesDgv()
         CargarCombos(IdunidadPeso)
         SumasTotales()
@@ -45,26 +46,27 @@ Public Class VentaPago
         TotalVenta()
         Formatos()
     End Sub
+
     Private Sub PropiedadesDgv()
-        DgvResumenPagoPacas.Columns(5).Visible = False
-        DgvResumenPagoPacas.Columns(6).Visible = False
-        DgvResumenPagoPacas.Columns(20).Visible = False
-        DgvResumenPagoPacas.Columns(0).HeaderText = "Etiqueta"
-        DgvResumenPagoPacas.Columns(1).HeaderText = "Clase"
-        DgvResumenPagoPacas.Columns(7).HeaderText = "Castigo UI"
-        DgvResumenPagoPacas.Columns(8).HeaderText = "Castigo RF"
-        DgvResumenPagoPacas.Columns(9).HeaderText = "Castigo Mic"
-        DgvResumenPagoPacas.Columns(10).HeaderText = "Castigo LF"
-        DgvResumenPagoPacas.Columns(11).HeaderText = "Bark Level 1"
-        DgvResumenPagoPacas.Columns(12).HeaderText = "Bark Level 2"
-        DgvResumenPagoPacas.Columns(13).HeaderText = "Prep Level 1"
-        DgvResumenPagoPacas.Columns(14).HeaderText = "Prep Level 2"
-        DgvResumenPagoPacas.Columns(15).HeaderText = "Other Level 1"
-        DgvResumenPagoPacas.Columns(16).HeaderText = "Other Level 2"
-        DgvResumenPagoPacas.Columns(17).HeaderText = "Plastic Level 1"
-        DgvResumenPagoPacas.Columns(18).HeaderText = "Plastic Level 2"
-        DgvResumenPagoPacas.Columns(19).HeaderText = "Precio"
-        DgvResumenPagoPacas.Columns(21).HeaderText = "Importe Dls"
+        'DgvResumenPagoPacas.Columns(5).Visible = False
+        'DgvResumenPagoPacas.Columns(6).Visible = False
+        'DgvResumenPagoPacas.Columns(20).Visible = False
+        'DgvResumenPagoPacas.Columns(0).HeaderText = "Etiqueta"
+        'DgvResumenPagoPacas.Columns(1).HeaderText = "Clase"
+        'DgvResumenPagoPacas.Columns(2).HeaderText = "Castigo UI"
+        'DgvResumenPagoPacas.Columns(3).HeaderText = "Castigo RF"
+        'DgvResumenPagoPacas.Columns(4).HeaderText = "Castigo Mic"
+        'DgvResumenPagoPacas.Columns(5).HeaderText = "Castigo LF"
+        'DgvResumenPagoPacas.Columns(11).HeaderText = "Bark Level 1"
+        'DgvResumenPagoPacas.Columns(12).HeaderText = "Bark Level 2"
+        'DgvResumenPagoPacas.Columns(13).HeaderText = "Prep Level 1"
+        'DgvResumenPagoPacas.Columns(14).HeaderText = "Prep Level 2"
+        'DgvResumenPagoPacas.Columns(15).HeaderText = "Other Level 1"
+        'DgvResumenPagoPacas.Columns(16).HeaderText = "Other Level 2"
+        'DgvResumenPagoPacas.Columns(17).HeaderText = "Plastic Level 1"
+        'DgvResumenPagoPacas.Columns(18).HeaderText = "Plastic Level 2"
+        'DgvResumenPagoPacas.Columns(19).HeaderText = "Precio"
+        'DgvResumenPagoPacas.Columns(21).HeaderText = "Importe Dls"
     End Sub
     Private Sub CargarCombos(ByVal IdUnidadPeso As Integer)
         '-------------------------COMBO UNIDAD PESO
@@ -189,7 +191,7 @@ Public Class VentaPago
     Private Sub GuardarVentaEnc()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
-        EntidadVentaPacasContrato.Guarda = Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasEnc
+        EntidadVentaPacasContrato.Guarda = Guardar.GuardarVentaPacasEnc
         EntidadVentaPacasContrato.IdVenta = IIf(TbIdVenta.Text = "", 0, TbIdVenta.Text)
         EntidadVentaPacasContrato.IdContrato = TbIdContrato.Text
         EntidadVentaPacasContrato.IdComprador = TbIdComprador.Text
@@ -214,6 +216,18 @@ Public Class VentaPago
         EntidadVentaPacasContrato.IdEstatusVenta = 1
         NegocioVentaPacasContrato.Guardar(EntidadVentaPacasContrato)
         TbIdVenta.Text = EntidadVentaPacasContrato.IdVenta
+    End Sub
+    Private Sub CargaDetalleVentaPacas()
+        Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
+        Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
+        Try
+            EntidadVentaPacasContrato.Consulta = Consulta.ConsultaDetallada
+            EntidadVentaPacasContrato.IdVenta = IIf(TbIdVenta.Text = "", 0, TbIdVenta.Text)
+            NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
+            DgvResumenPagoPacas.DataSource = EntidadVentaPacasContrato.TablaConsulta
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub ActualizaEstatusVenta()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato

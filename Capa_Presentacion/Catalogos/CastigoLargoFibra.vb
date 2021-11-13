@@ -139,21 +139,25 @@ Public Class CastigoLargoFibra
         Dim rengloninsertar As DataRow
         TablaDetalles.Clear()
         DgvLargoDetalle.EndEdit()
+        Try
+            For Each row As DataGridViewRow In DgvLargoDetalle.Rows
+                index = Convert.ToUInt64(row.Index)
+                If DgvLargoDetalle.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvLargoDetalle.Rows(index).Cells("Rango2").Value IsNot Nothing Then
+                    rengloninsertar = TablaDetalles.NewRow()
+                    rengloninsertar("IdModoDetalle") = IIf(DgvLargoDetalle.Rows(index).Cells("IdModoDetalle").Value Is Nothing, 0, DgvLargoDetalle.Rows(index).Cells("IdModoDetalle").Value)
+                    rengloninsertar("IdModoEncabezado") = Val(DgvLargoDetalle.Text)
+                    rengloninsertar("Rango1") = DgvLargoDetalle.Rows(index).Cells("Rango1").Value
+                    rengloninsertar("Rango2") = DgvLargoDetalle.Rows(index).Cells("Rango2").Value
+                    rengloninsertar("ColorGrade") = DgvLargoDetalle.Rows(index).Cells("ColorGrade").Value
+                    rengloninsertar("Castigo") = DgvLargoDetalle.Rows(index).Cells("Castigo").Value
+                    rengloninsertar("IdEstatus") = 1
+                    TablaDetalles.Rows.Add(rengloninsertar)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
-        For Each row As DataGridViewRow In DgvLargoDetalle.Rows
-            index = Convert.ToUInt64(row.Index)
-            If DgvLargoDetalle.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvLargoDetalle.Rows(index).Cells("Rango2").Value IsNot Nothing Then
-                rengloninsertar = TablaDetalles.NewRow()
-                rengloninsertar("IdModoDetalle") = IIf(DgvLargoDetalle.Rows(index).Cells("IdModoDetalle").Value Is Nothing, 0, DgvLargoDetalle.Rows(index).Cells("IdModoDetalle").Value)
-                rengloninsertar("IdModoEncabezado") = Val(DgvLargoDetalle.Text)
-                rengloninsertar("Rango1") = DgvLargoDetalle.Rows(index).Cells("Rango1").Value
-                rengloninsertar("Rango2") = DgvLargoDetalle.Rows(index).Cells("Rango2").Value
-                rengloninsertar("ColorGrade") = DgvLargoDetalle.Rows(index).Cells("ColorGrade").Value
-                rengloninsertar("Castigo") = DgvLargoDetalle.Rows(index).Cells("Castigo").Value
-                rengloninsertar("IdEstatus") = 1
-                TablaDetalles.Rows.Add(rengloninsertar)
-            End If
-        Next
     End Sub
     Private Sub AgregarATablaEquivalente()
         Dim index As Integer
@@ -243,10 +247,10 @@ Public Class CastigoLargoFibra
         End If
     End Sub
     Private Sub CargarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem.Click
-        importarExcelExterno(DgvLargoDetalle)
+        importarexceltablacastigos(DgvLargoDetalle)
     End Sub
     Private Sub CargarExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem1.Click
-        importarExcelExterno(DgvEquivalente)
+        importarexceltablacastigos(DgvEquivalente)
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()

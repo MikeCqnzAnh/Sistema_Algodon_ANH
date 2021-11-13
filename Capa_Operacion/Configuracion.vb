@@ -35,6 +35,7 @@
         ReportePacaDetalleVenta = 33
         ReporteExistenciasResumen = 34
         ReporteExistenciasDetalle = 35
+        ReporteModulosDetallePeso = 36
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

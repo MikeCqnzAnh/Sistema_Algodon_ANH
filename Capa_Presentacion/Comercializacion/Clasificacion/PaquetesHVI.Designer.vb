@@ -52,6 +52,13 @@ Partial Class PaquetesHVI
         Me.DgvPaquetesHVI = New System.Windows.Forms.DataGridView()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.gbbottom = New System.Windows.Forms.GroupBox()
+        Me.btpacacomprada = New System.Windows.Forms.Button()
+        Me.btaltaparametros = New System.Windows.Forms.Button()
+        Me.btbajaparametros = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbConsultaPaca.SuspendLayout()
@@ -59,6 +66,7 @@ Partial Class PaquetesHVI
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.gbbottom.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -116,7 +124,7 @@ Partial Class PaquetesHVI
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1279, 215)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1279, 196)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -153,7 +161,7 @@ Partial Class PaquetesHVI
         Me.GbConsultaPaca.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbConsultaPaca.Location = New System.Drawing.Point(990, 16)
         Me.GbConsultaPaca.Name = "GbConsultaPaca"
-        Me.GbConsultaPaca.Size = New System.Drawing.Size(286, 196)
+        Me.GbConsultaPaca.Size = New System.Drawing.Size(286, 177)
         Me.GbConsultaPaca.TabIndex = 13
         Me.GbConsultaPaca.TabStop = False
         Me.GbConsultaPaca.Text = "Consulta Lote de paca"
@@ -324,12 +332,13 @@ Partial Class PaquetesHVI
         'DgvPaquetesHVI
         '
         Me.DgvPaquetesHVI.AllowUserToAddRows = False
+        Me.DgvPaquetesHVI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DgvPaquetesHVI.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DgvPaquetesHVI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvPaquetesHVI.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPaquetesHVI.Location = New System.Drawing.Point(0, 0)
         Me.DgvPaquetesHVI.Name = "DgvPaquetesHVI"
-        Me.DgvPaquetesHVI.Size = New System.Drawing.Size(1279, 361)
+        Me.DgvPaquetesHVI.Size = New System.Drawing.Size(1279, 367)
         Me.DgvPaquetesHVI.TabIndex = 2
         '
         'OpenFileDialog1
@@ -340,17 +349,96 @@ Partial Class PaquetesHVI
         '
         Me.Panel1.Controls.Add(Me.DgvPaquetesHVI)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 239)
+        Me.Panel1.Location = New System.Drawing.Point(0, 220)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1279, 361)
+        Me.Panel1.Size = New System.Drawing.Size(1279, 367)
         Me.Panel1.TabIndex = 3
+        '
+        'gbbottom
+        '
+        Me.gbbottom.Controls.Add(Me.Label10)
+        Me.gbbottom.Controls.Add(Me.Label9)
+        Me.gbbottom.Controls.Add(Me.Label8)
+        Me.gbbottom.Controls.Add(Me.btbajaparametros)
+        Me.gbbottom.Controls.Add(Me.btaltaparametros)
+        Me.gbbottom.Controls.Add(Me.btpacacomprada)
+        Me.gbbottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.gbbottom.Location = New System.Drawing.Point(0, 587)
+        Me.gbbottom.Name = "gbbottom"
+        Me.gbbottom.Size = New System.Drawing.Size(1279, 49)
+        Me.gbbottom.TabIndex = 3
+        Me.gbbottom.TabStop = False
+        '
+        'btpacacomprada
+        '
+        Me.btpacacomprada.BackColor = System.Drawing.Color.SkyBlue
+        Me.btpacacomprada.Enabled = False
+        Me.btpacacomprada.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btpacacomprada.Location = New System.Drawing.Point(115, 16)
+        Me.btpacacomprada.Name = "btpacacomprada"
+        Me.btpacacomprada.Size = New System.Drawing.Size(48, 23)
+        Me.btpacacomprada.TabIndex = 0
+        Me.btpacacomprada.UseVisualStyleBackColor = False
+        '
+        'btaltaparametros
+        '
+        Me.btaltaparametros.BackColor = System.Drawing.Color.LightCoral
+        Me.btaltaparametros.Enabled = False
+        Me.btaltaparametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btaltaparametros.Location = New System.Drawing.Point(325, 17)
+        Me.btaltaparametros.Name = "btaltaparametros"
+        Me.btaltaparametros.Size = New System.Drawing.Size(48, 23)
+        Me.btaltaparametros.TabIndex = 1
+        Me.btaltaparametros.UseVisualStyleBackColor = False
+        '
+        'btbajaparametros
+        '
+        Me.btbajaparametros.BackColor = System.Drawing.Color.LemonChiffon
+        Me.btbajaparametros.Enabled = False
+        Me.btbajaparametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btbajaparametros.Location = New System.Drawing.Point(537, 17)
+        Me.btbajaparametros.Name = "btbajaparametros"
+        Me.btbajaparametros.Size = New System.Drawing.Size(48, 23)
+        Me.btbajaparametros.TabIndex = 2
+        Me.btbajaparametros.UseVisualStyleBackColor = False
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(10, 21)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(99, 13)
+        Me.Label8.TabIndex = 3
+        Me.Label8.Text = "Paca comprada:"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(170, 22)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(149, 13)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Paca alta en parametros:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(379, 22)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(152, 13)
+        Me.Label10.TabIndex = 5
+        Me.Label10.Text = "Paca baja en parametros:"
         '
         'PaquetesHVI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1279, 600)
+        Me.ClientSize = New System.Drawing.Size(1279, 636)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.gbbottom)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -369,6 +457,8 @@ Partial Class PaquetesHVI
         CType(Me.NuCantidadPacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvPaquetesHVI, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.gbbottom.ResumeLayout(False)
+        Me.gbbottom.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -403,4 +493,11 @@ Partial Class PaquetesHVI
     Friend WithEvents DgvConsultaLotID As DataGridView
     Friend WithEvents BtCargaAccess As Button
     Friend WithEvents BtCargaExcel As Button
+    Friend WithEvents gbbottom As GroupBox
+    Friend WithEvents btbajaparametros As Button
+    Friend WithEvents btaltaparametros As Button
+    Friend WithEvents btpacacomprada As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label10 As Label
 End Class

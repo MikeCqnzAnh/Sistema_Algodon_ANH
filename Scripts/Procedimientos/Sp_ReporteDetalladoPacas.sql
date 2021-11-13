@@ -11,9 +11,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,
@@ -34,9 +37,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,
@@ -58,9 +64,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,
@@ -82,9 +91,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,
@@ -106,9 +118,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,
@@ -130,9 +145,12 @@ select isnull(pd.FolioCIA,0) as FolioCIA,
 		isnull(pd.idordentrabajo, 0) as IdOrdenTrabajo,
 		isnull(cl.Nombre,'') as Nombre,
 		isnull(pd.IdPlantaOrigen,'') as Planta,
-		isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0) as KilosHueso,
+		case 
+			when isnull(ot.pesomodulos,0) = 0 or isnull(Pr.plumapacas,0) = 0   then 0
+			else isnull(((OT.PesoModulos/Pr.plumapacas)*pd.Kilos),0)
+		end as KilosHueso,
 		isnull(pd.Kilos,0) as Kilos,
-		isnull(ot.FechaCreacion,'') as Fecha,
+		isnull(pd.Fecha,'') as Fecha,
 		isnull(cc.ClaveCorta,'') as Clase,
 		isnull(hd.Mic,0) as Mic,
 		isnull(hd.UHML,0) as UHML,

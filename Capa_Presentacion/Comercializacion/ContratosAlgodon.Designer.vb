@@ -986,6 +986,7 @@ Partial Class ContratosAlgodon
         '
         'TbPrecioQuintal
         '
+        Me.TbPrecioQuintal.Enabled = False
         Me.TbPrecioQuintal.Location = New System.Drawing.Point(510, 16)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(100, 20)

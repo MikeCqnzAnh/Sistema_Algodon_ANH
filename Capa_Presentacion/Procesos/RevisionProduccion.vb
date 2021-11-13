@@ -244,7 +244,7 @@ Public Class RevisionProduccion
         If CbPlanta.Text <> "" And Val(TbPrimerPaca.Text) > 0 And Val(TbUltimaPaca.Text) > Val(TbPrimerPaca.Text) Then
             Dim diferenciapacas As Long = Val(TbUltimaPaca.Text) - Val(TbPrimerPaca.Text)
             Dim pacaproducida As Integer = Val(TbPacasProducidas.Text)
-            If (diferenciapacas - pacaproducida) < 20 Then
+            If (diferenciapacas - pacaproducida) < pacaproducida Then
                 Dim EntidadReportes As New Capa_Entidad.Reportes
                 Dim NegocioReportes As New Capa_Negocio.Reportes
                 Dim Tabla As New DataTable
@@ -264,6 +264,8 @@ Public Class RevisionProduccion
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
+            Else
+                MsgBox("El faltante de pacas son " & FormatNumber(diferenciapacas) & " revisar el error directamente en la produccion!", MsgBoxStyle.Critical, "Aviso")
             End If
         End If
     End Sub
@@ -398,10 +400,10 @@ Public Class RevisionProduccion
         Select Case e.KeyData
             Case Keys.Enter
                 CapturaPacasSinSaco()
+                TbTotalPacas.Text = DgvPacas.RowCount
+                TbTotalKilos.Text = SumaKilos()
+                GuardarProduccion()
         End Select
-        TbTotalPacas.Text = DgvPacas.RowCount
-        TbTotalKilos.Text = SumaKilos()
-        GuardarProduccion()
     End Sub
     Private Sub CapturaPacasSinSaco()
         If TbIdOrdenTrabajo.Text <> "" Then

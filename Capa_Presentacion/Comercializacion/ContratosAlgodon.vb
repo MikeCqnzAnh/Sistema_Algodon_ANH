@@ -251,9 +251,13 @@ Public Class ContratosAlgodon
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
         Dim Tabla As New DataTable
-        EntidadContratosAlgodon.Consulta = Consulta.ConsultaBasica
-        NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
-        DgvContratoAlgodon.DataSource = EntidadContratosAlgodon.TablaConsulta
+        Try
+            EntidadContratosAlgodon.Consulta = Consulta.ConsultaBasica
+            NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
+            DgvContratoAlgodon.DataSource = EntidadContratosAlgodon.TablaConsulta
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub Limpiar()
         TbIdContratoAlgodon.Text = ""
@@ -265,6 +269,7 @@ Public Class ContratosAlgodon
         TbSuperficie.Text = ""
         TbLotes.Text = ""
         TbPrecioQuintal.Text = ""
+        TbPrecioQuintal.Enabled = True
         TbPuntos.Text = ""
         DtpFechaLiquidacion.Value = Now
         TbPresidente.Text = ""
@@ -373,6 +378,11 @@ Public Class ContratosAlgodon
         TbLotes.Text = TablaDetalle.Rows(0).Item("Lotes")
         CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
         TbPrecioQuintal.Text = TablaDetalle.Rows(0).Item("PrecioQuintal")
+        If Val(TbPrecioQuintal.Text) = 0 Then
+            TbPrecioQuintal.Enabled = True
+        Else
+            TbPrecioQuintal.Enabled = False
+        End If
         TbPuntos.Text = TablaDetalle.Rows(0).Item("Puntos")
         DtpFechaLiquidacion.Value = TablaDetalle.Rows(0).Item("FechaLiquidacion")
         TbPresidente.Text = TablaDetalle.Rows(0).Item("Presidente")
@@ -424,6 +434,11 @@ Public Class ContratosAlgodon
     End Sub
     Private Sub HabilitarBotones()
         BtConsultaLotes.Enabled = True
+        If Val(TbPrecioQuintal.Text) > 0 Then
+            TbPrecioQuintal.Enabled = False
+        Else
+            TbPrecioQuintal.Enabled = True
+        End If
     End Sub
     Private Sub InhabilitarBotones()
         BtConsultaLotes.Enabled = False
@@ -436,15 +451,7 @@ Public Class ContratosAlgodon
             MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
-    Private Sub TbPacas_Leave(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbPacas.KeyDown
-        Select Case e.KeyData
-            Case Keys.Enter
-                If Val(TbPacas.Text) >= Val(TbPacasCompradas.Text) Then
-                    TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasCompradas.Text)
-                    TbPacasCompradas.Text = IIf(TbPacasCompradas.Text = "", 0, Val(TbPacasCompradas.Text))
-                End If
-        End Select
-    End Sub
+
     Private Sub EnviarEmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarEmailToolStripMenuItem.Click
         Dim Destinatario As String = ""
         Dim asunto As String = ""
@@ -457,5 +464,15 @@ Public Class ContratosAlgodon
         Else
             MsgBox("Seleccione un contrato para enviar por email.", MsgBoxStyle.Information, "Aviso")
         End If
+    End Sub
+
+    Private Sub TbPacas_TextChanged(sender As Object, e As EventArgs) Handles TbPacas.TextChanged
+        'Select Case e.KeyData
+        '    Case Keys.Enter
+        If Val(TbPacas.Text) >= Val(TbPacasCompradas.Text) Then
+                    TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasCompradas.Text)
+                    TbPacasCompradas.Text = IIf(TbPacasCompradas.Text = "", 0, Val(TbPacasCompradas.Text))
+                End If
+        '    End Select
     End Sub
 End Class

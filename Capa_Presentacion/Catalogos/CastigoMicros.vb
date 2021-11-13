@@ -58,7 +58,7 @@ Public Class CastigoMicros
         EntidadCastigoMicros.Consulta = Consulta.ConsultaEncabezado
         NegocioCastigoMicros.Consultar(EntidadCastigoMicros)
         DgvMicrosEncabezado.DataSource = EntidadCastigoMicros.TablaConsulta
-        'PropiedadesDgModos()
+        PropiedadesDgModos()
     End Sub
     Private Sub ConsultaModosDetalle()
         Dim EntidadCastigoMicros As New Capa_Entidad.CastigoMicros
@@ -138,6 +138,9 @@ Public Class CastigoMicros
         DgvMicrosDetalle.Columns("IdModoDetalle").Visible = False
         DgvMicrosDetalle.Columns("IdModoEncabezado").Visible = False
         DgvMicrosDetalle.Columns("IdEstatus").Visible = False
+    End Sub
+    Private Sub PropiedadesDgModos()
+        DgvMicrosEncabezado.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Nuevo()

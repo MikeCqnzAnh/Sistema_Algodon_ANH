@@ -22,6 +22,7 @@ Public Class ContratosAlgodonCompradores
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbComprador.Text <> "" And TbPacas.Text <> "" And CbUnidadPeso.Text <> "" And TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" And CbEstatus.Text <> "" And CbModalidad.Text <> "" And TbSM.Text <> "" Then
+            GenerarPreciosClases()
             Guardar()
         End If
     End Sub
@@ -147,7 +148,7 @@ Public Class ContratosAlgodonCompradores
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdContratoAlgodon.Text, "SE CREO/ACTUALIZO EL CONTRATO " & TbIdContratoAlgodon.Text & " " & TbComprador.Text & " CON LA CANTIDAD DE " & TbPacas.Text & " PACAS DE CONTRATO, " & TbPacasDisponibles.Text & " DISPONIBLES, " & TbPacasVendidas.Text & " VENDIDAS, MODALIDAD DE VENTA" & CbModalidad.Text & ", PRECIO DE CONTRATO " & TbPrecioQuintal.Text & ".")
         End Try
     End Sub
-    Private Sub BtGenerar_Click(sender As Object, e As EventArgs) Handles BtGenerar.Click
+    Private Sub GenerarPreciosClases()
         If TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" Then
             Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
             Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
@@ -476,13 +477,10 @@ Public Class ContratosAlgodonCompradores
     Public Function LoadIdVenta(_DataTable As DataTable) As Boolean Implements IForm1.LoadIdVenta
         Throw New NotImplementedException()
     End Function
-    Private Sub TbPacas_KeyDown(sender As Object, e As KeyEventArgs) Handles TbPacas.KeyDown
-        Select Case e.KeyData
-            Case Keys.Enter
-                If Val(TbPacas.Text) >= Val(TbPacasVendidas.Text) Then
-                    TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasVendidas.Text)
-                End If
-        End Select
+    Private Sub TbPacas_TextChanged(sender As Object, e As EventArgs) Handles TbPacas.TextChanged
+        If Val(TbPacas.Text) >= Val(TbPacasVendidas.Text) Then
+            TbPacasDisponibles.Text = Val(TbPacas.Text) - Val(TbPacasVendidas.Text)
+        End If
     End Sub
     Private Sub EnviarEmailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarEmailToolStripMenuItem.Click
         Dim Destinatario As String = ""
@@ -511,4 +509,6 @@ Public Class ContratosAlgodonCompradores
         End If
 
     End Sub
+
+
 End Class

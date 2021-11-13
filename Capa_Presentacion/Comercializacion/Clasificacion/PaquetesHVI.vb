@@ -342,6 +342,26 @@ Public Class PaquetesHVI
             If fila.Cells("EstatusCompra").Value > 1 Then
                 fila.DefaultCellStyle.BackColor = Color.SkyBlue
             End If
+            If fila.Cells("Mic").Value > 5.5 Then
+                fila.Cells.Item(18).Style.BackColor = btaltaparametros.BackColor
+            ElseIf fila.Cells("Mic").Value < 2.5 Then
+                fila.Cells.Item(18).Style.BackColor = btbajaparametros.BackColor
+            End If
+            If fila.Cells("Strength").Value > 29.99 Then
+                fila.Cells.Item(12).Style.BackColor = btaltaparametros.BackColor
+            ElseIf fila.Cells("Strength").Value < 17.99 Then
+                fila.Cells.Item(12).Style.BackColor = btbajaparametros.BackColor
+            End If
+            If fila.Cells("UHML").Value > 1.36 Then
+                fila.Cells.Item(10).Style.BackColor = btaltaparametros.BackColor
+            ElseIf fila.Cells("UHML").Value < 0.79 Then
+                fila.Cells.Item(10).Style.BackColor = btbajaparametros.BackColor
+            End If
+            If fila.Cells("UI").Value > 85 Then
+                fila.Cells.Item(11).Style.BackColor = btaltaparametros.BackColor
+            ElseIf fila.Cells("UI").Value < 77.99 Then
+                fila.Cells.Item(11).Style.BackColor = btbajaparametros.BackColor
+            End If
         Next
     End Sub
     Private Sub PropiedadesDGV()

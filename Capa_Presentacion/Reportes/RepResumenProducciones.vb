@@ -100,4 +100,16 @@
             MsgBox("No hay registros para importar al reporte.", MsgBoxStyle.Exclamation, "Aviso")
         End If
     End Sub
+
+    Private Sub DgvLiquidacion_DoubleClick(sender As Object, e As EventArgs) Handles DgvLiquidacion.DoubleClick
+        If DgvLiquidacion.DataSource Is Nothing Then
+            MsgBox("No hay registros disponibles")
+        Else
+            Dim index As Integer
+            index = DgvLiquidacion.CurrentCell.RowIndex
+            Dim vistapreviamodulos As New RepModulosConPeso(DgvLiquidacion.Rows(index).Cells("IdOrdenTrabajo").Value)
+            vistapreviamodulos.ShowDialog()
+        End If
+
+    End Sub
 End Class
