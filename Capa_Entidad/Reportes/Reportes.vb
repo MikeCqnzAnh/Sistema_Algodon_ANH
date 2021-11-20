@@ -17,6 +17,7 @@
     Public PacaFinal As Long
     Public IdCompra As Integer
     Public IdVenta As Integer
+    Public IdModoEncabezado As Integer
     Public CantidadPacas As Integer
     Public IdComprador As Integer
     Public Mayor As Boolean

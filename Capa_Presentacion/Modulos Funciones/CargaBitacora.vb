@@ -67,6 +67,9 @@ Module CargaBitacora
                 Case "Restaurando..."
                     operacion = "RESTAURAR RESPALDOS"
                     observaciones = "EL USUARIO " & Usuario & " RESTAURO LA BASE DE DATOS ADJUNTO DETALLES: " & ReferenciaAdicional
+                Case "Aprovar Revision"
+                    operacion = "APROVAR REVISION DE PRODUCCION"
+                    observaciones = "EL USUARIO " & Usuario & " APROVO LA REVISION DE LA ORDEN DE TRABAJO CON EL ID " & IdAdicional & " A NOMBRE DEL PRODUCTOR " & ReferenciaAdicional & "."
             End Select
             InsertaBitacora(Modulo, Opcion, operacion, observaciones, BaseDeDatos)
         Catch ex As Exception

@@ -67,8 +67,11 @@ Public Class LiquidacionesPorRomaneaje
         TbPorcentajeSemilla.Text = ""
         TbTotalSemilla.Text = ""
         TbPorcentajeTotal.Text = ""
+        TbcantModulos.Text = ""
+        TbCantPacas.Text = ""
         TbComentarios.Text = ""
         DgvModulos.DataSource = ""
+        DgvPacas.DataSource = ""
         TbTotalBoletas.Text = ""
         ChClaseMicros.Checked = True
         TbIdOrden.Enabled = True
@@ -104,15 +107,54 @@ Public Class LiquidacionesPorRomaneaje
         TbPorcentajeTotal.Text = Tabla.Rows(0).Item("PorcentajePluma") + Tabla.Rows(0).Item("PorcentajeSemilla") + Tabla.Rows(0).Item("PorcentajeMerma")
         ConsultarModulos()
     End Sub
+    Private Sub ConsultaPacas()
+        Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
+        Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
+        Try
+            EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = val(TbIdOrden.Text)
+            EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaPaca
+            NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+            DgvPacas.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+            PropiedadesDgvPacas()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub ConsultarModulos()
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
         Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
         Dim Tabla As New DataTable
-        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = TbIdOrden.Text
-        EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaDetallada
-        NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
-        DgvModulos.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
-        PropiedadesDgvModulos()
+        Try
+            EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = TbIdOrden.Text
+            EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaDetallada
+            NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+            DgvModulos.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+            PropiedadesDgvModulos()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub registrossincheck()
+        Dim CantidadModulos As New Integer
+        Dim CantidadPacas As New Integer
+        For Each Fila As DataGridViewRow In DgvModulos.Rows
+
+            If Fila.Cells("FlagRevisada").Value = False Then
+                CantidadModulos += 1
+            End If
+        Next
+        For Each Fila As DataGridViewRow In DgvPacas.Rows
+
+            If Fila.Cells("Sel").Value = False Then
+                CantidadPacas += 1
+            End If
+        Next
+        TbcantModulos.Text = CantidadModulos
+        TbCantPacas.Text = CantidadPacas
+    End Sub
+    Private Sub PropiedadesDgvPacas()
+        DgvPacas.Columns("IdProduccion").HeaderText = "ID Prod"
+        DgvPacas.Columns("FolioCIA").HeaderText = "Etiqueta"
     End Sub
     Private Sub PropiedadesDgvModulos()
         DgvModulos.Columns("IdOrdenTrabajo").Visible = False
@@ -185,6 +227,8 @@ Public Class LiquidacionesPorRomaneaje
                         DtFechaLiquidacion.Value = Tabla.Rows(0).Item("Fecha")
                         TbComentarios.Text = Tabla.Rows(0).Item("Comentarios")
                         ConsultarModulos()
+                        ConsultaPacas()
+                        registrossincheck()
                         CalculosResumen()
                         TbTotalBoletas.Text = CInt(DgvModulos.RowCount)
                         TbIdOrden.Enabled = False

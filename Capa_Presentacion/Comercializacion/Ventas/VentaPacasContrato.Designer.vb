@@ -103,7 +103,6 @@ Partial Class VentaPacasContrato
         Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteHVIToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReporteHVIAExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComparacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
@@ -169,6 +168,7 @@ Partial Class VentaPacasContrato
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TbHastaPacaCompra = New System.Windows.Forms.TextBox()
+        Me.PbCargapacas = New System.Windows.Forms.ProgressBar()
         Me.GbCompraActual = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TbPacasVendidasContrato = New System.Windows.Forms.TextBox()
@@ -176,7 +176,6 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.PbCargapacas = New System.Windows.Forms.ProgressBar()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -981,7 +980,7 @@ Partial Class VentaPacasContrato
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.ReporteDeCastigoPorPacasToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1, Me.ReporteHVIAExcelToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.ReporteDeCastigoPorPacasToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1})
         Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
@@ -1016,12 +1015,6 @@ Partial Class VentaPacasContrato
         Me.ReporteHVIToolStripMenuItem1.Name = "ReporteHVIToolStripMenuItem1"
         Me.ReporteHVIToolStripMenuItem1.Size = New System.Drawing.Size(223, 22)
         Me.ReporteHVIToolStripMenuItem1.Text = "Reporte HVI"
-        '
-        'ReporteHVIAExcelToolStripMenuItem
-        '
-        Me.ReporteHVIAExcelToolStripMenuItem.Name = "ReporteHVIAExcelToolStripMenuItem"
-        Me.ReporteHVIAExcelToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.ReporteHVIAExcelToolStripMenuItem.Text = "Reporte HVI a Excel"
         '
         'ComparacionToolStripMenuItem
         '
@@ -1253,7 +1246,7 @@ Partial Class VentaPacasContrato
         Me.TP1LiquidacionesAVender.Location = New System.Drawing.Point(4, 22)
         Me.TP1LiquidacionesAVender.Name = "TP1LiquidacionesAVender"
         Me.TP1LiquidacionesAVender.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(847, 255)
+        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(847, 245)
         Me.TP1LiquidacionesAVender.TabIndex = 0
         Me.TP1LiquidacionesAVender.Text = "Paquetes a Vender"
         '
@@ -1274,7 +1267,7 @@ Partial Class VentaPacasContrato
         Me.DgvDatosLiquidacion.RowHeadersVisible = False
         Me.DgvDatosLiquidacion.RowHeadersWidth = 40
         Me.DgvDatosLiquidacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(841, 204)
+        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(841, 194)
         Me.DgvDatosLiquidacion.TabIndex = 13
         '
         'GroupBox3
@@ -1601,7 +1594,7 @@ Partial Class VentaPacasContrato
         Me.TP4IndividualVendidas.Location = New System.Drawing.Point(4, 22)
         Me.TP4IndividualVendidas.Name = "TP4IndividualVendidas"
         Me.TP4IndividualVendidas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP4IndividualVendidas.Size = New System.Drawing.Size(815, 255)
+        Me.TP4IndividualVendidas.Size = New System.Drawing.Size(815, 245)
         Me.TP4IndividualVendidas.TabIndex = 3
         Me.TP4IndividualVendidas.Text = "Individual Vendidas (por paca)"
         Me.TP4IndividualVendidas.UseVisualStyleBackColor = True
@@ -1623,7 +1616,7 @@ Partial Class VentaPacasContrato
         Me.DgvPacasIndVendidas.RowHeadersVisible = False
         Me.DgvPacasIndVendidas.RowHeadersWidth = 40
         Me.DgvPacasIndVendidas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacasIndVendidas.Size = New System.Drawing.Size(809, 204)
+        Me.DgvPacasIndVendidas.Size = New System.Drawing.Size(809, 194)
         Me.DgvPacasIndVendidas.TabIndex = 16
         '
         'GroupBox8
@@ -1768,6 +1761,14 @@ Partial Class VentaPacasContrato
         Me.TbHastaPacaCompra.TabIndex = 31
         Me.TbHastaPacaCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'PbCargapacas
+        '
+        Me.PbCargapacas.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PbCargapacas.Location = New System.Drawing.Point(0, 271)
+        Me.PbCargapacas.Name = "PbCargapacas"
+        Me.PbCargapacas.Size = New System.Drawing.Size(1722, 10)
+        Me.PbCargapacas.TabIndex = 14
+        '
         'GbCompraActual
         '
         Me.GbCompraActual.BackColor = System.Drawing.SystemColors.Control
@@ -1844,14 +1845,6 @@ Partial Class VentaPacasContrato
         Me.Label25.Size = New System.Drawing.Size(86, 13)
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
-        '
-        'PbCargapacas
-        '
-        Me.PbCargapacas.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PbCargapacas.Location = New System.Drawing.Point(0, 271)
-        Me.PbCargapacas.Name = "PbCargapacas"
-        Me.PbCargapacas.Size = New System.Drawing.Size(1722, 10)
-        Me.PbCargapacas.TabIndex = 14
         '
         'VentaPacasContrato
         '
@@ -2066,7 +2059,6 @@ Partial Class VentaPacasContrato
     Friend WithEvents BtExcel As Button
     Friend WithEvents Label24 As Label
     Friend WithEvents CkTara As CheckBox
-    Friend WithEvents ReporteHVIAExcelToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbPesoTara As TextBox
     Friend WithEvents ReporteDeCastigoPorPacasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PbCargapacas As ProgressBar

@@ -127,6 +127,7 @@ Partial Class RevisionProduccion
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbCapturaAutomatica = New System.Windows.Forms.GroupBox()
         Me.GbLotes = New System.Windows.Forms.GroupBox()
+        Me.CkRevisado = New System.Windows.Forms.CheckBox()
         Me.BtFin = New System.Windows.Forms.Button()
         Me.BtInicio = New System.Windows.Forms.Button()
         Me.BtSiguiente = New System.Windows.Forms.Button()
@@ -134,6 +135,7 @@ Partial Class RevisionProduccion
         Me.BtAgregarExcel = New System.Windows.Forms.Button()
         Me.BtImprimir = New System.Windows.Forms.Button()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.AprovarRevisionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatos.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.GbFolioInicial.SuspendLayout()
@@ -206,16 +208,16 @@ Partial Class RevisionProduccion
         Me.GbFolioInicial.Controls.Add(Me.RbAgregar)
         Me.GbFolioInicial.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbFolioInicial.Enabled = False
-        Me.GbFolioInicial.Location = New System.Drawing.Point(575, 0)
+        Me.GbFolioInicial.Location = New System.Drawing.Point(550, 0)
         Me.GbFolioInicial.Name = "GbFolioInicial"
-        Me.GbFolioInicial.Size = New System.Drawing.Size(472, 167)
+        Me.GbFolioInicial.Size = New System.Drawing.Size(497, 167)
         Me.GbFolioInicial.TabIndex = 23
         Me.GbFolioInicial.TabStop = False
         '
         'BtEstablecefolio
         '
         Me.BtEstablecefolio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtEstablecefolio.Location = New System.Drawing.Point(290, 95)
+        Me.BtEstablecefolio.Location = New System.Drawing.Point(315, 95)
         Me.BtEstablecefolio.Name = "BtEstablecefolio"
         Me.BtEstablecefolio.Size = New System.Drawing.Size(122, 33)
         Me.BtEstablecefolio.TabIndex = 85
@@ -226,7 +228,7 @@ Partial Class RevisionProduccion
         '
         Me.TbConsecutivoInicial.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TbConsecutivoInicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.TbConsecutivoInicial.Location = New System.Drawing.Point(290, 48)
+        Me.TbConsecutivoInicial.Location = New System.Drawing.Point(315, 48)
         Me.TbConsecutivoInicial.MaxLength = 10
         Me.TbConsecutivoInicial.Name = "TbConsecutivoInicial"
         Me.TbConsecutivoInicial.Size = New System.Drawing.Size(175, 38)
@@ -237,7 +239,7 @@ Partial Class RevisionProduccion
         Me.Label32.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!)
-        Me.Label32.Location = New System.Drawing.Point(295, 11)
+        Me.Label32.Location = New System.Drawing.Point(320, 11)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(158, 31)
         Me.Label32.TabIndex = 83
@@ -368,14 +370,14 @@ Partial Class RevisionProduccion
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox3.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(575, 167)
+        Me.GroupBox3.Size = New System.Drawing.Size(550, 167)
         Me.GroupBox3.TabIndex = 67
         Me.GroupBox3.TabStop = False
         '
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(28, 12)
+        Me.Label20.Location = New System.Drawing.Point(4, 12)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(56, 13)
         Me.Label20.TabIndex = 25
@@ -383,7 +385,7 @@ Partial Class RevisionProduccion
         '
         'TbPacasProducidas
         '
-        Me.TbPacasProducidas.Location = New System.Drawing.Point(350, 140)
+        Me.TbPacasProducidas.Location = New System.Drawing.Point(326, 140)
         Me.TbPacasProducidas.Name = "TbPacasProducidas"
         Me.TbPacasProducidas.ReadOnly = True
         Me.TbPacasProducidas.Size = New System.Drawing.Size(100, 20)
@@ -393,7 +395,7 @@ Partial Class RevisionProduccion
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(248, 143)
+        Me.Label16.Location = New System.Drawing.Point(224, 143)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(96, 13)
         Me.Label16.TabIndex = 21
@@ -401,7 +403,7 @@ Partial Class RevisionProduccion
         '
         'TbIdProductor
         '
-        Me.TbIdProductor.Location = New System.Drawing.Point(112, 9)
+        Me.TbIdProductor.Location = New System.Drawing.Point(88, 9)
         Me.TbIdProductor.Name = "TbIdProductor"
         Me.TbIdProductor.ReadOnly = True
         Me.TbIdProductor.Size = New System.Drawing.Size(100, 20)
@@ -409,7 +411,7 @@ Partial Class RevisionProduccion
         '
         'TbNombreProductor
         '
-        Me.TbNombreProductor.Location = New System.Drawing.Point(218, 9)
+        Me.TbNombreProductor.Location = New System.Drawing.Point(194, 9)
         Me.TbNombreProductor.Name = "TbNombreProductor"
         Me.TbNombreProductor.ReadOnly = True
         Me.TbNombreProductor.Size = New System.Drawing.Size(316, 20)
@@ -418,7 +420,7 @@ Partial Class RevisionProduccion
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(456, 116)
+        Me.Label15.Location = New System.Drawing.Point(432, 116)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(25, 13)
         Me.Label15.TabIndex = 20
@@ -427,7 +429,7 @@ Partial Class RevisionProduccion
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(28, 64)
+        Me.Label11.Location = New System.Drawing.Point(4, 64)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(40, 13)
         Me.Label11.TabIndex = 19
@@ -438,7 +440,7 @@ Partial Class RevisionProduccion
         Me.CbPlanta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CbPlanta.Enabled = False
         Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(112, 61)
+        Me.CbPlanta.Location = New System.Drawing.Point(88, 61)
         Me.CbPlanta.Name = "CbPlanta"
         Me.CbPlanta.Size = New System.Drawing.Size(121, 21)
         Me.CbPlanta.TabIndex = 18
@@ -446,7 +448,7 @@ Partial Class RevisionProduccion
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(248, 38)
+        Me.Label9.Location = New System.Drawing.Point(224, 38)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(78, 13)
         Me.Label9.TabIndex = 17
@@ -454,7 +456,7 @@ Partial Class RevisionProduccion
         '
         'TbIdProduccion
         '
-        Me.TbIdProduccion.Location = New System.Drawing.Point(350, 35)
+        Me.TbIdProduccion.Location = New System.Drawing.Point(326, 35)
         Me.TbIdProduccion.Name = "TbIdProduccion"
         Me.TbIdProduccion.ReadOnly = True
         Me.TbIdProduccion.Size = New System.Drawing.Size(100, 20)
@@ -464,7 +466,7 @@ Partial Class RevisionProduccion
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(540, 90)
+        Me.Label8.Location = New System.Drawing.Point(516, 90)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(25, 13)
         Me.Label8.TabIndex = 15
@@ -473,7 +475,7 @@ Partial Class RevisionProduccion
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(540, 64)
+        Me.Label7.Location = New System.Drawing.Point(516, 64)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(25, 13)
         Me.Label7.TabIndex = 14
@@ -481,7 +483,7 @@ Partial Class RevisionProduccion
         '
         'TbPesoPesado
         '
-        Me.TbPesoPesado.Location = New System.Drawing.Point(456, 87)
+        Me.TbPesoPesado.Location = New System.Drawing.Point(432, 87)
         Me.TbPesoPesado.MaxLength = 10
         Me.TbPesoPesado.Name = "TbPesoPesado"
         Me.TbPesoPesado.ReadOnly = True
@@ -491,7 +493,7 @@ Partial Class RevisionProduccion
         '
         'TbPesoLigero
         '
-        Me.TbPesoLigero.Location = New System.Drawing.Point(456, 61)
+        Me.TbPesoLigero.Location = New System.Drawing.Point(432, 61)
         Me.TbPesoLigero.MaxLength = 10
         Me.TbPesoLigero.Name = "TbPesoLigero"
         Me.TbPesoLigero.ReadOnly = True
@@ -501,7 +503,7 @@ Partial Class RevisionProduccion
         '
         'TbPesoPromedio
         '
-        Me.TbPesoPromedio.Location = New System.Drawing.Point(350, 113)
+        Me.TbPesoPromedio.Location = New System.Drawing.Point(326, 113)
         Me.TbPesoPromedio.MaxLength = 10
         Me.TbPesoPromedio.Name = "TbPesoPromedio"
         Me.TbPesoPromedio.ReadOnly = True
@@ -512,7 +514,7 @@ Partial Class RevisionProduccion
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(248, 116)
+        Me.Label6.Location = New System.Drawing.Point(224, 116)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(80, 13)
         Me.Label6.TabIndex = 10
@@ -520,7 +522,7 @@ Partial Class RevisionProduccion
         '
         'TbPacaPesada
         '
-        Me.TbPacaPesada.Location = New System.Drawing.Point(350, 87)
+        Me.TbPacaPesada.Location = New System.Drawing.Point(326, 87)
         Me.TbPacaPesada.MaxLength = 10
         Me.TbPacaPesada.Name = "TbPacaPesada"
         Me.TbPacaPesada.ReadOnly = True
@@ -530,7 +532,7 @@ Partial Class RevisionProduccion
         '
         'TbPacaLigera
         '
-        Me.TbPacaLigera.Location = New System.Drawing.Point(350, 61)
+        Me.TbPacaLigera.Location = New System.Drawing.Point(326, 61)
         Me.TbPacaLigera.MaxLength = 10
         Me.TbPacaLigera.Name = "TbPacaLigera"
         Me.TbPacaLigera.ReadOnly = True
@@ -541,7 +543,7 @@ Partial Class RevisionProduccion
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(248, 90)
+        Me.Label5.Location = New System.Drawing.Point(224, 90)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(95, 13)
         Me.Label5.TabIndex = 7
@@ -550,7 +552,7 @@ Partial Class RevisionProduccion
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(248, 64)
+        Me.Label4.Location = New System.Drawing.Point(224, 64)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 13)
         Me.Label4.TabIndex = 6
@@ -558,10 +560,9 @@ Partial Class RevisionProduccion
         '
         'TbIdOrdenTrabajo
         '
-        Me.TbIdOrdenTrabajo.Location = New System.Drawing.Point(112, 35)
+        Me.TbIdOrdenTrabajo.Location = New System.Drawing.Point(88, 35)
         Me.TbIdOrdenTrabajo.MaxLength = 10
         Me.TbIdOrdenTrabajo.Name = "TbIdOrdenTrabajo"
-        Me.TbIdOrdenTrabajo.ReadOnly = True
         Me.TbIdOrdenTrabajo.Size = New System.Drawing.Size(100, 20)
         Me.TbIdOrdenTrabajo.TabIndex = 5
         Me.TbIdOrdenTrabajo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -569,7 +570,7 @@ Partial Class RevisionProduccion
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(28, 38)
+        Me.Label3.Location = New System.Drawing.Point(4, 38)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 4
@@ -577,7 +578,7 @@ Partial Class RevisionProduccion
         '
         'TbUltimaPaca
         '
-        Me.TbUltimaPaca.Location = New System.Drawing.Point(112, 114)
+        Me.TbUltimaPaca.Location = New System.Drawing.Point(88, 114)
         Me.TbUltimaPaca.MaxLength = 10
         Me.TbUltimaPaca.Name = "TbUltimaPaca"
         Me.TbUltimaPaca.ReadOnly = True
@@ -587,7 +588,7 @@ Partial Class RevisionProduccion
         '
         'TbPrimerPaca
         '
-        Me.TbPrimerPaca.Location = New System.Drawing.Point(112, 88)
+        Me.TbPrimerPaca.Location = New System.Drawing.Point(88, 88)
         Me.TbPrimerPaca.MaxLength = 10
         Me.TbPrimerPaca.Name = "TbPrimerPaca"
         Me.TbPrimerPaca.ReadOnly = True
@@ -598,7 +599,7 @@ Partial Class RevisionProduccion
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(28, 117)
+        Me.Label2.Location = New System.Drawing.Point(4, 117)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 1
@@ -607,7 +608,7 @@ Partial Class RevisionProduccion
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(28, 91)
+        Me.Label1.Location = New System.Drawing.Point(4, 91)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 13)
         Me.Label1.TabIndex = 0
@@ -685,7 +686,7 @@ Partial Class RevisionProduccion
         'TbTotalPacas
         '
         Me.TbTotalPacas.Enabled = False
-        Me.TbTotalPacas.Location = New System.Drawing.Point(282, 82)
+        Me.TbTotalPacas.Location = New System.Drawing.Point(288, 77)
         Me.TbTotalPacas.Name = "TbTotalPacas"
         Me.TbTotalPacas.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalPacas.TabIndex = 59
@@ -693,7 +694,7 @@ Partial Class RevisionProduccion
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(198, 85)
+        Me.Label29.Location = New System.Drawing.Point(204, 81)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(78, 13)
         Me.Label29.TabIndex = 60
@@ -702,7 +703,7 @@ Partial Class RevisionProduccion
         'TbTotalKilos
         '
         Me.TbTotalKilos.Enabled = False
-        Me.TbTotalKilos.Location = New System.Drawing.Point(472, 82)
+        Me.TbTotalKilos.Location = New System.Drawing.Point(478, 77)
         Me.TbTotalKilos.Name = "TbTotalKilos"
         Me.TbTotalKilos.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalKilos.TabIndex = 57
@@ -710,7 +711,7 @@ Partial Class RevisionProduccion
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(388, 85)
+        Me.Label28.Location = New System.Drawing.Point(394, 81)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(71, 13)
         Me.Label28.TabIndex = 58
@@ -720,7 +721,7 @@ Partial Class RevisionProduccion
         '
         Me.TbTotalModulos.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.TbTotalModulos.Enabled = False
-        Me.TbTotalModulos.Location = New System.Drawing.Point(92, 82)
+        Me.TbTotalModulos.Location = New System.Drawing.Point(98, 77)
         Me.TbTotalModulos.Name = "TbTotalModulos"
         Me.TbTotalModulos.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalModulos.TabIndex = 56
@@ -729,7 +730,7 @@ Partial Class RevisionProduccion
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(-3, 85)
+        Me.Label25.Location = New System.Drawing.Point(3, 81)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(89, 13)
         Me.Label25.TabIndex = 56
@@ -742,14 +743,14 @@ Partial Class RevisionProduccion
         Me.TbModulos.Location = New System.Drawing.Point(3, 16)
         Me.TbModulos.Multiline = True
         Me.TbModulos.Name = "TbModulos"
-        Me.TbModulos.Size = New System.Drawing.Size(1229, 58)
+        Me.TbModulos.Size = New System.Drawing.Size(1229, 54)
         Me.TbModulos.TabIndex = 0
         '
         'BtEliminarPacas
         '
         Me.BtEliminarPacas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtEliminarPacas.Location = New System.Drawing.Point(77, 172)
+        Me.BtEliminarPacas.Location = New System.Drawing.Point(77, 171)
         Me.BtEliminarPacas.MaximumSize = New System.Drawing.Size(173, 23)
         Me.BtEliminarPacas.MinimumSize = New System.Drawing.Size(173, 23)
         Me.BtEliminarPacas.Name = "BtEliminarPacas"
@@ -761,7 +762,7 @@ Partial Class RevisionProduccion
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.AprovarRevisionToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1241, 24)
@@ -771,6 +772,7 @@ Partial Class RevisionProduccion
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1
         Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
@@ -1152,7 +1154,7 @@ Partial Class RevisionProduccion
         Me.GbDetalle.Controls.Add(Me.GbPacasPesadas)
         Me.GbDetalle.Controls.Add(Me.GbPacasFaltantes)
         Me.GbDetalle.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GbDetalle.Location = New System.Drawing.Point(0, 557)
+        Me.GbDetalle.Location = New System.Drawing.Point(0, 556)
         Me.GbDetalle.Name = "GbDetalle"
         Me.GbDetalle.Size = New System.Drawing.Size(1241, 236)
         Me.GbDetalle.TabIndex = 5
@@ -1164,7 +1166,7 @@ Partial Class RevisionProduccion
         Me.Gbfondo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Gbfondo.Location = New System.Drawing.Point(0, 318)
         Me.Gbfondo.Name = "Gbfondo"
-        Me.Gbfondo.Size = New System.Drawing.Size(1241, 239)
+        Me.Gbfondo.Size = New System.Drawing.Size(1241, 238)
         Me.Gbfondo.TabIndex = 5
         Me.Gbfondo.TabStop = False
         '
@@ -1175,7 +1177,7 @@ Partial Class RevisionProduccion
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1235, 220)
+        Me.GroupBox2.Size = New System.Drawing.Size(1235, 219)
         Me.GroupBox2.TabIndex = 68
         Me.GroupBox2.TabStop = False
         '
@@ -1185,7 +1187,7 @@ Partial Class RevisionProduccion
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(893, 201)
+        Me.GroupBox1.Size = New System.Drawing.Size(893, 200)
         Me.GroupBox1.TabIndex = 66
         Me.GroupBox1.TabStop = False
         '
@@ -1230,7 +1232,7 @@ Partial Class RevisionProduccion
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(887, 182)
+        Me.DgvPacas.Size = New System.Drawing.Size(887, 181)
         Me.DgvPacas.TabIndex = 64
         '
         'GbCapturaAutomatica
@@ -1243,12 +1245,13 @@ Partial Class RevisionProduccion
         Me.GbCapturaAutomatica.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbCapturaAutomatica.Location = New System.Drawing.Point(896, 16)
         Me.GbCapturaAutomatica.Name = "GbCapturaAutomatica"
-        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 201)
+        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 200)
         Me.GbCapturaAutomatica.TabIndex = 62
         Me.GbCapturaAutomatica.TabStop = False
         '
         'GbLotes
         '
+        Me.GbLotes.Controls.Add(Me.CkRevisado)
         Me.GbLotes.Controls.Add(Me.BtFin)
         Me.GbLotes.Controls.Add(Me.BtInicio)
         Me.GbLotes.Controls.Add(Me.BtSiguiente)
@@ -1258,44 +1261,58 @@ Partial Class RevisionProduccion
         Me.GbLotes.Size = New System.Drawing.Size(323, 83)
         Me.GbLotes.TabIndex = 63
         Me.GbLotes.TabStop = False
-        Me.GbLotes.Text = "Lotes"
-        Me.GbLotes.Visible = False
+        '
+        'CkRevisado
+        '
+        Me.CkRevisado.AutoSize = True
+        Me.CkRevisado.Enabled = False
+        Me.CkRevisado.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CkRevisado.Location = New System.Drawing.Point(43, 48)
+        Me.CkRevisado.Name = "CkRevisado"
+        Me.CkRevisado.Size = New System.Drawing.Size(234, 29)
+        Me.CkRevisado.TabIndex = 86
+        Me.CkRevisado.Text = "Produccion Revisada"
+        Me.CkRevisado.UseVisualStyleBackColor = True
         '
         'BtFin
         '
-        Me.BtFin.Location = New System.Drawing.Point(185, 48)
+        Me.BtFin.Location = New System.Drawing.Point(188, 19)
         Me.BtFin.Name = "BtFin"
-        Me.BtFin.Size = New System.Drawing.Size(131, 23)
+        Me.BtFin.Size = New System.Drawing.Size(55, 23)
         Me.BtFin.TabIndex = 3
         Me.BtFin.Text = "Final"
         Me.BtFin.UseVisualStyleBackColor = True
+        Me.BtFin.Visible = False
         '
         'BtInicio
         '
-        Me.BtInicio.Location = New System.Drawing.Point(6, 48)
+        Me.BtInicio.Location = New System.Drawing.Point(67, 19)
         Me.BtInicio.Name = "BtInicio"
-        Me.BtInicio.Size = New System.Drawing.Size(131, 23)
+        Me.BtInicio.Size = New System.Drawing.Size(55, 23)
         Me.BtInicio.TabIndex = 2
         Me.BtInicio.Text = "Inicio"
         Me.BtInicio.UseVisualStyleBackColor = True
+        Me.BtInicio.Visible = False
         '
         'BtSiguiente
         '
-        Me.BtSiguiente.Location = New System.Drawing.Point(184, 19)
+        Me.BtSiguiente.Location = New System.Drawing.Point(128, 19)
         Me.BtSiguiente.Name = "BtSiguiente"
-        Me.BtSiguiente.Size = New System.Drawing.Size(131, 23)
+        Me.BtSiguiente.Size = New System.Drawing.Size(55, 23)
         Me.BtSiguiente.TabIndex = 1
         Me.BtSiguiente.Text = "Siguiente"
         Me.BtSiguiente.UseVisualStyleBackColor = True
+        Me.BtSiguiente.Visible = False
         '
         'BtAnterior
         '
         Me.BtAnterior.Location = New System.Drawing.Point(6, 19)
         Me.BtAnterior.Name = "BtAnterior"
-        Me.BtAnterior.Size = New System.Drawing.Size(131, 23)
+        Me.BtAnterior.Size = New System.Drawing.Size(55, 23)
         Me.BtAnterior.TabIndex = 0
         Me.BtAnterior.Text = "Anterior"
         Me.BtAnterior.UseVisualStyleBackColor = True
+        Me.BtAnterior.Visible = False
         '
         'BtAgregarExcel
         '
@@ -1325,11 +1342,17 @@ Partial Class RevisionProduccion
         Me.NumericUpDown1.TabIndex = 59
         Me.NumericUpDown1.Visible = False
         '
+        'AprovarRevisionToolStripMenuItem
+        '
+        Me.AprovarRevisionToolStripMenuItem.Name = "AprovarRevisionToolStripMenuItem"
+        Me.AprovarRevisionToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
+        Me.AprovarRevisionToolStripMenuItem.Text = "Aprovar Revision"
+        '
         'RevisionProduccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1241, 793)
+        Me.ClientSize = New System.Drawing.Size(1241, 792)
         Me.Controls.Add(Me.Gbfondo)
         Me.Controls.Add(Me.GbDetalle)
         Me.Controls.Add(Me.GbDatos)
@@ -1381,6 +1404,7 @@ Partial Class RevisionProduccion
         CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbCapturaAutomatica.ResumeLayout(False)
         Me.GbLotes.ResumeLayout(False)
+        Me.GbLotes.PerformLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1495,4 +1519,6 @@ Partial Class RevisionProduccion
     Friend WithEvents TbConsecutivoInicial As TextBox
     Friend WithEvents Label32 As Label
     Friend WithEvents BtEstablecefolio As Button
+    Friend WithEvents CkRevisado As CheckBox
+    Friend WithEvents AprovarRevisionToolStripMenuItem As ToolStripMenuItem
 End Class

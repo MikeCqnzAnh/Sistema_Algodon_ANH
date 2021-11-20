@@ -41,6 +41,13 @@ Public Class LiquidacionesPorRomaneaje
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPaca
+                    sqlcom1 = New SqlCommand("Pa_ConsultaPacasSinClasificar", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
                     sqlcom1 = New SqlCommand("sp_ConsultaCheckBoleta", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

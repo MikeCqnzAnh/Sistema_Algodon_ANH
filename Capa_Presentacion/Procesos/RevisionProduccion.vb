@@ -3,6 +3,7 @@ Public Class RevisionProduccion
     Dim IdProduccionDetalle As Integer = 0
     Dim FolioCIAReturn As Long = 0
     Private Sub RevisionProduccion_Load(sender As Object, e As EventArgs) Handles Me.Load
+        TbIdOrdenTrabajo.Select()
         CargarCombos()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
@@ -12,6 +13,8 @@ Public Class RevisionProduccion
         ConsultarOrden()
         ConsultarFaltantes()
         ConsultaDetallesOrden()
+        ConsultarEstatusRevision()
+
         If TbIdOrdenTrabajo.Text <> "" Then
             DgvPacasLigeras.DataSource = CargaDgvPacasPesos(False, NuRegistrosLigero.Value, NuPesoLigero.Value)
             TbContarLigeras.Text = DgvPacasLigeras.RowCount
@@ -23,6 +26,27 @@ Public Class RevisionProduccion
         TbFolioCIA.Text = ""
         TbConsecutivoInicial.Text = ""
         TbKilos.Text = ""
+    End Sub
+    Private Sub AprovarRevisionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AprovarRevisionToolStripMenuItem.Click
+        If CkRevisado.Checked = False Then
+            Dim opc As DialogResult = MsgBox("¿Marcar la revision como aprovada?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Aprovar revision de produccion")
+            If opc = DialogResult.Yes Then
+                Dim EntidadProduccion As New Capa_Entidad.Produccion
+                Dim NegocioProduccion As New Capa_Negocio.Produccion
+                Try
+                    CkRevisado.Checked = True
+                    EntidadProduccion.IdProduccion = IIf(TbIdProduccion.Text = "", 0, TbIdProduccion.Text)
+                    EntidadProduccion.IdEstatus = True
+                    NegocioProduccion.UpsertRevisadoProduccion(EntidadProduccion)
+
+                    GeneraRegistroBitacora(Me.Text.Clone.ToString, AprovarRevisionToolStripMenuItem.Text, TbIdOrdenTrabajo.Text, TbNombreProductor.Text)
+                Catch ex As Exception
+                    MsgBox(ex)
+                End Try
+            End If
+        Else
+            MsgBox("Esta Orden ya se ha revisado anteriormente", MsgBoxStyle.Information, "Aviso")
+        End If
     End Sub
     Private Sub BtEliminarPacas_Click(sender As Object, e As EventArgs) Handles BtEliminarPacas.Click
         If DgvPacas.Rows.Count > 0 Then
@@ -42,6 +66,8 @@ Public Class RevisionProduccion
                     ConsultaOrdenMod()
                     ConsultarFaltantes()
                     ConsultaDetallesOrden()
+                    ConsultarEstatusRevision()
+
                     If TbIdOrdenTrabajo.Text <> "" Then
                         DgvPacasLigeras.DataSource = CargaDgvPacasPesos(False, NuRegistrosLigero.Value, NuPesoLigero.Value)
                         TbContarLigeras.Text = DgvPacasLigeras.RowCount
@@ -90,6 +116,7 @@ Public Class RevisionProduccion
         TbTotalKilos.Text = ""
         TbInicioFaltante.Text = ""
         TbFinFaltante.Text = ""
+        CkRevisado.Checked = False
         TbConsecutivoInicial.Text = ""
         NuRegistroPesado.Value = 10
         NuPesoPesado.Value = 250
@@ -102,10 +129,63 @@ Public Class RevisionProduccion
         DgvPacasLigeras.DataSource = ""
         DgvPacasPesadas.DataSource = ""
         DgvPacas.DataSource = ""
+        TbIdOrdenTrabajo.ReadOnly = False
+        TbIdOrdenTrabajo.Focus()
     End Sub
-    Private Sub TbEtiquetaActual_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbFolioCIA.KeyPress, TbKilos.KeyPress
+    Private Sub TbEtiquetaActual_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TbFolioCIA.KeyPress, TbKilos.KeyPress, TbIdOrdenTrabajo.KeyPress
         If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
+        End If
+    End Sub
+    Private Sub TbIdOrdenTrabajo_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdOrdenTrabajo.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+            Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+            Try
+                If TbIdOrdenTrabajo.Text <> "" Then
+                    EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrdenRevision
+                    EntidadOrdenTrabajo.IdOrdenTrabajo = Val(TbIdOrdenTrabajo.Text)
+                    NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+                    Tabla = EntidadOrdenTrabajo.TablaConsulta
+                    If Tabla.Rows.Count = 0 Then
+                        MsgBox("No hay resultado para esa Orden", MsgBoxStyle.Information, "Aviso")
+                        Limpiar()
+                        Exit Sub
+                    Else
+                        TbIdOrdenTrabajo.Text = Tabla.Rows(0).Item("IdOrdenTrabajo")
+                        TbIdProduccion.Text = Tabla.Rows(0).Item("IdProduccion")
+                        CbPlanta.SelectedValue = Tabla.Rows(0).Item("IdplantaOrigen")
+                        TbPrimerPaca.Text = Tabla.Rows(0).Item("PrimerPaca")
+                        TbUltimaPaca.Text = Tabla.Rows(0).Item("UltimaPaca")
+                        TbPacasProducidas.Text = Tabla.Rows(0).Item("PacasProducidas")
+                        TbPesoPromedio.Text = Tabla.Rows(0).Item("PesoPromedio")
+                        TbPacaLigera.Text = Tabla.Rows(0).Item("EtiquetaPacaLigera")
+                        TbPesoLigero.Text = Tabla.Rows(0).Item("PacaLigera")
+                        TbPacaPesada.Text = Tabla.Rows(0).Item("EtiquetaPacaPesada")
+                        TbPesoPesado.Text = Tabla.Rows(0).Item("PacaPesada")
+                        GbFolioInicial.Enabled = True
+                    End If
+
+                    ConsultarFaltantes()
+                    ConsultaDetallesOrden()
+                    ConsultarEstatusRevision()
+
+                    If TbIdOrdenTrabajo.Text <> "" Then
+                        DgvPacasLigeras.DataSource = CargaDgvPacasPesos(False, NuRegistrosLigero.Value, NuPesoLigero.Value)
+                        TbContarLigeras.Text = DgvPacasLigeras.RowCount
+                        DgvPacasPesadas.DataSource = CargaDgvPacasPesos(True, NuRegistroPesado.Value, NuPesoPesado.Value)
+                        TbContarPesadas.Text = DgvPacasPesadas.RowCount
+                    End If
+                    RbActualizar.Checked = False
+                    RbAgregar.Checked = False
+                    TbFolioCIA.Text = ""
+                    TbConsecutivoInicial.Text = ""
+                    TbKilos.Text = ""
+                    TbIdOrdenTrabajo.ReadOnly = True
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
         End If
     End Sub
     Private Sub CargarCombos()
@@ -313,7 +393,7 @@ Public Class RevisionProduccion
             TbModulos.Text = Tabla.Rows(0).Item("Modulos")
             TbTotalModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
             DgvPacas.DataSource = Nothing
-            TbIdOrdenTrabajo.Enabled = False
+            'TbIdOrdenTrabajo.Enabled = False
             If TbIdProduccion.Text <> "" Then
                 Consultar()
             End If
@@ -332,6 +412,17 @@ Public Class RevisionProduccion
         Tabla = EntidadProduccion.TablaConsulta
         DgvPacas.DataSource = Tabla
         PropiedadesDGV()
+    End Sub
+    Private Sub ConsultarEstatusRevision()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.Consulta = Consulta.ConsultaEstatusRevision
+        EntidadProduccion.IdProduccion = CInt(TbIdProduccion.Text)
+        EntidadProduccion.IdPlantaOrigen = CbPlanta.SelectedValue
+        NegocioProduccion.Consultar(EntidadProduccion)
+        Tabla = EntidadProduccion.TablaConsulta
+        CkRevisado.Checked = Tabla.Rows(0).Item("EstatusRevisado")
     End Sub
     Private Sub PropiedadesDGV()
         DgvPacas.Columns("Sel").ReadOnly = False
@@ -673,4 +764,14 @@ Public Class RevisionProduccion
     Private Sub BtAgregarExcel_Click(sender As Object, e As EventArgs) Handles BtAgregarExcel.Click
 
     End Sub
+
+    Private Sub TbIdOrdenTrabajo_GotFocus(sender As Object, e As EventArgs) Handles TbIdOrdenTrabajo.GotFocus
+        TbIdOrdenTrabajo.SelectAll()
+    End Sub
+
+    Private Sub TbIdOrdenTrabajo_Click(sender As Object, e As EventArgs) Handles TbIdOrdenTrabajo.Click
+        TbIdOrdenTrabajo.SelectAll()
+    End Sub
+
+
 End Class

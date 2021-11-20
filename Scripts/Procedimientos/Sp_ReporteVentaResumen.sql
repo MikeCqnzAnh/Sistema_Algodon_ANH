@@ -1,16 +1,16 @@
 alter Procedure Sp_ReporteVentaResumen
 @IdVenta int,
 @Estatus as bit,
-@Tara as float
+@Tara as decimal(18,2)
 as 
 Select VePa.IdVenta
 	  ,Comp.Nombre
 	  ,Cacl.Grade
 	  ,count(Cacl.BaleID) as Cantidad
-	  ,sum(Cacl.Kilos) as Kilos
-	  ,Sum(Cacl.Quintales) as Quintales
+	  ,CAST(round(sum(Cacl.Kilos),2,1) as decimal(20,2)) as Kilos
+	  ,CAST(round(Sum(Cacl.Quintales),4,1) as decimal(20,4)) as Quintales
 	  ,Cacl.PrecioClase
-	  ,isnull(sum(Cacl.PrecioDls),0) as PrecioDls
+	  ,CAST(round(isnull(sum(Cacl.PrecioDls),0),4,1) as decimal(20,4))  as PrecioDls
 	  ,isnull(sum(Cacl.CastigoUIVenta),0) as CastigoUIVenta 
 	  ,isnull(sum(Cacl.castigoMicVenta),0) as castigoMicVenta
 	  ,isnull(sum(Cacl.CastigoResistenciaFibraVenta),0) as CastigoResistenciaFibraVenta
@@ -68,4 +68,4 @@ Group by VePa.IdVenta
 		,CoVe.PrecioO
 		,VePa.Fecha
 		,ClCl.IdClasificacion
-order by ClCl.IdClasificacion			
+order by ClCl.IdClasificacion		

@@ -36,6 +36,10 @@
         ReporteExistenciasResumen = 34
         ReporteExistenciasDetalle = 35
         ReporteModulosDetallePeso = 36
+        ReporteRangoCastigomic = 37
+        ReporteRangoCastigolar = 38
+        ReporteRangoCastigores = 39
+        ReporteRangoCastigouni = 40
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -187,6 +191,7 @@
         ConsultaPacaSalidaSeleccionado = 125
         ConsultaPacasSalidasFiltro = 126
         ConsultaExisteNoLote = 127
+        ConsultaEstatusRevision = 128
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

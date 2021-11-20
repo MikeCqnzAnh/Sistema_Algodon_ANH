@@ -1,11 +1,11 @@
 ﻿Imports Capa_Operacion.Configuracion
 Public Class VentaPago
-    Dim ValorConversion, PrecioQuintal, KilosNeto As Double
-    Dim IdVenta, IdComprador, IdContrato, IdModalidadVenta, IdUnidadPeso As Integer
+    Dim ValorConversion, PrecioQuintal, KilosNeto As Decimal
+    Dim IdVenta, IdComprador, IdContrato, IdModalidadVenta, IdUnidadPeso, IdModoMicros, IdModoLargo, IdModoResistencia, IdModoUniformidad As Integer
     Dim Nombrecomprador As String
-    Dim EstatusPesoNeto As Boolean
+    Dim EstatusPesoNeto, CheckMic, CheckLargo, CheckResistencia, CheckUniformidad As Boolean
     Dim TablaResumen As New DataTable
-    Public Sub New(ByVal IdVent As Integer, ByVal IdComp As Integer, ByVal IdCont As Integer, ByVal IdModVenta As Integer, ByVal IdUniPeso As Integer, ByVal Nombre As String, ByVal Quintal As Double, ByVal Conversion As Double, ByVal EstatusNeto As Boolean, ByVal KilosNet As Double)
+    Public Sub New(ByVal IdVent As Integer, ByVal IdComp As Integer, ByVal IdCont As Integer, ByVal IdModVenta As Integer, ByVal IdUniPeso As Integer, ByVal Nombre As String, ByVal Quintal As Decimal, ByVal Conversion As Decimal, ByVal EstatusNeto As Boolean, ByVal KilosNet As Decimal, ByVal ckmic As Boolean, ByVal cklar As Boolean, ByVal ckres As Boolean, ByVal ckuni As Boolean, ByVal IdModoMic As Integer, ByVal IdModoLar As Integer, ByVal IdModoRes As Integer, ByVal IdModoUni As Integer)
         InitializeComponent()
         IdVenta = IdVent
         IdComprador = IdComp
@@ -17,6 +17,14 @@ Public Class VentaPago
         ValorConversion = Conversion
         EstatusPesoNeto = EstatusNeto
         KilosNeto = KilosNet
+        CheckMic = ckmic
+        CheckLargo = cklar
+        CheckResistencia = ckres
+        CheckUniformidad = ckuni
+        IdModoMicros = IdModoMic
+        IdModoLargo = IdModoLar
+        IdModoResistencia = IdModoRes
+        IdModoUniformidad = IdModoUni
         'TablaResumen = TbResumen
     End Sub
     Private Sub VentaPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -37,16 +45,60 @@ Public Class VentaPago
         TbIdVenta.Text = IdVenta
         CkTara.Checked = EstatusPesoNeto
         NuPesoTara.Value = KilosNeto
+        ChMicros.Checked = CheckMic
+        ChLargoFibra.Checked = CheckLargo
+        ChResistenciaFibra.Checked = CheckResistencia
+        ChUniformidad.Checked = CheckUniformidad
         'DgvResumenPagoPacas.DataSource = TablaResumen
         CargaDetalleVentaPacas()
         PropiedadesDgv()
-        CargarCombos(IdunidadPeso)
+        CargarCombos(IdUnidadPeso)
+        CargaCombosParametros()
         SumasTotales()
         ConsultaTipoCambio()
         TotalVenta()
         Formatos()
     End Sub
-
+    Private Sub CargaCombosParametros()
+        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
+        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
+        '------------------------COMBO MICROS VENTA
+        Dim Tabla2 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaMicrosVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla2 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoMicros.DataSource = Tabla2
+        CbModoMicros.ValueMember = "IdModoEncabezado"
+        CbModoMicros.DisplayMember = "Descripcion"
+        CbModoMicros.SelectedValue = IdModoMicros
+        '------------------------COMBO LARGO FIBRA VENTA
+        Dim Tabla3 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaLargoFibraVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla3 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoLargoFibra.DataSource = Tabla3
+        CbModoLargoFibra.ValueMember = "IdModoEncabezado"
+        CbModoLargoFibra.DisplayMember = "Descripcion"
+        CbModoLargoFibra.SelectedValue = IdModoLargo
+        '------------------------COMBO RESISTENCIA VENTA
+        Dim Tabla4 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaResistenciaVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla4 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoResistenciaFibra.DataSource = Tabla4
+        CbModoResistenciaFibra.ValueMember = "IdModoEncabezado"
+        CbModoResistenciaFibra.DisplayMember = "Descripcion"
+        CbModoResistenciaFibra.SelectedValue = IdModoResistencia
+        '------------------------COMBO UNIFORMIDAD VENTA
+        Dim Tabla5 As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaUniformidadVentaCmb
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla5 = EntidadContratosAlgodonCompradores.TablaConsulta
+        CbModoUniformidad.DataSource = Tabla5
+        CbModoUniformidad.ValueMember = "IdModoEncabezado"
+        CbModoUniformidad.DisplayMember = "Descripcion"
+        CbModoUniformidad.SelectedValue = IdModoUniformidad
+    End Sub
     Private Sub PropiedadesDgv()
         'DgvResumenPagoPacas.Columns(5).Visible = False
         'DgvResumenPagoPacas.Columns(6).Visible = False
@@ -107,42 +159,43 @@ Public Class VentaPago
         NuPesoTara.Value = 0
     End Sub
     Private Sub TotalVenta()
-        Dim SubTotal As Double = CDbl(TbSubtotal.Text)
-        Dim TipoCambio As Double = CDbl(TbTipoCambio.Text)
-        Dim CastigoDls As Double = CDbl(TbCastigoxlargo.Text) + CDbl(TbCastigoxmicro.Text) + CDbl(TbCastigoxresistencia.Text) + CDbl(TbCastigoxUI.Text) + CDbl(TbBerkLevel1.Text) + CDbl(TbBerkLevel2.Text) + CDbl(TbPrepLevel1.Text) + CDbl(TbPrepLevel2.Text) + CDbl(TbOtherLevel1.Text) + CDbl(TbOtherLevel2.Text) + CDbl(TbPlasticLevel1.Text) + CDbl(TbPlasticLevel2.Text)
-        Dim TotalDls As Double
-        Dim AnticipoDls As Double = CDbl(TbAnticipoDlls.Text)
+        Dim SubTotal As Decimal = CDec(TbSubtotal.Text)
+        Dim TipoCambio As Decimal = CDec(TbTipoCambio.Text)
+        Dim CastigoDls As Decimal = CDec(TbCastigoxlargo.Text) + CDec(TbCastigoxmicro.Text) + CDec(TbCastigoxresistencia.Text) + CDec(TbCastigoxUI.Text) + CDec(TbBerkLevel1.Text) + CDec(TbBerkLevel2.Text) + CDec(TbPrepLevel1.Text) + CDec(TbPrepLevel2.Text) + CDec(TbOtherLevel1.Text) + CDec(TbOtherLevel2.Text) + CDec(TbPlasticLevel1.Text) + CDec(TbPlasticLevel2.Text)
+        Dim TotalDls As Decimal
+        Dim AnticipoDls As Decimal = CDec(TbAnticipoDlls.Text)
         TbSumaCastigo.Text = CastigoDls
-        TotalDls = SubTotal - CastigoDls - AnticipoDls
+        TotalDls = Math.Round(SubTotal, 2) - Math.Round(CastigoDls, 2) - Math.Round(AnticipoDls, 2)
         TbTotalDls.Text = TotalDls
         TbTotalMxn.Text = Math.Round(TotalDls * TipoCambio, 4)
     End Sub
     Private Sub SumasTotales()
-        Dim Word As String = "Total"
-        Dim TotalPeso As Double = 0
+        'Dim Word As String = "Total"
+        Dim TotalPeso As Decimal = 0
+        TbTotalPacas.Text = DgvResumenPagoPacas.RowCount
         For Each row As DataGridViewRow In DgvResumenPagoPacas.Rows
-            If row.Cells("Grade").Value.ToString.Contains(Word) Then
-                Dim font = DgvResumenPagoPacas.DefaultCellStyle.Font
-                TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
-                TotalPeso = TotalPeso + row.Cells("Kilos").Value
-                TbSubtotal.Text = Val(TbSubtotal.Text + Math.Round(CDbl(row.Cells("TotalDlls").Value), 4))
-                TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + CDbl(row.Cells("CastigoUI").Value)
-                TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + CDbl(row.Cells("CastigoLargoFibra").Value)
-                TbCastigoxmicro.Text = Val(TbCastigoxmicro.Text) + CDbl(row.Cells("CastigoMicros").Value)
-                TbCastigoxresistencia.Text = Val(TbCastigoxresistencia.Text) + CDbl(row.Cells("CastigoResistenciaFibra").Value)
-                TbBerkLevel1.Text = Val(TbBerkLevel1.Text) + CDbl(row.Cells("CastigoBarkLevel1").Value)
-                TbBerkLevel2.Text = Val(TbBerkLevel2.Text) + CDbl(row.Cells("CastigoBarkLevel2").Value)
-                TbPrepLevel1.Text = Val(TbPrepLevel1.Text) + CDbl(row.Cells("CastigoPrepLevel1").Value)
-                TbPrepLevel2.Text = Val(TbPrepLevel2.Text) + CDbl(row.Cells("CastigoPrepLevel2").Value)
-                TbOtherLevel1.Text = Val(TbOtherLevel1.Text) + CDbl(row.Cells("CastigoOtherLevel1").Value)
-                TbOtherLevel2.Text = Val(TbOtherLevel2.Text) + CDbl(row.Cells("CastigoOtherLevel2").Value)
-                TbPlasticLevel1.Text = Val(TbPlasticLevel1.Text) + CDbl(row.Cells("CastigoPlasticLevel1").Value)
-                TbPlasticLevel2.Text = Val(TbPlasticLevel2.Text) + CDbl(row.Cells("CastigoPlasticLevel2").Value)
-                row.DefaultCellStyle.BackColor = Color.Gray
-                row.DefaultCellStyle.Font = New Font(font, font.Style Or FontStyle.Bold)
-            End If
+            'If row.Cells("Grade").Value.ToString.Contains(Word) Then
+            Dim font = DgvResumenPagoPacas.DefaultCellStyle.Font
+            'TbTotalPacas.Text = Val(CInt(TbTotalPacas.Text) + CDbl(row.Cells("Cantidad").Value))
+            TotalPeso = TotalPeso + IIf(IdUnidadPeso = 1, row.Cells("Kilos").Value, row.Cells("Quintales").Value)
+            TbSubtotal.Text += Math.Round(CDec(row.Cells("Importe Dls").Value), 4)
+            TbCastigoxUI.Text = Val(TbCastigoxUI.Text) + Math.Round(CDec(row.Cells("Castigo UI").Value), 4)
+            TbCastigoxlargo.Text = Val(TbCastigoxlargo.Text) + Math.Round(CDec(row.Cells("Castigo LF").Value), 4)
+            TbCastigoxmicro.Text = Val(TbCastigoxmicro.Text) + Math.Round(CDec(row.Cells("Castigo Mic").Value), 4)
+            TbCastigoxresistencia.Text = Val(TbCastigoxresistencia.Text) + Math.Round(CDec(row.Cells("Castigo RF").Value), 4)
+            TbBerkLevel1.Text = Val(TbBerkLevel1.Text) + CDec(row.Cells("Bark Level 1").Value)
+            TbBerkLevel2.Text = Val(TbBerkLevel2.Text) + CDec(row.Cells("Bark Level 2").Value)
+            TbPrepLevel1.Text = Val(TbPrepLevel1.Text) + CDec(row.Cells("Prep Level 1").Value)
+            TbPrepLevel2.Text = Val(TbPrepLevel2.Text) + CDec(row.Cells("Prep Level 2").Value)
+            TbOtherLevel1.Text = Val(TbOtherLevel1.Text) + CDec(row.Cells("Other Level 1").Value)
+            TbOtherLevel2.Text = Val(TbOtherLevel2.Text) + CDec(row.Cells("Other Level 2").Value)
+            TbPlasticLevel1.Text = Val(TbPlasticLevel1.Text) + CDec(row.Cells("Plastic Level 1").Value)
+            TbPlasticLevel2.Text = Val(TbPlasticLevel2.Text) + CDec(row.Cells("Plastic Level 2").Value)
+            'row.DefaultCellStyle.BackColor = Color.Gray
+            'row.DefaultCellStyle.Font = New Font(font, font.Style Or FontStyle.Bold)
+            'End If
         Next
-        TbTotalKilos.Text = TotalPeso * ValorConversion
+        TbTotalKilos.Text = TotalPeso
     End Sub
     Private Sub FormatoGrid()
         Dim Word As String = "Total"
@@ -156,10 +209,14 @@ Public Class VentaPago
         Next
     End Sub
     Private Sub Formatos()
-        Dim TotalKilos As Double
+        Dim TotalKilos As Decimal
         TotalKilos = TbTotalKilos.Text
         TbTotalKilos.Text = String.Format("{0:N2}", TotalKilos)
         TbSubtotal.Text = FormatCurrency(TbSubtotal.Text)
+        TbCastigoxUI.Text = FormatCurrency(TbCastigoxUI.Text)
+        TbCastigoxlargo.Text = FormatCurrency(TbCastigoxlargo.Text)
+        TbCastigoxmicro.Text = FormatCurrency(TbCastigoxmicro.Text)
+        TbCastigoxresistencia.Text = FormatCurrency(TbCastigoxresistencia.Text)
         TbSumaCastigo.Text = FormatCurrency(TbSumaCastigo.Text)
         TbAnticipoDlls.Text = FormatCurrency(TbAnticipoDlls.Text)
         TbTipoCambio.Text = FormatCurrency(TbTipoCambio.Text)
@@ -191,31 +248,36 @@ Public Class VentaPago
     Private Sub GuardarVentaEnc()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
-        EntidadVentaPacasContrato.Guarda = Guardar.GuardarVentaPacasEnc
-        EntidadVentaPacasContrato.IdVenta = IIf(TbIdVenta.Text = "", 0, TbIdVenta.Text)
-        EntidadVentaPacasContrato.IdContrato = TbIdContrato.Text
-        EntidadVentaPacasContrato.IdComprador = TbIdComprador.Text
-        EntidadVentaPacasContrato.IdPlanta = VarGlob2.IdPlanta
-        EntidadVentaPacasContrato.IdModalidadVenta = VarGlob2.IdModalidadVenta
-        EntidadVentaPacasContrato.FechaVenta = Now
-        EntidadVentaPacasContrato.TotalPacas = TbTotalPacas.Text
-        EntidadVentaPacasContrato.Observaciones = ""
-        EntidadVentaPacasContrato.CastigoMicros = TbCastigoxmicro.Text
-        EntidadVentaPacasContrato.CastigoLargoFibra = TbCastigoxlargo.Text
-        EntidadVentaPacasContrato.CastigoResistenciaFibra = TbCastigoxresistencia.Text
-        EntidadVentaPacasContrato.InteresPesosMx = 0
-        EntidadVentaPacasContrato.InteresDlls = 0
-        EntidadVentaPacasContrato.PrecioQuintal = TbPrecioQuintal.Text
-        EntidadVentaPacasContrato.PrecioQuintalBorregos = 0
-        EntidadVentaPacasContrato.PrecioDolar = TbTipoCambio.Text
-        EntidadVentaPacasContrato.SubTotal = TbSubtotal.Text
-        EntidadVentaPacasContrato.CastigoDls = TbSumaCastigo.Text
-        EntidadVentaPacasContrato.AnticipoDls = TbAnticipoDlls.Text
-        EntidadVentaPacasContrato.TotalDlls = TbTotalDls.Text
-        EntidadVentaPacasContrato.TotalPesosMx = TbTotalMxn.Text
-        EntidadVentaPacasContrato.IdEstatusVenta = 1
-        NegocioVentaPacasContrato.Guardar(EntidadVentaPacasContrato)
-        TbIdVenta.Text = EntidadVentaPacasContrato.IdVenta
+        Try
+            EntidadVentaPacasContrato.Guarda = Guardar.GuardarVentaPacasEnc
+            EntidadVentaPacasContrato.IdVenta = IIf(TbIdVenta.Text = "", 0, TbIdVenta.Text)
+            EntidadVentaPacasContrato.IdContrato = TbIdContrato.Text
+            EntidadVentaPacasContrato.IdComprador = TbIdComprador.Text
+            EntidadVentaPacasContrato.IdPlanta = VarGlob2.IdPlanta
+            EntidadVentaPacasContrato.IdModalidadVenta = VarGlob2.IdModalidadVenta
+            EntidadVentaPacasContrato.FechaVenta = Now
+            EntidadVentaPacasContrato.TotalPacas = TbTotalPacas.Text
+            EntidadVentaPacasContrato.Observaciones = ""
+            EntidadVentaPacasContrato.CastigoMicros = TbCastigoxmicro.Text
+            EntidadVentaPacasContrato.CastigoLargoFibra = TbCastigoxlargo.Text
+            EntidadVentaPacasContrato.CastigoResistenciaFibra = TbCastigoxresistencia.Text
+            EntidadVentaPacasContrato.InteresPesosMx = 0
+            EntidadVentaPacasContrato.InteresDlls = 0
+            EntidadVentaPacasContrato.PrecioQuintal = TbPrecioQuintal.Text
+            EntidadVentaPacasContrato.PrecioQuintalBorregos = 0
+            EntidadVentaPacasContrato.PrecioDolar = TbTipoCambio.Text
+            EntidadVentaPacasContrato.SubTotal = TbSubtotal.Text
+            EntidadVentaPacasContrato.CastigoDls = TbSumaCastigo.Text
+            EntidadVentaPacasContrato.AnticipoDls = TbAnticipoDlls.Text
+            EntidadVentaPacasContrato.TotalDlls = TbTotalDls.Text
+            EntidadVentaPacasContrato.TotalPesosMx = TbTotalMxn.Text
+            EntidadVentaPacasContrato.IdEstatusVenta = 1
+            NegocioVentaPacasContrato.Guardar(EntidadVentaPacasContrato)
+            TbIdVenta.Text = EntidadVentaPacasContrato.IdVenta
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
     Private Sub CargaDetalleVentaPacas()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
@@ -232,9 +294,13 @@ Public Class VentaPago
     Private Sub ActualizaEstatusVenta()
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
-        EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizaEstatus
-        EntidadVentaPacasContrato.TablaGeneral = DataGridADatatable(DgvResumenPagoPacas)
-        NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
+        Try
+            EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizaEstatus
+            EntidadVentaPacasContrato.TablaGeneral = DataGridADatatable(DgvResumenPagoPacas)
+            NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Function DataGridADatatable(ByVal DataGridEnvia As DataGridView) As DataTable
         Dim dt As New DataTable
@@ -255,6 +321,14 @@ Public Class VentaPago
         Next
         Return dt
     End Function
+
+    Private Sub ImpCastigoPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImpCastigoPorRangosToolStripMenuItem.Click
+        If TbIdVenta.Text <> "" Then
+            Dim RepCastPorRangos As New RepCastigoPorRangos(TbIdVenta.Text, CbModoMicros.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoUniformidad.SelectedValue)
+            RepCastPorRangos.ShowDialog()
+        End If
+    End Sub
+
     Private Sub SalirToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         _Tabla.Clear()
         Close()
@@ -264,12 +338,12 @@ Public Class VentaPago
     End Sub
     Private Sub TbAnticipoDlls_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbAnticipoDlls.KeyPress
         If e.KeyChar = Convert.ToChar(13) Then
-            Dim SubTotaldls As Double = CDbl(TbSubtotal.Text)
-            Dim CastigoDls As Double = CDbl(TbSumaCastigo.Text)
-            Dim AnticipoDls As Double = CDbl(TbAnticipoDlls.Text)
-            Dim TotalDls As Double = CDbl(TbTotalDls.Text)
-            Dim TipoCambio As Double = CDbl(TbTipoCambio.Text)
-            Dim TotalMxn As Double = CDbl(TbTotalMxn.Text)
+            Dim SubTotaldls As Decimal = CDec(TbSubtotal.Text)
+            Dim CastigoDls As Decimal = CDec(TbSumaCastigo.Text)
+            Dim AnticipoDls As Decimal = CDec(TbAnticipoDlls.Text)
+            Dim TotalDls As Decimal = CDec(TbTotalDls.Text)
+            Dim TipoCambio As Decimal = CDec(TbTipoCambio.Text)
+            Dim TotalMxn As Decimal = CDec(TbTotalMxn.Text)
 
             TotalDls = SubTotaldls - AnticipoDls - CastigoDls
             TotalMxn = TotalDls * TipoCambio

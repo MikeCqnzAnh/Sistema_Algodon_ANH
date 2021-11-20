@@ -2,7 +2,7 @@
 Public Class VentaPacasContrato
     Implements IForm1
     Public TablaModalidadVenta, TablacastigoMicros, TablaCastigoLargoFibra, TablaCastigoResistenciaFibra, TablaCastigoUniformidad, TablaPacasAgrupadas As New DataTable
-    Private PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO As Double
+    Private PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO As Decimal
     Private Sub VentaPacasContrato_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CrearTablaPacasAgrupadas()
         CargarCombos()
@@ -150,25 +150,25 @@ Public Class VentaPacasContrato
         TablaPacasAgrupadas.Columns.Add(New DataColumn("BaleID", System.Type.GetType("System.Int64")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Grade", System.Type.GetType("System.String")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Cantidad", System.Type.GetType("System.Int32")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("Quintales", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("TipoCambio", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioMxn", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoUI", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoResistenciaFibra", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoMicros", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoLargoFibra", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoBarkLevel1", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoBarkLevel2", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPrepLevel1", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPrepLevel2", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoOtherLevel1", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoOtherLevel2", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPlasticLevel1", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPlasticLevel2", System.Type.GetType("System.Double")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioClase", System.Type.GetType("System.Single")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("Kilos", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("Quintales", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("TipoCambio", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioMxn", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoUI", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoResistenciaFibra", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoMicros", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoLargoFibra", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoBarkLevel1", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoBarkLevel2", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPrepLevel1", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPrepLevel2", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoOtherLevel1", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoOtherLevel2", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPlasticLevel1", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("CastigoPlasticLevel2", System.Type.GetType("System.Decimal")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("PrecioClase", System.Type.GetType("System.Decimal")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("Total", System.Type.GetType("System.Int32")))
-        TablaPacasAgrupadas.Columns.Add(New DataColumn("TotalDlls", System.Type.GetType("System.Double")))
+        TablaPacasAgrupadas.Columns.Add(New DataColumn("TotalDlls", System.Type.GetType("System.Decimal")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("IdLiquidacion", System.Type.GetType("System.Int32")))
         TablaPacasAgrupadas.Columns.Add(New DataColumn("IdVentaEnc", System.Type.GetType("System.Int32")))
     End Sub
@@ -190,7 +190,7 @@ Public Class VentaPacasContrato
                 'VarGlob2.IdUnidadPeso = CbUnidadPeso.SelectedValue
                 'VarGlob2.ValorConversion = Val(TbValorConversion.Text)
                 '_Tabla = Table()
-                Dim Ventapag As New VentaPago(TbIdVentaPaca.Text, TbIdComprador.Text, TbIdContrato.Text, CbModalidadVenta.SelectedValue, CbUnidadPeso.SelectedValue, TbNombreComprador.Text, TbPrecioQuintal.Text, Val(TbValorConversion.Text), CkTara.Checked, Val(TbPesoTara.Text))
+                Dim Ventapag As New VentaPago(TbIdVentaPaca.Text, TbIdComprador.Text, TbIdContrato.Text, CbModalidadVenta.SelectedValue, CbUnidadPeso.SelectedValue, TbNombreComprador.Text, TbPrecioQuintal.Text, Val(TbValorConversion.Text), CkTara.Checked, Val(TbPesoTara.Text), ChMicros.Checked, ChLargoFibra.Checked, ChResistenciaFibra.Checked, ChUniformidad.Checked, CbModoMicros.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoUniformidad.SelectedValue)
                 Ventapag.ShowDialog()
             End If
         Else
@@ -496,22 +496,22 @@ Public Class VentaPacasContrato
         PbCargapacas.Maximum = Val(TbPacasVendidasContrato.Text)
         For ii As Integer = 0 To DgvPacasIndVendidas.Rows.Count - 1
             If CbUnidadPeso.SelectedValue = 1 Then
-                Dim Quintales As Double = Math.Round(CDbl(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
-                Dim TotalDlls As Double = Quintales * CDbl(TbPrecioQuintal.Text)
+                Dim Quintales As Decimal = Math.Round(CDbl(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
+                Dim TotalDlls As Decimal = Quintales * CDbl(TbPrecioQuintal.Text)
 
                 TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
 
                 TablaRenglonAInsertar("BaleID") = DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value
                 TablaRenglonAInsertar("Grade") = DgvPacasIndVendidas.Rows(ii).Cells("Grade").Value
                 TablaRenglonAInsertar("Cantidad") = 1
-                TablaRenglonAInsertar("Kilos") = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
+                TablaRenglonAInsertar("Kilos") = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value, 2)
                 TablaRenglonAInsertar("Quintales") = Math.Round(Quintales, 4)
                 TablaRenglonAInsertar("TipoCambio") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 4)
                 TablaRenglonAInsertar("PrecioMxn") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 4)
-                TablaRenglonAInsertar("CastigoUI") = IIf(ChUniformidad.Checked = True, Math.Truncate(ConsultaCastigoUniformidad(DgvPacasIndVendidas.Rows(ii).Cells("Uniformidad").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000, 0)
-                TablaRenglonAInsertar("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DgvPacasIndVendidas.Rows(ii).Cells("Resistencia").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000, 0)
-                TablaRenglonAInsertar("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Truncate(ConsultaCastigoMicros(DgvPacasIndVendidas.Rows(ii).Cells("Micros").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10) / 10, 0)
-                TablaRenglonAInsertar("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Truncate(ConsultaCastigoLargoFibra(DgvPacasIndVendidas.Rows(ii).Cells("Largo").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000, 0)
+                TablaRenglonAInsertar("CastigoUI") = (Math.Truncate(ConsultaCastigoUniformidad(DgvPacasIndVendidas.Rows(ii).Cells("Uniformidad").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000)
+                TablaRenglonAInsertar("CastigoResistenciaFibra") = (Math.Truncate(ConsultaCastigoResistenciaFibra(DgvPacasIndVendidas.Rows(ii).Cells("Resistencia").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000)
+                TablaRenglonAInsertar("CastigoMicros") = (Math.Truncate(ConsultaCastigoMicros(DgvPacasIndVendidas.Rows(ii).Cells("Micros").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10) / 10)
+                TablaRenglonAInsertar("CastigoLargoFibra") = (Math.Truncate(ConsultaCastigoLargoFibra(DgvPacasIndVendidas.Rows(ii).Cells("Largo").Value, Quintales, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000)
                 TablaRenglonAInsertar("CastigoBarkLevel1") = IIf(ChBark.Checked = True And ChBarkLevel1.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoBarkLevel1Venta").Value, 2), 0)
                 TablaRenglonAInsertar("CastigoBarkLevel2") = IIf(ChBark.Checked = True And ChBarkLevel2.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoBarkLevel2Venta").Value, 2), 0)
                 TablaRenglonAInsertar("CastigoPrepLevel1") = IIf(ChPrep.Checked = True And ChPrepLevel1.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoPrepLevel1Venta").Value, 2), 0)
@@ -528,26 +528,26 @@ Public Class VentaPacasContrato
                 TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
                 PbCargapacas.Value += 1
             ElseIf CbUnidadPeso.SelectedValue = 2 Then
-                'Dim Quintales As Double = Math.Round(CDbl(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
-                'Dim TotalDlls As Double = Quintales * CDbl(TbPrecioQuintal.Text)
+                'Dim Quintales As decimal = Math.Round(CDbl(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value) / 46.02, 2)
+                'Dim TotalDlls As decimal = Quintales * CDbl(TbPrecioQuintal.Text)
 
-                Dim Kilos As Double = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
-                Dim Libras As Double = Kilos * Val(TbValorConversion.Text)
-                'Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
+                Dim Kilos As Decimal = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value, 2)
+                Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                'Dim Quintales As decimal = Math.Round(CDbl(Kilos / 46.02), 4)
 
                 TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
 
                 TablaRenglonAInsertar("BaleID") = DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value
                 TablaRenglonAInsertar("Grade") = DgvPacasIndVendidas.Rows(ii).Cells("Grade").Value
                 TablaRenglonAInsertar("Cantidad") = 1
-                TablaRenglonAInsertar("Kilos") = DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value
-                TablaRenglonAInsertar("Quintales") = Math.Round(Libras, 4)
+                TablaRenglonAInsertar("Kilos") = Kilos
+                TablaRenglonAInsertar("Quintales") = Libras
                 TablaRenglonAInsertar("TipoCambio") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(7).Value * Quintales), 4)
                 TablaRenglonAInsertar("PrecioMxn") = 0 'Math.Round((DgvPacasIndCompradas.Rows(ii).Cells(9).Value * Quintales), 4)
-                TablaRenglonAInsertar("CastigoUI") = IIf(ChUniformidad.Checked = True, (Math.Truncate(ConsultaCastigoUniformidad(DgvPacasIndVendidas.Rows(ii).Cells("Uniformidad").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100, 0)
-                TablaRenglonAInsertar("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, (Math.Truncate(ConsultaCastigoResistenciaFibra(DgvPacasIndVendidas.Rows(ii).Cells("Resistencia").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100, 0)
-                TablaRenglonAInsertar("CastigoMicros") = IIf(ChMicros.Checked = True, (Math.Truncate(ConsultaCastigoMicros(DgvPacasIndVendidas.Rows(ii).Cells("Micros").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10) / 10 / 100), 0)
-                TablaRenglonAInsertar("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, (Math.Truncate(ConsultaCastigoLargoFibra(DgvPacasIndVendidas.Rows(ii).Cells("Largo").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100, 0)
+                TablaRenglonAInsertar("CastigoUI") = (Math.Truncate(ConsultaCastigoUniformidad(DgvPacasIndVendidas.Rows(ii).Cells("Uniformidad").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100
+                TablaRenglonAInsertar("CastigoResistenciaFibra") = Math.Truncate((ConsultaCastigoResistenciaFibra(DgvPacasIndVendidas.Rows(ii).Cells("Resistencia").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) / 100) * 10000) / 10000
+                TablaRenglonAInsertar("CastigoMicros") = (Math.Truncate(ConsultaCastigoMicros(DgvPacasIndVendidas.Rows(ii).Cells("Micros").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100
+                TablaRenglonAInsertar("CastigoLargoFibra") = (Math.Truncate(ConsultaCastigoLargoFibra(DgvPacasIndVendidas.Rows(ii).Cells("Largo").Value, Libras, DgvPacasIndVendidas.Rows(ii).Cells("BaleID").Value) * 10000) / 10000) / 100
                 TablaRenglonAInsertar("CastigoBarkLevel1") = IIf(ChBark.Checked = True And ChBarkLevel1.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoBarkLevel1Venta").Value, 2), 0)
                 TablaRenglonAInsertar("CastigoBarkLevel2") = IIf(ChBark.Checked = True And ChBarkLevel2.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoBarkLevel2Venta").Value, 2), 0)
                 TablaRenglonAInsertar("CastigoPrepLevel1") = IIf(ChPrep.Checked = True And ChPrepLevel1.Checked = True, Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("CastigoPrepLevel1Venta").Value, 2), 0)
@@ -609,7 +609,7 @@ Public Class VentaPacasContrato
         'dtCopy.Rows.Add()
         'Dim dr As DataRow = dtCopy.NewRow()
         'Dim i, TotalPacas As Integer
-        'Dim value, TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As Double
+        'Dim value, TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As decimal
         'For j As Integer = 0 To dtCopy.Rows.Count - 2
         '    Dim item = dtCopy.Rows(j)
         '    Dim BaleID = Convert.ToInt64(item(0))
@@ -890,20 +890,20 @@ Public Class VentaPacasContrato
         dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("IdOrdenTrabajo", Type.GetType("System.Int32"))
         dt.Columns.Add("IdVentaEnc", Type.GetType("System.Int32"))
-        dt.Columns.Add("PrecioDls", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
-        dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
-        dt.Columns.Add("Quintales", Type.GetType("System.Single"))
+        dt.Columns.Add("PrecioDls", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioClase", Type.GetType("System.Decimal"))
+        dt.Columns.Add("TipoCambio", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioMxn", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Quintales", Type.GetType("System.Decimal"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
 
         If CbUnidadPeso.SelectedValue = 1 Then
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
-                Dim Kilos As Double = Fila.Cells("Kilos").Value
-                Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
+                Dim Kilos As Decimal = Fila.Cells("Kilos").Value
+                Dim Quintales As Decimal = Math.Round(CDbl(Kilos / 46.02), 4)
                 r("BaleID") = Fila.Cells("BaleID").Value
                 r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
                 r("IdVentaEnc") = IdVentaEnc
@@ -920,12 +920,13 @@ Public Class VentaPacasContrato
         ElseIf CbUnidadPeso.SelectedValue = 2 Then
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
-                Dim Kilos As Double = Fila.Cells("Kilos").Value
-                Dim Libras As Double = Math.Round(Kilos * Val(TbValorConversion.Text), 4)
+                Dim Kilos As Decimal = Fila.Cells("Kilos").Value
+                Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
                 r("BaleID") = Fila.Cells("BaleID").Value
                 r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
                 r("IdVentaEnc") = IdVentaEnc
-                r("PrecioDls") = Math.Truncate((Libras * (PrecioContratoClase(Fila.Cells("Grade").Value) / 100)) * 10000) / 10000
+                r("PrecioDls") = Libras * PrecioClase
                 r("PrecioClase") = PrecioContratoClase(Fila.Cells("Grade").Value.ToString)
                 r("TipoCambio") = 0
                 r("PrecioMxn") = 0
@@ -941,16 +942,17 @@ Public Class VentaPacasContrato
     Private Function EnviaPacasVenta(ByVal EstatusVentaUpdate As Integer, ByVal EstatusVentaBusqueda As Integer, ByVal EstatusEmbaques As Integer, ByVal DataGridEnvia As DataGridView, ByVal IdVentaEnc As Integer, Optional valcastigo As Integer = 0) As DataTable
         Dim dt As New DataTable
         Dim r As DataRow
+        'PbCargapacas.Value = 0
         DataGridEnvia.EndEdit()
         dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("IdOrdenTrabajo", Type.GetType("System.Int32"))
         dt.Columns.Add("IdVentaEnc", Type.GetType("System.Int32"))
-        dt.Columns.Add("PrecioDls", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
-        dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
-        dt.Columns.Add("Quintales", Type.GetType("System.Single"))
+        dt.Columns.Add("PrecioDls", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioClase", Type.GetType("System.Decimal"))
+        dt.Columns.Add("TipoCambio", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioMxn", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Quintales", Type.GetType("System.Decimal"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusEmbarque", Type.GetType("System.Int32"))
@@ -974,7 +976,7 @@ Public Class VentaPacasContrato
                     r("EstatusVentaBusqueda") = EstatusVentaBusqueda
                     r("EstatusEmbarque") = EstatusEmbaques
                     dt.Rows.Add(r)
-                    PbCargapacas.Value += 1
+                    'PbCargapacas.Value += 1
                 End If
             Next
         ElseIf CbUnidadPeso.SelectedValue = 2 Then
@@ -982,11 +984,12 @@ Public Class VentaPacasContrato
                 r = dt.NewRow
                 If Fila.Cells("Seleccionar").Value = True Then
                     Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
-                    Dim Libras As Decimal = Math.Round(Kilos * Val(TbValorConversion.Text), 4)
+                    Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                    Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
                     r("BaleID") = Fila.Cells("BaleID").Value
                     r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
                     r("IdVentaEnc") = IdVentaEnc
-                    r("PrecioDls") = Math.Truncate((Libras * (PrecioContratoClase(Fila.Cells("Grade").Value) / 100)) * 10000) / 10000
+                    r("PrecioDls") = Libras * PrecioClase
                     r("PrecioClase") = PrecioContratoClase(Fila.Cells("Grade").Value.ToString)
                     r("TipoCambio") = 0
                     r("PrecioMxn") = 0
@@ -996,13 +999,14 @@ Public Class VentaPacasContrato
                     r("EstatusVentaBusqueda") = EstatusVentaBusqueda
                     r("EstatusEmbarque") = EstatusEmbaques
                     dt.Rows.Add(r)
-                    PbCargapacas.Value += 1
+                    'PbCargapacas.Value += 1
                 End If
             Next
         End If
         Return dt
     End Function
     Private Function DataGridADatatable(ByVal EstatusVentaUpdate As Integer, ByVal EstatusVentaBusqueda As Integer, ByVal DataGridEnvia As DataGridView, ByVal IdVentaEnc As Integer, Optional valcastigo As Integer = 0) As DataTable
+
         Dim dt As New DataTable
         Dim r As DataRow
         DataGridEnvia.EndEdit()
@@ -1010,36 +1014,36 @@ Public Class VentaPacasContrato
         dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
         dt.Columns.Add("IdLiquidacion", Type.GetType("System.Int32"))
         dt.Columns.Add("IdVentaEnc", Type.GetType("System.Int32"))
-        dt.Columns.Add("PrecioDls", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioClase", Type.GetType("System.Single"))
-        dt.Columns.Add("TipoCambio", Type.GetType("System.Single"))
-        dt.Columns.Add("PrecioMxn", Type.GetType("System.Single"))
-        dt.Columns.Add("Kilos", Type.GetType("System.Single"))
-        dt.Columns.Add("Quintales", Type.GetType("System.Single"))
-        dt.Columns.Add("Resistencia", Type.GetType("System.Single"))
-        dt.Columns.Add("Micros", Type.GetType("System.Single"))
-        dt.Columns.Add("Largo", Type.GetType("System.Single"))
-        dt.Columns.Add("Uniformidad", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoMicros", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoUI", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoBarkLevel1", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoBarkLevel2", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoPrepLevel1", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoPrepLevel2", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoOtherLevel1", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoOtherLevel2", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoPlasticLevel1", Type.GetType("System.Single"))
-        dt.Columns.Add("CastigoPlasticLevel2", Type.GetType("System.Single"))
+        dt.Columns.Add("PrecioDls", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioClase", Type.GetType("System.Decimal"))
+        dt.Columns.Add("TipoCambio", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioMxn", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Quintales", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Resistencia", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Micros", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Largo", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Uniformidad", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoMicros", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoUI", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoBarkLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoBarkLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPrepLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPrepLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoOtherLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoOtherLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPlasticLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPlasticLevel2", Type.GetType("System.Decimal"))
         dt.Columns.Add("EstatusVentaUpdate", Type.GetType("System.Int32"))
         dt.Columns.Add("EstatusVentaBusqueda", Type.GetType("System.Int32"))
         If CbUnidadPeso.SelectedValue = 1 Then
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Double = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
-                    Dim Quintales As Double = Math.Round(CDbl(Kilos / 46.02), 4)
+                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
+                    Dim Quintales As Decimal = Math.Round(CDbl(Kilos / 46.02), 4)
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
                     r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
@@ -1067,8 +1071,8 @@ Public Class VentaPacasContrato
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Double = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
-                    Dim Libras As Double = Kilos * Val(TbValorConversion.Text)
+                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
+                    Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
                     r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
@@ -1095,8 +1099,8 @@ Public Class VentaPacasContrato
         End If
         Return dt
     End Function
-    Private Function PrecioContratoClase(ByVal Clase As String) As Double
-        Dim resultado As Double = 0
+    Private Function PrecioContratoClase(ByVal Clase As String) As Decimal
+        Dim resultado As Decimal = 0
         Select Case Clase
             Case "SM"
                 resultado = PrecioSM
@@ -1298,100 +1302,105 @@ Public Class VentaPacasContrato
             End If
         End If
     End Sub
-    Private Function ConsultaCastigoMicros(ByVal ValMicros As Double, ByVal Quintales As Double, ByVal etiqueta As Long)
-        Dim Castigo As Double
+    Private Function ConsultaCastigoMicros(ByVal ValMicros As Decimal, ByVal Quintales As Decimal, ByVal etiqueta As Long)
+        Dim Castigo As Decimal
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         'If bandera = 0 Then
         Try
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
-            EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
-            EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
+            If ChMicros.Checked = True Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+                EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
+                EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Else
+                Castigo = 0
+            End If
         Catch ex As Exception
+            Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con micros " & ValMicros)
+            Exit Function
         End Try
 
-        'Else
-        '    Castigo = 0
-        '    Return Castigo
-        'End If
-
+        Return Castigo
     End Function
-    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, ByVal etiqueta As Long)
-        Dim Castigo As Double
+    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Decimal, ByVal Quintales As Decimal, ByVal etiqueta As Long)
+        Dim Castigo As Decimal
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         'If bandera = 0 Then
         Try
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
+            If ChResistenciaFibra.Checked = True Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+            Else
+                Castigo = 0
+            End If
         Catch ex As Exception
+            Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con resistencia de fibra " & ValResistenciaFibra)
+            Exit Function
         End Try
 
-        'Else
-        '    Castigo = 0
-        '    Return Castigo
-        'End If
-
+        Return Castigo
     End Function
-    Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double, ByVal Quintales As Double, ByVal etiqueta As Long)
-        Dim Castigo As Double
+    Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Decimal, ByVal Quintales As Decimal, ByVal etiqueta As Long)
+        Dim Castigo As Decimal
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         'If bandera = 0 Then
         Try
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
+            If ChLargoFibra.Checked = True Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+            Else
+                Castigo = 0
+            End If
         Catch ex As Exception
+            Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con largo de fibra " & ValLargoFibra)
+            Exit Function
         End Try
 
-        'Else
-        '    Castigo = 0
-        '    Return Castigo
-        'End If
-
+        Return Castigo
     End Function
-    Private Function ConsultaCastigoUniformidad(ByVal ValUniformidad As Double, ByVal Quintales As Double, ByVal etiqueta As Long)
-        Dim Castigo As Double
+    Private Function ConsultaCastigoUniformidad(ByVal ValUniformidad As Decimal, ByVal Quintales As Decimal, ByVal etiqueta As Long)
+        Dim Castigo As Decimal
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
         'If bandera = 0 Then
         Try
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
-            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
-            EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
+            If ChUniformidad.Checked = True Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
+                EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
+                EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+            Else
+                Castigo = 0
+            End If
         Catch ex As Exception
+            Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con largo de Uniformidad " & ValUniformidad)
+            Exit Function
         End Try
 
-        'Else
-        '    Castigo = 0
-        '    Return Castigo
-        'End If
+        Return Castigo
     End Function
     'Private Function ConsultaCastigoMicros(ByVal ValMicros As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
     '    Dim Castigo As Double
@@ -1682,10 +1691,6 @@ Public Class VentaPacasContrato
         End If
     End Sub
 
-    Private Sub ReporteHVIAExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteHVIAExcelToolStripMenuItem.Click
-
-    End Sub
-
     Private Sub ReporteDeCastigoPorPacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeCastigoPorPacasToolStripMenuItem.Click
         If TbIdVentaPaca.Text <> "" Then
             Dim DetalleCastigoPaca As New RepDetalleCastigoPaca(Val(TbIdVentaPaca.Text), CbModoMicros.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoUniformidad.SelectedValue, CbUnidadPeso.SelectedValue, Val(TbValorConversion.Text), ChMicros.Checked, ChLargoFibra.Checked, ChResistenciaFibra.Checked, ChUniformidad.Checked)
@@ -1886,12 +1891,12 @@ Public Class VentaPacasContrato
     End Sub
     Private Sub MarcaSeleccionDisponibles()
         Dim Contador As Integer = 0
-        Dim Kilos As Double = 0
+        Dim Kilos As Decimal = 0
         For i As Integer = 0 To DgvPacasVender.Rows.Count - 1
             Dim Seleccion As Boolean = CType(Me.DgvPacasVender.Rows(i).Cells("Seleccionar").EditedFormattedValue, Boolean)
             If Seleccion = True Then
                 Contador = Contador + 1
-                Kilos = Kilos + DgvPacasVender.Rows(i).Cells("Kilos").Value
+                Kilos = Kilos + Math.Round(DgvPacasVender.Rows(i).Cells("Kilos").Value, 2)
             End If
         Next
         TbPacasMarc.Text = Contador
@@ -1899,15 +1904,15 @@ Public Class VentaPacasContrato
     End Sub
     Private Sub SumaKilosVendidos()
         Dim Contador As Integer = 0
-        Dim Kilos As Double = 0
+        Dim Kilos As Decimal = 0
         For i As Integer = 0 To DgvPacasIndVendidas.Rows.Count - 1
             'Dim Seleccion As Boolean = CType(Me.DgvPacasIndVendidas.Rows(i).Cells("Seleccionar").EditedFormattedValue, Boolean)
             'If Seleccion = True Then
             Contador = Contador + 1
-            Kilos = Kilos + DgvPacasIndVendidas.Rows(i).Cells("Kilos").Value
+            Kilos = Kilos + IIf(CbUnidadPeso.SelectedValue = 1, DgvPacasIndVendidas.Rows(i).Cells("Kilos").Value, DgvPacasIndVendidas.Rows(i).Cells("Quintales").Value)
             'End If
         Next
-        TbKilosVendidos.Text = IIf(CbUnidadPeso.SelectedValue = 1, Kilos, Kilos * Val(TbValorConversion.Text))
+        TbKilosVendidos.Text = Kilos
         TbKilosVendidos.Text = Format(Val(TbKilosVendidos.Text), "#,##0.00")
         TbPacasVendidasContrato.Text = DgvPacasIndVendidas.Rows.Count
     End Sub

@@ -90,10 +90,19 @@ Partial Class VentaPago
         Me.ImpDetallesDeVentaItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpDetalleDeCastigosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDeLiquidacionesItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImpCastigoPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CbModoUniformidad = New System.Windows.Forms.ComboBox()
+        Me.CbModoResistenciaFibra = New System.Windows.Forms.ComboBox()
+        Me.CbModoLargoFibra = New System.Windows.Forms.ComboBox()
+        Me.ChUniformidad = New System.Windows.Forms.CheckBox()
+        Me.ChResistenciaFibra = New System.Windows.Forms.CheckBox()
+        Me.ChLargoFibra = New System.Windows.Forms.CheckBox()
+        Me.ChMicros = New System.Windows.Forms.CheckBox()
+        Me.CbModoMicros = New System.Windows.Forms.ComboBox()
         Me.GbDatosGenerales.SuspendLayout()
         CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
@@ -111,6 +120,14 @@ Partial Class VentaPago
         'GbDatosGenerales
         '
         Me.GbDatosGenerales.BackColor = System.Drawing.Color.Gainsboro
+        Me.GbDatosGenerales.Controls.Add(Me.CbModoUniformidad)
+        Me.GbDatosGenerales.Controls.Add(Me.CbModoResistenciaFibra)
+        Me.GbDatosGenerales.Controls.Add(Me.CbModoLargoFibra)
+        Me.GbDatosGenerales.Controls.Add(Me.ChUniformidad)
+        Me.GbDatosGenerales.Controls.Add(Me.ChResistenciaFibra)
+        Me.GbDatosGenerales.Controls.Add(Me.ChLargoFibra)
+        Me.GbDatosGenerales.Controls.Add(Me.ChMicros)
+        Me.GbDatosGenerales.Controls.Add(Me.CbModoMicros)
         Me.GbDatosGenerales.Controls.Add(Me.NuPesoTara)
         Me.GbDatosGenerales.Controls.Add(Me.CkTara)
         Me.GbDatosGenerales.Controls.Add(Me.Label7)
@@ -122,9 +139,9 @@ Partial Class VentaPago
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(1258, 0)
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(1237, 0)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(244, 402)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(265, 402)
         Me.GbDatosGenerales.TabIndex = 39
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -695,7 +712,7 @@ Partial Class VentaPago
         Me.DgvResumenPagoPacas.RowHeadersVisible = False
         Me.DgvResumenPagoPacas.RowHeadersWidth = 40
         Me.DgvResumenPagoPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(1258, 402)
+        Me.DgvResumenPagoPacas.Size = New System.Drawing.Size(1237, 402)
         Me.DgvResumenPagoPacas.TabIndex = 41
         '
         'TbNombreComprador
@@ -781,7 +798,7 @@ Partial Class VentaPago
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeVentaItem, Me.ImpDetalleDeCastigosToolStripMenuItem, Me.ImpResumenDeLiquidacionesItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeVentaItem, Me.ImpDetalleDeCastigosToolStripMenuItem, Me.ImpResumenDeLiquidacionesItem, Me.ImpCastigoPorRangosToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1502, 24)
@@ -809,21 +826,14 @@ Partial Class VentaPago
         'ImpDetalleDeCastigosToolStripMenuItem
         '
         Me.ImpDetalleDeCastigosToolStripMenuItem.Name = "ImpDetalleDeCastigosToolStripMenuItem"
-        Me.ImpDetalleDeCastigosToolStripMenuItem.Size = New System.Drawing.Size(144, 20)
-        Me.ImpDetalleDeCastigosToolStripMenuItem.Text = "Imp. Detalle de castigos"
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Size = New System.Drawing.Size(146, 20)
+        Me.ImpDetalleDeCastigosToolStripMenuItem.Text = "Imp. Detalle de Castigos"
         '
         'ImpResumenDeLiquidacionesItem
         '
         Me.ImpResumenDeLiquidacionesItem.Name = "ImpResumenDeLiquidacionesItem"
         Me.ImpResumenDeLiquidacionesItem.Size = New System.Drawing.Size(184, 20)
         Me.ImpResumenDeLiquidacionesItem.Text = "Imp.Resumen de Liquidaciones"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'Panel1
         '
@@ -861,6 +871,115 @@ Partial Class VentaPago
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1502, 72)
         Me.Panel3.TabIndex = 47
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'ImpCastigoPorRangosToolStripMenuItem
+        '
+        Me.ImpCastigoPorRangosToolStripMenuItem.Name = "ImpCastigoPorRangosToolStripMenuItem"
+        Me.ImpCastigoPorRangosToolStripMenuItem.Size = New System.Drawing.Size(149, 20)
+        Me.ImpCastigoPorRangosToolStripMenuItem.Text = "Imp. Castigo por Rangos"
+        '
+        'CbModoUniformidad
+        '
+        Me.CbModoUniformidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.CbModoUniformidad.Enabled = False
+        Me.CbModoUniformidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.CbModoUniformidad.FormattingEnabled = True
+        Me.CbModoUniformidad.Location = New System.Drawing.Point(136, 370)
+        Me.CbModoUniformidad.Name = "CbModoUniformidad"
+        Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 23)
+        Me.CbModoUniformidad.TabIndex = 70
+        '
+        'CbModoResistenciaFibra
+        '
+        Me.CbModoResistenciaFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.CbModoResistenciaFibra.Enabled = False
+        Me.CbModoResistenciaFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.CbModoResistenciaFibra.FormattingEnabled = True
+        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(136, 336)
+        Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
+        Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 23)
+        Me.CbModoResistenciaFibra.TabIndex = 69
+        '
+        'CbModoLargoFibra
+        '
+        Me.CbModoLargoFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.CbModoLargoFibra.Enabled = False
+        Me.CbModoLargoFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.CbModoLargoFibra.FormattingEnabled = True
+        Me.CbModoLargoFibra.Location = New System.Drawing.Point(136, 302)
+        Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
+        Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 23)
+        Me.CbModoLargoFibra.TabIndex = 68
+        '
+        'ChUniformidad
+        '
+        Me.ChUniformidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ChUniformidad.AutoSize = True
+        Me.ChUniformidad.Enabled = False
+        Me.ChUniformidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.ChUniformidad.Location = New System.Drawing.Point(9, 372)
+        Me.ChUniformidad.Name = "ChUniformidad"
+        Me.ChUniformidad.Size = New System.Drawing.Size(94, 19)
+        Me.ChUniformidad.TabIndex = 67
+        Me.ChUniformidad.Text = "Uniformidad"
+        Me.ChUniformidad.UseVisualStyleBackColor = True
+        '
+        'ChResistenciaFibra
+        '
+        Me.ChResistenciaFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ChResistenciaFibra.AutoSize = True
+        Me.ChResistenciaFibra.Enabled = False
+        Me.ChResistenciaFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.ChResistenciaFibra.Location = New System.Drawing.Point(9, 338)
+        Me.ChResistenciaFibra.Name = "ChResistenciaFibra"
+        Me.ChResistenciaFibra.Size = New System.Drawing.Size(121, 19)
+        Me.ChResistenciaFibra.TabIndex = 66
+        Me.ChResistenciaFibra.Text = "Resistencia Fibra"
+        Me.ChResistenciaFibra.UseVisualStyleBackColor = True
+        '
+        'ChLargoFibra
+        '
+        Me.ChLargoFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ChLargoFibra.AutoSize = True
+        Me.ChLargoFibra.Enabled = False
+        Me.ChLargoFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.ChLargoFibra.Location = New System.Drawing.Point(9, 304)
+        Me.ChLargoFibra.Name = "ChLargoFibra"
+        Me.ChLargoFibra.Size = New System.Drawing.Size(89, 19)
+        Me.ChLargoFibra.TabIndex = 65
+        Me.ChLargoFibra.Text = "Largo Fibra"
+        Me.ChLargoFibra.UseVisualStyleBackColor = True
+        '
+        'ChMicros
+        '
+        Me.ChMicros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ChMicros.AutoSize = True
+        Me.ChMicros.Enabled = False
+        Me.ChMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.ChMicros.Location = New System.Drawing.Point(9, 270)
+        Me.ChMicros.Name = "ChMicros"
+        Me.ChMicros.Size = New System.Drawing.Size(63, 19)
+        Me.ChMicros.TabIndex = 64
+        Me.ChMicros.Text = "Micros"
+        Me.ChMicros.UseVisualStyleBackColor = True
+        '
+        'CbModoMicros
+        '
+        Me.CbModoMicros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.CbModoMicros.Enabled = False
+        Me.CbModoMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.CbModoMicros.FormattingEnabled = True
+        Me.CbModoMicros.Location = New System.Drawing.Point(136, 268)
+        Me.CbModoMicros.Name = "CbModoMicros"
+        Me.CbModoMicros.Size = New System.Drawing.Size(121, 23)
+        Me.CbModoMicros.TabIndex = 63
         '
         'VentaPago
         '
@@ -972,4 +1091,13 @@ Partial Class VentaPago
     Friend WithEvents NuPesoTara As NumericUpDown
     Friend WithEvents CkTara As CheckBox
     Friend WithEvents Label26 As Label
+    Friend WithEvents ImpCastigoPorRangosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CbModoUniformidad As ComboBox
+    Friend WithEvents CbModoResistenciaFibra As ComboBox
+    Friend WithEvents CbModoLargoFibra As ComboBox
+    Friend WithEvents ChUniformidad As CheckBox
+    Friend WithEvents ChResistenciaFibra As CheckBox
+    Friend WithEvents ChLargoFibra As CheckBox
+    Friend WithEvents ChMicros As CheckBox
+    Friend WithEvents CbModoMicros As ComboBox
 End Class

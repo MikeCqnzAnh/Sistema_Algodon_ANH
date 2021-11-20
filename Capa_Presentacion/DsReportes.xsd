@@ -370,6 +370,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReporteRangoCastigo" msprop:Generator_TableClassName="ReporteRangoCastigoDataTable" msprop:Generator_TableVarName="tableReporteRangoCastigo" msprop:Generator_RowChangedName="ReporteRangoCastigoRowChanged" msprop:Generator_TablePropName="ReporteRangoCastigo" msprop:Generator_RowDeletingName="ReporteRangoCastigoRowDeleting" msprop:Generator_RowChangingName="ReporteRangoCastigoRowChanging" msprop:Generator_RowEvHandlerName="ReporteRangoCastigoRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRangoCastigoRowDeleted" msprop:Generator_RowClassName="ReporteRangoCastigoRow" msprop:Generator_UserTableName="ReporteRangoCastigo" msprop:Generator_RowEvArgName="ReporteRangoCastigoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rango1" msprop:Generator_ColumnVarNameInTable="columnRango1" msprop:Generator_ColumnPropNameInRow="Rango1" msprop:Generator_ColumnPropNameInTable="Rango1Column" msprop:Generator_UserColumnName="Rango1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rango2" msprop:Generator_ColumnVarNameInTable="columnRango2" msprop:Generator_ColumnPropNameInRow="Rango2" msprop:Generator_ColumnPropNameInTable="Rango2Column" msprop:Generator_UserColumnName="Rango2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CantidadPacas" msprop:Generator_ColumnVarNameInTable="columnCantidadPacas" msprop:Generator_ColumnPropNameInRow="CantidadPacas" msprop:Generator_ColumnPropNameInTable="CantidadPacasColumn" msprop:Generator_UserColumnName="CantidadPacas" type="xs:int" minOccurs="0" />
+              <xs:element name="Castigo" msprop:Generator_ColumnVarNameInTable="columnCastigo" msprop:Generator_ColumnPropNameInRow="Castigo" msprop:Generator_ColumnPropNameInTable="CastigoColumn" msprop:Generator_UserColumnName="Castigo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

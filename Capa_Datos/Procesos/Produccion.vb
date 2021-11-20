@@ -141,6 +141,25 @@ Public Class Produccion
             EntidadProduccion = EntidadProduccion1
         End Try
     End Sub
+    Public Overridable Sub UpsertEstatusRevisado(ByRef EntidadProduccion As Capa_Entidad.Produccion)
+        Dim EntidadProduccion1 As New Capa_Entidad.Produccion
+        EntidadProduccion1 = EntidadProduccion
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("Pa_ActualizaEstatusRevision", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion1.IdProduccion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@EstatusRevision", EntidadProduccion1.IdEstatus))
+            cmdGuardar.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            cnn.Close()
+            EntidadProduccion = EntidadProduccion1
+        End Try
+    End Sub
     Public Overridable Sub UpsertFolioInicial(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         EntidadProduccion1 = EntidadProduccion
@@ -276,6 +295,13 @@ Public Class Produccion
                     sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion.IdProduccion))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadProduccion.IdOrdenTrabajo))
                     sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadProduccion.NombreProductor))
+                    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaEstatusRevision
+                    sqlcom1 = New SqlCommand("Pa_ConsultaRevisionProduccion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdProduccion", EntidadProduccion.IdProduccion))
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaProduccionPesos
                     sqlcom1 = New SqlCommand("Sp_ConsultaProduccionPesos", cnn)

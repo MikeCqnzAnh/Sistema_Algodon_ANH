@@ -335,7 +335,8 @@ Public Class MenuPrincipal
         SalidaBasura.ShowDialog()
     End Sub
     Private Sub VentaDePacasPorContratoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentaDePacasPorContratoToolStripMenuItem.Click
-        VentaPacasContrato.ShowDialog()
+        Dim ventapacascont As New VentaPacasContrato
+        ventapacascont.ShowDialog()
     End Sub
     Private Sub PaquetesHVIToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaquetesHVIToolStripMenuItem1.Click
         PaquetesHVI.ShowDialog()

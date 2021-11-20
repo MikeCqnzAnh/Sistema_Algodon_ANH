@@ -10,6 +10,7 @@ Public Class VentaPacasContrato
             Select Case EntidadVentaPacasContrato1.Guarda
                 Case Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasEnc
                     cmdGuardar = New SqlCommand("Sp_InsertaVentaPacas", cnn)
+                    cmdGuardar.CommandTimeout = 6000
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdVenta", CInt(EntidadVentaPacasContrato1.IdVenta)))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadVentaPacasContrato1.IdComprador))
@@ -53,6 +54,7 @@ Public Class VentaPacasContrato
                 Case Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasDet
                     For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
                         cmdGuardar = New SqlCommand("sp_ActualizaEstatusVentaPaca", cnn)
+                        cmdGuardar.CommandTimeout = 6000
                         cmdGuardar.CommandType = CommandType.StoredProcedure
                         cmdGuardar.Parameters.Clear()
                         'cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", MiTableRow("IdComprador")))
@@ -102,6 +104,7 @@ Public Class VentaPacasContrato
                 Case Capa_Operacion.Configuracion.Guardar.GuardarVentaPacasDet
                     For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
                         cmdGuardar = New SqlCommand("sp_EnviaPacaVenta", cnn)
+                        cmdGuardar.CommandTimeout = 6000
                         cmdGuardar.CommandType = CommandType.StoredProcedure
                         cmdGuardar.Parameters.Clear()
                         cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
