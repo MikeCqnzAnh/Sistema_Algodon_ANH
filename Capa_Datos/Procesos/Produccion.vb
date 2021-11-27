@@ -1,4 +1,5 @@
-﻿
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
 Imports System.Data.SqlClient
 Public Class Produccion
     Public Overridable Sub Upsert(ByRef EntidadProduccion As Capa_Entidad.Produccion)

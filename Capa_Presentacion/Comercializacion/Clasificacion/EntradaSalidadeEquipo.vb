@@ -1,4 +1,7 @@
-﻿Public Class EntradaSalidadeEquipo
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class EntradaSalidadeEquipo
     Private Sub CbEstatus_SelectedValueChanged(sender As Object, e As EventArgs) Handles CbEstatus.SelectionChangeCommitted
         If CbEstatus.SelectedValue = 1 Then
             tbrecibe.Enabled = True

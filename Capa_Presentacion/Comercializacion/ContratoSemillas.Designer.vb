@@ -28,6 +28,9 @@ Partial Class ContratoSemillas
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbMoneda = New System.Windows.Forms.ComboBox()
+        Me.NuCantidad = New System.Windows.Forms.NumericUpDown()
+        Me.NuPrecioTonelada = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -46,19 +49,17 @@ Partial Class ContratoSemillas
         Me.TbIdContratoSemilla = New System.Windows.Forms.TextBox()
         Me.DgvContratoSemillas = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.NuPrecioTonelada = New System.Windows.Forms.NumericUpDown()
-        Me.NuCantidad = New System.Windows.Forms.NumericUpDown()
-        Me.CbMoneda = New System.Windows.Forms.ComboBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvContratoSemillas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -117,6 +118,35 @@ Partial Class ContratoSemillas
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'CbMoneda
+        '
+        Me.CbMoneda.FormattingEnabled = True
+        Me.CbMoneda.Location = New System.Drawing.Point(584, 19)
+        Me.CbMoneda.Name = "CbMoneda"
+        Me.CbMoneda.Size = New System.Drawing.Size(64, 21)
+        Me.CbMoneda.TabIndex = 16
+        '
+        'NuCantidad
+        '
+        Me.NuCantidad.Location = New System.Drawing.Point(117, 125)
+        Me.NuCantidad.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.NuCantidad.Name = "NuCantidad"
+        Me.NuCantidad.Size = New System.Drawing.Size(120, 20)
+        Me.NuCantidad.TabIndex = 15
+        Me.NuCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuCantidad.ThousandsSeparator = True
+        '
+        'NuPrecioTonelada
+        '
+        Me.NuPrecioTonelada.DecimalPlaces = 4
+        Me.NuPrecioTonelada.Location = New System.Drawing.Point(448, 20)
+        Me.NuPrecioTonelada.Maximum = New Decimal(New Integer() {-1304428545, 434162106, 542, 0})
+        Me.NuPrecioTonelada.Name = "NuPrecioTonelada"
+        Me.NuPrecioTonelada.Size = New System.Drawing.Size(120, 20)
+        Me.NuPrecioTonelada.TabIndex = 15
+        Me.NuPrecioTonelada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuPrecioTonelada.ThousandsSeparator = True
         '
         'Label9
         '
@@ -283,35 +313,6 @@ Partial Class ContratoSemillas
         Me.Panel1.Size = New System.Drawing.Size(1194, 365)
         Me.Panel1.TabIndex = 15
         '
-        'NuPrecioTonelada
-        '
-        Me.NuPrecioTonelada.DecimalPlaces = 4
-        Me.NuPrecioTonelada.Location = New System.Drawing.Point(448, 20)
-        Me.NuPrecioTonelada.Maximum = New Decimal(New Integer() {-1304428545, 434162106, 542, 0})
-        Me.NuPrecioTonelada.Name = "NuPrecioTonelada"
-        Me.NuPrecioTonelada.Size = New System.Drawing.Size(120, 20)
-        Me.NuPrecioTonelada.TabIndex = 15
-        Me.NuPrecioTonelada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NuPrecioTonelada.ThousandsSeparator = True
-        '
-        'NuCantidad
-        '
-        Me.NuCantidad.Location = New System.Drawing.Point(117, 125)
-        Me.NuCantidad.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
-        Me.NuCantidad.Name = "NuCantidad"
-        Me.NuCantidad.Size = New System.Drawing.Size(120, 20)
-        Me.NuCantidad.TabIndex = 15
-        Me.NuCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.NuCantidad.ThousandsSeparator = True
-        '
-        'CbMoneda
-        '
-        Me.CbMoneda.FormattingEnabled = True
-        Me.CbMoneda.Location = New System.Drawing.Point(584, 19)
-        Me.CbMoneda.Name = "CbMoneda"
-        Me.CbMoneda.Size = New System.Drawing.Size(64, 21)
-        Me.CbMoneda.TabIndex = 16
-        '
         'ContratoSemillas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -329,10 +330,10 @@ Partial Class ContratoSemillas
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvContratoSemillas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -12,6 +12,7 @@ if @idproduccion > 0
 			  ,penc.IdCliente
 			  ,cl.Nombre
 			  ,count(pdet.foliocia) as CantidadPacas
+			  ,isnull(penc.EstatusRevisado,0) as EstatusRevisado
 		from Produccion penc left join Producciondetalle pdet on penc.IdProduccion = pdet.IdProduccion and penc.IdOrdenTrabajo = pdet.IdOrdenTrabajo and penc.idplantaorigen = pdet.idplantaorigen
 							 inner join Clientes cl on penc.idcliente = cl.idcliente
 							 inner join Plantas pl on penc.idplantaorigen = pl.idplanta
@@ -22,6 +23,7 @@ if @idproduccion > 0
 				,pl.Descripcion
 				,penc.idcliente
 				,cl.Nombre
+				,penc.EstatusRevisado
 		order by penc.idproduccion
 	end
 else if @IdOrdenTrabajo > 0
@@ -33,6 +35,7 @@ else if @IdOrdenTrabajo > 0
 			  ,penc.IdCliente
 			  ,cl.Nombre
 			  ,count(pdet.foliocia) as CantidadPacas
+			  ,isnull(penc.EstatusRevisado,0) as EstatusRevisado
 		from Produccion penc left join Producciondetalle pdet on penc.IdProduccion = pdet.IdProduccion and penc.IdOrdenTrabajo = pdet.IdOrdenTrabajo and penc.idplantaorigen = pdet.idplantaorigen
 							 inner join Clientes cl on penc.idcliente = cl.idcliente
 							 inner join Plantas pl on penc.idplantaorigen = pl.idplanta
@@ -43,6 +46,7 @@ else if @IdOrdenTrabajo > 0
 				,pl.Descripcion
 				,penc.idcliente
 				,cl.Nombre
+				,penc.EstatusRevisado
 		order by penc.idproduccion
 	end
 else if @Nombre <> ''
@@ -54,6 +58,7 @@ else if @Nombre <> ''
 			  ,penc.IdCliente
 			  ,cl.Nombre
 			  ,count(pdet.foliocia) as CantidadPacas
+  			  ,isnull(penc.EstatusRevisado,0) as EstatusRevisado
 		from Produccion penc left join Producciondetalle pdet on penc.IdProduccion = pdet.IdProduccion and penc.IdOrdenTrabajo = pdet.IdOrdenTrabajo and penc.idplantaorigen = pdet.idplantaorigen
 							 inner join Clientes cl on penc.idcliente = cl.idcliente
 							 inner join Plantas pl on penc.idplantaorigen = pl.idplanta
@@ -64,6 +69,7 @@ else if @Nombre <> ''
 				,pl.Descripcion
 				,penc.idcliente
 				,cl.Nombre
+				,penc.EstatusRevisado
 		order by penc.idproduccion
 	end
 else
@@ -75,6 +81,7 @@ else
 			  ,penc.IdCliente
 			  ,cl.Nombre
 			  ,count(pdet.foliocia) as CantidadPacas
+			  ,isnull(penc.EstatusRevisado,0) as EstatusRevisado
 		from Produccion penc left join Producciondetalle pdet on penc.IdProduccion = pdet.IdProduccion and penc.IdOrdenTrabajo = pdet.IdOrdenTrabajo and penc.idplantaorigen = pdet.idplantaorigen
 							 inner join Clientes cl on penc.idcliente = cl.idcliente
 							 inner join Plantas pl on penc.idplantaorigen = pl.idplanta
@@ -84,5 +91,6 @@ else
 				,pl.Descripcion
 				,penc.idcliente
 				,cl.Nombre
+				,penc.EstatusRevisado
 		order by penc.idproduccion
 	end

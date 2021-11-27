@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class CrearEstructura
     Private TablaExportar As New DataTable
     Private _baseDatos As String

@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Capa_Entidad
+Imports Capa_Operacion
 Public Class LiquidacionesPorRomaneaje
     Public Overridable Sub Consultar(ByRef EntidadLiquidacionesPorRomaneaje As Capa_Entidad.LiquidacionesPorRomaneaje)
         Dim EntidadLiquidacionesPorRomaneaje1 As New Capa_Entidad.LiquidacionesPorRomaneaje

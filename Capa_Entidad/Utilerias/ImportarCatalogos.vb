@@ -1,4 +1,5 @@
-﻿Public Class ImportarCatalogos
+﻿Imports Capa_Operacion
+Public Class ImportarCatalogos
     Inherits Tarjeta
     Public Table As String
     Public Campos As String

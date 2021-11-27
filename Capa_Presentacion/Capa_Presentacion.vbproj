@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.38.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.42.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -599,6 +599,12 @@
     <Compile Include="Procesos\CargaPacasExternas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Procesos\IncidenciasProduccion.Designer.vb">
+      <DependentUpon>IncidenciasProduccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\IncidenciasProduccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Procesos\RevisionProduccion.Designer.vb">
       <DependentUpon>RevisionProduccion.vb</DependentUpon>
     </Compile>
@@ -671,10 +677,22 @@
     <Compile Include="Reportes\RepDetalleCastigoPaca.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepDiarioOperacionPlanta.Designer.vb">
+      <DependentUpon>RepDiarioOperacionPlanta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepDiarioOperacionPlanta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepDisponibilidadPacasProductor.Designer.vb">
       <DependentUpon>RepDisponibilidadPacasProductor.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\RepDisponibilidadPacasProductor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RepHojaProduccion.Designer.vb">
+      <DependentUpon>RepHojaProduccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepHojaProduccion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\RepLiquidacionPacasResumen.Designer.vb">
@@ -887,6 +905,12 @@
       <DependentUpon>RPTExistenciaPacasDetalle.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTHojaProduccion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTHojaProduccion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTHviDetalle.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -993,6 +1017,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTReporteClientes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTReporteDiarioOperacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTReporteDiarioOperacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTResumenLiquidaciones.vb">
@@ -1684,6 +1714,9 @@
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\IncidenciasProduccion.resx">
+      <DependentUpon>IncidenciasProduccion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Procesos\RevisionProduccion.resx">
       <DependentUpon>RevisionProduccion.vb</DependentUpon>
     </EmbeddedResource>
@@ -1720,8 +1753,14 @@
     <EmbeddedResource Include="Reportes\RepDetalleCastigoPaca.resx">
       <DependentUpon>RepDetalleCastigoPaca.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepDiarioOperacionPlanta.resx">
+      <DependentUpon>RepDiarioOperacionPlanta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepDisponibilidadPacasProductor.resx">
       <DependentUpon>RepDisponibilidadPacasProductor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepHojaProduccion.resx">
+      <DependentUpon>RepHojaProduccion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepLiquidacionPacasResumen.resx">
       <DependentUpon>RepLiquidacionPacasResumen.vb</DependentUpon>
@@ -1840,6 +1879,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTExistenciaPacasDetalle.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTHojaProduccion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTHojaProduccion.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTHviDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTHviDetalle.vb</LastGenOutput>
@@ -1911,6 +1954,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTReporteClientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTReporteClientes.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTReporteDiarioOperacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTReporteDiarioOperacion1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTResumenLiquidaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

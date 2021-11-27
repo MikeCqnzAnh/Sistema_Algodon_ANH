@@ -1,4 +1,5 @@
-﻿Public Class Clientes
+﻿Imports Capa_Operacion
+Public Class Clientes
     Inherits Tarjeta
     Public IdCliente As Integer
     Public Socio As String

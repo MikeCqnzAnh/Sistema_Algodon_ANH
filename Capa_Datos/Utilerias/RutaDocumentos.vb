@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class RutaDocumentos
     Public Overridable Sub Consultar(ByRef EntidadRutaDocumentos As Capa_Entidad.RutaDocumentos)
         Dim EntidadRutaDocumentos1 As New Capa_Entidad.RutaDocumentos()

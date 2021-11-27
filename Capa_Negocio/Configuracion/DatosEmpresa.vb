@@ -1,4 +1,6 @@
-﻿Public Class DatosEmpresa
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class DatosEmpresa
     Public Overridable Sub Guardar(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa
         Dim DatosDatosEmpresa As New Capa_Datos.DatosEmpresa

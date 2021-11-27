@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.Data.Sql
 Imports System.Data
 Imports CrystalDecisions.CrystalReports.Engine
@@ -25,13 +27,27 @@ Public Class RepCastigoPorRangos
         IdModLargo = IdModoLar
         IdModUniformidad = IdModoUni
     End Sub
-    Private Sub RepLiquidacionRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Function tablaidventa()
+        Dim dt As New DataTable
+        Dim dr As DataRow
+        Dim i As Integer = 0
+        dt.Columns.Add(New DataColumn("IdVenta", GetType(Int64)))
+
+        dr = dt.NewRow()
+        dr("IdVenta") = IDVenta
+        dt.Rows.Add(dr)
+
+        Return dt
+    End Function
+    Private Sub RepCastigoRangos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
         Dim Tabla, TablaGeneral As New DataTable
         Dim ds As New DataSet
         Dim CrReport As RPTCastigoPorRangos = New RPTCastigoPorRangos
         Dim Ruta As String = Application.StartupPath & "\Reportes\RPT\RPTCastigoPorRangos.rpt"
+
+        ds.Tables.Add(tablaidventa)
 
         EntidadReportes.Reporte = Reporte.ReporteRangoCastigolar
         EntidadReportes.IdVenta = IDVenta
@@ -62,11 +78,11 @@ Public Class RepCastigoPorRangos
         ds.Tables.Add(TablaGeneral)
 
         CrReport.Load(Ruta)
-
-        CrReport.Subreports("SubReporteLar").SetDataSource(ds.Tables("Table1"))
-        CrReport.Subreports("SubReporteMic").SetDataSource(ds.Tables("Table2"))
-        CrReport.Subreports("SubReporteRes").SetDataSource(ds.Tables("Table3"))
-        CrReport.Subreports("SubReporteUni").SetDataSource(ds.Tables("Table4"))
+        CrReport.SetDataSource(ds.Tables("table1"))
+        CrReport.Subreports("SubReporteLar").SetDataSource(ds.Tables("Table2"))
+        CrReport.Subreports("SubReporteMic").SetDataSource(ds.Tables("Table3"))
+        CrReport.Subreports("SubReporteRes").SetDataSource(ds.Tables("Table4"))
+        CrReport.Subreports("SubReporteUni").SetDataSource(ds.Tables("Table5"))
         CRVCastigoporrangos.ReportSource = CrReport
     End Sub
 End Class

@@ -1,4 +1,5 @@
-﻿Public Class Colonias
+﻿Imports Capa_Operacion
+Public Class Colonias
     Inherits Tarjeta
     Public IdColonia As Integer
     Public Descripcion As String

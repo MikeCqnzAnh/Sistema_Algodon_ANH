@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ParametrosCorreo
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\conf\"
     Dim archivo As String = "confemail.ini"

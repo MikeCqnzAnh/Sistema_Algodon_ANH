@@ -1,4 +1,6 @@
-﻿Public Class Monedas
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Monedas
     Public Overridable Sub Guardar(ByRef EntidadMonedas As Capa_Entidad.Monedas)
         Dim EntidadMonedas1 As New Capa_Entidad.Monedas
         Dim DatosMonedas As New Capa_Datos.Monedas

@@ -1,4 +1,6 @@
-﻿Public Class ConfiguracionParametros
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ConfiguracionParametros
     Public Overridable Sub Guardar(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
         Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros
         Dim DatosConfiguracionParametros As New Capa_Datos.ConfiguracionParametros

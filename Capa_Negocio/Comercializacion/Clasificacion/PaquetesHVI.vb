@@ -1,4 +1,6 @@
-﻿Public Class PaquetesHVI
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class PaquetesHVI
     Public Overridable Sub Guardar(ByRef EntidadPaquetesHVI As Capa_Entidad.PaquetesHVI)
         Dim EntidadPaquetesHVI1 As New Capa_Entidad.PaquetesHVI
         Dim DatosPaquetesHVI As New Capa_Datos.PaquetesHVI

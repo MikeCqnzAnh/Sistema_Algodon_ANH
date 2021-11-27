@@ -1,4 +1,6 @@
-﻿Public Class CastigoUniformidad
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CastigoUniformidad
     Public Overridable Sub Guardar(ByRef EntidadCastigoUniformidad As Capa_Entidad.CastigoUniformidad)
         Dim EntidadCastigoUniformidad1 As New Capa_Entidad.CastigoUniformidad
         Dim DatosCastigoUniformidad As New Capa_Datos.CastigoUniformidad

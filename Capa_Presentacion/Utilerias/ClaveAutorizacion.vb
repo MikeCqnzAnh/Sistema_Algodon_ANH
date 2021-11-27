@@ -1,4 +1,7 @@
-﻿Public Class ClaveAutorizacion
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class ClaveAutorizacion
     Private Sub ClaveAutorizacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TbClave.Focus()
         ConsultaClaveAutorizacion(Usuario)

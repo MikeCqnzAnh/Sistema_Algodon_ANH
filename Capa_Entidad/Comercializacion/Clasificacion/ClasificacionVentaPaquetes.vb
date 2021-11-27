@@ -1,4 +1,5 @@
-﻿Public Class ClasificacionVentaPaquetes
+﻿Imports Capa_Operacion
+Public Class ClasificacionVentaPaquetes
     Inherits Tarjeta
     Public IdClasificacion As Integer
     Public NumeroPaca As Long

@@ -2,6 +2,8 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Usuarios
     Dim TablaEnc As New DataTable
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load

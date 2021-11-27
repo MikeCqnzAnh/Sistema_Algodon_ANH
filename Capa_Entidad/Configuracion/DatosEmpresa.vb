@@ -1,4 +1,5 @@
-﻿Public Class DatosEmpresa
+﻿Imports Capa_Operacion
+Public Class DatosEmpresa
     Inherits Tarjeta
     Public IdDatosEmpresa As Integer
     Public RazonSocial As String

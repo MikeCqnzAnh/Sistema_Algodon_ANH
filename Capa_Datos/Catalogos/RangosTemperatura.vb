@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class RangosTemperatura
     Public Overridable Sub Upsert(ByRef EntidadRangosTemperatura As Capa_Entidad.RangosTemperatura)
         Dim EntidadRangosTemperatura1 As New Capa_Entidad.RangosTemperatura

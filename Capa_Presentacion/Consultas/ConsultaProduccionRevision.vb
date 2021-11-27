@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ConsultaProduccionRevision
     Private _IdOrdenTrabajo As Integer
     Public Property IdOrdenTrabajo() As Integer
@@ -43,6 +45,18 @@ Public Class ConsultaProduccionRevision
     Private Sub TbNombre_KeyDown(sender As Object, e As KeyEventArgs) Handles TbIdOrdenTrabajo.KeyDown, TbIdProduccion.KeyDown, TbProductor.KeyDown
         If e.KeyCode = Keys.Enter Then
             Consultar()
+        End If
+    End Sub
+
+    Private Sub ExportarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarExcelToolStripMenuItem.Click
+        If DgvProducciones.RowCount > 0 Then
+            ExportExcel(DgvProducciones)
+        End If
+    End Sub
+
+    Private Sub ConsultaProduccionRevision_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If _IdOrdenTrabajo = 0 Then
+            _IdOrdenTrabajo = 0
         End If
     End Sub
 End Class

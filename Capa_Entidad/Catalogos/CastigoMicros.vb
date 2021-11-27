@@ -1,4 +1,5 @@
-﻿Public Class CastigoMicros
+﻿Imports Capa_Operacion
+Public Class CastigoMicros
     Inherits Tarjeta
     Public IdMicrosEncabezado As Integer
     Public IdModoDetalle As Integer

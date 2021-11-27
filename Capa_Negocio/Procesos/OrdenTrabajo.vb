@@ -1,4 +1,6 @@
-﻿Public Class OrdenTrabajo
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class OrdenTrabajo
     Public Overridable Sub Guardar(ByRef EntidadOrdenTrabajo As Capa_Entidad.OrdenTrabajo)
         Dim EntidadOrdenTrabajo1 As New Capa_Entidad.OrdenTrabajo
         Dim DatosOrdenTrabajo As New Capa_Datos.OrdenTrabajo

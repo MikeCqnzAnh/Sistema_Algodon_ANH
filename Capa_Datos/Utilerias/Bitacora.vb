@@ -1,4 +1,6 @@
-﻿Imports System.Configuration
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Configuration
 Imports System.Data.SqlClient
 Imports System.Text
 Imports Microsoft.Office.Interop

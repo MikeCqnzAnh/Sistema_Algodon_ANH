@@ -1,4 +1,6 @@
-﻿Imports System.Data.Sql
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.Sql
 Imports System.Data.SqlClient
 Public Class Respaldos
     Public Overridable Sub Generar(ByRef EntidadRespaldos As Capa_Entidad.Respaldos)

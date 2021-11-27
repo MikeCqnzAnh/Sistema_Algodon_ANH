@@ -1,4 +1,6 @@
-﻿Public Class Etiquetas
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Etiquetas
     Public Overridable Sub Consultar(ByRef EntidadEtiquetas As Capa_Entidad.Etiquetas)
         Dim DatosEtiquetas As New Capa_Datos.Etiquetas
         DatosEtiquetas.Consultar(EntidadEtiquetas)

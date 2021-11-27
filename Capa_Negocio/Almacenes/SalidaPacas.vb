@@ -1,4 +1,6 @@
-﻿Public Class SalidaPacas
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class SalidaPacas
     Public Overridable Sub Consultar(ByRef EntidadSalidaPacas As Capa_Entidad.SalidaPacas)
         Dim DatosSalidaPacas As New Capa_Datos.SalidaPacas
         DatosSalidaPacas.Consultar(EntidadSalidaPacas)

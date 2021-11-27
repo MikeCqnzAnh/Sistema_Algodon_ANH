@@ -1,4 +1,6 @@
-﻿Public Class MenuPrincipal
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class MenuPrincipal
     Public Overridable Sub Consultar(ByRef EntidadMenuPrincipal As Capa_Entidad.MenuPrincipal)
         Dim EntidadMenuPrincipal1 As New Capa_Entidad.MenuPrincipal()
         Dim DatosMenuPrincipal As New Capa_Datos.MenuPrincipal()

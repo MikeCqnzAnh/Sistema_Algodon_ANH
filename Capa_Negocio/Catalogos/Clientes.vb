@@ -1,4 +1,6 @@
-﻿Public Class Clientes
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Clientes
     Public Overridable Sub Guardar(ByRef EntidadClientes As Capa_Entidad.Clientes)
         Dim EntidadClientes1 As New Capa_Entidad.Clientes()
         Dim DatosClientes As New Capa_Datos.Clientes()

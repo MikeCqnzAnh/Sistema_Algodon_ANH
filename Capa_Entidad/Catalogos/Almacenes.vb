@@ -1,4 +1,5 @@
-﻿Public Class Almacenes
+﻿Imports Capa_Operacion
+Public Class Almacenes
     Inherits Tarjeta
     Public IdAlmacenEncabezado As Integer
     Public IdAlmacenDetalle As Integer

@@ -1,4 +1,6 @@
-﻿Public Class CastigoPorQuintal
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CastigoPorQuintal
     Public Overridable Sub Guardar(ByRef EntidadCastigoPorQuintal As Capa_Entidad.CastigoPorQuintal)
         Dim EntidadCastigoPorQuintal1 As New Capa_Entidad.CastigoPorQuintal
         Dim DatosCastigoPorQuintal As New Capa_Datos.CastigoPorQuintal

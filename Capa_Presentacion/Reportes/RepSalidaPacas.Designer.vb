@@ -26,6 +26,7 @@ Partial Class RepSalidaPacas
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NueviToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CkDiferencia = New System.Windows.Forms.CheckBox()
@@ -35,7 +36,6 @@ Partial Class RepSalidaPacas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TbComprador = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ResumenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -60,6 +60,7 @@ Partial Class RepSalidaPacas
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NueviToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ResumenToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -78,6 +79,12 @@ Partial Class RepSalidaPacas
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
         Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.ConsultarToolStripMenuItem.Text = "Detalle"
+        '
+        'ResumenToolStripMenuItem
+        '
+        Me.ResumenToolStripMenuItem.Name = "ResumenToolStripMenuItem"
+        Me.ResumenToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.ResumenToolStripMenuItem.Text = "Resumen"
         '
         'SalirToolStripMenuItem
         '
@@ -162,12 +169,6 @@ Partial Class RepSalidaPacas
         Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Comprador"
-        '
-        'ResumenToolStripMenuItem
-        '
-        Me.ResumenToolStripMenuItem.Name = "ResumenToolStripMenuItem"
-        Me.ResumenToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.ResumenToolStripMenuItem.Text = "Resumen"
         '
         'RepSalidaPacas
         '

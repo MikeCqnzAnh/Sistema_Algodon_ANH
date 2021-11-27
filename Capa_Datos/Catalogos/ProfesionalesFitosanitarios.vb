@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class ProfesionalesFitosanitarios
     Public Overridable Sub Upsert(ByRef EntidadProfesionalesFitosanitarios As Capa_Entidad.ProfesionalesFitosanitarios)
         Dim EntidadProfesionalesFitosanitarios1 As New Capa_Entidad.ProfesionalesFitosanitarios

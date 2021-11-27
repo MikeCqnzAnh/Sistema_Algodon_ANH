@@ -29,8 +29,8 @@ Partial Class RepClientes
         Me.BtConsultar = New System.Windows.Forms.Button()
         Me.CRVReporteClientes = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.EnviarPorEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnviarPorEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -89,6 +89,7 @@ Partial Class RepClientes
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LimpiarToolStripMenuItem, Me.EnviarPorEmailToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -96,19 +97,19 @@ Partial Class RepClientes
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'EnviarPorEmailToolStripMenuItem
-        '
-        Me.EnviarPorEmailToolStripMenuItem.Image = CType(resources.GetObject("EnviarPorEmailToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EnviarPorEmailToolStripMenuItem.Name = "EnviarPorEmailToolStripMenuItem"
-        Me.EnviarPorEmailToolStripMenuItem.Size = New System.Drawing.Size(120, 20)
-        Me.EnviarPorEmailToolStripMenuItem.Text = "Enviar por Email"
-        '
         'LimpiarToolStripMenuItem
         '
         Me.LimpiarToolStripMenuItem.Image = CType(resources.GetObject("LimpiarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
         Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.LimpiarToolStripMenuItem.Text = "Limpiar"
+        '
+        'EnviarPorEmailToolStripMenuItem
+        '
+        Me.EnviarPorEmailToolStripMenuItem.Image = CType(resources.GetObject("EnviarPorEmailToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EnviarPorEmailToolStripMenuItem.Name = "EnviarPorEmailToolStripMenuItem"
+        Me.EnviarPorEmailToolStripMenuItem.Size = New System.Drawing.Size(120, 20)
+        Me.EnviarPorEmailToolStripMenuItem.Text = "Enviar por Email"
         '
         'SalirToolStripMenuItem
         '

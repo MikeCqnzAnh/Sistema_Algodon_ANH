@@ -1,4 +1,6 @@
-﻿Public Class CapturaBoletasPorLotes
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CapturaBoletasPorLotes
     Public Overridable Sub Guardar(ByRef EntidadCapturaBoletasPorLotes As Capa_Entidad.CapturaBoletasPorLotes)
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         Dim DatosCapturaBoletasPorLotes As New Capa_Datos.CapturaBoletasPorLotes

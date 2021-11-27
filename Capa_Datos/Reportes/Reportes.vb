@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class Reportes
     Public Overridable Sub Consultar(ByRef EntidadReportes As Capa_Entidad.Reportes)
         Dim EntidadReportes1 As New Capa_Entidad.Reportes

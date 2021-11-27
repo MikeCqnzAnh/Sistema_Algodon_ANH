@@ -27,6 +27,10 @@ Partial Class ExistenciaBodegaPacas
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GbGeneral = New System.Windows.Forms.GroupBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.RbSalidas = New System.Windows.Forms.RadioButton()
+        Me.RbEntrada = New System.Windows.Forms.RadioButton()
         Me.BtInsertar = New System.Windows.Forms.Button()
         Me.TbEtiqueta = New System.Windows.Forms.TextBox()
         Me.CbNoLote = New System.Windows.Forms.ComboBox()
@@ -52,17 +56,13 @@ Partial Class ExistenciaBodegaPacas
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RbEntrada = New System.Windows.Forms.RadioButton()
-        Me.RbSalidas = New System.Windows.Forms.RadioButton()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.GbGeneral.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GbGeneral
@@ -106,6 +106,48 @@ Partial Class ExistenciaBodegaPacas
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(640, 245)
         Me.Panel3.TabIndex = 20
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Yellow
+        Me.PictureBox2.Location = New System.Drawing.Point(395, 40)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(37, 31)
+        Me.PictureBox2.TabIndex = 10
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Green
+        Me.PictureBox1.Location = New System.Drawing.Point(150, 40)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(37, 31)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
+        'RbSalidas
+        '
+        Me.RbSalidas.AutoSize = True
+        Me.RbSalidas.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RbSalidas.Location = New System.Drawing.Point(268, 36)
+        Me.RbSalidas.Name = "RbSalidas"
+        Me.RbSalidas.Size = New System.Drawing.Size(121, 35)
+        Me.RbSalidas.TabIndex = 8
+        Me.RbSalidas.TabStop = True
+        Me.RbSalidas.Text = "Salidas"
+        Me.RbSalidas.UseVisualStyleBackColor = True
+        '
+        'RbEntrada
+        '
+        Me.RbEntrada.AutoSize = True
+        Me.RbEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RbEntrada.Location = New System.Drawing.Point(3, 36)
+        Me.RbEntrada.Name = "RbEntrada"
+        Me.RbEntrada.Size = New System.Drawing.Size(141, 35)
+        Me.RbEntrada.TabIndex = 7
+        Me.RbEntrada.TabStop = True
+        Me.RbEntrada.Text = "Entradas"
+        Me.RbEntrada.UseVisualStyleBackColor = True
         '
         'BtInsertar
         '
@@ -337,6 +379,7 @@ Partial Class ExistenciaBodegaPacas
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -356,48 +399,6 @@ Partial Class ExistenciaBodegaPacas
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'RbEntrada
-        '
-        Me.RbEntrada.AutoSize = True
-        Me.RbEntrada.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RbEntrada.Location = New System.Drawing.Point(3, 36)
-        Me.RbEntrada.Name = "RbEntrada"
-        Me.RbEntrada.Size = New System.Drawing.Size(141, 35)
-        Me.RbEntrada.TabIndex = 7
-        Me.RbEntrada.TabStop = True
-        Me.RbEntrada.Text = "Entradas"
-        Me.RbEntrada.UseVisualStyleBackColor = True
-        '
-        'RbSalidas
-        '
-        Me.RbSalidas.AutoSize = True
-        Me.RbSalidas.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RbSalidas.Location = New System.Drawing.Point(268, 36)
-        Me.RbSalidas.Name = "RbSalidas"
-        Me.RbSalidas.Size = New System.Drawing.Size(121, 35)
-        Me.RbSalidas.TabIndex = 8
-        Me.RbSalidas.TabStop = True
-        Me.RbSalidas.Text = "Salidas"
-        Me.RbSalidas.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Green
-        Me.PictureBox1.Location = New System.Drawing.Point(150, 40)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(37, 31)
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Yellow
-        Me.PictureBox2.Location = New System.Drawing.Point(395, 40)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(37, 31)
-        Me.PictureBox2.TabIndex = 10
-        Me.PictureBox2.TabStop = False
-        '
         'ExistenciaBodegaPacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -416,12 +417,12 @@ Partial Class ExistenciaBodegaPacas
         Me.GbGeneral.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.DgvMatriz, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

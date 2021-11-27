@@ -1,4 +1,5 @@
-﻿Public Class OrdenTrabajo
+﻿Imports Capa_Operacion
+Public Class OrdenTrabajo
     Inherits Tarjeta
     Public IdOrdenTrabajo As Integer
     Public IdPlanta As Integer

@@ -1,4 +1,7 @@
-﻿Imports System.ComponentModel
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Imports System.ComponentModel
 Imports System.Xml
 Public Class IntegraciondeCompras
     Private Sub GuardarIntegracionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarIntegracionToolStripMenuItem.Click

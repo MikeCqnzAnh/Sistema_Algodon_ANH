@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.Net
 Imports System.Net.NetworkInformation
 Imports System.Management

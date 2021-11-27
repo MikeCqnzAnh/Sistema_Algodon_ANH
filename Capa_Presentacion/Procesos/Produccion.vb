@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.IO.Ports
 Imports System.Net
 Public Class Produccion
@@ -1052,6 +1054,14 @@ Public Class Produccion
     Private Sub TiActualizaDgvPacas__Tick(sender As Object, e As EventArgs) Handles TiActualizaDgvPacas.Tick
         Consultar()
     End Sub
+
+    Private Sub BtIncidencias_Click(sender As Object, e As EventArgs) Handles BtIncidencias.Click
+        If TbIdProduccion.Text <> "" Then
+            Dim incidencias As New IncidenciasProduccion
+            incidencias.ShowDialog()
+        End If
+    End Sub
+
     Private Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAutomatica.DataReceived
         'While bandera = True
         Dim Resultado As String = ""

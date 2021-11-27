@@ -1,4 +1,6 @@
-﻿Public Class Usuarios
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Usuarios
     Public Overridable Sub Guardar(ByRef EntidadUsuarios As Capa_Entidad.Usuarios)
         Dim EntidadUsuarios1 As New Capa_Entidad.Usuarios
         Dim DatosUsuarios As New Capa_Datos.Usuarios

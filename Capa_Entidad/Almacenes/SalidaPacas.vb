@@ -1,4 +1,5 @@
-﻿Public Class SalidaPacas
+﻿Imports Capa_Operacion
+Public Class SalidaPacas
     Inherits Tarjeta
     Public IdEmbarqueEncabezado As Integer
     Public NoLote As String

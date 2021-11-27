@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ConfiguraConexionInicial
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"

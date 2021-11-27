@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class CastigosUniformidadVenta
     Private Sub ConsultaModosDetalleParametro(ByVal Id As Integer)
         Dim EntidadCastigoResistenciaFibra As New Capa_Entidad.CastigoResistenciaFibra

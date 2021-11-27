@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class PreliquidacionCompra
     Public TablaPacasAgrupadas As New DataTable
     Private Sub PreliquidacionCompra_Load(sender As Object, e As EventArgs) Handles Me.Load

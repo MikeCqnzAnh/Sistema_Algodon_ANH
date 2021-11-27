@@ -1,4 +1,5 @@
-﻿Public Class RangosTemperatura
+﻿Imports Capa_Operacion
+Public Class RangosTemperatura
     Inherits Tarjeta
     Public IdRango As Integer
     Public RangoInicial As Double

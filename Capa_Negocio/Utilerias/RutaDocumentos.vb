@@ -1,4 +1,6 @@
-﻿Public Class RutaDocumentos
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class RutaDocumentos
     Public Overridable Sub Consultar(ByRef EntidadRutaDocumentos As Capa_Entidad.RutaDocumentos)
         Dim EntidadRutaDocumentos1 As New Capa_Entidad.RutaDocumentos()
         Dim DatosRutaDocumentos As New Capa_Datos.RutaDocumentos()

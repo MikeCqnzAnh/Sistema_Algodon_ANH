@@ -1,4 +1,6 @@
-﻿Public Class ImportarCatalogos
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ImportarCatalogos
     Public Overridable Sub Consultar(ByRef EntidadImportarCatalogos As Capa_Entidad.ImportarCatalogos)
         Dim EntidadImportarCatalogos1 As New Capa_Entidad.ImportarCatalogos()
         Dim DatosImportarCatalogos As New Capa_Datos.ImportarCatalogos()

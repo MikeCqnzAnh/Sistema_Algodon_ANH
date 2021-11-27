@@ -1,4 +1,5 @@
-﻿Public Class CastigoPorQuintal
+﻿Imports Capa_Operacion
+Public Class CastigoPorQuintal
     Inherits Tarjeta
     Public IdMicro As Integer
     Public Rango1 As Double

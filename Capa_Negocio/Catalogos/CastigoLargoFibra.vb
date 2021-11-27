@@ -1,4 +1,6 @@
-﻿Public Class CastigoLargoFibra
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CastigoLargoFibra
     Public Overridable Sub Guardar(ByRef EntidadCastigoLargoFibra As Capa_Entidad.CastigoLargoFibra)
         Dim EntidadCastigoLargoFibra1 As New Capa_Entidad.CastigoLargoFibra
         Dim DatosCastigoLargoFibra As New Capa_Datos.CastigoLargoFibra

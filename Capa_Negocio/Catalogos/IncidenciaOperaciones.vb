@@ -1,4 +1,6 @@
-﻿Public Class IncidenciaOperaciones
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class IncidenciaOperaciones
     Public Overridable Sub Guardar(ByRef EntidadIncidenciaOperaciones As Capa_Entidad.IncidenciaOperaciones)
         Dim EntidadIncidenciaOperaciones1 As New Capa_Entidad.IncidenciaOperaciones
         Dim DatosIncidenciaOperaciones As New Capa_Datos.IncidenciaOperaciones

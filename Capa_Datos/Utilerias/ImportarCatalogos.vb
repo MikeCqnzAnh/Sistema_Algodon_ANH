@@ -1,4 +1,6 @@
-﻿Imports System.Data.Sql
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.Sql
 Imports System.Data.SqlClient
 Public Class ImportarCatalogos
     Public Overridable Sub Consultar(ByRef EntidadImportarCatalogos As Capa_Entidad.ImportarCatalogos)

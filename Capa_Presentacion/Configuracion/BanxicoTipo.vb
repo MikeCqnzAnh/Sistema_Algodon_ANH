@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ParametrosBanxico
     Private Sub ParametrosBanxico_Load(sender As Object, e As EventArgs) Handles Me.Load
         Nuevo()

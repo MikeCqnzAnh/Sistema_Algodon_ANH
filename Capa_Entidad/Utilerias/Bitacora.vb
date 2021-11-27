@@ -1,4 +1,5 @@
-﻿Public Class Bitacora
+﻿Imports Capa_Operacion
+Public Class Bitacora
     Inherits Tarjeta
     Public IdBitacora As Integer
     Public Fecha As DateTime

@@ -1,4 +1,6 @@
-﻿Public Class OrdenEmbarquePacas
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class OrdenEmbarquePacas
     Public Overridable Sub Consultar(ByRef EntidadOrdenEmbarquePacas As Capa_Entidad.OrdenEmbarquePacas)
         Dim DatosOrdenEmbarquePacas As New Capa_Datos.OrdenEmbarquePacas
         DatosOrdenEmbarquePacas.Consultar(EntidadOrdenEmbarquePacas)

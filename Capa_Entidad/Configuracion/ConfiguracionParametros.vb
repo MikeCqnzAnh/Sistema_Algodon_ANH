@@ -1,4 +1,5 @@
-﻿Public Class ConfiguracionParametros
+﻿Imports Capa_Operacion
+Public Class ConfiguracionParametros
     Inherits Tarjeta
     Public IdConfiguracion As Integer
     Public NombrePC As String

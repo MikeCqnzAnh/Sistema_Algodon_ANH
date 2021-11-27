@@ -1,4 +1,4 @@
-﻿
+﻿Imports Capa_Operacion
 Public Class Produccion
     Inherits Tarjeta
     '---------------------------------Produccion

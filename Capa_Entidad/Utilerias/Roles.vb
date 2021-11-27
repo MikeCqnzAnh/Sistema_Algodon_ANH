@@ -1,4 +1,5 @@
-﻿Public Class Roles
+﻿Imports Capa_Operacion
+Public Class Roles
     Inherits Tarjeta
     Public IdPerfilUsuario As Integer
     Public IdUsuario As Integer

@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.IO
 Public Class ContratosAlgodonCompradores
     Implements IForm1

@@ -1,4 +1,5 @@
-﻿Public Class RutaDocumentos
+﻿Imports Capa_Operacion
+Public Class RutaDocumentos
     Inherits Tarjeta
     Public IdUbicacion As Integer
     Public RutaPrincipal As String

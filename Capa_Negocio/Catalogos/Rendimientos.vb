@@ -1,4 +1,6 @@
-﻿Public Class Rendimientos
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Rendimientos
     Public Overridable Sub Guardar(ByRef EntidadRendimientos As Capa_Entidad.Rendimientos)
         Dim EntidadRendimientos1 As New Capa_Entidad.Rendimientos
         Dim DatosRendimientos As New Capa_Datos.Rendimientos

@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports Excel = Microsoft.Office.Interop.Excel
 Public Class RepDetalleCastigoPaca
     Dim IdVenta As Integer

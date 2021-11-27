@@ -1,4 +1,6 @@
-﻿Public Class Reportes
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Reportes
     Public Overridable Sub Consultar(ByRef EntidadReportes As Capa_Entidad.Reportes)
         Dim DatosReportes As New Capa_Datos.Reportes
         DatosReportes.Consultar(EntidadReportes)

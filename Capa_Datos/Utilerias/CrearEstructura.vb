@@ -1,4 +1,6 @@
-﻿Imports System.Data.Sql
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.Sql
 Imports System.Data.SqlClient
 Public Class CrearEstructura
     Dim InicioSentencia As String = "IF EXISTS (SELECT * FROM  sys.objects WHERE object_id = OBJECT_ID(N'"

@@ -1,4 +1,6 @@
-﻿Public Class Maquinaria
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Maquinaria
     Public Overridable Sub Guardar(ByRef EntidadMaquinaria As Capa_Entidad.Maquinaria)
         Dim EntidadMaquinaria1 As New Capa_Entidad.Maquinaria
         Dim DatosMaquinaria As New Capa_Datos.Maquinaria

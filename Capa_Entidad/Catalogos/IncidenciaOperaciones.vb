@@ -1,4 +1,5 @@
-﻿Public Class IncidenciaOperaciones
+﻿Imports Capa_Operacion
+Public Class IncidenciaOperaciones
     Inherits Tarjeta
     Public IdIncidencia As String
     Public IdTipo As Integer

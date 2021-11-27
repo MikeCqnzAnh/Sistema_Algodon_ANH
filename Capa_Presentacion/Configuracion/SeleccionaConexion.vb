@@ -1,6 +1,8 @@
 ﻿Imports System.Net
 Imports System.Net.NetworkInformation
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.IO.Ports
 Public Class SeleccionaConexion
     Private Sub SeleccionaConexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load

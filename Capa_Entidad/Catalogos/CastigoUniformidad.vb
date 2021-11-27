@@ -1,4 +1,5 @@
-﻿Public Class CastigoUniformidad
+﻿Imports Capa_Operacion
+Public Class CastigoUniformidad
     Inherits Tarjeta
     Public IdUnidormidadEncabezado As Integer
     Public IdModoDetalle As Integer

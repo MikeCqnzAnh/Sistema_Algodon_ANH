@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class CastigosResistenciaFibra
     Public TablaCastigoResistenciaFibra As New DataTable
     Private Sub CastigosResistenciaFibra_Load(sender As Object, e As EventArgs) Handles MyBase.Load

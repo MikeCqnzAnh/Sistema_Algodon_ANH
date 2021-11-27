@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Imports Microsoft.SqlServer
 Public Class ProgramarRespaldos
     Public Overridable Sub Consultar(ByRef EntidadProgramarRespaldos As Capa_Entidad.ProgramarRespaldos)

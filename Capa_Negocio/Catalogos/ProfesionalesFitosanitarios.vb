@@ -1,4 +1,6 @@
-﻿Public Class ProfesionalesFitosanitarios
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ProfesionalesFitosanitarios
     Public Overridable Sub Guardar(ByRef EntidadProfesionalesFitosanitarios As Capa_Entidad.ProfesionalesFitosanitarios)
         Dim EntidadProfesionalesFitosanitarios1 As New Capa_Entidad.ProfesionalesFitosanitarios
         Dim DatosProfesionalesFitosanitarios As New Capa_Datos.ProfesionalesFitosanitarios

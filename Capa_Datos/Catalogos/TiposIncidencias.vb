@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class TiposIncidencias
     Public Overridable Sub Upsert(ByRef EntidadTiposIncidencias As Capa_Entidad.TiposIncidencias)
         Dim EntidadTiposIncidencias1 As New Capa_Entidad.TiposIncidencias

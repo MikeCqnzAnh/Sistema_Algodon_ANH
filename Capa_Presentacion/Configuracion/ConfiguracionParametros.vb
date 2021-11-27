@@ -1,6 +1,8 @@
 ﻿Imports System.Net
 Imports System.Net.NetworkInformation
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.IO.Ports
 Imports vb = Microsoft.VisualBasic
 Public Class ConfiguracionParametros

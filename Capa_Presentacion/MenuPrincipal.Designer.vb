@@ -108,6 +108,7 @@ Partial Class MenuPrincipal
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PacasPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeProduccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -206,7 +207,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(812, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(820, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -797,7 +798,7 @@ Partial Class MenuPrincipal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeProduccionToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.SalidasToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.ExistenciaDePacasToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.LotesDetalleConMódulosToolStripMenuItem, Me.PacasPorLotesToolStripMenuItem, Me.ReporteDeHojasDeProduccionToolStripMenuItem, Me.LotesDetalleConMódulosSegundaFormaToolStripMenuItem, Me.LotesDetalleConMódulosTerceraFormaToolStripMenuItem, Me.ResumenDeProduccionToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.PacasPorClienteToolStripMenuItem, Me.PacasEnGeneralToolStripMenuItem, Me.PacasDetalleYAgrupadoPorClaseToolStripMenuItem, Me.SalidasToolStripMenuItem, Me.ComercializacionToolStripMenuItem, Me.RecapToolStripMenuItem, Me.ReporteGeneralToolStripMenuItem, Me.BoletasMódulosToolStripMenuItem, Me.BoletasConPesoAcumuladoToolStripMenuItem, Me.EntradaDeAlgodónHuesoToolStripMenuItem, Me.PacasFaltantesToolStripMenuItem, Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem, Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem, Me.ExistenciaDePacasToolStripMenuItem, Me.SagarpaToolStripMenuItem, Me.ReportesDeEventosPorIncidenciaToolStripMenuItem, Me.ReporteDiarioDeTrabajoToolStripMenuItem, Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem, Me.ReporteDeRomaneajesVsComprasToolStripMenuItem, Me.DeModulosAgrupadoPorColoniaToolStripMenuItem, Me.ProductividadDePlantasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(75, 23)
         Me.ReportesToolStripMenuItem.Tag = "67,0"
@@ -823,6 +824,13 @@ Partial Class MenuPrincipal
         Me.PacasPorLotesToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
         Me.PacasPorLotesToolStripMenuItem.Tag = "239,67"
         Me.PacasPorLotesToolStripMenuItem.Text = "Pacas por Lotes"
+        '
+        'ReporteDeHojasDeProduccionToolStripMenuItem
+        '
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Name = "ReporteDeHojasDeProduccionToolStripMenuItem"
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Text = "Generar hoja de produccion"
         '
         'LotesDetalleConMódulosSegundaFormaToolStripMenuItem
         '
@@ -1358,7 +1366,7 @@ Partial Class MenuPrincipal
         Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 433)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(812, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(820, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1437,7 +1445,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(812, 455)
+        Me.ClientSize = New System.Drawing.Size(820, 455)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1626,4 +1634,5 @@ Partial Class MenuPrincipal
     Friend WithEvents SalidaPacasOrdenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenDeEmbarquePToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntradaYSalidaDeEquipoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeHojasDeProduccionToolStripMenuItem As ToolStripMenuItem
 End Class

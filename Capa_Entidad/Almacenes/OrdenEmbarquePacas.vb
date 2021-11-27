@@ -1,4 +1,5 @@
-﻿Public Class OrdenEmbarquePacas
+﻿Imports Capa_Operacion
+Public Class OrdenEmbarquePacas
     Inherits Tarjeta
     Public IdComprador As Integer
     Public IdVentaEnc As Integer

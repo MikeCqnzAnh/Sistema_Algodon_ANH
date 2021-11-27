@@ -1,4 +1,5 @@
-﻿Public Class RestaurarRespaldo
+﻿Imports Capa_Operacion
+Public Class RestaurarRespaldo
     Inherits Tarjeta
     Public BaseDedatosOrigen As String
     Public RutaArchivoRespaldo As String

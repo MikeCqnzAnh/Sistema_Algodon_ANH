@@ -1,4 +1,6 @@
-﻿Public Class RangosTemperatura
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class RangosTemperatura
     Public Overridable Sub Guardar(ByRef EntidadRangosTemperatura As Capa_Entidad.RangosTemperatura)
         Dim EntidadRangosTemperatura1 As New Capa_Entidad.RangosTemperatura
         Dim DatosRangosTemperatura As New Capa_Datos.RangosTemperatura

@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class MatExtCompras
     Private TablaClasificacionGrid, TablaClasificacionGlobal As New DataTable
     Private Sub MatExtCompras_Load(sender As Object, e As EventArgs) Handles Me.Load

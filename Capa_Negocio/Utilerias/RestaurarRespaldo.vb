@@ -1,4 +1,6 @@
-﻿Public Class RestaurarRespaldo
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class RestaurarRespaldo
     Public Overridable Sub Restaurar(ByRef EntidadRestaurarRespaldo As Capa_Entidad.RestaurarRespaldo)
         Dim EntidadRestaurarRespaldo1 As New Capa_Entidad.RestaurarRespaldo
         Dim DatosRestaurarRespaldo As New Capa_Datos.RestaurarRespaldo

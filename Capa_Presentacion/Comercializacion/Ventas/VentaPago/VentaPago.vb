@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class VentaPago
     Dim ValorConversion, PrecioQuintal, KilosNeto As Decimal
     Dim IdVenta, IdComprador, IdContrato, IdModalidadVenta, IdUnidadPeso, IdModoMicros, IdModoLargo, IdModoResistencia, IdModoUniformidad As Integer

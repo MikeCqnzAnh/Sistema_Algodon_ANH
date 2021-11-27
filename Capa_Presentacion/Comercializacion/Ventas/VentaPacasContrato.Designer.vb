@@ -176,6 +176,7 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.CastigosPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -980,7 +981,7 @@ Partial Class VentaPacasContrato
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.ReporteDeCastigoPorPacasToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResumenDeVentaToolStripMenuItem, Me.CastigosPorRangosToolStripMenuItem, Me.ReporteDeCastigoPorPacasToolStripMenuItem, Me.DetalleDeVentaToolStripMenuItem, Me.ResumenDeLiquidacionesToolStripMenuItem, Me.ReporteHVIToolStripMenuItem1})
         Me.ReportesToolStripMenuItem.Image = CType(resources.GetObject("ReportesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
@@ -1846,6 +1847,12 @@ Partial Class VentaPacasContrato
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
         '
+        'CastigosPorRangosToolStripMenuItem
+        '
+        Me.CastigosPorRangosToolStripMenuItem.Name = "CastigosPorRangosToolStripMenuItem"
+        Me.CastigosPorRangosToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.CastigosPorRangosToolStripMenuItem.Text = "Castigos por Rangos"
+        '
         'VentaPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2062,4 +2069,5 @@ Partial Class VentaPacasContrato
     Friend WithEvents TbPesoTara As TextBox
     Friend WithEvents ReporteDeCastigoPorPacasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PbCargapacas As ProgressBar
+    Friend WithEvents CastigosPorRangosToolStripMenuItem As ToolStripMenuItem
 End Class

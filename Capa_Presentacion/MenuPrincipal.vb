@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.Data.SqlClient
 Imports System.Drawing.Drawing2D
 Imports System.Net
@@ -291,7 +293,8 @@ Public Class MenuPrincipal
         CapturaBoletasPorLotes.ShowDialog()
     End Sub
     Private Sub LiquidacionesPorRomaneajeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiquidacionesPorRomaneajeToolStripMenuItem.Click
-        LiquidacionesPorRomaneaje.ShowDialog()
+        Dim liqrom As New LiquidacionesPorRomaneaje
+        liqrom.ShowDialog()
     End Sub
     Private Sub CompraDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompraDePacasToolStripMenuItem.Click
         CompraPacas.ShowDialog()
@@ -551,6 +554,11 @@ Public Class MenuPrincipal
     Private Sub EntradaYSalidaDeEquipoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaYSalidaDeEquipoToolStripMenuItem.Click
         Dim entradasalidaequ As New EntradaSalidadeEquipo
         entradasalidaequ.ShowDialog()
+    End Sub
+
+    Private Sub ReporteDeHojasDeProduccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeHojasDeProduccionToolStripMenuItem.Click
+        Dim RepHojaProd As New RepHojaProduccion
+        RepHojaProd.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

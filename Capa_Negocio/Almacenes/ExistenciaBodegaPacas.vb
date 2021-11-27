@@ -1,4 +1,6 @@
-﻿Public Class ExistenciaBodegaPacas
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ExistenciaBodegaPacas
     Public Overridable Sub Consultar(ByRef EntidadExistenciaBodegaPacas As Capa_Entidad.ExistenciaBodegaPacas)
         Dim DatosExistenciaBodegaPacas As New Capa_Datos.ExistenciaBodegaPacas
         DatosExistenciaBodegaPacas.Consultar(EntidadExistenciaBodegaPacas)

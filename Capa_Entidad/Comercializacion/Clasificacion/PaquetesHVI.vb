@@ -1,4 +1,5 @@
-﻿Public Class PaquetesHVI
+﻿Imports Capa_Operacion
+Public Class PaquetesHVI
     Inherits Tarjeta
     Public IdPaqueteHVI As Integer
     Public NumeroPacas As Integer

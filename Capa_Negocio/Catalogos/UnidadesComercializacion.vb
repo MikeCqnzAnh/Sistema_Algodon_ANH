@@ -1,4 +1,6 @@
-﻿Public Class UnidadesComercializacion
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class UnidadesComercializacion
     Public Overridable Sub Guardar(ByRef EntidadUnidadesComercializacion As Capa_Entidad.UnidadesComercializacion)
         Dim EntidadUnidadesComercializacion1 As New Capa_Entidad.UnidadesComercializacion
         Dim DatosUnidadesComercializacion As New Capa_Datos.UnidadesComercializacion

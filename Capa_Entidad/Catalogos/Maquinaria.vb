@@ -1,4 +1,5 @@
-﻿Public Class Maquinaria
+﻿Imports Capa_Operacion
+Public Class Maquinaria
     Inherits Tarjeta
     Public IdMaquinaria As Integer
     Public Descripcion As String

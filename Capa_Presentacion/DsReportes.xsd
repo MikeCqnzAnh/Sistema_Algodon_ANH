@@ -380,6 +380,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReporteEtiquetas" msprop:Generator_TableClassName="ReporteEtiquetasDataTable" msprop:Generator_TableVarName="tableReporteEtiquetas" msprop:Generator_RowChangedName="ReporteEtiquetasRowChanged" msprop:Generator_TablePropName="ReporteEtiquetas" msprop:Generator_RowDeletingName="ReporteEtiquetasRowDeleting" msprop:Generator_RowChangingName="ReporteEtiquetasRowChanging" msprop:Generator_RowEvHandlerName="ReporteEtiquetasRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteEtiquetasRowDeleted" msprop:Generator_RowClassName="ReporteEtiquetasRow" msprop:Generator_UserTableName="ReporteEtiquetas" msprop:Generator_RowEvArgName="ReporteEtiquetasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BaleID" msprop:Generator_ColumnVarNameInTable="columnBaleID" msprop:Generator_ColumnPropNameInRow="BaleID" msprop:Generator_ColumnPropNameInTable="BaleIDColumn" msprop:Generator_UserColumnName="BaleID" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReporteRangoVenta" msprop:Generator_TableClassName="ReporteRangoVentaDataTable" msprop:Generator_TableVarName="tableReporteRangoVenta" msprop:Generator_TablePropName="ReporteRangoVenta" msprop:Generator_RowDeletingName="ReporteRangoVentaRowDeleting" msprop:Generator_RowChangingName="ReporteRangoVentaRowChanging" msprop:Generator_RowEvHandlerName="ReporteRangoVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRangoVentaRowDeleted" msprop:Generator_UserTableName="ReporteRangoVenta" msprop:Generator_RowChangedName="ReporteRangoVentaRowChanged" msprop:Generator_RowEvArgName="ReporteRangoVentaRowChangeEvent" msprop:Generator_RowClassName="ReporteRangoVentaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdVenta" msprop:Generator_ColumnVarNameInTable="columnIdVenta" msprop:Generator_ColumnPropNameInRow="IdVenta" msprop:Generator_ColumnPropNameInTable="IdVentaColumn" msprop:Generator_UserColumnName="IdVenta" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

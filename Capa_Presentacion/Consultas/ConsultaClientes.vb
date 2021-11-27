@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ConsultaClientes
     Private _IdCliente As Integer
     Public Property IdCliente() As Integer

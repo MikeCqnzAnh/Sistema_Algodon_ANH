@@ -1,4 +1,7 @@
-﻿Public Class RepDisponibilidadPacasProductor
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class RepDisponibilidadPacasProductor
 
     Private Sub RepClasificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes

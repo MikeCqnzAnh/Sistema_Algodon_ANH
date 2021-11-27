@@ -1,4 +1,7 @@
-﻿Imports System.Net
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Imports System.Net
 Imports System.Net.NetworkInformation
 Module CargaBitacora
     Private Sub InsertaBitacora(ByVal Modulo As String, ByVal Opcion As String, ByVal Operacion As String, ByVal Observaciones As String, ByVal BaseDeDatos As String, Optional ByVal IdAdicional As Integer = 0, Optional ByVal ReferenciaAdicional As String = "")

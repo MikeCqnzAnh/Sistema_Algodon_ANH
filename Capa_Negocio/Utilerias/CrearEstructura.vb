@@ -1,4 +1,6 @@
-﻿Public Class CrearEstructura
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CrearEstructura
     Public Overridable Sub Consultar(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
         Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
         Dim DatosCrearEstructura As New Capa_Datos.CrearEstructura()

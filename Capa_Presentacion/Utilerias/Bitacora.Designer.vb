@@ -79,6 +79,7 @@ Partial Class Bitacora
         Me.DgvBitacora.Location = New System.Drawing.Point(0, 0)
         Me.DgvBitacora.MultiSelect = False
         Me.DgvBitacora.Name = "DgvBitacora"
+        Me.DgvBitacora.ReadOnly = True
         Me.DgvBitacora.RowHeadersVisible = False
         Me.DgvBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvBitacora.Size = New System.Drawing.Size(1154, 440)

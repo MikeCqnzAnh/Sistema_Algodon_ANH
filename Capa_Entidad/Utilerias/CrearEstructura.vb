@@ -1,4 +1,5 @@
-﻿Public Class CrearEstructura
+﻿Imports Capa_Operacion
+Public Class CrearEstructura
     Inherits Tarjeta
     Public Table As String
     Public Procedimiento As String

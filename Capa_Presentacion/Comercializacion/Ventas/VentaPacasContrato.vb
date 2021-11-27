@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class VentaPacasContrato
     Implements IForm1
     Public TablaModalidadVenta, TablacastigoMicros, TablaCastigoLargoFibra, TablaCastigoResistenciaFibra, TablaCastigoUniformidad, TablaPacasAgrupadas As New DataTable
@@ -142,6 +144,8 @@ Public Class VentaPacasContrato
             'NuPesoTara.Value = TablaParametros.Rows(0).Item("KilosNeto")
             TbPesoTara.Text = TablaParametros.Rows(0).Item("KilosNeto")
             CkTara.Checked = TablaParametros.Rows(0).Item("EstatusPesoNeto")
+
+            TbPesoTara.Text = Format(Val(TbPesoTara.Text), "#,##0.00")
         End If
     End Sub
 
@@ -190,7 +194,7 @@ Public Class VentaPacasContrato
                 'VarGlob2.IdUnidadPeso = CbUnidadPeso.SelectedValue
                 'VarGlob2.ValorConversion = Val(TbValorConversion.Text)
                 '_Tabla = Table()
-                Dim Ventapag As New VentaPago(TbIdVentaPaca.Text, TbIdComprador.Text, TbIdContrato.Text, CbModalidadVenta.SelectedValue, CbUnidadPeso.SelectedValue, TbNombreComprador.Text, TbPrecioQuintal.Text, Val(TbValorConversion.Text), CkTara.Checked, Val(TbPesoTara.Text), ChMicros.Checked, ChLargoFibra.Checked, ChResistenciaFibra.Checked, ChUniformidad.Checked, CbModoMicros.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoUniformidad.SelectedValue)
+                Dim Ventapag As New VentaPago(TbIdVentaPaca.Text, TbIdComprador.Text, TbIdContrato.Text, CbModalidadVenta.SelectedValue, CbUnidadPeso.SelectedValue, TbNombreComprador.Text, TbPrecioQuintal.Text, CDec(TbValorConversion.Text), CkTara.Checked, CDec(TbPesoTara.Text), ChMicros.Checked, ChLargoFibra.Checked, ChResistenciaFibra.Checked, ChUniformidad.Checked, CbModoMicros.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoUniformidad.SelectedValue)
                 Ventapag.ShowDialog()
             End If
         Else
@@ -436,6 +440,8 @@ Public Class VentaPacasContrato
                 PrecioSGO = DgvContratos.Rows(Index).Cells("PrecioSGO").Value
                 PrecioGO = DgvContratos.Rows(Index).Cells("PrecioGO").Value
                 PrecioO = DgvContratos.Rows(Index).Cells("PrecioO").Value
+
+                TbNoPacas.Text = Format(Val(TbNoPacas.Text), "#,##0.00")
                 ConsultaParametrosVenta()
             Else
                 DgvContratos.Rows(Index).Cells("Seleccionar").Value = False
@@ -532,7 +538,7 @@ Public Class VentaPacasContrato
                 'Dim TotalDlls As decimal = Quintales * CDbl(TbPrecioQuintal.Text)
 
                 Dim Kilos As Decimal = Math.Round(DgvPacasIndVendidas.Rows(ii).Cells("Kilos").Value, 2)
-                Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                Dim Libras As Decimal = Math.Truncate(Kilos * CDec(TbValorConversion.Text) * 10000) / 10000
                 'Dim Quintales As decimal = Math.Round(CDbl(Kilos / 46.02), 4)
 
                 TablaRenglonAInsertar = TablaPacasAgrupadas.NewRow()
@@ -727,7 +733,7 @@ Public Class VentaPacasContrato
         Dim PacasSeleccionadas As Integer = 0
         DgvPacasVender.EndEdit()
         PbCargapacas.Minimum = 0
-        PbCargapacas.Maximum = Val(TbPacasMarc.Text)
+        PbCargapacas.Maximum = CInt(TbPacasMarc.Text)
         PbCargapacas.Value = 0
         If DgvContratos.Rows.Count > 0 Then
             For Each Fila As DataGridViewRow In DgvContratos.Rows
@@ -740,11 +746,11 @@ Public Class VentaPacasContrato
         End If
         If TbIdComprador.Text = "" Or TbPrecioQuintal.Text = "" Then
             MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
-        ElseIf (PacasSeleccionadas + PacasVendidas) > Val(TbNoPacas.Text) Then
+        ElseIf (PacasSeleccionadas + PacasVendidas) > CDec(TbNoPacas.Text) Then
             MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
-        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas > Val(TbNoPacas.Text) Then
+        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas > CInt(TbNoPacas.Text) Then
             MsgBox("Las Pacas Seleccionadas Superan la cantidad de pacas del contrato. Revise la seleccion o que el contrato sea el correcto.")
-        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas <= Val(TbNoPacas.Text) Then
+        ElseIf PacasSeleccionadas > 0 And PacasSeleccionadas <= CInt(TbNoPacas.Text) Then
             GuardarVentaEnc()
 
             EntidadVentaPacasContrato.Guarda = Guardar.GuardarVentaPacasDet
@@ -785,7 +791,7 @@ Public Class VentaPacasContrato
         Dim PacasMarcadas As Integer = 0
         DgvPacasIndVendidas.EndEdit()
         PbCargapacas.Minimum = 0
-        PbCargapacas.Maximum = Val(TbPacasMarc.Text)
+        PbCargapacas.Maximum = CInt(TbPacasMarc.Text)
         If DgvContratos.Rows.Count > 0 Then
             For Each Fila As DataGridViewRow In DgvContratos.Rows
                 If Fila.Cells("IdContratoAlgodon").Value.ToString = TbIdContrato.Text Then
@@ -867,8 +873,8 @@ Public Class VentaPacasContrato
         EntidadVentaPacasContrato.CastigoPlasticLevel1 = 0
         EntidadVentaPacasContrato.CastigoPlasticLevel2 = 0
         EntidadVentaPacasContrato.IdUnidadPeso = CbUnidadPeso.SelectedValue
-        EntidadVentaPacasContrato.ValorConversion = Val(TbValorConversion.Text)
-        EntidadVentaPacasContrato.Unidad = Val(TbKdAd.Text)
+        EntidadVentaPacasContrato.ValorConversion = CDec(TbValorConversion.Text)
+        EntidadVentaPacasContrato.Unidad = CDec(TbKdAd.Text)
         EntidadVentaPacasContrato.InteresPesosMx = 0
         EntidadVentaPacasContrato.InteresDlls = 0
         EntidadVentaPacasContrato.PrecioQuintal = 0
@@ -921,7 +927,7 @@ Public Class VentaPacasContrato
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
                 Dim Kilos As Decimal = Fila.Cells("Kilos").Value
-                Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                Dim Libras As Decimal = Math.Truncate(Kilos * CDec(TbValorConversion.Text) * 10000) / 10000
                 Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
                 r("BaleID") = Fila.Cells("BaleID").Value
                 r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
@@ -961,7 +967,7 @@ Public Class VentaPacasContrato
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
                 If Fila.Cells("Seleccionar").Value = True Then
-                    Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
+                    Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + CDec(TbKdAd.Text)) - CDec(TbPesoTara.Text)
                     Dim Quintales As Decimal = Math.Round(CDbl(Kilos / 46.02), 4)
                     r("BaleID") = Fila.Cells("BaleID").Value
                     r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
@@ -983,8 +989,8 @@ Public Class VentaPacasContrato
             For Each Fila As DataGridViewRow In DataGridEnvia.Rows
                 r = dt.NewRow
                 If Fila.Cells("Seleccionar").Value = True Then
-                    Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
-                    Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                    Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + CDec(TbKdAd.Text)) - CDec(TbPesoTara.Text)
+                    Dim Libras As Decimal = Math.Truncate(Kilos * CDec(TbValorConversion.Text) * 10000) / 10000
                     Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
                     r("BaleID") = Fila.Cells("BaleID").Value
                     r("IdOrdenTrabajo") = Fila.Cells("IdOrdenTrabajo").Value
@@ -1042,7 +1048,7 @@ Public Class VentaPacasContrato
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
+                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + CDec(TbKdAd.Text)) - CDec(TbPesoTara.Text)
                     Dim Quintales As Decimal = Math.Round(CDbl(Kilos / 46.02), 4)
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
@@ -1071,8 +1077,8 @@ Public Class VentaPacasContrato
             For i = 0 To DataGridEnvia.Rows.Count - 1
                 r = dt.NewRow
                 If DataGridEnvia.Item("Seleccionar", i).EditedFormattedValue = True Then
-                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + Val(TbKdAd.Text)) - Val(TbPesoTara.Text)
-                    Dim Libras As Decimal = Math.Truncate(Kilos * Val(TbValorConversion.Text) * 10000) / 10000
+                    Dim Kilos As Decimal = (DataGridEnvia.Item("Kilos", i).Value + CDec(TbKdAd.Text)) - CDec(TbPesoTara.Text)
+                    Dim Libras As Decimal = Math.Truncate(Kilos * CDec(TbValorConversion.Text) * 10000) / 10000
                     r("IdComprador") = TbIdComprador.Text
                     r("BaleID") = DataGridEnvia.Item("BaleID", i).Value
                     r("IdLiquidacion") = DataGridEnvia.Item("IdLiquidacion", i).Value
@@ -1297,6 +1303,8 @@ Public Class VentaPacasContrato
                         PrecioSGO = Fila.Cells("PrecioSGO").Value
                         PrecioGO = Fila.Cells("PrecioGO").Value
                         PrecioO = Fila.Cells("PrecioO").Value
+
+                        TbNoPacas.Text = Format(Val(TbNoPacas.Text), "#,##0.00")
                     End If
                 Next
             End If
@@ -1700,6 +1708,15 @@ Public Class VentaPacasContrato
         End If
     End Sub
 
+    Private Sub CastigosPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorRangosToolStripMenuItem.Click
+        If TbIdVentaPaca.Text <> "" Then
+            Dim RepCastPorRangos As New RepCastigoPorRangos(TbIdVentaPaca.Text, CbModoMicros.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoUniformidad.SelectedValue)
+            RepCastPorRangos.ShowDialog()
+        Else
+            MsgBox("No hay una venta seleccionada.", MsgBoxStyle.Information, "Aviso")
+        End If
+    End Sub
+
     Private Sub PropiedadesDgvLiquidacionesVendidas()
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
         DgvLiqVendidas.Columns("IdPaqueteEncabezado").ReadOnly = True
@@ -1711,6 +1728,9 @@ Public Class VentaPacasContrato
         DgvLiqVendidas.Columns("PesoPluma").Visible = False
         DgvLiqVendidas.Columns("TotalSemilla").Visible = False
         DgvLiqVendidas.Columns("Seleccionar").ReadOnly = False
+
+        DgvLiqVendidas.Columns("PacasCantidad").DefaultCellStyle.Format = "N2"
+        DgvLiqVendidas.Columns("PacasVendidas").DefaultCellStyle.Format = "N2"
     End Sub
     Private Sub PropiedadesDgvLiquidacionesVender()
         DgvDatosLiquidacion.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
@@ -1722,6 +1742,13 @@ Public Class VentaPacasContrato
         DgvDatosLiquidacion.Columns("PacasVendidas").ReadOnly = True
         DgvDatosLiquidacion.Columns("PesoPluma").ReadOnly = True
         DgvDatosLiquidacion.Columns("TotalSemilla").ReadOnly = True
+
+        DgvDatosLiquidacion.Columns("TotalHueso").DefaultCellStyle.Format = "N2"
+        DgvDatosLiquidacion.Columns("PacasCantidad").DefaultCellStyle.Format = "N2"
+        DgvDatosLiquidacion.Columns("PacasDisponibles").DefaultCellStyle.Format = "N2"
+        DgvDatosLiquidacion.Columns("PacasVendidas").DefaultCellStyle.Format = "N2"
+        DgvDatosLiquidacion.Columns("PesoPluma").DefaultCellStyle.Format = "N2"
+        DgvDatosLiquidacion.Columns("TotalSemilla").DefaultCellStyle.Format = "N2"
     End Sub
     Private Sub PropiedadesDgvContratos()
         DgvContratos.Columns("IdContratoAlgodon").HeaderText = "Contrato"
@@ -1752,6 +1779,12 @@ Public Class VentaPacasContrato
         DgvContratos.Columns("PacasDisponibles").ReadOnly = True
         DgvContratos.Columns("PrecioQuintal").ReadOnly = True
         DgvContratos.Columns("Fecha").ReadOnly = True
+
+        DgvContratos.Columns("Pacas").DefaultCellStyle.Format = "N2"
+        DgvContratos.Columns("PacasVendidas").DefaultCellStyle.Format = "N2"
+        DgvContratos.Columns("PacasDisponibles").DefaultCellStyle.Format = "N2"
+        DgvContratos.Columns("PrecioQuintal").DefaultCellStyle.Format = "N4"
+
     End Sub
     Private Sub PropiedadesDgvPacasIndVendidas()
         DgvPacasIndVendidas.Columns("IdPaqueteEncabezado").HeaderText = "No Paquete"
@@ -1791,6 +1824,8 @@ Public Class VentaPacasContrato
         DgvPacasIndVendidas.Columns("CastigoMicVenta").ReadOnly = True
         DgvPacasIndVendidas.Columns("CastigoResistenciaFibraVenta").ReadOnly = True
         DgvPacasIndVendidas.Columns("CastigoLargoFibraVenta").ReadOnly = True
+
+        DgvPacasIndVendidas.Columns("Kilos").DefaultCellStyle.Format = "N2"
     End Sub
     Private Sub PropiedadesDgvPacasVender()
 

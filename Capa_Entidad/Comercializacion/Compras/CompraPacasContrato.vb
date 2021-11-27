@@ -1,4 +1,5 @@
-﻿Public Class CompraPacasContrato
+﻿Imports Capa_Operacion
+Public Class CompraPacasContrato
     Inherits Tarjeta
     Public IdCompra As Integer
     Public IdContrato As Integer

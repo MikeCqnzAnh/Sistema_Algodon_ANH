@@ -1,4 +1,6 @@
-﻿Public Class IntegraciondeCompras
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class IntegraciondeCompras
     Public Overridable Sub Consultar(ByRef EntidadIntegraciondeCompras As Capa_Entidad.IntegraciondeCompras)
         Dim DatosIntegraciondeCompras As New Capa_Datos.IntegraciondeCompras
         DatosIntegraciondeCompras.Consultar(EntidadIntegraciondeCompras)

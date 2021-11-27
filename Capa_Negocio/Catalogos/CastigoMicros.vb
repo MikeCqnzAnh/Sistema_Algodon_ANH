@@ -1,4 +1,6 @@
-﻿Public Class CastigoMicros
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CastigoMicros
     Public Overridable Sub Guardar(ByRef EntidadCastigoMicros As Capa_Entidad.CastigoMicros)
         Dim EntidadCastigoMicros1 As New Capa_Entidad.CastigoMicros
         Dim DatosCastigoMicros As New Capa_Datos.CastigoMicros

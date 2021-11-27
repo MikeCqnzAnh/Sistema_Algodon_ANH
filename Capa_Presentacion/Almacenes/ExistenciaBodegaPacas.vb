@@ -1,4 +1,7 @@
-﻿Public Class ExistenciaBodegaPacas
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class ExistenciaBodegaPacas
     Dim columna, fila, Niveles, Lotes As Byte
     Private Sub ExistenciaBodegaPacas_Load(sender As Object, e As EventArgs) Handles Me.Load
         Limpiar()

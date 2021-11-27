@@ -1,4 +1,5 @@
-﻿Public Class ModalidadesVenta
+﻿Imports Capa_Operacion
+Public Class ModalidadesVenta
     Inherits Tarjeta
     Public IdModoEncabezado As Integer
     Public Descripcion As String

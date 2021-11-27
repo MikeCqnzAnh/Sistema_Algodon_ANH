@@ -1,4 +1,7 @@
-﻿Public Class RepConsultaVentas
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class RepConsultaVentas
     Private Sub RepConsultaCompras_Load(sender As Object, e As EventArgs) Handles Me.Load
         LlenaDgv()
     End Sub

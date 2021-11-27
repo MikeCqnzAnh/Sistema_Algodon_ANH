@@ -1,4 +1,6 @@
-﻿Public Class ClasificacionVentaPaquetes
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ClasificacionVentaPaquetes
     Public Overridable Sub Guardar(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim DatosClasificacionVentaPaquetes As New Capa_Datos.ClasificacionVentaPaquetes

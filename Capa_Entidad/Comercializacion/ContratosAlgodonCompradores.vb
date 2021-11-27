@@ -1,4 +1,5 @@
-﻿Public Class ContratosAlgodonCompradores
+﻿Imports Capa_Operacion
+Public Class ContratosAlgodonCompradores
     Inherits Tarjeta
     Public IdContratoAlgodon As Integer
     Public IdComprador As Integer

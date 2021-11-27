@@ -367,7 +367,7 @@ Partial Class Almacenes
         'TbNumero
         '
         Me.TbNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbNumero.Location = New System.Drawing.Point(1087, 46)
+        Me.TbNumero.Location = New System.Drawing.Point(1106, 45)
         Me.TbNumero.Name = "TbNumero"
         Me.TbNumero.Size = New System.Drawing.Size(84, 20)
         Me.TbNumero.TabIndex = 4

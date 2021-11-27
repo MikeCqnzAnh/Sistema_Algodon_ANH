@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class Acceso
     Public Overridable Sub Consultar(ByRef EntidadAcceso As Capa_Entidad.Acceso)
         Dim EntidadAcceso1 As New Capa_Entidad.Acceso

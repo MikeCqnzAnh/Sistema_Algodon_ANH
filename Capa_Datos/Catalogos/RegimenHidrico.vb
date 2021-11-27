@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class RegimenHidrico
     Public Overridable Sub Upsert(ByRef EntidadRegimenHidrico As Capa_Entidad.RegimenHidrico)
         Dim EntidadRegimenHidrico1 As New Capa_Entidad.RegimenHidrico

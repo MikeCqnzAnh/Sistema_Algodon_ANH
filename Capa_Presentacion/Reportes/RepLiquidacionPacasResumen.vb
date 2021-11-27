@@ -1,4 +1,7 @@
-﻿Public Class RepLiquidacionPacasResumen
+﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
+Public Class RepLiquidacionPacasResumen
     Dim IdCompra As Integer
     Dim IdProductor As Integer
     Dim NombreProductor As String

@@ -1,4 +1,5 @@
-﻿Public Class ExistenciaBodegaPacas
+﻿Imports Capa_Operacion
+Public Class ExistenciaBodegaPacas
     Inherits Tarjeta
     Public IdAlmacenEncabezado As Integer
     Public IdLote As Integer

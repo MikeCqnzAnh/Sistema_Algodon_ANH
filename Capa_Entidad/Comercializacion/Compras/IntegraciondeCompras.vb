@@ -1,4 +1,5 @@
-﻿Public Class IntegraciondeCompras
+﻿Imports Capa_Operacion
+Public Class IntegraciondeCompras
     Inherits Tarjeta
     Public IdIntegracion As Integer
     Public IdContrato As Integer

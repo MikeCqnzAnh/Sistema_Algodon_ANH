@@ -1,4 +1,5 @@
-﻿Public Class Tierras
+﻿Imports Capa_Operacion
+Public Class Tierras
     Inherits Tarjeta
     Public IdTierra As Integer
     Public Lote As String

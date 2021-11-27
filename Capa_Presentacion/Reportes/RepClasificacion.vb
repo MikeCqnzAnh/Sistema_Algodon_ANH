@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Office.Interop.Excel
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Imports System.Data.Sql
 Imports System.Data
 Imports CrystalDecisions.CrystalReports.Engine

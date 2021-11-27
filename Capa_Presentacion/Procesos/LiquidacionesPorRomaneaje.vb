@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class LiquidacionesPorRomaneaje
     Public TablaCombos As New DataTable
     Public TablaComparacion As New DataTable
@@ -324,5 +326,13 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Bandera = EntidadLiquidacionesPorRomaneaje.Bandera
+    End Sub
+
+    Private Sub btexcelmodulos_Click(sender As Object, e As EventArgs) Handles btexcelmodulos.Click
+        ExportExcel(DgvModulos)
+    End Sub
+
+    Private Sub btexcelpacas_Click(sender As Object, e As EventArgs) Handles btexcelpacas.Click
+        ExportExcel(DgvPacas)
     End Sub
 End Class

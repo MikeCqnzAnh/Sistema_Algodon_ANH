@@ -1,4 +1,5 @@
-﻿Public Class CastigoLargoFibra
+﻿Imports Capa_Operacion
+Public Class CastigoLargoFibra
     Inherits Tarjeta
     Public IdCastigoLargoFibra As Integer
     Public IdModoEncabezado As Integer

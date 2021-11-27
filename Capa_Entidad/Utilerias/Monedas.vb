@@ -1,4 +1,5 @@
-﻿Public Class Monedas
+﻿Imports Capa_Operacion
+Public Class Monedas
     Inherits Tarjeta
     Public IdMoneda As Integer
     Public NombreMoneda As String

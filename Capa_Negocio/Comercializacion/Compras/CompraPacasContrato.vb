@@ -1,4 +1,6 @@
-﻿Public Class CompraPacasContrato
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CompraPacasContrato
     Public Overridable Sub Guardar(ByRef EntidadCompraPacasContrato As Capa_Entidad.CompraPacasContrato)
         Dim EntidadCompraPacasContrato1 As New Capa_Entidad.CompraPacasContrato
         Dim DatosCompraPacasContrato As New Capa_Datos.CompraPacasContrato

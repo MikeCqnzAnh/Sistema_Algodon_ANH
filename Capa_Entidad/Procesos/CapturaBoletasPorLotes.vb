@@ -1,4 +1,5 @@
-﻿Public Class CapturaBoletasPorLotes
+﻿Imports Capa_Operacion
+Public Class CapturaBoletasPorLotes
     Inherits Tarjeta
     Public NoTransporte As Integer
     Public Idboleta As Integer

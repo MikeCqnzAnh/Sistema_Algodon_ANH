@@ -46,6 +46,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbPlanta = New System.Windows.Forms.ComboBox()
         Me.GbResumen = New System.Windows.Forms.GroupBox()
+        Me.TbCantPacas = New System.Windows.Forms.TextBox()
+        Me.TbcantModulos = New System.Windows.Forms.TextBox()
         Me.TbTotalBoletas = New System.Windows.Forms.TextBox()
         Me.LbTotalBoletas = New System.Windows.Forms.Label()
         Me.ChClaseMicros = New System.Windows.Forms.CheckBox()
@@ -63,6 +65,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbNumBorregos = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TbPorcentajeMerma = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -80,10 +84,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
         Me.PDgvs = New System.Windows.Forms.Panel()
-        Me.TbcantModulos = New System.Windows.Forms.TextBox()
-        Me.TbCantPacas = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
+        Me.btexcelpacas = New System.Windows.Forms.Button()
+        Me.btexcelmodulos = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbResumen.SuspendLayout()
@@ -329,6 +331,22 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbResumen.TabStop = False
         Me.GbResumen.Text = "Resumen"
         '
+        'TbCantPacas
+        '
+        Me.TbCantPacas.Enabled = False
+        Me.TbCantPacas.Location = New System.Drawing.Point(116, 237)
+        Me.TbCantPacas.Name = "TbCantPacas"
+        Me.TbCantPacas.Size = New System.Drawing.Size(100, 20)
+        Me.TbCantPacas.TabIndex = 21
+        '
+        'TbcantModulos
+        '
+        Me.TbcantModulos.Enabled = False
+        Me.TbcantModulos.Location = New System.Drawing.Point(116, 211)
+        Me.TbcantModulos.Name = "TbcantModulos"
+        Me.TbcantModulos.Size = New System.Drawing.Size(100, 20)
+        Me.TbcantModulos.TabIndex = 20
+        '
         'TbTotalBoletas
         '
         Me.TbTotalBoletas.Enabled = False
@@ -483,6 +501,24 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label13.TabIndex = 10
         Me.Label13.Text = "Pluma"
         '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(3, 214)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(107, 13)
+        Me.Label21.TabIndex = 9
+        Me.Label21.Text = "Modulos sin Revision"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(3, 240)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(98, 13)
+        Me.Label11.TabIndex = 9
+        Me.Label11.Text = "Pacas sin Clasificar"
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -587,6 +623,7 @@ Partial Class LiquidacionesPorRomaneaje
         'GbModulos
         '
         Me.GbModulos.Controls.Add(Me.DgvModulos)
+        Me.GbModulos.Controls.Add(Me.btexcelmodulos)
         Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbModulos.Location = New System.Drawing.Point(0, 0)
         Me.GbModulos.Name = "GbModulos"
@@ -613,7 +650,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvModulos.RowHeadersVisible = False
         Me.DgvModulos.RowHeadersWidth = 40
         Me.DgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvModulos.Size = New System.Drawing.Size(567, 343)
+        Me.DgvModulos.Size = New System.Drawing.Size(535, 343)
         Me.DgvModulos.TabIndex = 30
         '
         'Panel1
@@ -643,12 +680,13 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvPacas.ReadOnly = True
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(567, 307)
+        Me.DgvPacas.Size = New System.Drawing.Size(535, 307)
         Me.DgvPacas.TabIndex = 31
         '
         'GbPacas
         '
         Me.GbPacas.Controls.Add(Me.DgvPacas)
+        Me.GbPacas.Controls.Add(Me.btexcelpacas)
         Me.GbPacas.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GbPacas.Location = New System.Drawing.Point(0, 362)
         Me.GbPacas.Name = "GbPacas"
@@ -667,39 +705,33 @@ Partial Class LiquidacionesPorRomaneaje
         Me.PDgvs.Size = New System.Drawing.Size(573, 688)
         Me.PDgvs.TabIndex = 31
         '
-        'TbcantModulos
+        'btexcelpacas
         '
-        Me.TbcantModulos.Enabled = False
-        Me.TbcantModulos.Location = New System.Drawing.Point(116, 211)
-        Me.TbcantModulos.Name = "TbcantModulos"
-        Me.TbcantModulos.Size = New System.Drawing.Size(100, 20)
-        Me.TbcantModulos.TabIndex = 20
+        Me.btexcelpacas.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.btexcelpacas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btexcelpacas.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btexcelpacas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btexcelpacas.Location = New System.Drawing.Point(538, 16)
+        Me.btexcelpacas.MaximumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.MinimumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.Name = "btexcelpacas"
+        Me.btexcelpacas.Size = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.TabIndex = 22
+        Me.btexcelpacas.UseVisualStyleBackColor = True
         '
-        'TbCantPacas
+        'btexcelmodulos
         '
-        Me.TbCantPacas.Enabled = False
-        Me.TbCantPacas.Location = New System.Drawing.Point(116, 237)
-        Me.TbCantPacas.Name = "TbCantPacas"
-        Me.TbCantPacas.Size = New System.Drawing.Size(100, 20)
-        Me.TbCantPacas.TabIndex = 21
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 240)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(98, 13)
-        Me.Label11.TabIndex = 9
-        Me.Label11.Text = "Pacas sin Clasificar"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(3, 214)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(107, 13)
-        Me.Label21.TabIndex = 9
-        Me.Label21.Text = "Modulos sin Revision"
+        Me.btexcelmodulos.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.btexcelmodulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btexcelmodulos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btexcelmodulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btexcelmodulos.Location = New System.Drawing.Point(538, 16)
+        Me.btexcelmodulos.MaximumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.MinimumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.Name = "btexcelmodulos"
+        Me.btexcelmodulos.Size = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.TabIndex = 23
+        Me.btexcelmodulos.UseVisualStyleBackColor = True
         '
         'LiquidacionesPorRomaneaje
         '
@@ -795,4 +827,6 @@ Partial Class LiquidacionesPorRomaneaje
     Friend WithEvents TbcantModulos As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents Label11 As Label
+    Friend WithEvents btexcelmodulos As Button
+    Friend WithEvents btexcelpacas As Button
 End Class

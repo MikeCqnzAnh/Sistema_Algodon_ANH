@@ -1,4 +1,5 @@
-﻿Public Class CastigoResistenciaFibra
+﻿Imports Capa_Operacion
+Public Class CastigoResistenciaFibra
     Inherits Tarjeta
     Public IdCastigoResistenciaFibra As Integer
     Public IdResistenciaEncabezado As Integer

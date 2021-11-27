@@ -1,4 +1,5 @@
-﻿Public Class UnidadesComercializacion
+﻿Imports Capa_Operacion
+Public Class UnidadesComercializacion
     Inherits Tarjeta
     Public IdUnidadPeso As Integer
     Public Descripcion As String

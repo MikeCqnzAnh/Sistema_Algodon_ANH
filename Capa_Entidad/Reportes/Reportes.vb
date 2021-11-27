@@ -1,4 +1,5 @@
-﻿Public Class Reportes
+﻿Imports Capa_Operacion
+Public Class Reportes
     Inherits Tarjeta
     '---ReporteClientes
     Public IdAsociacion As Integer

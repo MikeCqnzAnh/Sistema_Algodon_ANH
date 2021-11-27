@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class RevisionProduccion
     Dim IdProduccionDetalle As Integer = 0
     Dim FolioCIAReturn As Long = 0
@@ -381,7 +383,7 @@ Public Class RevisionProduccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
         EntidadProduccion.Consulta = Consulta.ConsultaDetallada
-        EntidadProduccion.IdOrdenTrabajo = CInt(TbIdOrdenTrabajo.Text)
+        EntidadProduccion.IdOrdenTrabajo = Val(TbIdOrdenTrabajo.Text)
         NegocioProduccion.Consultar(EntidadProduccion)
         Tabla = EntidadProduccion.TablaConsulta
         If Tabla.Rows.Count = 0 Then
@@ -417,12 +419,18 @@ Public Class RevisionProduccion
         Dim EntidadProduccion As New Capa_Entidad.Produccion
         Dim NegocioProduccion As New Capa_Negocio.Produccion
         Dim Tabla As New DataTable
-        EntidadProduccion.Consulta = Consulta.ConsultaEstatusRevision
-        EntidadProduccion.IdProduccion = CInt(TbIdProduccion.Text)
-        EntidadProduccion.IdPlantaOrigen = CbPlanta.SelectedValue
-        NegocioProduccion.Consultar(EntidadProduccion)
-        Tabla = EntidadProduccion.TablaConsulta
-        CkRevisado.Checked = Tabla.Rows(0).Item("EstatusRevisado")
+        Try
+            EntidadProduccion.Consulta = Consulta.ConsultaEstatusRevision
+            EntidadProduccion.IdProduccion = Val(TbIdProduccion.Text)
+            EntidadProduccion.IdPlantaOrigen = CbPlanta.SelectedValue
+            NegocioProduccion.Consultar(EntidadProduccion)
+            Tabla = EntidadProduccion.TablaConsulta
+            If DgvPacas.RowCount > 0 Then
+                CkRevisado.Checked = Tabla.Rows(0).Item("EstatusRevisado")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub PropiedadesDGV()
         DgvPacas.Columns("Sel").ReadOnly = False

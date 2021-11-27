@@ -32,8 +32,11 @@ Partial Class ConsultaProduccionRevision
         Me.BtConsultar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ExportarExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DgvProducciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbDatos.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DgvProducciones
@@ -47,14 +50,14 @@ Partial Class ConsultaProduccionRevision
         Me.DgvProducciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvProducciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvProducciones.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvProducciones.Location = New System.Drawing.Point(0, 81)
+        Me.DgvProducciones.Location = New System.Drawing.Point(0, 105)
         Me.DgvProducciones.MultiSelect = False
         Me.DgvProducciones.Name = "DgvProducciones"
         Me.DgvProducciones.ReadOnly = True
         Me.DgvProducciones.RowHeadersVisible = False
         Me.DgvProducciones.RowHeadersWidth = 40
         Me.DgvProducciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvProducciones.Size = New System.Drawing.Size(1102, 426)
+        Me.DgvProducciones.Size = New System.Drawing.Size(1102, 402)
         Me.DgvProducciones.TabIndex = 1
         '
         'Label1
@@ -83,7 +86,7 @@ Partial Class ConsultaProduccionRevision
         Me.GbDatos.Controls.Add(Me.Label1)
         Me.GbDatos.Controls.Add(Me.TbProductor)
         Me.GbDatos.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GbDatos.Location = New System.Drawing.Point(0, 0)
+        Me.GbDatos.Location = New System.Drawing.Point(0, 24)
         Me.GbDatos.Name = "GbDatos"
         Me.GbDatos.Size = New System.Drawing.Size(1102, 81)
         Me.GbDatos.TabIndex = 0
@@ -131,6 +134,23 @@ Partial Class ConsultaProduccionRevision
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "ID Orden de trabajo:"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExportarExcelToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1102, 24)
+        Me.MenuStrip1.TabIndex = 4
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ExportarExcelToolStripMenuItem
+        '
+        Me.ExportarExcelToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.ExportarExcelToolStripMenuItem.Name = "ExportarExcelToolStripMenuItem"
+        Me.ExportarExcelToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
+        Me.ExportarExcelToolStripMenuItem.Text = "Exportar excel"
+        '
         'ConsultaProduccionRevision
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -138,14 +158,19 @@ Partial Class ConsultaProduccionRevision
         Me.ClientSize = New System.Drawing.Size(1102, 507)
         Me.Controls.Add(Me.DgvProducciones)
         Me.Controls.Add(Me.GbDatos)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "ConsultaProduccionRevision"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta Produccion"
         CType(Me.DgvProducciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbDatos.ResumeLayout(False)
         Me.GbDatos.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -158,4 +183,6 @@ Partial Class ConsultaProduccionRevision
     Friend WithEvents BtConsultar As Button
     Friend WithEvents TbIdProduccion As TextBox
     Friend WithEvents TbIdOrdenTrabajo As TextBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents ExportarExcelToolStripMenuItem As ToolStripMenuItem
 End Class

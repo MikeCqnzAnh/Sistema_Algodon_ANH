@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class CastigoUniformidad
     Public Overridable Sub Upsert(ByRef EntidadCastigoUniformidad As Capa_Entidad.CastigoUniformidad)
         Dim EntidadCastigoUniformidad1 As New Capa_Entidad.CastigoUniformidad

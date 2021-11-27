@@ -3,6 +3,8 @@ Imports System.Drawing.Drawing2D
 Imports System.Runtime.InteropServices
 Imports System.IO
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Acceso
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"

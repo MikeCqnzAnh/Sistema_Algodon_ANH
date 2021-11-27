@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class ConfiguracionParametros
     Public Overridable Sub Upsert(ByRef EntidadConfiguracionParametros As Capa_Entidad.ConfiguracionParametros)
         Dim EntidadConfiguracionParametros1 As New Capa_Entidad.ConfiguracionParametros

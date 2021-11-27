@@ -12,7 +12,7 @@ where Mic >= 5
 
 update CalculoClasificacion
 set mic = mic+(4-convert(int,mic))
-where Mic >= 5 and idpaqueteencabezado >= 41
+where Mic >= 5 
 
 select IdOrdenTrabajo,BaleID,Strength,Strength+(26-convert(int,Strength)) as StrengthRes from HviDetalle where Strength < 26 order by Strength
 select IdOrdenTrabajo,BaleID,Strength,Strength+(26-convert(int,Strength)) as StrengthRes from CalculoClasificacion where Strength < 26 order by Strength

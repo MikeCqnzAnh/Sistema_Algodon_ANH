@@ -1,4 +1,6 @@
-﻿Public Class SeleccionaConexion
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class SeleccionaConexion
     Public Overridable Sub Conexion(ByRef EntidadSeleccionaConexion As Capa_Entidad.SeleccionaConexion)
         Dim EntidadSeleccionaConexion1 As New Capa_Entidad.SeleccionaConexion()
         Dim DatosSeleccionaConexion As New Capa_Datos.SeleccionaConexion()
