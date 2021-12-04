@@ -24,11 +24,13 @@ Partial Class RepHojaProduccion
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RepHojaProduccion))
         Me.gbreporte = New System.Windows.Forms.GroupBox()
+        Me.cbpaquetes = New System.Windows.Forms.ComboBox()
+        Me.rbcantidadpacas = New System.Windows.Forms.RadioButton()
+        Me.rbpaquetes = New System.Windows.Forms.RadioButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtfecha = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbcantidad = New System.Windows.Forms.TextBox()
@@ -47,11 +49,13 @@ Partial Class RepHojaProduccion
         '
         'gbreporte
         '
+        Me.gbreporte.Controls.Add(Me.cbpaquetes)
+        Me.gbreporte.Controls.Add(Me.rbcantidadpacas)
+        Me.gbreporte.Controls.Add(Me.rbpaquetes)
         Me.gbreporte.Controls.Add(Me.Label6)
         Me.gbreporte.Controls.Add(Me.Label5)
         Me.gbreporte.Controls.Add(Me.Label4)
         Me.gbreporte.Controls.Add(Me.dtfecha)
-        Me.gbreporte.Controls.Add(Me.Label3)
         Me.gbreporte.Controls.Add(Me.Label2)
         Me.gbreporte.Controls.Add(Me.Label1)
         Me.gbreporte.Controls.Add(Me.tbcantidad)
@@ -67,6 +71,37 @@ Partial Class RepHojaProduccion
         Me.gbreporte.TabStop = False
         Me.gbreporte.Text = "Datos de Reporte"
         '
+        'cbpaquetes
+        '
+        Me.cbpaquetes.FormattingEnabled = True
+        Me.cbpaquetes.Location = New System.Drawing.Point(130, 51)
+        Me.cbpaquetes.MaxLength = 3
+        Me.cbpaquetes.Name = "cbpaquetes"
+        Me.cbpaquetes.Size = New System.Drawing.Size(73, 21)
+        Me.cbpaquetes.TabIndex = 14
+        '
+        'rbcantidadpacas
+        '
+        Me.rbcantidadpacas.AutoSize = True
+        Me.rbcantidadpacas.Location = New System.Drawing.Point(228, 52)
+        Me.rbcantidadpacas.Name = "rbcantidadpacas"
+        Me.rbcantidadpacas.Size = New System.Drawing.Size(115, 17)
+        Me.rbcantidadpacas.TabIndex = 13
+        Me.rbcantidadpacas.Text = "Cantidad de Pacas"
+        Me.rbcantidadpacas.UseVisualStyleBackColor = True
+        '
+        'rbpaquetes
+        '
+        Me.rbpaquetes.AutoSize = True
+        Me.rbpaquetes.Checked = True
+        Me.rbpaquetes.Location = New System.Drawing.Point(9, 52)
+        Me.rbpaquetes.Name = "rbpaquetes"
+        Me.rbpaquetes.Size = New System.Drawing.Size(87, 17)
+        Me.rbpaquetes.TabIndex = 12
+        Me.rbpaquetes.TabStop = True
+        Me.rbpaquetes.Text = "No Paquetes"
+        Me.rbpaquetes.UseVisualStyleBackColor = True
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -79,7 +114,7 @@ Partial Class RepHojaProduccion
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(192, 30)
+        Me.Label5.Location = New System.Drawing.Point(209, 30)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(13, 13)
         Me.Label5.TabIndex = 10
@@ -88,7 +123,7 @@ Partial Class RepHojaProduccion
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(532, 47)
+        Me.Label4.Location = New System.Drawing.Point(778, 47)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 9
@@ -99,25 +134,16 @@ Partial Class RepHojaProduccion
         '
         Me.dtfecha.CustomFormat = "MM/dd/yyyy hh:mm tt"
         Me.dtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtfecha.Location = New System.Drawing.Point(639, 43)
+        Me.dtfecha.Location = New System.Drawing.Point(821, 44)
         Me.dtfecha.Name = "dtfecha"
         Me.dtfecha.Size = New System.Drawing.Size(171, 20)
         Me.dtfecha.TabIndex = 8
         Me.dtfecha.Visible = False
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 55)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(97, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Cantidad de Pacas"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(834, 49)
+        Me.Label2.Location = New System.Drawing.Point(998, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(37, 13)
         Me.Label2.TabIndex = 6
@@ -127,7 +153,7 @@ Partial Class RepHojaProduccion
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(834, 23)
+        Me.Label1.Location = New System.Drawing.Point(998, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(18, 13)
         Me.Label1.TabIndex = 5
@@ -136,8 +162,9 @@ Partial Class RepHojaProduccion
         '
         'tbcantidad
         '
-        Me.tbcantidad.Location = New System.Drawing.Point(113, 52)
-        Me.tbcantidad.MaxLength = 3
+        Me.tbcantidad.Enabled = False
+        Me.tbcantidad.Location = New System.Drawing.Point(349, 52)
+        Me.tbcantidad.MaxLength = 4
         Me.tbcantidad.Name = "tbcantidad"
         Me.tbcantidad.Size = New System.Drawing.Size(49, 20)
         Me.tbcantidad.TabIndex = 4
@@ -146,7 +173,7 @@ Partial Class RepHojaProduccion
         'tbfoliofinal
         '
         Me.tbfoliofinal.Enabled = False
-        Me.tbfoliofinal.Location = New System.Drawing.Point(211, 26)
+        Me.tbfoliofinal.Location = New System.Drawing.Point(228, 26)
         Me.tbfoliofinal.MaxLength = 10
         Me.tbfoliofinal.Name = "tbfoliofinal"
         Me.tbfoliofinal.Size = New System.Drawing.Size(73, 20)
@@ -155,7 +182,7 @@ Partial Class RepHojaProduccion
         '
         'tbfolioinicial
         '
-        Me.tbfolioinicial.Location = New System.Drawing.Point(113, 26)
+        Me.tbfolioinicial.Location = New System.Drawing.Point(130, 26)
         Me.tbfolioinicial.MaxLength = 10
         Me.tbfolioinicial.Name = "tbfolioinicial"
         Me.tbfolioinicial.Size = New System.Drawing.Size(73, 20)
@@ -164,7 +191,7 @@ Partial Class RepHojaProduccion
         '
         'tbidreporte
         '
-        Me.tbidreporte.Location = New System.Drawing.Point(941, 19)
+        Me.tbidreporte.Location = New System.Drawing.Point(1041, 17)
         Me.tbidreporte.Name = "tbidreporte"
         Me.tbidreporte.ReadOnly = True
         Me.tbidreporte.Size = New System.Drawing.Size(100, 20)
@@ -175,7 +202,7 @@ Partial Class RepHojaProduccion
         '
         Me.cbplanta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbplanta.FormattingEnabled = True
-        Me.cbplanta.Location = New System.Drawing.Point(941, 46)
+        Me.cbplanta.Location = New System.Drawing.Point(1041, 44)
         Me.cbplanta.Name = "cbplanta"
         Me.cbplanta.Size = New System.Drawing.Size(141, 21)
         Me.cbplanta.TabIndex = 0
@@ -261,10 +288,12 @@ Partial Class RepHojaProduccion
     Friend WithEvents tbcantidad As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents dtfecha As DateTimePicker
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents CRVHojaProduccion As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents rbcantidadpacas As RadioButton
+    Friend WithEvents rbpaquetes As RadioButton
+    Friend WithEvents cbpaquetes As ComboBox
 End Class

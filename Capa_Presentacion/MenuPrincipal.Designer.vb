@@ -207,7 +207,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(820, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(836, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -461,7 +461,6 @@ Partial Class MenuPrincipal
         Me.ContratosDeSemillaToolStripMenuItem1.Size = New System.Drawing.Size(338, 24)
         Me.ContratosDeSemillaToolStripMenuItem1.Tag = "30,27"
         Me.ContratosDeSemillaToolStripMenuItem1.Text = "Contratos de Semilla"
-        Me.ContratosDeSemillaToolStripMenuItem1.Visible = False
         '
         'ClasificacionToolStripMenuItem
         '
@@ -1363,10 +1362,10 @@ Partial Class MenuPrincipal
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
-        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 433)
+        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 459)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(820, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(836, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1445,7 +1444,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(820, 455)
+        Me.ClientSize = New System.Drawing.Size(836, 481)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True

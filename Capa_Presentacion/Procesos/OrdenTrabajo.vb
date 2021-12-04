@@ -14,9 +14,20 @@ Public Class OrdenTrabajo
         ConsultarCapturas()
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+        Try
+            GuardarEncabezado()
+            MsgBox("Realizado Correctamente")
+            ConsultarCapturas()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub GuardarEncabezado()
         Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
         Try
+            EntidadOrdenTrabajo.Guarda = Guardar.GuardarEncabezado
             EntidadOrdenTrabajo.IdOrdenTrabajo = IIf(TbIdOrdenTrabajo.Text = "", 0, TbIdOrdenTrabajo.Text)
             EntidadOrdenTrabajo.IdPlanta = CbPlantas.SelectedValue
             EntidadOrdenTrabajo.IdProductor = TbIdProductor.Text
@@ -33,13 +44,49 @@ Public Class OrdenTrabajo
             EntidadOrdenTrabajo.FechaActualizacion = Now
             NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
             TbIdOrdenTrabajo.Text = EntidadOrdenTrabajo.IdOrdenTrabajo
-            MsgBox("Realizado Correctamente")
-            ConsultarCapturas()
-            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
+    Private Sub GuardarDetalle()
+        Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+        Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Try
+            EntidadOrdenTrabajo.Guarda = Guardar.GuardarDetalle
+            EntidadOrdenTrabajo.IdBoleta = 0
+            EntidadOrdenTrabajo.IdOrdenTrabajo = 0
+            EntidadOrdenTrabajo.IdPlanta = 0
+            EntidadOrdenTrabajo.FechaCreacion = Now
+            EntidadOrdenTrabajo.PesoBruto = 0
+            EntidadOrdenTrabajo.PesoTara = 0
+            EntidadOrdenTrabajo.PesoNeto = 0
+            EntidadOrdenTrabajo.IdProductor = 0
+            EntidadOrdenTrabajo.NoTransporte = 0
+            EntidadOrdenTrabajo.FlagCancelada = 0
+            EntidadOrdenTrabajo.FlagRevisada = 0
+            EntidadOrdenTrabajo.IdEstatus = 0
+            EntidadOrdenTrabajo.IdUsuarioCreacion = 0
+            EntidadOrdenTrabajo.IdUsuarioActualizacion = 0
+            NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub inhabilitarControl()
+        TbRangoFin.Enabled = False
+        CbVariedad.Enabled = False
+        CbColonia.Enabled = False
+        TbPredio.Enabled = False
+        CbEstatus.Enabled = False
+    End Sub
+    Private Sub habilitarControl()
+        TbRangoFin.Enabled = True
+        CbVariedad.Enabled = True
+        CbColonia.Enabled = True
+        TbPredio.Enabled = True
+        CbEstatus.Enabled = True
+    End Sub
+
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         ConsultarOrden()
     End Sub
@@ -54,6 +101,7 @@ Public Class OrdenTrabajo
         CbVariedad.SelectedValue = 1
         CbColonia.SelectedValue = 1
         TbPredio.Text = ""
+        habilitarControl()
     End Sub
     Private Sub LlenarCombos()
         '---Plantas--
@@ -162,6 +210,7 @@ Public Class OrdenTrabajo
                 CbColonia.SelectedValue = Tabla.Rows(0).Item("IdColonia")
                 TbPredio.Text = Tabla.Rows(0).Item("Predio")
                 CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
+                inhabilitarControl()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -211,9 +260,42 @@ Public Class OrdenTrabajo
     End Sub
 
     Private Sub DgvCapturaLotes_DoubleClick(sender As Object, e As EventArgs) Handles DgvCapturaLotes.DoubleClick
+        Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+        Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Dim Tabla As New DataTable
+        Dim IdOrdenTrb As New Integer
+        If DgvCapturaLotes.Rows.Count > 0 Then
+            Dim index As Integer
+            index = DgvCapturaLotes.CurrentCell.RowIndex
+            IdOrdenTrb = DgvCapturaLotes.Rows(index).Cells("IdOrdenTrabajo").Value
+            EntidadOrdenTrabajo.IdOrdenTrabajo = IdOrdenTrb
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrdenEmbarqueEncabezado
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            Tabla = EntidadOrdenTrabajo.TablaConsulta
+            TbIdOrdenTrabajo.Text = Tabla.Rows(0).Item("IdOrdenTrabajo")
+            CbPlantas.SelectedValue = Tabla.Rows(0).Item("IdPlanta")
+            TbIdProductor.Text = Tabla.Rows(0).Item("IdProductor")
+            TbNombre.Text = Tabla.Rows(0).Item("Nombre")
+            TbRangoInicio.Text = Tabla.Rows(0).Item("RangoInicio")
+            TbRangoFin.Text = Tabla.Rows(0).Item("RangoFin")
+            TbNoModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
+            CbVariedad.SelectedValue = Tabla.Rows(0).Item("IdVariedadAlgodon")
+            CbColonia.SelectedValue = Tabla.Rows(0).Item("IdColonia")
+            TbPredio.Text = Tabla.Rows(0).Item("Predio")
+            CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
 
+            inhabilitarControl()
+        Else
+            MsgBox("No hay registros para seleccionar.", MsgBoxStyle.Information, "Aviso")
+        End If
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
+    End Sub
+
+    Private Sub TbRangoFin_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbRangoFin.KeyPress
+        If InStr(1, "0123456789" & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
     End Sub
 End Class

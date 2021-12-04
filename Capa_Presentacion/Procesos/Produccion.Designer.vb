@@ -593,6 +593,7 @@ Partial Class Produccion
         Me.BtIncidencias.TabIndex = 61
         Me.BtIncidencias.Text = "Incidencias"
         Me.BtIncidencias.UseVisualStyleBackColor = True
+        Me.BtIncidencias.Visible = False
         '
         'GbCapturaAutomatica
         '

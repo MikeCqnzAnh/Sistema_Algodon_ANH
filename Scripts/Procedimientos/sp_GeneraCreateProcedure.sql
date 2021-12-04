@@ -1,5 +1,5 @@
-create proc sp_GeneraCreateProcedure
-@NombreProcedimiento varchar(40)
+alter proc sp_GeneraCreateProcedure
+@NombreProcedimiento varchar(100)
 as
 SELECT definition as Rutina
 FROM sys.sql_modules

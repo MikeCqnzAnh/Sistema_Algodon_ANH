@@ -226,7 +226,8 @@ Public Class MenuPrincipal
         Camiones.ShowDialog()
     End Sub
     Private Sub CapturaDeLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapturaDeLToolStripMenuItem.Click
-        OrdenTrabajo.ShowDialog()
+        Dim ordtrb As New OrdenTrabajo
+        ordtrb.ShowDialog()
     End Sub
     Private Sub CapturaDeBoletasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CapturaDeBoletasToolStripMenuItem.Click
         CapturaBoletas.ShowDialog()
@@ -365,7 +366,8 @@ Public Class MenuPrincipal
         ConsultaTipoCambio()
     End Sub
     Private Sub BitacoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BitacoraToolStripMenuItem.Click
-        Bitacora.ShowDialog()
+        Dim bita As New Bitacora
+        bita.ShowDialog()
     End Sub
     Private Sub ContratosDeSemillaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ContratosDeSemillaToolStripMenuItem1.Click
         ContratoSemillas.ShowDialog()
@@ -398,10 +400,12 @@ Public Class MenuPrincipal
         SbBdd.Text = _BaseDeDatos
     End Sub
     Private Sub CrearEstructuraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearEstructuraToolStripMenuItem.Click
-        CrearEstructura.ShowDialog()
+        Dim creaestr As New CrearEstructura()
+        creaestr.ShowDialog()
     End Sub
     Private Sub ImportarCatalogosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ImportarCatalogosToolStripMenuItem1.Click
-        ImportarCatalogos.ShowDialog()
+        Dim impocat As New ImportarCatalogos
+        impocat.ShowDialog()
     End Sub
     Private Sub ConexionInicialToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ConexionInicialToolStripMenuItem1.Click
         ConfiguraConexionInicial.ShowDialog()
@@ -419,7 +423,8 @@ Public Class MenuPrincipal
         ReportePacasDetalleAgrupadoPorClase.ShowDialog()
     End Sub
     Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        ClaveAutorizacion.ShowDialog()
+        Dim cveaut As New ClaveAutorizacion
+        cveaut.ShowDialog()
     End Sub
     Private Sub PaquetesParaVentaPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaPorRangosToolStripMenuItem.Click
         VentaClasificacion.ShowDialog()
@@ -429,22 +434,28 @@ Public Class MenuPrincipal
         RepPacasFalt.ShowDialog()
     End Sub
     Private Sub ModalidadDeCompraToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ModalidadDeCompraToolStripMenuItem.Click
-        ModalidadesCompra.ShowDialog()
+        Dim modcompra As New ModalidadesCompra
+        modcompra.ShowDialog()
     End Sub
     Private Sub ModalidadDeVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ModalidadDeVentaToolStripMenuItem.Click
-        ModalidadesVenta.ShowDialog()
+        Dim modventa As New ModalidadesVenta
+        modventa.ShowDialog()
     End Sub
     Private Sub UnidadesDeComercializacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnidadesDeComercializacionToolStripMenuItem.Click
-        UnidadesComercializacion.ShowDialog()
+        Dim unicom As New UnidadesComercializacion
+        unicom.ShowDialog()
     End Sub
     Private Sub CastigosPorMicrosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CastigosPorMicrosToolStripMenuItem1.Click
-        CastigoMicros.ShowDialog()
+        Dim castmic As New CastigoMicros
+        castmic.ShowDialog()
     End Sub
     Private Sub CastigosPorUniformidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorUniformidadToolStripMenuItem.Click
-        CastigoUniformidad.ShowDialog()
+        Dim castuni As New CastigoUniformidad
+        castuni.ShowDialog()
     End Sub
     Private Sub OrdenDeEmbarquePacasToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePacasToolStripMenuItem.Click
-        OrdenEmbarquePacas.ShowDialog()
+        Dim ordembpac As New OrdenEmbarquePacas
+        ordembpac.ShowDialog()
     End Sub
     Private Sub PacasPorClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorClienteToolStripMenuItem.Click
         Dim ReporteDisponibilidadPacasProductor As New RepDisponibilidadPacasProductor()

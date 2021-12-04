@@ -9,32 +9,35 @@ Public Class OrdenTrabajo
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("sp_InsertarOrdenTrabajo", cnn)
-            cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdPlanta))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", EntidadOrdenTrabajo1.IdProductor))
-            cmdGuardar.Parameters.Add(New SqlParameter("@RangoInicio", EntidadOrdenTrabajo1.RangoInicio))
-            cmdGuardar.Parameters.Add(New SqlParameter("@RangoFin", EntidadOrdenTrabajo1.RangoFin))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdVariedadAlgodon", EntidadOrdenTrabajo1.IdVariedadAlgodon))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdColonia", EntidadOrdenTrabajo1.IdColonia))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Predio", EntidadOrdenTrabajo1.Predio))
-            cmdGuardar.Parameters.Add(New SqlParameter("@NumeroModulos", EntidadOrdenTrabajo1.NoModulos))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadOrdenTrabajo1.IdEstatus))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadOrdenTrabajo1.IdUsuarioCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadOrdenTrabajo1.FechaCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadOrdenTrabajo1.IdUsuarioActualizacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadOrdenTrabajo1.FechaActualizacion))
-            cmdGuardar.Parameters("@IdOrdenTrabajo").Direction = ParameterDirection.InputOutput
-            cmdGuardar.ExecuteNonQuery()
-            If EntidadOrdenTrabajo1.IdOrdenTrabajo = 0 Then
-                EntidadOrdenTrabajo1.IdOrdenTrabajo = cmdGuardar.Parameters("@IdOrdenTrabajo").Value
-                Dim index As Integer = EntidadOrdenTrabajo1.RangoInicio
-                Do
-                    cmdGuardar.CommandText = "sp_InsertarBoletasPorOrden"
+            Select Case EntidadOrdenTrabajo1.Guarda
+                Case Configuracion.Guardar.GuardarEncabezado
+                    cmdGuardar = New SqlCommand("sp_InsertarOrdenTrabajo", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdPlanta))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", EntidadOrdenTrabajo1.IdProductor))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@RangoInicio", EntidadOrdenTrabajo1.RangoInicio))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@RangoFin", EntidadOrdenTrabajo1.RangoFin))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdVariedadAlgodon", EntidadOrdenTrabajo1.IdVariedadAlgodon))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdColonia", EntidadOrdenTrabajo1.IdColonia))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Predio", EntidadOrdenTrabajo1.Predio))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@NumeroModulos", EntidadOrdenTrabajo1.NoModulos))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadOrdenTrabajo1.IdEstatus))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadOrdenTrabajo1.IdUsuarioCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadOrdenTrabajo1.FechaCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadOrdenTrabajo1.IdUsuarioActualizacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadOrdenTrabajo1.FechaActualizacion))
+                    cmdGuardar.Parameters("@IdOrdenTrabajo").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                Case Configuracion.Guardar.GuardarDetalle
+                    'If EntidadOrdenTrabajo1.IdOrdenTrabajo = 0 Then
+                    '    EntidadOrdenTrabajo1.IdOrdenTrabajo = cmdGuardar.Parameters("@IdOrdenTrabajo").Value
+                    '    Dim index As Integer = EntidadOrdenTrabajo1.RangoInicio
+                    '    Do
+                    cmdGuardar = New SqlCommand("sp_InsertarOrdenTrabajo", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Clear()
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdBoleta", 0))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdBoleta", EntidadOrdenTrabajo1.IdBoleta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdPlanta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@FechaOrden", EntidadOrdenTrabajo1.FechaCreacion))
@@ -50,10 +53,12 @@ Public Class OrdenTrabajo
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdUSuarioCreacion", 1))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", 1))
                     cmdGuardar.ExecuteNonQuery()
-                    index += 1
-                Loop Until index = EntidadOrdenTrabajo1.RangoFin + 1
-            End If
+                    '    index += 1
+                    'Loop Until index = EntidadOrdenTrabajo1.RangoFin + 1
+                    'End If
+            End Select
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadOrdenTrabajo = EntidadOrdenTrabajo1

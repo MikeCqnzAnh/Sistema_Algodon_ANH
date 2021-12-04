@@ -100,6 +100,11 @@ Public Class RepClientes
             '    CreaConexion()
         End If
     End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Close()
+    End Sub
+
     Public Function ExportToPDF(ByVal rpt As ReportDocument, ByVal NombreArchivo As String) As String
         Dim vFileName As String = ""
         Dim diskOpts As New DiskFileDestinationOptions
