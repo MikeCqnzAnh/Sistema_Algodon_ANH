@@ -1,6 +1,7 @@
-Create procedure Pa_ReporteModulos
+--Create procedure Pa_ReporteModulos
+declare
 @sel bit = 0
-as
+--as
 select @sel as sel
 	  ,ote.IdOrdentrabajo
 	  ,ote.IdPlanta

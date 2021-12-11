@@ -6,14 +6,15 @@ Public Class RepConsultaCompras
         LlenaDgv()
     End Sub
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
-
+        LlenaDgv()
     End Sub
     Private Sub LlenaDgv()
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
         Dim Tabla As New DataTable
         EntidadReportes.Reporte = Reporte.ReporteCompras
-        'EntidadReportes.Valor = valor
+        EntidadReportes.IdCompra = Val(TbIdCompra.Text)
+        EntidadReportes.Nombre = TbNombre.Text
         'EntidadReportes.IdPlanta = CbPlanta.SelectedValue
         'EntidadReportes.Clase = CbClase.Text
         NegocioReportes.Consultar(EntidadReportes)

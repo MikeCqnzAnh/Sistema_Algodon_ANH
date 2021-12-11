@@ -28,7 +28,7 @@ Partial Class RepConsultaCompras
         Me.BtAceptar = New System.Windows.Forms.Button()
         Me.TbIdCompra = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.BtBuscarProductor = New System.Windows.Forms.Button()
         Me.TbIdProductor = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,7 +42,7 @@ Partial Class RepConsultaCompras
         Me.GbDatos.Controls.Add(Me.BtAceptar)
         Me.GbDatos.Controls.Add(Me.TbIdCompra)
         Me.GbDatos.Controls.Add(Me.Label2)
-        Me.GbDatos.Controls.Add(Me.TextBox2)
+        Me.GbDatos.Controls.Add(Me.TbNombre)
         Me.GbDatos.Controls.Add(Me.BtBuscarProductor)
         Me.GbDatos.Controls.Add(Me.TbIdProductor)
         Me.GbDatos.Controls.Add(Me.Label1)
@@ -79,12 +79,12 @@ Partial Class RepConsultaCompras
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Compra :"
         '
-        'TextBox2
+        'TbNombre
         '
-        Me.TextBox2.Location = New System.Drawing.Point(171, 35)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(448, 20)
-        Me.TextBox2.TabIndex = 10
+        Me.TbNombre.Location = New System.Drawing.Point(171, 35)
+        Me.TbNombre.Name = "TbNombre"
+        Me.TbNombre.Size = New System.Drawing.Size(448, 20)
+        Me.TbNombre.TabIndex = 10
         '
         'BtBuscarProductor
         '
@@ -171,7 +171,7 @@ Partial Class RepConsultaCompras
     Friend WithEvents BtAceptar As Button
     Friend WithEvents TbIdCompra As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TbNombre As TextBox
     Friend WithEvents BtBuscarProductor As Button
     Friend WithEvents TbIdProductor As TextBox
     Friend WithEvents Label1 As Label

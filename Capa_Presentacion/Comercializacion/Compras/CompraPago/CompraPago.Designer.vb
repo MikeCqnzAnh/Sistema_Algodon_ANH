@@ -341,6 +341,7 @@ Partial Class CompraPago
         Me.PagarItem.Name = "PagarItem"
         Me.PagarItem.Size = New System.Drawing.Size(49, 20)
         Me.PagarItem.Text = "Pagar"
+        Me.PagarItem.Visible = False
         '
         'EnviarEmailToolStripMenuItem
         '

@@ -255,8 +255,8 @@ Public Class Reportes
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
-                    'sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadReportes1.IdOrdenTrabajo))
-                    'sqlcom1.Parameters.Add(New SqlParameter("@IdProductor", EntidadReportes1.IdProductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@Nombre", EntidadReportes1.Nombre))
                     'sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadReportes1.IdPlanta))
                     'sqlcom1.Parameters.Add(New SqlParameter("@Fechaini", EntidadReportes1.FechaIni))
                     'sqlcom1.Parameters.Add(New SqlParameter("@Fechafin", EntidadReportes1.FechaFin))

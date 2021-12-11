@@ -16,9 +16,11 @@ Public Class OrdenTrabajo
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Try
             GuardarEncabezado()
-            MsgBox("Realizado Correctamente")
+            consultamodulos()
+            'MsgBox("Realizado Correctamente")
             ConsultarCapturas()
             GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+            MsgBox("Guardado con exito!", MsgBoxStyle.Information)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -51,6 +53,7 @@ Public Class OrdenTrabajo
     Private Sub GuardarDetalle()
         Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
         Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Dim Tabla As New DataTable
         Try
             EntidadOrdenTrabajo.Guarda = Guardar.GuardarDetalle
             EntidadOrdenTrabajo.IdBoleta = 0
@@ -62,12 +65,66 @@ Public Class OrdenTrabajo
             EntidadOrdenTrabajo.PesoNeto = 0
             EntidadOrdenTrabajo.IdProductor = 0
             EntidadOrdenTrabajo.NoTransporte = 0
-            EntidadOrdenTrabajo.FlagCancelada = 0
-            EntidadOrdenTrabajo.FlagRevisada = 0
-            EntidadOrdenTrabajo.IdEstatus = 0
-            EntidadOrdenTrabajo.IdUsuarioCreacion = 0
-            EntidadOrdenTrabajo.IdUsuarioActualizacion = 0
+            EntidadOrdenTrabajo.FlagCancelada = False
+            EntidadOrdenTrabajo.FlagRevisada = False
+            EntidadOrdenTrabajo.IdEstatus = 1
+            EntidadOrdenTrabajo.IdUsuarioCreacion = 1
+            EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
             NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub consultamodulos()
+        Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+        Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Dim Tabla As New DataTable
+        Try
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaDetallada
+            EntidadOrdenTrabajo.IdOrdenTrabajo = Val(TbIdOrdenTrabajo.Text)
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            Tabla = EntidadOrdenTrabajo.TablaConsulta
+            If Tabla.Rows.Count > 0 Then
+                For Each row As DataRow In Tabla.Rows
+                    EntidadOrdenTrabajo.Guarda = Guardar.GuardarDetalle
+                    EntidadOrdenTrabajo.IdBoleta = row("IdBoleta")
+                    EntidadOrdenTrabajo.IdOrdenTrabajo = Val(TbIdOrdenTrabajo.Text)
+                    EntidadOrdenTrabajo.IdPlanta = CbPlantas.SelectedValue
+                    EntidadOrdenTrabajo.FechaCreacion = Now
+                    EntidadOrdenTrabajo.PesoBruto = row("Bruto")
+                    EntidadOrdenTrabajo.PesoTara = row("Tara")
+                    EntidadOrdenTrabajo.PesoNeto = row("Total")
+                    EntidadOrdenTrabajo.IdProductor = Val(TbIdProductor.Text)
+                    EntidadOrdenTrabajo.NoTransporte = 0
+                    EntidadOrdenTrabajo.FlagCancelada = False
+                    EntidadOrdenTrabajo.FlagRevisada = False
+                    EntidadOrdenTrabajo.IdEstatus = 1
+                    EntidadOrdenTrabajo.IdUsuarioCreacion = 1
+                    EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
+                    NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
+                Next
+            Else
+                Dim index As Integer = Val(TbRangoInicio.Text)
+                Do
+                    EntidadOrdenTrabajo.Guarda = Guardar.GuardarDetalle
+                    EntidadOrdenTrabajo.IdBoleta = 0
+                    EntidadOrdenTrabajo.IdOrdenTrabajo = Val(TbIdOrdenTrabajo.Text)
+                    EntidadOrdenTrabajo.IdPlanta = CbPlantas.SelectedValue
+                    EntidadOrdenTrabajo.FechaCreacion = Now
+                    EntidadOrdenTrabajo.PesoBruto = 0
+                    EntidadOrdenTrabajo.PesoTara = 0
+                    EntidadOrdenTrabajo.PesoNeto = 0
+                    EntidadOrdenTrabajo.IdProductor = Val(TbIdProductor.Text)
+                    EntidadOrdenTrabajo.NoTransporte = 0
+                    EntidadOrdenTrabajo.FlagCancelada = False
+                    EntidadOrdenTrabajo.FlagRevisada = False
+                    EntidadOrdenTrabajo.IdEstatus = 1
+                    EntidadOrdenTrabajo.IdUsuarioCreacion = 1
+                    EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
+                    NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
+                    index += 1
+                Loop Until index = Val(TbRangoFin.Text) + 1
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -216,6 +273,7 @@ Public Class OrdenTrabajo
             MsgBox(ex.Message)
         End Try
     End Sub
+
     Private Sub ConsultaCliente()
         If TbIdProductor.Text <> "" Then
             Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo

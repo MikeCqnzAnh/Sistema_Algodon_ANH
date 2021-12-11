@@ -24,6 +24,7 @@ Public Class CompraPago
         TotalCompra()
         Formatos()
         ObtenerArchivoConfiguracion()
+        GuardarCompraEnc()
     End Sub
     Private Sub ObtenerArchivoConfiguracion()
         Dim leer As New StreamReader(Ruta & archivo)

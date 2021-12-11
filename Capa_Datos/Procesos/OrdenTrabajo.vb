@@ -29,33 +29,29 @@ Public Class OrdenTrabajo
                     cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadOrdenTrabajo1.FechaActualizacion))
                     cmdGuardar.Parameters("@IdOrdenTrabajo").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
+                    If EntidadOrdenTrabajo1.IdOrdenTrabajo = 0 Then
+                        EntidadOrdenTrabajo1.IdOrdenTrabajo = cmdGuardar.Parameters("@IdOrdenTrabajo").Value
+                    End If
                 Case Configuracion.Guardar.GuardarDetalle
-                    'If EntidadOrdenTrabajo1.IdOrdenTrabajo = 0 Then
-                    '    EntidadOrdenTrabajo1.IdOrdenTrabajo = cmdGuardar.Parameters("@IdOrdenTrabajo").Value
-                    '    Dim index As Integer = EntidadOrdenTrabajo1.RangoInicio
-                    '    Do
-                    cmdGuardar = New SqlCommand("sp_InsertarOrdenTrabajo", cnn)
+                    cmdGuardar = New SqlCommand("sp_InsertarBoletasPorOrden", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Clear()
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdBoleta", EntidadOrdenTrabajo1.IdBoleta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenTrabajo1.IdPlanta))
                     cmdGuardar.Parameters.Add(New SqlParameter("@FechaOrden", EntidadOrdenTrabajo1.FechaCreacion))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Bruto", 0))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Tara", 0))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Total", 0))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Bruto", EntidadOrdenTrabajo1.PesoBruto))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Tara", EntidadOrdenTrabajo1.PesoTara))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Total", EntidadOrdenTrabajo1.PesoNeto))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdProductor", EntidadOrdenTrabajo1.IdProductor))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdBodega", 0))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoTransporte", 0))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@FlagCancelada", False))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@FlagRevisada", False))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", 1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUSuarioCreacion", 1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", 1))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@NoTransporte", EntidadOrdenTrabajo1.NoTransporte))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FlagCancelada", EntidadOrdenTrabajo1.FlagCancelada))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FlagRevisada", EntidadOrdenTrabajo1.FlagRevisada))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadOrdenTrabajo1.IdEstatus))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUSuarioCreacion", EntidadOrdenTrabajo1.IdUsuarioCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadOrdenTrabajo1.IdUsuarioActualizacion))
                     cmdGuardar.ExecuteNonQuery()
-                    '    index += 1
-                    'Loop Until index = EntidadOrdenTrabajo1.RangoFin + 1
-                    'End If
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -96,6 +92,13 @@ Public Class OrdenTrabajo
                     sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqldat1 = New SqlDataAdapter("sp_ConsultaBasicaOrdenes", cnn)
+                    sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
+                    sqlcom1 = New SqlCommand("Pa_ConsultaDetalleOrdenes", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadOrdenTrabajo1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadOrdenTrabajo1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenesDeTrabajo
                     sqlcom1 = New SqlCommand("Sp_LlenaComboOrdenTrabajo", cnn)

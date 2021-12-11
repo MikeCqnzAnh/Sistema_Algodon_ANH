@@ -99,6 +99,7 @@ Partial Class VentaPacasContrato
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CastigosPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteDeCastigoPorPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DetalleDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeLiquidacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -176,7 +177,6 @@ Partial Class VentaPacasContrato
         Me.TbKilosVendidos = New System.Windows.Forms.TextBox()
         Me.LbUnidad = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.CastigosPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -993,6 +993,12 @@ Partial Class VentaPacasContrato
         Me.ResumenDeVentaToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ResumenDeVentaToolStripMenuItem.Text = "Reporte de Venta"
         '
+        'CastigosPorRangosToolStripMenuItem
+        '
+        Me.CastigosPorRangosToolStripMenuItem.Name = "CastigosPorRangosToolStripMenuItem"
+        Me.CastigosPorRangosToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
+        Me.CastigosPorRangosToolStripMenuItem.Text = "Castigos por Rangos"
+        '
         'ReporteDeCastigoPorPacasToolStripMenuItem
         '
         Me.ReporteDeCastigoPorPacasToolStripMenuItem.Name = "ReporteDeCastigoPorPacasToolStripMenuItem"
@@ -1587,6 +1593,7 @@ Partial Class VentaPacasContrato
         Me.BtRecalcular.TabIndex = 0
         Me.BtRecalcular.Text = "Recalcular"
         Me.BtRecalcular.UseVisualStyleBackColor = True
+        Me.BtRecalcular.Visible = False
         '
         'TP4IndividualVendidas
         '
@@ -1846,12 +1853,6 @@ Partial Class VentaPacasContrato
         Me.Label25.Size = New System.Drawing.Size(86, 13)
         Me.Label25.TabIndex = 23
         Me.Label25.Text = "Pacas marcadas"
-        '
-        'CastigosPorRangosToolStripMenuItem
-        '
-        Me.CastigosPorRangosToolStripMenuItem.Name = "CastigosPorRangosToolStripMenuItem"
-        Me.CastigosPorRangosToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.CastigosPorRangosToolStripMenuItem.Text = "Castigos por Rangos"
         '
         'VentaPacasContrato
         '
