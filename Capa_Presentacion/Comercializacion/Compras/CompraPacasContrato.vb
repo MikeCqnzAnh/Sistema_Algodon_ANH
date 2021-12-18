@@ -195,7 +195,7 @@ Public Class CompraPacasContrato
                     r("TipoCambio") = 0
                     r("PrecioMxn") = 0
                     r("CastigoUniformidad") = IIf(ChUniformidad.Checked = True, Math.Truncate(ConsultaCastigoUniformidad(DataGridEnvia.Item(13, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
-                    r("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
+                    r("CastigoResistenciaFibra") = IIf(ChResistenciaFibra.Checked = True, Math.Truncate(ConsultaCastigoResistenciaFibra(DataGridEnvia.Item(15, i).Value.ToString, Quintales, valcastigo, DataGridEnvia.Item("BaleID", i).Value) * 10000) / 10000, 0)
                     r("CastigoMicros") = IIf(ChMicros.Checked = True, Math.Truncate(ConsultaCastigoMicros(DataGridEnvia.Item(14, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
                     r("CastigoLargoFibra") = IIf(ChLargoFibra.Checked = True, Math.Truncate(ConsultaCastigoLargoFibra(DataGridEnvia.Item(16, i).Value.ToString, Quintales, valcastigo) * 10000) / 10000, 0)
                     r("estatuscompraUpdate") = EstatusCompraUpdate
@@ -270,7 +270,7 @@ Public Class CompraPacasContrato
         End Try
         Return Castigo
     End Function
-    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
+    Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0, Optional etiqueta As Long = 0)
         Dim Castigo As Double
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
@@ -288,7 +288,7 @@ Public Class CompraPacasContrato
 
             End If
         Catch ex As Exception
-            MsgBox("Error, excede limites de Resistencia de fibra. " & ex.Message)
+            MsgBox("Error, excede limites de Resistencia de fibra etiqueta " & etiqueta & ". " & ex.Message)
         End Try
         Return Castigo
     End Function

@@ -28,7 +28,7 @@ Module ImportarExcel
             conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
 
             Try
-                da = New OleDbDataAdapter("SELECT LTRIM(RTRIM(" & NomCol & ")) AS " & NomCol & " FROM  [" & xSheet & "$] WHERE " & NomCol & " > 0", conn)
+                da = New OleDbDataAdapter("SELECT LTRIM(RTRIM(" & Trim(NomCol) & ")) AS " & Trim(NomCol) & " FROM  [" & Trim(xSheet) & "$] WHERE " & NomCol & " > 0", conn)
 
                 conn.Open()
                 da.Fill(ds, "MyData")
