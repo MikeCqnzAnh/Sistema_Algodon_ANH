@@ -3,6 +3,8 @@ Imports Capa_Entidad
 Imports Capa_Negocio
 Imports System.Xml
 Imports System.ComponentModel
+Imports System.Web.UI.HtmlControls
+
 Public Class ConsultaXML
     Private dsxml_ As DataSet
     Public Property dsxml As DataSet
@@ -48,15 +50,22 @@ Public Class ConsultaXML
         Dim ds As New DataSet
         ds.Tables.Add("RegistroXML")
         Try
-            Dim col As DataColumn
+            Dim col As New DataColumn
+            'Dim colsel As New DataColumn
             For Each dgvcol As DataGridViewColumn In DgvFiltrado.Columns
+                'If dgvcol.Name <> "Sel" Then
                 col = New DataColumn(dgvcol.Name)
-                ds.Tables("RegistroXML").Columns.Add(col)
+                    ds.Tables("RegistroXML").Columns.Add(col)
+                'Else
+                '    col = New DataColumn(dgvcol.Name)
+                '    ds.Tables("RegistroXML").Columns.Add(col, Type.GetType("System.Bool"))
+                'End If
+
             Next
             Dim row As DataRow
             Dim colcount As Integer = DgvFiltrado.Columns.Count - 1
             For i As Integer = 0 To DgvFiltrado.Rows.Count - 1
-                DgvFiltrado.Rows.Item(i).Cells("sel").Value = False
+                DgvFiltrado.Rows.Item(i).Cells("Sel").Value = False
                 row = ds.Tables("RegistroXML").Rows.Add
                 For Each column As DataGridViewColumn In DgvFiltrado.Columns
                     row.Item(column.Index) = DgvFiltrado.Rows.Item(i).Cells(column.Index).Value
@@ -87,8 +96,8 @@ Public Class ConsultaXML
             Dim row As DataRow
             Dim colcount As Integer = dgv.Columns.Count - 1
             For i As Integer = 0 To dgv.Rows.Count - 1
-                If dgv.Rows.Item(i).Cells("sel").Value = True Then
-                    dgv.Rows.Item(i).Cells("sel").Value = False
+                If dgv.Rows.Item(i).Cells("Sel").Value = True Then
+                    dgv.Rows.Item(i).Cells("Sel").Value = False
                     row = ds.Tables("RegistroXML").Rows.Add
                     For Each column As DataGridViewColumn In dgv.Columns
                         row.Item(column.Index) = dgv.Rows.Item(i).Cells(column.Index).Value
@@ -298,20 +307,21 @@ Public Class ConsultaXML
     End Function
     Private Sub TbFiltro_KeyDown(sender As Object, e As KeyEventArgs) Handles TbFiltro.KeyDown
         If e.KeyCode = Keys.Enter Then
-            abreXML()
+            'abreXML()
+            filtrarDgv(DgvFacturas)
         End If
     End Sub
     Private Sub BtMarcar_Click(sender As Object, e As EventArgs) Handles BtMarcar.Click
         For Each dgv As DataGridViewRow In DgvFacturas.Rows
-            If dgv.Cells("sel").Value = False Then
-                dgv.Cells("sel").Value = True
+            If dgv.Cells("Sel").Value = False Then
+                dgv.Cells("Sel").Value = True
             End If
         Next
     End Sub
     Private Sub BtDesmarcar_Click(sender As Object, e As EventArgs) Handles BtDesmarcar.Click
         For Each dgv As DataGridViewRow In DgvFacturas.Rows
-            If dgv.Cells("sel").Value = True Then
-                dgv.Cells("sel").Value = False
+            If dgv.Cells("Sel").Value = True Then
+                dgv.Cells("Sel").Value = False
             End If
         Next
     End Sub

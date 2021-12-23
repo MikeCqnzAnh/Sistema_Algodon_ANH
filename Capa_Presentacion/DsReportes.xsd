@@ -394,6 +394,24 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReporteRangoCastigoCompra" msprop:Generator_TableClassName="ReporteRangoCastigoCompraDataTable" msprop:Generator_TableVarName="tableReporteRangoCastigoCompra" msprop:Generator_RowChangedName="ReporteRangoCastigoCompraRowChanged" msprop:Generator_TablePropName="ReporteRangoCastigoCompra" msprop:Generator_RowDeletingName="ReporteRangoCastigoCompraRowDeleting" msprop:Generator_RowChangingName="ReporteRangoCastigoCompraRowChanging" msprop:Generator_RowEvHandlerName="ReporteRangoCastigoCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRangoCastigoCompraRowDeleted" msprop:Generator_RowClassName="ReporteRangoCastigoCompraRow" msprop:Generator_UserTableName="ReporteRangoCastigoCompra" msprop:Generator_RowEvArgName="ReporteRangoCastigoCompraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Rango1" msprop:Generator_ColumnVarNameInTable="columnRango1" msprop:Generator_ColumnPropNameInRow="Rango1" msprop:Generator_ColumnPropNameInTable="Rango1Column" msprop:Generator_UserColumnName="Rango1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rango2" msprop:Generator_ColumnVarNameInTable="columnRango2" msprop:Generator_ColumnPropNameInRow="Rango2" msprop:Generator_ColumnPropNameInTable="Rango2Column" msprop:Generator_UserColumnName="Rango2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CantidadPacas" msprop:Generator_ColumnVarNameInTable="columnCantidadPacas" msprop:Generator_ColumnPropNameInRow="CantidadPacas" msprop:Generator_ColumnPropNameInTable="CantidadPacasColumn" msprop:Generator_UserColumnName="CantidadPacas" type="xs:int" minOccurs="0" />
+              <xs:element name="Castigo" msprop:Generator_ColumnVarNameInTable="columnCastigo" msprop:Generator_ColumnPropNameInRow="Castigo" msprop:Generator_ColumnPropNameInTable="CastigoColumn" msprop:Generator_UserColumnName="Castigo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_UserColumnName="Costo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReporteRangoCompra" msprop:Generator_TableClassName="ReporteRangoCompraDataTable" msprop:Generator_TableVarName="tableReporteRangoCompra" msprop:Generator_TablePropName="ReporteRangoCompra" msprop:Generator_RowDeletingName="ReporteRangoCompraRowDeleting" msprop:Generator_RowChangingName="ReporteRangoCompraRowChanging" msprop:Generator_RowEvHandlerName="ReporteRangoCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteRangoCompraRowDeleted" msprop:Generator_UserTableName="ReporteRangoCompra" msprop:Generator_RowChangedName="ReporteRangoCompraRowChanged" msprop:Generator_RowEvArgName="ReporteRangoCompraRowChangeEvent" msprop:Generator_RowClassName="ReporteRangoCompraRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdCompra" msprop:Generator_ColumnVarNameInTable="columnIdCompra" msprop:Generator_ColumnPropNameInRow="IdCompra" msprop:Generator_ColumnPropNameInTable="IdCompraColumn" msprop:Generator_UserColumnName="IdCompra" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

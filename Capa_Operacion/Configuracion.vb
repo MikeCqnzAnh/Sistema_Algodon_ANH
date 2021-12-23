@@ -40,6 +40,10 @@
         ReporteRangoCastigolar = 38
         ReporteRangoCastigores = 39
         ReporteRangoCastigouni = 40
+        ReporteRangoCastigomiccompra = 41
+        ReporteRangoCastigolarcompra = 42
+        ReporteRangoCastigorescompra = 43
+        ReporteRangoCastigounicompra = 44
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1

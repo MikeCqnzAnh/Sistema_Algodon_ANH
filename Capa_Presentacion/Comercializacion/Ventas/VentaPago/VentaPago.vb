@@ -27,6 +27,7 @@ Public Class VentaPago
         IdModoLargo = IdModoLar
         IdModoResistencia = IdModoRes
         IdModoUniformidad = IdModoUni
+        Me.BringToFront()
         'TablaResumen = TbResumen
     End Sub
     Private Sub VentaPago_Load(sender As Object, e As EventArgs) Handles MyBase.Load

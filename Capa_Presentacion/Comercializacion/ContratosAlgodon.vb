@@ -116,7 +116,7 @@ Public Class ContratosAlgodon
             NegocioContratosAlgodon.Guardar(EntidadContratosAlgodon)
             TbIdContratoAlgodon.Text = EntidadContratosAlgodon.IdContratoAlgodon
         Catch ex As Exception
-            MsgBox(ex)
+            MsgBox(ex.Message)
         Finally
             MsgBox("Realizado Correctamente")
             ConsultaContratos()

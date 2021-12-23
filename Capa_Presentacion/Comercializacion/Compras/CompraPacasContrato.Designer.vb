@@ -66,6 +66,7 @@ Partial Class CompraPacasContrato
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.DgvContratos = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
         Me.BtBuscarProductor = New System.Windows.Forms.Button()
         Me.CbModalidadCompra = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -79,6 +80,7 @@ Partial Class CompraPacasContrato
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.DtFechaCompra = New System.Windows.Forms.DateTimePicker()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TbNombreProductor = New System.Windows.Forms.TextBox()
@@ -93,6 +95,8 @@ Partial Class CompraPacasContrato
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CastigosPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCompras = New System.Windows.Forms.GroupBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -149,8 +153,6 @@ Partial Class CompraPacasContrato
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TP4IndividualCompradas = New System.Windows.Forms.TabPage()
         Me.DgvPacasIndCompradas = New System.Windows.Forms.DataGridView()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -678,6 +680,14 @@ Partial Class CompraPacasContrato
         Me.Panel2.Size = New System.Drawing.Size(608, 149)
         Me.Panel2.TabIndex = 3
         '
+        'DtFechaActualizacion
+        '
+        Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaActualizacion.Location = New System.Drawing.Point(120, 91)
+        Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
+        Me.DtFechaActualizacion.Size = New System.Drawing.Size(99, 20)
+        Me.DtFechaActualizacion.TabIndex = 59
+        '
         'BtBuscarProductor
         '
         Me.BtBuscarProductor.Location = New System.Drawing.Point(574, 37)
@@ -793,6 +803,15 @@ Partial Class CompraPacasContrato
         Me.DtFechaCompra.Size = New System.Drawing.Size(99, 20)
         Me.DtFechaCompra.TabIndex = 29
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(3, 94)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(70, 13)
+        Me.Label25.TabIndex = 30
+        Me.Label25.Text = "Actualizacion"
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -871,7 +890,7 @@ Partial Class CompraPacasContrato
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1448, 24)
@@ -908,6 +927,20 @@ Partial Class CompraPacasContrato
         Me.ConsultarToolStripMenuItem.Tag = "F8"
         Me.ConsultarToolStripMenuItem.Text = "Consultar compra"
         Me.ConsultarToolStripMenuItem.ToolTipText = "F8"
+        '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CastigosPorRangosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.report_32
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'CastigosPorRangosToolStripMenuItem
+        '
+        Me.CastigosPorRangosToolStripMenuItem.Name = "CastigosPorRangosToolStripMenuItem"
+        Me.CastigosPorRangosToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.CastigosPorRangosToolStripMenuItem.Text = "Castigos por Rangos"
         '
         'SalirToolStripMenuItem
         '
@@ -1535,23 +1568,6 @@ Partial Class CompraPacasContrato
         Me.DgvPacasIndCompradas.Size = New System.Drawing.Size(741, 225)
         Me.DgvPacasIndCompradas.TabIndex = 14
         '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(3, 94)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(70, 13)
-        Me.Label25.TabIndex = 30
-        Me.Label25.Text = "Actualizacion"
-        '
-        'DtFechaActualizacion
-        '
-        Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaActualizacion.Location = New System.Drawing.Point(120, 91)
-        Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
-        Me.DtFechaActualizacion.Size = New System.Drawing.Size(99, 20)
-        Me.DtFechaActualizacion.TabIndex = 59
-        '
         'CompraPacasContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1740,4 +1756,6 @@ Partial Class CompraPacasContrato
     Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DtFechaActualizacion As DateTimePicker
     Friend WithEvents Label25 As Label
+    Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CastigosPorRangosToolStripMenuItem As ToolStripMenuItem
 End Class

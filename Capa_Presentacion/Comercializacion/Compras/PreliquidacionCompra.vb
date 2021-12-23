@@ -127,18 +127,25 @@ Public Class PreliquidacionCompra
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
-            EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
-            EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
-        Else
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoMicros
+                EntidadCompraPacasContrato.IdModoEncabezadoMicros = CbModoMicros.SelectedValue
+                EntidadCompraPacasContrato.CastigoMicros = Math.Truncate(ValMicros * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+                Return Castigo
+            Else
+                Castigo = 0
+                Return Castigo
+            End If
+        Catch ex As Exception
             Castigo = 0
             Return Castigo
-        End If
+            MsgBox(ex.Message & "Detalle en micros")
+        End Try
+
 
     End Function
     Private Function ConsultaCastigoResistenciaFibra(ByVal ValResistenciaFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
@@ -146,18 +153,25 @@ Public Class PreliquidacionCompra
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
-            Return Castigo
-        Else
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoResistenciaFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoResistencia = CbModoResistenciaFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoResistenciaFibra = Math.Truncate(ValResistenciaFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 2)
+                Return Castigo
+            Else
+                Castigo = 0
+                Return Castigo
+            End If
+        Catch ex As Exception
             Castigo = 0
             Return Castigo
-        End If
+            MsgBox(ex.Message & "Detalle en Resistencia")
+        End Try
+
 
     End Function
     Private Function ConsultaCastigoLargoFibra(ByVal ValLargoFibra As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
@@ -165,18 +179,25 @@ Public Class PreliquidacionCompra
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
-            EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
-            EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
-        Else
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoLargoFibra
+                EntidadCompraPacasContrato.IdModoEncabezadoLargoFibra = CbModoLargoFibra.SelectedValue
+                EntidadCompraPacasContrato.CastigoLargoFibra = Math.Truncate(ValLargoFibra * 100) / 100
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+                Return Castigo
+            Else
+                Castigo = 0
+                Return Castigo
+            End If
+        Catch ex As Exception
             Castigo = 0
             Return Castigo
-        End If
+            MsgBox(ex.Message & "Detalle en Largo de fibra")
+        End Try
+
 
     End Function
     Private Function ConsultaCastigoUniformidad(ByVal ValUniformidad As Double, ByVal Quintales As Double, Optional bandera As Integer = 0)
@@ -184,18 +205,25 @@ Public Class PreliquidacionCompra
         Dim Tabla As New DataTable
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
-        If bandera = 0 Then
-            EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
-            EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
-            EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
-            NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-            Tabla = EntidadCompraPacasContrato.TablaConsulta
-            Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
-            Return Castigo
-        Else
+        Try
+            If bandera = 0 Then
+                EntidadCompraPacasContrato.Consulta = Consulta.ConsultaCastigoUniformidad
+                EntidadCompraPacasContrato.IdModoEncabezadoUniformidad = CbModoUniformidad.SelectedValue
+                EntidadCompraPacasContrato.CastigoUniformidad = Math.Truncate(ValUniformidad * 10) / 10
+                NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+                Tabla = EntidadCompraPacasContrato.TablaConsulta
+                Castigo = Math.Round(Tabla.Rows(0).Item("Castigo") * Quintales, 4)
+                Return Castigo
+            Else
+                Castigo = 0
+                Return Castigo
+            End If
+        Catch ex As Exception
             Castigo = 0
             Return Castigo
-        End If
+            MsgBox(ex.Message & " Detalle en uniformidad")
+        End Try
+
     End Function
     Private Function Table() As DataTable
         CrearTablaPacasAgrupadas()

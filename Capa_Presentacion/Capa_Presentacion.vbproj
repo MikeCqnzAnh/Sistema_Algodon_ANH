@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.48.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.49.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -617,6 +617,12 @@
     <Compile Include="Reportes\RepCastigoPorRangos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepCastigoPorRangosCompras.Designer.vb">
+      <DependentUpon>RepCastigoPorRangosCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepCastigoPorRangosCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepClasesVenta.Designer.vb">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
     </Compile>
@@ -843,6 +849,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTCastigoPorRangos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTCastigoPorRangosCompras.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTCastigoPorRangosCompras.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTClasesVenta.vb">
@@ -1723,6 +1735,9 @@
     <EmbeddedResource Include="Reportes\RepCastigoPorRangos.resx">
       <DependentUpon>RepCastigoPorRangos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepCastigoPorRangosCompras.resx">
+      <DependentUpon>RepCastigoPorRangosCompras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepClasesVenta.resx">
       <DependentUpon>RepClasesVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -1838,6 +1853,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTCastigoPorRangos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTCastigoPorRangos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTCastigoPorRangosCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTCastigoPorRangosCompras.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTClasesVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2275,6 +2294,7 @@
     <None Include="Imagenes\excel.png" />
     <None Include="Imagenes\delete.png" />
     <None Include="Imagenes\quit.png" />
+    <None Include="Imagenes\report_32.png" />
     <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

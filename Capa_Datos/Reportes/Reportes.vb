@@ -370,6 +370,38 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadReportes1.IdVenta))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRangoCastigolarcompra
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoLarCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRangoCastigomiccompra
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoMicCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRangoCastigorescompra
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoResCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRangoCastigounicompra
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoUniCompra", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

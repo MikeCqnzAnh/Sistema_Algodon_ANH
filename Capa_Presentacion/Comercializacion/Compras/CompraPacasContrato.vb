@@ -1022,6 +1022,16 @@ Public Class CompraPacasContrato
         Next
         MarcaSeleccionDisponibles()
     End Sub
+
+    Private Sub CastigosPorRangosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CastigosPorRangosToolStripMenuItem.Click
+        If TbIdCompraPaca.Text <> "" Then
+            Dim RepCastPorRangos As New RepCastigoPorRangosCompras(TbIdCompraPaca.Text, CbModoMicros.SelectedValue, CbModoResistenciaFibra.SelectedValue, CbModoLargoFibra.SelectedValue, CbModoUniformidad.SelectedValue)
+            RepCastPorRangos.ShowDialog()
+        Else
+            MsgBox("No hay una compra seleccionada.", MsgBoxStyle.Information, "Aviso")
+        End If
+    End Sub
+
     Private Sub MarcaSeleccionCompradas()
         Dim Contador As Integer = 0
         Dim Kilos As Integer = 0
