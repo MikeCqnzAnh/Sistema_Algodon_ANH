@@ -210,6 +210,7 @@ Public Class VentaPacasContrato
         _ConsultaVenta.ShowDialog()
         ConsultarDatosVenta()
         ConsultaParametrosVenta()
+        gbcontratos.Enabled = False
     End Sub
     Public Function LoadIdVenta(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdVenta
         For Each row As DataRow In DatatableParam.Rows
@@ -293,6 +294,7 @@ Public Class VentaPacasContrato
         TablaCastigoLargoFibra.Clear()
         TablaCastigoResistenciaFibra.Clear()
         TablaCastigoUniformidad.Clear()
+        gbcontratos.Enabled = True
     End Sub
     Private Sub CargarCombos()
         '---Planta Origen--
@@ -356,6 +358,7 @@ Public Class VentaPacasContrato
         _ConsultaCompradores.Opener = CType(Me, IForm1)
         _ConsultaCompradores.ShowDialog()
         ConsultaDatosCompra()
+        gbcontratos.Enabled = True
     End Sub
     Public Function LoadIdComprador(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdComprador
         For Each row As DataRow In DatatableParam.Rows
@@ -888,6 +891,7 @@ Public Class VentaPacasContrato
         EntidadVentaPacasContrato.IdEstatusVenta = 0
         NegocioVentaPacasContrato.Guardar(EntidadVentaPacasContrato)
         TbIdVentaPaca.Text = EntidadVentaPacasContrato.IdVenta
+        gbcontratos.Enabled = False
     End Sub
     Private Function RecalculaPacasVenta(ByVal EstatusVentaUpdate As Integer, ByVal EstatusVentaBusqueda As Integer, ByVal DataGridEnvia As DataGridView, ByVal IdVentaEnc As Integer, Optional valcastigo As Integer = 0) As DataTable
         Dim dt As New DataTable

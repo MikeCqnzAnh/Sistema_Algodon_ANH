@@ -610,7 +610,7 @@ Partial Class Produccion
         Me.GbCapturaAutomatica.Enabled = False
         Me.GbCapturaAutomatica.Location = New System.Drawing.Point(807, 16)
         Me.GbCapturaAutomatica.Name = "GbCapturaAutomatica"
-        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 410)
+        Me.GbCapturaAutomatica.Size = New System.Drawing.Size(336, 361)
         Me.GbCapturaAutomatica.TabIndex = 62
         Me.GbCapturaAutomatica.TabStop = False
         Me.GbCapturaAutomatica.Text = "Captura de Lotes Automatico"
@@ -618,7 +618,7 @@ Partial Class Produccion
         'BtEliminarPacas
         '
         Me.BtEliminarPacas.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BtEliminarPacas.Location = New System.Drawing.Point(3, 384)
+        Me.BtEliminarPacas.Location = New System.Drawing.Point(3, 335)
         Me.BtEliminarPacas.MaximumSize = New System.Drawing.Size(173, 23)
         Me.BtEliminarPacas.MinimumSize = New System.Drawing.Size(173, 23)
         Me.BtEliminarPacas.Name = "BtEliminarPacas"
@@ -751,7 +751,7 @@ Partial Class Produccion
         Me.DgvPacas.RowHeadersVisible = False
         Me.DgvPacas.RowHeadersWidth = 40
         Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPacas.Size = New System.Drawing.Size(798, 360)
+        Me.DgvPacas.Size = New System.Drawing.Size(798, 311)
         Me.DgvPacas.TabIndex = 64
         '
         'GbTipoCaptura
@@ -788,7 +788,7 @@ Partial Class Produccion
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(804, 410)
+        Me.GroupBox1.Size = New System.Drawing.Size(804, 361)
         Me.GroupBox1.TabIndex = 66
         Me.GroupBox1.TabStop = False
         '
@@ -799,7 +799,7 @@ Partial Class Produccion
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 363)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1146, 429)
+        Me.GroupBox2.Size = New System.Drawing.Size(1146, 380)
         Me.GroupBox2.TabIndex = 67
         Me.GroupBox2.TabStop = False
         '
@@ -828,7 +828,7 @@ Partial Class Produccion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(1146, 792)
+        Me.ClientSize = New System.Drawing.Size(1146, 743)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.MSMenu)

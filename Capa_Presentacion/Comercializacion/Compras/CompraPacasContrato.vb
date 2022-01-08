@@ -65,6 +65,7 @@ Public Class CompraPacasContrato
             ventanacompra.ShowDialog()
             'ConsultaCompra()
             consultaDatosdgv()
+            gbcontratos.Enabled = False
         Else
             MessageBox.Show("No hay pacas seleccionadas!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -343,6 +344,7 @@ Public Class CompraPacasContrato
         _ConsultaCompraProductor.ShowDialog()
         ConsultarDatosCompra()
         ConsultaParametrosCompra()
+        gbcontratos.Enabled = False
     End Sub
     Public Function LoadDataGridView(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIDValues
         For Each row As DataRow In DatatableParam.Rows
@@ -419,6 +421,7 @@ Public Class CompraPacasContrato
         TablacastigoMicros.Clear()
         TablaCastigoLargoFibra.Clear()
         TablaCastigoResistenciaFibra.Clear()
+        gbcontratos.Enabled = True
     End Sub
     Private Sub CargarCombos()
         '---Planta Origen--
@@ -1119,6 +1122,7 @@ Public Class CompraPacasContrato
 
         _ConsultaProductorContratoCompras.ShowDialog()
         ConsultarDatosCompra()
+        gbcontratos.Enabled = True
     End Sub
     Public Function LoadIdProductor(ByVal DatatableParam As DataTable) As Boolean Implements IForm.LoadIdProductor
         For Each row As DataRow In DatatableParam.Rows

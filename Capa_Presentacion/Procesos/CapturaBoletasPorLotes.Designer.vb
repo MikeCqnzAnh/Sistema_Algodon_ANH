@@ -38,6 +38,7 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
+        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -47,7 +48,7 @@ Partial Class CapturaBoletasPorLotes
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.EntradasExtraordinariasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1157, 24)
@@ -169,6 +170,12 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
+        'EntradasExtraordinariasToolStripMenuItem
+        '
+        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
+        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
+        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
+        '
         'CapturaBoletasPorLotes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -209,6 +216,7 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents IncidenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label2 As Label
+    Friend WithEvents EntradasExtraordinariasToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlusCapturaBoletas
         Inherits DataGridView

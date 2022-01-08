@@ -63,7 +63,7 @@ Partial Class CompraPacasContrato
         Me.ChLargoFibra = New System.Windows.Forms.CheckBox()
         Me.ChMicros = New System.Windows.Forms.CheckBox()
         Me.CbModoMicros = New System.Windows.Forms.ComboBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.gbcontratos = New System.Windows.Forms.GroupBox()
         Me.DgvContratos = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
@@ -157,7 +157,7 @@ Partial Class CompraPacasContrato
         Me.Panel6.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
+        Me.gbcontratos.SuspendLayout()
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.MSMenu.SuspendLayout()
@@ -187,7 +187,7 @@ Partial Class CompraPacasContrato
         'GbDatosGenerales
         '
         Me.GbDatosGenerales.Controls.Add(Me.Panel6)
-        Me.GbDatosGenerales.Controls.Add(Me.GroupBox6)
+        Me.GbDatosGenerales.Controls.Add(Me.gbcontratos)
         Me.GbDatosGenerales.Controls.Add(Me.Panel2)
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
@@ -621,16 +621,16 @@ Partial Class CompraPacasContrato
         Me.CbModoMicros.Size = New System.Drawing.Size(121, 21)
         Me.CbModoMicros.TabIndex = 55
         '
-        'GroupBox6
+        'gbcontratos
         '
-        Me.GroupBox6.Controls.Add(Me.DgvContratos)
-        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupBox6.Location = New System.Drawing.Point(899, 16)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(546, 149)
-        Me.GroupBox6.TabIndex = 2
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Contratos"
+        Me.gbcontratos.Controls.Add(Me.DgvContratos)
+        Me.gbcontratos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.gbcontratos.Location = New System.Drawing.Point(899, 16)
+        Me.gbcontratos.Name = "gbcontratos"
+        Me.gbcontratos.Size = New System.Drawing.Size(546, 149)
+        Me.gbcontratos.TabIndex = 2
+        Me.gbcontratos.TabStop = False
+        Me.gbcontratos.Text = "Contratos"
         '
         'DgvContratos
         '
@@ -1591,7 +1591,7 @@ Partial Class CompraPacasContrato
         Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
+        Me.gbcontratos.ResumeLayout(False)
         CType(Me.DgvContratos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -1644,7 +1644,7 @@ Partial Class CompraPacasContrato
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents TbDesdePaca As TextBox
-    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents gbcontratos As GroupBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents DgvAgrupadasCliente As DataGridView

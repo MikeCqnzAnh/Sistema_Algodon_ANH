@@ -301,7 +301,8 @@ Public Class MenuPrincipal
         CompraPacas.ShowDialog()
     End Sub
     Private Sub CompraDePacasAProductoresPorContratoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompraDePacasAProductoresPorContratoToolStripMenuItem.Click
-        CompraPacasContrato.ShowDialog()
+        Dim compracont As New CompraPacasContrato
+        compracont.ShowDialog()
     End Sub
     Private Sub AltaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaDePacasToolStripMenuItem.Click
         AltaPacas.ShowDialog()

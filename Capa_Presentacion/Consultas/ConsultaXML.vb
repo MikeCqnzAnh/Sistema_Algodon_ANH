@@ -256,7 +256,8 @@ Public Class ConsultaXML
             Subtotal = VarDocumentoXML.SelectSingleNode("/cfdi:Comprobante/@SubTotal", VarManager).InnerText
             VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
             For Each node In VarConceptos
-                If node.attributes("ClaveProdServ").value = TbClaveProducto.Text And node.attributes("ClaveUnidad").value = TbUnidad.Text Then
+                'If node.attributes("ClaveProdServ").value = TbClaveProducto.Text And node.attributes("ClaveUnidad").value = TbUnidad.Text Then
+                If node.attributes("ClaveProdServ").value = TbClaveProducto.Text Then
                     If filtro <> "" Then
                         If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
                             DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
