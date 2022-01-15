@@ -1,5 +1,5 @@
-alter Procedure Pa_ConsultaExistencias
-as
+--alter Procedure Pa_ConsultaExistencias
+--as
 select 
 (select count(Foliocia) from ProduccionDetalle) TotalProducidas, 
 (select count(baleid) from HviDetalle) TotalClasificadas, 
@@ -10,3 +10,14 @@ select
 (select count(pd.foliocia) from ProduccionDetalle pd left join calculoclasificacion cc on pd.FolioCIA = cc.BaleID and pd.idordentrabajo = cc.idordentrabajo and pd.idplantaorigen = cc.idplantaorigen where cc.IdEmbarqueEncabezado is not null) as PacasEmbarque, 
 (select count(pd.foliocia) from ProduccionDetalle pd left join calculoclasificacion cc on pd.FolioCIA = cc.BaleID and pd.idordentrabajo = cc.idordentrabajo and pd.idplantaorigen = cc.idplantaorigen where cc.IdSalidaEncabezado is not null) as PacasSalida,
 (select count(Foliocia) from ProduccionDetalle)-(select count(baleid) from calculoclasificacion where IdSalidaEncabezado is not null) as PacasExistencias
+
+
+--select count(pd.foliocia) 
+--from ProduccionDetalle pd left join HviDetalle cc on pd.FolioCIA = cc.BaleID and pd.IdOrdenTrabajo = cc.IdOrdenTrabajo and pd.idplantaorigen = cc.idplantaorigen 
+--where cc.IdCompraEnc is null
+
+select count(foliocia) from ProduccionDetalle where FolioCIA in (select baleid from HviDetalle where IdCompraEnc is null)
+select count(foliocia) from ProduccionDetalle where FolioCIA in (select baleid from HviDetalle where IdCompraEnc is not null)
+
+
+select idplantaorigen,count(idplantaorigen) from producciondetalle where FolioCIA in (select baleid from HviDetalle where IdCompraEnc is not null) group by idplantaorigen 

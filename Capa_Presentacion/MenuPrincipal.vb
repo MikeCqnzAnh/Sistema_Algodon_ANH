@@ -573,6 +573,11 @@ Public Class MenuPrincipal
         RepHojaProd.ShowDialog()
     End Sub
 
+    Private Sub ActualizacionVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizacionVentaToolStripMenuItem.Click
+        Dim actventa As New ActualizacionVenta
+        actventa.ShowDialog()
+    End Sub
+
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub

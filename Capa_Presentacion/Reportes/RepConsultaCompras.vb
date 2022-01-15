@@ -33,4 +33,12 @@ Public Class RepConsultaCompras
             MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+    Private Sub ExportarAExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarAExcelToolStripMenuItem.Click
+        If DgvCompras.Rows.Count > 0 Then
+            ExportExcel(DgvCompras)
+        Else
+            MsgBox("No hay registros para exportar.", MsgBoxStyle.Exclamation, "Aviso")
+        End If
+    End Sub
 End Class

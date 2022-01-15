@@ -39,7 +39,6 @@ Partial Class VentaPacasContrato
         Me.CkKgAdd = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdVentaPaca = New System.Windows.Forms.TextBox()
-        Me.BtnBuscarProd = New System.Windows.Forms.Button()
         Me.TbIdComprador = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
@@ -166,6 +165,7 @@ Partial Class VentaPacasContrato
         Me.BtExcel = New System.Windows.Forms.Button()
         Me.BtSeleccionar2 = New System.Windows.Forms.Button()
         Me.BtSeleccionar = New System.Windows.Forms.Button()
+        Me.BtnBuscarProd = New System.Windows.Forms.Button()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -303,7 +303,7 @@ Partial Class VentaPacasContrato
         '
         'TbPesoTara
         '
-        Me.TbPesoTara.Location = New System.Drawing.Point(82, 102)
+        Me.TbPesoTara.Location = New System.Drawing.Point(82, 115)
         Me.TbPesoTara.Name = "TbPesoTara"
         Me.TbPesoTara.ReadOnly = True
         Me.TbPesoTara.Size = New System.Drawing.Size(61, 20)
@@ -313,7 +313,7 @@ Partial Class VentaPacasContrato
         '
         Me.CkTara.AutoSize = True
         Me.CkTara.Enabled = False
-        Me.CkTara.Location = New System.Drawing.Point(149, 104)
+        Me.CkTara.Location = New System.Drawing.Point(149, 117)
         Me.CkTara.Name = "CkTara"
         Me.CkTara.Size = New System.Drawing.Size(15, 14)
         Me.CkTara.TabIndex = 15
@@ -322,7 +322,7 @@ Partial Class VentaPacasContrato
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(3, 104)
+        Me.Label24.Location = New System.Drawing.Point(3, 117)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(29, 13)
         Me.Label24.TabIndex = 61
@@ -332,7 +332,7 @@ Partial Class VentaPacasContrato
         '
         Me.CbModalidadVenta.Enabled = False
         Me.CbModalidadVenta.FormattingEnabled = True
-        Me.CbModalidadVenta.Location = New System.Drawing.Point(375, 28)
+        Me.CbModalidadVenta.Location = New System.Drawing.Point(375, 41)
         Me.CbModalidadVenta.Name = "CbModalidadVenta"
         Me.CbModalidadVenta.Size = New System.Drawing.Size(121, 21)
         Me.CbModalidadVenta.TabIndex = 60
@@ -340,7 +340,7 @@ Partial Class VentaPacasContrato
         'TbValorConversion
         '
         Me.TbValorConversion.Enabled = False
-        Me.TbValorConversion.Location = New System.Drawing.Point(502, 54)
+        Me.TbValorConversion.Location = New System.Drawing.Point(502, 67)
         Me.TbValorConversion.Name = "TbValorConversion"
         Me.TbValorConversion.Size = New System.Drawing.Size(75, 20)
         Me.TbValorConversion.TabIndex = 59
@@ -349,7 +349,7 @@ Partial Class VentaPacasContrato
         '
         Me.Label26.AutoSize = True
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(340, 107)
+        Me.Label26.Location = New System.Drawing.Point(340, 120)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(34, 12)
         Me.Label26.TabIndex = 60
@@ -359,14 +359,14 @@ Partial Class VentaPacasContrato
         '
         Me.CbUnidadPeso.Enabled = False
         Me.CbUnidadPeso.FormattingEnabled = True
-        Me.CbUnidadPeso.Location = New System.Drawing.Point(375, 53)
+        Me.CbUnidadPeso.Location = New System.Drawing.Point(375, 66)
         Me.CbUnidadPeso.Name = "CbUnidadPeso"
         Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
         Me.CbUnidadPeso.TabIndex = 58
         '
         'TbKdAd
         '
-        Me.TbKdAd.Location = New System.Drawing.Point(187, 54)
+        Me.TbKdAd.Location = New System.Drawing.Point(187, 67)
         Me.TbKdAd.Name = "TbKdAd"
         Me.TbKdAd.Size = New System.Drawing.Size(72, 20)
         Me.TbKdAd.TabIndex = 57
@@ -376,7 +376,7 @@ Partial Class VentaPacasContrato
         'CkKgAdd
         '
         Me.CkKgAdd.AutoSize = True
-        Me.CkKgAdd.Location = New System.Drawing.Point(187, 30)
+        Me.CkKgAdd.Location = New System.Drawing.Point(187, 43)
         Me.CkKgAdd.Name = "CkKgAdd"
         Me.CkKgAdd.Size = New System.Drawing.Size(55, 17)
         Me.CkKgAdd.TabIndex = 56
@@ -386,7 +386,7 @@ Partial Class VentaPacasContrato
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 7)
+        Me.Label1.Location = New System.Drawing.Point(3, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 19
@@ -396,25 +396,16 @@ Partial Class VentaPacasContrato
         'TbIdVentaPaca
         '
         Me.TbIdVentaPaca.Enabled = False
-        Me.TbIdVentaPaca.Location = New System.Drawing.Point(82, 4)
+        Me.TbIdVentaPaca.Location = New System.Drawing.Point(82, 17)
         Me.TbIdVentaPaca.Name = "TbIdVentaPaca"
         Me.TbIdVentaPaca.Size = New System.Drawing.Size(99, 20)
         Me.TbIdVentaPaca.TabIndex = 17
         Me.TbIdVentaPaca.UseWaitCursor = True
         '
-        'BtnBuscarProd
-        '
-        Me.BtnBuscarProd.Location = New System.Drawing.Point(650, 2)
-        Me.BtnBuscarProd.Name = "BtnBuscarProd"
-        Me.BtnBuscarProd.Size = New System.Drawing.Size(41, 23)
-        Me.BtnBuscarProd.TabIndex = 55
-        Me.BtnBuscarProd.Text = "..."
-        Me.BtnBuscarProd.UseVisualStyleBackColor = True
-        '
         'TbIdComprador
         '
         Me.TbIdComprador.Enabled = False
-        Me.TbIdComprador.Location = New System.Drawing.Point(258, 4)
+        Me.TbIdComprador.Location = New System.Drawing.Point(258, 17)
         Me.TbIdComprador.Name = "TbIdComprador"
         Me.TbIdComprador.Size = New System.Drawing.Size(75, 20)
         Me.TbIdComprador.TabIndex = 18
@@ -422,7 +413,7 @@ Partial Class VentaPacasContrato
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(267, 57)
+        Me.Label21.Location = New System.Drawing.Point(267, 70)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(83, 13)
         Me.Label21.TabIndex = 46
@@ -431,7 +422,7 @@ Partial Class VentaPacasContrato
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(267, 31)
+        Me.Label27.Location = New System.Drawing.Point(267, 44)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(102, 13)
         Me.Label27.TabIndex = 46
@@ -440,7 +431,7 @@ Partial Class VentaPacasContrato
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 81)
+        Me.Label6.Location = New System.Drawing.Point(3, 94)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 46
@@ -449,7 +440,7 @@ Partial Class VentaPacasContrato
         'TbNoPacas
         '
         Me.TbNoPacas.Enabled = False
-        Me.TbNoPacas.Location = New System.Drawing.Point(82, 78)
+        Me.TbNoPacas.Location = New System.Drawing.Point(82, 91)
         Me.TbNoPacas.Name = "TbNoPacas"
         Me.TbNoPacas.Size = New System.Drawing.Size(99, 20)
         Me.TbNoPacas.TabIndex = 39
@@ -458,7 +449,7 @@ Partial Class VentaPacasContrato
         '
         Me.CbPlanta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(375, 103)
+        Me.CbPlanta.Location = New System.Drawing.Point(375, 116)
         Me.CbPlanta.Name = "CbPlanta"
         Me.CbPlanta.Size = New System.Drawing.Size(121, 20)
         Me.CbPlanta.TabIndex = 20
@@ -466,7 +457,7 @@ Partial Class VentaPacasContrato
         'TbIdContrato
         '
         Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(82, 28)
+        Me.TbIdContrato.Location = New System.Drawing.Point(82, 41)
         Me.TbIdContrato.Name = "TbIdContrato"
         Me.TbIdContrato.Size = New System.Drawing.Size(99, 20)
         Me.TbIdContrato.TabIndex = 34
@@ -474,7 +465,7 @@ Partial Class VentaPacasContrato
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(3, 31)
+        Me.Label12.Location = New System.Drawing.Point(3, 44)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(59, 13)
         Me.Label12.TabIndex = 37
@@ -483,7 +474,7 @@ Partial Class VentaPacasContrato
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(3, 57)
+        Me.Label14.Location = New System.Drawing.Point(3, 70)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(37, 13)
         Me.Label14.TabIndex = 48
@@ -492,7 +483,7 @@ Partial Class VentaPacasContrato
         'DtpFecha
         '
         Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtpFecha.Location = New System.Drawing.Point(375, 78)
+        Me.DtpFecha.Location = New System.Drawing.Point(375, 91)
         Me.DtpFecha.Name = "DtpFecha"
         Me.DtpFecha.Size = New System.Drawing.Size(121, 20)
         Me.DtpFecha.TabIndex = 29
@@ -500,7 +491,7 @@ Partial Class VentaPacasContrato
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(82, 54)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(82, 67)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(99, 20)
         Me.TbPrecioQuintal.TabIndex = 44
@@ -508,7 +499,7 @@ Partial Class VentaPacasContrato
         'TbNombreComprador
         '
         Me.TbNombreComprador.Enabled = False
-        Me.TbNombreComprador.Location = New System.Drawing.Point(339, 4)
+        Me.TbNombreComprador.Location = New System.Drawing.Point(339, 17)
         Me.TbNombreComprador.Name = "TbNombreComprador"
         Me.TbNombreComprador.Size = New System.Drawing.Size(305, 20)
         Me.TbNombreComprador.TabIndex = 39
@@ -516,7 +507,7 @@ Partial Class VentaPacasContrato
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(267, 81)
+        Me.Label4.Location = New System.Drawing.Point(267, 94)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 30
@@ -525,7 +516,7 @@ Partial Class VentaPacasContrato
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(187, 7)
+        Me.Label5.Location = New System.Drawing.Point(187, 20)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 35
@@ -1781,6 +1772,16 @@ Partial Class VentaPacasContrato
         Me.BtSeleccionar.Size = New System.Drawing.Size(33, 34)
         Me.BtSeleccionar.TabIndex = 0
         Me.BtSeleccionar.UseVisualStyleBackColor = True
+        '
+        'BtnBuscarProd
+        '
+        Me.BtnBuscarProd.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.clienteadd
+        Me.BtnBuscarProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnBuscarProd.Location = New System.Drawing.Point(650, 2)
+        Me.BtnBuscarProd.Name = "BtnBuscarProd"
+        Me.BtnBuscarProd.Size = New System.Drawing.Size(35, 35)
+        Me.BtnBuscarProd.TabIndex = 55
+        Me.BtnBuscarProd.UseVisualStyleBackColor = True
         '
         'NuevoToolStripMenuItem
         '

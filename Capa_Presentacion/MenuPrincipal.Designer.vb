@@ -159,6 +159,7 @@ Partial Class MenuPrincipal
         Me.BorrarPerfilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BorrarPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActualizacionVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -207,7 +208,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(836, 27)
+        Me.MSMenu.Size = New System.Drawing.Size(830, 27)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -1160,7 +1161,7 @@ Partial Class MenuPrincipal
         '
         'UtileriasToolStripMenuItem
         '
-        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.ToolStripMenuItem1, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem, Me.RolesTestToolStripMenuItem, Me.BuscarActualizacionesToolStripMenuItem})
+        Me.UtileriasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BorrarPerfilToolStripMenuItem, Me.BorrarPacasToolStripMenuItem, Me.ToolStripMenuItem1, Me.ActualizacionVentaToolStripMenuItem, Me.CambioDePerfilDePacasToolStripMenuItem, Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem, Me.EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem, Me.MonedasToolStripMenuItem, Me.BitacoraToolStripMenuItem, Me.RutaDeDocumentosToolStripMenuItem, Me.ToolStripMenuItem3, Me.UsuariosToolStripMenuItem, Me.RolesToolStripMenuItem, Me.RolesTestToolStripMenuItem, Me.BuscarActualizacionesToolStripMenuItem})
         Me.UtileriasToolStripMenuItem.Name = "UtileriasToolStripMenuItem"
         Me.UtileriasToolStripMenuItem.Size = New System.Drawing.Size(70, 23)
         Me.UtileriasToolStripMenuItem.Tag = "107,0"
@@ -1186,6 +1187,13 @@ Partial Class MenuPrincipal
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(325, 24)
         Me.ToolStripMenuItem1.Tag = "240,107"
         Me.ToolStripMenuItem1.Text = "Clave Autorizacion"
+        '
+        'ActualizacionVentaToolStripMenuItem
+        '
+        Me.ActualizacionVentaToolStripMenuItem.Name = "ActualizacionVentaToolStripMenuItem"
+        Me.ActualizacionVentaToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
+        Me.ActualizacionVentaToolStripMenuItem.Tag = "0,0"
+        Me.ActualizacionVentaToolStripMenuItem.Text = "Actualizacion Venta"
         '
         'CambioDePerfilDePacasToolStripMenuItem
         '
@@ -1365,7 +1373,7 @@ Partial Class MenuPrincipal
         Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 459)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(836, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(830, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1444,7 +1452,7 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(836, 481)
+        Me.ClientSize = New System.Drawing.Size(830, 481)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1634,4 +1642,5 @@ Partial Class MenuPrincipal
     Friend WithEvents OrdenDeEmbarquePToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EntradaYSalidaDeEquipoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReporteDeHojasDeProduccionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActualizacionVentaToolStripMenuItem As ToolStripMenuItem
 End Class

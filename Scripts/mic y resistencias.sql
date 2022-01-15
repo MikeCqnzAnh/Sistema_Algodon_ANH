@@ -30,12 +30,31 @@ where idventaenc  is null and Strength between 32 AND 35
 
 update HviDetalle
 set SCI = round((-414.67 + 2.9 * Strength - 9.32 * Mic + 49.17 * UHML + 4.74 * UI + 0.65 * RD + 0.36 * PLUSB),0)
-where baleid in (select baleid from CalculoClasificacion where idventaenc  is null)
+--where baleid in (select baleid from CalculoClasificacion where idventaenc  is null)
 
 update CalculoClasificacion
 set SCI = round((-414.67 + 2.9 * Strength - 9.32 * Mic + 49.17 * UHML + 4.74 * UI + 0.65 * RD + 0.36 * PLUSB),0)
-where idventaenc  is null 
+--where idventaenc  is null 
 
+select BaleID,strength,SCI,round((-414.67 + 2.9 * Strength - 9.32 * Mic + 49.17 * UHML + 4.74 * UI + 0.65 * RD + 0.36 * PLUSB),0) from calculoclasificacion where Strength > 100
+select BaleID,strength,SCI from hvidetalle where baleid in (5205179719,
+5205186697)
+select BaleID,strength,SCI from calculoclasificacion where baleid in (5205179719,
+5205186697)
+
+update hvidetalle
+set Strength = 31.1649442194318
+where BaleID =5205179719
+update calculoclasificacion 
+set Strength = 31.1649442194318
+where BaleID =5205179719
+
+update hvidetalle
+set Strength = 26.5205178639491
+where BaleID =5205186697
+update calculoclasificacion 
+set Strength = 26.5205178639491
+where BaleID =5205186697
 
 --SELECT UHML,UHML+(1.05-convert(decimal,(UHML),2))FROM CalculoClasificacion WHERE IdVentaEnc = 7 AND UHML between 1.02 and 1.05
 --select IdOrdenTrabajo,BaleID,mic,mic+(3.95-convert(decimal(18,2),mic)) as MicRes from HviDetalle where Mic >= 5  order by Mic

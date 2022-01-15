@@ -196,6 +196,10 @@
         ConsultaPacasSalidasFiltro = 126
         ConsultaExisteNoLote = 127
         ConsultaEstatusRevision = 128
+        ConsultaMicRango = 129
+        ConsultaResRango = 130
+        ConsultaLarRango = 131
+        ConsultaUniRango = 132
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

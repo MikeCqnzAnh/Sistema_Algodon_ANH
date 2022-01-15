@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.50.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.51.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -395,6 +395,12 @@
       <DependentUpon>ConsultaSalidas.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaSalidas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaVentasAct.Designer.vb">
+      <DependentUpon>ConsultaVentasAct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaVentasAct.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaXML.Designer.vb">
@@ -1118,6 +1124,12 @@
     <Compile Include="TriStateTreeView.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilerias\ActualizacionVenta.Designer.vb">
+      <DependentUpon>ActualizacionVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilerias\ActualizacionVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilerias\BuscarActualizacion.Designer.vb">
       <DependentUpon>BuscarActualizacion.vb</DependentUpon>
     </Compile>
@@ -1725,6 +1737,9 @@
     <EmbeddedResource Include="Consultas\ConsultaVentas.resx">
       <DependentUpon>ConsultaVentas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaVentasAct.resx">
+      <DependentUpon>ConsultaVentasAct.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaXML.resx">
       <DependentUpon>ConsultaXML.vb</DependentUpon>
     </EmbeddedResource>
@@ -2034,6 +2049,9 @@
     <EmbeddedResource Include="Configuracion\BanxicoTipo.resx">
       <DependentUpon>BanxicoTipo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilerias\ActualizacionVenta.resx">
+      <DependentUpon>ActualizacionVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\BuscarActualizacion.resx">
       <DependentUpon>BuscarActualizacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -2304,6 +2322,7 @@
     <None Include="Imagenes\delete.png" />
     <None Include="Imagenes\quit.png" />
     <None Include="Imagenes\report_32.png" />
+    <None Include="Imagenes\clienteadd.png" />
     <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

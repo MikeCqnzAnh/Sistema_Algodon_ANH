@@ -64,7 +64,7 @@ Public Class VentaPacasContrato
     Public CkRes As Boolean
     Public CkUI As Boolean
     Public CkLargo As Boolean
-
+    Public IdModoEncabezado As Integer
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

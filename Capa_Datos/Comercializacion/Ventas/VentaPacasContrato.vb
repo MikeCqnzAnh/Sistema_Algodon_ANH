@@ -232,6 +232,39 @@ Public Class VentaPacasContrato
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
                     sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaMicRango
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoMicActualizacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadVentaPacasContrato1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLarRango
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoLarActualizacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadVentaPacasContrato1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaResRango
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoResActualizacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadVentaPacasContrato1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniRango
+                    sqlcom1 = New SqlCommand("Pa_ReporteRangoCastigoUniActualizacion", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadVentaPacasContrato1.IdModoEncabezado))
+                    sqldat1.Fill(EntidadVentaPacasContrato1.TablaConsulta)
+
             End Select
         Catch ex As Exception
             cnn.Close()

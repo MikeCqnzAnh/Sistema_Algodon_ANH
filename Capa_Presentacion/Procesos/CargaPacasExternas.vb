@@ -189,12 +189,12 @@ Public Class CargaPacasExternas
     End Sub
     Private Sub BtCargaExcel_Click(sender As Object, e As EventArgs) Handles BtCargaExcel.Click
         Dim SumaKilos As Integer = 0
-        importarExcelExterno(DgvPacas)
+        importarExcelPacasKilos(DgvPacas)
         TbTotalPacas.Text = DgvPacas.Rows.Count()
         If DgvPacas.Rows.Count > 0 Then
             For Each Fila As DataGridViewRow In DgvPacas.Rows
                 If Not Fila Is Nothing Then
-                    SumaKilos = SumaKilos + Fila.Cells(26).Value
+                    SumaKilos = SumaKilos + Fila.Cells(1).Value
                 End If
             Next
         End If
