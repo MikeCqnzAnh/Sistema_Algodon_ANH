@@ -41,6 +41,8 @@ Partial Class ActualizacionVenta
         Me.DgvContratos = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.rbbajar = New System.Windows.Forms.RadioButton()
+        Me.rbsubir = New System.Windows.Forms.RadioButton()
         Me.TbPesoTara = New System.Windows.Forms.TextBox()
         Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -175,9 +177,9 @@ Partial Class ActualizacionVenta
         '
         Me.GroupBox4.Controls.Add(Me.Dgvlargofibra)
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(861, 0)
+        Me.GroupBox4.Location = New System.Drawing.Point(859, 0)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(408, 539)
+        Me.GroupBox4.Size = New System.Drawing.Size(446, 539)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "LARGO DE FIBRA"
@@ -201,16 +203,16 @@ Partial Class ActualizacionVenta
         Me.Dgvlargofibra.RowHeadersVisible = False
         Me.Dgvlargofibra.RowHeadersWidth = 40
         Me.Dgvlargofibra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvlargofibra.Size = New System.Drawing.Size(402, 520)
+        Me.Dgvlargofibra.Size = New System.Drawing.Size(440, 520)
         Me.Dgvlargofibra.TabIndex = 14
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Dgvuniformidad)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GroupBox1.Location = New System.Drawing.Point(1269, 0)
+        Me.GroupBox1.Location = New System.Drawing.Point(1305, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(441, 539)
+        Me.GroupBox1.Size = New System.Drawing.Size(405, 539)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "UNIFORMIDAD"
@@ -234,16 +236,16 @@ Partial Class ActualizacionVenta
         Me.Dgvuniformidad.RowHeadersVisible = False
         Me.Dgvuniformidad.RowHeadersWidth = 40
         Me.Dgvuniformidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvuniformidad.Size = New System.Drawing.Size(435, 520)
+        Me.Dgvuniformidad.Size = New System.Drawing.Size(399, 520)
         Me.Dgvuniformidad.TabIndex = 17
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Dgvresistencia)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GroupBox3.Location = New System.Drawing.Point(414, 0)
+        Me.GroupBox3.Location = New System.Drawing.Point(418, 0)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(447, 539)
+        Me.GroupBox3.Size = New System.Drawing.Size(441, 539)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "RESISTENCIA"
@@ -267,7 +269,7 @@ Partial Class ActualizacionVenta
         Me.Dgvresistencia.RowHeadersVisible = False
         Me.Dgvresistencia.RowHeadersWidth = 40
         Me.Dgvresistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvresistencia.Size = New System.Drawing.Size(441, 520)
+        Me.Dgvresistencia.Size = New System.Drawing.Size(435, 520)
         Me.Dgvresistencia.TabIndex = 15
         '
         'GroupBox2
@@ -276,7 +278,7 @@ Partial Class ActualizacionVenta
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(414, 539)
+        Me.GroupBox2.Size = New System.Drawing.Size(418, 539)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "MICROS"
@@ -300,7 +302,7 @@ Partial Class ActualizacionVenta
         Me.DgvMicros.RowHeadersVisible = False
         Me.DgvMicros.RowHeadersWidth = 40
         Me.DgvMicros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvMicros.Size = New System.Drawing.Size(408, 520)
+        Me.DgvMicros.Size = New System.Drawing.Size(412, 520)
         Me.DgvMicros.TabIndex = 14
         '
         'Panel4
@@ -317,9 +319,9 @@ Partial Class ActualizacionVenta
         '
         Me.gbcontratos.Controls.Add(Me.DgvContratos)
         Me.gbcontratos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gbcontratos.Location = New System.Drawing.Point(1250, 0)
+        Me.gbcontratos.Location = New System.Drawing.Point(1161, 0)
         Me.gbcontratos.Name = "gbcontratos"
-        Me.gbcontratos.Size = New System.Drawing.Size(460, 159)
+        Me.gbcontratos.Size = New System.Drawing.Size(549, 159)
         Me.gbcontratos.TabIndex = 5
         Me.gbcontratos.TabStop = False
         Me.gbcontratos.Text = "Contratos"
@@ -342,7 +344,7 @@ Partial Class ActualizacionVenta
         Me.DgvContratos.RowHeadersVisible = False
         Me.DgvContratos.RowHeadersWidth = 40
         Me.DgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratos.Size = New System.Drawing.Size(454, 140)
+        Me.DgvContratos.Size = New System.Drawing.Size(543, 140)
         Me.DgvContratos.TabIndex = 12
         '
         'GroupBox5
@@ -354,12 +356,14 @@ Partial Class ActualizacionVenta
         Me.GroupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1250, 159)
+        Me.GroupBox5.Size = New System.Drawing.Size(1161, 159)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.rbbajar)
+        Me.Panel3.Controls.Add(Me.rbsubir)
         Me.Panel3.Controls.Add(Me.TbPesoTara)
         Me.Panel3.Controls.Add(Me.CkTara)
         Me.Panel3.Controls.Add(Me.Label24)
@@ -386,15 +390,37 @@ Partial Class ActualizacionVenta
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Enabled = False
         Me.Panel3.Location = New System.Drawing.Point(3, 16)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(671, 140)
         Me.Panel3.TabIndex = 57
         '
+        'rbbajar
+        '
+        Me.rbbajar.AutoSize = True
+        Me.rbbajar.Location = New System.Drawing.Point(616, 109)
+        Me.rbbajar.Name = "rbbajar"
+        Me.rbbajar.Size = New System.Drawing.Size(49, 17)
+        Me.rbbajar.TabIndex = 65
+        Me.rbbajar.TabStop = True
+        Me.rbbajar.Text = "Bajar"
+        Me.rbbajar.UseVisualStyleBackColor = True
+        '
+        'rbsubir
+        '
+        Me.rbsubir.AutoSize = True
+        Me.rbsubir.Location = New System.Drawing.Point(616, 82)
+        Me.rbsubir.Name = "rbsubir"
+        Me.rbsubir.Size = New System.Drawing.Size(49, 17)
+        Me.rbsubir.TabIndex = 64
+        Me.rbsubir.TabStop = True
+        Me.rbsubir.Text = "Subir"
+        Me.rbsubir.UseVisualStyleBackColor = True
+        '
         'TbPesoTara
         '
-        Me.TbPesoTara.Location = New System.Drawing.Point(65, 101)
+        Me.TbPesoTara.Enabled = False
+        Me.TbPesoTara.Location = New System.Drawing.Point(67, 101)
         Me.TbPesoTara.Name = "TbPesoTara"
         Me.TbPesoTara.ReadOnly = True
         Me.TbPesoTara.Size = New System.Drawing.Size(61, 20)
@@ -404,7 +430,7 @@ Partial Class ActualizacionVenta
         '
         Me.CkTara.AutoSize = True
         Me.CkTara.Enabled = False
-        Me.CkTara.Location = New System.Drawing.Point(132, 103)
+        Me.CkTara.Location = New System.Drawing.Point(134, 103)
         Me.CkTara.Name = "CkTara"
         Me.CkTara.Size = New System.Drawing.Size(15, 14)
         Me.CkTara.TabIndex = 15
@@ -440,6 +466,7 @@ Partial Class ActualizacionVenta
         'Label26
         '
         Me.Label26.AutoSize = True
+        Me.Label26.Enabled = False
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.Location = New System.Drawing.Point(323, 106)
         Me.Label26.Name = "Label26"
@@ -459,7 +486,8 @@ Partial Class ActualizacionVenta
         '
         'TbKdAd
         '
-        Me.TbKdAd.Location = New System.Drawing.Point(170, 53)
+        Me.TbKdAd.Enabled = False
+        Me.TbKdAd.Location = New System.Drawing.Point(172, 53)
         Me.TbKdAd.Name = "TbKdAd"
         Me.TbKdAd.Size = New System.Drawing.Size(72, 20)
         Me.TbKdAd.TabIndex = 57
@@ -469,7 +497,8 @@ Partial Class ActualizacionVenta
         'CkKgAdd
         '
         Me.CkKgAdd.AutoSize = True
-        Me.CkKgAdd.Location = New System.Drawing.Point(170, 29)
+        Me.CkKgAdd.Enabled = False
+        Me.CkKgAdd.Location = New System.Drawing.Point(172, 29)
         Me.CkKgAdd.Name = "CkKgAdd"
         Me.CkKgAdd.Size = New System.Drawing.Size(55, 17)
         Me.CkKgAdd.TabIndex = 56
@@ -490,7 +519,7 @@ Partial Class ActualizacionVenta
         'TbIdVentaPaca
         '
         Me.TbIdVentaPaca.Enabled = False
-        Me.TbIdVentaPaca.Location = New System.Drawing.Point(65, 3)
+        Me.TbIdVentaPaca.Location = New System.Drawing.Point(67, 3)
         Me.TbIdVentaPaca.Name = "TbIdVentaPaca"
         Me.TbIdVentaPaca.Size = New System.Drawing.Size(99, 20)
         Me.TbIdVentaPaca.TabIndex = 17
@@ -507,6 +536,7 @@ Partial Class ActualizacionVenta
         'Label21
         '
         Me.Label21.AutoSize = True
+        Me.Label21.Enabled = False
         Me.Label21.Location = New System.Drawing.Point(250, 56)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(83, 13)
@@ -516,6 +546,7 @@ Partial Class ActualizacionVenta
         'Label27
         '
         Me.Label27.AutoSize = True
+        Me.Label27.Enabled = False
         Me.Label27.Location = New System.Drawing.Point(250, 30)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(102, 13)
@@ -534,13 +565,14 @@ Partial Class ActualizacionVenta
         'TbNoPacas
         '
         Me.TbNoPacas.Enabled = False
-        Me.TbNoPacas.Location = New System.Drawing.Point(65, 77)
+        Me.TbNoPacas.Location = New System.Drawing.Point(67, 77)
         Me.TbNoPacas.Name = "TbNoPacas"
         Me.TbNoPacas.Size = New System.Drawing.Size(99, 20)
         Me.TbNoPacas.TabIndex = 39
         '
         'CbPlanta
         '
+        Me.CbPlanta.Enabled = False
         Me.CbPlanta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CbPlanta.FormattingEnabled = True
         Me.CbPlanta.Location = New System.Drawing.Point(358, 102)
@@ -552,7 +584,7 @@ Partial Class ActualizacionVenta
         'TbIdContrato
         '
         Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(65, 27)
+        Me.TbIdContrato.Location = New System.Drawing.Point(67, 27)
         Me.TbIdContrato.Name = "TbIdContrato"
         Me.TbIdContrato.Size = New System.Drawing.Size(99, 20)
         Me.TbIdContrato.TabIndex = 34
@@ -577,6 +609,7 @@ Partial Class ActualizacionVenta
         '
         'DtpFecha
         '
+        Me.DtpFecha.Enabled = False
         Me.DtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DtpFecha.Location = New System.Drawing.Point(358, 77)
         Me.DtpFecha.Name = "DtpFecha"
@@ -586,7 +619,7 @@ Partial Class ActualizacionVenta
         'TbPrecioQuintal
         '
         Me.TbPrecioQuintal.Enabled = False
-        Me.TbPrecioQuintal.Location = New System.Drawing.Point(65, 53)
+        Me.TbPrecioQuintal.Location = New System.Drawing.Point(67, 53)
         Me.TbPrecioQuintal.Name = "TbPrecioQuintal"
         Me.TbPrecioQuintal.Size = New System.Drawing.Size(99, 20)
         Me.TbPrecioQuintal.TabIndex = 44
@@ -602,6 +635,7 @@ Partial Class ActualizacionVenta
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Enabled = False
         Me.Label4.Location = New System.Drawing.Point(250, 80)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
@@ -611,7 +645,8 @@ Partial Class ActualizacionVenta
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(170, 6)
+        Me.Label5.Enabled = False
+        Me.Label5.Location = New System.Drawing.Point(172, 6)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 35
@@ -652,12 +687,12 @@ Partial Class ActualizacionVenta
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(674, 16)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(573, 140)
+        Me.Panel2.Size = New System.Drawing.Size(484, 140)
         Me.Panel2.TabIndex = 56
         '
         'BtConsultaPlastic
         '
-        Me.BtConsultaPlastic.Location = New System.Drawing.Point(406, 103)
+        Me.BtConsultaPlastic.Location = New System.Drawing.Point(376, 103)
         Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
         Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPlastic.TabIndex = 80
@@ -667,7 +702,7 @@ Partial Class ActualizacionVenta
         '
         'BtConsultaOther
         '
-        Me.BtConsultaOther.Location = New System.Drawing.Point(406, 79)
+        Me.BtConsultaOther.Location = New System.Drawing.Point(376, 79)
         Me.BtConsultaOther.Name = "BtConsultaOther"
         Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaOther.TabIndex = 79
@@ -677,7 +712,7 @@ Partial Class ActualizacionVenta
         '
         'BtConsultaPrep
         '
-        Me.BtConsultaPrep.Location = New System.Drawing.Point(406, 55)
+        Me.BtConsultaPrep.Location = New System.Drawing.Point(376, 55)
         Me.BtConsultaPrep.Name = "BtConsultaPrep"
         Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPrep.TabIndex = 78
@@ -687,7 +722,7 @@ Partial Class ActualizacionVenta
         '
         'BtConsultaBark
         '
-        Me.BtConsultaBark.Location = New System.Drawing.Point(406, 33)
+        Me.BtConsultaBark.Location = New System.Drawing.Point(376, 33)
         Me.BtConsultaBark.Name = "BtConsultaBark"
         Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaBark.TabIndex = 77
@@ -697,39 +732,43 @@ Partial Class ActualizacionVenta
         '
         'BtConsultaUI
         '
-        Me.BtConsultaUI.Location = New System.Drawing.Point(245, 102)
+        Me.BtConsultaUI.Location = New System.Drawing.Point(241, 102)
         Me.BtConsultaUI.Name = "BtConsultaUI"
         Me.BtConsultaUI.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaUI.TabIndex = 76
         Me.BtConsultaUI.Text = "..."
         Me.BtConsultaUI.UseVisualStyleBackColor = True
+        Me.BtConsultaUI.Visible = False
         '
         'BtConsultaRF
         '
-        Me.BtConsultaRF.Location = New System.Drawing.Point(245, 78)
+        Me.BtConsultaRF.Location = New System.Drawing.Point(241, 78)
         Me.BtConsultaRF.Name = "BtConsultaRF"
         Me.BtConsultaRF.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaRF.TabIndex = 75
         Me.BtConsultaRF.Text = "..."
         Me.BtConsultaRF.UseVisualStyleBackColor = True
+        Me.BtConsultaRF.Visible = False
         '
         'BtConsultaLF
         '
-        Me.BtConsultaLF.Location = New System.Drawing.Point(245, 54)
+        Me.BtConsultaLF.Location = New System.Drawing.Point(241, 54)
         Me.BtConsultaLF.Name = "BtConsultaLF"
         Me.BtConsultaLF.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaLF.TabIndex = 74
         Me.BtConsultaLF.Text = "..."
         Me.BtConsultaLF.UseVisualStyleBackColor = True
+        Me.BtConsultaLF.Visible = False
         '
         'BtConsultaMicros
         '
-        Me.BtConsultaMicros.Location = New System.Drawing.Point(245, 30)
+        Me.BtConsultaMicros.Location = New System.Drawing.Point(241, 30)
         Me.BtConsultaMicros.Name = "BtConsultaMicros"
         Me.BtConsultaMicros.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaMicros.TabIndex = 73
         Me.BtConsultaMicros.Text = "..."
         Me.BtConsultaMicros.UseVisualStyleBackColor = True
+        Me.BtConsultaMicros.Visible = False
         '
         'GroupBox9
         '
@@ -738,9 +777,9 @@ Partial Class ActualizacionVenta
         Me.GroupBox9.Controls.Add(Me.ChPrepLevel2)
         Me.GroupBox9.Controls.Add(Me.ChBarkLevel2)
         Me.GroupBox9.Enabled = False
-        Me.GroupBox9.Location = New System.Drawing.Point(500, 6)
+        Me.GroupBox9.Location = New System.Drawing.Point(446, 6)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox9.Size = New System.Drawing.Size(37, 127)
         Me.GroupBox9.TabIndex = 72
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Nivel 2"
@@ -789,9 +828,9 @@ Partial Class ActualizacionVenta
         Me.GroupBox10.Controls.Add(Me.ChPrepLevel1)
         Me.GroupBox10.Controls.Add(Me.ChBarkLevel1)
         Me.GroupBox10.Enabled = False
-        Me.GroupBox10.Location = New System.Drawing.Point(438, 6)
+        Me.GroupBox10.Location = New System.Drawing.Point(404, 6)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox10.Size = New System.Drawing.Size(38, 127)
         Me.GroupBox10.TabIndex = 71
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Nivel 1"
@@ -837,7 +876,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoPlastic.Enabled = False
         Me.CbModoPlastic.FormattingEnabled = True
-        Me.CbModoPlastic.Location = New System.Drawing.Point(351, 104)
+        Me.CbModoPlastic.Location = New System.Drawing.Point(321, 104)
         Me.CbModoPlastic.Name = "CbModoPlastic"
         Me.CbModoPlastic.Size = New System.Drawing.Size(49, 21)
         Me.CbModoPlastic.TabIndex = 70
@@ -847,7 +886,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoOther.Enabled = False
         Me.CbModoOther.FormattingEnabled = True
-        Me.CbModoOther.Location = New System.Drawing.Point(351, 80)
+        Me.CbModoOther.Location = New System.Drawing.Point(321, 80)
         Me.CbModoOther.Name = "CbModoOther"
         Me.CbModoOther.Size = New System.Drawing.Size(49, 21)
         Me.CbModoOther.TabIndex = 69
@@ -857,7 +896,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoPrep.Enabled = False
         Me.CbModoPrep.FormattingEnabled = True
-        Me.CbModoPrep.Location = New System.Drawing.Point(351, 56)
+        Me.CbModoPrep.Location = New System.Drawing.Point(321, 56)
         Me.CbModoPrep.Name = "CbModoPrep"
         Me.CbModoPrep.Size = New System.Drawing.Size(49, 21)
         Me.CbModoPrep.TabIndex = 68
@@ -867,7 +906,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoBark.Enabled = False
         Me.CbModoBark.FormattingEnabled = True
-        Me.CbModoBark.Location = New System.Drawing.Point(351, 32)
+        Me.CbModoBark.Location = New System.Drawing.Point(321, 32)
         Me.CbModoBark.Name = "CbModoBark"
         Me.CbModoBark.Size = New System.Drawing.Size(49, 21)
         Me.CbModoBark.TabIndex = 67
@@ -877,7 +916,7 @@ Partial Class ActualizacionVenta
         '
         Me.ChPlastic.AutoSize = True
         Me.ChPlastic.Enabled = False
-        Me.ChPlastic.Location = New System.Drawing.Point(288, 106)
+        Me.ChPlastic.Location = New System.Drawing.Point(268, 106)
         Me.ChPlastic.Name = "ChPlastic"
         Me.ChPlastic.Size = New System.Drawing.Size(57, 17)
         Me.ChPlastic.TabIndex = 66
@@ -889,7 +928,7 @@ Partial Class ActualizacionVenta
         '
         Me.ChOther.AutoSize = True
         Me.ChOther.Enabled = False
-        Me.ChOther.Location = New System.Drawing.Point(288, 82)
+        Me.ChOther.Location = New System.Drawing.Point(268, 82)
         Me.ChOther.Name = "ChOther"
         Me.ChOther.Size = New System.Drawing.Size(52, 17)
         Me.ChOther.TabIndex = 65
@@ -901,7 +940,7 @@ Partial Class ActualizacionVenta
         '
         Me.ChPrep.AutoSize = True
         Me.ChPrep.Enabled = False
-        Me.ChPrep.Location = New System.Drawing.Point(288, 58)
+        Me.ChPrep.Location = New System.Drawing.Point(268, 58)
         Me.ChPrep.Name = "ChPrep"
         Me.ChPrep.Size = New System.Drawing.Size(48, 17)
         Me.ChPrep.TabIndex = 64
@@ -913,7 +952,7 @@ Partial Class ActualizacionVenta
         '
         Me.ChBark.AutoSize = True
         Me.ChBark.Enabled = False
-        Me.ChBark.Location = New System.Drawing.Point(288, 34)
+        Me.ChBark.Location = New System.Drawing.Point(268, 34)
         Me.ChBark.Name = "ChBark"
         Me.ChBark.Size = New System.Drawing.Size(48, 17)
         Me.ChBark.TabIndex = 63
@@ -925,7 +964,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoUniformidad.Enabled = False
         Me.CbModoUniformidad.FormattingEnabled = True
-        Me.CbModoUniformidad.Location = New System.Drawing.Point(118, 104)
+        Me.CbModoUniformidad.Location = New System.Drawing.Point(116, 104)
         Me.CbModoUniformidad.Name = "CbModoUniformidad"
         Me.CbModoUniformidad.Size = New System.Drawing.Size(121, 21)
         Me.CbModoUniformidad.TabIndex = 62
@@ -934,7 +973,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoResistenciaFibra.Enabled = False
         Me.CbModoResistenciaFibra.FormattingEnabled = True
-        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(118, 80)
+        Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(116, 80)
         Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
         Me.CbModoResistenciaFibra.Size = New System.Drawing.Size(121, 21)
         Me.CbModoResistenciaFibra.TabIndex = 61
@@ -943,7 +982,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoLargoFibra.Enabled = False
         Me.CbModoLargoFibra.FormattingEnabled = True
-        Me.CbModoLargoFibra.Location = New System.Drawing.Point(118, 56)
+        Me.CbModoLargoFibra.Location = New System.Drawing.Point(116, 56)
         Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
         Me.CbModoLargoFibra.Size = New System.Drawing.Size(121, 21)
         Me.CbModoLargoFibra.TabIndex = 60
@@ -996,7 +1035,7 @@ Partial Class ActualizacionVenta
         '
         Me.CbModoMicros.Enabled = False
         Me.CbModoMicros.FormattingEnabled = True
-        Me.CbModoMicros.Location = New System.Drawing.Point(118, 32)
+        Me.CbModoMicros.Location = New System.Drawing.Point(116, 32)
         Me.CbModoMicros.Name = "CbModoMicros"
         Me.CbModoMicros.Size = New System.Drawing.Size(121, 21)
         Me.CbModoMicros.TabIndex = 55
@@ -1004,7 +1043,7 @@ Partial Class ActualizacionVenta
         'BtModalidadVenta
         '
         Me.BtModalidadVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtModalidadVenta.Location = New System.Drawing.Point(118, 6)
+        Me.BtModalidadVenta.Location = New System.Drawing.Point(116, 6)
         Me.BtModalidadVenta.MaximumSize = New System.Drawing.Size(20, 20)
         Me.BtModalidadVenta.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtModalidadVenta.Name = "BtModalidadVenta"
@@ -1017,7 +1056,7 @@ Partial Class ActualizacionVenta
         'BtCastigoResFibra
         '
         Me.BtCastigoResFibra.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoResFibra.Location = New System.Drawing.Point(141, 6)
+        Me.BtCastigoResFibra.Location = New System.Drawing.Point(139, 6)
         Me.BtCastigoResFibra.MaximumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoResFibra.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoResFibra.Name = "BtCastigoResFibra"
@@ -1030,7 +1069,7 @@ Partial Class ActualizacionVenta
         'BtCastigoMicros
         '
         Me.BtCastigoMicros.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastigoMicros.Location = New System.Drawing.Point(193, 6)
+        Me.BtCastigoMicros.Location = New System.Drawing.Point(191, 6)
         Me.BtCastigoMicros.MaximumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoMicros.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastigoMicros.Name = "BtCastigoMicros"
@@ -1043,7 +1082,7 @@ Partial Class ActualizacionVenta
         'BtCastLarFib
         '
         Me.BtCastLarFib.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtCastLarFib.Location = New System.Drawing.Point(167, 6)
+        Me.BtCastLarFib.Location = New System.Drawing.Point(165, 6)
         Me.BtCastLarFib.MaximumSize = New System.Drawing.Size(20, 20)
         Me.BtCastLarFib.MinimumSize = New System.Drawing.Size(20, 20)
         Me.BtCastLarFib.Name = "BtCastLarFib"
@@ -1178,4 +1217,6 @@ Partial Class ActualizacionVenta
     Friend WithEvents Dgvresistencia As DataGridView
     Friend WithEvents Dgvuniformidad As DataGridView
     Friend WithEvents Dgvlargofibra As DataGridView
+    Friend WithEvents rbbajar As RadioButton
+    Friend WithEvents rbsubir As RadioButton
 End Class

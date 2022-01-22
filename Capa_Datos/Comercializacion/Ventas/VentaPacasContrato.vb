@@ -300,6 +300,46 @@ Public Class VentaPacasContrato
                     cmdActualizar.Parameters.Add(New SqlParameter("@PacasVendidas", EntidadVentaPacasContrato1.PacasVendidas))
                     cmdActualizar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadVentaPacasContrato1.PacasDisponibles))
                     cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaMic
+                    cmdActualizar = New SqlCommand("Pa_ActualizarMicVta", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@ValorN", EntidadVentaPacasContrato1.valorn))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango1", EntidadVentaPacasContrato1.rango1))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango2", EntidadVentaPacasContrato1.rango2))
+                    cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaRes
+                    cmdActualizar = New SqlCommand("Pa_ActualizarResVta", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@ValorN", EntidadVentaPacasContrato1.valorn))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango1", EntidadVentaPacasContrato1.rango1))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango2", EntidadVentaPacasContrato1.rango2))
+                    cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaLar
+                    cmdActualizar = New SqlCommand("Pa_ActualizarLarVta", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@ValorN", EntidadVentaPacasContrato1.valorn))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango1", EntidadVentaPacasContrato1.rango1))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango2", EntidadVentaPacasContrato1.rango2))
+                    cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaUni
+                    cmdActualizar = New SqlCommand("Pa_ActualizarUniVta", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@ValorN", EntidadVentaPacasContrato1.valorn))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango1", EntidadVentaPacasContrato1.rango1))
+                    cmdActualizar.Parameters.Add(New SqlParameter("@Rango2", EntidadVentaPacasContrato1.rango2))
+                    cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaSCI
+                    cmdActualizar = New SqlCommand("Pa_ActualizaSCI", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.ExecuteNonQuery()
             End Select
         Catch ex As Exception
             cnn.Close()

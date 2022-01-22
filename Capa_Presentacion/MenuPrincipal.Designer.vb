@@ -1192,7 +1192,7 @@ Partial Class MenuPrincipal
         '
         Me.ActualizacionVentaToolStripMenuItem.Name = "ActualizacionVentaToolStripMenuItem"
         Me.ActualizacionVentaToolStripMenuItem.Size = New System.Drawing.Size(325, 24)
-        Me.ActualizacionVentaToolStripMenuItem.Tag = "0,0"
+        Me.ActualizacionVentaToolStripMenuItem.Tag = "247,107"
         Me.ActualizacionVentaToolStripMenuItem.Text = "Actualizacion Venta"
         '
         'CambioDePerfilDePacasToolStripMenuItem

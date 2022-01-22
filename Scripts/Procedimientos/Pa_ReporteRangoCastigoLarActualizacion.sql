@@ -1,4 +1,4 @@
-create Procedure Pa_ReporteRangoCastigoLarActualizacion
+alter Procedure Pa_ReporteRangoCastigoLarActualizacion
 @IdVenta int,
 @IdModoEncabezado int,
 @mod decimal(18,2) = 0,
@@ -9,7 +9,7 @@ select lfe.Rango1
 	  ,lfd.castigo
 	  ,(select count(cc.baleid)
 		from CalculoClasificacion cc
-		where cc.idventaenc =@IdVenta and Cast(Round(cc.UHML,2,1) as decimal(18,2)) between lfe.Rango1 and lfe.Rango2) as NoPacas
+		where cc.idventaenc =@IdVenta and convert(decimal(18,2),UHML) between lfe.Rango1 and lfe.Rango2) as NoPacas
 	  ,@mod as RanMod
 	  ,@sel as Sel
 from LargosFibraEquivalenteDetalle lfe inner join largosfibradetalle lfd on lfe.IdModoEncabezado = lfd.IdModoEncabezado 

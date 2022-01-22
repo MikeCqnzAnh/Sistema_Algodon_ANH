@@ -65,6 +65,10 @@ Public Class VentaPacasContrato
     Public CkUI As Boolean
     Public CkLargo As Boolean
     Public IdModoEncabezado As Integer
+    Public valorn As Decimal
+    Public rango1 As Decimal
+    Public rango2 As Decimal
+
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

@@ -218,7 +218,15 @@
         ActualizaClaveAutorizacion = 8
         ActualizaPacasDisponibles = 9
         ActualizaAlmacenDet = 10
-
+        ActualizarPacaMic = 11
+        ActualizarPacaRes = 12
+        ActualizarPacaLar = 13
+        ActualizarPacaUni = 14
+        ActualizarPacaSCI = 15
+        ActualizarPacaMicbajar = 16
+        ActualizarPacaResbajar = 17
+        ActualizarPacaLarbajar = 18
+        ActualizarPacaUnibajar = 19
     End Enum
     Public Enum Importa
         ImportaTabla = 1
