@@ -122,7 +122,6 @@ Partial Class ConsultaXML
         Me.TbUnidad.Name = "TbUnidad"
         Me.TbUnidad.Size = New System.Drawing.Size(100, 20)
         Me.TbUnidad.TabIndex = 10
-        Me.TbUnidad.Text = "TNE"
         '
         'Label3
         '
@@ -140,7 +139,6 @@ Partial Class ConsultaXML
         Me.TbClaveProducto.Name = "TbClaveProducto"
         Me.TbClaveProducto.Size = New System.Drawing.Size(75, 20)
         Me.TbClaveProducto.TabIndex = 8
-        Me.TbClaveProducto.Text = "11121802"
         Me.TbClaveProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2

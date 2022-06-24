@@ -4,7 +4,7 @@ Imports Capa_Negocio
 Imports System.IO
 Public Class ContratosAlgodonCompradores
     Implements IForm1
-    Dim IdComprador As Integer
+    'Dim IdComprador As Integer
     Dim TablaUnidadPeso As New DataTable
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\conf\"
     Dim archivo As String = "confemail.ini"
@@ -23,9 +23,11 @@ Public Class ContratosAlgodonCompradores
         Limpiar()
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        If TbComprador.Text <> "" And TbPacas.Text <> "" And CbUnidadPeso.Text <> "" And TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" And CbEstatus.Text <> "" And CbModalidad.Text <> "" And TbSM.Text <> "" Then
+        If TbComprador.Text <> "" And TbPacas.Text <> "" And CbUnidadPeso.Text <> "" And TbPrecioQuintal.Text <> "" And TbPuntos.Text <> "" And CbEstatus.Text <> "" And CbModalidad.Text <> "" Then
             GenerarPreciosClases()
             Guardar()
+        Else
+            MsgBox("Campos requeridos estan vacios, revisar la captura de nuevo!")
         End If
     End Sub
     Private Sub ObtenerArchivoConfiguracion()
@@ -86,10 +88,11 @@ Public Class ContratosAlgodonCompradores
         Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
         Try
             EntidadContratosAlgodonCompradores.IdContratoAlgodon = IIf(TbIdContratoAlgodon.Text = "", 0, TbIdContratoAlgodon.Text)
-            EntidadContratosAlgodonCompradores.IdComprador = IdComprador
+            EntidadContratosAlgodonCompradores.IdComprador = tbidcomprador.Text
             EntidadContratosAlgodonCompradores.Pacas = Val(TbPacas.Text)
             EntidadContratosAlgodonCompradores.PacasDisponibles = Val(TbPacasDisponibles.Text)
             EntidadContratosAlgodonCompradores.PacasVendidas = Val(TbPacasVendidas.Text)
+            EntidadContratosAlgodonCompradores.PacasDispContComp = 0
             EntidadContratosAlgodonCompradores.PrecioQuintal = Val(TbPrecioQuintal.Text)
             EntidadContratosAlgodonCompradores.IdUnidadPeso = CbUnidadPeso.SelectedValue
             EntidadContratosAlgodonCompradores.ValorConversion = Val(TbValorConversion.Text)
@@ -320,13 +323,14 @@ Public Class ContratosAlgodonCompradores
     End Sub
     Public Function LoadIdComprador(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdComprador
         For Each row As DataRow In DatatableParam.Rows
-            IdComprador = row("IdComprador")
+            tbidcomprador.Text = row("IdComprador")
             TbComprador.Text = row("Nombre")
         Next
         Return True
     End Function
     Private Sub Limpiar()
         TbIdContratoAlgodon.Text = ""
+        tbidcomprador.Text = ""
         TbComprador.Text = ""
         TbPacas.Text = ""
         TbPacasDisponibles.Text = ""
@@ -367,6 +371,7 @@ Public Class ContratosAlgodonCompradores
         ChLargoFibra.Checked = True
         ChUniformidad.Checked = True
         CkTara.Checked = False
+        ckpreciopromedio.Checked = False
         NuPesoTara.Value = 0
         CbModoLargoFibra.SelectedIndex = 0
         CbModoMicros.SelectedIndex = 0
@@ -417,7 +422,7 @@ Public Class ContratosAlgodonCompradores
         NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
         TablaDetalle = EntidadContratosAlgodonCompradores.TablaConsulta
         TbIdContratoAlgodon.Text = TablaDetalle.Rows(0).Item("IdContratoAlgodon")
-        IdComprador = TablaDetalle.Rows(0).Item("IdComprador")
+        tbidcomprador.Text = TablaDetalle.Rows(0).Item("IdComprador")
         TbComprador.Text = TablaDetalle.Rows(0).Item("Nombre")
         TbPacas.Text = TablaDetalle.Rows(0).Item("Pacas")
         TbPacasDisponibles.Text = TablaDetalle.Rows(0).Item("PacasDisponibles")
@@ -501,7 +506,6 @@ Public Class ContratosAlgodonCompradores
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub CkTara_CheckedChanged(sender As Object, e As EventArgs) Handles CkTara.CheckedChanged
         If CkTara.Checked = True Then
             NuPesoTara.Enabled = True
@@ -509,8 +513,54 @@ Public Class ContratosAlgodonCompradores
             NuPesoTara.Enabled = False
             NuPesoTara.Value = 0
         End If
-
     End Sub
+    Private Sub ckpreciopromedio_Click(sender As Object, e As EventArgs) Handles ckpreciopromedio.Click
+        Dim precioprom As Decimal
+        If ckpreciopromedio.Checked = True And tbidcomprador.Text <> "" Then
+            precioprom = consultaprecioprom()
+            If precioprom > 0 Then
+                Dim opc As DialogResult = MsgBox("El Precio promedio es $" & precioprom & " ¿Desea seleccionarlo?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Precio Promedio")
+                If opc = DialogResult.Yes Then
+                    TbPrecioQuintal.Text = precioprom
+                ElseIf opc = DialogResult.No Then
+                    ckpreciopromedio.Checked = False
 
+                    If DgvContratoAlgodon.Rows.Count > 0 Then
+                        For Each Fila As DataGridViewRow In DgvContratoAlgodon.Rows
+                            If TbIdContratoAlgodon.Text = Fila.Cells("IdContratoAlgodon").Value Then
+                                TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
+                            End If
+                        Next
+                    Else
+                        For Each Fila As DataGridViewRow In DgvContratoAlgodon.Rows
+                            If TbIdContratoAlgodon.Text = Fila.Cells("IdContratoAlgodon").Value Then
+                                TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
+                            End If
+                        Next
+                        TbPrecioQuintal.Text = ""
+                    End If
+                End If
+            Else
+                ckpreciopromedio.Checked = False
+                TbPrecioQuintal.Text = ""
+                MsgBox("No hay contratos cerrados aun para generar un promedio de precio.", MsgBoxStyle.Information, "Aviso")
+            End If
+        Else
+            TbPrecioQuintal.Text = ""
+            ckpreciopromedio.Checked = False
+        End If
+    End Sub
+    Private Function consultaprecioprom()
+        Dim precio As Decimal
+        Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
+        Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
+        Dim Tabla As New DataTable
+        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaPreioProm
+        EntidadContratosAlgodonCompradores.IdComprador = tbidcomprador.Text
+        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+        Tabla = EntidadContratosAlgodonCompradores.TablaConsulta
+        precio = Tabla.Rows(0).Item("PrecioPromedio")
+        Return precio
+    End Function
 
 End Class

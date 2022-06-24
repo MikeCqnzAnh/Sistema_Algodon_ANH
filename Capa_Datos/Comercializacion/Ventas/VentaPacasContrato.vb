@@ -86,6 +86,34 @@ Public Class VentaPacasContrato
 
                         cmdGuardar.ExecuteNonQuery()
                     Next
+                Case Capa_Operacion.Configuracion.Guardar.GuardarVentaRecalculo
+                    For Each MiTableRow As DataRow In EntidadVentaPacasContrato1.TablaGeneral.Rows
+                        cmdGuardar = New SqlCommand("Pa_RecalcularVenta", cnn)
+                        cmdGuardar.CommandTimeout = 6000
+                        cmdGuardar.CommandType = CommandType.StoredProcedure
+                        cmdGuardar.Parameters.Clear()
+                        cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@IdVenta", MiTableRow("IdVentaEnc")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioDls", MiTableRow("PrecioDls")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioClase", MiTableRow("PrecioClase")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@TipoCambio", MiTableRow("TipoCambio")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@PrecioMxn", MiTableRow("PrecioMxn")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoUI", MiTableRow("CastigoUI")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoResistenciaFibra", MiTableRow("CastigoResistenciaFibra")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoMicros", MiTableRow("CastigoMicros")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoLargoFibra", MiTableRow("CastigoLargoFibra")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel1", MiTableRow("CastigoBarkLevel1")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoBarkLevel2", MiTableRow("CastigoBarkLevel2")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPrepLevel1", MiTableRow("CastigoPrepLevel1")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPrepLevel2", MiTableRow("CastigoPrepLevel2")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoOtherLevel1", MiTableRow("CastigoOtherLevel1")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoOtherLevel2", MiTableRow("CastigoOtherLevel2")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel1", MiTableRow("CastigoPlasticLevel1")))
+                        cmdGuardar.Parameters.Add(New SqlParameter("@CastigoPlasticLevel2", MiTableRow("CastigoPlasticLevel2")))
+                        cmdGuardar.ExecuteNonQuery()
+                    Next
             End Select
         Catch ex As Exception
             cnn.Close()
@@ -339,6 +367,12 @@ Public Class VentaPacasContrato
                 Case Capa_Operacion.Configuracion.Actualiza.ActualizarPacaSCI
                     cmdActualizar = New SqlCommand("Pa_ActualizaSCI", cnn)
                     cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.ExecuteNonQuery()
+                Case Capa_Operacion.Configuracion.Actualiza.ActualizarParametros
+                    cmdActualizar = New SqlCommand("Pa_RestauraParametrosCastigoVta", cnn)
+                    cmdActualizar.CommandType = CommandType.StoredProcedure
+                    cmdActualizar.Parameters.Clear()
+                    cmdActualizar.Parameters.Add(New SqlParameter("@IdVenta", EntidadVentaPacasContrato1.IdVenta))
                     cmdActualizar.ExecuteNonQuery()
             End Select
         Catch ex As Exception

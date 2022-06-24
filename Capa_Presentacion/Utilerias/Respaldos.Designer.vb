@@ -85,7 +85,6 @@ Partial Class Respaldos
         '
         'pbConnStatus
         '
-        Me.pbConnStatus.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.light_yellow
         Me.pbConnStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbConnStatus.Location = New System.Drawing.Point(202, 174)
         Me.pbConnStatus.Name = "pbConnStatus"

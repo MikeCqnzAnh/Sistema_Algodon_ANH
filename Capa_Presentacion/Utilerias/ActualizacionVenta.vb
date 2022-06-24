@@ -397,6 +397,30 @@ Public Class ActualizacionVenta
             dgv.Columns.Item(i).SortMode = DataGridViewColumnSortMode.Programmatic
         Next i
     End Sub
+
+    Private Sub RestaurarParametrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestaurarParametrosToolStripMenuItem.Click
+        If TbIdVentaPaca.Text = "" Then
+            MsgBox("No hay venta seleccionada!", MessageBoxIcon.Information, "Aviso")
+        Else
+            Dim opc As DialogResult = MsgBox("¿Desea reestablecer los parametros de castigo?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Restaurar Parametros")
+            If opc = DialogResult.Yes Then
+                RestauraParametros()
+                CargaListaRangos()
+                MsgBox("Parametros Actualizados!", MsgBoxStyle.OkOnly, "Aviso")
+            End If
+        End If
+    End Sub
+    Private Sub RestauraParametros()
+        Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
+        Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
+        Try
+            EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizarParametros
+            EntidadVentaPacasContrato.IdVenta = TbIdVentaPaca.Text
+            NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarToolStripMenuItem.Click
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
@@ -409,7 +433,7 @@ Public Class ActualizacionVenta
                         If Dgvlargofibra.Rows.Item(i).Cells("sel").Value = True And Dgvlargofibra.Rows.Item(i).Cells("NoPacas").Value > 0 And Dgvlargofibra.Rows.Item(i).Cells("RanMod").Value > 0 Then
                             EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizarPacaLar
                             EntidadVentaPacasContrato.IdVenta = TbIdVentaPaca.Text
-                            EntidadVentaPacasContrato.valorn = Dgvlargofibra.Rows.Item(i).Cells("RanMod").Value
+                            EntidadVentaPacasContrato.valorn = IIf(rbsubir.Checked = True, Dgvlargofibra.Rows.Item(i).Cells("RanMod").Value, Dgvlargofibra.Rows.Item(i).Cells("RanMod").Value * -1)
                             EntidadVentaPacasContrato.rango1 = Dgvlargofibra.Rows.Item(i).Cells("Rango1").Value
                             EntidadVentaPacasContrato.rango2 = Dgvlargofibra.Rows.Item(i).Cells("Rango2").Value
                             NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
@@ -425,7 +449,7 @@ Public Class ActualizacionVenta
                         If DgvMicros.Rows.Item(i).Cells("sel").Value = True And DgvMicros.Rows.Item(i).Cells("NoPacas").Value > 0 And DgvMicros.Rows.Item(i).Cells("RanMod").Value > 0 Then
                             EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizarPacaMic
                             EntidadVentaPacasContrato.IdVenta = TbIdVentaPaca.Text
-                            EntidadVentaPacasContrato.valorn = DgvMicros.Rows.Item(i).Cells("RanMod").Value
+                            EntidadVentaPacasContrato.valorn = IIf(rbsubir.Checked = True, DgvMicros.Rows.Item(i).Cells("RanMod").Value, DgvMicros.Rows.Item(i).Cells("RanMod").Value * (-1))
                             EntidadVentaPacasContrato.rango1 = DgvMicros.Rows.Item(i).Cells("Rango1").Value
                             EntidadVentaPacasContrato.rango2 = DgvMicros.Rows.Item(i).Cells("Rango2").Value
                             NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
@@ -441,7 +465,7 @@ Public Class ActualizacionVenta
                         If Dgvresistencia.Rows.Item(i).Cells("sel").Value = True And Dgvresistencia.Rows.Item(i).Cells("NoPacas").Value > 0 And Dgvresistencia.Rows.Item(i).Cells("RanMod").Value > 0 Then
                             EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizarPacaRes
                             EntidadVentaPacasContrato.IdVenta = TbIdVentaPaca.Text
-                            EntidadVentaPacasContrato.valorn = Dgvresistencia.Rows.Item(i).Cells("RanMod").Value
+                            EntidadVentaPacasContrato.valorn = IIf(rbsubir.Checked = True, Dgvresistencia.Rows.Item(i).Cells("RanMod").Value, Dgvresistencia.Rows.Item(i).Cells("RanMod").Value * -1)
                             EntidadVentaPacasContrato.rango1 = Dgvresistencia.Rows.Item(i).Cells("Rango1").Value
                             EntidadVentaPacasContrato.rango2 = Dgvresistencia.Rows.Item(i).Cells("Rango2").Value
                             NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
@@ -457,7 +481,7 @@ Public Class ActualizacionVenta
                         If Dgvuniformidad.Rows.Item(i).Cells("sel").Value = True And Dgvuniformidad.Rows.Item(i).Cells("NoPacas").Value > 0 And Dgvuniformidad.Rows.Item(i).Cells("RanMod").Value > 0 Then
                             EntidadVentaPacasContrato.Actualiza = Actualiza.ActualizarPacaUni
                             EntidadVentaPacasContrato.IdVenta = TbIdVentaPaca.Text
-                            EntidadVentaPacasContrato.valorn = Dgvuniformidad.Rows.Item(i).Cells("RanMod").Value
+                            EntidadVentaPacasContrato.valorn = IIf(rbsubir.Checked = True, Dgvuniformidad.Rows.Item(i).Cells("RanMod").Value, Dgvuniformidad.Rows.Item(i).Cells("RanMod").Value * -1)
                             EntidadVentaPacasContrato.rango1 = Dgvuniformidad.Rows.Item(i).Cells("Rango1").Value
                             EntidadVentaPacasContrato.rango2 = Dgvuniformidad.Rows.Item(i).Cells("Rango2").Value
                             NegocioVentaPacasContrato.Actualizar(EntidadVentaPacasContrato)
@@ -482,29 +506,41 @@ Public Class ActualizacionVenta
         Try
             If Dgvlargofibra.Rows.Count > 0 Then
                 index = Dgvlargofibra.CurrentCell.RowIndex
+                'If rbsubir.Checked = True And rbbajar.Checked = False Then
+                '    If index > 0 Then
+                '        If Dgvlargofibra.Rows(index).Cells("sel").Value = True And Dgvlargofibra.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvlargofibra.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvlargofibra.Rows(index - 1).Cells("Rango1").Value, Dgvlargofibra.Rows(index - 1).Cells("Rango2").Value)
+                '        ElseIf Dgvlargofibra.Rows(index).Cells("sel").Value = False Then
+                '            Dgvlargofibra.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvlargofibra.Rows(index).Cells("sel").Value = False
+                '    End If
+                'ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
+                '    If index < Dgvlargofibra.Rows.Count - 1 Then
+                '        If Dgvlargofibra.Rows(index).Cells("sel").Value = True And Dgvlargofibra.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvlargofibra.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvlargofibra.Rows(index + 1).Cells("Rango1").Value, Dgvlargofibra.Rows(index + 1).Cells("Rango2").Value)
+                '        ElseIf Dgvlargofibra.Rows(index).Cells("sel").Value = False Then
+                '            Dgvlargofibra.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvlargofibra.Rows(index).Cells("sel").Value = False
+                '    End If
                 If rbsubir.Checked = True And rbbajar.Checked = False Then
                     If index > 0 Then
-                        If Dgvlargofibra.Rows(index).Cells("sel").Value = True And Dgvlargofibra.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvlargofibra.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvlargofibra.Rows(index - 1).Cells("Rango1").Value, Dgvlargofibra.Rows(index - 1).Cells("Rango2").Value)
-                        ElseIf Dgvlargofibra.Rows(index).Cells("sel").Value = False Then
-                            Dgvlargofibra.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvlargofibra.Rows(index).Cells("sel").Value = False
                     End If
                 ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
                     If index < Dgvlargofibra.Rows.Count - 1 Then
-                        If Dgvlargofibra.Rows(index).Cells("sel").Value = True And Dgvlargofibra.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvlargofibra.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvlargofibra.Rows(index + 1).Cells("Rango1").Value, Dgvlargofibra.Rows(index + 1).Cells("Rango2").Value)
-                        ElseIf Dgvlargofibra.Rows(index).Cells("sel").Value = False Then
-                            Dgvlargofibra.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvlargofibra.Rows(index).Cells("sel").Value = False
                     End If
-                Else
+                ElseIf rbsubir.Checked = False And rbbajar.Checked = False Then
                     MsgBox("Selecciona la opcion subir o bajar, segun sea el caso", MsgBoxStyle.Exclamation)
                     Dgvlargofibra.Rows(index).Cells("sel").Value = False
                 End If
@@ -519,33 +555,45 @@ Public Class ActualizacionVenta
         Try
             If Dgvresistencia.Rows.Count > 0 Then
                 index = Dgvresistencia.CurrentCell.RowIndex
+                'If rbsubir.Checked = True And rbbajar.Checked = False Then
+                '    If index > 0 Then
+                '        If Dgvresistencia.Rows(index).Cells("sel").Value = True And Dgvresistencia.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvresistencia.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvresistencia.Rows(index - 1).Cells("Rango1").Value, Dgvresistencia.Rows(index - 1).Cells("Rango2").Value)
+                '        ElseIf Dgvresistencia.Rows(index).Cells("sel").Value = False Then
+                '            Dgvresistencia.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvresistencia.Rows(index).Cells("sel").Value = False
+                '    End If
+                'ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
+                '    If index < Dgvresistencia.Rows.Count - 1 Then
+                '        If Dgvresistencia.Rows(index).Cells("sel").Value = True And Dgvresistencia.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvresistencia.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvresistencia.Rows(index + 1).Cells("Rango1").Value, Dgvresistencia.Rows(index + 1).Cells("Rango2").Value)
+                '        ElseIf Dgvresistencia.Rows(index).Cells("sel").Value = False Then
+                '            Dgvresistencia.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvresistencia.Rows(index).Cells("sel").Value = False
+                '    End If
                 If rbsubir.Checked = True And rbbajar.Checked = False Then
                     If index > 0 Then
-                        If Dgvresistencia.Rows(index).Cells("sel").Value = True And Dgvresistencia.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvresistencia.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvresistencia.Rows(index - 1).Cells("Rango1").Value, Dgvresistencia.Rows(index - 1).Cells("Rango2").Value)
-                        ElseIf Dgvresistencia.Rows(index).Cells("sel").Value = False Then
-                            Dgvresistencia.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvresistencia.Rows(index).Cells("sel").Value = False
                     End If
                 ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
                     If index < Dgvresistencia.Rows.Count - 1 Then
-                        If Dgvresistencia.Rows(index).Cells("sel").Value = True And Dgvresistencia.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvresistencia.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvresistencia.Rows(index + 1).Cells("Rango1").Value, Dgvresistencia.Rows(index + 1).Cells("Rango2").Value)
-                        ElseIf Dgvresistencia.Rows(index).Cells("sel").Value = False Then
-                            Dgvresistencia.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvresistencia.Rows(index).Cells("sel").Value = False
                     End If
-                Else
+                ElseIf rbsubir.Checked = False And rbbajar.Checked = False Then
                     MsgBox("Selecciona la opcion subir o bajar, segun sea el caso", MsgBoxStyle.Exclamation)
-                    Dgvresistencia.Rows(index).Cells("sel").Value = False
+                        Dgvresistencia.Rows(index).Cells("sel").Value = False
+                    End If
                 End If
-            End If
         Catch ex As Exception
             MsgBox(ex.Message & " Resistencia.")
         End Try
@@ -556,29 +604,41 @@ Public Class ActualizacionVenta
         Try
             If Dgvuniformidad.Rows.Count > 0 Then
                 index = Dgvuniformidad.CurrentCell.RowIndex
+                'If rbsubir.Checked = True And rbbajar.Checked = False Then
+                '    If index > 0 Then
+                '        If Dgvuniformidad.Rows(index).Cells("sel").Value = True And Dgvuniformidad.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvuniformidad.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvuniformidad.Rows(index - 1).Cells("Rango1").Value, Dgvuniformidad.Rows(index - 1).Cells("Rango2").Value)
+                '        ElseIf Dgvuniformidad.Rows(index).Cells("sel").Value = False Then
+                '            Dgvuniformidad.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvuniformidad.Rows(index).Cells("sel").Value = False
+                '    End If
+                'ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
+                '    If index < Dgvuniformidad.Rows.Count - 1 Then
+                '        If Dgvuniformidad.Rows(index).Cells("sel").Value = True And Dgvuniformidad.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            Dgvuniformidad.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvuniformidad.Rows(index + 1).Cells("Rango1").Value, Dgvuniformidad.Rows(index + 1).Cells("Rango2").Value)
+                '        ElseIf Dgvuniformidad.Rows(index).Cells("sel").Value = False Then
+                '            Dgvuniformidad.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        Dgvuniformidad.Rows(index).Cells("sel").Value = False
+                '    End If
                 If rbsubir.Checked = True And rbbajar.Checked = False Then
                     If index > 0 Then
-                        If Dgvuniformidad.Rows(index).Cells("sel").Value = True And Dgvuniformidad.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvuniformidad.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvuniformidad.Rows(index - 1).Cells("Rango1").Value, Dgvuniformidad.Rows(index - 1).Cells("Rango2").Value)
-                        ElseIf Dgvuniformidad.Rows(index).Cells("sel").Value = False Then
-                            Dgvuniformidad.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvuniformidad.Rows(index).Cells("sel").Value = False
                     End If
                 ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
                     If index < Dgvuniformidad.Rows.Count - 1 Then
-                        If Dgvuniformidad.Rows(index).Cells("sel").Value = True And Dgvuniformidad.Rows(index).Cells("NoPacas").Value > 0 Then
-                            Dgvuniformidad.Rows(index).Cells("RanMod").Value = generanuevovalor(Dgvuniformidad.Rows(index + 1).Cells("Rango1").Value, Dgvuniformidad.Rows(index + 1).Cells("Rango2").Value)
-                        ElseIf Dgvuniformidad.Rows(index).Cells("sel").Value = False Then
-                            Dgvuniformidad.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         Dgvuniformidad.Rows(index).Cells("sel").Value = False
                     End If
-                Else
+                ElseIf rbsubir.Checked = False And rbbajar.Checked = False Then
                     MsgBox("Selecciona la opcion subir o bajar, segun sea el caso", MsgBoxStyle.Exclamation)
                     DgvMicros.Rows(index).Cells("sel").Value = False
                 End If
@@ -593,29 +653,41 @@ Public Class ActualizacionVenta
         Try
             If DgvMicros.Rows.Count > 0 Then
                 index = DgvMicros.CurrentCell.RowIndex
+                'If rbsubir.Checked = True And rbbajar.Checked = False Then
+                '    If index > 0 Then
+                '        If DgvMicros.Rows(index).Cells("sel").Value = True And DgvMicros.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            DgvMicros.Rows(index).Cells("RanMod").Value = generanuevovalor(DgvMicros.Rows(index - 1).Cells("Rango1").Value, DgvMicros.Rows(index - 1).Cells("Rango2").Value)
+                '        ElseIf DgvMicros.Rows(index).Cells("sel").Value = False Then
+                '            DgvMicros.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        DgvMicros.Rows(index).Cells("sel").Value = False
+                '    End If
+                'ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
+                '    If index < DgvMicros.Rows.Count - 1 Then
+                '        If DgvMicros.Rows(index).Cells("sel").Value = True And DgvMicros.Rows(index).Cells("NoPacas").Value > 0 Then
+                '            DgvMicros.Rows(index).Cells("RanMod").Value = generanuevovalor(DgvMicros.Rows(index + 1).Cells("Rango1").Value, DgvMicros.Rows(index + 1).Cells("Rango2").Value)
+                '        ElseIf DgvMicros.Rows(index).Cells("sel").Value = False Then
+                '            DgvMicros.Rows(index).Cells("RanMod").Value = "0.00"
+                '        End If
+                '    Else
+                '        MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
+                '        DgvMicros.Rows(index).Cells("sel").Value = False
+                '    End If
                 If rbsubir.Checked = True And rbbajar.Checked = False Then
                     If index > 0 Then
-                        If DgvMicros.Rows(index).Cells("sel").Value = True And DgvMicros.Rows(index).Cells("NoPacas").Value > 0 Then
-                            DgvMicros.Rows(index).Cells("RanMod").Value = generanuevovalor(DgvMicros.Rows(index - 1).Cells("Rango1").Value, DgvMicros.Rows(index - 1).Cells("Rango2").Value)
-                        ElseIf DgvMicros.Rows(index).Cells("sel").Value = False Then
-                            DgvMicros.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el maximo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         DgvMicros.Rows(index).Cells("sel").Value = False
                     End If
                 ElseIf rbbajar.Checked = True And rbsubir.Checked = False Then
                     If index < DgvMicros.Rows.Count - 1 Then
-                        If DgvMicros.Rows(index).Cells("sel").Value = True And DgvMicros.Rows(index).Cells("NoPacas").Value > 0 Then
-                            DgvMicros.Rows(index).Cells("RanMod").Value = generanuevovalor(DgvMicros.Rows(index + 1).Cells("Rango1").Value, DgvMicros.Rows(index + 1).Cells("Rango2").Value)
-                        ElseIf DgvMicros.Rows(index).Cells("sel").Value = False Then
-                            DgvMicros.Rows(index).Cells("RanMod").Value = "0.00"
-                        End If
                     Else
                         MsgBox("Este es el minimo valor de la tabla, no se puede cambiar", MsgBoxStyle.Exclamation)
                         DgvMicros.Rows(index).Cells("sel").Value = False
                     End If
-                Else
+                ElseIf rbsubir.Checked = False And rbbajar.Checked = False Then
                     MsgBox("Selecciona la opcion subir o bajar, segun sea el caso", MsgBoxStyle.Exclamation)
                     DgvMicros.Rows(index).Cells("sel").Value = False
                 End If
@@ -634,8 +706,29 @@ Public Class ActualizacionVenta
         resultado = (nrnd2 / 100)
         Return resultado
     End Function
+    Private Sub ConfiguracionDeMicrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeMicrosToolStripMenuItem.Click
+        Dim Mic As New ConfigMic
+        Mic.ShowDialog()
+    End Sub
+
+    Private Sub LargoDeFibraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LargoDeFibraToolStripMenuItem.Click
+        Dim lar As New ConfigLar
+        lar.ShowDialog()
+    End Sub
+
+    Private Sub ResistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResistenciaToolStripMenuItem.Click
+        Dim res As New ConfigRes
+        res.ShowDialog()
+    End Sub
+
+    Private Sub UniformidadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UniformidadToolStripMenuItem.Click
+        Dim uni As New ConfigRes
+        uni.ShowDialog()
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
         Dispose()
     End Sub
+
+
 End Class

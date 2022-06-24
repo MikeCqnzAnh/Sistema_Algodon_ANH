@@ -1,5 +1,4 @@
-CREATE Procedure sp_ConsultaContratosDetalleEmpresa
---declare
+ALTER Procedure sp_ConsultaContratosDetalleEmpresa
 @IdContratoAlgodon int 
 as
 Declare @Lotes VARCHAR(100)
@@ -20,6 +19,8 @@ select a.IdContratoAlgodon,
 	   isnull(c.IdAsociacion,0) as IdAsociacion,
 	   isnull(c.Descripcion,'') as Descripcion,
 	   a.Pacas,
+	   a.PacasCompradas,
+	   a.PacasDisponibles,
 	   a.SuperficieComprometida,
 	   isnull(@Lotes,'') as Lotes,
 	   a.PrecioQuintal,
@@ -55,9 +56,20 @@ select a.IdContratoAlgodon,
 	   d.Pais,
 	   d.Estado,
 	   d.Municipio,
-	   d.LugarExpedicion
+	   d.LugarExpedicion,
+	   e.IdConfiguracion,
+	   e.ParamDia1,
+	   e.ParamMes1,
+	   e.ParamTemp1,
+	   e.ParamMes2,
+	   e.ParamTemp2,
+	   e.Parammes3,
+	   e.ParamPrompesomin,
+	   e.ParamPromPesomax,
+	   e.Parampesomin,
+	   e.TemporadaAnual	   
 from [dbo].[ContratoCompra] a inner join [dbo].[Clientes] b on a.IdProductor = b.IdCliente
 							  left join [dbo].[Asociaciones] c	on b.IdCuentaDe = c.IdAsociacion
-    ,[dbo].[DatosEmpresa] d
+    ,[dbo].[DatosEmpresa] d,ConfiguracionParamContratosCompra e
 where a.IdContratoAlgodon = @IdContratoAlgodon
 and   a.IdEstatus = 1

@@ -1,4 +1,4 @@
-Alter procedure sp_InsertarContratoCompraDet
+alter procedure sp_InsertarContratoCompraDet
 @IdContratoAlgodonDetalle int,
 @IdContratoAlgodon int,
 @IdLote int,
@@ -8,7 +8,7 @@ begin
 set nocount on
 merge [dbo].[ContratoCompraDetalle] as target
 using (select @IdContratoAlgodonDetalle,@IdContratoAlgodon,@IdLote,@SuperficieContratada) as source (IdContratoAlgodonDetalle,IdContratoAlgodon,IdLote,SuperficieContratada)
-ON (target.IdContratoAlgodonDetalle = source.IdContratoAlgodonDetalle)
+ON (target.IdContratoAlgodon = source.IdContratoAlgodon AND target.IdLote = source.IdLote)
 WHEN MATCHED THEN
 UPDATE SET IdContratoAlgodon = source.IdContratoAlgodon,
 		   IdLote = source.IdLote,

@@ -263,7 +263,7 @@ Public Class RepDetalleCastigoPaca
                 arr(r, c) = dt.Rows(r).Item(c)
             Next
         Next
-        ws.Cells.NumberFormat = "@"
+        'ws.Cells.NumberFormat = "@"
         ws.Name = TabName   'name the worksheet
         'add the column headers starting in A1
         c = 0
@@ -272,7 +272,7 @@ Public Class RepDetalleCastigoPaca
             c += 1
         Next
         'add the data starting in cell A2
-        ws.Range(ws.Cells(2, 1), ws.Cells(dt.Rows.Count, dt.Columns.Count)).Value = arr
+        ws.Range(ws.Cells(2, 1), ws.Cells(dt.Rows.Count + 1, dt.Columns.Count)).Value = arr
 
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

@@ -113,9 +113,6 @@ Public Class CompraPacasContrato
         NegocioCompraPacasContrato.Guardar(EntidadCompraPacasContrato)
         TbIdCompraPaca.Text = EntidadCompraPacasContrato.IdCompra
     End Sub
-    Private Sub ConfirmarSeleccion()
-
-    End Sub
     Private Function SumaCastigoMicros()
         Dim Resultado As Double = 0
         If DgvPacasIndCompradas.Rows.Count > 0 Then

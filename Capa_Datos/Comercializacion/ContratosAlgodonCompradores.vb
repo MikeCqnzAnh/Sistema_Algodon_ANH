@@ -16,6 +16,7 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@Pacas", EntidadContratosAlgodonCompradores1.Pacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasVendidas", EntidadContratosAlgodonCompradores1.PacasVendidas))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodonCompradores1.PacasDisponibles))
+            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDispContcomp", EntidadContratosAlgodonCompradores1.PacasDispContComp))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadContratosAlgodonCompradores1.PrecioQuintal))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUnidadPeso", EntidadContratosAlgodonCompradores1.IdUnidadPeso))
             cmdGuardar.Parameters.Add(New SqlParameter("@ValorConversion", EntidadContratosAlgodonCompradores1.ValorConversion))
@@ -143,6 +144,13 @@ Public Class ContratosAlgodonCompradores
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoVenta", EntidadContratosAlgodonCompradores1.IdContratoAlgodon))
+                    sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPreioProm
+                    sqlcom1 = New SqlCommand("Pa_ConsultaPrecioPromediovta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcomprador", EntidadContratosAlgodonCompradores1.IdComprador))
                     sqldat1.Fill(EntidadContratosAlgodonCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception

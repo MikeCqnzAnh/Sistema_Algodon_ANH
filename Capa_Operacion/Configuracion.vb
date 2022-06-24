@@ -64,6 +64,7 @@
         GuardarDetalleFactura = 12
         GuardaPacas = 13
         GuardarEmbarqueDetalleLotes = 14
+        GuardarVentaRecalculo = 15
     End Enum
     Public Enum Consulta
         ConsultaEstado = 1
@@ -200,6 +201,8 @@
         ConsultaResRango = 130
         ConsultaLarRango = 131
         ConsultaUniRango = 132
+        ConsultaPreioProm = 133
+        ConsultaContratovta = 134
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -227,6 +230,7 @@
         ActualizarPacaResbajar = 17
         ActualizarPacaLarbajar = 18
         ActualizarPacaUnibajar = 19
+        ActualizarParametros = 20
     End Enum
     Public Enum Importa
         ImportaTabla = 1

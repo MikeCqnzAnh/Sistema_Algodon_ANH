@@ -164,7 +164,7 @@ Public Class VentaClasificacion
                     TbIdPaquete.Text = EntidadClasificacionVentaPaquetes.IdPaquete
                     TbDescripcion.Text = CbClases.Text & "-" & TbIdPaquete.Text
                     For Each row As DataGridViewRow In DgvPacasClasificacion.Rows
-                        If row.Cells(0).Value = True Then
+                        If row.Cells(0).Value = True And row.Cells("IdVentaEnc").Value = 0 Then
                             EntidadClasificacionVentaPaquetes.Eliminar = Eliminar.EliminaPacaSeleccionada
                             EntidadClasificacionVentaPaquetes.IdPaquete = TbIdPaquete.Text
                             EntidadClasificacionVentaPaquetes.BaleID = row.Cells("BaleID").Value
@@ -438,11 +438,19 @@ Public Class VentaClasificacion
             colFlagTerminado.Visible = False
             DgvPacasClasificacion.Columns.Insert(30, colFlagTerminado)
 
-            Dim colEstatusCompra As New DataGridViewCheckBoxColumn
+            Dim colEstatusCompra As New DataGridViewTextBoxColumn
             colEstatusCompra.Name = "EstatusVenta"
             'colEstatusCompra.HeaderText = "No Paca"
+            'colEstatusCompra.ReadOnly = True
             colEstatusCompra.Visible = False
             DgvPacasClasificacion.Columns.Insert(31, colEstatusCompra)
+
+            Dim colIdVenta As New DataGridViewTextBoxColumn
+            colIdVenta.Name = "IdVentaEnc"
+            'colEstatusCompra.HeaderText = "No Paca"
+            'colIdVenta.ReadOnly = True
+            colIdVenta.Visible = False
+            DgvPacasClasificacion.Columns.Insert(32, colIdVenta)
 
         End If
     End Sub
@@ -470,9 +478,8 @@ Public Class VentaClasificacion
                 NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
                 Tabla = EntidadClasificacionVentaPaquetes.TablaConsulta
                 For i As Integer = 0 To Tabla.Rows.Count - 1
-                    DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(i).Item("IdOrdenTrabajo"), Tabla.Rows(i).Item("IdPlantaOrigen"), Tabla.Rows(i).Item("Kilos"), Tabla.Rows(i).Item("lotID"), Tabla.Rows(i).Item("BaleID"), Tabla.Rows(i).Item("BaleGroup"), Tabla.Rows(i).Item("Operator"), Tabla.Rows(i).Item("Date"), Tabla.Rows(i).Item("Temperature"), Tabla.Rows(i).Item("Humidity"), Tabla.Rows(i).Item("Amount"), Tabla.Rows(i).Item("UHML"), Tabla.Rows(i).Item("UI"), Tabla.Rows(i).Item("Strength"), Tabla.Rows(i).Item("Elongation"), Tabla.Rows(i).Item("SFI"), Tabla.Rows(i).Item("Maturity"), Tabla.Rows(i).Item("Grade"), Tabla.Rows(i).Item("Moist"), Tabla.Rows(i).Item("Mic"), Tabla.Rows(i).Item("Rd"), Tabla.Rows(i).Item("Plusb"), Tabla.Rows(i).Item("ColorGrade"), Tabla.Rows(i).Item("TrashCount"), Tabla.Rows(i).Item("TrashArea"), Tabla.Rows(i).Item("TrashID"), Tabla.Rows(i).Item("SCI"), Tabla.Rows(i).Item("Nep"), Tabla.Rows(i).Item("UV"), Tabla.Rows(i).Item("FlagTerminado"))
+                    DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(i).Item("IdOrdenTrabajo"), Tabla.Rows(i).Item("IdPlantaOrigen"), Tabla.Rows(i).Item("Kilos"), Tabla.Rows(i).Item("lotID"), Tabla.Rows(i).Item("BaleID"), Tabla.Rows(i).Item("BaleGroup"), Tabla.Rows(i).Item("Operator"), Tabla.Rows(i).Item("Date"), Tabla.Rows(i).Item("Temperature"), Tabla.Rows(i).Item("Humidity"), Tabla.Rows(i).Item("Amount"), Tabla.Rows(i).Item("UHML"), Tabla.Rows(i).Item("UI"), Tabla.Rows(i).Item("Strength"), Tabla.Rows(i).Item("Elongation"), Tabla.Rows(i).Item("SFI"), Tabla.Rows(i).Item("Maturity"), Tabla.Rows(i).Item("Grade"), Tabla.Rows(i).Item("Moist"), Tabla.Rows(i).Item("Mic"), Tabla.Rows(i).Item("Rd"), Tabla.Rows(i).Item("Plusb"), Tabla.Rows(i).Item("ColorGrade"), Tabla.Rows(i).Item("TrashCount"), Tabla.Rows(i).Item("TrashArea"), Tabla.Rows(i).Item("TrashID"), Tabla.Rows(i).Item("SCI"), Tabla.Rows(i).Item("Nep"), Tabla.Rows(i).Item("UV"), Tabla.Rows(i).Item("FlagTerminado"), Tabla.Rows(i).Item("EstatusVenta"), Tabla.Rows(i).Item("IdVentaEnc"))
                 Next
-                IdentificaEstatusPacas()
             Else
                 MsgBox("No se encontraron registros con esos criterios.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
                 TbIdPaquete.Enabled = True
@@ -484,10 +491,11 @@ Public Class VentaClasificacion
         End If
         DgvPacasClasificacion.Sort(DgvPacasClasificacion.Columns("BaleID"), System.ComponentModel.ListSortDirection.Descending)
         ContarPacas()
+        IdentificaEstatusPacas()
     End Sub
     Private Sub IdentificaEstatusPacas()
         For Each fila As DataGridViewRow In DgvPacasClasificacion.Rows
-            If fila.Cells("EstatusVenta").Value > 1 Then
+            If fila.Cells("IdVentaEnc").Value > 0 Then
                 fila.DefaultCellStyle.BackColor = Color.SkyBlue
             End If
         Next
@@ -506,7 +514,7 @@ Public Class VentaClasificacion
         If Tabla.Rows.Count = 0 Then
             MsgBox("La paca no se encuentra en la base de datos HVI.")
         ElseIf VerificaPacaRepetida(VerificaDuplicado, NoPaca) = False Then
-            DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(0).Item("Kilos"), Tabla.Rows(0).Item("LotID"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"))
+            DgvPacasClasificacion.Rows.Add(0, Tabla.Rows(0).Item("IdOrdenTrabajo"), Tabla.Rows(0).Item("IdPlantaOrigen"), Tabla.Rows(0).Item("Kilos"), Tabla.Rows(0).Item("LotID"), Tabla.Rows(0).Item("BaleID"), Tabla.Rows(0).Item("BaleGroup"), Tabla.Rows(0).Item("Operator"), Tabla.Rows(0).Item("Date"), Tabla.Rows(0).Item("Temperature"), Tabla.Rows(0).Item("Humidity"), Tabla.Rows(0).Item("Amount"), Tabla.Rows(0).Item("UHML"), Tabla.Rows(0).Item("UI"), Tabla.Rows(0).Item("Strength"), Tabla.Rows(0).Item("Elongation"), Tabla.Rows(0).Item("SFI"), Tabla.Rows(0).Item("Maturity"), Tabla.Rows(0).Item("Grade"), Tabla.Rows(0).Item("Moist"), Tabla.Rows(0).Item("Mic"), Tabla.Rows(0).Item("Rd"), Tabla.Rows(0).Item("Plusb"), Tabla.Rows(0).Item("ColorGrade"), Tabla.Rows(0).Item("TrashCount"), Tabla.Rows(0).Item("TrashArea"), Tabla.Rows(0).Item("TrashID"), Tabla.Rows(0).Item("SCI"), Tabla.Rows(0).Item("Nep"), Tabla.Rows(0).Item("UV"), Tabla.Rows(0).Item("FlagTerminado"), Tabla.Rows(0).Item("EstatusVenta"), Tabla.Rows(0).Item("IdVentaEnc"))
         Else
             MsgBox("El numero de paca ya se encuentra registrado.")
         End If
@@ -590,6 +598,7 @@ Public Class VentaClasificacion
         TablaClasificacionGrid.Columns.Add(New DataColumn("UV", System.Type.GetType("System.Double")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("FlagTerminado", System.Type.GetType("System.Boolean")))
         TablaClasificacionGrid.Columns.Add(New DataColumn("EstatusVenta", System.Type.GetType("System.Int32")))
+        TablaClasificacionGrid.Columns.Add(New DataColumn("IdVentaEnc", System.Type.GetType("System.Int32")))
     End Sub
     Private Sub DataGridViewToTable()
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
@@ -600,41 +609,90 @@ Public Class VentaClasificacion
         For Each row As DataGridViewRow In DgvPacasClasificacion.Rows
             index = Convert.ToUInt64(row.Index)
             rengloninsertar = TablaClasificacionGrid.NewRow()
-
+            'If DgvPacasClasificacion.Rows(index).Cells("IdVentaEnc").Value = 0 Then
             rengloninsertar("Sel") = DgvPacasClasificacion.Rows(index).Cells("Sel").Value
-            rengloninsertar("IdOrdenTrabajo") = DgvPacasClasificacion.Rows(index).Cells("IdOrdenTrabajo").Value
-            rengloninsertar("IdPlantaOrigen") = DgvPacasClasificacion.Rows(index).Cells("IdPlantaOrigen").Value
-            rengloninsertar("Kilos") = DgvPacasClasificacion.Rows(index).Cells("Kilos").Value
-            rengloninsertar("LotID") = DgvPacasClasificacion.Rows(index).Cells("LotID").Value
-            rengloninsertar("BaleID") = DgvPacasClasificacion.Rows(index).Cells("BaleID").Value
-            rengloninsertar("BaleGroup") = DgvPacasClasificacion.Rows(index).Cells("BaleGroup").Value
-            rengloninsertar("Operator") = DgvPacasClasificacion.Rows(index).Cells("Operator").Value
-            rengloninsertar("Date") = DgvPacasClasificacion.Rows(index).Cells("Date").Value
-            rengloninsertar("Temperature") = DgvPacasClasificacion.Rows(index).Cells("Temperature").Value
-            rengloninsertar("Humidity") = DgvPacasClasificacion.Rows(index).Cells("Humidity").Value
-            rengloninsertar("Amount") = DgvPacasClasificacion.Rows(index).Cells("Amount").Value
-            rengloninsertar("UHML") = DgvPacasClasificacion.Rows(index).Cells("UHML").Value
-            rengloninsertar("UI") = DgvPacasClasificacion.Rows(index).Cells("UI").Value
-            rengloninsertar("Strength") = DgvPacasClasificacion.Rows(index).Cells("Strength").Value
-            rengloninsertar("Elongation") = DgvPacasClasificacion.Rows(index).Cells("Elongation").Value
-            rengloninsertar("SFI") = DgvPacasClasificacion.Rows(index).Cells("SFI").Value
-            rengloninsertar("Maturity") = DgvPacasClasificacion.Rows(index).Cells("Maturity").Value
-            'rengloninsertar("Grade") = DgvPacasClasificacion.Rows(index).Cells("Grade").Value consultaclases()
-            rengloninsertar("Grade") = ConsultaClasesClasificacion(DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value.ToString, DgvPacasClasificacion.Rows(index).Cells("TrashID").Value)
-            rengloninsertar("Moist") = DgvPacasClasificacion.Rows(index).Cells("Moist").Value
-            rengloninsertar("Mic") = DgvPacasClasificacion.Rows(index).Cells("Mic").Value
-            rengloninsertar("Rd") = DgvPacasClasificacion.Rows(index).Cells("Rd").Value
-            rengloninsertar("Plusb") = DgvPacasClasificacion.Rows(index).Cells("Plusb").Value
-            rengloninsertar("ColorGrade") = DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value
-            rengloninsertar("TrashCount") = DgvPacasClasificacion.Rows(index).Cells("TrashCount").Value
-            rengloninsertar("TrashArea") = DgvPacasClasificacion.Rows(index).Cells("TrashArea").Value
-            rengloninsertar("TrashID") = DgvPacasClasificacion.Rows(index).Cells("TrashID").Value
-            rengloninsertar("SCI") = DgvPacasClasificacion.Rows(index).Cells("SCI").Value
-            rengloninsertar("Nep") = DgvPacasClasificacion.Rows(index).Cells("Nep").Value
-            rengloninsertar("UV") = DgvPacasClasificacion.Rows(index).Cells("UV").Value
-            rengloninsertar("FlagTerminado") = DgvPacasClasificacion.Rows(index).Cells("FlagTerminado").Value
-            rengloninsertar("EstatusVenta") = 1
+                rengloninsertar("IdOrdenTrabajo") = DgvPacasClasificacion.Rows(index).Cells("IdOrdenTrabajo").Value
+                rengloninsertar("IdPlantaOrigen") = DgvPacasClasificacion.Rows(index).Cells("IdPlantaOrigen").Value
+                rengloninsertar("Kilos") = DgvPacasClasificacion.Rows(index).Cells("Kilos").Value
+                rengloninsertar("LotID") = DgvPacasClasificacion.Rows(index).Cells("LotID").Value
+                rengloninsertar("BaleID") = DgvPacasClasificacion.Rows(index).Cells("BaleID").Value
+                rengloninsertar("BaleGroup") = DgvPacasClasificacion.Rows(index).Cells("BaleGroup").Value
+                rengloninsertar("Operator") = DgvPacasClasificacion.Rows(index).Cells("Operator").Value
+                rengloninsertar("Date") = DgvPacasClasificacion.Rows(index).Cells("Date").Value
+                rengloninsertar("Temperature") = DgvPacasClasificacion.Rows(index).Cells("Temperature").Value
+                rengloninsertar("Humidity") = DgvPacasClasificacion.Rows(index).Cells("Humidity").Value
+                rengloninsertar("Amount") = DgvPacasClasificacion.Rows(index).Cells("Amount").Value
+                rengloninsertar("UHML") = DgvPacasClasificacion.Rows(index).Cells("UHML").Value
+                rengloninsertar("UI") = DgvPacasClasificacion.Rows(index).Cells("UI").Value
+                rengloninsertar("Strength") = DgvPacasClasificacion.Rows(index).Cells("Strength").Value
+                rengloninsertar("Elongation") = DgvPacasClasificacion.Rows(index).Cells("Elongation").Value
+                rengloninsertar("SFI") = DgvPacasClasificacion.Rows(index).Cells("SFI").Value
+                rengloninsertar("Maturity") = DgvPacasClasificacion.Rows(index).Cells("Maturity").Value
+                rengloninsertar("Grade") = ConsultaClasesClasificacion(DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value.ToString, DgvPacasClasificacion.Rows(index).Cells("TrashID").Value)
+                rengloninsertar("Moist") = DgvPacasClasificacion.Rows(index).Cells("Moist").Value
+                rengloninsertar("Mic") = DgvPacasClasificacion.Rows(index).Cells("Mic").Value
+                rengloninsertar("Rd") = DgvPacasClasificacion.Rows(index).Cells("Rd").Value
+                rengloninsertar("Plusb") = DgvPacasClasificacion.Rows(index).Cells("Plusb").Value
+                rengloninsertar("ColorGrade") = DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value
+                rengloninsertar("TrashCount") = DgvPacasClasificacion.Rows(index).Cells("TrashCount").Value
+                rengloninsertar("TrashArea") = DgvPacasClasificacion.Rows(index).Cells("TrashArea").Value
+                rengloninsertar("TrashID") = DgvPacasClasificacion.Rows(index).Cells("TrashID").Value
+                rengloninsertar("SCI") = DgvPacasClasificacion.Rows(index).Cells("SCI").Value
+                rengloninsertar("Nep") = DgvPacasClasificacion.Rows(index).Cells("Nep").Value
+                rengloninsertar("UV") = DgvPacasClasificacion.Rows(index).Cells("UV").Value
+                rengloninsertar("FlagTerminado") = DgvPacasClasificacion.Rows(index).Cells("FlagTerminado").Value
+                rengloninsertar("EstatusVenta") = 1
+            'rengloninsertar("IdVentaEnc") = DgvPacasClasificacion.Rows(index).Cells("IdVentaEnc").Value
             TablaClasificacionGrid.Rows.Add(rengloninsertar)
+            'End If
+        Next
+        TablaClasificacionGlobal = TablaClasificacionGrid
+    End Sub
+    Private Sub DataGridToTableSinVender()
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        Dim index As Integer
+        Dim rengloninsertar As DataRow
+        TablaClasificacionGrid.Clear()
+        For Each row As DataGridViewRow In DgvPacasClasificacion.Rows
+            index = Convert.ToUInt64(row.Index)
+            rengloninsertar = TablaClasificacionGrid.NewRow()
+            If DgvPacasClasificacion.Rows(index).Cells("IdVentaEnc").Value = 0 Then
+                rengloninsertar("Sel") = DgvPacasClasificacion.Rows(index).Cells("Sel").Value
+                rengloninsertar("IdOrdenTrabajo") = DgvPacasClasificacion.Rows(index).Cells("IdOrdenTrabajo").Value
+                rengloninsertar("IdPlantaOrigen") = DgvPacasClasificacion.Rows(index).Cells("IdPlantaOrigen").Value
+                rengloninsertar("Kilos") = DgvPacasClasificacion.Rows(index).Cells("Kilos").Value
+                rengloninsertar("LotID") = DgvPacasClasificacion.Rows(index).Cells("LotID").Value
+                rengloninsertar("BaleID") = DgvPacasClasificacion.Rows(index).Cells("BaleID").Value
+                rengloninsertar("BaleGroup") = DgvPacasClasificacion.Rows(index).Cells("BaleGroup").Value
+                rengloninsertar("Operator") = DgvPacasClasificacion.Rows(index).Cells("Operator").Value
+                rengloninsertar("Date") = DgvPacasClasificacion.Rows(index).Cells("Date").Value
+                rengloninsertar("Temperature") = DgvPacasClasificacion.Rows(index).Cells("Temperature").Value
+                rengloninsertar("Humidity") = DgvPacasClasificacion.Rows(index).Cells("Humidity").Value
+                rengloninsertar("Amount") = DgvPacasClasificacion.Rows(index).Cells("Amount").Value
+                rengloninsertar("UHML") = DgvPacasClasificacion.Rows(index).Cells("UHML").Value
+                rengloninsertar("UI") = DgvPacasClasificacion.Rows(index).Cells("UI").Value
+                rengloninsertar("Strength") = DgvPacasClasificacion.Rows(index).Cells("Strength").Value
+                rengloninsertar("Elongation") = DgvPacasClasificacion.Rows(index).Cells("Elongation").Value
+                rengloninsertar("SFI") = DgvPacasClasificacion.Rows(index).Cells("SFI").Value
+                rengloninsertar("Maturity") = DgvPacasClasificacion.Rows(index).Cells("Maturity").Value
+                rengloninsertar("Grade") = ConsultaClasesClasificacion(DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value.ToString, DgvPacasClasificacion.Rows(index).Cells("TrashID").Value)
+                rengloninsertar("Moist") = DgvPacasClasificacion.Rows(index).Cells("Moist").Value
+                rengloninsertar("Mic") = DgvPacasClasificacion.Rows(index).Cells("Mic").Value
+                rengloninsertar("Rd") = DgvPacasClasificacion.Rows(index).Cells("Rd").Value
+                rengloninsertar("Plusb") = DgvPacasClasificacion.Rows(index).Cells("Plusb").Value
+                rengloninsertar("ColorGrade") = DgvPacasClasificacion.Rows(index).Cells("ColorGrade").Value
+                rengloninsertar("TrashCount") = DgvPacasClasificacion.Rows(index).Cells("TrashCount").Value
+                rengloninsertar("TrashArea") = DgvPacasClasificacion.Rows(index).Cells("TrashArea").Value
+                rengloninsertar("TrashID") = DgvPacasClasificacion.Rows(index).Cells("TrashID").Value
+                rengloninsertar("SCI") = DgvPacasClasificacion.Rows(index).Cells("SCI").Value
+                rengloninsertar("Nep") = DgvPacasClasificacion.Rows(index).Cells("Nep").Value
+                rengloninsertar("UV") = DgvPacasClasificacion.Rows(index).Cells("UV").Value
+                rengloninsertar("FlagTerminado") = DgvPacasClasificacion.Rows(index).Cells("FlagTerminado").Value
+                rengloninsertar("EstatusVenta") = 1
+                rengloninsertar("IdVentaEnc") = DgvPacasClasificacion.Rows(index).Cells("IdVentaEnc").Value
+                TablaClasificacionGrid.Rows.Add(rengloninsertar)
+            End If
         Next
         TablaClasificacionGlobal = TablaClasificacionGrid
     End Sub
@@ -1074,5 +1132,16 @@ Public Class VentaClasificacion
     End Sub
     Private Sub BtDeseleccionarTodo_Click(sender As Object, e As EventArgs) Handles BtDeseleccionarTodo.Click
         desmarcaCheck()
+    End Sub
+
+    Private Sub DgvPacasClasificacion_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvPacasClasificacion.CellContentClick
+        DgvPacasClasificacion.EndEdit()
+        Dim Col As Integer = Me.DgvPacasClasificacion.CurrentCell.ColumnIndex
+        For Each row As DataGridViewRow In Me.DgvPacasClasificacion.Rows
+            If row.Cells("IdVentaEnc").Value > 0 And row.Cells("Sel").Value = True Then
+                MsgBox("La Paca " & row.Cells("Baleid").Value & " ya se encuentra en la venta No" & row.Cells("IdVentaEnc").Value & " y no se permite modificar de paquete")
+                row.Cells(0).Value = False
+            End If
+        Next
     End Sub
 End Class

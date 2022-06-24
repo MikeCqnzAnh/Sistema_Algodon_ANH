@@ -26,14 +26,19 @@ Partial Class ActualizacionVenta
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeTablasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConfiguracionDeMicrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LargoDeFibraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UniformidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Dgvresistencia = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Dgvlargofibra = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Dgvuniformidad = New System.Windows.Forms.DataGridView()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Dgvresistencia = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DgvMicros = New System.Windows.Forms.DataGridView()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -107,14 +112,15 @@ Partial Class ActualizacionVenta
         Me.BtCastigoResFibra = New System.Windows.Forms.Button()
         Me.BtCastigoMicros = New System.Windows.Forms.Button()
         Me.BtCastLarFib = New System.Windows.Forms.Button()
+        Me.RestaurarParametrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.Dgvresistencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.Dgvlargofibra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.Dgvuniformidad, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        CType(Me.Dgvresistencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DgvMicros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
@@ -130,7 +136,7 @@ Partial Class ActualizacionVenta
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ActualizarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ActualizarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.RestaurarParametrosToolStripMenuItem, Me.ConfiguracionDeTablasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1710, 24)
@@ -155,6 +161,38 @@ Partial Class ActualizacionVenta
         Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.ConsultarToolStripMenuItem.Text = "Consultar"
         '
+        'ConfiguracionDeTablasToolStripMenuItem
+        '
+        Me.ConfiguracionDeTablasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfiguracionDeMicrosToolStripMenuItem, Me.LargoDeFibraToolStripMenuItem, Me.ResistenciaToolStripMenuItem, Me.UniformidadToolStripMenuItem})
+        Me.ConfiguracionDeTablasToolStripMenuItem.Name = "ConfiguracionDeTablasToolStripMenuItem"
+        Me.ConfiguracionDeTablasToolStripMenuItem.Size = New System.Drawing.Size(146, 20)
+        Me.ConfiguracionDeTablasToolStripMenuItem.Text = "Configuracion de Tablas"
+        Me.ConfiguracionDeTablasToolStripMenuItem.Visible = False
+        '
+        'ConfiguracionDeMicrosToolStripMenuItem
+        '
+        Me.ConfiguracionDeMicrosToolStripMenuItem.Name = "ConfiguracionDeMicrosToolStripMenuItem"
+        Me.ConfiguracionDeMicrosToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.ConfiguracionDeMicrosToolStripMenuItem.Text = "Micros"
+        '
+        'LargoDeFibraToolStripMenuItem
+        '
+        Me.LargoDeFibraToolStripMenuItem.Name = "LargoDeFibraToolStripMenuItem"
+        Me.LargoDeFibraToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.LargoDeFibraToolStripMenuItem.Text = "Largo de Fibra"
+        '
+        'ResistenciaToolStripMenuItem
+        '
+        Me.ResistenciaToolStripMenuItem.Name = "ResistenciaToolStripMenuItem"
+        Me.ResistenciaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.ResistenciaToolStripMenuItem.Text = "Resistencia"
+        '
+        'UniformidadToolStripMenuItem
+        '
+        Me.UniformidadToolStripMenuItem.Name = "UniformidadToolStripMenuItem"
+        Me.UniformidadToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.UniformidadToolStripMenuItem.Text = "Uniformidad"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
@@ -163,9 +201,9 @@ Partial Class ActualizacionVenta
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Controls.Add(Me.GroupBox4)
         Me.Panel1.Controls.Add(Me.GroupBox1)
-        Me.Panel1.Controls.Add(Me.GroupBox3)
         Me.Panel1.Controls.Add(Me.GroupBox2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 183)
@@ -173,11 +211,44 @@ Partial Class ActualizacionVenta
         Me.Panel1.Size = New System.Drawing.Size(1710, 539)
         Me.Panel1.TabIndex = 2
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Dgvresistencia)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.Location = New System.Drawing.Point(864, 0)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(441, 539)
+        Me.GroupBox3.TabIndex = 2
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "RESISTENCIA"
+        '
+        'Dgvresistencia
+        '
+        Me.Dgvresistencia.AllowUserToAddRows = False
+        Me.Dgvresistencia.AllowUserToDeleteRows = False
+        Me.Dgvresistencia.AllowUserToResizeColumns = False
+        Me.Dgvresistencia.AllowUserToResizeRows = False
+        Me.Dgvresistencia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.Dgvresistencia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.Dgvresistencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.Dgvresistencia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.Dgvresistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dgvresistencia.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dgvresistencia.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Dgvresistencia.Location = New System.Drawing.Point(3, 16)
+        Me.Dgvresistencia.MultiSelect = False
+        Me.Dgvresistencia.Name = "Dgvresistencia"
+        Me.Dgvresistencia.RowHeadersVisible = False
+        Me.Dgvresistencia.RowHeadersWidth = 40
+        Me.Dgvresistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.Dgvresistencia.Size = New System.Drawing.Size(435, 520)
+        Me.Dgvresistencia.TabIndex = 15
+        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.Dgvlargofibra)
-        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox4.Location = New System.Drawing.Point(859, 0)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GroupBox4.Location = New System.Drawing.Point(418, 0)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(446, 539)
         Me.GroupBox4.TabIndex = 3
@@ -238,39 +309,6 @@ Partial Class ActualizacionVenta
         Me.Dgvuniformidad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvuniformidad.Size = New System.Drawing.Size(399, 520)
         Me.Dgvuniformidad.TabIndex = 17
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Dgvresistencia)
-        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.GroupBox3.Location = New System.Drawing.Point(418, 0)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(441, 539)
-        Me.GroupBox3.TabIndex = 2
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "RESISTENCIA"
-        '
-        'Dgvresistencia
-        '
-        Me.Dgvresistencia.AllowUserToAddRows = False
-        Me.Dgvresistencia.AllowUserToDeleteRows = False
-        Me.Dgvresistencia.AllowUserToResizeColumns = False
-        Me.Dgvresistencia.AllowUserToResizeRows = False
-        Me.Dgvresistencia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.Dgvresistencia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.Dgvresistencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.Dgvresistencia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.Dgvresistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvresistencia.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgvresistencia.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Dgvresistencia.Location = New System.Drawing.Point(3, 16)
-        Me.Dgvresistencia.MultiSelect = False
-        Me.Dgvresistencia.Name = "Dgvresistencia"
-        Me.Dgvresistencia.RowHeadersVisible = False
-        Me.Dgvresistencia.RowHeadersWidth = 40
-        Me.Dgvresistencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvresistencia.Size = New System.Drawing.Size(435, 520)
-        Me.Dgvresistencia.TabIndex = 15
         '
         'GroupBox2
         '
@@ -1092,6 +1130,12 @@ Partial Class ActualizacionVenta
         Me.BtCastLarFib.UseVisualStyleBackColor = True
         Me.BtCastLarFib.Visible = False
         '
+        'RestaurarParametrosToolStripMenuItem
+        '
+        Me.RestaurarParametrosToolStripMenuItem.Name = "RestaurarParametrosToolStripMenuItem"
+        Me.RestaurarParametrosToolStripMenuItem.Size = New System.Drawing.Size(131, 20)
+        Me.RestaurarParametrosToolStripMenuItem.Text = "Restaurar Parametros"
+        '
         'ActualizacionVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1109,12 +1153,12 @@ Partial Class ActualizacionVenta
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.Dgvresistencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.Dgvlargofibra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.Dgvuniformidad, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        CType(Me.Dgvresistencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.DgvMicros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
@@ -1219,4 +1263,10 @@ Partial Class ActualizacionVenta
     Friend WithEvents Dgvlargofibra As DataGridView
     Friend WithEvents rbbajar As RadioButton
     Friend WithEvents rbsubir As RadioButton
+    Friend WithEvents ConfiguracionDeTablasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConfiguracionDeMicrosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LargoDeFibraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResistenciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UniformidadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RestaurarParametrosToolStripMenuItem As ToolStripMenuItem
 End Class

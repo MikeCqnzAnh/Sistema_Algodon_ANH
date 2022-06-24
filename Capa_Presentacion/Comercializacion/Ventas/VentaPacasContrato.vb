@@ -184,7 +184,8 @@ Public Class VentaPacasContrato
                 MsgBox("Seleccionar a un productor y/o un contrato", MsgBoxStyle.Exclamation)
             Else
                 GuardarVentaEnc()
-                Table()
+                Recalcular()
+                'Table()
                 'VarGlob2.IdVenta = TbIdVentaPaca.Text
                 'VarGlob2.IdContrato = TbIdContrato.Text
                 'VarGlob2.IdComprador = TbIdComprador.Text
@@ -209,7 +210,10 @@ Public Class VentaPacasContrato
 
         _ConsultaVenta.ShowDialog()
         ConsultarDatosVenta()
-        ConsultaParametrosVenta()
+        If TbIdComprador.Text > 0 Then
+            ConsultaParametrosVenta()
+            PrecioPorClase()
+        End If
         gbcontratos.Enabled = False
     End Sub
     Public Function LoadIdVenta(ByVal DatatableParam As DataTable) As Boolean Implements IForm1.LoadIdVenta
@@ -497,6 +501,93 @@ Public Class VentaPacasContrato
             LbUnidad.Text = ""
         End If
     End Sub
+    Private Sub PrecioPorClase()
+        PrecioSM = 0
+        PrecioMP = 0
+        PrecioM = 0
+        PrecioSLMP = 0
+        PrecioSLM = 0
+        PrecioLMP = 0
+        PrecioLM = 0
+        PrecioSGO = 0
+        PrecioGO = 0
+        PrecioO = 0
+        Dim filaSeleccionada As Integer = DgvContratos.CurrentRow.Index
+        Dim countcheck As Integer = 0
+        For Each row As DataGridViewRow In DgvContratos.Rows
+            Dim Index As Integer = Convert.ToUInt64(row.Index)
+            If DgvContratos.Rows(Index).Cells("Seleccionar").Value = True Then
+                TbPrecioQuintal.Text = DgvContratos.Rows(Index).Cells("PrecioSM").Value
+                TbNoPacas.Text = DgvContratos.Rows(Index).Cells("Pacas").Value
+                TbIdContrato.Text = DgvContratos.Rows(Index).Cells("IdCOntratoAlgodon").Value
+                CbModalidadVenta.SelectedValue = DgvContratos.Rows(Index).Cells("IdModalidadVenta").Value
+                CbUnidadPeso.SelectedValue = DgvContratos.Rows(Index).Cells("IdUnidadPeso").Value
+                LbUnidad.Text = CbUnidadPeso.Text
+                TbValorConversion.Text = DgvContratos.Rows(Index).Cells("ValorConversion").Value
+                PrecioSM = DgvContratos.Rows(Index).Cells("PrecioSM").Value
+                PrecioMP = DgvContratos.Rows(Index).Cells("PrecioMP").Value
+                PrecioM = DgvContratos.Rows(Index).Cells("PrecioM").Value
+                PrecioSLMP = DgvContratos.Rows(Index).Cells("PrecioSLMP").Value
+                PrecioSLM = DgvContratos.Rows(Index).Cells("PrecioSLM").Value
+                PrecioLMP = DgvContratos.Rows(Index).Cells("PrecioLMP").Value
+                PrecioLM = DgvContratos.Rows(Index).Cells("PrecioLM").Value
+                PrecioSGO = DgvContratos.Rows(Index).Cells("PrecioSGO").Value
+                PrecioGO = DgvContratos.Rows(Index).Cells("PrecioGO").Value
+                PrecioO = DgvContratos.Rows(Index).Cells("PrecioO").Value
+
+                TbNoPacas.Text = Format(Val(TbNoPacas.Text), "#,##0.00")
+                ConsultaParametrosVenta()
+            Else
+                DgvContratos.Rows(Index).Cells("Seleccionar").Value = False
+            End If
+            If DgvContratos.Rows(Index).Cells("seleccionar").Value = True Then countcheck = countcheck + 1
+        Next
+        If countcheck = 0 Then
+            TbPrecioQuintal.Text = ""
+            TbNoPacas.Text = ""
+            TbIdContrato.Text = ""
+            TbValorConversion.Text = ""
+            CbUnidadPeso.SelectedValue = -1
+            CbModalidadVenta.SelectedValue = -1
+            PrecioSM = 0
+            PrecioMP = 0
+            PrecioM = 0
+            PrecioSLMP = 0
+            PrecioSLM = 0
+            PrecioLMP = 0
+            PrecioLM = 0
+            PrecioSGO = 0
+            PrecioGO = 0
+            PrecioO = 0
+            ChBark.Checked = False
+            ChPrep.Checked = False
+            ChOther.Checked = False
+            ChPlastic.Checked = False
+            ChBarkLevel1.Checked = False
+            ChBarkLevel2.Checked = False
+            ChPrepLevel1.Checked = False
+            ChPrepLevel2.Checked = False
+            ChOtherLevel1.Checked = False
+            ChOtherLevel2.Checked = False
+            ChPlasticLevel1.Checked = False
+            ChPlasticLevel2.Checked = False
+            ChMicros.Checked = False
+            ChResistenciaFibra.Checked = False
+            ChLargoFibra.Checked = False
+            ChUniformidad.Checked = False
+            CkTara.Checked = False
+            TbPesoTara.Text = ""
+            CbModoLargoFibra.SelectedIndex = -1
+            CbModoMicros.SelectedIndex = -1
+            CbModoResistenciaFibra.SelectedIndex = -1
+            CbModoUniformidad.SelectedIndex = -1
+            CbModoBark.SelectedIndex = -1
+            CbModoPrep.SelectedIndex = -1
+            CbModoOther.SelectedIndex = -1
+            CbModoPlastic.SelectedIndex = -1
+            LbUnidad.Text = ""
+        End If
+    End Sub
     Private Sub Table()
         Dim TablaRenglonAInsertar As DataRow
         TablaPacasAgrupadas.Rows.Clear()
@@ -573,8 +664,6 @@ Public Class VentaPacasContrato
                 TablaPacasAgrupadas.Rows.Add(TablaRenglonAInsertar)
                 PbCargapacas.Value += 1
             End If
-
-
         Next
         Tabla = TablaModalidadVenta
 
@@ -588,146 +677,108 @@ Public Class VentaPacasContrato
             MsgBox(ex)
             Exit Sub
         End Try
-
-        'Dim query = From q In TablaPacasAgrupadas.AsEnumerable() Select q Order By q.Item("Grade")
-        'Dim dtResultado As New DataTable()
-        'dtResultado.Columns.Add("BaleID")
-        'dtResultado.Columns.Add("Grade")
-        'dtResultado.Columns.Add("Cantidad")
-        'dtResultado.Columns.Add("Kilos")
-        'dtResultado.Columns.Add("Quintales")
-        'dtResultado.Columns.Add("TipoCambio")
-        'dtResultado.Columns.Add("PrecioMxn")
-        'dtResultado.Columns.Add("CastigoUI")
-        'dtResultado.Columns.Add("CastigoResistenciaFibra")
-        'dtResultado.Columns.Add("CastigoMicros")
-        'dtResultado.Columns.Add("CastigoLargoFibra")
-        'dtResultado.Columns.Add("CastigoBarkLevel1")
-        'dtResultado.Columns.Add("CastigoBarkLevel2")
-        'dtResultado.Columns.Add("CastigoPrepLevel1")
-        'dtResultado.Columns.Add("CastigoPrepLevel2")
-        'dtResultado.Columns.Add("CastigoOtherLevel1")
-        'dtResultado.Columns.Add("CastigoOtherLevel2")
-        'dtResultado.Columns.Add("CastigoPlasticLevel1")
-        'dtResultado.Columns.Add("CastigoPlasticLevel2")
-        'dtResultado.Columns.Add("PrecioClase")
-        'dtResultado.Columns.Add("Total")
-        'dtResultado.Columns.Add("TotalDlls")
-
-        'Dim dtCopy = query.CopyToDataTable()
-        'dtCopy.Rows.Add()
-        'Dim dr As DataRow = dtCopy.NewRow()
-        'Dim i, TotalPacas As Integer
-        'Dim value, TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As decimal
-        'For j As Integer = 0 To dtCopy.Rows.Count - 2
-        '    Dim item = dtCopy.Rows(j)
-        '    Dim BaleID = Convert.ToInt64(item(0))
-        '    Dim Clase = Convert.ToString(item(1))
-        '    Dim Cantidad = Convert.ToInt32(item(2))
-        '    Dim Kilos = Convert.ToDouble(item(3))
-        '    Dim Quintales = Convert.ToString(item(4))
-        '    Dim TipoCambio = Convert.ToDouble(item(5))
-        '    Dim PrecioMxn = Convert.ToDouble(item(6))
-        '    Dim CastigoUI = Convert.ToDouble(item(7))
-        '    Dim CastigoRF = Convert.ToDouble(item(8))
-        '    Dim CastigoM = Convert.ToDouble(item(9))
-        '    Dim CastigoLF = Convert.ToDouble(item(10))
-        '    Dim CastigoBL1 = Convert.ToDouble(item(11))
-        '    Dim CastigoBL2 = Convert.ToDouble(item(12))
-        '    Dim CastigoPL1 = Convert.ToDouble(item(13))
-        '    Dim CastigoPL2 = Convert.ToDouble(item(14))
-        '    Dim CastigoOL1 = Convert.ToDouble(item(15))
-        '    Dim CastigoOL2 = Convert.ToDouble(item(16))
-        '    Dim CastigoPlcL1 = Convert.ToDouble(item(17))
-        '    Dim CastigoPlcL2 = Convert.ToDouble(item(18))
-        '    Dim TbPrecioClase = Convert.ToDouble(item(19))
-        '    Dim Total = Convert.ToDouble(item(20))
-        '    Dim Dlls = Convert.ToDouble(item(21))
-        '    Dim drr As DataRow = dtResultado.NewRow()
-        '    drr.Item(0) = BaleID
-        '    drr.Item(1) = Clase
-        '    drr.Item(2) = Cantidad
-        '    drr.Item(3) = Kilos
-        '    drr.Item(4) = Quintales
-        '    drr.Item(5) = TipoCambio
-        '    drr.Item(6) = PrecioMxn
-        '    drr.Item(7) = Math.Round(CastigoUI, 2)
-        '    drr.Item(8) = Math.Round(CastigoRF, 2)
-        '    drr.Item(9) = Math.Round(CastigoM, 2)
-        '    drr.Item(10) = Math.Round(CastigoLF, 2)
-        '    drr.Item(11) = Math.Round(CastigoBL1, 2)
-        '    drr.Item(12) = Math.Round(CastigoBL2, 2)
-        '    drr.Item(13) = Math.Round(CastigoPL1, 2)
-        '    drr.Item(14) = Math.Round(CastigoPL2, 2)
-        '    drr.Item(15) = Math.Round(CastigoOL1, 2)
-        '    drr.Item(16) = Math.Round(CastigoOL2, 2)
-        '    drr.Item(17) = Math.Round(CastigoPlcL1, 2)
-        '    drr.Item(18) = Math.Round(CastigoPlcL2, 2)
-        '    drr.Item(19) = TbPrecioClase
-        '    drr.Item(20) = Math.Round(Total, 2)
-        '    drr.Item(21) = Math.Round(Dlls, 2)
-        '    dtResultado.ImportRow(item)
-        '    Dim filaSig As String = Convert.ToString(dtCopy.Rows(i + 1).Item(1)) 'fila siguiente
-        '    If (Clase = filaSig) Then 'clase actual es igual a la siguiente zona
-        '        value += Kilos
-        '        TotalQuintales += Quintales
-        '        TotalCastigoUI += CastigoUI
-        '        TotalCastigoLF += CastigoLF
-        '        TotalCastigoM += CastigoM
-        '        TotalCastigoRF += CastigoRF
-        '        TotalCastigoBL1 += CastigoBL1
-        '        TotalCastigoBL2 += CastigoBL2
-        '        TotalCastigoPL1 += CastigoPL1
-        '        TotalCastigoPL2 += CastigoPL2
-        '        TotalCastigoOL1 += CastigoOL1
-        '        TotalCastigoOL2 += CastigoOL2
-        '        TotalCastigoPlcL1 += CastigoPlcL1
-        '        TotalCastigoPlcL2 += CastigoPlcL2
-        '        TotalPacas += Cantidad
-        '        TotalDolares += Math.Round(Dlls, 4)
-        '    Else 'cuando cambie la clase insertar nueva fila y poner "Total" & Clase
-        '        drr.Item(0) = ""
-        '        drr.Item(1) = "Total " & Clase
-        '        drr.Item(2) = TotalPacas + Cantidad
-        '        drr.Item(3) = value + Kilos
-        '        drr.Item(4) = TotalQuintales + Quintales
-        '        drr.Item(7) = Math.Round(TotalCastigoUI + CastigoUI, 2)
-        '        drr.Item(8) = Math.Round(TotalCastigoRF + CastigoRF, 2)
-        '        drr.Item(9) = Math.Round(TotalCastigoM + CastigoM, 2)
-        '        drr.Item(10) = Math.Round(TotalCastigoLF + CastigoLF, 2)
-        '        drr.Item(11) = Math.Round(TotalCastigoBL1 + CastigoBL1, 2)
-        '        drr.Item(12) = Math.Round(TotalCastigoBL2 + CastigoBL2, 2)
-        '        drr.Item(13) = Math.Round(TotalCastigoPL1 + CastigoPL1, 2)
-        '        drr.Item(14) = Math.Round(TotalCastigoPL2 + CastigoPL2, 2)
-        '        drr.Item(15) = Math.Round(TotalCastigoOL1 + CastigoOL1, 2)
-        '        drr.Item(16) = Math.Round(TotalCastigoOL2 + CastigoOL2, 2)
-        '        drr.Item(17) = Math.Round(TotalCastigoPlcL1 + CastigoPlcL1, 2)
-        '        drr.Item(18) = Math.Round(TotalCastigoPlcL2 + CastigoPlcL2, 2)
-        '        drr.Item(19) = ""
-        '        drr.Item(20) = ""
-        '        drr.Item(21) = TotalDolares + Math.Round(Dlls, 2)
-        '        dtResultado.Rows.Add(drr)
-        '        value = 0
-        '        TotalCastigoUI = 0
-        '        TotalQuintales = 0
-        '        TotalCastigoLF = 0
-        '        TotalCastigoM = 0
-        '        TotalCastigoRF = 0
-        '        TotalCastigoBL1 = 0
-        '        TotalCastigoBL2 = 0
-        '        TotalCastigoPL1 = 0
-        '        TotalCastigoPL2 = 0
-        '        TotalCastigoOL1 = 0
-        '        TotalCastigoOL2 = 0
-        '        TotalCastigoPlcL1 = 0
-        '        TotalCastigoPlcL2 = 0
-        '        TotalPacas = 0
-        '        TotalDolares = 0
-        '    End If
-        '    i += 1 'indice
-        'Next
-        'Return dtResultado
     End Sub
+    Private Sub Recalcular()
+        Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
+        Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
+        Try
+            EntidadVentaPacasContrato.Guarda = Guardar.GuardarVentaRecalculo
+            EntidadVentaPacasContrato.TablaGeneral = Recalculaventa(DgvPacasIndVendidas)
+            NegocioVentaPacasContrato.Guardar(EntidadVentaPacasContrato)
+        Catch ex As Exception
+            MsgBox(ex)
+            Exit Sub
+        End Try
+    End Sub
+    Private Function Recalculaventa(ByVal DgvActualiza As DataGridView)
+        Dim dt As New DataTable
+        Dim r As DataRow
+        PbCargapacas.Value = 0
+        PbCargapacas.Minimum = 0
+        PbCargapacas.Maximum = Val(TbPacasVendidasContrato.Text)
+        DgvActualiza.EndEdit()
+        dt.Columns.Add("BaleID", Type.GetType("System.Int64"))
+        dt.Columns.Add("IdVentaEnc", Type.GetType("System.Int32"))
+        dt.Columns.Add("PrecioDls", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioClase", Type.GetType("System.Decimal"))
+        dt.Columns.Add("TipoCambio", Type.GetType("System.Decimal"))
+        dt.Columns.Add("PrecioMxn", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Kilos", Type.GetType("System.Decimal"))
+        dt.Columns.Add("Quintales", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoResistenciaFibra", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoMicros", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoLargoFibra", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoUI", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoBarkLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoBarkLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPrepLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPrepLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoOtherLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoOtherLevel2", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPlasticLevel1", Type.GetType("System.Decimal"))
+        dt.Columns.Add("CastigoPlasticLevel2", Type.GetType("System.Decimal"))
+
+        If CbUnidadPeso.SelectedValue = 1 Then
+            For Each Fila As DataGridViewRow In DgvActualiza.Rows
+                r = dt.NewRow
+                Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + CDec(TbKdAd.Text))
+                Dim Quintales As Decimal = Math.Round(CDbl(Kilos / 46.02), 4)
+                Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
+                r("BaleID") = Fila.Cells("BaleID").Value
+                r("IdVentaEnc") = Val(TbIdVentaPaca.Text)
+                r("PrecioDls") = Math.Truncate((Quintales * PrecioContratoClase(Fila.Cells("Grade").Value.ToString)) * 10000) / 10000
+                r("PrecioClase") = PrecioClase
+                r("TipoCambio") = 0
+                r("PrecioMxn") = 0
+                r("CastigoUI") = (Math.Truncate(ConsultaCastigoUniformidad(Fila.Cells("Uniformidad").Value, Quintales, Fila.Cells("BaleID").Value) * 10000) / 10000)
+                r("CastigoResistenciaFibra") = (Math.Truncate(ConsultaCastigoResistenciaFibra(Fila.Cells("Resistencia").Value, Quintales, Fila.Cells("BaleID").Value) * 10000) / 10000)
+                r("CastigoMicros") = (Math.Truncate(ConsultaCastigoMicros(Fila.Cells("Micros").Value, Quintales, Fila.Cells("BaleID").Value) * 10) / 10)
+                r("CastigoLargoFibra") = (Math.Truncate(ConsultaCastigoLargoFibra(Fila.Cells("Largo").Value, Quintales, Fila.Cells("BaleID").Value) * 10000) / 10000)
+                r("CastigoBarkLevel1") = IIf(ChBark.Checked = True And ChBarkLevel1.Checked = True, Math.Round(Fila.Cells("CastigoBarkLevel1Venta").Value, 2), 0)
+                r("CastigoBarkLevel2") = IIf(ChBark.Checked = True And ChBarkLevel2.Checked = True, Math.Round(Fila.Cells("CastigoBarkLevel2Venta").Value, 2), 0)
+                r("CastigoPrepLevel1") = IIf(ChPrep.Checked = True And ChPrepLevel1.Checked = True, Math.Round(Fila.Cells("CastigoPrepLevel1Venta").Value, 2), 0)
+                r("CastigoPrepLevel2") = IIf(ChPrep.Checked = True And ChPrepLevel2.Checked = True, Math.Round(Fila.Cells("CastigoPrepLevel2Venta").Value, 2), 0)
+                r("CastigoOtherLevel1") = IIf(ChOther.Checked = True And ChOtherLevel1.Checked = True, Math.Round(Fila.Cells("CastigoOtherLevel1Venta").Value, 2), 0)
+                r("CastigoOtherLevel2") = IIf(ChOther.Checked = True And ChOtherLevel2.Checked = True, Math.Round(Fila.Cells("CastigoOtherLevel2Venta").Value, 2), 0)
+                r("CastigoPlasticLevel1") = IIf(ChPlastic.Checked = True And ChPlasticLevel1.Checked = True, Math.Round(Fila.Cells("CastigoPlasticLevel1Venta").Value, 2), 0)
+                r("CastigoPlasticLevel2") = IIf(ChPlastic.Checked = True And ChPlasticLevel2.Checked = True, Math.Round(Fila.Cells("CastigoPlasticLevel2Venta").Value, 2), 0)
+                r("Kilos") = Kilos
+                r("Quintales") = Quintales
+                dt.Rows.Add(r)
+                PbCargapacas.Value += 1
+            Next
+        ElseIf CbUnidadPeso.SelectedValue = 2 Then
+            For Each Fila As DataGridViewRow In DgvActualiza.Rows
+                r = dt.NewRow
+                Dim Kilos As Decimal = (Fila.Cells("Kilos").Value + CDec(TbKdAd.Text))
+                Dim Libras As Decimal = Math.Truncate(Kilos * CDec(TbValorConversion.Text) * 10000) / 10000
+                Dim PrecioClase As Decimal = Math.Truncate((PrecioContratoClase(Fila.Cells("Grade").Value) / 100) * 10000) / 10000
+                r("BaleID") = Fila.Cells("BaleID").Value
+                r("IdVentaEnc") = Val(TbIdVentaPaca.Text)
+                r("PrecioDls") = Libras * PrecioClase
+                r("PrecioClase") = PrecioContratoClase(Fila.Cells("Grade").Value.ToString)
+                r("TipoCambio") = 0
+                r("PrecioMxn") = 0
+                r("CastigoUI") = (Math.Truncate(ConsultaCastigoUniformidad(Fila.Cells("Uniformidad").Value, Libras, Fila.Cells("BaleID").Value) * 10000) / 10000) / 100
+                r("CastigoResistenciaFibra") = Math.Truncate((ConsultaCastigoResistenciaFibra(Fila.Cells("Resistencia").Value, Libras, Fila.Cells("BaleID").Value) / 100) * 10000) / 10000
+                r("CastigoMicros") = (Math.Truncate(ConsultaCastigoMicros(Fila.Cells("Micros").Value, Libras, Fila.Cells("BaleID").Value) * 10000) / 10000) / 100
+                r("CastigoLargoFibra") = (Math.Truncate(ConsultaCastigoLargoFibra(Fila.Cells("Largo").Value, Libras, Fila.Cells("BaleID").Value) * 10000) / 10000) / 100
+                r("CastigoBarkLevel1") = IIf(ChBark.Checked = True And ChBarkLevel1.Checked = True, Math.Round(Fila.Cells("CastigoBarkLevel1Venta").Value, 2), 0)
+                r("CastigoBarkLevel2") = IIf(ChBark.Checked = True And ChBarkLevel2.Checked = True, Math.Round(Fila.Cells("CastigoBarkLevel2Venta").Value, 2), 0)
+                r("CastigoPrepLevel1") = IIf(ChPrep.Checked = True And ChPrepLevel1.Checked = True, Math.Round(Fila.Cells("CastigoPrepLevel1Venta").Value, 2), 0)
+                r("CastigoPrepLevel2") = IIf(ChPrep.Checked = True And ChPrepLevel2.Checked = True, Math.Round(Fila.Cells("CastigoPrepLevel2Venta").Value, 2), 0)
+                r("CastigoOtherLevel1") = IIf(ChOther.Checked = True And ChOtherLevel1.Checked = True, Math.Round(Fila.Cells("CastigoOtherLevel1Venta").Value, 2), 0)
+                r("CastigoOtherLevel2") = IIf(ChOther.Checked = True And ChOtherLevel2.Checked = True, Math.Round(Fila.Cells("CastigoOtherLevel2Venta").Value, 2), 0)
+                r("CastigoPlasticLevel1") = IIf(ChPlastic.Checked = True And ChPlasticLevel1.Checked = True, Math.Round(Fila.Cells("CastigoPlasticLevel1Venta").Value, 2), 0)
+                r("CastigoPlasticLevel2") = IIf(ChPlastic.Checked = True And ChPlasticLevel2.Checked = True, Math.Round(Fila.Cells("CastigoPlasticLevel2Venta").Value, 2), 0)
+                r("Kilos") = Kilos
+                r("Quintales") = Libras
+                dt.Rows.Add(r)
+                PbCargapacas.Value += 1
+            Next
+        End If
+        Return dt
+    End Function
     Private Sub BtSeleccionar_Click_1(sender As Object, e As EventArgs) Handles BtSeleccionar.Click
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
@@ -861,7 +912,7 @@ Public Class VentaPacasContrato
         EntidadVentaPacasContrato.IdPlanta = CbPlanta.SelectedValue
         EntidadVentaPacasContrato.IdModalidadVenta = CbModalidadVenta.SelectedValue
         EntidadVentaPacasContrato.FechaVenta = DtpFecha.Value
-        EntidadVentaPacasContrato.TotalPacas = 0
+        EntidadVentaPacasContrato.TotalPacas = Val(TbPacasVendidasContrato.Text)
         EntidadVentaPacasContrato.Observaciones = ""
         EntidadVentaPacasContrato.CastigoMicros = 0
         EntidadVentaPacasContrato.CastigoLargoFibra = 0
@@ -1485,7 +1536,144 @@ Public Class VentaPacasContrato
     '        Return Castigo
     '    End If
     'End Function
+    'Dim query = From q In TablaPacasAgrupadas.AsEnumerable() Select q Order By q.Item("Grade")
+    'Dim dtResultado As New DataTable()
+    'dtResultado.Columns.Add("BaleID")
+    'dtResultado.Columns.Add("Grade")
+    'dtResultado.Columns.Add("Cantidad")
+    'dtResultado.Columns.Add("Kilos")
+    'dtResultado.Columns.Add("Quintales")
+    'dtResultado.Columns.Add("TipoCambio")
+    'dtResultado.Columns.Add("PrecioMxn")
+    'dtResultado.Columns.Add("CastigoUI")
+    'dtResultado.Columns.Add("CastigoResistenciaFibra")
+    'dtResultado.Columns.Add("CastigoMicros")
+    'dtResultado.Columns.Add("CastigoLargoFibra")
+    'dtResultado.Columns.Add("CastigoBarkLevel1")
+    'dtResultado.Columns.Add("CastigoBarkLevel2")
+    'dtResultado.Columns.Add("CastigoPrepLevel1")
+    'dtResultado.Columns.Add("CastigoPrepLevel2")
+    'dtResultado.Columns.Add("CastigoOtherLevel1")
+    'dtResultado.Columns.Add("CastigoOtherLevel2")
+    'dtResultado.Columns.Add("CastigoPlasticLevel1")
+    'dtResultado.Columns.Add("CastigoPlasticLevel2")
+    'dtResultado.Columns.Add("PrecioClase")
+    'dtResultado.Columns.Add("Total")
+    'dtResultado.Columns.Add("TotalDlls")
 
+    'Dim dtCopy = query.CopyToDataTable()
+    'dtCopy.Rows.Add()
+    'Dim dr As DataRow = dtCopy.NewRow()
+    'Dim i, TotalPacas As Integer
+    'Dim value, TotalQuintales, TotalDolares, TotalCastigoLF, TotalCastigoM, TotalCastigoRF, TotalCastigoUI, TotalCastigoBL1, TotalCastigoBL2, TotalCastigoPL1, TotalCastigoPL2, TotalCastigoOL1, TotalCastigoOL2, TotalCastigoPlcL1, TotalCastigoPlcL2 As decimal
+    'For j As Integer = 0 To dtCopy.Rows.Count - 2
+    '    Dim item = dtCopy.Rows(j)
+    '    Dim BaleID = Convert.ToInt64(item(0))
+    '    Dim Clase = Convert.ToString(item(1))
+    '    Dim Cantidad = Convert.ToInt32(item(2))
+    '    Dim Kilos = Convert.ToDouble(item(3))
+    '    Dim Quintales = Convert.ToString(item(4))
+    '    Dim TipoCambio = Convert.ToDouble(item(5))
+    '    Dim PrecioMxn = Convert.ToDouble(item(6))
+    '    Dim CastigoUI = Convert.ToDouble(item(7))
+    '    Dim CastigoRF = Convert.ToDouble(item(8))
+    '    Dim CastigoM = Convert.ToDouble(item(9))
+    '    Dim CastigoLF = Convert.ToDouble(item(10))
+    '    Dim CastigoBL1 = Convert.ToDouble(item(11))
+    '    Dim CastigoBL2 = Convert.ToDouble(item(12))
+    '    Dim CastigoPL1 = Convert.ToDouble(item(13))
+    '    Dim CastigoPL2 = Convert.ToDouble(item(14))
+    '    Dim CastigoOL1 = Convert.ToDouble(item(15))
+    '    Dim CastigoOL2 = Convert.ToDouble(item(16))
+    '    Dim CastigoPlcL1 = Convert.ToDouble(item(17))
+    '    Dim CastigoPlcL2 = Convert.ToDouble(item(18))
+    '    Dim TbPrecioClase = Convert.ToDouble(item(19))
+    '    Dim Total = Convert.ToDouble(item(20))
+    '    Dim Dlls = Convert.ToDouble(item(21))
+    '    Dim drr As DataRow = dtResultado.NewRow()
+    '    drr.Item(0) = BaleID
+    '    drr.Item(1) = Clase
+    '    drr.Item(2) = Cantidad
+    '    drr.Item(3) = Kilos
+    '    drr.Item(4) = Quintales
+    '    drr.Item(5) = TipoCambio
+    '    drr.Item(6) = PrecioMxn
+    '    drr.Item(7) = Math.Round(CastigoUI, 2)
+    '    drr.Item(8) = Math.Round(CastigoRF, 2)
+    '    drr.Item(9) = Math.Round(CastigoM, 2)
+    '    drr.Item(10) = Math.Round(CastigoLF, 2)
+    '    drr.Item(11) = Math.Round(CastigoBL1, 2)
+    '    drr.Item(12) = Math.Round(CastigoBL2, 2)
+    '    drr.Item(13) = Math.Round(CastigoPL1, 2)
+    '    drr.Item(14) = Math.Round(CastigoPL2, 2)
+    '    drr.Item(15) = Math.Round(CastigoOL1, 2)
+    '    drr.Item(16) = Math.Round(CastigoOL2, 2)
+    '    drr.Item(17) = Math.Round(CastigoPlcL1, 2)
+    '    drr.Item(18) = Math.Round(CastigoPlcL2, 2)
+    '    drr.Item(19) = TbPrecioClase
+    '    drr.Item(20) = Math.Round(Total, 2)
+    '    drr.Item(21) = Math.Round(Dlls, 2)
+    '    dtResultado.ImportRow(item)
+    '    Dim filaSig As String = Convert.ToString(dtCopy.Rows(i + 1).Item(1)) 'fila siguiente
+    '    If (Clase = filaSig) Then 'clase actual es igual a la siguiente zona
+    '        value += Kilos
+    '        TotalQuintales += Quintales
+    '        TotalCastigoUI += CastigoUI
+    '        TotalCastigoLF += CastigoLF
+    '        TotalCastigoM += CastigoM
+    '        TotalCastigoRF += CastigoRF
+    '        TotalCastigoBL1 += CastigoBL1
+    '        TotalCastigoBL2 += CastigoBL2
+    '        TotalCastigoPL1 += CastigoPL1
+    '        TotalCastigoPL2 += CastigoPL2
+    '        TotalCastigoOL1 += CastigoOL1
+    '        TotalCastigoOL2 += CastigoOL2
+    '        TotalCastigoPlcL1 += CastigoPlcL1
+    '        TotalCastigoPlcL2 += CastigoPlcL2
+    '        TotalPacas += Cantidad
+    '        TotalDolares += Math.Round(Dlls, 4)
+    '    Else 'cuando cambie la clase insertar nueva fila y poner "Total" & Clase
+    '        drr.Item(0) = ""
+    '        drr.Item(1) = "Total " & Clase
+    '        drr.Item(2) = TotalPacas + Cantidad
+    '        drr.Item(3) = value + Kilos
+    '        drr.Item(4) = TotalQuintales + Quintales
+    '        drr.Item(7) = Math.Round(TotalCastigoUI + CastigoUI, 2)
+    '        drr.Item(8) = Math.Round(TotalCastigoRF + CastigoRF, 2)
+    '        drr.Item(9) = Math.Round(TotalCastigoM + CastigoM, 2)
+    '        drr.Item(10) = Math.Round(TotalCastigoLF + CastigoLF, 2)
+    '        drr.Item(11) = Math.Round(TotalCastigoBL1 + CastigoBL1, 2)
+    '        drr.Item(12) = Math.Round(TotalCastigoBL2 + CastigoBL2, 2)
+    '        drr.Item(13) = Math.Round(TotalCastigoPL1 + CastigoPL1, 2)
+    '        drr.Item(14) = Math.Round(TotalCastigoPL2 + CastigoPL2, 2)
+    '        drr.Item(15) = Math.Round(TotalCastigoOL1 + CastigoOL1, 2)
+    '        drr.Item(16) = Math.Round(TotalCastigoOL2 + CastigoOL2, 2)
+    '        drr.Item(17) = Math.Round(TotalCastigoPlcL1 + CastigoPlcL1, 2)
+    '        drr.Item(18) = Math.Round(TotalCastigoPlcL2 + CastigoPlcL2, 2)
+    '        drr.Item(19) = ""
+    '        drr.Item(20) = ""
+    '        drr.Item(21) = TotalDolares + Math.Round(Dlls, 2)
+    '        dtResultado.Rows.Add(drr)
+    '        value = 0
+    '        TotalCastigoUI = 0
+    '        TotalQuintales = 0
+    '        TotalCastigoLF = 0
+    '        TotalCastigoM = 0
+    '        TotalCastigoRF = 0
+    '        TotalCastigoBL1 = 0
+    '        TotalCastigoBL2 = 0
+    '        TotalCastigoPL1 = 0
+    '        TotalCastigoPL2 = 0
+    '        TotalCastigoOL1 = 0
+    '        TotalCastigoOL2 = 0
+    '        TotalCastigoPlcL1 = 0
+    '        TotalCastigoPlcL2 = 0
+    '        TotalPacas = 0
+    '        TotalDolares = 0
+    '    End If
+    '    i += 1 'indice
+    'Next
+    'Return dtResultado
     Private Sub BtFiltro_Click(sender As Object, e As EventArgs) Handles BtFiltro.Click
         If TbIdComprador.Text > 0 Then
             If TbIdComprador.Text = "" Then

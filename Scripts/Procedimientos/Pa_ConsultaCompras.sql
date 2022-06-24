@@ -19,7 +19,7 @@ select cp.IdCompra
 	  ,cp.Fecha
 from CompraPacas cp inner join Clientes cl on cp.IdProductor = cl.IdCliente
 					inner join Plantas pl on cp.IdPlanta = pl.IdPlanta
-where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 and cp.IdCompra = @IdCompra and cp.idcompra not in (select IdCompra from IntegracionCompra)
+where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 and cp.IdCompra = @IdCompra
 order by cp.IdCompra
 end
 else if @Nombre <> ''
@@ -39,7 +39,7 @@ select cp.IdCompra
 	  ,cp.Fecha
 from CompraPacas cp inner join Clientes cl on cp.IdProductor = cl.IdCliente
 					inner join Plantas pl on cp.IdPlanta = pl.IdPlanta
-where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 and cl.Nombre like '%'+@Nombre+'%' and cp.idcompra not in (select IdCompra from IntegracionCompra)
+where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 and cl.Nombre like '%'+@Nombre+'%' 
 order by cp.IdCompra
 end
 else 
@@ -59,6 +59,6 @@ select cp.IdCompra
 	  ,cp.Fecha
 from CompraPacas cp inner join Clientes cl on cp.IdProductor = cl.IdCliente
 					inner join Plantas pl on cp.IdPlanta = pl.IdPlanta
-where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 and cp.idcompra not in (select IdCompra from IntegracionCompra)
+where (select count(baleid) from HviDetalle where IdCompraEnc = cp.IdCompra) > 0 
 order by cp.IdCompra
 end				

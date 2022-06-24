@@ -42,6 +42,7 @@ Public Class OrdenEmbarquePorPacas
     Private Function ExisteLote()
         Dim valida As Boolean = False
         Try
+
             Dim EntidadOrdenEmbarquePacas As New Capa_Entidad.OrdenEmbarquePacas
             Dim NegocioOrdenEmbarquePacas As New Capa_Negocio.OrdenEmbarquePacas
             Dim Tabla As New DataTable

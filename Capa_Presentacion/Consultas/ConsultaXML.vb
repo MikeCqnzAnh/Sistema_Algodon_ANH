@@ -198,13 +198,20 @@ Public Class ConsultaXML
             colRutaXML.ReadOnly = True
             DgvFacturas.Columns.Insert(9, colRutaXML)
 
+            Dim colClaveProdServ As New DataGridViewTextBoxColumn
+            colClaveProdServ.Name = "ClaveProducto"
+            'colSello.DefaultCellStyle.Format = "C2"
+            colClaveProdServ.HeaderText = "Clave de Producto"
+            colClaveProdServ.ReadOnly = True
+            DgvFacturas.Columns.Insert(10, colClaveProdServ)
+
             Dim colSel As New DataGridViewCheckBoxColumn()
             colSel.Name = "Sel"
             colSel.FalseValue = False
             'colSel.TrueValue = True
             colSel.ReadOnly = False
             colSel.IndeterminateValue = False
-            DgvFacturas.Columns.Insert(10, colSel)
+            DgvFacturas.Columns.Insert(11, colSel)
         End If
     End Sub
     Private Sub ExtraerXML(ByVal Cadena As String, Optional ByVal filtro As String = "")
@@ -257,27 +264,45 @@ Public Class ConsultaXML
             VarConceptos = VarDocumentoXML.SelectNodes("/cfdi:Comprobante/cfdi:Conceptos/cfdi:Concepto", VarManager)
             For Each node In VarConceptos
                 'If node.attributes("ClaveProdServ").value = TbClaveProducto.Text And node.attributes("ClaveUnidad").value = TbUnidad.Text Then
-                If node.attributes("ClaveProdServ").value = TbClaveProducto.Text Then
-                    If filtro <> "" Then
-                        If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
-                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
-                            Exit For
-                        End If
-                    Else
-                        If ConsultarXML(UUID) = False Then
-                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
-                            Exit For
+                'If node.attributes("ClaveProdServ").value = TbClaveProducto.Text Then
+
+                'ElseIf node.attributes("ClaveProdServ").value = TbClaveProducto.Text And TbUnidad.Text = "" Then
+                '    If filtro <> "" Then
+                '        If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
+                '            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                '            Exit For
+                '        End If
+                '    Else
+                '        If ConsultarXML(UUID) = False Then
+                '            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                '            Exit For
+                '        End If
+                '    End If
+                'End If
+
+                If TbClaveProducto.Text <> "" Then
+                    If node.attributes("ClaveProdServ").value = TbClaveProducto.Text Then
+                        If filtro <> "" Then
+                            If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
+                                DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena, node.attributes("ClaveProdServ").value)
+                                Exit For
+                            End If
+                        Else
+                            If ConsultarXML(UUID) = False Then
+                                DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena, node.attributes("ClaveProdServ").value)
+                                Exit For
+                            End If
                         End If
                     End If
-                ElseIf node.attributes("ClaveProdServ").value = TbClaveProducto.Text And TbUnidad.Text = "" Then
+                Else
                     If filtro <> "" Then
                         If ConsultarXML(UUID) = False And Emisor_Nombre.Contains(filtro) Then
-                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena, node.attributes("ClaveProdServ").value)
                             Exit For
                         End If
                     Else
                         If ConsultarXML(UUID) = False Then
-                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena)
+                            DgvFacturas.Rows.Add(Emisor_Nombre, Emisor_Rfc, UUID, Fecha, Subtotal, total, Moneda, TipoCambio, sello, Cadena, node.attributes("ClaveProdServ").value)
                             Exit For
                         End If
                     End If

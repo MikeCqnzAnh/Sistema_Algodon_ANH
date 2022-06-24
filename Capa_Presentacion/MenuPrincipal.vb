@@ -198,6 +198,7 @@ Public Class MenuPrincipal
         Dim opc As DialogResult = MsgBox("¿Desea salir de esta aplicación?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Salir")
         If opc = DialogResult.Yes Then
             SqlConnection.ClearAllPools()
+            Dispose()
             End
         ElseIf opc = DialogResult.No Then
             e.Cancel = True
@@ -257,7 +258,8 @@ Public Class MenuPrincipal
         ModalidadesCompra.ShowDialog()
     End Sub
     Private Sub TierrasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TierrasToolStripMenuItem.Click
-        Tierras.ShowDialog()
+        Dim predios As New Tierras
+        predios.ShowDialog()
     End Sub
     Private Sub VariedadesDeAlgodónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VariedadesDeAlgodónToolStripMenuItem.Click
         VariedadesAlgodon.ShowDialog()
@@ -396,7 +398,7 @@ Public Class MenuPrincipal
         Dim ConfigParam As New ConfiguracionParametros()
         ConfigParam.ShowDialog()
     End Sub
-    Private Sub SeleccionaConexionToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SeleccionaConexionToolStripMenuItem1.Click
+    Private Sub SeleccionaConexionToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         SeleccionaConexion.ShowDialog()
         SbBdd.Text = _BaseDeDatos
     End Sub
@@ -576,6 +578,27 @@ Public Class MenuPrincipal
     Private Sub ActualizacionVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizacionVentaToolStripMenuItem.Click
         Dim actventa As New ActualizacionVenta
         actventa.ShowDialog()
+    End Sub
+
+    Private Sub InventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventarioToolStripMenuItem.Click
+        Dim inventarios As New InventarioPacas
+        inventarios.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs)
+        Dim repinvpacas As New ReporteInventarioPatios
+        repinvpacas.ShowDialog()
+    End Sub
+
+    Private Sub SeleccionaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaToolStripMenuItem.Click
+        Dim selcon As New SeleccionaConexion
+        selcon.ShowDialog()
+        SbBdd.Text = _BaseDeDatos
+    End Sub
+
+    Private Sub ConfiguracionDeParametrosParaContratosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosParaContratosToolStripMenuItem.Click
+        Dim confparamcont As New ConfiguracionParametrosContratos
+        confparamcont.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

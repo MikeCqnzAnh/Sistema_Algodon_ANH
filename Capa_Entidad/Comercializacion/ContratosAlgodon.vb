@@ -3,10 +3,14 @@ Public Class ContratosAlgodon
     Inherits Tarjeta
     Public IdContratoAlgodon As Integer
     Public IdProductor As Integer
+    Public NombreComprador As String
     Public Pacas As Integer
     Public PacasCompradas As Integer
     Public PacasDisponibles As Integer
-    Public SuperficieComprometida As Double
+    Public SuperficieComprometida As Decimal
+    Public Lotes As String
+    Public IdContratoVta As Integer
+    Public DescripcionVta As String
     Public PrecioQuintal As Double
     Public Puntos As Double
     Public FechaLiquidacion As DateTime

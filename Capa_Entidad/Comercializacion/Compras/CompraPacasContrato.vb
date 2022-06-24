@@ -5,6 +5,7 @@ Public Class CompraPacasContrato
     Public IdContrato As Integer
     Public IdProductor As Integer
     Public NombreProductor As String
+    Public NombreComprador As String
     Public IdPlanta As Integer
     Public IdModalidadCompra As Integer
     Public FechaCompra As DateTime

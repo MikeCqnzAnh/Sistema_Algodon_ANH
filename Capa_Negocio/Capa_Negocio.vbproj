@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.vb" />
+    <Compile Include="Almacenes\InventarioPacas.vb" />
     <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
     <Compile Include="Almacenes\SalidaPacas.vb" />
     <Compile Include="Catalogos\CastigoUniformidad.vb" />
@@ -103,6 +104,9 @@
     <Compile Include="Catalogos\UnidadesComercializacion.vb" />
     <Compile Include="Comercializacion\Compras\IntegraciondeCompras.vb" />
     <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb" />
+    <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb" />
+    <Compile Include="Configuracion\ConfigMic.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
     <Compile Include="Utilerias\ProgramarRespaldos.vb" />
     <Compile Include="Utilerias\Roles.vb" />

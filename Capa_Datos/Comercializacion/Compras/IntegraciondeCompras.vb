@@ -95,7 +95,7 @@ Public Class IntegraciondeCompras
                     sqlcom1.Parameters.Add(New SqlParameter("@UUID", EntidadIntegraciondeCompras1.UUID))
                     sqldat1.Fill(EntidadIntegraciondeCompras1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaCompraPorNombre
-                    sqlcom1 = New SqlCommand("Pa_ConsultaCompras", cnn)
+                    sqlcom1 = New SqlCommand("Pa_ConsultaComprasIntegracion", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()

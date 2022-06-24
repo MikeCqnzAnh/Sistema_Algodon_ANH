@@ -32,7 +32,7 @@ Public Class RepContratoProductor
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)
         CrReport.Load(Ruta)
-        CrReport.SetDataSource(ds.Tables("Table1"))
+        CrReport.SetDataSource(ds.Tables(0))
         CRVContratoProductor.ReportSource = CrReport
     End Sub
 End Class

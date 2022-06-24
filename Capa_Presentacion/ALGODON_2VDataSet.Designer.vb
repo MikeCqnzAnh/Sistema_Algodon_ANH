@@ -3400,6 +3400,28 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnColoniaFisica As Global.System.Data.DataColumn
         
+        Private columnIdConfiguracion As Global.System.Data.DataColumn
+        
+        Private columnParamDia1 As Global.System.Data.DataColumn
+        
+        Private columnParamMes1 As Global.System.Data.DataColumn
+        
+        Private columnParamTemp1 As Global.System.Data.DataColumn
+        
+        Private columnParamMes2 As Global.System.Data.DataColumn
+        
+        Private columnParamTemp2 As Global.System.Data.DataColumn
+        
+        Private columnParamMes3 As Global.System.Data.DataColumn
+        
+        Private columnParamPromPesomin As Global.System.Data.DataColumn
+        
+        Private columnParamPromPesomax As Global.System.Data.DataColumn
+        
+        Private columnParamPesomin As Global.System.Data.DataColumn
+        
+        Private columnTemporadaAnual As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3772,6 +3794,94 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdConfiguracionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIdConfiguracion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamDia1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamDia1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamMes1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamMes1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamTemp1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamTemp1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamMes2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamMes2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamTemp2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamTemp2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamMes3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamMes3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamPromPesominColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamPromPesomin
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamPromPesomaxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamPromPesomax
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ParamPesominColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnParamPesomin
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TemporadaAnualColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTemporadaAnual
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3850,9 +3960,20 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal LugarExpedicion As String,  _
                     ByVal CalleFisica As String,  _
                     ByVal NumeroFisica As String,  _
-                    ByVal ColoniaFisica As String) As ContratoCompraEmpresaRow
+                    ByVal ColoniaFisica As String,  _
+                    ByVal IdConfiguracion As Long,  _
+                    ByVal ParamDia1 As Long,  _
+                    ByVal ParamMes1 As String,  _
+                    ByVal ParamTemp1 As Long,  _
+                    ByVal ParamMes2 As String,  _
+                    ByVal ParamTemp2 As Long,  _
+                    ByVal ParamMes3 As String,  _
+                    ByVal ParamPromPesomin As Long,  _
+                    ByVal ParamPromPesomax As Long,  _
+                    ByVal ParamPesomin As Long,  _
+                    ByVal TemporadaAnual As Long) As ContratoCompraEmpresaRow
             Dim rowContratoCompraEmpresaRow As ContratoCompraEmpresaRow = CType(Me.NewRow,ContratoCompraEmpresaRow)
-            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdDatosEmpresa, RazonSocial, RfcEmpresa, RepresentanteLegal, RfcRepresentante, Calle, NumExt, Colonia, CodigoPostal, Estado, Municipio, CalleMoral, NumeroMoral, ColoniaMoral, IdTipoPersona, LugarExpedicion, CalleFisica, NumeroFisica, ColoniaFisica}
+            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdDatosEmpresa, RazonSocial, RfcEmpresa, RepresentanteLegal, RfcRepresentante, Calle, NumExt, Colonia, CodigoPostal, Estado, Municipio, CalleMoral, NumeroMoral, ColoniaMoral, IdTipoPersona, LugarExpedicion, CalleFisica, NumeroFisica, ColoniaFisica, IdConfiguracion, ParamDia1, ParamMes1, ParamTemp1, ParamMes2, ParamTemp2, ParamMes3, ParamPromPesomin, ParamPromPesomax, ParamPesomin, TemporadaAnual}
             rowContratoCompraEmpresaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowContratoCompraEmpresaRow)
             Return rowContratoCompraEmpresaRow
@@ -3917,6 +4038,17 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnCalleFisica = MyBase.Columns("CalleFisica")
             Me.columnNumeroFisica = MyBase.Columns("NumeroFisica")
             Me.columnColoniaFisica = MyBase.Columns("ColoniaFisica")
+            Me.columnIdConfiguracion = MyBase.Columns("IdConfiguracion")
+            Me.columnParamDia1 = MyBase.Columns("ParamDia1")
+            Me.columnParamMes1 = MyBase.Columns("ParamMes1")
+            Me.columnParamTemp1 = MyBase.Columns("ParamTemp1")
+            Me.columnParamMes2 = MyBase.Columns("ParamMes2")
+            Me.columnParamTemp2 = MyBase.Columns("ParamTemp2")
+            Me.columnParamMes3 = MyBase.Columns("ParamMes3")
+            Me.columnParamPromPesomin = MyBase.Columns("ParamPromPesomin")
+            Me.columnParamPromPesomax = MyBase.Columns("ParamPromPesomax")
+            Me.columnParamPesomin = MyBase.Columns("ParamPesomin")
+            Me.columnTemporadaAnual = MyBase.Columns("TemporadaAnual")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4006,6 +4138,28 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnNumeroFisica)
             Me.columnColoniaFisica = New Global.System.Data.DataColumn("ColoniaFisica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnColoniaFisica)
+            Me.columnIdConfiguracion = New Global.System.Data.DataColumn("IdConfiguracion", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIdConfiguracion)
+            Me.columnParamDia1 = New Global.System.Data.DataColumn("ParamDia1", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamDia1)
+            Me.columnParamMes1 = New Global.System.Data.DataColumn("ParamMes1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamMes1)
+            Me.columnParamTemp1 = New Global.System.Data.DataColumn("ParamTemp1", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamTemp1)
+            Me.columnParamMes2 = New Global.System.Data.DataColumn("ParamMes2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamMes2)
+            Me.columnParamTemp2 = New Global.System.Data.DataColumn("ParamTemp2", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamTemp2)
+            Me.columnParamMes3 = New Global.System.Data.DataColumn("ParamMes3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamMes3)
+            Me.columnParamPromPesomin = New Global.System.Data.DataColumn("ParamPromPesomin", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamPromPesomin)
+            Me.columnParamPromPesomax = New Global.System.Data.DataColumn("ParamPromPesomax", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamPromPesomax)
+            Me.columnParamPesomin = New Global.System.Data.DataColumn("ParamPesomin", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnParamPesomin)
+            Me.columnTemporadaAnual = New Global.System.Data.DataColumn("TemporadaAnual", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTemporadaAnual)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13531,6 +13685,182 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IdConfiguracion() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.IdConfiguracionColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdConfiguracion' de la tabla 'ContratoCompraEmpresa' es D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.IdConfiguracionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamDia1() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamDia1Column),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamDia1' de la tabla 'ContratoCompraEmpresa' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamDia1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamMes1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamMes1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamMes1' de la tabla 'ContratoCompraEmpresa' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamMes1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamTemp1() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamTemp1Column),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamTemp1' de la tabla 'ContratoCompraEmpresa' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamTemp1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamMes2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamMes2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamMes2' de la tabla 'ContratoCompraEmpresa' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamMes2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamTemp2() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamTemp2Column),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamTemp2' de la tabla 'ContratoCompraEmpresa' es DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamTemp2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamMes3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamMes3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamMes3' de la tabla 'ContratoCompraEmpresa' es DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamMes3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamPromPesomin() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamPromPesominColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamPromPesomin' de la tabla 'ContratoCompraEmpresa' es "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamPromPesominColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamPromPesomax() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamPromPesomaxColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamPromPesomax' de la tabla 'ContratoCompraEmpresa' es "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamPromPesomaxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ParamPesomin() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ParamPesominColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ParamPesomin' de la tabla 'ContratoCompraEmpresa' es DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ParamPesominColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TemporadaAnual() As Long
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn),Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TemporadaAnual' de la tabla 'ContratoCompraEmpresa' es DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdContratoAlgodonNull() As Boolean
             Return Me.IsNull(Me.tableContratoCompraEmpresa.IdContratoAlgodonColumn)
         End Function
@@ -14031,6 +14361,138 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetColoniaFisicaNull()
             Me(Me.tableContratoCompraEmpresa.ColoniaFisicaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIdConfiguracionNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.IdConfiguracionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIdConfiguracionNull()
+            Me(Me.tableContratoCompraEmpresa.IdConfiguracionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamDia1Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamDia1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamDia1Null()
+            Me(Me.tableContratoCompraEmpresa.ParamDia1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamMes1Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamMes1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamMes1Null()
+            Me(Me.tableContratoCompraEmpresa.ParamMes1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamTemp1Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamTemp1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamTemp1Null()
+            Me(Me.tableContratoCompraEmpresa.ParamTemp1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamMes2Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamMes2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamMes2Null()
+            Me(Me.tableContratoCompraEmpresa.ParamMes2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamTemp2Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamTemp2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamTemp2Null()
+            Me(Me.tableContratoCompraEmpresa.ParamTemp2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamMes3Null() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamMes3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamMes3Null()
+            Me(Me.tableContratoCompraEmpresa.ParamMes3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamPromPesominNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamPromPesominColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamPromPesominNull()
+            Me(Me.tableContratoCompraEmpresa.ParamPromPesominColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamPromPesomaxNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamPromPesomaxColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamPromPesomaxNull()
+            Me(Me.tableContratoCompraEmpresa.ParamPromPesomaxColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsParamPesominNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ParamPesominColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetParamPesominNull()
+            Me(Me.tableContratoCompraEmpresa.ParamPesominColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTemporadaAnualNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.TemporadaAnualColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTemporadaAnualNull()
+            Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

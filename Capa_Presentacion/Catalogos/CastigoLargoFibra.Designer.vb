@@ -57,6 +57,8 @@ Partial Class CastigoLargoFibra
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CbTipoContrato = New System.Windows.Forms.ComboBox()
+        Me.ExportarAExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportarAExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         CType(Me.DgvEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -146,7 +148,7 @@ Partial Class CastigoLargoFibra
         Me.DgvEncabezado.ReadOnly = True
         Me.DgvEncabezado.RowHeadersVisible = False
         Me.DgvEncabezado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvEncabezado.Size = New System.Drawing.Size(1285, 201)
+        Me.DgvEncabezado.Size = New System.Drawing.Size(1285, 154)
         Me.DgvEncabezado.TabIndex = 0
         '
         'GroupBox1
@@ -155,20 +157,23 @@ Partial Class CastigoLargoFibra
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 131)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1291, 220)
+        Me.GroupBox1.Size = New System.Drawing.Size(1291, 173)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Modos de Castigo"
         '
         'DgvEquivalente
         '
+        Me.DgvEquivalente.AllowUserToAddRows = False
+        Me.DgvEquivalente.AllowUserToDeleteRows = False
         Me.DgvEquivalente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DgvEquivalente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvEquivalente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvEquivalente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvEquivalente.Location = New System.Drawing.Point(38, 40)
         Me.DgvEquivalente.Name = "DgvEquivalente"
-        Me.DgvEquivalente.Size = New System.Drawing.Size(424, 375)
+        Me.DgvEquivalente.RowHeadersVisible = False
+        Me.DgvEquivalente.Size = New System.Drawing.Size(424, 422)
         Me.DgvEquivalente.TabIndex = 0
         '
         'GroupBox2
@@ -176,9 +181,9 @@ Partial Class CastigoLargoFibra
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.GroupBox4)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 351)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 304)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1291, 437)
+        Me.GroupBox2.Size = New System.Drawing.Size(1291, 484)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Detalles"
@@ -191,7 +196,7 @@ Partial Class CastigoLargoFibra
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(823, 16)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(465, 418)
+        Me.GroupBox3.Size = New System.Drawing.Size(465, 465)
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Equivalentes"
@@ -204,7 +209,7 @@ Partial Class CastigoLargoFibra
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(3, 40)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(35, 375)
+        Me.Panel2.Size = New System.Drawing.Size(35, 422)
         Me.Panel2.TabIndex = 2
         '
         'Button4
@@ -234,7 +239,7 @@ Partial Class CastigoLargoFibra
         'MenuStrip2
         '
         Me.MenuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem1, Me.EliminarSelecToolStripMenuItem1, Me.PlantillaDeCargaToolStripMenuItem1})
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem1, Me.EliminarSelecToolStripMenuItem1, Me.PlantillaDeCargaToolStripMenuItem1, Me.ExportarAExcelToolStripMenuItem1})
         Me.MenuStrip2.Location = New System.Drawing.Point(3, 16)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(459, 24)
@@ -269,13 +274,15 @@ Partial Class CastigoLargoFibra
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox4.Location = New System.Drawing.Point(3, 16)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(820, 418)
+        Me.GroupBox4.Size = New System.Drawing.Size(820, 465)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Largos de Fibra"
         '
         'DgvLargoDetalle
         '
+        Me.DgvLargoDetalle.AllowUserToAddRows = False
+        Me.DgvLargoDetalle.AllowUserToDeleteRows = False
         Me.DgvLargoDetalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DgvLargoDetalle.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.DgvLargoDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -284,8 +291,9 @@ Partial Class CastigoLargoFibra
         Me.DgvLargoDetalle.Location = New System.Drawing.Point(38, 40)
         Me.DgvLargoDetalle.MultiSelect = False
         Me.DgvLargoDetalle.Name = "DgvLargoDetalle"
+        Me.DgvLargoDetalle.RowHeadersVisible = False
         Me.DgvLargoDetalle.RowHeadersWidth = 40
-        Me.DgvLargoDetalle.Size = New System.Drawing.Size(779, 375)
+        Me.DgvLargoDetalle.Size = New System.Drawing.Size(779, 422)
         Me.DgvLargoDetalle.TabIndex = 0
         '
         'Panel1
@@ -296,7 +304,7 @@ Partial Class CastigoLargoFibra
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(3, 40)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(35, 375)
+        Me.Panel1.Size = New System.Drawing.Size(35, 422)
         Me.Panel1.TabIndex = 2
         '
         'Button2
@@ -327,7 +335,7 @@ Partial Class CastigoLargoFibra
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem, Me.EliminarSelecToolStripMenuItem, Me.PlantillaDeCargaToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarExcelToolStripMenuItem, Me.EliminarSelecToolStripMenuItem, Me.PlantillaDeCargaToolStripMenuItem, Me.ExportarAExcelToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(3, 16)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(814, 24)
@@ -405,6 +413,18 @@ Partial Class CastigoLargoFibra
         Me.CbTipoContrato.Size = New System.Drawing.Size(121, 21)
         Me.CbTipoContrato.TabIndex = 2
         '
+        'ExportarAExcelToolStripMenuItem
+        '
+        Me.ExportarAExcelToolStripMenuItem.Name = "ExportarAExcelToolStripMenuItem"
+        Me.ExportarAExcelToolStripMenuItem.Size = New System.Drawing.Size(102, 20)
+        Me.ExportarAExcelToolStripMenuItem.Text = "Exportar a excel"
+        '
+        'ExportarAExcelToolStripMenuItem1
+        '
+        Me.ExportarAExcelToolStripMenuItem1.Name = "ExportarAExcelToolStripMenuItem1"
+        Me.ExportarAExcelToolStripMenuItem1.Size = New System.Drawing.Size(102, 20)
+        Me.ExportarAExcelToolStripMenuItem1.Text = "Exportar a Excel"
+        '
         'CastigoLargoFibra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -478,4 +498,6 @@ Partial Class CastigoLargoFibra
     Friend WithEvents DgvLargoDetalle As DataGridView
     Friend WithEvents PlantillaDeCargaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PlantillaDeCargaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportarAExcelToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ExportarAExcelToolStripMenuItem As ToolStripMenuItem
 End Class

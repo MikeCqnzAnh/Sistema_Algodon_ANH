@@ -22,6 +22,7 @@ Partial Class RepLiquidacionRomaneaje
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RepLiquidacionRomaneaje))
         Me.CRVLiquidacionRomanea = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.SuspendLayout()
         '
@@ -39,14 +40,15 @@ Partial Class RepLiquidacionRomaneaje
         Me.CRVLiquidacionRomanea.ShowLogo = False
         Me.CRVLiquidacionRomanea.ShowParameterPanelButton = False
         Me.CRVLiquidacionRomanea.ShowRefreshButton = False
-        Me.CRVLiquidacionRomanea.Size = New System.Drawing.Size(912, 471)
+        Me.CRVLiquidacionRomanea.Size = New System.Drawing.Size(1181, 776)
         Me.CRVLiquidacionRomanea.TabIndex = 0
         Me.CRVLiquidacionRomanea.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'RepLiquidacionRomaneaje
         '
-        Me.ClientSize = New System.Drawing.Size(912, 471)
+        Me.ClientSize = New System.Drawing.Size(1181, 776)
         Me.Controls.Add(Me.CRVLiquidacionRomanea)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "RepLiquidacionRomaneaje"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

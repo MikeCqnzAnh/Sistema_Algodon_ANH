@@ -6,6 +6,7 @@ Public Class ContratosAlgodonCompradores
     Public Pacas As Integer
     Public PacasDisponibles As Integer
     Public PacasVendidas As Integer
+    Public PacasDispContComp As Integer
     Public PrecioQuintal As Double
     Public IdUnidadPeso As Integer
     Public ValorConversion As Double

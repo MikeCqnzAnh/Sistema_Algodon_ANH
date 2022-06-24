@@ -27,8 +27,11 @@ Partial Class ContratosAlgodonCompradores
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdendumToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.tbidcomprador = New System.Windows.Forms.TextBox()
+        Me.ckpreciopromedio = New System.Windows.Forms.CheckBox()
         Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
         Me.CkTara = New System.Windows.Forms.CheckBox()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -118,6 +121,8 @@ Partial Class ContratosAlgodonCompradores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
+        Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,12 +132,14 @@ Partial Class ContratosAlgodonCompradores
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbventascontrato.SuspendLayout()
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EnviarEmailToolStripMenuItem, Me.AdendumToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1459, 24)
@@ -157,6 +164,12 @@ Partial Class ContratosAlgodonCompradores
         Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
         Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
         '
+        'AdendumToolStripMenuItem
+        '
+        Me.AdendumToolStripMenuItem.Name = "AdendumToolStripMenuItem"
+        Me.AdendumToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
+        Me.AdendumToolStripMenuItem.Text = "Adendum"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
@@ -165,6 +178,8 @@ Partial Class ContratosAlgodonCompradores
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.tbidcomprador)
+        Me.GbDatosGenerales.Controls.Add(Me.ckpreciopromedio)
         Me.GbDatosGenerales.Controls.Add(Me.NuPesoTara)
         Me.GbDatosGenerales.Controls.Add(Me.CkTara)
         Me.GbDatosGenerales.Controls.Add(Me.Label24)
@@ -205,6 +220,24 @@ Partial Class ContratosAlgodonCompradores
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'tbidcomprador
+        '
+        Me.tbidcomprador.Enabled = False
+        Me.tbidcomprador.Location = New System.Drawing.Point(117, 43)
+        Me.tbidcomprador.Name = "tbidcomprador"
+        Me.tbidcomprador.Size = New System.Drawing.Size(58, 20)
+        Me.tbidcomprador.TabIndex = 40
+        '
+        'ckpreciopromedio
+        '
+        Me.ckpreciopromedio.AutoSize = True
+        Me.ckpreciopromedio.Location = New System.Drawing.Point(244, 178)
+        Me.ckpreciopromedio.Name = "ckpreciopromedio"
+        Me.ckpreciopromedio.Size = New System.Drawing.Size(142, 17)
+        Me.ckpreciopromedio.TabIndex = 39
+        Me.ckpreciopromedio.Text = "Colocar Precio Promedio"
+        Me.ckpreciopromedio.UseVisualStyleBackColor = True
+        '
         'NuPesoTara
         '
         Me.NuPesoTara.DecimalPlaces = 2
@@ -240,9 +273,9 @@ Partial Class ContratosAlgodonCompradores
         Me.GbParametros.Controls.Add(Me.GbCastigos)
         Me.GbParametros.Controls.Add(Me.GbPrecioQuintal)
         Me.GbParametros.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbParametros.Location = New System.Drawing.Point(790, 16)
+        Me.GbParametros.Location = New System.Drawing.Point(905, 16)
         Me.GbParametros.Name = "GbParametros"
-        Me.GbParametros.Size = New System.Drawing.Size(666, 316)
+        Me.GbParametros.Size = New System.Drawing.Size(551, 316)
         Me.GbParametros.TabIndex = 18
         Me.GbParametros.TabStop = False
         '
@@ -277,14 +310,15 @@ Partial Class ContratosAlgodonCompradores
         Me.GbCastigos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbCastigos.Location = New System.Drawing.Point(3, 170)
         Me.GbCastigos.Name = "GbCastigos"
-        Me.GbCastigos.Size = New System.Drawing.Size(660, 143)
+        Me.GbCastigos.Size = New System.Drawing.Size(545, 143)
         Me.GbCastigos.TabIndex = 1
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Parametros para deduccion"
         '
         'BtConsultaPlastic
         '
-        Me.BtConsultaPlastic.Location = New System.Drawing.Point(482, 108)
+        Me.BtConsultaPlastic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtConsultaPlastic.Location = New System.Drawing.Point(385, 106)
         Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
         Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPlastic.TabIndex = 24
@@ -293,7 +327,8 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaOther
         '
-        Me.BtConsultaOther.Location = New System.Drawing.Point(482, 84)
+        Me.BtConsultaOther.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtConsultaOther.Location = New System.Drawing.Point(385, 82)
         Me.BtConsultaOther.Name = "BtConsultaOther"
         Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaOther.TabIndex = 23
@@ -302,7 +337,8 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaPrep
         '
-        Me.BtConsultaPrep.Location = New System.Drawing.Point(482, 60)
+        Me.BtConsultaPrep.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtConsultaPrep.Location = New System.Drawing.Point(385, 58)
         Me.BtConsultaPrep.Name = "BtConsultaPrep"
         Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPrep.TabIndex = 22
@@ -311,7 +347,8 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaBark
         '
-        Me.BtConsultaBark.Location = New System.Drawing.Point(482, 38)
+        Me.BtConsultaBark.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtConsultaBark.Location = New System.Drawing.Point(385, 36)
         Me.BtConsultaBark.Name = "BtConsultaBark"
         Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaBark.TabIndex = 21
@@ -320,6 +357,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaUI
         '
+        Me.BtConsultaUI.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtConsultaUI.Location = New System.Drawing.Point(249, 108)
         Me.BtConsultaUI.Name = "BtConsultaUI"
         Me.BtConsultaUI.Size = New System.Drawing.Size(26, 23)
@@ -329,6 +367,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaRF
         '
+        Me.BtConsultaRF.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtConsultaRF.Location = New System.Drawing.Point(249, 84)
         Me.BtConsultaRF.Name = "BtConsultaRF"
         Me.BtConsultaRF.Size = New System.Drawing.Size(26, 23)
@@ -338,6 +377,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaLF
         '
+        Me.BtConsultaLF.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtConsultaLF.Location = New System.Drawing.Point(249, 60)
         Me.BtConsultaLF.Name = "BtConsultaLF"
         Me.BtConsultaLF.Size = New System.Drawing.Size(26, 23)
@@ -347,6 +387,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'BtConsultaMicros
         '
+        Me.BtConsultaMicros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.BtConsultaMicros.Location = New System.Drawing.Point(249, 36)
         Me.BtConsultaMicros.Name = "BtConsultaMicros"
         Me.BtConsultaMicros.Size = New System.Drawing.Size(26, 23)
@@ -356,11 +397,12 @@ Partial Class ContratosAlgodonCompradores
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.ChPlasticLevel2)
         Me.GroupBox2.Controls.Add(Me.ChOtherLevel2)
         Me.GroupBox2.Controls.Add(Me.ChPrepLevel2)
         Me.GroupBox2.Controls.Add(Me.ChBarkLevel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(576, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(479, 10)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(56, 127)
         Me.GroupBox2.TabIndex = 16
@@ -405,11 +447,12 @@ Partial Class ContratosAlgodonCompradores
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.ChPlasticLevel1)
         Me.GroupBox1.Controls.Add(Me.ChOtherLevel1)
         Me.GroupBox1.Controls.Add(Me.ChPrepLevel1)
         Me.GroupBox1.Controls.Add(Me.ChBarkLevel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(514, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(417, 10)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(56, 127)
         Me.GroupBox1.TabIndex = 16
@@ -454,40 +497,45 @@ Partial Class ContratosAlgodonCompradores
         '
         'CbModoPlastic
         '
+        Me.CbModoPlastic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoPlastic.FormattingEnabled = True
-        Me.CbModoPlastic.Location = New System.Drawing.Point(355, 110)
+        Me.CbModoPlastic.Location = New System.Drawing.Point(344, 108)
         Me.CbModoPlastic.Name = "CbModoPlastic"
-        Me.CbModoPlastic.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPlastic.Size = New System.Drawing.Size(35, 21)
         Me.CbModoPlastic.TabIndex = 15
         '
         'CbModoOther
         '
+        Me.CbModoOther.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoOther.FormattingEnabled = True
-        Me.CbModoOther.Location = New System.Drawing.Point(355, 86)
+        Me.CbModoOther.Location = New System.Drawing.Point(344, 84)
         Me.CbModoOther.Name = "CbModoOther"
-        Me.CbModoOther.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoOther.Size = New System.Drawing.Size(35, 21)
         Me.CbModoOther.TabIndex = 14
         '
         'CbModoPrep
         '
+        Me.CbModoPrep.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoPrep.FormattingEnabled = True
-        Me.CbModoPrep.Location = New System.Drawing.Point(355, 62)
+        Me.CbModoPrep.Location = New System.Drawing.Point(344, 60)
         Me.CbModoPrep.Name = "CbModoPrep"
-        Me.CbModoPrep.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPrep.Size = New System.Drawing.Size(35, 21)
         Me.CbModoPrep.TabIndex = 13
         '
         'CbModoBark
         '
+        Me.CbModoBark.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoBark.FormattingEnabled = True
-        Me.CbModoBark.Location = New System.Drawing.Point(355, 38)
+        Me.CbModoBark.Location = New System.Drawing.Point(344, 36)
         Me.CbModoBark.Name = "CbModoBark"
-        Me.CbModoBark.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoBark.Size = New System.Drawing.Size(35, 21)
         Me.CbModoBark.TabIndex = 12
         '
         'ChPlastic
         '
+        Me.ChPlastic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChPlastic.AutoSize = True
-        Me.ChPlastic.Location = New System.Drawing.Point(292, 112)
+        Me.ChPlastic.Location = New System.Drawing.Point(281, 110)
         Me.ChPlastic.Name = "ChPlastic"
         Me.ChPlastic.Size = New System.Drawing.Size(57, 17)
         Me.ChPlastic.TabIndex = 11
@@ -496,8 +544,9 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChOther
         '
+        Me.ChOther.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChOther.AutoSize = True
-        Me.ChOther.Location = New System.Drawing.Point(292, 88)
+        Me.ChOther.Location = New System.Drawing.Point(281, 86)
         Me.ChOther.Name = "ChOther"
         Me.ChOther.Size = New System.Drawing.Size(52, 17)
         Me.ChOther.TabIndex = 10
@@ -506,8 +555,9 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChPrep
         '
+        Me.ChPrep.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChPrep.AutoSize = True
-        Me.ChPrep.Location = New System.Drawing.Point(292, 64)
+        Me.ChPrep.Location = New System.Drawing.Point(281, 62)
         Me.ChPrep.Name = "ChPrep"
         Me.ChPrep.Size = New System.Drawing.Size(48, 17)
         Me.ChPrep.TabIndex = 9
@@ -516,8 +566,9 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChBark
         '
+        Me.ChBark.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChBark.AutoSize = True
-        Me.ChBark.Location = New System.Drawing.Point(292, 40)
+        Me.ChBark.Location = New System.Drawing.Point(281, 38)
         Me.ChBark.Name = "ChBark"
         Me.ChBark.Size = New System.Drawing.Size(48, 17)
         Me.ChBark.TabIndex = 8
@@ -526,6 +577,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'CbModoUniformidad
         '
+        Me.CbModoUniformidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoUniformidad.FormattingEnabled = True
         Me.CbModoUniformidad.Location = New System.Drawing.Point(122, 110)
         Me.CbModoUniformidad.Name = "CbModoUniformidad"
@@ -534,6 +586,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'CbModoResistenciaFibra
         '
+        Me.CbModoResistenciaFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoResistenciaFibra.FormattingEnabled = True
         Me.CbModoResistenciaFibra.Location = New System.Drawing.Point(122, 86)
         Me.CbModoResistenciaFibra.Name = "CbModoResistenciaFibra"
@@ -542,6 +595,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'CbModoLargoFibra
         '
+        Me.CbModoLargoFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoLargoFibra.FormattingEnabled = True
         Me.CbModoLargoFibra.Location = New System.Drawing.Point(122, 62)
         Me.CbModoLargoFibra.Name = "CbModoLargoFibra"
@@ -550,6 +604,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChUniformidad
         '
+        Me.ChUniformidad.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChUniformidad.AutoSize = True
         Me.ChUniformidad.Location = New System.Drawing.Point(9, 112)
         Me.ChUniformidad.Name = "ChUniformidad"
@@ -560,6 +615,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChResistenciaFibra
         '
+        Me.ChResistenciaFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChResistenciaFibra.AutoSize = True
         Me.ChResistenciaFibra.Location = New System.Drawing.Point(9, 88)
         Me.ChResistenciaFibra.Name = "ChResistenciaFibra"
@@ -570,6 +626,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChLargoFibra
         '
+        Me.ChLargoFibra.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChLargoFibra.AutoSize = True
         Me.ChLargoFibra.Location = New System.Drawing.Point(9, 64)
         Me.ChLargoFibra.Name = "ChLargoFibra"
@@ -580,6 +637,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'ChMicros
         '
+        Me.ChMicros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ChMicros.AutoSize = True
         Me.ChMicros.Location = New System.Drawing.Point(9, 40)
         Me.ChMicros.Name = "ChMicros"
@@ -590,6 +648,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'CbModoMicros
         '
+        Me.CbModoMicros.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CbModoMicros.FormattingEnabled = True
         Me.CbModoMicros.Location = New System.Drawing.Point(122, 38)
         Me.CbModoMicros.Name = "CbModoMicros"
@@ -621,7 +680,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GbPrecioQuintal.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbPrecioQuintal.Location = New System.Drawing.Point(3, 16)
         Me.GbPrecioQuintal.Name = "GbPrecioQuintal"
-        Me.GbPrecioQuintal.Size = New System.Drawing.Size(660, 154)
+        Me.GbPrecioQuintal.Size = New System.Drawing.Size(545, 154)
         Me.GbPrecioQuintal.TabIndex = 0
         Me.GbPrecioQuintal.TabStop = False
         Me.GbPrecioQuintal.Text = "Precio de Quintal Por Clase"
@@ -858,7 +917,7 @@ Partial Class ContratosAlgodonCompradores
         'BtnBuscarProductor
         '
         Me.BtnBuscarProductor.Image = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario2
-        Me.BtnBuscarProductor.Location = New System.Drawing.Point(349, 41)
+        Me.BtnBuscarProductor.Location = New System.Drawing.Point(413, 27)
         Me.BtnBuscarProductor.Name = "BtnBuscarProductor"
         Me.BtnBuscarProductor.Size = New System.Drawing.Size(42, 50)
         Me.BtnBuscarProductor.TabIndex = 2
@@ -867,7 +926,7 @@ Partial Class ContratosAlgodonCompradores
         'TbComprador
         '
         Me.TbComprador.Enabled = False
-        Me.TbComprador.Location = New System.Drawing.Point(117, 45)
+        Me.TbComprador.Location = New System.Drawing.Point(181, 43)
         Me.TbComprador.Name = "TbComprador"
         Me.TbComprador.Size = New System.Drawing.Size(226, 20)
         Me.TbComprador.TabIndex = 1
@@ -875,7 +934,7 @@ Partial Class ContratosAlgodonCompradores
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(408, 129)
+        Me.Label13.Location = New System.Drawing.Point(470, 128)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 25
@@ -884,7 +943,7 @@ Partial Class ContratosAlgodonCompradores
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(521, 123)
+        Me.CbEstatus.Location = New System.Drawing.Point(583, 122)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 17
@@ -892,7 +951,7 @@ Partial Class ContratosAlgodonCompradores
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(408, 100)
+        Me.Label12.Location = New System.Drawing.Point(470, 99)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(86, 13)
         Me.Label12.TabIndex = 23
@@ -900,7 +959,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'TbTemporada
         '
-        Me.TbTemporada.Location = New System.Drawing.Point(521, 97)
+        Me.TbTemporada.Location = New System.Drawing.Point(583, 96)
         Me.TbTemporada.Name = "TbTemporada"
         Me.TbTemporada.Size = New System.Drawing.Size(100, 20)
         Me.TbTemporada.TabIndex = 16
@@ -908,7 +967,7 @@ Partial Class ContratosAlgodonCompradores
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(408, 73)
+        Me.Label11.Location = New System.Drawing.Point(470, 72)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(67, 13)
         Me.Label11.TabIndex = 21
@@ -917,7 +976,7 @@ Partial Class ContratosAlgodonCompradores
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(408, 47)
+        Me.Label10.Location = New System.Drawing.Point(470, 46)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(57, 13)
         Me.Label10.TabIndex = 20
@@ -926,22 +985,22 @@ Partial Class ContratosAlgodonCompradores
         'CbModalidad
         '
         Me.CbModalidad.FormattingEnabled = True
-        Me.CbModalidad.Location = New System.Drawing.Point(521, 70)
+        Me.CbModalidad.Location = New System.Drawing.Point(583, 69)
         Me.CbModalidad.Name = "CbModalidad"
         Me.CbModalidad.Size = New System.Drawing.Size(163, 21)
         Me.CbModalidad.TabIndex = 14
         '
         'TbPresidente
         '
-        Me.TbPresidente.Location = New System.Drawing.Point(521, 44)
+        Me.TbPresidente.Location = New System.Drawing.Point(583, 43)
         Me.TbPresidente.Name = "TbPresidente"
-        Me.TbPresidente.Size = New System.Drawing.Size(263, 20)
+        Me.TbPresidente.Size = New System.Drawing.Size(200, 20)
         Me.TbPresidente.TabIndex = 13
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(408, 22)
+        Me.Label9.Location = New System.Drawing.Point(470, 21)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(94, 13)
         Me.Label9.TabIndex = 17
@@ -949,7 +1008,7 @@ Partial Class ContratosAlgodonCompradores
         '
         'DtpFechaLiquidacion
         '
-        Me.DtpFechaLiquidacion.Location = New System.Drawing.Point(521, 18)
+        Me.DtpFechaLiquidacion.Location = New System.Drawing.Point(583, 17)
         Me.DtpFechaLiquidacion.Name = "DtpFechaLiquidacion"
         Me.DtpFechaLiquidacion.Size = New System.Drawing.Size(200, 20)
         Me.DtpFechaLiquidacion.TabIndex = 12
@@ -1046,8 +1105,40 @@ Partial Class ContratosAlgodonCompradores
         Me.DgvContratoAlgodon.RowHeadersVisible = False
         Me.DgvContratoAlgodon.RowHeadersWidth = 40
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
+        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 177)
         Me.DgvContratoAlgodon.TabIndex = 14
+        '
+        'gbventascontrato
+        '
+        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
+        Me.gbventascontrato.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.gbventascontrato.Location = New System.Drawing.Point(0, 536)
+        Me.gbventascontrato.Name = "gbventascontrato"
+        Me.gbventascontrato.Size = New System.Drawing.Size(1459, 193)
+        Me.gbventascontrato.TabIndex = 41
+        Me.gbventascontrato.TabStop = False
+        Me.gbventascontrato.Text = "Ventas del Contrato"
+        '
+        'DgvCierres
+        '
+        Me.DgvCierres.AllowUserToAddRows = False
+        Me.DgvCierres.AllowUserToDeleteRows = False
+        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
+        Me.DgvCierres.MultiSelect = False
+        Me.DgvCierres.Name = "DgvCierres"
+        Me.DgvCierres.ReadOnly = True
+        Me.DgvCierres.RowHeadersVisible = False
+        Me.DgvCierres.RowHeadersWidth = 40
+        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvCierres.Size = New System.Drawing.Size(1453, 174)
+        Me.DgvCierres.TabIndex = 11
         '
         'ContratosAlgodonCompradores
         '
@@ -1055,6 +1146,7 @@ Partial Class ContratosAlgodonCompradores
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1459, 729)
         Me.Controls.Add(Me.DgvContratoAlgodon)
+        Me.Controls.Add(Me.gbventascontrato)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1078,6 +1170,8 @@ Partial Class ContratosAlgodonCompradores
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbventascontrato.ResumeLayout(False)
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1178,4 +1272,9 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents CkTara As CheckBox
     Friend WithEvents Label24 As Label
     Friend WithEvents NuPesoTara As NumericUpDown
+    Friend WithEvents ckpreciopromedio As CheckBox
+    Friend WithEvents AdendumToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tbidcomprador As TextBox
+    Friend WithEvents gbventascontrato As GroupBox
+    Friend WithEvents DgvCierres As DataGridView
 End Class

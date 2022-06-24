@@ -9,29 +9,34 @@ Public Class Tierras
         Limpiar()
     End Sub
     Private Sub Limpiar()
-        TbIdTierra.Text = ""
-        TbLote.Text = ""
-        CbColonia.SelectedIndex = 0
-        CbCliente.SelectedIndex = 0
-        TbRfc.Text = ""
-        TbCurp.Text = ""
-        TbRegistroAlterno.Text = ""
-        NuSuperficieTotal.Value = 0
-        NuSuperficieCultivable.Value = 0
-        CbEstatus.SelectedIndex = 0
-        TbLatitudGrados.Text = ""
-        TbLatitudHoras.Text = ""
-        TbLatitudMinutos.Text = ""
-        TbLongitudGrados.Text = ""
-        TbLongitudHoras.Text = ""
-        TbLongitudMinutos.Text = ""
-        TbNumeroRpp.Text = ""
-        TbFolioRpp.Text = ""
-        TbLibroRpp.Text = ""
-        DtFechaRegistro.Value = Now
-        TbTituloAgua.Text = ""
-        CbRegimenHidrico.SelectedIndex = 0
-        DtFechaTitulo.Value = Now
+        Try
+            TbIdTierra.Text = ""
+            TbLote.Text = ""
+            CbColonia.SelectedIndex = 0
+            CbCliente.SelectedIndex = 0
+            TbRfc.Text = ""
+            TbCurp.Text = ""
+            TbRegistroAlterno.Text = ""
+            NuSuperficieTotal.Value = 0
+            NuSuperficieCultivable.Value = 0
+            CbEstatus.SelectedIndex = 0
+            TbLatitudGrados.Text = ""
+            TbLatitudHoras.Text = ""
+            TbLatitudMinutos.Text = ""
+            TbLongitudGrados.Text = ""
+            TbLongitudHoras.Text = ""
+            TbLongitudMinutos.Text = ""
+            TbNumeroRpp.Text = ""
+            TbFolioRpp.Text = ""
+            TbLibroRpp.Text = ""
+            DtFechaRegistro.Value = Now
+            TbTituloAgua.Text = ""
+            CbRegimenHidrico.SelectedIndex = 0
+            DtFechaTitulo.Value = Now
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
     Private Sub LlenaCombos()
         '---------------------------COMBO ESTATUS
@@ -76,7 +81,7 @@ Public Class Tierras
         CbRegimenHidrico.ValueMember = "IdRegimen"
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        If TbLote.Text = "" And CbColonia.Text = "" And CbCliente.Text = "" Then
+        If TbLote.Text <> "" And CbColonia.Text <> "" And CbCliente.Text <> "" Then
             Guardar()
         End If
     End Sub
@@ -109,11 +114,10 @@ Public Class Tierras
             EntidadTierras.IdUsuarioCreacion = 1
             EntidadTierras.FechaCreacion = Now
             NegocioTierras.Guardar(EntidadTierras)
+            MsgBox("Realizado Correctamente")
             TbIdTierra.Text = EntidadTierras.IdTierra
         Catch ex As Exception
             MsgBox(ex.Message)
-        Finally
-            MsgBox("Realizado Correctamente")
         End Try
     End Sub
     Private Sub ConsultasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultasToolStripMenuItem.Click

@@ -16,6 +16,8 @@ select a.IdContratoAlgodon,
 	   isnull(a.PacasDisponibles,0) as PacasDisponibles,
 	   isnull(a.SuperficieComprometida,0) as SuperficieComprometida ,
 	   isnull(@Lotes,'') as Lotes,
+	   isnull(a.IdContratoVta,0) as IdContratoVta,
+	   isnull(a.DescripcionVta,'') as DescripcionVta,
 	   a.PrecioQuintal,
 	   a.Puntos,
 	   a.FechaLiquidacion,
@@ -34,7 +36,6 @@ select a.IdContratoAlgodon,
 	   a.PrecioO,
 	   a.IdEstatus
 from [dbo].[ContratoCompra] a inner join  [dbo].[Clientes] b on a.IdProductor = b.IdCliente
-							  left join  [dbo].[Asociaciones] c on b.IdCuentaDe = c.IdAsociacion
-	
+							  left join  [dbo].[Asociaciones] c on b.IdCuentaDe = c.IdAsociacion	
 where a.IdContratoAlgodon = @IdContratoAlgodon
 and   a.IdEstatus = 1

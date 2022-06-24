@@ -20,8 +20,10 @@ Public Class CastigoLargoFibra
         CbTipoContrato.SelectedIndex = -1
         CbEstatus.SelectedIndex = 0
         DgvEncabezado.DataSource = ""
-        DgvLargoDetalle.DataSource = ""
-        DgvEquivalente.DataSource = ""
+        'DgvLargoDetalle.DataSource = ""
+        'DgvEquivalente.DataSource = ""
+        DgvEquivalente.Columns.Clear()
+        DgvLargoDetalle.Columns.Clear()
         ConsultaModosLargoFibra()
     End Sub
     Private Sub CargarCombos()
@@ -114,27 +116,31 @@ Public Class CastigoLargoFibra
         DgvEncabezado.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub PropiedadesDgvDetalles()
-        If DgvLargoDetalle.Columns("Sel") Is Nothing Then
-            Dim colSel As New DataGridViewCheckBoxColumn
-            colSel.Name = "Sel"
-            colSel.HeaderText = "Seleccionar"
-            DgvLargoDetalle.Columns.Insert(7, colSel)
+        If DgvLargoDetalle.Rows.Count > 0 Then
+            If DgvLargoDetalle.Columns("Sel") Is Nothing Then
+                Dim colSel As New DataGridViewCheckBoxColumn
+                colSel.Name = "Sel"
+                colSel.HeaderText = "Seleccionar"
+                DgvLargoDetalle.Columns.Insert(7, colSel)
+            End If
+            DgvLargoDetalle.Columns("IdModoDetalle").Visible = False
+            DgvLargoDetalle.Columns("IdModoEncabezado").Visible = False
+            DgvLargoDetalle.Columns("ColorGrade").Visible = False
+            DgvLargoDetalle.Columns("IdEstatus").Visible = False
         End If
-        DgvLargoDetalle.Columns("IdModoDetalle").Visible = False
-        DgvLargoDetalle.Columns("IdModoEncabezado").Visible = False
-        DgvLargoDetalle.Columns("ColorGrade").Visible = False
-        DgvLargoDetalle.Columns("IdEstatus").Visible = False
     End Sub
     Private Sub PropiedadesDgvEquivalente()
-        If DgvEquivalente.Columns("Sel") Is Nothing Then
-            Dim colSel As New DataGridViewCheckBoxColumn
-            colSel.Name = "Sel"
-            colSel.HeaderText = "Seleccionar"
-            DgvEquivalente.Columns.Insert(6, colSel)
+        If DgvEquivalente.Rows.Count > 0 Then
+            If DgvEquivalente.Columns("Sel") Is Nothing Then
+                Dim colSel As New DataGridViewCheckBoxColumn
+                colSel.Name = "Sel"
+                colSel.HeaderText = "Seleccionar"
+                DgvEquivalente.Columns.Insert(6, colSel)
+            End If
+            DgvEquivalente.Columns("IdLargoFibraDetalle").Visible = False
+            DgvEquivalente.Columns("IdModoEncabezado").Visible = False
+            DgvEquivalente.Columns("ModoComercializacion").Visible = False
         End If
-        DgvEquivalente.Columns("IdLargoFibraDetalle").Visible = False
-        DgvEquivalente.Columns("IdModoEncabezado").Visible = False
-        DgvEquivalente.Columns("ModoComercializacion").Visible = False
     End Sub
     Private Sub AgregarATablaDetalle()
         Dim index As Integer
@@ -150,7 +156,7 @@ Public Class CastigoLargoFibra
                     rengloninsertar("IdModoEncabezado") = Val(DgvLargoDetalle.Text)
                     rengloninsertar("Rango1") = DgvLargoDetalle.Rows(index).Cells("Rango1").Value
                     rengloninsertar("Rango2") = DgvLargoDetalle.Rows(index).Cells("Rango2").Value
-                    rengloninsertar("ColorGrade") = DgvLargoDetalle.Rows(index).Cells("ColorGrade").Value
+                    rengloninsertar("ColorGrade") = 0
                     rengloninsertar("Castigo") = DgvLargoDetalle.Rows(index).Cells("Castigo").Value
                     rengloninsertar("IdEstatus") = 1
                     TablaDetalles.Rows.Add(rengloninsertar)
@@ -166,20 +172,24 @@ Public Class CastigoLargoFibra
         Dim rengloninsertar As DataRow
         TablaEquivalente.Clear()
         DgvEquivalente.EndEdit()
+        Try
+            For Each row As DataGridViewRow In DgvEquivalente.Rows
+                index = Convert.ToUInt64(row.Index)
+                If DgvEquivalente.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvEquivalente.Rows(index).Cells("Rango2").Value IsNot Nothing Then
+                    rengloninsertar = TablaEquivalente.NewRow()
+                    rengloninsertar("IdModoDetalle") = IIf(DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value Is Nothing, 0, DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value)
+                    rengloninsertar("IdModoEncabezado") = Val(DgvEquivalente.Text)
+                    rengloninsertar("ModoComercializacion") = CbTipoContrato.SelectedValue
+                    rengloninsertar("Rango1") = DgvEquivalente.Rows(index).Cells("Rango1").Value
+                    rengloninsertar("Rango2") = DgvEquivalente.Rows(index).Cells("Rango2").Value
+                    rengloninsertar("LenghtNDS") = DgvEquivalente.Rows(index).Cells("LenghtNDS").Value
+                    TablaEquivalente.Rows.Add(rengloninsertar)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
 
-        For Each row As DataGridViewRow In DgvEquivalente.Rows
-            index = Convert.ToUInt64(row.Index)
-            If DgvEquivalente.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvEquivalente.Rows(index).Cells("Rango2").Value IsNot Nothing Then
-                rengloninsertar = TablaEquivalente.NewRow()
-                rengloninsertar("IdModoDetalle") = IIf(DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value Is Nothing, 0, DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value)
-                rengloninsertar("IdModoEncabezado") = Val(DgvEquivalente.Text)
-                rengloninsertar("ModoComercializacion") = CbTipoContrato.SelectedValue
-                rengloninsertar("Rango1") = DgvEquivalente.Rows(index).Cells("Rango1").Value
-                rengloninsertar("Rango2") = DgvEquivalente.Rows(index).Cells("Rango2").Value
-                rengloninsertar("LenghtNDS") = DgvEquivalente.Rows(index).Cells("LenghtNDS").Value
-                TablaEquivalente.Rows.Add(rengloninsertar)
-            End If
-        Next
     End Sub
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbDescripcion.Text = "" Or CbTipoContrato.SelectedValue = "" Then
@@ -202,6 +212,8 @@ Public Class CastigoLargoFibra
         NegocioCastigoLargoFibra.Guardar(EntidadCastigoLargoFibra)
         TbIdModoLargoFibraEncabezado.Text = EntidadCastigoLargoFibra.IdModoEncabezado
         MsgBox("Realizado Correctamente")
+        DgvEquivalente.Columns.Clear()
+        DgvLargoDetalle.Columns.Clear()
         ConsultaModosLargoFibra()
         ConsultaModosDetalleparametro(TbIdModoLargoFibraEncabezado.Text)
         ConsultaModosEquivalenteDetalleparametro(TbIdModoLargoFibraEncabezado.Text)
@@ -244,17 +256,35 @@ Public Class CastigoLargoFibra
             TbDescripcion.Text = DgvEncabezado.Rows(index).Cells("Descripcion").Value
             CbTipoContrato.SelectedValue = DgvEncabezado.Rows(index).Cells("ModoComercializacion").Value
             CbEstatus.SelectedValue = DgvEncabezado.Rows(index).Cells("IdEstatus").Value
+            DgvLargoDetalle.Columns.Clear()
+            DgvEquivalente.Columns.Clear()
             ConsultaModosDetalle()
             ConsultaModosEquivalenteDetalle()
         End If
     End Sub
     Private Sub CargarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem.Click
+        DgvLargoDetalle.Columns.Clear()
         importarexceltablacastigos(DgvLargoDetalle)
+        PropiedadesDgvDetalles()
     End Sub
     Private Sub CargarExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem1.Click
-        importarexceltablacastigos(DgvEquivalente)
+        DgvEquivalente.Columns.Clear()
+        importarexceltablacastequiv(DgvEquivalente)
+        PropiedadesDgvEquivalente()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
+    End Sub
+
+    Private Sub ExportarAExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarAExcelToolStripMenuItem.Click
+        If DgvLargoDetalle.Rows.Count > 0 Then
+            ExportExcel(DgvLargoDetalle)
+        End If
+    End Sub
+
+    Private Sub ExportarAExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExportarAExcelToolStripMenuItem1.Click
+        If DgvEquivalente.Rows.Count > 0 Then
+            ExportExcel(DgvEquivalente)
+        End If
     End Sub
 End Class
