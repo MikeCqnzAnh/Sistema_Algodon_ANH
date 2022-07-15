@@ -96,6 +96,7 @@ Partial Class Produccion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TiActualizaDgvPacas = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAutomatica = New System.IO.Ports.SerialPort(Me.components)
+        Me.InformeDiarioDeOperacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbDatosProduccion.SuspendLayout()
@@ -113,7 +114,7 @@ Partial Class Produccion
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.InformeDiarioDeOperacionToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1146, 24)
@@ -591,9 +592,8 @@ Partial Class Produccion
         Me.BtIncidencias.Name = "BtIncidencias"
         Me.BtIncidencias.Size = New System.Drawing.Size(305, 29)
         Me.BtIncidencias.TabIndex = 61
-        Me.BtIncidencias.Text = "Incidencias"
+        Me.BtIncidencias.Text = "Informe Diario de Operacion"
         Me.BtIncidencias.UseVisualStyleBackColor = True
-        Me.BtIncidencias.Visible = False
         '
         'GbCapturaAutomatica
         '
@@ -823,6 +823,12 @@ Partial Class Produccion
         'SpCapturaAutomatica
         '
         '
+        'InformeDiarioDeOperacionToolStripMenuItem
+        '
+        Me.InformeDiarioDeOperacionToolStripMenuItem.Name = "InformeDiarioDeOperacionToolStripMenuItem"
+        Me.InformeDiarioDeOperacionToolStripMenuItem.Size = New System.Drawing.Size(169, 20)
+        Me.InformeDiarioDeOperacionToolStripMenuItem.Text = "Informe Diario de Operacion"
+        '
         'Produccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -931,4 +937,5 @@ Partial Class Produccion
     Friend WithEvents BtEliminarPacas As Button
     Friend WithEvents TbTotalKilos As TextBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents InformeDiarioDeOperacionToolStripMenuItem As ToolStripMenuItem
 End Class

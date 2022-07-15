@@ -514,6 +514,15 @@ Public Class ContratosAlgodonCompradores
             NuPesoTara.Value = 0
         End If
     End Sub
+
+    Private Sub ckfix_CheckedChanged(sender As Object, e As EventArgs) Handles ckfix.CheckedChanged
+        If ckfix.Checked = True Then
+            ckfix.Text = "Precio Fijado"
+        ElseIf ckfix.Checked = False Then
+            ckfix.Text = "On Call"
+        End If
+    End Sub
+
     Private Sub ckpreciopromedio_Click(sender As Object, e As EventArgs) Handles ckpreciopromedio.Click
         Dim precioprom As Decimal
         If ckpreciopromedio.Checked = True And tbidcomprador.Text <> "" Then

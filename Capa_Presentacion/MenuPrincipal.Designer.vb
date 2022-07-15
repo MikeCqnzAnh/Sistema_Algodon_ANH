@@ -198,6 +198,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -1306,7 +1307,7 @@ Partial Class MenuPrincipal
         '
         'ConfiguracionToolStripMenuItem
         '
-        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeParametrosParaContratosToolStripMenuItem, Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1, Me.SeleccionaToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDeEmpresaToolStripMenuItem, Me.TurnosToolStripMenuItem, Me.ConfiguracionDeParametrosToolStripMenuItem1, Me.ConfiguracionDeParametrosParaContratosToolStripMenuItem, Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem, Me.ConfiguracionDeBaseDeDatosToolStripMenuItem1, Me.SeleccionaToolStripMenuItem})
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(106, 23)
         Me.ConfiguracionToolStripMenuItem.Tag = "122,0"
@@ -1460,6 +1461,13 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
+        '
+        'TurnosToolStripMenuItem
+        '
+        Me.TurnosToolStripMenuItem.Name = "TurnosToolStripMenuItem"
+        Me.TurnosToolStripMenuItem.Size = New System.Drawing.Size(352, 24)
+        Me.TurnosToolStripMenuItem.Tag = "0,0"
+        Me.TurnosToolStripMenuItem.Text = "Configuracion de Turnos"
         '
         'MenuPrincipal
         '
@@ -1661,4 +1669,5 @@ Partial Class MenuPrincipal
     Friend WithEvents InventarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SeleccionaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConfiguracionDeParametrosParaContratosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TurnosToolStripMenuItem As ToolStripMenuItem
 End Class

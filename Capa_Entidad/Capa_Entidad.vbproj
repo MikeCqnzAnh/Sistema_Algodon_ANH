@@ -102,6 +102,7 @@
     <Compile Include="Configuracion\ConfigMic.vb" />
     <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
+    <Compile Include="Configuracion\Turnos.vb" />
     <Compile Include="Utilerias\ProgramarRespaldos.vb" />
     <Compile Include="Utilerias\Roles.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />

@@ -1056,8 +1056,15 @@ Public Class Produccion
     End Sub
 
     Private Sub BtIncidencias_Click(sender As Object, e As EventArgs) Handles BtIncidencias.Click
+        'If TbIdProduccion.Text <> "" Then
+        '    Dim incidencias As New IncidenciasProduccion(1, CbPlantaOrigen.SelectedValue)
+        '    incidencias.ShowDialog()
+        'End If
+    End Sub
+
+    Private Sub InformeDiarioDeOperacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformeDiarioDeOperacionToolStripMenuItem.Click
         If TbIdProduccion.Text <> "" Then
-            Dim incidencias As New IncidenciasProduccion
+            Dim incidencias As New IncidenciasProduccion(1, CbPlantaOrigen.SelectedValue)
             incidencias.ShowDialog()
         End If
     End Sub

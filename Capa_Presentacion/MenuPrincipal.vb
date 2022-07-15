@@ -474,25 +474,20 @@ Public Class MenuPrincipal
     Private Sub EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem.Click
         ParametrosCorreo.ShowDialog()
     End Sub
-
     Private Sub BuscarActualizacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarActualizacionesToolStripMenuItem.Click
         BuscarActualizacion.ShowDialog()
     End Sub
-
     Private Sub ConfiguracionDeParametrosBanxicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosBanxicoToolStripMenuItem.Click
         ParametrosBanxico.ShowDialog()
     End Sub
-
     Private Sub PacasSinVenderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PacasSinVenderToolStripMenuItem.Click
         Dim ReportePacasSinVender As New RepPacasSinVender
         ReportePacasSinVender.ShowDialog()
     End Sub
-
     Private Sub RolesTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RolesTestToolStripMenuItem.Click
         Dim Roltst As New Roltest()
         Roltst.ShowDialog()
     End Sub
-
     Private Sub ResumenDeLiquidacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeLiquidacionesToolStripMenuItem.Click
         Dim RepLiquid As New RepResumenLiquidaciones
         RepLiquid.ShowDialog()
@@ -500,27 +495,22 @@ Public Class MenuPrincipal
     Private Sub UsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem.Click
         Usuarios.ShowDialog()
     End Sub
-
     Private Sub PreliquidacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreliquidacionToolStripMenuItem.Click
         Dim preliqcompra As New PreliquidacionCompra
         preliqcompra.ShowDialog()
     End Sub
-
     Private Sub PreliquidacionACompradorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreliquidacionACompradorToolStripMenuItem.Click
         Dim preliqventa As New PreliquidacionVenta
         preliqventa.ShowDialog()
     End Sub
-
     Private Sub RevisionDeProduccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RevisionDeProduccionToolStripMenuItem.Click
         Dim RevProd As New RevisionProduccion
         RevProd.ShowDialog()
     End Sub
-
     Private Sub IntegracionDeCompraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IntegracionDeCompraToolStripMenuItem.Click
         Dim IntCompra As New IntegraciondeCompras
         IntCompra.ShowDialog()
     End Sub
-
     Private Sub ResumenDeProduccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeProduccionToolStripMenuItem.Click
         Dim ResProd As New RepResumenProducciones
         ResProd.ShowDialog()
@@ -529,7 +519,6 @@ Public Class MenuPrincipal
         Dim pacasincomprar As New RepPacasSinComprar
         pacasincomprar.ShowDialog()
     End Sub
-
     Private Sub ResComprasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResComprasToolStripMenuItem.Click
         Dim consultacompra As New RepConsultaCompras
         consultacompra.ShowDialog()
@@ -539,68 +528,59 @@ Public Class MenuPrincipal
         Dim consultaventa As New RepConsultaVentas
         consultaventa.ShowDialog()
     End Sub
-
     Private Sub DetalleDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DetalleDePacasCompraMenuItem.Click
         Dim ConsultaPacaDetalle As New RepConsultaPacasDetalleCompra
         ConsultaPacaDetalle.ShowDialog()
     End Sub
-
     Private Sub PacasPorDetalleDeVentaMenuItem_Click(sender As Object, e As EventArgs) Handles PacasPorDetalleDeVentaMenuItem.Click
         Dim ConsultaPacaDetalle As New RepConsultaPacasDetalleVenta
         ConsultaPacaDetalle.ShowDialog()
     End Sub
-
     Private Sub ExistenciaDePacasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaDePacasToolStripMenuItem.Click
         Dim ConsultaExistencias As New RepPacasExistencias
         ConsultaExistencias.ShowDialog()
     End Sub
-
     Private Sub SalidaPacasOrdenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaPacasOrdenToolStripMenuItem.Click
         Dim ConsultaSalidaPacas As New SalidasPorOrden
         ConsultaSalidaPacas.ShowDialog()
     End Sub
-
     Private Sub OrdenDeEmbarquePToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePToolStripMenuItem.Click
         Dim OrdenEmbpa As New OrdenEmbarquePorPacas
         OrdenEmbpa.ShowDialog()
     End Sub
-
     Private Sub EntradaYSalidaDeEquipoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntradaYSalidaDeEquipoToolStripMenuItem.Click
         Dim entradasalidaequ As New EntradaSalidadeEquipo
         entradasalidaequ.ShowDialog()
     End Sub
-
     Private Sub ReporteDeHojasDeProduccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeHojasDeProduccionToolStripMenuItem.Click
         Dim RepHojaProd As New RepHojaProduccion
         RepHojaProd.ShowDialog()
     End Sub
-
     Private Sub ActualizacionVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizacionVentaToolStripMenuItem.Click
         Dim actventa As New ActualizacionVenta
         actventa.ShowDialog()
     End Sub
-
     Private Sub InventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventarioToolStripMenuItem.Click
         Dim inventarios As New InventarioPacas
         inventarios.ShowDialog()
     End Sub
-
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs)
         Dim repinvpacas As New ReporteInventarioPatios
         repinvpacas.ShowDialog()
     End Sub
-
     Private Sub SeleccionaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SeleccionaToolStripMenuItem.Click
         Dim selcon As New SeleccionaConexion
         selcon.ShowDialog()
         SbBdd.Text = _BaseDeDatos
     End Sub
-
     Private Sub ConfiguracionDeParametrosParaContratosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfiguracionDeParametrosParaContratosToolStripMenuItem.Click
         Dim confparamcont As New ConfiguracionParametrosContratos
         confparamcont.ShowDialog()
     End Sub
-
+    Private Sub TurnosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TurnosToolStripMenuItem.Click
+        Dim confturnos As New Turnos
+        confturnos.ShowDialog()
+    End Sub
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub

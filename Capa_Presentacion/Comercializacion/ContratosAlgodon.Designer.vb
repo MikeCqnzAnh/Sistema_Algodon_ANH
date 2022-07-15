@@ -125,6 +125,8 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
+        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
+        Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -133,6 +135,8 @@ Partial Class ContratosAlgodon
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbventascontrato.SuspendLayout()
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -177,6 +181,7 @@ Partial Class ContratosAlgodon
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.gbventascontrato)
         Me.GbDatosGenerales.Controls.Add(Me.btconsultacontratoventa)
         Me.GbDatosGenerales.Controls.Add(Me.tbdescripcionvta)
         Me.GbDatosGenerales.Controls.Add(Me.tbidcontratovta)
@@ -218,14 +223,14 @@ Partial Class ContratosAlgodon
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1447, 327)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1447, 349)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
         'btconsultacontratoventa
         '
-        Me.btconsultacontratoventa.Location = New System.Drawing.Point(404, 248)
+        Me.btconsultacontratoventa.Location = New System.Drawing.Point(349, 248)
         Me.btconsultacontratoventa.Name = "btconsultacontratoventa"
         Me.btconsultacontratoventa.Size = New System.Drawing.Size(30, 30)
         Me.btconsultacontratoventa.TabIndex = 10
@@ -238,7 +243,7 @@ Partial Class ContratosAlgodon
         Me.tbdescripcionvta.Location = New System.Drawing.Point(187, 248)
         Me.tbdescripcionvta.Multiline = True
         Me.tbdescripcionvta.Name = "tbdescripcionvta"
-        Me.tbdescripcionvta.Size = New System.Drawing.Size(211, 40)
+        Me.tbdescripcionvta.Size = New System.Drawing.Size(156, 40)
         Me.tbdescripcionvta.TabIndex = 41
         '
         'tbidcontratovta
@@ -263,9 +268,9 @@ Partial Class ContratosAlgodon
         Me.Panel1.Controls.Add(Me.GbCastigos)
         Me.Panel1.Controls.Add(Me.GbPrecioQuintal)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(794, 16)
+        Me.Panel1.Location = New System.Drawing.Point(919, 16)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(650, 308)
+        Me.Panel1.Size = New System.Drawing.Size(525, 330)
         Me.Panel1.TabIndex = 38
         '
         'GbCastigos
@@ -299,14 +304,14 @@ Partial Class ContratosAlgodon
         Me.GbCastigos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbCastigos.Location = New System.Drawing.Point(0, 157)
         Me.GbCastigos.Name = "GbCastigos"
-        Me.GbCastigos.Size = New System.Drawing.Size(650, 151)
+        Me.GbCastigos.Size = New System.Drawing.Size(525, 173)
         Me.GbCastigos.TabIndex = 37
         Me.GbCastigos.TabStop = False
         Me.GbCastigos.Text = "Parametros para deduccion"
         '
         'BtConsultaPlastic
         '
-        Me.BtConsultaPlastic.Location = New System.Drawing.Point(482, 108)
+        Me.BtConsultaPlastic.Location = New System.Drawing.Point(411, 108)
         Me.BtConsultaPlastic.Name = "BtConsultaPlastic"
         Me.BtConsultaPlastic.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPlastic.TabIndex = 24
@@ -316,7 +321,7 @@ Partial Class ContratosAlgodon
         '
         'BtConsultaOther
         '
-        Me.BtConsultaOther.Location = New System.Drawing.Point(482, 84)
+        Me.BtConsultaOther.Location = New System.Drawing.Point(411, 84)
         Me.BtConsultaOther.Name = "BtConsultaOther"
         Me.BtConsultaOther.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaOther.TabIndex = 23
@@ -326,7 +331,7 @@ Partial Class ContratosAlgodon
         '
         'BtConsultaPrep
         '
-        Me.BtConsultaPrep.Location = New System.Drawing.Point(482, 60)
+        Me.BtConsultaPrep.Location = New System.Drawing.Point(411, 60)
         Me.BtConsultaPrep.Name = "BtConsultaPrep"
         Me.BtConsultaPrep.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaPrep.TabIndex = 22
@@ -336,7 +341,7 @@ Partial Class ContratosAlgodon
         '
         'BtConsultaBark
         '
-        Me.BtConsultaBark.Location = New System.Drawing.Point(482, 38)
+        Me.BtConsultaBark.Location = New System.Drawing.Point(411, 38)
         Me.BtConsultaBark.Name = "BtConsultaBark"
         Me.BtConsultaBark.Size = New System.Drawing.Size(26, 23)
         Me.BtConsultaBark.TabIndex = 21
@@ -386,9 +391,9 @@ Partial Class ContratosAlgodon
         Me.GroupBox2.Controls.Add(Me.ChOtherLevel2)
         Me.GroupBox2.Controls.Add(Me.ChPrepLevel2)
         Me.GroupBox2.Controls.Add(Me.ChBarkLevel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(576, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(485, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox2.Size = New System.Drawing.Size(33, 127)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Nivel 2"
@@ -436,9 +441,9 @@ Partial Class ContratosAlgodon
         Me.GroupBox1.Controls.Add(Me.ChOtherLevel1)
         Me.GroupBox1.Controls.Add(Me.ChPrepLevel1)
         Me.GroupBox1.Controls.Add(Me.ChBarkLevel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(514, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(442, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(56, 127)
+        Me.GroupBox1.Size = New System.Drawing.Size(36, 127)
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Nivel 1"
@@ -485,7 +490,7 @@ Partial Class ContratosAlgodon
         Me.CbModoPlastic.FormattingEnabled = True
         Me.CbModoPlastic.Location = New System.Drawing.Point(355, 110)
         Me.CbModoPlastic.Name = "CbModoPlastic"
-        Me.CbModoPlastic.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPlastic.Size = New System.Drawing.Size(48, 21)
         Me.CbModoPlastic.TabIndex = 15
         Me.CbModoPlastic.Visible = False
         '
@@ -494,7 +499,7 @@ Partial Class ContratosAlgodon
         Me.CbModoOther.FormattingEnabled = True
         Me.CbModoOther.Location = New System.Drawing.Point(355, 86)
         Me.CbModoOther.Name = "CbModoOther"
-        Me.CbModoOther.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoOther.Size = New System.Drawing.Size(48, 21)
         Me.CbModoOther.TabIndex = 14
         Me.CbModoOther.Visible = False
         '
@@ -503,7 +508,7 @@ Partial Class ContratosAlgodon
         Me.CbModoPrep.FormattingEnabled = True
         Me.CbModoPrep.Location = New System.Drawing.Point(355, 62)
         Me.CbModoPrep.Name = "CbModoPrep"
-        Me.CbModoPrep.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoPrep.Size = New System.Drawing.Size(48, 21)
         Me.CbModoPrep.TabIndex = 13
         Me.CbModoPrep.Visible = False
         '
@@ -512,7 +517,7 @@ Partial Class ContratosAlgodon
         Me.CbModoBark.FormattingEnabled = True
         Me.CbModoBark.Location = New System.Drawing.Point(355, 38)
         Me.CbModoBark.Name = "CbModoBark"
-        Me.CbModoBark.Size = New System.Drawing.Size(121, 21)
+        Me.CbModoBark.Size = New System.Drawing.Size(48, 21)
         Me.CbModoBark.TabIndex = 12
         Me.CbModoBark.Visible = False
         '
@@ -657,7 +662,7 @@ Partial Class ContratosAlgodon
         Me.GbPrecioQuintal.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbPrecioQuintal.Location = New System.Drawing.Point(0, 0)
         Me.GbPrecioQuintal.Name = "GbPrecioQuintal"
-        Me.GbPrecioQuintal.Size = New System.Drawing.Size(650, 157)
+        Me.GbPrecioQuintal.Size = New System.Drawing.Size(525, 157)
         Me.GbPrecioQuintal.TabIndex = 28
         Me.GbPrecioQuintal.TabStop = False
         Me.GbPrecioQuintal.Text = "Precio de Quintal Por Clase"
@@ -890,7 +895,7 @@ Partial Class ContratosAlgodon
         '
         'BtConsultaLotes
         '
-        Me.BtConsultaLotes.Location = New System.Drawing.Point(404, 202)
+        Me.BtConsultaLotes.Location = New System.Drawing.Point(349, 202)
         Me.BtConsultaLotes.Name = "BtConsultaLotes"
         Me.BtConsultaLotes.Size = New System.Drawing.Size(30, 30)
         Me.BtConsultaLotes.TabIndex = 9
@@ -1057,7 +1062,7 @@ Partial Class ContratosAlgodon
         Me.TbLotes.Location = New System.Drawing.Point(117, 202)
         Me.TbLotes.Multiline = True
         Me.TbLotes.Name = "TbLotes"
-        Me.TbLotes.Size = New System.Drawing.Size(281, 40)
+        Me.TbLotes.Size = New System.Drawing.Size(226, 40)
         Me.TbLotes.TabIndex = 8
         '
         'TbSuperficie
@@ -1139,15 +1144,48 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvContratoAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvContratoAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 351)
+        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 373)
         Me.DgvContratoAlgodon.MultiSelect = False
         Me.DgvContratoAlgodon.Name = "DgvContratoAlgodon"
         Me.DgvContratoAlgodon.ReadOnly = True
         Me.DgvContratoAlgodon.RowHeadersVisible = False
         Me.DgvContratoAlgodon.RowHeadersWidth = 40
         Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1447, 363)
+        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1447, 341)
         Me.DgvContratoAlgodon.TabIndex = 13
+        '
+        'gbventascontrato
+        '
+        Me.gbventascontrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
+        Me.gbventascontrato.Location = New System.Drawing.Point(400, 200)
+        Me.gbventascontrato.Name = "gbventascontrato"
+        Me.gbventascontrato.Size = New System.Drawing.Size(513, 146)
+        Me.gbventascontrato.TabIndex = 42
+        Me.gbventascontrato.TabStop = False
+        Me.gbventascontrato.Text = "Adendum"
+        '
+        'DgvCierres
+        '
+        Me.DgvCierres.AllowUserToAddRows = False
+        Me.DgvCierres.AllowUserToDeleteRows = False
+        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
+        Me.DgvCierres.MultiSelect = False
+        Me.DgvCierres.Name = "DgvCierres"
+        Me.DgvCierres.ReadOnly = True
+        Me.DgvCierres.RowHeadersVisible = False
+        Me.DgvCierres.RowHeadersWidth = 40
+        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvCierres.Size = New System.Drawing.Size(507, 127)
+        Me.DgvCierres.TabIndex = 11
         '
         'ContratosAlgodon
         '
@@ -1177,6 +1215,8 @@ Partial Class ContratosAlgodon
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbventascontrato.ResumeLayout(False)
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1284,4 +1324,6 @@ Partial Class ContratosAlgodon
     Friend WithEvents tbidcontratovta As TextBox
     Friend WithEvents Label26 As Label
     Friend WithEvents btconsultacontratoventa As Button
+    Friend WithEvents gbventascontrato As GroupBox
+    Friend WithEvents DgvCierres As DataGridView
 End Class

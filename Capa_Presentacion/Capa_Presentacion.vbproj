@@ -356,6 +356,12 @@
     <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Configuracion\Turnos.Designer.vb">
+      <DependentUpon>Turnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Turnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaClientePreliquidacion.Designer.vb">
       <DependentUpon>ConsultaClientePreliquidacion.vb</DependentUpon>
     </Compile>
@@ -792,6 +798,12 @@
     <Compile Include="Reportes\RepLiquidacionRomaneaje.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\RepNotificacionfijacion.Designer.vb">
+      <DependentUpon>RepNotificacionfijacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RepNotificacionfijacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\RepPreLiquidacionVenta.Designer.vb">
       <DependentUpon>RepPreLiquidacionVenta.vb</DependentUpon>
     </Compile>
@@ -996,6 +1008,12 @@
       <DependentUpon>RPTDetalleVenta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTDiariooperacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTDiariooperacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTDisponibilidadPacasProductor.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1060,6 +1078,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPTModulosPorProductor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTnotificacionfijacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTnotificacionfijacion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\RPT\RPTOrdenEmbarque.vb">
@@ -1801,6 +1825,9 @@
     <EmbeddedResource Include="Configuracion\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Turnos.resx">
+      <DependentUpon>Turnos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaClientePreliquidacion.resx">
       <DependentUpon>ConsultaClientePreliquidacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -1931,6 +1958,9 @@
     <EmbeddedResource Include="Reportes\RepLiquidacionRomaneaje.resx">
       <DependentUpon>RepLiquidacionRomaneaje.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RepNotificacionfijacion.resx">
+      <DependentUpon>RepNotificacionfijacion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RepPreLiquidacionVenta.resx">
       <DependentUpon>RepPreLiquidacionVenta.vb</DependentUpon>
     </EmbeddedResource>
@@ -2044,6 +2074,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTDetalleVenta.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTDiariooperacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTDiariooperacion.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTDisponibilidadPacasProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTDisponibilidadPacasProductor.vb</LastGenOutput>
@@ -2087,6 +2121,10 @@
     <EmbeddedResource Include="Reportes\RPT\RPTModulosPorProductor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTModulosPorProductor.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTnotificacionfijacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTnotificacionfijacion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTOrdenEmbarque.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

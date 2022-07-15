@@ -5,9 +5,9 @@ alter procedure sp_InsertarContratoCompra
 @PacasCompradas int,
 @PacasDisponibles int,
 @SuperficieComprometida float,
-@Lotes varchar(max),
-@IdContratoVta int,
-@DescripcionVta varchar(50),
+--@Lotes varchar(max),
+--@IdContratoVta int,
+--@DescripcionVta varchar(50),
 @PrecioQuintal float,
 @Puntos float,
 @FechaLiquidacion datetime,
@@ -39,9 +39,9 @@ using (select @IdContratoAlgodon
 			 ,@PacasCompradas 
 			 ,@PacasDisponibles 
 			 ,@SuperficieComprometida
-			 ,@Lotes
-			 ,@IdContratoVta
-			 ,@DescripcionVta
+			 --,@Lotes
+			 --,@IdContratoVta
+			 --,@DescripcionVta
 			 ,@PrecioQuintal
 			 ,@Puntos
 			 ,@FechaLiquidacion
@@ -69,9 +69,9 @@ using (select @IdContratoAlgodon
 			 ,PacasCompradas
 			 ,PacasDisponibles
 			 ,SuperficieComprometida
-			 ,Lotes
-			 ,IdContratoVta
-			 ,DescripcionVta
+			 --,Lotes
+			 --,IdContratoVta
+			 --,DescripcionVta
 			 ,PrecioQuintal
 			 ,Puntos
 			 ,FechaLiquidacion
@@ -101,9 +101,9 @@ UPDATE SET
 		pacasCompradas = source.pacascompradas,
 		pacasdisponibles = source.pacasdisponibles,
 		SuperficieComprometida = source.SuperficieComprometida,
-		Lotes = source.Lotes,
-		IdContratoVta = source.IdContratoVta,
-		DescripcionVta = source.DescripcionVta,
+		--Lotes = source.Lotes,
+		--IdContratoVta = source.IdContratoVta,
+		--DescripcionVta = source.DescripcionVta,
 		PrecioQuintal = source.PrecioQuintal,
 		Puntos = source.Puntos,
 		FechaLiquidacion = source.FechaLiquidacion,
@@ -128,9 +128,9 @@ INSERT (IdProductor
 	   ,Pacas
 	   ,PacasDisponibles
 	   ,SuperficieComprometida
-	   ,Lotes
-	   ,IdContratoVta
-	   ,DescripcionVta
+	   --,Lotes
+	   --,IdContratoVta
+	   --,DescripcionVta
 	   ,PrecioQuintal
 	   ,Puntos
 	   ,FechaLiquidacion
@@ -156,9 +156,9 @@ VALUES (source.IdProductor
 	   ,source.Pacas
 	   ,source.PacasDisponibles
 	   ,source.SuperficieComprometida
-	   ,source.Lotes
-	   ,source.IdContratoVta
-	   ,source.DescripcionVta
+	   --,source.Lotes
+	   --,source.IdContratoVta
+	   --,source.DescripcionVta
 	   ,source.PrecioQuintal
 	   ,source.Puntos
 	   ,source.FechaLiquidacion
