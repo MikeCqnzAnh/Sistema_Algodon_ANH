@@ -44,6 +44,10 @@
         ReporteRangoCastigolarcompra = 42
         ReporteRangoCastigorescompra = 43
         ReporteRangoCastigounicompra = 44
+        ReporteRomaneajeCompraEnc = 45
+        ReporteRomaneajeCompraDet = 46
+        ReporteRomaneajeOrdenEnc = 47
+
     End Enum
     Public Enum Eliminar
         EliminarRegistro = 1
@@ -203,6 +207,10 @@
         ConsultaUniRango = 132
         ConsultaPreioProm = 133
         ConsultaContratovta = 134
+        ConsultaTurnos = 135
+        ConsultaOrdenporliquidar = 136
+        ConsultaOrdenLiquidada = 137
+        ConsultaModulosReporte = 138
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

@@ -48,9 +48,13 @@ Partial Class CompraPago
         Me.TbSumaCastigo = New System.Windows.Forms.TextBox()
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.PagarItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDePacasItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpDetallesDeCompraItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImpResumenDeLiquidacionesItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CastigoPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RomaneajeDeCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbCastigos = New System.Windows.Forms.GroupBox()
         Me.TbCastigoxresistencia = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -65,9 +69,6 @@ Partial Class CompraPago
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TbIdContrato = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.EnviarEmailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CastigoPorRangosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DgvResumenPagoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbPagoFinal.SuspendLayout()
         Me.MSMenu.SuspendLayout()
@@ -330,7 +331,7 @@ Partial Class CompraPago
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.EnviarEmailToolStripMenuItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeCompraItem, Me.ImpResumenDeLiquidacionesItem, Me.CastigoPorRangosToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PagarItem, Me.EnviarEmailToolStripMenuItem, Me.ImpResumenDePacasItem, Me.ImpDetallesDeCompraItem, Me.ImpResumenDeLiquidacionesItem, Me.CastigoPorRangosToolStripMenuItem, Me.RomaneajeDeCompraToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1344, 24)
@@ -343,6 +344,13 @@ Partial Class CompraPago
         Me.PagarItem.Size = New System.Drawing.Size(49, 20)
         Me.PagarItem.Text = "Pagar"
         Me.PagarItem.Visible = False
+        '
+        'EnviarEmailToolStripMenuItem
+        '
+        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
+        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
+        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
+        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
         '
         'ImpResumenDePacasItem
         '
@@ -361,6 +369,25 @@ Partial Class CompraPago
         Me.ImpResumenDeLiquidacionesItem.Name = "ImpResumenDeLiquidacionesItem"
         Me.ImpResumenDeLiquidacionesItem.Size = New System.Drawing.Size(184, 20)
         Me.ImpResumenDeLiquidacionesItem.Text = "Imp.Resumen de Liquidaciones"
+        '
+        'CastigoPorRangosToolStripMenuItem
+        '
+        Me.CastigoPorRangosToolStripMenuItem.Name = "CastigoPorRangosToolStripMenuItem"
+        Me.CastigoPorRangosToolStripMenuItem.Size = New System.Drawing.Size(122, 20)
+        Me.CastigoPorRangosToolStripMenuItem.Text = "Castigo por Rangos"
+        '
+        'RomaneajeDeCompraToolStripMenuItem
+        '
+        Me.RomaneajeDeCompraToolStripMenuItem.Name = "RomaneajeDeCompraToolStripMenuItem"
+        Me.RomaneajeDeCompraToolStripMenuItem.Size = New System.Drawing.Size(140, 20)
+        Me.RomaneajeDeCompraToolStripMenuItem.Text = "Romaneaje de Compra"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'GbCastigos
         '
@@ -512,26 +539,6 @@ Partial Class CompraPago
         Me.Label16.TabIndex = 5
         Me.Label16.Text = "Id Contrato"
         '
-        'EnviarEmailToolStripMenuItem
-        '
-        Me.EnviarEmailToolStripMenuItem.Image = Global.Capa_Presentacion.My.Resources.Resources.attachment
-        Me.EnviarEmailToolStripMenuItem.Name = "EnviarEmailToolStripMenuItem"
-        Me.EnviarEmailToolStripMenuItem.Size = New System.Drawing.Size(99, 20)
-        Me.EnviarEmailToolStripMenuItem.Text = "Enviar Email"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
-        'CastigoPorRangosToolStripMenuItem
-        '
-        Me.CastigoPorRangosToolStripMenuItem.Name = "CastigoPorRangosToolStripMenuItem"
-        Me.CastigoPorRangosToolStripMenuItem.Size = New System.Drawing.Size(122, 20)
-        Me.CastigoPorRangosToolStripMenuItem.Text = "Castigo por Rangos"
-        '
         'CompraPago
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -617,4 +624,5 @@ Partial Class CompraPago
     Friend WithEvents Label6 As Label
     Friend WithEvents EnviarEmailToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CastigoPorRangosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RomaneajeDeCompraToolStripMenuItem As ToolStripMenuItem
 End Class

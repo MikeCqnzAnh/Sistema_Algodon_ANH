@@ -14,6 +14,7 @@ ot.IdOrdenTrabajo
 ,ot.IdColonia	
 ,ot.Predio	
 ,ot.IdEstatus	
+,ot.CheckPepena
 ,ot.IdUsuarioCreacion	
 ,ot.FechaCreacion	
 ,ot.IdUsuarioActualizacion	

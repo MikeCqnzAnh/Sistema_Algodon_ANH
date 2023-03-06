@@ -27,6 +27,7 @@ Partial Class CapturaBoletasPorLotes
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGenerales = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -38,7 +39,7 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteDeModulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -48,7 +49,7 @@ Partial Class CapturaBoletasPorLotes
         'MSMenu
         '
         Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.EntradasExtraordinariasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.EntradasExtraordinariasToolStripMenuItem, Me.ReporteDeModulosToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1157, 24)
@@ -65,6 +66,12 @@ Partial Class CapturaBoletasPorLotes
         Me.IncidenciasToolStripMenuItem.Name = "IncidenciasToolStripMenuItem"
         Me.IncidenciasToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.IncidenciasToolStripMenuItem.Text = "Incidencias"
+        '
+        'EntradasExtraordinariasToolStripMenuItem
+        '
+        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
+        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
+        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
         '
         'SalirToolStripMenuItem
         '
@@ -170,11 +177,11 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
-        'EntradasExtraordinariasToolStripMenuItem
+        'ReporteDeModulosToolStripMenuItem
         '
-        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
-        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
-        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
+        Me.ReporteDeModulosToolStripMenuItem.Name = "ReporteDeModulosToolStripMenuItem"
+        Me.ReporteDeModulosToolStripMenuItem.Size = New System.Drawing.Size(126, 20)
+        Me.ReporteDeModulosToolStripMenuItem.Text = "Reporte de Modulos"
         '
         'CapturaBoletasPorLotes
         '
@@ -217,6 +224,7 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents IncidenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label2 As Label
     Friend WithEvents EntradasExtraordinariasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteDeModulosToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlusCapturaBoletas
         Inherits DataGridView

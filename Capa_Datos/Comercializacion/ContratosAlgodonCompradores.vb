@@ -16,7 +16,7 @@ Public Class ContratosAlgodonCompradores
             cmdGuardar.Parameters.Add(New SqlParameter("@Pacas", EntidadContratosAlgodonCompradores1.Pacas))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasVendidas", EntidadContratosAlgodonCompradores1.PacasVendidas))
             cmdGuardar.Parameters.Add(New SqlParameter("@PacasDisponibles", EntidadContratosAlgodonCompradores1.PacasDisponibles))
-            cmdGuardar.Parameters.Add(New SqlParameter("@PacasDispContcomp", EntidadContratosAlgodonCompradores1.PacasDispContComp))
+            'cmdGuardar.Parameters.Add(New SqlParameter("@PacasDispContcomp", EntidadContratosAlgodonCompradores1.PacasDispContComp))
             cmdGuardar.Parameters.Add(New SqlParameter("@PrecioQuintal", EntidadContratosAlgodonCompradores1.PrecioQuintal))
             cmdGuardar.Parameters.Add(New SqlParameter("@IdUnidadPeso", EntidadContratosAlgodonCompradores1.IdUnidadPeso))
             cmdGuardar.Parameters.Add(New SqlParameter("@ValorConversion", EntidadContratosAlgodonCompradores1.ValorConversion))

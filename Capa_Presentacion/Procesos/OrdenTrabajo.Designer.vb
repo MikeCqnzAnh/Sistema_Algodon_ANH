@@ -65,6 +65,7 @@ Partial Class OrdenTrabajo
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvCapturaLotes = New System.Windows.Forms.DataGridView()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.ckpepena = New System.Windows.Forms.CheckBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbInformacion.SuspendLayout()
@@ -106,6 +107,7 @@ Partial Class OrdenTrabajo
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.ckpepena)
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
         Me.GbDatosGenerales.Controls.Add(Me.Label16)
         Me.GbDatosGenerales.Controls.Add(Me.TbNoModulos)
@@ -133,14 +135,14 @@ Partial Class OrdenTrabajo
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1215, 192)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1215, 186)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         '
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(490, 103)
+        Me.CbEstatus.Location = New System.Drawing.Point(490, 96)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 25
@@ -148,7 +150,7 @@ Partial Class OrdenTrabajo
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(371, 106)
+        Me.Label16.Location = New System.Drawing.Point(371, 99)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(42, 13)
         Me.Label16.TabIndex = 24
@@ -157,7 +159,7 @@ Partial Class OrdenTrabajo
         'TbNoModulos
         '
         Me.TbNoModulos.Enabled = False
-        Me.TbNoModulos.Location = New System.Drawing.Point(490, 130)
+        Me.TbNoModulos.Location = New System.Drawing.Point(490, 123)
         Me.TbNoModulos.Name = "TbNoModulos"
         Me.TbNoModulos.Size = New System.Drawing.Size(121, 20)
         Me.TbNoModulos.TabIndex = 23
@@ -165,7 +167,7 @@ Partial Class OrdenTrabajo
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(371, 133)
+        Me.Label3.Location = New System.Drawing.Point(371, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 22
@@ -287,7 +289,7 @@ Partial Class OrdenTrabajo
         Me.GbInformacion.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbInformacion.Location = New System.Drawing.Point(832, 16)
         Me.GbInformacion.Name = "GbInformacion"
-        Me.GbInformacion.Size = New System.Drawing.Size(380, 173)
+        Me.GbInformacion.Size = New System.Drawing.Size(380, 167)
         Me.GbInformacion.TabIndex = 2
         Me.GbInformacion.TabStop = False
         Me.GbInformacion.Text = "Informacion"
@@ -448,15 +450,25 @@ Partial Class OrdenTrabajo
         Me.DgvCapturaLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCapturaLotes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCapturaLotes.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCapturaLotes.Location = New System.Drawing.Point(0, 216)
+        Me.DgvCapturaLotes.Location = New System.Drawing.Point(0, 210)
         Me.DgvCapturaLotes.MultiSelect = False
         Me.DgvCapturaLotes.Name = "DgvCapturaLotes"
         Me.DgvCapturaLotes.ReadOnly = True
         Me.DgvCapturaLotes.RowHeadersVisible = False
         Me.DgvCapturaLotes.RowHeadersWidth = 40
         Me.DgvCapturaLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1215, 358)
+        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1215, 364)
         Me.DgvCapturaLotes.TabIndex = 14
+        '
+        'ckpepena
+        '
+        Me.ckpepena.AutoSize = True
+        Me.ckpepena.Location = New System.Drawing.Point(119, 154)
+        Me.ckpepena.Name = "ckpepena"
+        Me.ckpepena.Size = New System.Drawing.Size(110, 17)
+        Me.ckpepena.TabIndex = 26
+        Me.ckpepena.Text = "Orden de Pepena"
+        Me.ckpepena.UseVisualStyleBackColor = True
         '
         'OrdenTrabajo
         '
@@ -526,4 +538,5 @@ Partial Class OrdenTrabajo
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label16 As Label
     Friend WithEvents FontDialog1 As FontDialog
+    Friend WithEvents ckpepena As CheckBox
 End Class

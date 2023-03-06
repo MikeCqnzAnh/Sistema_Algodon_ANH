@@ -57,4 +57,12 @@ Public Class Produccion
     Public LargoFibra As Double
     Public ResistenciaFibra As Double
     Public LeerEtiqueta As Boolean
+
+    '---------------------------------Turno
+    Public idincidencia As Integer
+    Public idturnoenc As Integer
+    Public fechaincidencia As DateTime
+    Public idresponsableturno As Integer
+    Public idresponsableprensa As Integer
+    Public hora As TimeSpan
 End Class

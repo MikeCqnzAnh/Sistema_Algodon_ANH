@@ -48,7 +48,7 @@ Public Class Usuarios
         Dim EntidadUsuarios1 = New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
         EntidadUsuarios1.TablaConsulta = New DataTable
-        'Dim sqlcom1 As SqlCommand
+        Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPerfiles)
         Try
@@ -60,13 +60,11 @@ Public Class Usuarios
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaUsuarios", cnn)
                     sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
-                    '    sqlcom1 = New SqlCommand("sp_ConsultaUsuariosBusqueda", cnn)
-                    '    sqldat1 = New SqlDataAdapter(sqlcom1)
-                    '    sqlcom1.CommandType = CommandType.StoredProcedure
-                    '    sqlcom1.Parameters.Clear()
-                    '    sqlcom1.Parameters.Add(New SqlParameter("@NombreLote", EntidadUsuarios1.Lote))
-                    '    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUsuario
+                    sqlcom1 = New SqlCommand("pa_consultausuarioprensa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqldat1.Fill(EntidadUsuarios1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
                     '    sqlcom1 = New SqlCommand("sp_ConsultaUsuarios", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)

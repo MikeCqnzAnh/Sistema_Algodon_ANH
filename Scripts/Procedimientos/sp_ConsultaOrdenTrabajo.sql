@@ -1,4 +1,4 @@
-CREATE procedure sp_ConsultaOrdenTrabajo
+create procedure sp_ConsultaOrdenTrabajo
 --declare
 @IdOrdenTrabajo int 
 as
@@ -10,6 +10,7 @@ select otr.IdPlanta as IdplantaOrigen,
 	   cli.IdCliente,
 	   Cli.Nombre,
 	   @Modulos as Modulos,
-	   otr.NumeroModulos	
-from OrdenTrabajo OTR inner join Clientes Cli on otr.IdProductor = Cli.IdCliente
-where OTR.IdOrdenTrabajo = @IdOrdenTrabajo					
+	   otr.NumeroModulos,
+	   isnull(OTR.CheckPepena,0) as CheckPepena
+	   from OrdenTrabajo OTR inner join Clientes Cli on otr.IdProductor = Cli.IdCliente
+where OTR.IdOrdenTrabajo = @IdOrdenTrabajo				

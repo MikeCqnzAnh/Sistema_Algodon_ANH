@@ -188,7 +188,7 @@ Module ImportarExcel
             Dim ds As New DataSet
             Dim da As OleDbDataAdapter
             Dim dt As DataTable
-            Dim conn As OleDbConnection
+            Dim conn As New OleDbConnection
             Try
                 xSheet = "Tabla"
                 conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")
@@ -220,7 +220,7 @@ Module ImportarExcel
                 Dim ds As New DataSet
                 Dim da As OleDbDataAdapter
                 Dim dt As DataTable
-                Dim conn As OleDbConnection
+            Dim conn As New OleDbConnection
             Try
                 xSheet = "Tabla"
                 conn = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;" & "data source=" & ExcelFile & "; " & "Extended Properties='Excel 12.0 Xml;HDR=Yes'")

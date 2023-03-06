@@ -21,5 +21,6 @@ Public Class OrdenTrabajo
     Public FlagRevisada As Boolean
     Public FechaEntrada As DateTime
     Public FechaSalida As DateTime
+    Public checkpepena As Boolean
 End Class
 

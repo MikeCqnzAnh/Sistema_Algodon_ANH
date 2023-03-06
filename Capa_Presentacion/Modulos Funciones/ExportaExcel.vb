@@ -88,7 +88,7 @@ Module ExportaExcel
             Dim excelWorksheet As Excel.Worksheet = CType(excelBook.Worksheets(1), Excel.Worksheet)
             With excelWorksheet
                 .Cells.Select()
-                .Cells.NumberFormat = "@"
+                '.Cells.NumberFormat = "@"
                 For r = 0 To dgv.Rows.Count - 1
                     For c = 0 To dgv.Columns.Count - 1
                         arr(r, c) = dgv.Rows(r).Cells(c).Value

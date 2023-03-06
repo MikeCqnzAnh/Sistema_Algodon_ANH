@@ -396,8 +396,8 @@ Public Class ContratosAlgodon
         TbPacasDisponibles.Text = TablaDetalle.Rows(0).Item("PacasDisponibles")
         TbSuperficie.Text = TablaDetalle.Rows(0).Item("SuperficieComprometida")
         TbLotes.Text = TablaDetalle.Rows(0).Item("Lotes")
-        tbidcontratovta.Text = TablaDetalle.Rows(0).Item("IdContratoVta")
-        tbdescripcionvta.Text = TablaDetalle.Rows(0).Item("DescripcionVta")
+        'tbidcontratovta.Text = TablaDetalle.Rows(0).Item("IdContratoVta")
+        'tbdescripcionvta.Text = TablaDetalle.Rows(0).Item("DescripcionVta")
         CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
         TbPrecioQuintal.Text = TablaDetalle.Rows(0).Item("PrecioQuintal")
         If Val(TbPrecioQuintal.Text) = 0 Then

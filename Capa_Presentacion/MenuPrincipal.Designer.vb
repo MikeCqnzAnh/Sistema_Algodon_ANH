@@ -177,6 +177,7 @@ Partial Class MenuPrincipal
         Me.BuscarActualizacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEmpresaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosParaContratosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -198,7 +199,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -680,7 +680,7 @@ Partial Class MenuPrincipal
         '
         Me.RevisionDeProduccionToolStripMenuItem.Name = "RevisionDeProduccionToolStripMenuItem"
         Me.RevisionDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
-        Me.RevisionDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.RevisionDeProduccionToolStripMenuItem.Tag = "249,47"
         Me.RevisionDeProduccionToolStripMenuItem.Text = "Revision de Produccion"
         '
         'LiquidacionesPorRomaneajeToolStripMenuItem
@@ -708,7 +708,7 @@ Partial Class MenuPrincipal
         '
         Me.CargaPacasExternasToolStripMenuItem.Name = "CargaPacasExternasToolStripMenuItem"
         Me.CargaPacasExternasToolStripMenuItem.Size = New System.Drawing.Size(341, 24)
-        Me.CargaPacasExternasToolStripMenuItem.Tag = "247,47"
+        Me.CargaPacasExternasToolStripMenuItem.Tag = "246,47"
         Me.CargaPacasExternasToolStripMenuItem.Text = "Carga Pacas Externas"
         '
         'AlmacenesToolStripMenuItem
@@ -723,14 +723,14 @@ Partial Class MenuPrincipal
         '
         Me.OrdenDeEmbarquePToolStripMenuItem.Name = "OrdenDeEmbarquePToolStripMenuItem"
         Me.OrdenDeEmbarquePToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "0,0"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "250,58"
         Me.OrdenDeEmbarquePToolStripMenuItem.Text = "Orden de Embarque p"
         '
         'SalidaPacasOrdenToolStripMenuItem
         '
         Me.SalidaPacasOrdenToolStripMenuItem.Name = "SalidaPacasOrdenToolStripMenuItem"
         Me.SalidaPacasOrdenToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.SalidaPacasOrdenToolStripMenuItem.Tag = "0,0"
+        Me.SalidaPacasOrdenToolStripMenuItem.Tag = "251,58"
         Me.SalidaPacasOrdenToolStripMenuItem.Text = "Salida Pacas Orden"
         '
         'OrdenDeEmbarquePacasToolStripMenuItem
@@ -781,7 +781,7 @@ Partial Class MenuPrincipal
         '
         Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
         Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(243, 24)
-        Me.InventarioToolStripMenuItem.Tag = "0,0"
+        Me.InventarioToolStripMenuItem.Tag = "252,58"
         Me.InventarioToolStripMenuItem.Text = "Inventario"
         '
         'AdministraciónToolStripMenuItem
@@ -839,7 +839,7 @@ Partial Class MenuPrincipal
         '
         Me.ReporteDeHojasDeProduccionToolStripMenuItem.Name = "ReporteDeHojasDeProduccionToolStripMenuItem"
         Me.ReporteDeHojasDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
-        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.ReporteDeHojasDeProduccionToolStripMenuItem.Tag = "253,67"
         Me.ReporteDeHojasDeProduccionToolStripMenuItem.Text = "Generar hoja de produccion"
         '
         'LotesDetalleConMódulosSegundaFormaToolStripMenuItem
@@ -862,7 +862,7 @@ Partial Class MenuPrincipal
         '
         Me.ResumenDeProduccionToolStripMenuItem.Name = "ResumenDeProduccionToolStripMenuItem"
         Me.ResumenDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
-        Me.ResumenDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.ResumenDeProduccionToolStripMenuItem.Tag = "254,67"
         Me.ResumenDeProduccionToolStripMenuItem.Text = "Resumen de Produccion por Modulos"
         '
         'ResumenDeLiquidacionesToolStripMenuItem
@@ -933,7 +933,7 @@ Partial Class MenuPrincipal
         '
         Me.ComparativaDePesosToolStripMenuItem.Name = "ComparativaDePesosToolStripMenuItem"
         Me.ComparativaDePesosToolStripMenuItem.Size = New System.Drawing.Size(226, 24)
-        Me.ComparativaDePesosToolStripMenuItem.Tag = "246,245"
+        Me.ComparativaDePesosToolStripMenuItem.Tag = "255,245"
         Me.ComparativaDePesosToolStripMenuItem.Text = "Comparativa de Pesos"
         '
         'ComercializacionToolStripMenuItem
@@ -1117,7 +1117,7 @@ Partial Class MenuPrincipal
         '
         Me.ExistenciaDePacasToolStripMenuItem.Name = "ExistenciaDePacasToolStripMenuItem"
         Me.ExistenciaDePacasToolStripMenuItem.Size = New System.Drawing.Size(349, 24)
-        Me.ExistenciaDePacasToolStripMenuItem.Tag = "0,0"
+        Me.ExistenciaDePacasToolStripMenuItem.Tag = "256,67"
         Me.ExistenciaDePacasToolStripMenuItem.Text = "Existencia de Pacas"
         '
         'SagarpaToolStripMenuItem
@@ -1320,6 +1320,14 @@ Partial Class MenuPrincipal
         Me.DatosDeEmpresaToolStripMenuItem.Tag = "123,122"
         Me.DatosDeEmpresaToolStripMenuItem.Text = "Datos de empresa"
         '
+        'TurnosToolStripMenuItem
+        '
+        Me.TurnosToolStripMenuItem.Name = "TurnosToolStripMenuItem"
+        Me.TurnosToolStripMenuItem.Size = New System.Drawing.Size(352, 24)
+        Me.TurnosToolStripMenuItem.Tag = "0,0"
+        Me.TurnosToolStripMenuItem.Text = "Configuracion de Turnos"
+        Me.TurnosToolStripMenuItem.Visible = False
+        '
         'ConfiguracionDeParametrosToolStripMenuItem1
         '
         Me.ConfiguracionDeParametrosToolStripMenuItem1.Name = "ConfiguracionDeParametrosToolStripMenuItem1"
@@ -1338,7 +1346,7 @@ Partial Class MenuPrincipal
         '
         Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Name = "ConfiguracionDeParametrosBanxicoToolStripMenuItem"
         Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Size = New System.Drawing.Size(352, 24)
-        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Tag = "0,0"
+        Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Tag = "257,122"
         Me.ConfiguracionDeParametrosBanxicoToolStripMenuItem.Text = "Configuracion de parametros Banxico"
         '
         'ConfiguracionDeBaseDeDatosToolStripMenuItem1
@@ -1461,13 +1469,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(113, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
-        '
-        'TurnosToolStripMenuItem
-        '
-        Me.TurnosToolStripMenuItem.Name = "TurnosToolStripMenuItem"
-        Me.TurnosToolStripMenuItem.Size = New System.Drawing.Size(352, 24)
-        Me.TurnosToolStripMenuItem.Tag = "0,0"
-        Me.TurnosToolStripMenuItem.Text = "Configuracion de Turnos"
         '
         'MenuPrincipal
         '

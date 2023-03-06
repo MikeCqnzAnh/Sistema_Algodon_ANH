@@ -23,20 +23,24 @@ Partial Class Turnos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbrespprensa = New System.Windows.Forms.ComboBox()
+        Me.cbrespturno = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dthorasalida = New System.Windows.Forms.DateTimePicker()
         Me.dthoraentrada = New System.Windows.Forms.DateTimePicker()
-        Me.cbplanta = New System.Windows.Forms.ComboBox()
         Me.tbdescripcion = New System.Windows.Forms.TextBox()
         Me.tbidturnoenc = New System.Windows.Forms.TextBox()
         Me.dgvturnos = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cbplanta = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvturnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -44,27 +48,67 @@ Partial Class Turnos
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.cbplanta)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.cbrespprensa)
+        Me.GroupBox1.Controls.Add(Me.cbrespturno)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dthorasalida)
         Me.GroupBox1.Controls.Add(Me.dthoraentrada)
-        Me.GroupBox1.Controls.Add(Me.cbplanta)
         Me.GroupBox1.Controls.Add(Me.tbdescripcion)
         Me.GroupBox1.Controls.Add(Me.tbidturnoenc)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 24)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1054, 78)
-        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.Size = New System.Drawing.Size(1054, 118)
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(12, 94)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(120, 13)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Responsable de Prensa"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(115, 13)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Responsable de Turno"
+        '
+        'cbrespprensa
+        '
+        Me.cbrespprensa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbrespprensa.FormattingEnabled = True
+        Me.cbrespprensa.Location = New System.Drawing.Point(138, 91)
+        Me.cbrespprensa.Name = "cbrespprensa"
+        Me.cbrespprensa.Size = New System.Drawing.Size(254, 21)
+        Me.cbrespprensa.TabIndex = 4
+        '
+        'cbrespturno
+        '
+        Me.cbrespturno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbrespturno.FormattingEnabled = True
+        Me.cbrespturno.Location = New System.Drawing.Point(138, 64)
+        Me.cbrespturno.Name = "cbrespturno"
+        Me.cbrespturno.Size = New System.Drawing.Size(254, 21)
+        Me.cbrespturno.TabIndex = 3
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(629, 42)
+        Me.Label5.Location = New System.Drawing.Point(398, 93)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 13)
         Me.Label5.TabIndex = 9
@@ -73,20 +117,11 @@ Partial Class Turnos
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(407, 42)
+        Me.Label4.Location = New System.Drawing.Point(398, 67)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 13)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Hora de Entrada"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(206, 42)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(37, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Planta"
         '
         'Label2
         '
@@ -108,42 +143,34 @@ Partial Class Turnos
         '
         'dthorasalida
         '
-        Me.dthorasalida.CustomFormat = "hh:mm tt"
+        Me.dthorasalida.CustomFormat = "HH:mm:ss tt"
         Me.dthorasalida.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dthorasalida.Location = New System.Drawing.Point(712, 38)
+        Me.dthorasalida.Location = New System.Drawing.Point(489, 92)
         Me.dthorasalida.Name = "dthorasalida"
         Me.dthorasalida.Size = New System.Drawing.Size(94, 20)
-        Me.dthorasalida.TabIndex = 3
+        Me.dthorasalida.TabIndex = 6
         '
         'dthoraentrada
         '
-        Me.dthoraentrada.CustomFormat = "hh:mm tt"
+        Me.dthoraentrada.CustomFormat = "HH:mm:ss tt"
         Me.dthoraentrada.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dthoraentrada.Location = New System.Drawing.Point(498, 38)
+        Me.dthoraentrada.Location = New System.Drawing.Point(489, 65)
         Me.dthoraentrada.Name = "dthoraentrada"
         Me.dthoraentrada.Size = New System.Drawing.Size(94, 20)
-        Me.dthoraentrada.TabIndex = 2
-        '
-        'cbplanta
-        '
-        Me.cbplanta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbplanta.FormattingEnabled = True
-        Me.cbplanta.Location = New System.Drawing.Point(251, 38)
-        Me.cbplanta.Name = "cbplanta"
-        Me.cbplanta.Size = New System.Drawing.Size(150, 21)
-        Me.cbplanta.TabIndex = 1
+        Me.dthoraentrada.TabIndex = 5
         '
         'tbdescripcion
         '
-        Me.tbdescripcion.Location = New System.Drawing.Point(81, 38)
+        Me.tbdescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.tbdescripcion.Location = New System.Drawing.Point(138, 38)
         Me.tbdescripcion.Name = "tbdescripcion"
         Me.tbdescripcion.Size = New System.Drawing.Size(100, 20)
-        Me.tbdescripcion.TabIndex = 0
+        Me.tbdescripcion.TabIndex = 1
         '
         'tbidturnoenc
         '
         Me.tbidturnoenc.Enabled = False
-        Me.tbidturnoenc.Location = New System.Drawing.Point(81, 12)
+        Me.tbidturnoenc.Location = New System.Drawing.Point(138, 12)
         Me.tbidturnoenc.Name = "tbidturnoenc"
         Me.tbidturnoenc.Size = New System.Drawing.Size(100, 20)
         Me.tbidturnoenc.TabIndex = 0
@@ -159,15 +186,15 @@ Partial Class Turnos
         Me.dgvturnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvturnos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvturnos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.dgvturnos.Location = New System.Drawing.Point(0, 102)
+        Me.dgvturnos.Location = New System.Drawing.Point(0, 142)
         Me.dgvturnos.MultiSelect = False
         Me.dgvturnos.Name = "dgvturnos"
         Me.dgvturnos.ReadOnly = True
         Me.dgvturnos.RowHeadersVisible = False
         Me.dgvturnos.RowHeadersWidth = 40
         Me.dgvturnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvturnos.Size = New System.Drawing.Size(1054, 567)
-        Me.dgvturnos.TabIndex = 1
+        Me.dgvturnos.Size = New System.Drawing.Size(1054, 527)
+        Me.dgvturnos.TabIndex = 2
         '
         'MenuStrip1
         '
@@ -176,7 +203,7 @@ Partial Class Turnos
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1054, 24)
-        Me.MenuStrip1.TabIndex = 2
+        Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'NuevoToolStripMenuItem
@@ -190,6 +217,23 @@ Partial Class Turnos
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
         Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.GuardarToolStripMenuItem.Text = "Guardar"
+        '
+        'cbplanta
+        '
+        Me.cbplanta.FormattingEnabled = True
+        Me.cbplanta.Location = New System.Drawing.Point(422, 37)
+        Me.cbplanta.Name = "cbplanta"
+        Me.cbplanta.Size = New System.Drawing.Size(161, 21)
+        Me.cbplanta.TabIndex = 2
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(379, 42)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "Planta"
         '
         'Turnos
         '
@@ -216,12 +260,10 @@ Partial Class Turnos
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvturnos As DataGridView
-    Friend WithEvents cbplanta As ComboBox
     Friend WithEvents tbdescripcion As TextBox
     Friend WithEvents tbidturnoenc As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents dthorasalida As DateTimePicker
@@ -229,4 +271,10 @@ Partial Class Turnos
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cbrespprensa As ComboBox
+    Friend WithEvents cbrespturno As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents cbplanta As ComboBox
 End Class

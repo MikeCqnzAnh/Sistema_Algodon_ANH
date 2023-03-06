@@ -6,11 +6,9 @@ Public Class Colonias
         CargarCombos()
         ConsultaColonia()
     End Sub
-
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
     End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         Dim EntidadColonias As New Capa_Entidad.Colonias
         Dim NegocioColonias As New Capa_Negocio.Colonias
@@ -25,18 +23,15 @@ Public Class Colonias
         MsgBox("Realizado Correctamente")
         ConsultaColonia()
     End Sub
-
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
-
     Private Sub Limpiar()
         TbIdColonia.Text = ""
         TbDescripcion.Text = ""
         TbNoPacas.Text = ""
         CbEstatus.SelectedValue = 1
     End Sub
-
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
         Dim dt As DataTable = New DataTable("Tabla")
@@ -56,7 +51,6 @@ Public Class Colonias
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedValue = 1
     End Sub
-
     Private Sub ConsultaColonia()
         Dim EntidadColonias As New Capa_Entidad.Colonias
         Dim NegocioColonias As New Capa_Negocio.Colonias
@@ -66,7 +60,6 @@ Public Class Colonias
         NegocioColonias.Consultar(EntidadColonias)
         DgvCompradores.DataSource = EntidadColonias.TablaConsulta
     End Sub
-
     Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
         If Char.IsLetter(e.KeyChar) Then
             e.Handled = False
@@ -78,7 +71,6 @@ Public Class Colonias
             e.Handled = True
         End If
     End Sub
-
     Private Sub TbNoPacas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNoPacas.KeyPress
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False

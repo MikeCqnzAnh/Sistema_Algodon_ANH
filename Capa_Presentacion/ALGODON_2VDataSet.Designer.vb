@@ -3422,6 +3422,8 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnTemporadaAnual As Global.System.Data.DataColumn
         
+        Private columnApoderadoFisica As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3882,6 +3884,14 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ApoderadoFisicaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnApoderadoFisica
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3971,9 +3981,10 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal ParamPromPesomin As Long,  _
                     ByVal ParamPromPesomax As Long,  _
                     ByVal ParamPesomin As Long,  _
-                    ByVal TemporadaAnual As Long) As ContratoCompraEmpresaRow
+                    ByVal TemporadaAnual As Long,  _
+                    ByVal ApoderadoFisica As String) As ContratoCompraEmpresaRow
             Dim rowContratoCompraEmpresaRow As ContratoCompraEmpresaRow = CType(Me.NewRow,ContratoCompraEmpresaRow)
-            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdDatosEmpresa, RazonSocial, RfcEmpresa, RepresentanteLegal, RfcRepresentante, Calle, NumExt, Colonia, CodigoPostal, Estado, Municipio, CalleMoral, NumeroMoral, ColoniaMoral, IdTipoPersona, LugarExpedicion, CalleFisica, NumeroFisica, ColoniaFisica, IdConfiguracion, ParamDia1, ParamMes1, ParamTemp1, ParamMes2, ParamTemp2, ParamMes3, ParamPromPesomin, ParamPromPesomax, ParamPesomin, TemporadaAnual}
+            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdDatosEmpresa, RazonSocial, RfcEmpresa, RepresentanteLegal, RfcRepresentante, Calle, NumExt, Colonia, CodigoPostal, Estado, Municipio, CalleMoral, NumeroMoral, ColoniaMoral, IdTipoPersona, LugarExpedicion, CalleFisica, NumeroFisica, ColoniaFisica, IdConfiguracion, ParamDia1, ParamMes1, ParamTemp1, ParamMes2, ParamTemp2, ParamMes3, ParamPromPesomin, ParamPromPesomax, ParamPesomin, TemporadaAnual, ApoderadoFisica}
             rowContratoCompraEmpresaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowContratoCompraEmpresaRow)
             Return rowContratoCompraEmpresaRow
@@ -4049,6 +4060,7 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnParamPromPesomax = MyBase.Columns("ParamPromPesomax")
             Me.columnParamPesomin = MyBase.Columns("ParamPesomin")
             Me.columnTemporadaAnual = MyBase.Columns("TemporadaAnual")
+            Me.columnApoderadoFisica = MyBase.Columns("ApoderadoFisica")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4160,6 +4172,8 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnParamPesomin)
             Me.columnTemporadaAnual = New Global.System.Data.DataColumn("TemporadaAnual", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTemporadaAnual)
+            Me.columnApoderadoFisica = New Global.System.Data.DataColumn("ApoderadoFisica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnApoderadoFisica)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13861,6 +13875,22 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ApoderadoFisica() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableContratoCompraEmpresa.ApoderadoFisicaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ApoderadoFisica' de la tabla 'ContratoCompraEmpresa' es D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableContratoCompraEmpresa.ApoderadoFisicaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdContratoAlgodonNull() As Boolean
             Return Me.IsNull(Me.tableContratoCompraEmpresa.IdContratoAlgodonColumn)
         End Function
@@ -14493,6 +14523,18 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTemporadaAnualNull()
             Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsApoderadoFisicaNull() As Boolean
+            Return Me.IsNull(Me.tableContratoCompraEmpresa.ApoderadoFisicaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetApoderadoFisicaNull()
+            Me(Me.tableContratoCompraEmpresa.ApoderadoFisicaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

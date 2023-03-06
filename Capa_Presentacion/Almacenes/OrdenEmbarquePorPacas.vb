@@ -54,10 +54,12 @@ Public Class OrdenEmbarquePorPacas
             Dim row As DataRow = Tabla.Rows(Tabla.Rows.Count - 1)
             If row("Valida") <> 0 Then valida = True
             'propiedadesPaqueteDisponible(DgvPaqueteDisponible)
-            Return valida
+
         Catch ex As Exception
             MsgBox(ex.Message)
+            valida = False
         End Try
+        Return valida
     End Function
     Private Sub BtnBuscarProd_Click(sender As Object, e As EventArgs) Handles BtnBuscarProd.Click
         Dim _ConsultaCompradorEmbarque As New ConsultaOrdenEmbarqueComprador

@@ -45,6 +45,36 @@ Public Class Produccion
             EntidadProduccion = EntidadProduccion1
         End Try
     End Sub
+    Public Overridable Sub Upsertturnoactivo(ByRef EntidadProduccion As Capa_Entidad.Produccion)
+        Dim EntidadProduccion1 As New Capa_Entidad.Produccion
+        EntidadProduccion1 = EntidadProduccion
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdGuardar As SqlCommand
+        Try
+            cnn.Open()
+            cmdGuardar = New SqlCommand("pa_insertaturnoactivo", cnn)
+            cmdGuardar.CommandType = CommandType.StoredProcedure
+            cmdGuardar.Parameters.Add(New SqlParameter("@idincidencia", EntidadProduccion1.idincidencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idturnoenc", EntidadProduccion1.idturnoenc))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idplanta", EntidadProduccion1.IdPlantaOrigen))
+            cmdGuardar.Parameters.Add(New SqlParameter("@fechaincidencia", EntidadProduccion1.fechaincidencia))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idresponsableturno", EntidadProduccion1.idresponsableturno))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idresponsableprensa", EntidadProduccion1.idresponsableprensa))
+            cmdGuardar.Parameters.Add(New SqlParameter("@fechacreacion", EntidadProduccion1.FechaCreacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@fechaactualizacion", EntidadProduccion1.FechaActualizacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@horaactual", EntidadProduccion1.hora))
+
+            cmdGuardar.Parameters("@idincidencia").Direction = ParameterDirection.InputOutput
+            cmdGuardar.ExecuteNonQuery()
+            If EntidadProduccion1.IdProduccion = 0 Then
+                EntidadProduccion1.IdProduccion = cmdGuardar.Parameters("@idincidencia").Value
+            End If
+        Catch ex As Exception
+        Finally
+            cnn.Close()
+            EntidadProduccion = EntidadProduccion1
+        End Try
+    End Sub
     Public Overridable Sub UpsertDetalle(ByRef EntidadProduccion As Capa_Entidad.Produccion)
         Dim EntidadProduccion1 As New Capa_Entidad.Produccion
         EntidadProduccion1 = EntidadProduccion
@@ -313,6 +343,13 @@ Public Class Produccion
                     sqlcom1.Parameters.Add(New SqlParameter("@KilosElegir", EntidadProduccion.Kilos))
                     sqlcom1.Parameters.Add(New SqlParameter("@NumRegistros", EntidadProduccion.NumeroRegistro))
                     sqlcom1.Parameters.Add(New SqlParameter("@PesoElegir", EntidadProduccion.PesoElegir))
+                    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaTurnos
+                    sqlcom1 = New SqlCommand("pa_consultaturnoenc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idplanta", EntidadProduccion.IdPlantaOrigen))
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
             End Select
         Catch ex As Exception

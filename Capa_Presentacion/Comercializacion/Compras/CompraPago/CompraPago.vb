@@ -269,6 +269,15 @@ Public Class CompraPago
 
     End Sub
 
+    Private Sub RomaneajeDeCompraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RomaneajeDeCompraToolStripMenuItem.Click
+        If TbIdCompra.Text <> "" Then
+            Dim Romaneajecompra As New CompraRomaneaje(TbIdCompra.Text)
+            Romaneajecompra.ShowDialog()
+        Else
+            MessageBox.Show("El Id de compra no es valido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
     Private Sub ImpDetallesDeCompraItem_Click(sender As Object, e As EventArgs) Handles ImpDetallesDeCompraItem.Click
         If TbIdCompra.Text <> "" Then
             Dim ReporteCompraPacasDetallado As New RepCompraPacasDetallado(TbIdCompra.Text)

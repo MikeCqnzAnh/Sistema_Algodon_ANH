@@ -402,6 +402,23 @@ Public Class Reportes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadReportes1.IdModoEncabezado))
                     sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRomaneajeCompraEnc
+                    sqlcom1 = New SqlCommand("pa_consultaromaneajecompraenc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CheckStatus", EntidadReportes1.CheckStatus))
+                    sqldat1.Fill(EntidadReportes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Reporte.ReporteRomaneajeCompraDet
+                    sqlcom1 = New SqlCommand("pa_consultaromaneajecompradet", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdCompra", EntidadReportes1.IdCompra))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@idordentrabajo", EntidadReportes1.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@CheckStatus", EntidadReportes1.CheckStatus))
+                    sqldat1.Fill(EntidadReportes1.TablaGeneral)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

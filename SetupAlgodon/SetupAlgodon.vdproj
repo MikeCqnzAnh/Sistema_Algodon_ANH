@@ -94,19 +94,7 @@
         "Entry"
         {
         "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
-        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
-        "OwnerKey" = "8:_AAA42692A22F033B4F3AD31ED1F3C3B3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
-        "OwnerKey" = "8:_D905B02E24DD1D3A6D173980BB9F1645"
+        "OwnerKey" = "8:_C42037F95981F9FE4267867485164E49"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,7 +106,19 @@
         "Entry"
         {
         "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
-        "OwnerKey" = "8:_C42037F95981F9FE4267867485164E49"
+        "OwnerKey" = "8:_D905B02E24DD1D3A6D173980BB9F1645"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
+        "OwnerKey" = "8:_AAA42692A22F033B4F3AD31ED1F3C3B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_16FC7F269687CE39D436DD7083573E37"
+        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -514,7 +514,7 @@
         "Entry"
         {
         "MsmKey" = "8:_48A5F0C7D7C2B4A976555E452E29C671"
-        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
+        "OwnerKey" = "8:_3001430096C743B29B7A0661AF91ED8B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -526,7 +526,7 @@
         "Entry"
         {
         "MsmKey" = "8:_48A5F0C7D7C2B4A976555E452E29C671"
-        "OwnerKey" = "8:_3001430096C743B29B7A0661AF91ED8B"
+        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -952,13 +952,7 @@
         "Entry"
         {
         "MsmKey" = "8:_8484989E7721ACA65CC97E1D3C060D6C"
-        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8484989E7721ACA65CC97E1D3C060D6C"
-        "OwnerKey" = "8:_D905B02E24DD1D3A6D173980BB9F1645"
+        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -970,7 +964,13 @@
         "Entry"
         {
         "MsmKey" = "8:_8484989E7721ACA65CC97E1D3C060D6C"
-        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
+        "OwnerKey" = "8:_D905B02E24DD1D3A6D173980BB9F1645"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8484989E7721ACA65CC97E1D3C060D6C"
+        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1348,7 +1348,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C42037F95981F9FE4267867485164E49"
-        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
+        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1360,7 +1360,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C42037F95981F9FE4267867485164E49"
-        "OwnerKey" = "8:_5FF5C81A32A6006AD2647D8C73CAA37B"
+        "OwnerKey" = "8:_CD651B885BD84D258C1D22F507D0C0DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2265,11 +2265,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_0883BE3C8AA258398880B58FA13602ED"
-                    {
-                    "Name" = "8:System.IO.Compression.FileSystem.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -2316,11 +2311,6 @@
             "AssemblyAsmDisplayName" = "8:CRVsPackageLib, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1400F091EEDA16F5081EABA1287C3BEB"
-                    {
-                    "Name" = "8:CRVsPackageLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CRVsPackageLib.dll"
             "TargetName" = "8:"
@@ -2347,11 +2337,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_1656C2677DCE760A42B51824AEA6B8AC"
-                    {
-                    "Name" = "8:CrystalDecisions.CrystalReports.Engine.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.CrystalReports.Engine.dll"
             "TargetName" = "8:"
@@ -2551,11 +2536,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_249CC26E50A649E5835A2A668B6830B5"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -2613,11 +2593,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2D6855AC3DC153E42D8574E4E0DF66EB"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.XmlSerialize.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.XmlSerialize.dll"
             "TargetName" = "8:"
@@ -2664,11 +2639,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.TemplateWizardInterface, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2E6571D0887DD86CAB0627323E6BA2A4"
-                    {
-                    "Name" = "8:Microsoft.VisualStudio.TemplateWizardInterface.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.VisualStudio.TemplateWizardInterface.dll"
             "TargetName" = "8:"
@@ -2726,11 +2696,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3299AD9F969541932B6FC8B7AA93F36A"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.DataSetConversion.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.DataSetConversion.dll"
             "TargetName" = "8:"
@@ -2888,11 +2853,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.VSDesigner, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3E8F4883B9E4B21341D7535B622B6220"
-                    {
-                    "Name" = "8:CrystalDecisions.VSDesigner.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.VSDesigner.dll"
             "TargetName" = "8:"
@@ -2939,11 +2899,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_403B13907B16CD9BBE5E777F7C7E09B3"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.ReportDefModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.ReportDefModel.dll"
             "TargetName" = "8:"
@@ -3010,11 +2965,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_424CFCF59FE7161770713F6B264AE68F"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.ObjectFactory.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.ObjectFactory.dll"
             "TargetName" = "8:"
@@ -3041,11 +2991,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_4454F50CF6D41135D7B52CE4237F9283"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.CommonControls.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.CommonControls.dll"
             "TargetName" = "8:"
@@ -3267,11 +3212,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5617E37FF4B535005D14200B91926CF2"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportSource.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportSource.dll"
             "TargetName" = "8:"
@@ -3318,11 +3258,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_5BC03C060DFF0506C300BCBDC442110A"
-                    {
-                    "Name" = "8:CrystalDecisions.Web.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.Web.dll"
             "TargetName" = "8:"
@@ -3491,11 +3426,6 @@
             "AssemblyAsmDisplayName" = "8:VsWebSite.Interop, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_6D33FB5DEF468AAF45A353ACA0B50403"
-                    {
-                    "Name" = "8:VsWebSite.Interop.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:VsWebSite.Interop.dll"
             "TargetName" = "8:"
@@ -3582,11 +3512,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_72358B65AF5C53841295A67C14890B23"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.DataDefModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.DataDefModel.dll"
             "TargetName" = "8:"
@@ -3633,11 +3558,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_74A339E9404F00F09E15C5FF72CB35CE"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -3835,11 +3755,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_81AF9313484CD670E3BA6D19E38C2D84"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.Controllers.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.Controllers.dll"
             "TargetName" = "8:"
@@ -3968,11 +3883,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.VisualStudio.VSHelp, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_87F2CD07C5D0D17A39760C773FA3E144"
-                    {
-                    "Name" = "8:Microsoft.VisualStudio.VSHelp.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.VisualStudio.VSHelp.dll"
             "TargetName" = "8:"
@@ -4110,11 +4020,6 @@
             "AssemblyAsmDisplayName" = "8:EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_939E4632DE417AB56D0A4BA4E725448F"
-                    {
-                    "Name" = "8:EnvDTE.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EnvDTE.dll"
             "TargetName" = "8:"
@@ -4385,11 +4290,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AEADAD58F80C1625D526BC15F067F9B1"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.CubeDefModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.CubeDefModel.dll"
             "TargetName" = "8:"
@@ -4547,11 +4447,6 @@
             "AssemblyAsmDisplayName" = "8:VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_BBD69E757163183A510EA77CEDF264D4"
-                    {
-                    "Name" = "8:VSLangProj.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:VSLangProj.dll"
             "TargetName" = "8:"
@@ -4578,11 +4473,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BD36C7EF2370A8EA8387F44685DFA217"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.ClientDoc.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.ClientDoc.dll"
             "TargetName" = "8:"
@@ -4609,11 +4499,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BFEDF1E85D56B4B175E84C17373488D5"
-                    {
-                    "Name" = "8:CrystalDecisions.CrystalReports.Design.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.CrystalReports.Design.dll"
             "TargetName" = "8:"
@@ -4719,14 +4604,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Capa_Operacion, Version=1.1.67.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Capa_Operacion, Version=1.1.74.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C7329B827BDFBF5E587B1F4EBBDBD6F8"
-                    {
-                    "Name" = "8:Capa_Operacion.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Operacion.dll"
             "TargetName" = "8:"
@@ -4753,11 +4633,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.MSXML, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C83B1A2BF4C23F9A7E1F751AEECBBDCF"
-                    {
-                    "Name" = "8:Microsoft.MSXML.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.MSXML.dll"
             "TargetName" = "8:"
@@ -4824,11 +4699,6 @@
             "AssemblyAsmDisplayName" = "8:EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_D57E9B76D93FB0037C3A7FDDDF382D0D"
-                    {
-                    "Name" = "8:EnvDTE80.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:EnvDTE80.dll"
             "TargetName" = "8:"
@@ -4937,11 +4807,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_DE0FC25FDE65460DCE7B8D7DBFE4097D"
-                    {
-                    "Name" = "8:CrystalDecisions.Shared.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.Shared.dll"
             "TargetName" = "8:"
@@ -5008,11 +4873,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E3162F2CB2C7A38BD3C32A54B2A337C6"
-                    {
-                    "Name" = "8:CrystalDecisions.Windows.Forms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.Windows.Forms.dll"
             "TargetName" = "8:"
@@ -5076,14 +4936,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Capa_Negocio, Version=1.1.67.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Capa_Negocio, Version=1.1.74.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F06C0BF259AEE784153B588C20740269"
-                    {
-                    "Name" = "8:Capa_Negocio.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Negocio.dll"
             "TargetName" = "8:"
@@ -5169,14 +5024,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Capa_Entidad, Version=1.1.67.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Capa_Entidad, Version=1.1.74.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F1FD2AAF837806BB1EDF8EA8CCECC329"
-                    {
-                    "Name" = "8:Capa_Entidad.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Entidad.dll"
             "TargetName" = "8:"
@@ -5203,11 +5053,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F400F083411E320311ADE0C3F18F7F03"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.CommLayer.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.CommLayer.dll"
             "TargetName" = "8:"
@@ -5231,14 +5076,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Capa_Datos, Version=1.1.67.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Capa_Datos, Version=1.1.74.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F4AE13AE8F1D264723CAEF0817E2487D"
-                    {
-                    "Name" = "8:Capa_Datos.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Capa_Datos.dll"
             "TargetName" = "8:"
@@ -5285,11 +5125,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_FBA665CDDFB729EA9B8F82A4C7BF8016"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.CommonObjectModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.CommonObjectModel.dll"
             "TargetName" = "8:"
@@ -5409,15 +5244,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sistema Informatico Algodonero"
-        "ProductCode" = "8:{113B9822-2D0C-4A80-8CE8-25BCB8A2C4C6}"
-        "PackageCode" = "8:{E4CF9382-BF48-4D27-B725-FD1540526B6B}"
+        "ProductCode" = "8:{F2646E06-B04B-431E-B82F-8AA6C4429B22}"
+        "PackageCode" = "8:{4A9A2DAC-A451-4682-9CCD-6B13EDED1D96}"
         "UpgradeCode" = "8:{307C766A-0B30-4996-9819-97E0BE8BD4D5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.68"
+        "ProductVersion" = "8:1.1.77"
         "Manufacturer" = "8:DevApp"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -9,6 +9,12 @@ Public Class CapturaBoletasPorLotes
     Dim PuertoSerial, IndicadorID, IndicadorEntrada, IndicadorSalida, IndicadorPesoBruto, IndicadorTara, IndicadorNeto As String
     Dim IdConfiguracion, PosicionID, PosicionModulo, PosicionEntrada, PosicionSalida, PosicionPesoBruto, PosicionTara, PosicionNeto, BaudRate, DataBits, StopBits, Parity, HandShake, DtrEnable, ReadBufferSize, WriteBufferSize, ReceivedBytesThreshold As Integer
     Dim CaracterID, CaracterModulo, CaracterEntrada, CaracterSalida, CaracterPesoBruto, CaracterTara, CaracterNeto As Integer
+
+    Private Sub ReporteDeModulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteDeModulosToolStripMenuItem.Click
+        Dim repmodulos As New ConsultaReporteModulos
+        repmodulos.ShowDialog()
+    End Sub
+
     Dim Puerto As String
     Private Sub CapturaBoletasPorLotes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ConsultaModulos()

@@ -80,12 +80,12 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbComentarios = New System.Windows.Forms.GroupBox()
         Me.GbModulos = New System.Windows.Forms.GroupBox()
         Me.DgvModulos = New System.Windows.Forms.DataGridView()
+        Me.btexcelmodulos = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DgvPacas = New System.Windows.Forms.DataGridView()
         Me.GbPacas = New System.Windows.Forms.GroupBox()
-        Me.PDgvs = New System.Windows.Forms.Panel()
         Me.btexcelpacas = New System.Windows.Forms.Button()
-        Me.btexcelmodulos = New System.Windows.Forms.Button()
+        Me.PDgvs = New System.Windows.Forms.Panel()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbResumen.SuspendLayout()
@@ -653,6 +653,20 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvModulos.Size = New System.Drawing.Size(535, 343)
         Me.DgvModulos.TabIndex = 30
         '
+        'btexcelmodulos
+        '
+        Me.btexcelmodulos.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.btexcelmodulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btexcelmodulos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btexcelmodulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btexcelmodulos.Location = New System.Drawing.Point(538, 16)
+        Me.btexcelmodulos.MaximumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.MinimumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.Name = "btexcelmodulos"
+        Me.btexcelmodulos.Size = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.TabIndex = 23
+        Me.btexcelmodulos.UseVisualStyleBackColor = True
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.GbResumen)
@@ -695,16 +709,6 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbPacas.TabStop = False
         Me.GbPacas.Text = "Pacas"
         '
-        'PDgvs
-        '
-        Me.PDgvs.Controls.Add(Me.GbModulos)
-        Me.PDgvs.Controls.Add(Me.GbPacas)
-        Me.PDgvs.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PDgvs.Location = New System.Drawing.Point(1008, 24)
-        Me.PDgvs.Name = "PDgvs"
-        Me.PDgvs.Size = New System.Drawing.Size(573, 688)
-        Me.PDgvs.TabIndex = 31
-        '
         'btexcelpacas
         '
         Me.btexcelpacas.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
@@ -719,19 +723,15 @@ Partial Class LiquidacionesPorRomaneaje
         Me.btexcelpacas.TabIndex = 22
         Me.btexcelpacas.UseVisualStyleBackColor = True
         '
-        'btexcelmodulos
+        'PDgvs
         '
-        Me.btexcelmodulos.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
-        Me.btexcelmodulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btexcelmodulos.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btexcelmodulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btexcelmodulos.Location = New System.Drawing.Point(538, 16)
-        Me.btexcelmodulos.MaximumSize = New System.Drawing.Size(32, 32)
-        Me.btexcelmodulos.MinimumSize = New System.Drawing.Size(32, 32)
-        Me.btexcelmodulos.Name = "btexcelmodulos"
-        Me.btexcelmodulos.Size = New System.Drawing.Size(32, 32)
-        Me.btexcelmodulos.TabIndex = 23
-        Me.btexcelmodulos.UseVisualStyleBackColor = True
+        Me.PDgvs.Controls.Add(Me.GbModulos)
+        Me.PDgvs.Controls.Add(Me.GbPacas)
+        Me.PDgvs.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PDgvs.Location = New System.Drawing.Point(1008, 24)
+        Me.PDgvs.Name = "PDgvs"
+        Me.PDgvs.Size = New System.Drawing.Size(573, 688)
+        Me.PDgvs.TabIndex = 31
         '
         'LiquidacionesPorRomaneaje
         '

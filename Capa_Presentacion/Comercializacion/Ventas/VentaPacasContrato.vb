@@ -1385,7 +1385,7 @@ Public Class VentaPacasContrato
         Catch ex As Exception
             Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con micros " & ValMicros)
-            Exit Function
+            'Exit Function
         End Try
 
         Return Castigo
@@ -1410,7 +1410,7 @@ Public Class VentaPacasContrato
         Catch ex As Exception
             Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con resistencia de fibra " & ValResistenciaFibra)
-            Exit Function
+            'Exit Function
         End Try
 
         Return Castigo
@@ -1435,7 +1435,7 @@ Public Class VentaPacasContrato
         Catch ex As Exception
             Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con largo de fibra " & ValLargoFibra)
-            Exit Function
+            'Exit Function
         End Try
 
         Return Castigo
@@ -1460,7 +1460,7 @@ Public Class VentaPacasContrato
         Catch ex As Exception
             Castigo = 0
             MsgBox(ex.Message & "Paca No " & etiqueta & " con largo de Uniformidad " & ValUniformidad)
-            Exit Function
+            'Exit Function
         End Try
 
         Return Castigo

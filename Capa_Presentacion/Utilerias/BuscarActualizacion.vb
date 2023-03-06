@@ -13,9 +13,10 @@ Public Class BuscarActualizacion
         validaVersion()
     End Sub
     Private Sub validaVersion()
-        If Version > Application.ProductVersion Then
+        If Version > Label1.Text Then
             Label6.Visible = True
             Label4.Visible = True
+            BtActualizar.Enabled = True
         Else
             Label4.Visible = True
             BtActualizar.Enabled = False
@@ -28,9 +29,8 @@ Public Class BuscarActualizacion
         If My.Computer.FileSystem.FileExists(CarpetaOrigen + "\Setup.exe") = True Then
             If Version > Application.ProductVersion = False Then
 
-            End If
-        Else
-            If Version > Application.ProductVersion = True Then
+
+            ElseIf Version > Application.ProductVersion = True Then
                 Dim opc As DialogResult = MsgBox("Actualizacion Disponible ¿Desea aplicarla ahora? " & vbCrLf & vbCrLf & "El sistema se cerrara para continuar con la actualizacion del sistema", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Nueva Actualizacion")
                 If opc = DialogResult.Yes Then
                     CopiarArchivo()

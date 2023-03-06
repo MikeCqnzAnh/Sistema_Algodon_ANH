@@ -79,7 +79,7 @@ Public Class LiquidacionesPorRomaneaje
         TbIdOrden.Enabled = True
         TbIdOrden.Select()
     End Sub
-    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click, ToolStripMenuItem1.Click
+    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
         Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
         Dim Tabla As New DataTable
@@ -207,39 +207,42 @@ Public Class LiquidacionesPorRomaneaje
     Private Sub TbIdOrden_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdOrden.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
-                If TbIdOrden.Text <> "" Then
-                    Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
-                    Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
-                    Dim Tabla As New DataTable
-                    EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaOrden
-                    EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
-                    NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
-                    Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
-                    If Tabla.Rows.Count = 0 Then
-                        MsgBox("La orden de trabajo no existe...")
-                        Limpiar()
-                        Exit Sub
-                    Else
-                        TbIdOrden.Text = Tabla.Rows(0).Item("IdOrdenTrabajo")
-                        CbPlanta.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
-                        TbIdLiquidacion.Text = Tabla.Rows(0).Item("IdLiquidacion")
-                        CbNombreCliente.SelectedValue = Tabla.Rows(0).Item("IdCliente")
-                        CbPorCuenta.SelectedValue = Tabla.Rows(0).Item("IdPorCuenta")
-                        CbTipo.Text = Tabla.Rows(0).Item("Tipo")
-                        DtFechaLiquidacion.Value = Tabla.Rows(0).Item("Fecha")
-                        TbComentarios.Text = Tabla.Rows(0).Item("Comentarios")
-                        ConsultarModulos()
-                        ConsultaPacas()
-                        registrossincheck()
-                        CalculosResumen()
-                        TbTotalBoletas.Text = CInt(DgvModulos.RowCount)
-                        TbIdOrden.Enabled = False
-                    End If
-                Else
-                    MsgBox("Ingrese el ID de la orden de trabajo...")
-                    Exit Sub
-                End If
+                consultar()
         End Select
+    End Sub
+    Private Sub consultar()
+        If TbIdOrden.Text <> "" Then
+            Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
+            Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
+            Dim Tabla As New DataTable
+            EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaOrden
+            EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
+            NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+            Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+            If Tabla.Rows.Count = 0 Then
+                MsgBox("La orden de trabajo no existe...")
+                Limpiar()
+                Exit Sub
+            Else
+                TbIdOrden.Text = Tabla.Rows(0).Item("IdOrdenTrabajo")
+                CbPlanta.SelectedValue = Tabla.Rows(0).Item("IdPlantaOrigen")
+                TbIdLiquidacion.Text = Tabla.Rows(0).Item("IdLiquidacion")
+                CbNombreCliente.SelectedValue = Tabla.Rows(0).Item("IdCliente")
+                CbPorCuenta.SelectedValue = Tabla.Rows(0).Item("IdPorCuenta")
+                CbTipo.Text = Tabla.Rows(0).Item("Tipo")
+                DtFechaLiquidacion.Value = Tabla.Rows(0).Item("Fecha")
+                TbComentarios.Text = Tabla.Rows(0).Item("Comentarios")
+                ConsultarModulos()
+                ConsultaPacas()
+                registrossincheck()
+                CalculosResumen()
+                TbTotalBoletas.Text = CInt(DgvModulos.RowCount)
+                TbIdOrden.Enabled = False
+            End If
+        Else
+            MsgBox("Ingrese el ID de la orden de trabajo...")
+            Exit Sub
+        End If
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         Limpiar()
@@ -334,5 +337,25 @@ Public Class LiquidacionesPorRomaneaje
 
     Private Sub btexcelpacas_Click(sender As Object, e As EventArgs) Handles btexcelpacas.Click
         ExportExcel(DgvPacas)
+    End Sub
+
+    Private Sub ConsultarToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
+        Dim consultaorden As New ConsultaOrdenPorLiquidar
+        consultaorden.ShowDialog()
+        If consultaorden.IdConsulta > 0 Then
+            Limpiar()
+            TbIdOrden.Text = consultaorden.IdConsulta
+            consultar()
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        Dim consultaliquidacion As New ConsultaOrdenLiquidada
+        consultaliquidacion.ShowDialog()
+        If consultaliquidacion.IdConsulta > 0 Then
+            Limpiar()
+            TbIdOrden.Text = consultaliquidacion.IdConsulta
+            consultar()
+        End If
     End Sub
 End Class

@@ -394,6 +394,7 @@ Public Class RevisionProduccion
             TbNombreProductor.Text = Tabla.Rows(0).Item("Nombre")
             TbModulos.Text = Tabla.Rows(0).Item("Modulos")
             TbTotalModulos.Text = Tabla.Rows(0).Item("NumeroModulos")
+            ckpepena.Checked = Tabla.Rows(0).Item("checkpepena")
             DgvPacas.DataSource = Nothing
             'TbIdOrdenTrabajo.Enabled = False
             If TbIdProduccion.Text <> "" Then

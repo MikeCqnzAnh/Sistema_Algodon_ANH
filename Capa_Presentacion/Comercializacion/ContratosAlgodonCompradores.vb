@@ -396,15 +396,6 @@ Public Class ContratosAlgodonCompradores
     Private Sub InhabilitarBotones()
         'BtConsultaLotes.Enabled = False
     End Sub
-    Private Sub CbUnidadPeso_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbUnidadPeso.SelectionChangeCommitted
-        If TablaUnidadPeso.Rows.Count > 0 Then
-            For Each Fila As DataRow In TablaUnidadPeso.Rows
-                If Fila.Item("IdUnidadPeso").ToString = CbUnidadPeso.SelectedValue Then
-                    TbValorConversion.Text = Fila.Item("ValorConversion").ToString
-                End If
-            Next
-        End If
-    End Sub
     Private Sub TbPuntos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbPacas.KeyPress, TbPuntos.KeyPress, TbPrecioQuintal.KeyPress, TbTemporada.KeyPress
         If InStr(1, "0123456789." & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
@@ -520,6 +511,16 @@ Public Class ContratosAlgodonCompradores
             ckfix.Text = "Precio Fijado"
         ElseIf ckfix.Checked = False Then
             ckfix.Text = "On Call"
+        End If
+    End Sub
+
+    Private Sub CbUnidadPeso_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbUnidadPeso.SelectionChangeCommitted
+        If TablaUnidadPeso.Rows.Count > 0 Then
+            For Each Fila As DataRow In TablaUnidadPeso.Rows
+                If Fila.Item("IdUnidadPeso").ToString = CbUnidadPeso.SelectedValue Then
+                    TbValorConversion.Text = Fila.Item("ValorConversion").ToString
+                End If
+            Next
         End If
     End Sub
 

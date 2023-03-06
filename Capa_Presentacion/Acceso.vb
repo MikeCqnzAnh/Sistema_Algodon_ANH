@@ -49,9 +49,9 @@ Public Class Acceso
         Dim UsuarioDB As String = String.Empty
         Dim PasswordDB As String = String.Empty
         Dim Instancia As String = String.Empty
-        Dim DataBase As String
-        Dim DataBasePerfiles As String
-        Dim ccnppl As String
+        'Dim DataBase As String
+        'Dim DataBasePerfiles As String
+        'Dim ccnppl As String
         Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
         Dim archivo As String = "cnn.ini"
         Dim archivo2 As String = "cnnPerfiles.ini"
@@ -104,10 +104,12 @@ Public Class Acceso
         EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
         NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
         tabla = EntidadConfiguracionParametros.TablaConsulta
-        CbBaseDeDatos.DataSource = tabla
-        CbBaseDeDatos.ValueMember = "database_id"
-        CbBaseDeDatos.DisplayMember = "name"
-        CbBaseDeDatos.SelectedIndex = 0
+        If tabla.Rows.Count > 0 Then
+            CbBaseDeDatos.DataSource = tabla
+            CbBaseDeDatos.ValueMember = "database_id"
+            CbBaseDeDatos.DisplayMember = "name"
+            CbBaseDeDatos.SelectedValue = IIf(My.Settings.idbdd = 0, 0, My.Settings.idbdd)
+        End If
     End Sub
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAccesar.Click
         Login()
@@ -139,6 +141,7 @@ Public Class Acceso
             If UsuarioRegistrado(TbUsuario.Text) = True Then
                 GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
                 My.Settings.user = TbUsuario.Text
+                My.Settings.idbdd = CbBaseDeDatos.SelectedValue
                 If CkRecuerda.Checked = True Then
                     My.Settings.password = TbClave.Text
                     My.Settings.CkRecordar = CkRecuerda.Checked

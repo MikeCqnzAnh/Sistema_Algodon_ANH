@@ -40,6 +40,7 @@ Public Class OrdenTrabajo
             EntidadOrdenTrabajo.Predio = TbPredio.Text
             EntidadOrdenTrabajo.NoModulos = TbNoModulos.Text
             EntidadOrdenTrabajo.IdEstatus = CbEstatus.SelectedValue
+            EntidadOrdenTrabajo.checkpepena = ckpepena.Checked
             EntidadOrdenTrabajo.IdUsuarioCreacion = IdUsuario
             EntidadOrdenTrabajo.FechaCreacion = Now
             EntidadOrdenTrabajo.IdUsuarioActualizacion = IdUsuario
@@ -99,6 +100,7 @@ Public Class OrdenTrabajo
                     EntidadOrdenTrabajo.FlagCancelada = False
                     EntidadOrdenTrabajo.FlagRevisada = False
                     EntidadOrdenTrabajo.IdEstatus = 1
+                    EntidadOrdenTrabajo.checkpepena = ckpepena.Checked
                     EntidadOrdenTrabajo.IdUsuarioCreacion = 1
                     EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
                     NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
@@ -119,6 +121,7 @@ Public Class OrdenTrabajo
                     EntidadOrdenTrabajo.FlagCancelada = False
                     EntidadOrdenTrabajo.FlagRevisada = False
                     EntidadOrdenTrabajo.IdEstatus = 1
+                    EntidadOrdenTrabajo.checkpepena = ckpepena.Checked
                     EntidadOrdenTrabajo.IdUsuarioCreacion = 1
                     EntidadOrdenTrabajo.IdUsuarioActualizacion = 1
                     NegocioOrdenTrabajo.Guardar(EntidadOrdenTrabajo)
@@ -158,6 +161,7 @@ Public Class OrdenTrabajo
         CbVariedad.SelectedValue = 1
         CbColonia.SelectedValue = 1
         TbPredio.Text = ""
+        ckpepena.Checked = False
         habilitarControl()
     End Sub
     Private Sub LlenarCombos()
@@ -267,6 +271,7 @@ Public Class OrdenTrabajo
                 CbColonia.SelectedValue = Tabla.Rows(0).Item("IdColonia")
                 TbPredio.Text = Tabla.Rows(0).Item("Predio")
                 CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
+                ckpepena.Checked = Tabla.Rows(0).Item("checkpepena")
                 inhabilitarControl()
             End If
         Catch ex As Exception
@@ -341,6 +346,7 @@ Public Class OrdenTrabajo
             CbColonia.SelectedValue = Tabla.Rows(0).Item("IdColonia")
             TbPredio.Text = Tabla.Rows(0).Item("Predio")
             CbEstatus.SelectedValue = Tabla.Rows(0).Item("IdEstatus")
+            ckpepena.Checked = Tabla.Rows(0).Item("checkpepena")
 
             inhabilitarControl()
         Else

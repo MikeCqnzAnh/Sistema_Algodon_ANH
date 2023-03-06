@@ -1,4 +1,4 @@
-alter procedure sp_InsertarContratoCompra
+CREATE procedure sp_InsertarContratoCompra
 @IdContratoAlgodon int output, 
 @IdProductor int,
 @Pacas int,

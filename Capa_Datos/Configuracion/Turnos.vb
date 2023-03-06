@@ -15,6 +15,10 @@ Public Class Turnos
             cmdGuardar.Parameters.Add(New SqlParameter("@idturnoenc", EntidadTurnos1.idturnoenc))
             cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadTurnos1.descripcion))
             cmdGuardar.Parameters.Add(New SqlParameter("@idplanta", EntidadTurnos1.idplanta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idresponsableturno", EntidadTurnos1.idresponsableturno))
+            cmdGuardar.Parameters.Add(New SqlParameter("@responsableturno", EntidadTurnos1.responsableturno))
+            cmdGuardar.Parameters.Add(New SqlParameter("@idresponsableprensa", EntidadTurnos1.idresponsableprensa))
+            cmdGuardar.Parameters.Add(New SqlParameter("@responsableprensa", EntidadTurnos1.responsableprensa))
             cmdGuardar.Parameters.Add(New SqlParameter("@horaentrada", EntidadTurnos1.horaentrada))
             cmdGuardar.Parameters.Add(New SqlParameter("@horasalida", EntidadTurnos1.horasalida))
             cmdGuardar.Parameters("@idturnoenc").Direction = ParameterDirection.InputOutput
@@ -32,7 +36,7 @@ Public Class Turnos
         Dim EntidadTurnos1 = New Capa_Entidad.Turnos
         EntidadTurnos1 = EntidadTurnos
         EntidadTurnos1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

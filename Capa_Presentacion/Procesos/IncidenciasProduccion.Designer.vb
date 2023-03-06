@@ -28,18 +28,91 @@ Partial Class IncidenciasProduccion
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.CbPlantaOrigen = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CbTurno = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.TextBox83 = New System.Windows.Forms.TextBox()
+        Me.TextBox82 = New System.Windows.Forms.TextBox()
+        Me.TextBox81 = New System.Windows.Forms.TextBox()
+        Me.TextBox80 = New System.Windows.Forms.TextBox()
+        Me.TextBox79 = New System.Windows.Forms.TextBox()
+        Me.TextBox78 = New System.Windows.Forms.TextBox()
+        Me.TextBox77 = New System.Windows.Forms.TextBox()
+        Me.TextBox76 = New System.Windows.Forms.TextBox()
+        Me.TextBox75 = New System.Windows.Forms.TextBox()
+        Me.TextBox74 = New System.Windows.Forms.TextBox()
+        Me.TextBox73 = New System.Windows.Forms.TextBox()
+        Me.TextBox72 = New System.Windows.Forms.TextBox()
+        Me.TextBox71 = New System.Windows.Forms.TextBox()
+        Me.TextBox70 = New System.Windows.Forms.TextBox()
+        Me.TextBox69 = New System.Windows.Forms.TextBox()
+        Me.TextBox68 = New System.Windows.Forms.TextBox()
+        Me.TextBox67 = New System.Windows.Forms.TextBox()
+        Me.TextBox66 = New System.Windows.Forms.TextBox()
+        Me.TextBox65 = New System.Windows.Forms.TextBox()
+        Me.TextBox64 = New System.Windows.Forms.TextBox()
+        Me.TextBox63 = New System.Windows.Forms.TextBox()
+        Me.TextBox62 = New System.Windows.Forms.TextBox()
+        Me.TextBox61 = New System.Windows.Forms.TextBox()
+        Me.TextBox60 = New System.Windows.Forms.TextBox()
+        Me.TextBox58 = New System.Windows.Forms.TextBox()
+        Me.TextBox57 = New System.Windows.Forms.TextBox()
+        Me.TextBox56 = New System.Windows.Forms.TextBox()
+        Me.TextBox55 = New System.Windows.Forms.TextBox()
+        Me.TextBox54 = New System.Windows.Forms.TextBox()
+        Me.TextBox53 = New System.Windows.Forms.TextBox()
+        Me.TextBox52 = New System.Windows.Forms.TextBox()
+        Me.TextBox51 = New System.Windows.Forms.TextBox()
+        Me.TextBox50 = New System.Windows.Forms.TextBox()
+        Me.TextBox49 = New System.Windows.Forms.TextBox()
+        Me.TextBox48 = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.TextBox47 = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TextBox46 = New System.Windows.Forms.TextBox()
+        Me.TextBox45 = New System.Windows.Forms.TextBox()
+        Me.TextBox44 = New System.Windows.Forms.TextBox()
+        Me.TextBox43 = New System.Windows.Forms.TextBox()
+        Me.TextBox42 = New System.Windows.Forms.TextBox()
+        Me.TextBox41 = New System.Windows.Forms.TextBox()
+        Me.TextBox40 = New System.Windows.Forms.TextBox()
+        Me.TextBox39 = New System.Windows.Forms.TextBox()
+        Me.TextBox38 = New System.Windows.Forms.TextBox()
+        Me.TextBox37 = New System.Windows.Forms.TextBox()
+        Me.TextBox36 = New System.Windows.Forms.TextBox()
+        Me.TextBox35 = New System.Windows.Forms.TextBox()
+        Me.TextBox34 = New System.Windows.Forms.TextBox()
+        Me.TextBox33 = New System.Windows.Forms.TextBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.TextBox28 = New System.Windows.Forms.TextBox()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.TextBox26 = New System.Windows.Forms.TextBox()
@@ -94,144 +167,71 @@ Partial Class IncidenciasProduccion
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.TextBox29 = New System.Windows.Forms.TextBox()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
-        Me.TextBox31 = New System.Windows.Forms.TextBox()
-        Me.TextBox32 = New System.Windows.Forms.TextBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.TextBox33 = New System.Windows.Forms.TextBox()
-        Me.TextBox34 = New System.Windows.Forms.TextBox()
-        Me.TextBox35 = New System.Windows.Forms.TextBox()
-        Me.TextBox36 = New System.Windows.Forms.TextBox()
-        Me.TextBox37 = New System.Windows.Forms.TextBox()
-        Me.TextBox38 = New System.Windows.Forms.TextBox()
-        Me.TextBox39 = New System.Windows.Forms.TextBox()
-        Me.TextBox40 = New System.Windows.Forms.TextBox()
-        Me.TextBox41 = New System.Windows.Forms.TextBox()
-        Me.TextBox42 = New System.Windows.Forms.TextBox()
-        Me.TextBox43 = New System.Windows.Forms.TextBox()
-        Me.TextBox44 = New System.Windows.Forms.TextBox()
-        Me.TextBox45 = New System.Windows.Forms.TextBox()
-        Me.TextBox46 = New System.Windows.Forms.TextBox()
-        Me.TextBox47 = New System.Windows.Forms.TextBox()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.TextBox48 = New System.Windows.Forms.TextBox()
-        Me.TextBox49 = New System.Windows.Forms.TextBox()
-        Me.TextBox50 = New System.Windows.Forms.TextBox()
-        Me.TextBox51 = New System.Windows.Forms.TextBox()
-        Me.TextBox52 = New System.Windows.Forms.TextBox()
-        Me.TextBox53 = New System.Windows.Forms.TextBox()
-        Me.TextBox54 = New System.Windows.Forms.TextBox()
-        Me.TextBox55 = New System.Windows.Forms.TextBox()
-        Me.TextBox56 = New System.Windows.Forms.TextBox()
-        Me.TextBox57 = New System.Windows.Forms.TextBox()
-        Me.TextBox58 = New System.Windows.Forms.TextBox()
-        Me.TextBox60 = New System.Windows.Forms.TextBox()
-        Me.TextBox61 = New System.Windows.Forms.TextBox()
-        Me.TextBox62 = New System.Windows.Forms.TextBox()
-        Me.TextBox63 = New System.Windows.Forms.TextBox()
-        Me.TextBox64 = New System.Windows.Forms.TextBox()
-        Me.TextBox65 = New System.Windows.Forms.TextBox()
-        Me.TextBox66 = New System.Windows.Forms.TextBox()
-        Me.TextBox67 = New System.Windows.Forms.TextBox()
-        Me.TextBox68 = New System.Windows.Forms.TextBox()
-        Me.TextBox69 = New System.Windows.Forms.TextBox()
-        Me.TextBox70 = New System.Windows.Forms.TextBox()
-        Me.TextBox71 = New System.Windows.Forms.TextBox()
-        Me.TextBox72 = New System.Windows.Forms.TextBox()
-        Me.TextBox73 = New System.Windows.Forms.TextBox()
-        Me.TextBox74 = New System.Windows.Forms.TextBox()
-        Me.TextBox75 = New System.Windows.Forms.TextBox()
-        Me.TextBox76 = New System.Windows.Forms.TextBox()
-        Me.TextBox77 = New System.Windows.Forms.TextBox()
-        Me.TextBox78 = New System.Windows.Forms.TextBox()
-        Me.TextBox79 = New System.Windows.Forms.TextBox()
-        Me.TextBox80 = New System.Windows.Forms.TextBox()
-        Me.TextBox81 = New System.Windows.Forms.TextBox()
-        Me.TextBox82 = New System.Windows.Forms.TextBox()
-        Me.TextBox83 = New System.Windows.Forms.TextBox()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.TextBox59 = New System.Windows.Forms.TextBox()
-        Me.TextBox84 = New System.Windows.Forms.TextBox()
-        Me.TextBox85 = New System.Windows.Forms.TextBox()
-        Me.TextBox86 = New System.Windows.Forms.TextBox()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.TextBox87 = New System.Windows.Forms.TextBox()
-        Me.TextBox88 = New System.Windows.Forms.TextBox()
-        Me.TextBox89 = New System.Windows.Forms.TextBox()
-        Me.TextBox90 = New System.Windows.Forms.TextBox()
-        Me.TextBox91 = New System.Windows.Forms.TextBox()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.Label62 = New System.Windows.Forms.Label()
-        Me.Label63 = New System.Windows.Forms.Label()
-        Me.TextBox92 = New System.Windows.Forms.TextBox()
-        Me.TextBox93 = New System.Windows.Forms.TextBox()
-        Me.TextBox94 = New System.Windows.Forms.TextBox()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.TextBox95 = New System.Windows.Forms.TextBox()
-        Me.TextBox96 = New System.Windows.Forms.TextBox()
-        Me.TextBox97 = New System.Windows.Forms.TextBox()
-        Me.TextBox98 = New System.Windows.Forms.TextBox()
-        Me.TextBox99 = New System.Windows.Forms.TextBox()
-        Me.TextBox100 = New System.Windows.Forms.TextBox()
-        Me.TextBox101 = New System.Windows.Forms.TextBox()
-        Me.TextBox102 = New System.Windows.Forms.TextBox()
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label70 = New System.Windows.Forms.Label()
         Me.Label71 = New System.Windows.Forms.Label()
+        Me.TextBox102 = New System.Windows.Forms.TextBox()
+        Me.TextBox101 = New System.Windows.Forms.TextBox()
+        Me.TextBox100 = New System.Windows.Forms.TextBox()
+        Me.TextBox99 = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.TextBox98 = New System.Windows.Forms.TextBox()
+        Me.TextBox97 = New System.Windows.Forms.TextBox()
+        Me.TextBox96 = New System.Windows.Forms.TextBox()
+        Me.TextBox95 = New System.Windows.Forms.TextBox()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.TextBox94 = New System.Windows.Forms.TextBox()
+        Me.TextBox93 = New System.Windows.Forms.TextBox()
+        Me.TextBox92 = New System.Windows.Forms.TextBox()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.TextBox91 = New System.Windows.Forms.TextBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.TextBox90 = New System.Windows.Forms.TextBox()
+        Me.TextBox89 = New System.Windows.Forms.TextBox()
+        Me.TextBox88 = New System.Windows.Forms.TextBox()
+        Me.TextBox87 = New System.Windows.Forms.TextBox()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.TextBox86 = New System.Windows.Forms.TextBox()
+        Me.TextBox85 = New System.Windows.Forms.TextBox()
+        Me.TextBox84 = New System.Windows.Forms.TextBox()
+        Me.TextBox59 = New System.Windows.Forms.TextBox()
+        Me.cbencargadoturno = New System.Windows.Forms.ComboBox()
+        Me.cbencargadoprensa = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -277,13 +277,6 @@ Partial Class IncidenciasProduccion
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "TURNO:"
         '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(167, 34)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(270, 18)
-        Me.TextBox1.TabIndex = 2
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -314,7 +307,7 @@ Partial Class IncidenciasProduccion
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(640, 10)
+        Me.Label5.Location = New System.Drawing.Point(601, 10)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(44, 13)
         Me.Label5.TabIndex = 1
@@ -322,12 +315,12 @@ Partial Class IncidenciasProduccion
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.cbencargadoprensa)
+        Me.Panel1.Controls.Add(Me.cbencargadoturno)
         Me.Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.Panel1.Controls.Add(Me.TextBox2)
         Me.Panel1.Controls.Add(Me.CbPlantaOrigen)
-        Me.Panel1.Controls.Add(Me.ComboBox1)
+        Me.Panel1.Controls.Add(Me.CbTurno)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.Label3)
@@ -343,17 +336,10 @@ Partial Class IncidenciasProduccion
         '
         Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy hh:mm tt"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(694, 7)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(655, 7)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 18)
         Me.DateTimePicker1.TabIndex = 6
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(629, 34)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(265, 18)
-        Me.TextBox2.TabIndex = 5
         '
         'CbPlantaOrigen
         '
@@ -364,13 +350,14 @@ Partial Class IncidenciasProduccion
         Me.CbPlantaOrigen.Size = New System.Drawing.Size(200, 21)
         Me.CbPlantaOrigen.TabIndex = 4
         '
-        'ComboBox1
+        'CbTurno
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(67, 7)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(164, 21)
-        Me.ComboBox1.TabIndex = 3
+        Me.CbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CbTurno.FormattingEnabled = True
+        Me.CbTurno.Location = New System.Drawing.Point(67, 7)
+        Me.CbTurno.Name = "CbTurno"
+        Me.CbTurno.Size = New System.Drawing.Size(164, 21)
+        Me.CbTurno.TabIndex = 3
         '
         'Panel2
         '
@@ -383,6 +370,669 @@ Partial Class IncidenciasProduccion
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1201, 668)
         Me.Panel2.TabIndex = 4
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label51)
+        Me.GroupBox4.Controls.Add(Me.Label50)
+        Me.GroupBox4.Controls.Add(Me.Label49)
+        Me.GroupBox4.Controls.Add(Me.Label48)
+        Me.GroupBox4.Controls.Add(Me.Label47)
+        Me.GroupBox4.Controls.Add(Me.Label46)
+        Me.GroupBox4.Controls.Add(Me.TextBox83)
+        Me.GroupBox4.Controls.Add(Me.TextBox82)
+        Me.GroupBox4.Controls.Add(Me.TextBox81)
+        Me.GroupBox4.Controls.Add(Me.TextBox80)
+        Me.GroupBox4.Controls.Add(Me.TextBox79)
+        Me.GroupBox4.Controls.Add(Me.TextBox78)
+        Me.GroupBox4.Controls.Add(Me.TextBox77)
+        Me.GroupBox4.Controls.Add(Me.TextBox76)
+        Me.GroupBox4.Controls.Add(Me.TextBox75)
+        Me.GroupBox4.Controls.Add(Me.TextBox74)
+        Me.GroupBox4.Controls.Add(Me.TextBox73)
+        Me.GroupBox4.Controls.Add(Me.TextBox72)
+        Me.GroupBox4.Controls.Add(Me.TextBox71)
+        Me.GroupBox4.Controls.Add(Me.TextBox70)
+        Me.GroupBox4.Controls.Add(Me.TextBox69)
+        Me.GroupBox4.Controls.Add(Me.TextBox68)
+        Me.GroupBox4.Controls.Add(Me.TextBox67)
+        Me.GroupBox4.Controls.Add(Me.TextBox66)
+        Me.GroupBox4.Controls.Add(Me.TextBox65)
+        Me.GroupBox4.Controls.Add(Me.TextBox64)
+        Me.GroupBox4.Controls.Add(Me.TextBox63)
+        Me.GroupBox4.Controls.Add(Me.TextBox62)
+        Me.GroupBox4.Controls.Add(Me.TextBox61)
+        Me.GroupBox4.Controls.Add(Me.TextBox60)
+        Me.GroupBox4.Controls.Add(Me.TextBox58)
+        Me.GroupBox4.Controls.Add(Me.TextBox57)
+        Me.GroupBox4.Controls.Add(Me.TextBox56)
+        Me.GroupBox4.Controls.Add(Me.TextBox55)
+        Me.GroupBox4.Controls.Add(Me.TextBox54)
+        Me.GroupBox4.Controls.Add(Me.TextBox53)
+        Me.GroupBox4.Controls.Add(Me.TextBox52)
+        Me.GroupBox4.Controls.Add(Me.TextBox51)
+        Me.GroupBox4.Controls.Add(Me.TextBox50)
+        Me.GroupBox4.Controls.Add(Me.TextBox49)
+        Me.GroupBox4.Controls.Add(Me.TextBox48)
+        Me.GroupBox4.Controls.Add(Me.Label41)
+        Me.GroupBox4.Controls.Add(Me.Label42)
+        Me.GroupBox4.Controls.Add(Me.TextBox47)
+        Me.GroupBox4.Controls.Add(Me.Label43)
+        Me.GroupBox4.Controls.Add(Me.TextBox46)
+        Me.GroupBox4.Controls.Add(Me.TextBox45)
+        Me.GroupBox4.Controls.Add(Me.TextBox44)
+        Me.GroupBox4.Controls.Add(Me.TextBox43)
+        Me.GroupBox4.Controls.Add(Me.TextBox42)
+        Me.GroupBox4.Controls.Add(Me.TextBox41)
+        Me.GroupBox4.Controls.Add(Me.TextBox40)
+        Me.GroupBox4.Controls.Add(Me.TextBox39)
+        Me.GroupBox4.Controls.Add(Me.TextBox38)
+        Me.GroupBox4.Controls.Add(Me.TextBox37)
+        Me.GroupBox4.Controls.Add(Me.TextBox36)
+        Me.GroupBox4.Controls.Add(Me.TextBox35)
+        Me.GroupBox4.Controls.Add(Me.TextBox34)
+        Me.GroupBox4.Controls.Add(Me.TextBox33)
+        Me.GroupBox4.Controls.Add(Me.Label40)
+        Me.GroupBox4.Controls.Add(Me.Label36)
+        Me.GroupBox4.Controls.Add(Me.Label38)
+        Me.GroupBox4.Controls.Add(Me.Label37)
+        Me.GroupBox4.Controls.Add(Me.Label39)
+        Me.GroupBox4.Controls.Add(Me.Label45)
+        Me.GroupBox4.Controls.Add(Me.Label44)
+        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.GroupBox4.Location = New System.Drawing.Point(0, 308)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(1201, 144)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "INCENDIOS"
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(570, 14)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(106, 13)
+        Me.Label51.TabIndex = 105
+        Me.Label51.Text = "PACA SINIESTRADA"
+        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(28, 14)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(106, 13)
+        Me.Label50.TabIndex = 104
+        Me.Label50.Text = "PACA SINIESTRADA"
+        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(932, 14)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(118, 13)
+        Me.Label49.TabIndex = 103
+        Me.Label49.Text = "PACAS POSTERIORES"
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(728, 14)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(110, 13)
+        Me.Label48.TabIndex = 102
+        Me.Label48.Text = "PACAS ANTERIORES"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(392, 14)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(118, 13)
+        Me.Label47.TabIndex = 101
+        Me.Label47.Text = "PACAS POSTERIORES"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(187, 14)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(110, 13)
+        Me.Label46.TabIndex = 100
+        Me.Label46.Text = "PACAS ANTERIORES"
+        '
+        'TextBox83
+        '
+        Me.TextBox83.Enabled = False
+        Me.TextBox83.Location = New System.Drawing.Point(997, 115)
+        Me.TextBox83.MaxLength = 10
+        Me.TextBox83.Name = "TextBox83"
+        Me.TextBox83.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox83.TabIndex = 99
+        '
+        'TextBox82
+        '
+        Me.TextBox82.Enabled = False
+        Me.TextBox82.Location = New System.Drawing.Point(997, 94)
+        Me.TextBox82.MaxLength = 10
+        Me.TextBox82.Name = "TextBox82"
+        Me.TextBox82.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox82.TabIndex = 98
+        '
+        'TextBox81
+        '
+        Me.TextBox81.Enabled = False
+        Me.TextBox81.Location = New System.Drawing.Point(997, 73)
+        Me.TextBox81.MaxLength = 10
+        Me.TextBox81.Name = "TextBox81"
+        Me.TextBox81.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox81.TabIndex = 97
+        '
+        'TextBox80
+        '
+        Me.TextBox80.Enabled = False
+        Me.TextBox80.Location = New System.Drawing.Point(997, 52)
+        Me.TextBox80.MaxLength = 10
+        Me.TextBox80.Name = "TextBox80"
+        Me.TextBox80.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox80.TabIndex = 96
+        '
+        'TextBox79
+        '
+        Me.TextBox79.Enabled = False
+        Me.TextBox79.Location = New System.Drawing.Point(997, 31)
+        Me.TextBox79.MaxLength = 10
+        Me.TextBox79.Name = "TextBox79"
+        Me.TextBox79.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox79.TabIndex = 95
+        '
+        'TextBox78
+        '
+        Me.TextBox78.Enabled = False
+        Me.TextBox78.Location = New System.Drawing.Point(915, 115)
+        Me.TextBox78.MaxLength = 10
+        Me.TextBox78.Name = "TextBox78"
+        Me.TextBox78.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox78.TabIndex = 94
+        '
+        'TextBox77
+        '
+        Me.TextBox77.Enabled = False
+        Me.TextBox77.Location = New System.Drawing.Point(915, 94)
+        Me.TextBox77.MaxLength = 10
+        Me.TextBox77.Name = "TextBox77"
+        Me.TextBox77.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox77.TabIndex = 93
+        '
+        'TextBox76
+        '
+        Me.TextBox76.Enabled = False
+        Me.TextBox76.Location = New System.Drawing.Point(915, 73)
+        Me.TextBox76.MaxLength = 10
+        Me.TextBox76.Name = "TextBox76"
+        Me.TextBox76.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox76.TabIndex = 92
+        '
+        'TextBox75
+        '
+        Me.TextBox75.Enabled = False
+        Me.TextBox75.Location = New System.Drawing.Point(915, 52)
+        Me.TextBox75.MaxLength = 10
+        Me.TextBox75.Name = "TextBox75"
+        Me.TextBox75.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox75.TabIndex = 91
+        '
+        'TextBox74
+        '
+        Me.TextBox74.Enabled = False
+        Me.TextBox74.Location = New System.Drawing.Point(915, 31)
+        Me.TextBox74.MaxLength = 10
+        Me.TextBox74.Name = "TextBox74"
+        Me.TextBox74.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox74.TabIndex = 90
+        '
+        'TextBox73
+        '
+        Me.TextBox73.Enabled = False
+        Me.TextBox73.Location = New System.Drawing.Point(455, 115)
+        Me.TextBox73.MaxLength = 10
+        Me.TextBox73.Name = "TextBox73"
+        Me.TextBox73.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox73.TabIndex = 89
+        '
+        'TextBox72
+        '
+        Me.TextBox72.Enabled = False
+        Me.TextBox72.Location = New System.Drawing.Point(455, 94)
+        Me.TextBox72.MaxLength = 10
+        Me.TextBox72.Name = "TextBox72"
+        Me.TextBox72.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox72.TabIndex = 88
+        '
+        'TextBox71
+        '
+        Me.TextBox71.Enabled = False
+        Me.TextBox71.Location = New System.Drawing.Point(455, 73)
+        Me.TextBox71.MaxLength = 10
+        Me.TextBox71.Name = "TextBox71"
+        Me.TextBox71.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox71.TabIndex = 87
+        '
+        'TextBox70
+        '
+        Me.TextBox70.Enabled = False
+        Me.TextBox70.Location = New System.Drawing.Point(455, 52)
+        Me.TextBox70.MaxLength = 10
+        Me.TextBox70.Name = "TextBox70"
+        Me.TextBox70.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox70.TabIndex = 86
+        '
+        'TextBox69
+        '
+        Me.TextBox69.Enabled = False
+        Me.TextBox69.Location = New System.Drawing.Point(455, 31)
+        Me.TextBox69.MaxLength = 10
+        Me.TextBox69.Name = "TextBox69"
+        Me.TextBox69.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox69.TabIndex = 85
+        '
+        'TextBox68
+        '
+        Me.TextBox68.Enabled = False
+        Me.TextBox68.Location = New System.Drawing.Point(373, 115)
+        Me.TextBox68.MaxLength = 10
+        Me.TextBox68.Name = "TextBox68"
+        Me.TextBox68.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox68.TabIndex = 84
+        '
+        'TextBox67
+        '
+        Me.TextBox67.Enabled = False
+        Me.TextBox67.Location = New System.Drawing.Point(373, 94)
+        Me.TextBox67.MaxLength = 10
+        Me.TextBox67.Name = "TextBox67"
+        Me.TextBox67.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox67.TabIndex = 83
+        '
+        'TextBox66
+        '
+        Me.TextBox66.Enabled = False
+        Me.TextBox66.Location = New System.Drawing.Point(373, 73)
+        Me.TextBox66.MaxLength = 10
+        Me.TextBox66.Name = "TextBox66"
+        Me.TextBox66.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox66.TabIndex = 82
+        '
+        'TextBox65
+        '
+        Me.TextBox65.Enabled = False
+        Me.TextBox65.Location = New System.Drawing.Point(373, 52)
+        Me.TextBox65.MaxLength = 10
+        Me.TextBox65.Name = "TextBox65"
+        Me.TextBox65.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox65.TabIndex = 81
+        '
+        'TextBox64
+        '
+        Me.TextBox64.Enabled = False
+        Me.TextBox64.Location = New System.Drawing.Point(373, 31)
+        Me.TextBox64.MaxLength = 10
+        Me.TextBox64.Name = "TextBox64"
+        Me.TextBox64.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox64.TabIndex = 80
+        '
+        'TextBox63
+        '
+        Me.TextBox63.Enabled = False
+        Me.TextBox63.Location = New System.Drawing.Point(785, 115)
+        Me.TextBox63.MaxLength = 10
+        Me.TextBox63.Name = "TextBox63"
+        Me.TextBox63.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox63.TabIndex = 79
+        '
+        'TextBox62
+        '
+        Me.TextBox62.Enabled = False
+        Me.TextBox62.Location = New System.Drawing.Point(785, 94)
+        Me.TextBox62.MaxLength = 10
+        Me.TextBox62.Name = "TextBox62"
+        Me.TextBox62.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox62.TabIndex = 78
+        '
+        'TextBox61
+        '
+        Me.TextBox61.Enabled = False
+        Me.TextBox61.Location = New System.Drawing.Point(785, 73)
+        Me.TextBox61.MaxLength = 10
+        Me.TextBox61.Name = "TextBox61"
+        Me.TextBox61.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox61.TabIndex = 77
+        '
+        'TextBox60
+        '
+        Me.TextBox60.Enabled = False
+        Me.TextBox60.Location = New System.Drawing.Point(785, 52)
+        Me.TextBox60.MaxLength = 10
+        Me.TextBox60.Name = "TextBox60"
+        Me.TextBox60.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox60.TabIndex = 76
+        '
+        'TextBox58
+        '
+        Me.TextBox58.Enabled = False
+        Me.TextBox58.Location = New System.Drawing.Point(785, 31)
+        Me.TextBox58.MaxLength = 10
+        Me.TextBox58.Name = "TextBox58"
+        Me.TextBox58.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox58.TabIndex = 75
+        '
+        'TextBox57
+        '
+        Me.TextBox57.Enabled = False
+        Me.TextBox57.Location = New System.Drawing.Point(703, 115)
+        Me.TextBox57.MaxLength = 10
+        Me.TextBox57.Name = "TextBox57"
+        Me.TextBox57.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox57.TabIndex = 74
+        '
+        'TextBox56
+        '
+        Me.TextBox56.Enabled = False
+        Me.TextBox56.Location = New System.Drawing.Point(703, 94)
+        Me.TextBox56.MaxLength = 10
+        Me.TextBox56.Name = "TextBox56"
+        Me.TextBox56.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox56.TabIndex = 73
+        '
+        'TextBox55
+        '
+        Me.TextBox55.Enabled = False
+        Me.TextBox55.Location = New System.Drawing.Point(703, 73)
+        Me.TextBox55.MaxLength = 10
+        Me.TextBox55.Name = "TextBox55"
+        Me.TextBox55.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox55.TabIndex = 72
+        '
+        'TextBox54
+        '
+        Me.TextBox54.Enabled = False
+        Me.TextBox54.Location = New System.Drawing.Point(703, 52)
+        Me.TextBox54.MaxLength = 10
+        Me.TextBox54.Name = "TextBox54"
+        Me.TextBox54.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox54.TabIndex = 71
+        '
+        'TextBox53
+        '
+        Me.TextBox53.Enabled = False
+        Me.TextBox53.Location = New System.Drawing.Point(703, 31)
+        Me.TextBox53.MaxLength = 10
+        Me.TextBox53.Name = "TextBox53"
+        Me.TextBox53.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox53.TabIndex = 70
+        '
+        'TextBox52
+        '
+        Me.TextBox52.Location = New System.Drawing.Point(573, 115)
+        Me.TextBox52.MaxLength = 10
+        Me.TextBox52.Name = "TextBox52"
+        Me.TextBox52.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox52.TabIndex = 9
+        '
+        'TextBox51
+        '
+        Me.TextBox51.Location = New System.Drawing.Point(573, 94)
+        Me.TextBox51.MaxLength = 10
+        Me.TextBox51.Name = "TextBox51"
+        Me.TextBox51.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox51.TabIndex = 8
+        '
+        'TextBox50
+        '
+        Me.TextBox50.Location = New System.Drawing.Point(573, 73)
+        Me.TextBox50.MaxLength = 10
+        Me.TextBox50.Name = "TextBox50"
+        Me.TextBox50.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox50.TabIndex = 7
+        '
+        'TextBox49
+        '
+        Me.TextBox49.Location = New System.Drawing.Point(573, 52)
+        Me.TextBox49.MaxLength = 10
+        Me.TextBox49.Name = "TextBox49"
+        Me.TextBox49.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox49.TabIndex = 6
+        '
+        'TextBox48
+        '
+        Me.TextBox48.Location = New System.Drawing.Point(573, 31)
+        Me.TextBox48.MaxLength = 10
+        Me.TextBox48.Name = "TextBox48"
+        Me.TextBox48.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox48.TabIndex = 5
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(554, 73)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(13, 13)
+        Me.Label41.TabIndex = 48
+        Me.Label41.Text = "8"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(554, 52)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(13, 13)
+        Me.Label42.TabIndex = 47
+        Me.Label42.Text = "7"
+        '
+        'TextBox47
+        '
+        Me.TextBox47.Enabled = False
+        Me.TextBox47.Location = New System.Drawing.Point(243, 115)
+        Me.TextBox47.MaxLength = 10
+        Me.TextBox47.Name = "TextBox47"
+        Me.TextBox47.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox47.TabIndex = 64
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(554, 31)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(13, 13)
+        Me.Label43.TabIndex = 46
+        Me.Label43.Text = "6"
+        '
+        'TextBox46
+        '
+        Me.TextBox46.Enabled = False
+        Me.TextBox46.Location = New System.Drawing.Point(243, 94)
+        Me.TextBox46.MaxLength = 10
+        Me.TextBox46.Name = "TextBox46"
+        Me.TextBox46.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox46.TabIndex = 63
+        '
+        'TextBox45
+        '
+        Me.TextBox45.Enabled = False
+        Me.TextBox45.Location = New System.Drawing.Point(243, 73)
+        Me.TextBox45.MaxLength = 10
+        Me.TextBox45.Name = "TextBox45"
+        Me.TextBox45.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox45.TabIndex = 62
+        '
+        'TextBox44
+        '
+        Me.TextBox44.Enabled = False
+        Me.TextBox44.Location = New System.Drawing.Point(243, 52)
+        Me.TextBox44.MaxLength = 10
+        Me.TextBox44.Name = "TextBox44"
+        Me.TextBox44.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox44.TabIndex = 61
+        '
+        'TextBox43
+        '
+        Me.TextBox43.Enabled = False
+        Me.TextBox43.Location = New System.Drawing.Point(243, 31)
+        Me.TextBox43.MaxLength = 10
+        Me.TextBox43.Name = "TextBox43"
+        Me.TextBox43.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox43.TabIndex = 60
+        '
+        'TextBox42
+        '
+        Me.TextBox42.Enabled = False
+        Me.TextBox42.Location = New System.Drawing.Point(160, 115)
+        Me.TextBox42.MaxLength = 10
+        Me.TextBox42.Name = "TextBox42"
+        Me.TextBox42.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox42.TabIndex = 59
+        '
+        'TextBox41
+        '
+        Me.TextBox41.Enabled = False
+        Me.TextBox41.Location = New System.Drawing.Point(160, 94)
+        Me.TextBox41.MaxLength = 10
+        Me.TextBox41.Name = "TextBox41"
+        Me.TextBox41.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox41.TabIndex = 58
+        '
+        'TextBox40
+        '
+        Me.TextBox40.Enabled = False
+        Me.TextBox40.Location = New System.Drawing.Point(160, 73)
+        Me.TextBox40.MaxLength = 10
+        Me.TextBox40.Name = "TextBox40"
+        Me.TextBox40.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox40.TabIndex = 57
+        '
+        'TextBox39
+        '
+        Me.TextBox39.Enabled = False
+        Me.TextBox39.Location = New System.Drawing.Point(160, 52)
+        Me.TextBox39.MaxLength = 10
+        Me.TextBox39.Name = "TextBox39"
+        Me.TextBox39.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox39.TabIndex = 56
+        '
+        'TextBox38
+        '
+        Me.TextBox38.Enabled = False
+        Me.TextBox38.Location = New System.Drawing.Point(160, 31)
+        Me.TextBox38.MaxLength = 10
+        Me.TextBox38.Name = "TextBox38"
+        Me.TextBox38.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox38.TabIndex = 55
+        '
+        'TextBox37
+        '
+        Me.TextBox37.Location = New System.Drawing.Point(31, 115)
+        Me.TextBox37.MaxLength = 10
+        Me.TextBox37.Name = "TextBox37"
+        Me.TextBox37.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox37.TabIndex = 4
+        '
+        'TextBox36
+        '
+        Me.TextBox36.Location = New System.Drawing.Point(31, 94)
+        Me.TextBox36.MaxLength = 10
+        Me.TextBox36.Name = "TextBox36"
+        Me.TextBox36.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox36.TabIndex = 3
+        '
+        'TextBox35
+        '
+        Me.TextBox35.Location = New System.Drawing.Point(31, 73)
+        Me.TextBox35.MaxLength = 10
+        Me.TextBox35.Name = "TextBox35"
+        Me.TextBox35.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox35.TabIndex = 2
+        '
+        'TextBox34
+        '
+        Me.TextBox34.Location = New System.Drawing.Point(31, 52)
+        Me.TextBox34.MaxLength = 10
+        Me.TextBox34.Name = "TextBox34"
+        Me.TextBox34.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox34.TabIndex = 1
+        '
+        'TextBox33
+        '
+        Me.TextBox33.Location = New System.Drawing.Point(31, 31)
+        Me.TextBox33.MaxLength = 10
+        Me.TextBox33.Name = "TextBox33"
+        Me.TextBox33.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox33.TabIndex = 0
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(12, 115)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(13, 13)
+        Me.Label40.TabIndex = 46
+        Me.Label40.Text = "5"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(12, 94)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(13, 13)
+        Me.Label36.TabIndex = 46
+        Me.Label36.Text = "4"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(12, 31)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(13, 13)
+        Me.Label38.TabIndex = 48
+        Me.Label38.Text = "1"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(12, 73)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(13, 13)
+        Me.Label37.TabIndex = 47
+        Me.Label37.Text = "3"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(12, 52)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(13, 13)
+        Me.Label39.TabIndex = 49
+        Me.Label39.Text = "2"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(554, 115)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(19, 13)
+        Me.Label45.TabIndex = 11
+        Me.Label45.Text = "10"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(554, 94)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(13, 13)
+        Me.Label44.TabIndex = 10
+        Me.Label44.Text = "9"
         '
         'GroupBox3
         '
@@ -442,6 +1092,74 @@ Partial Class IncidenciasProduccion
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "INFORME DE PRODUCCION DE BORRA"
+        '
+        'TextBox32
+        '
+        Me.TextBox32.Location = New System.Drawing.Point(712, 85)
+        Me.TextBox32.MaxLength = 10
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox32.TabIndex = 24
+        '
+        'TextBox31
+        '
+        Me.TextBox31.Location = New System.Drawing.Point(712, 63)
+        Me.TextBox31.MaxLength = 10
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox31.TabIndex = 23
+        '
+        'TextBox30
+        '
+        Me.TextBox30.Location = New System.Drawing.Point(712, 41)
+        Me.TextBox30.MaxLength = 10
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox30.TabIndex = 22
+        '
+        'TextBox29
+        '
+        Me.TextBox29.Location = New System.Drawing.Point(712, 19)
+        Me.TextBox29.MaxLength = 10
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(76, 18)
+        Me.TextBox29.TabIndex = 21
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(691, 88)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(19, 13)
+        Me.Label35.TabIndex = 41
+        Me.Label35.Text = "24"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(691, 66)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(19, 13)
+        Me.Label34.TabIndex = 40
+        Me.Label34.Text = "23"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(691, 44)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(19, 13)
+        Me.Label33.TabIndex = 39
+        Me.Label33.Text = "22"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(691, 22)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(19, 13)
+        Me.Label32.TabIndex = 38
+        Me.Label32.Text = "21"
         '
         'TextBox28
         '
@@ -927,736 +1645,69 @@ Partial Class IncidenciasProduccion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "INFORME DE CONDICIONES Y ACTOS INSEGUROS"
         '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(691, 22)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(19, 13)
-        Me.Label32.TabIndex = 38
-        Me.Label32.Text = "21"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(691, 44)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(19, 13)
-        Me.Label33.TabIndex = 39
-        Me.Label33.Text = "22"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(691, 66)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(19, 13)
-        Me.Label34.TabIndex = 40
-        Me.Label34.Text = "23"
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(691, 88)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(19, 13)
-        Me.Label35.TabIndex = 41
-        Me.Label35.Text = "24"
-        '
-        'TextBox29
-        '
-        Me.TextBox29.Location = New System.Drawing.Point(712, 19)
-        Me.TextBox29.MaxLength = 10
-        Me.TextBox29.Name = "TextBox29"
-        Me.TextBox29.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox29.TabIndex = 21
-        '
-        'TextBox30
-        '
-        Me.TextBox30.Location = New System.Drawing.Point(712, 41)
-        Me.TextBox30.MaxLength = 10
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox30.TabIndex = 22
-        '
-        'TextBox31
-        '
-        Me.TextBox31.Location = New System.Drawing.Point(712, 63)
-        Me.TextBox31.MaxLength = 10
-        Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox31.TabIndex = 23
-        '
-        'TextBox32
-        '
-        Me.TextBox32.Location = New System.Drawing.Point(712, 85)
-        Me.TextBox32.MaxLength = 10
-        Me.TextBox32.Name = "TextBox32"
-        Me.TextBox32.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox32.TabIndex = 24
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label51)
-        Me.GroupBox4.Controls.Add(Me.Label50)
-        Me.GroupBox4.Controls.Add(Me.Label49)
-        Me.GroupBox4.Controls.Add(Me.Label48)
-        Me.GroupBox4.Controls.Add(Me.Label47)
-        Me.GroupBox4.Controls.Add(Me.Label46)
-        Me.GroupBox4.Controls.Add(Me.TextBox83)
-        Me.GroupBox4.Controls.Add(Me.TextBox82)
-        Me.GroupBox4.Controls.Add(Me.TextBox81)
-        Me.GroupBox4.Controls.Add(Me.TextBox80)
-        Me.GroupBox4.Controls.Add(Me.TextBox79)
-        Me.GroupBox4.Controls.Add(Me.TextBox78)
-        Me.GroupBox4.Controls.Add(Me.TextBox77)
-        Me.GroupBox4.Controls.Add(Me.TextBox76)
-        Me.GroupBox4.Controls.Add(Me.TextBox75)
-        Me.GroupBox4.Controls.Add(Me.TextBox74)
-        Me.GroupBox4.Controls.Add(Me.TextBox73)
-        Me.GroupBox4.Controls.Add(Me.TextBox72)
-        Me.GroupBox4.Controls.Add(Me.TextBox71)
-        Me.GroupBox4.Controls.Add(Me.TextBox70)
-        Me.GroupBox4.Controls.Add(Me.TextBox69)
-        Me.GroupBox4.Controls.Add(Me.TextBox68)
-        Me.GroupBox4.Controls.Add(Me.TextBox67)
-        Me.GroupBox4.Controls.Add(Me.TextBox66)
-        Me.GroupBox4.Controls.Add(Me.TextBox65)
-        Me.GroupBox4.Controls.Add(Me.TextBox64)
-        Me.GroupBox4.Controls.Add(Me.TextBox63)
-        Me.GroupBox4.Controls.Add(Me.TextBox62)
-        Me.GroupBox4.Controls.Add(Me.TextBox61)
-        Me.GroupBox4.Controls.Add(Me.TextBox60)
-        Me.GroupBox4.Controls.Add(Me.TextBox58)
-        Me.GroupBox4.Controls.Add(Me.TextBox57)
-        Me.GroupBox4.Controls.Add(Me.TextBox56)
-        Me.GroupBox4.Controls.Add(Me.TextBox55)
-        Me.GroupBox4.Controls.Add(Me.TextBox54)
-        Me.GroupBox4.Controls.Add(Me.TextBox53)
-        Me.GroupBox4.Controls.Add(Me.TextBox52)
-        Me.GroupBox4.Controls.Add(Me.TextBox51)
-        Me.GroupBox4.Controls.Add(Me.TextBox50)
-        Me.GroupBox4.Controls.Add(Me.TextBox49)
-        Me.GroupBox4.Controls.Add(Me.TextBox48)
-        Me.GroupBox4.Controls.Add(Me.Label41)
-        Me.GroupBox4.Controls.Add(Me.Label42)
-        Me.GroupBox4.Controls.Add(Me.TextBox47)
-        Me.GroupBox4.Controls.Add(Me.Label43)
-        Me.GroupBox4.Controls.Add(Me.TextBox46)
-        Me.GroupBox4.Controls.Add(Me.TextBox45)
-        Me.GroupBox4.Controls.Add(Me.TextBox44)
-        Me.GroupBox4.Controls.Add(Me.TextBox43)
-        Me.GroupBox4.Controls.Add(Me.TextBox42)
-        Me.GroupBox4.Controls.Add(Me.TextBox41)
-        Me.GroupBox4.Controls.Add(Me.TextBox40)
-        Me.GroupBox4.Controls.Add(Me.TextBox39)
-        Me.GroupBox4.Controls.Add(Me.TextBox38)
-        Me.GroupBox4.Controls.Add(Me.TextBox37)
-        Me.GroupBox4.Controls.Add(Me.TextBox36)
-        Me.GroupBox4.Controls.Add(Me.TextBox35)
-        Me.GroupBox4.Controls.Add(Me.TextBox34)
-        Me.GroupBox4.Controls.Add(Me.TextBox33)
-        Me.GroupBox4.Controls.Add(Me.Label40)
-        Me.GroupBox4.Controls.Add(Me.Label36)
-        Me.GroupBox4.Controls.Add(Me.Label38)
-        Me.GroupBox4.Controls.Add(Me.Label37)
-        Me.GroupBox4.Controls.Add(Me.Label39)
-        Me.GroupBox4.Controls.Add(Me.Label45)
-        Me.GroupBox4.Controls.Add(Me.Label44)
-        Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.GroupBox4.Location = New System.Drawing.Point(0, 308)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(1201, 144)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "INCENDIOS"
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(12, 94)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(13, 13)
-        Me.Label36.TabIndex = 46
-        Me.Label36.Text = "4"
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(12, 73)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(13, 13)
-        Me.Label37.TabIndex = 47
-        Me.Label37.Text = "3"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(12, 31)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(13, 13)
-        Me.Label38.TabIndex = 48
-        Me.Label38.Text = "1"
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(12, 52)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(13, 13)
-        Me.Label39.TabIndex = 49
-        Me.Label39.Text = "2"
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(12, 115)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(13, 13)
-        Me.Label40.TabIndex = 46
-        Me.Label40.Text = "5"
-        '
-        'TextBox33
-        '
-        Me.TextBox33.Location = New System.Drawing.Point(31, 31)
-        Me.TextBox33.MaxLength = 10
-        Me.TextBox33.Name = "TextBox33"
-        Me.TextBox33.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox33.TabIndex = 0
-        '
-        'TextBox34
-        '
-        Me.TextBox34.Location = New System.Drawing.Point(31, 52)
-        Me.TextBox34.MaxLength = 10
-        Me.TextBox34.Name = "TextBox34"
-        Me.TextBox34.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox34.TabIndex = 1
-        '
-        'TextBox35
-        '
-        Me.TextBox35.Location = New System.Drawing.Point(31, 73)
-        Me.TextBox35.MaxLength = 10
-        Me.TextBox35.Name = "TextBox35"
-        Me.TextBox35.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox35.TabIndex = 2
-        '
-        'TextBox36
-        '
-        Me.TextBox36.Location = New System.Drawing.Point(31, 94)
-        Me.TextBox36.MaxLength = 10
-        Me.TextBox36.Name = "TextBox36"
-        Me.TextBox36.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox36.TabIndex = 3
-        '
-        'TextBox37
-        '
-        Me.TextBox37.Location = New System.Drawing.Point(31, 115)
-        Me.TextBox37.MaxLength = 10
-        Me.TextBox37.Name = "TextBox37"
-        Me.TextBox37.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox37.TabIndex = 4
-        '
-        'TextBox38
-        '
-        Me.TextBox38.Enabled = False
-        Me.TextBox38.Location = New System.Drawing.Point(160, 31)
-        Me.TextBox38.MaxLength = 10
-        Me.TextBox38.Name = "TextBox38"
-        Me.TextBox38.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox38.TabIndex = 55
-        '
-        'TextBox39
-        '
-        Me.TextBox39.Enabled = False
-        Me.TextBox39.Location = New System.Drawing.Point(160, 52)
-        Me.TextBox39.MaxLength = 10
-        Me.TextBox39.Name = "TextBox39"
-        Me.TextBox39.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox39.TabIndex = 56
-        '
-        'TextBox40
-        '
-        Me.TextBox40.Enabled = False
-        Me.TextBox40.Location = New System.Drawing.Point(160, 73)
-        Me.TextBox40.MaxLength = 10
-        Me.TextBox40.Name = "TextBox40"
-        Me.TextBox40.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox40.TabIndex = 57
-        '
-        'TextBox41
-        '
-        Me.TextBox41.Enabled = False
-        Me.TextBox41.Location = New System.Drawing.Point(160, 94)
-        Me.TextBox41.MaxLength = 10
-        Me.TextBox41.Name = "TextBox41"
-        Me.TextBox41.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox41.TabIndex = 58
-        '
-        'TextBox42
-        '
-        Me.TextBox42.Enabled = False
-        Me.TextBox42.Location = New System.Drawing.Point(160, 115)
-        Me.TextBox42.MaxLength = 10
-        Me.TextBox42.Name = "TextBox42"
-        Me.TextBox42.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox42.TabIndex = 59
-        '
-        'TextBox43
-        '
-        Me.TextBox43.Enabled = False
-        Me.TextBox43.Location = New System.Drawing.Point(243, 31)
-        Me.TextBox43.MaxLength = 10
-        Me.TextBox43.Name = "TextBox43"
-        Me.TextBox43.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox43.TabIndex = 60
-        '
-        'TextBox44
-        '
-        Me.TextBox44.Enabled = False
-        Me.TextBox44.Location = New System.Drawing.Point(243, 52)
-        Me.TextBox44.MaxLength = 10
-        Me.TextBox44.Name = "TextBox44"
-        Me.TextBox44.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox44.TabIndex = 61
-        '
-        'TextBox45
-        '
-        Me.TextBox45.Enabled = False
-        Me.TextBox45.Location = New System.Drawing.Point(243, 73)
-        Me.TextBox45.MaxLength = 10
-        Me.TextBox45.Name = "TextBox45"
-        Me.TextBox45.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox45.TabIndex = 62
-        '
-        'TextBox46
-        '
-        Me.TextBox46.Enabled = False
-        Me.TextBox46.Location = New System.Drawing.Point(243, 94)
-        Me.TextBox46.MaxLength = 10
-        Me.TextBox46.Name = "TextBox46"
-        Me.TextBox46.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox46.TabIndex = 63
-        '
-        'TextBox47
-        '
-        Me.TextBox47.Enabled = False
-        Me.TextBox47.Location = New System.Drawing.Point(243, 115)
-        Me.TextBox47.MaxLength = 10
-        Me.TextBox47.Name = "TextBox47"
-        Me.TextBox47.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox47.TabIndex = 64
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(554, 73)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(13, 13)
-        Me.Label41.TabIndex = 48
-        Me.Label41.Text = "8"
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(554, 52)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(13, 13)
-        Me.Label42.TabIndex = 47
-        Me.Label42.Text = "7"
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(554, 31)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(13, 13)
-        Me.Label43.TabIndex = 46
-        Me.Label43.Text = "6"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(554, 94)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(13, 13)
-        Me.Label44.TabIndex = 10
-        Me.Label44.Text = "9"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(554, 115)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(19, 13)
-        Me.Label45.TabIndex = 11
-        Me.Label45.Text = "10"
-        '
-        'TextBox48
-        '
-        Me.TextBox48.Location = New System.Drawing.Point(573, 31)
-        Me.TextBox48.MaxLength = 10
-        Me.TextBox48.Name = "TextBox48"
-        Me.TextBox48.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox48.TabIndex = 5
-        '
-        'TextBox49
-        '
-        Me.TextBox49.Location = New System.Drawing.Point(573, 52)
-        Me.TextBox49.MaxLength = 10
-        Me.TextBox49.Name = "TextBox49"
-        Me.TextBox49.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox49.TabIndex = 6
-        '
-        'TextBox50
-        '
-        Me.TextBox50.Location = New System.Drawing.Point(573, 73)
-        Me.TextBox50.MaxLength = 10
-        Me.TextBox50.Name = "TextBox50"
-        Me.TextBox50.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox50.TabIndex = 7
-        '
-        'TextBox51
-        '
-        Me.TextBox51.Location = New System.Drawing.Point(573, 94)
-        Me.TextBox51.MaxLength = 10
-        Me.TextBox51.Name = "TextBox51"
-        Me.TextBox51.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox51.TabIndex = 8
-        '
-        'TextBox52
-        '
-        Me.TextBox52.Location = New System.Drawing.Point(573, 115)
-        Me.TextBox52.MaxLength = 10
-        Me.TextBox52.Name = "TextBox52"
-        Me.TextBox52.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox52.TabIndex = 9
-        '
-        'TextBox53
-        '
-        Me.TextBox53.Enabled = False
-        Me.TextBox53.Location = New System.Drawing.Point(703, 31)
-        Me.TextBox53.MaxLength = 10
-        Me.TextBox53.Name = "TextBox53"
-        Me.TextBox53.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox53.TabIndex = 70
-        '
-        'TextBox54
-        '
-        Me.TextBox54.Enabled = False
-        Me.TextBox54.Location = New System.Drawing.Point(703, 52)
-        Me.TextBox54.MaxLength = 10
-        Me.TextBox54.Name = "TextBox54"
-        Me.TextBox54.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox54.TabIndex = 71
-        '
-        'TextBox55
-        '
-        Me.TextBox55.Enabled = False
-        Me.TextBox55.Location = New System.Drawing.Point(703, 73)
-        Me.TextBox55.MaxLength = 10
-        Me.TextBox55.Name = "TextBox55"
-        Me.TextBox55.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox55.TabIndex = 72
-        '
-        'TextBox56
-        '
-        Me.TextBox56.Enabled = False
-        Me.TextBox56.Location = New System.Drawing.Point(703, 94)
-        Me.TextBox56.MaxLength = 10
-        Me.TextBox56.Name = "TextBox56"
-        Me.TextBox56.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox56.TabIndex = 73
-        '
-        'TextBox57
-        '
-        Me.TextBox57.Enabled = False
-        Me.TextBox57.Location = New System.Drawing.Point(703, 115)
-        Me.TextBox57.MaxLength = 10
-        Me.TextBox57.Name = "TextBox57"
-        Me.TextBox57.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox57.TabIndex = 74
-        '
-        'TextBox58
-        '
-        Me.TextBox58.Enabled = False
-        Me.TextBox58.Location = New System.Drawing.Point(785, 31)
-        Me.TextBox58.MaxLength = 10
-        Me.TextBox58.Name = "TextBox58"
-        Me.TextBox58.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox58.TabIndex = 75
-        '
-        'TextBox60
-        '
-        Me.TextBox60.Enabled = False
-        Me.TextBox60.Location = New System.Drawing.Point(785, 52)
-        Me.TextBox60.MaxLength = 10
-        Me.TextBox60.Name = "TextBox60"
-        Me.TextBox60.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox60.TabIndex = 76
-        '
-        'TextBox61
-        '
-        Me.TextBox61.Enabled = False
-        Me.TextBox61.Location = New System.Drawing.Point(785, 73)
-        Me.TextBox61.MaxLength = 10
-        Me.TextBox61.Name = "TextBox61"
-        Me.TextBox61.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox61.TabIndex = 77
-        '
-        'TextBox62
-        '
-        Me.TextBox62.Enabled = False
-        Me.TextBox62.Location = New System.Drawing.Point(785, 94)
-        Me.TextBox62.MaxLength = 10
-        Me.TextBox62.Name = "TextBox62"
-        Me.TextBox62.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox62.TabIndex = 78
-        '
-        'TextBox63
-        '
-        Me.TextBox63.Enabled = False
-        Me.TextBox63.Location = New System.Drawing.Point(785, 115)
-        Me.TextBox63.MaxLength = 10
-        Me.TextBox63.Name = "TextBox63"
-        Me.TextBox63.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox63.TabIndex = 79
-        '
-        'TextBox64
-        '
-        Me.TextBox64.Enabled = False
-        Me.TextBox64.Location = New System.Drawing.Point(373, 31)
-        Me.TextBox64.MaxLength = 10
-        Me.TextBox64.Name = "TextBox64"
-        Me.TextBox64.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox64.TabIndex = 80
-        '
-        'TextBox65
-        '
-        Me.TextBox65.Enabled = False
-        Me.TextBox65.Location = New System.Drawing.Point(373, 52)
-        Me.TextBox65.MaxLength = 10
-        Me.TextBox65.Name = "TextBox65"
-        Me.TextBox65.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox65.TabIndex = 81
-        '
-        'TextBox66
-        '
-        Me.TextBox66.Enabled = False
-        Me.TextBox66.Location = New System.Drawing.Point(373, 73)
-        Me.TextBox66.MaxLength = 10
-        Me.TextBox66.Name = "TextBox66"
-        Me.TextBox66.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox66.TabIndex = 82
-        '
-        'TextBox67
-        '
-        Me.TextBox67.Enabled = False
-        Me.TextBox67.Location = New System.Drawing.Point(373, 94)
-        Me.TextBox67.MaxLength = 10
-        Me.TextBox67.Name = "TextBox67"
-        Me.TextBox67.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox67.TabIndex = 83
-        '
-        'TextBox68
-        '
-        Me.TextBox68.Enabled = False
-        Me.TextBox68.Location = New System.Drawing.Point(373, 115)
-        Me.TextBox68.MaxLength = 10
-        Me.TextBox68.Name = "TextBox68"
-        Me.TextBox68.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox68.TabIndex = 84
-        '
-        'TextBox69
-        '
-        Me.TextBox69.Enabled = False
-        Me.TextBox69.Location = New System.Drawing.Point(455, 31)
-        Me.TextBox69.MaxLength = 10
-        Me.TextBox69.Name = "TextBox69"
-        Me.TextBox69.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox69.TabIndex = 85
-        '
-        'TextBox70
-        '
-        Me.TextBox70.Enabled = False
-        Me.TextBox70.Location = New System.Drawing.Point(455, 52)
-        Me.TextBox70.MaxLength = 10
-        Me.TextBox70.Name = "TextBox70"
-        Me.TextBox70.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox70.TabIndex = 86
-        '
-        'TextBox71
-        '
-        Me.TextBox71.Enabled = False
-        Me.TextBox71.Location = New System.Drawing.Point(455, 73)
-        Me.TextBox71.MaxLength = 10
-        Me.TextBox71.Name = "TextBox71"
-        Me.TextBox71.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox71.TabIndex = 87
-        '
-        'TextBox72
-        '
-        Me.TextBox72.Enabled = False
-        Me.TextBox72.Location = New System.Drawing.Point(455, 94)
-        Me.TextBox72.MaxLength = 10
-        Me.TextBox72.Name = "TextBox72"
-        Me.TextBox72.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox72.TabIndex = 88
-        '
-        'TextBox73
-        '
-        Me.TextBox73.Enabled = False
-        Me.TextBox73.Location = New System.Drawing.Point(455, 115)
-        Me.TextBox73.MaxLength = 10
-        Me.TextBox73.Name = "TextBox73"
-        Me.TextBox73.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox73.TabIndex = 89
-        '
-        'TextBox74
-        '
-        Me.TextBox74.Enabled = False
-        Me.TextBox74.Location = New System.Drawing.Point(915, 31)
-        Me.TextBox74.MaxLength = 10
-        Me.TextBox74.Name = "TextBox74"
-        Me.TextBox74.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox74.TabIndex = 90
-        '
-        'TextBox75
-        '
-        Me.TextBox75.Enabled = False
-        Me.TextBox75.Location = New System.Drawing.Point(915, 52)
-        Me.TextBox75.MaxLength = 10
-        Me.TextBox75.Name = "TextBox75"
-        Me.TextBox75.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox75.TabIndex = 91
-        '
-        'TextBox76
-        '
-        Me.TextBox76.Enabled = False
-        Me.TextBox76.Location = New System.Drawing.Point(915, 73)
-        Me.TextBox76.MaxLength = 10
-        Me.TextBox76.Name = "TextBox76"
-        Me.TextBox76.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox76.TabIndex = 92
-        '
-        'TextBox77
-        '
-        Me.TextBox77.Enabled = False
-        Me.TextBox77.Location = New System.Drawing.Point(915, 94)
-        Me.TextBox77.MaxLength = 10
-        Me.TextBox77.Name = "TextBox77"
-        Me.TextBox77.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox77.TabIndex = 93
-        '
-        'TextBox78
-        '
-        Me.TextBox78.Enabled = False
-        Me.TextBox78.Location = New System.Drawing.Point(915, 115)
-        Me.TextBox78.MaxLength = 10
-        Me.TextBox78.Name = "TextBox78"
-        Me.TextBox78.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox78.TabIndex = 94
-        '
-        'TextBox79
-        '
-        Me.TextBox79.Enabled = False
-        Me.TextBox79.Location = New System.Drawing.Point(997, 31)
-        Me.TextBox79.MaxLength = 10
-        Me.TextBox79.Name = "TextBox79"
-        Me.TextBox79.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox79.TabIndex = 95
-        '
-        'TextBox80
-        '
-        Me.TextBox80.Enabled = False
-        Me.TextBox80.Location = New System.Drawing.Point(997, 52)
-        Me.TextBox80.MaxLength = 10
-        Me.TextBox80.Name = "TextBox80"
-        Me.TextBox80.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox80.TabIndex = 96
-        '
-        'TextBox81
-        '
-        Me.TextBox81.Enabled = False
-        Me.TextBox81.Location = New System.Drawing.Point(997, 73)
-        Me.TextBox81.MaxLength = 10
-        Me.TextBox81.Name = "TextBox81"
-        Me.TextBox81.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox81.TabIndex = 97
-        '
-        'TextBox82
-        '
-        Me.TextBox82.Enabled = False
-        Me.TextBox82.Location = New System.Drawing.Point(997, 94)
-        Me.TextBox82.MaxLength = 10
-        Me.TextBox82.Name = "TextBox82"
-        Me.TextBox82.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox82.TabIndex = 98
-        '
-        'TextBox83
-        '
-        Me.TextBox83.Enabled = False
-        Me.TextBox83.Location = New System.Drawing.Point(997, 115)
-        Me.TextBox83.MaxLength = 10
-        Me.TextBox83.Name = "TextBox83"
-        Me.TextBox83.Size = New System.Drawing.Size(76, 18)
-        Me.TextBox83.TabIndex = 99
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(187, 14)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(110, 13)
-        Me.Label46.TabIndex = 100
-        Me.Label46.Text = "PACAS ANTERIORES"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(392, 14)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(118, 13)
-        Me.Label47.TabIndex = 101
-        Me.Label47.Text = "PACAS POSTERIORES"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(728, 14)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(110, 13)
-        Me.Label48.TabIndex = 102
-        Me.Label48.Text = "PACAS ANTERIORES"
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(932, 14)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(118, 13)
-        Me.Label49.TabIndex = 103
-        Me.Label49.Text = "PACAS POSTERIORES"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(28, 14)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(106, 13)
-        Me.Label50.TabIndex = 104
-        Me.Label50.Text = "PACA SINIESTRADA"
-        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(570, 14)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(106, 13)
-        Me.Label51.TabIndex = 105
-        Me.Label51.Text = "PACA SINIESTRADA"
-        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Location = New System.Drawing.Point(12, 92)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(13, 13)
+        Me.Label68.TabIndex = 4
+        Me.Label68.Text = "4"
+        '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(12, 68)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(13, 13)
+        Me.Label69.TabIndex = 5
+        Me.Label69.Text = "3"
+        '
+        'Label70
+        '
+        Me.Label70.AutoSize = True
+        Me.Label70.Location = New System.Drawing.Point(12, 20)
+        Me.Label70.Name = "Label70"
+        Me.Label70.Size = New System.Drawing.Size(13, 13)
+        Me.Label70.TabIndex = 6
+        Me.Label70.Text = "1"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Location = New System.Drawing.Point(12, 44)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(13, 13)
+        Me.Label71.TabIndex = 7
+        Me.Label71.Text = "2"
+        '
+        'TextBox102
+        '
+        Me.TextBox102.Location = New System.Drawing.Point(31, 89)
+        Me.TextBox102.Name = "TextBox102"
+        Me.TextBox102.Size = New System.Drawing.Size(800, 18)
+        Me.TextBox102.TabIndex = 3
+        '
+        'TextBox101
+        '
+        Me.TextBox101.Location = New System.Drawing.Point(31, 65)
+        Me.TextBox101.Name = "TextBox101"
+        Me.TextBox101.Size = New System.Drawing.Size(800, 18)
+        Me.TextBox101.TabIndex = 2
+        '
+        'TextBox100
+        '
+        Me.TextBox100.Location = New System.Drawing.Point(31, 41)
+        Me.TextBox100.Name = "TextBox100"
+        Me.TextBox100.Size = New System.Drawing.Size(800, 18)
+        Me.TextBox100.TabIndex = 1
+        '
+        'TextBox99
+        '
+        Me.TextBox99.Location = New System.Drawing.Point(31, 17)
+        Me.TextBox99.Name = "TextBox99"
+        Me.TextBox99.Size = New System.Drawing.Size(800, 18)
+        Me.TextBox99.TabIndex = 0
         '
         'TabControl1
         '
@@ -1677,7 +1728,7 @@ Partial Class IncidenciasProduccion
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1207, 674)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.Text = "PAGINA 1"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabPage2
@@ -1688,7 +1739,7 @@ Partial Class IncidenciasProduccion
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1207, 674)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.Text = "PAGINA 2"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Panel3
@@ -1702,62 +1753,6 @@ Partial Class IncidenciasProduccion
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1201, 668)
         Me.Panel3.TabIndex = 0
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.Controls.Add(Me.TextBox94)
-        Me.GroupBox7.Controls.Add(Me.TextBox93)
-        Me.GroupBox7.Controls.Add(Me.TextBox92)
-        Me.GroupBox7.Controls.Add(Me.Label60)
-        Me.GroupBox7.Controls.Add(Me.Label61)
-        Me.GroupBox7.Controls.Add(Me.Label62)
-        Me.GroupBox7.Controls.Add(Me.Label63)
-        Me.GroupBox7.Controls.Add(Me.TextBox91)
-        Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox7.Location = New System.Drawing.Point(0, 246)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(1201, 132)
-        Me.GroupBox7.TabIndex = 2
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "PROGRAMACION DE MANTENIMIENTO PREVENTIVO"
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.TextBox90)
-        Me.GroupBox6.Controls.Add(Me.TextBox89)
-        Me.GroupBox6.Controls.Add(Me.TextBox88)
-        Me.GroupBox6.Controls.Add(Me.TextBox87)
-        Me.GroupBox6.Controls.Add(Me.Label56)
-        Me.GroupBox6.Controls.Add(Me.Label59)
-        Me.GroupBox6.Controls.Add(Me.Label57)
-        Me.GroupBox6.Controls.Add(Me.Label58)
-        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.GroupBox6.Location = New System.Drawing.Point(0, 121)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(1201, 125)
-        Me.GroupBox6.TabIndex = 1
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "CORRECCIONES REALIZADAS"
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.Label55)
-        Me.GroupBox5.Controls.Add(Me.Label54)
-        Me.GroupBox5.Controls.Add(Me.Label53)
-        Me.GroupBox5.Controls.Add(Me.Label52)
-        Me.GroupBox5.Controls.Add(Me.TextBox86)
-        Me.GroupBox5.Controls.Add(Me.TextBox85)
-        Me.GroupBox5.Controls.Add(Me.TextBox84)
-        Me.GroupBox5.Controls.Add(Me.TextBox59)
-        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
-        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(1201, 121)
-        Me.GroupBox5.TabIndex = 0
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "CAUSAS DE TIEMPO MUERTO"
         '
         'GroupBox8
         '
@@ -1777,197 +1772,33 @@ Partial Class IncidenciasProduccion
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "OBSERVACIONES"
         '
-        'TextBox59
+        'TextBox98
         '
-        Me.TextBox59.Location = New System.Drawing.Point(30, 17)
-        Me.TextBox59.Name = "TextBox59"
-        Me.TextBox59.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox59.TabIndex = 0
+        Me.TextBox98.Location = New System.Drawing.Point(30, 97)
+        Me.TextBox98.Name = "TextBox98"
+        Me.TextBox98.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox98.TabIndex = 3
         '
-        'TextBox84
+        'TextBox97
         '
-        Me.TextBox84.Location = New System.Drawing.Point(30, 41)
-        Me.TextBox84.Name = "TextBox84"
-        Me.TextBox84.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox84.TabIndex = 1
+        Me.TextBox97.Location = New System.Drawing.Point(30, 71)
+        Me.TextBox97.Name = "TextBox97"
+        Me.TextBox97.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox97.TabIndex = 2
         '
-        'TextBox85
+        'TextBox96
         '
-        Me.TextBox85.Location = New System.Drawing.Point(30, 65)
-        Me.TextBox85.Name = "TextBox85"
-        Me.TextBox85.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox85.TabIndex = 2
+        Me.TextBox96.Location = New System.Drawing.Point(30, 45)
+        Me.TextBox96.Name = "TextBox96"
+        Me.TextBox96.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox96.TabIndex = 1
         '
-        'TextBox86
+        'TextBox95
         '
-        Me.TextBox86.Location = New System.Drawing.Point(30, 89)
-        Me.TextBox86.Name = "TextBox86"
-        Me.TextBox86.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox86.TabIndex = 3
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(6, 20)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(13, 13)
-        Me.Label52.TabIndex = 4
-        Me.Label52.Text = "1"
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(6, 44)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(13, 13)
-        Me.Label53.TabIndex = 5
-        Me.Label53.Text = "2"
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(6, 68)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(13, 13)
-        Me.Label54.TabIndex = 6
-        Me.Label54.Text = "3"
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(6, 92)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(13, 13)
-        Me.Label55.TabIndex = 7
-        Me.Label55.Text = "4"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(6, 92)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(13, 13)
-        Me.Label56.TabIndex = 11
-        Me.Label56.Text = "4"
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.Location = New System.Drawing.Point(6, 68)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(13, 13)
-        Me.Label57.TabIndex = 10
-        Me.Label57.Text = "3"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(6, 44)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(13, 13)
-        Me.Label58.TabIndex = 9
-        Me.Label58.Text = "2"
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(6, 20)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(13, 13)
-        Me.Label59.TabIndex = 8
-        Me.Label59.Text = "1"
-        '
-        'TextBox87
-        '
-        Me.TextBox87.Location = New System.Drawing.Point(30, 17)
-        Me.TextBox87.Name = "TextBox87"
-        Me.TextBox87.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox87.TabIndex = 0
-        '
-        'TextBox88
-        '
-        Me.TextBox88.Location = New System.Drawing.Point(30, 41)
-        Me.TextBox88.Name = "TextBox88"
-        Me.TextBox88.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox88.TabIndex = 1
-        '
-        'TextBox89
-        '
-        Me.TextBox89.Location = New System.Drawing.Point(30, 65)
-        Me.TextBox89.Name = "TextBox89"
-        Me.TextBox89.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox89.TabIndex = 2
-        '
-        'TextBox90
-        '
-        Me.TextBox90.Location = New System.Drawing.Point(30, 89)
-        Me.TextBox90.Name = "TextBox90"
-        Me.TextBox90.Size = New System.Drawing.Size(697, 18)
-        Me.TextBox90.TabIndex = 3
-        '
-        'TextBox91
-        '
-        Me.TextBox91.Location = New System.Drawing.Point(30, 19)
-        Me.TextBox91.Name = "TextBox91"
-        Me.TextBox91.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox91.TabIndex = 0
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(6, 94)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(13, 13)
-        Me.Label60.TabIndex = 15
-        Me.Label60.Text = "4"
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(6, 22)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(13, 13)
-        Me.Label61.TabIndex = 12
-        Me.Label61.Text = "1"
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(6, 70)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(13, 13)
-        Me.Label62.TabIndex = 14
-        Me.Label62.Text = "3"
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = True
-        Me.Label63.Location = New System.Drawing.Point(6, 46)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(13, 13)
-        Me.Label63.TabIndex = 13
-        Me.Label63.Text = "2"
-        '
-        'TextBox92
-        '
-        Me.TextBox92.Location = New System.Drawing.Point(30, 43)
-        Me.TextBox92.Name = "TextBox92"
-        Me.TextBox92.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox92.TabIndex = 1
-        '
-        'TextBox93
-        '
-        Me.TextBox93.Location = New System.Drawing.Point(30, 67)
-        Me.TextBox93.Name = "TextBox93"
-        Me.TextBox93.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox93.TabIndex = 2
-        '
-        'TextBox94
-        '
-        Me.TextBox94.Location = New System.Drawing.Point(30, 91)
-        Me.TextBox94.Name = "TextBox94"
-        Me.TextBox94.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox94.TabIndex = 3
+        Me.TextBox95.Location = New System.Drawing.Point(30, 19)
+        Me.TextBox95.Name = "TextBox95"
+        Me.TextBox95.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox95.TabIndex = 0
         '
         'Label64
         '
@@ -2005,97 +1836,269 @@ Partial Class IncidenciasProduccion
         Me.Label67.TabIndex = 17
         Me.Label67.Text = "2"
         '
-        'TextBox95
+        'GroupBox7
         '
-        Me.TextBox95.Location = New System.Drawing.Point(30, 19)
-        Me.TextBox95.Name = "TextBox95"
-        Me.TextBox95.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox95.TabIndex = 0
+        Me.GroupBox7.Controls.Add(Me.TextBox94)
+        Me.GroupBox7.Controls.Add(Me.TextBox93)
+        Me.GroupBox7.Controls.Add(Me.TextBox92)
+        Me.GroupBox7.Controls.Add(Me.Label60)
+        Me.GroupBox7.Controls.Add(Me.Label61)
+        Me.GroupBox7.Controls.Add(Me.Label62)
+        Me.GroupBox7.Controls.Add(Me.Label63)
+        Me.GroupBox7.Controls.Add(Me.TextBox91)
+        Me.GroupBox7.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox7.Location = New System.Drawing.Point(0, 246)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(1201, 132)
+        Me.GroupBox7.TabIndex = 2
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "PROGRAMACION DE MANTENIMIENTO PREVENTIVO"
         '
-        'TextBox96
+        'TextBox94
         '
-        Me.TextBox96.Location = New System.Drawing.Point(30, 45)
-        Me.TextBox96.Name = "TextBox96"
-        Me.TextBox96.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox96.TabIndex = 1
+        Me.TextBox94.Location = New System.Drawing.Point(30, 91)
+        Me.TextBox94.Name = "TextBox94"
+        Me.TextBox94.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox94.TabIndex = 3
         '
-        'TextBox97
+        'TextBox93
         '
-        Me.TextBox97.Location = New System.Drawing.Point(30, 71)
-        Me.TextBox97.Name = "TextBox97"
-        Me.TextBox97.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox97.TabIndex = 2
+        Me.TextBox93.Location = New System.Drawing.Point(30, 67)
+        Me.TextBox93.Name = "TextBox93"
+        Me.TextBox93.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox93.TabIndex = 2
         '
-        'TextBox98
+        'TextBox92
         '
-        Me.TextBox98.Location = New System.Drawing.Point(30, 97)
-        Me.TextBox98.Name = "TextBox98"
-        Me.TextBox98.Size = New System.Drawing.Size(697, 20)
-        Me.TextBox98.TabIndex = 3
+        Me.TextBox92.Location = New System.Drawing.Point(30, 43)
+        Me.TextBox92.Name = "TextBox92"
+        Me.TextBox92.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox92.TabIndex = 1
         '
-        'TextBox99
+        'Label60
         '
-        Me.TextBox99.Location = New System.Drawing.Point(31, 17)
-        Me.TextBox99.Name = "TextBox99"
-        Me.TextBox99.Size = New System.Drawing.Size(800, 18)
-        Me.TextBox99.TabIndex = 0
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(6, 94)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(13, 13)
+        Me.Label60.TabIndex = 15
+        Me.Label60.Text = "4"
         '
-        'TextBox100
+        'Label61
         '
-        Me.TextBox100.Location = New System.Drawing.Point(31, 41)
-        Me.TextBox100.Name = "TextBox100"
-        Me.TextBox100.Size = New System.Drawing.Size(800, 18)
-        Me.TextBox100.TabIndex = 1
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(6, 22)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(13, 13)
+        Me.Label61.TabIndex = 12
+        Me.Label61.Text = "1"
         '
-        'TextBox101
+        'Label62
         '
-        Me.TextBox101.Location = New System.Drawing.Point(31, 65)
-        Me.TextBox101.Name = "TextBox101"
-        Me.TextBox101.Size = New System.Drawing.Size(800, 18)
-        Me.TextBox101.TabIndex = 2
+        Me.Label62.AutoSize = True
+        Me.Label62.Location = New System.Drawing.Point(6, 70)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(13, 13)
+        Me.Label62.TabIndex = 14
+        Me.Label62.Text = "3"
         '
-        'TextBox102
+        'Label63
         '
-        Me.TextBox102.Location = New System.Drawing.Point(31, 89)
-        Me.TextBox102.Name = "TextBox102"
-        Me.TextBox102.Size = New System.Drawing.Size(800, 18)
-        Me.TextBox102.TabIndex = 3
+        Me.Label63.AutoSize = True
+        Me.Label63.Location = New System.Drawing.Point(6, 46)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(13, 13)
+        Me.Label63.TabIndex = 13
+        Me.Label63.Text = "2"
         '
-        'Label68
+        'TextBox91
         '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(12, 92)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(13, 13)
-        Me.Label68.TabIndex = 4
-        Me.Label68.Text = "4"
+        Me.TextBox91.Location = New System.Drawing.Point(30, 19)
+        Me.TextBox91.Name = "TextBox91"
+        Me.TextBox91.Size = New System.Drawing.Size(697, 20)
+        Me.TextBox91.TabIndex = 0
         '
-        'Label69
+        'GroupBox6
         '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(12, 68)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(13, 13)
-        Me.Label69.TabIndex = 5
-        Me.Label69.Text = "3"
+        Me.GroupBox6.Controls.Add(Me.TextBox90)
+        Me.GroupBox6.Controls.Add(Me.TextBox89)
+        Me.GroupBox6.Controls.Add(Me.TextBox88)
+        Me.GroupBox6.Controls.Add(Me.TextBox87)
+        Me.GroupBox6.Controls.Add(Me.Label56)
+        Me.GroupBox6.Controls.Add(Me.Label59)
+        Me.GroupBox6.Controls.Add(Me.Label57)
+        Me.GroupBox6.Controls.Add(Me.Label58)
+        Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.GroupBox6.Location = New System.Drawing.Point(0, 121)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(1201, 125)
+        Me.GroupBox6.TabIndex = 1
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "CORRECCIONES REALIZADAS"
         '
-        'Label70
+        'TextBox90
         '
-        Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(12, 20)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(13, 13)
-        Me.Label70.TabIndex = 6
-        Me.Label70.Text = "1"
+        Me.TextBox90.Location = New System.Drawing.Point(30, 89)
+        Me.TextBox90.Name = "TextBox90"
+        Me.TextBox90.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox90.TabIndex = 3
         '
-        'Label71
+        'TextBox89
         '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(12, 44)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(13, 13)
-        Me.Label71.TabIndex = 7
-        Me.Label71.Text = "2"
+        Me.TextBox89.Location = New System.Drawing.Point(30, 65)
+        Me.TextBox89.Name = "TextBox89"
+        Me.TextBox89.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox89.TabIndex = 2
+        '
+        'TextBox88
+        '
+        Me.TextBox88.Location = New System.Drawing.Point(30, 41)
+        Me.TextBox88.Name = "TextBox88"
+        Me.TextBox88.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox88.TabIndex = 1
+        '
+        'TextBox87
+        '
+        Me.TextBox87.Location = New System.Drawing.Point(30, 17)
+        Me.TextBox87.Name = "TextBox87"
+        Me.TextBox87.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox87.TabIndex = 0
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(6, 92)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(13, 13)
+        Me.Label56.TabIndex = 11
+        Me.Label56.Text = "4"
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Location = New System.Drawing.Point(6, 20)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(13, 13)
+        Me.Label59.TabIndex = 8
+        Me.Label59.Text = "1"
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(6, 68)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(13, 13)
+        Me.Label57.TabIndex = 10
+        Me.Label57.Text = "3"
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(6, 44)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(13, 13)
+        Me.Label58.TabIndex = 9
+        Me.Label58.Text = "2"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.Label55)
+        Me.GroupBox5.Controls.Add(Me.Label54)
+        Me.GroupBox5.Controls.Add(Me.Label53)
+        Me.GroupBox5.Controls.Add(Me.Label52)
+        Me.GroupBox5.Controls.Add(Me.TextBox86)
+        Me.GroupBox5.Controls.Add(Me.TextBox85)
+        Me.GroupBox5.Controls.Add(Me.TextBox84)
+        Me.GroupBox5.Controls.Add(Me.TextBox59)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(1201, 121)
+        Me.GroupBox5.TabIndex = 0
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "CAUSAS DE TIEMPO MUERTO"
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(6, 92)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(13, 13)
+        Me.Label55.TabIndex = 7
+        Me.Label55.Text = "4"
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(6, 68)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(13, 13)
+        Me.Label54.TabIndex = 6
+        Me.Label54.Text = "3"
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(6, 44)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(13, 13)
+        Me.Label53.TabIndex = 5
+        Me.Label53.Text = "2"
+        '
+        'Label52
+        '
+        Me.Label52.AutoSize = True
+        Me.Label52.Location = New System.Drawing.Point(6, 20)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(13, 13)
+        Me.Label52.TabIndex = 4
+        Me.Label52.Text = "1"
+        '
+        'TextBox86
+        '
+        Me.TextBox86.Location = New System.Drawing.Point(30, 89)
+        Me.TextBox86.Name = "TextBox86"
+        Me.TextBox86.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox86.TabIndex = 3
+        '
+        'TextBox85
+        '
+        Me.TextBox85.Location = New System.Drawing.Point(30, 65)
+        Me.TextBox85.Name = "TextBox85"
+        Me.TextBox85.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox85.TabIndex = 2
+        '
+        'TextBox84
+        '
+        Me.TextBox84.Location = New System.Drawing.Point(30, 41)
+        Me.TextBox84.Name = "TextBox84"
+        Me.TextBox84.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox84.TabIndex = 1
+        '
+        'TextBox59
+        '
+        Me.TextBox59.Location = New System.Drawing.Point(30, 17)
+        Me.TextBox59.Name = "TextBox59"
+        Me.TextBox59.Size = New System.Drawing.Size(697, 18)
+        Me.TextBox59.TabIndex = 0
+        '
+        'cbencargadoturno
+        '
+        Me.cbencargadoturno.FormattingEnabled = True
+        Me.cbencargadoturno.Location = New System.Drawing.Point(160, 34)
+        Me.cbencargadoturno.Name = "cbencargadoturno"
+        Me.cbencargadoturno.Size = New System.Drawing.Size(230, 21)
+        Me.cbencargadoturno.TabIndex = 7
+        '
+        'cbencargadoprensa
+        '
+        Me.cbencargadoprensa.FormattingEnabled = True
+        Me.cbencargadoprensa.Location = New System.Drawing.Point(625, 34)
+        Me.cbencargadoprensa.Name = "cbencargadoprensa"
+        Me.cbencargadoprensa.Size = New System.Drawing.Size(230, 21)
+        Me.cbencargadoprensa.TabIndex = 8
         '
         'IncidenciasProduccion
         '
@@ -2115,26 +2118,26 @@ Partial Class IncidenciasProduccion
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2146,7 +2149,6 @@ Partial Class IncidenciasProduccion
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -2154,9 +2156,8 @@ Partial Class IncidenciasProduccion
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents CbTurno As ComboBox
     Friend WithEvents CbPlantaOrigen As ComboBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label6 As Label
@@ -2335,4 +2336,6 @@ Partial Class IncidenciasProduccion
     Friend WithEvents TextBox101 As TextBox
     Friend WithEvents TextBox100 As TextBox
     Friend WithEvents TextBox99 As TextBox
+    Friend WithEvents cbencargadoprensa As ComboBox
+    Friend WithEvents cbencargadoturno As ComboBox
 End Class

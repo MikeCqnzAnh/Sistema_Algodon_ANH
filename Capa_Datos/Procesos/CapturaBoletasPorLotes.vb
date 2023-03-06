@@ -28,6 +28,9 @@ Public Class CapturaBoletasPorLotes
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModulosIncidencias
                     sqldat1 = New SqlDataAdapter("Sp_ConsultaIncidenciasBoletasPorLotes", cnn)
                     sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaModulosReporte
+                    sqldat1 = New SqlDataAdapter("pa_Consultamodulosreportes", cnn)
+                    sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

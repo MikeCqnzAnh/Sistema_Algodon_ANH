@@ -1856,6 +1856,8 @@ Partial Public Class DsReportes
         
         Private columnHabilitaKilos As Global.System.Data.DataColumn
         
+        Private columnPlanta As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1996,6 +1998,14 @@ Partial Public Class DsReportes
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PlantaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPlanta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2032,9 +2042,9 @@ Partial Public Class DsReportes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReporteOrdenEmbarqueRow(ByVal IdEmbarqueEncabezado As Integer, ByVal IdComprador As Integer, ByVal Nombre As String, ByVal NombreChofer As String, ByVal NoLicencia As String, ByVal PlacaTractoCamion As String, ByVal Fecha As Date, ByVal Observaciones As String, ByVal BaleID As Long, ByVal Kilos As Integer, ByVal NoContenedor As String, ByVal NoLote As String, ByVal HabilitaKilos As Boolean) As ReporteOrdenEmbarqueRow
+        Public Overloads Function AddReporteOrdenEmbarqueRow(ByVal IdEmbarqueEncabezado As Integer, ByVal IdComprador As Integer, ByVal Nombre As String, ByVal NombreChofer As String, ByVal NoLicencia As String, ByVal PlacaTractoCamion As String, ByVal Fecha As Date, ByVal Observaciones As String, ByVal BaleID As Long, ByVal Kilos As Integer, ByVal NoContenedor As String, ByVal NoLote As String, ByVal HabilitaKilos As Boolean, ByVal Planta As String) As ReporteOrdenEmbarqueRow
             Dim rowReporteOrdenEmbarqueRow As ReporteOrdenEmbarqueRow = CType(Me.NewRow,ReporteOrdenEmbarqueRow)
-            Dim columnValuesArray() As Object = New Object() {IdEmbarqueEncabezado, IdComprador, Nombre, NombreChofer, NoLicencia, PlacaTractoCamion, Fecha, Observaciones, BaleID, Kilos, NoContenedor, NoLote, HabilitaKilos}
+            Dim columnValuesArray() As Object = New Object() {IdEmbarqueEncabezado, IdComprador, Nombre, NombreChofer, NoLicencia, PlacaTractoCamion, Fecha, Observaciones, BaleID, Kilos, NoContenedor, NoLote, HabilitaKilos, Planta}
             rowReporteOrdenEmbarqueRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowReporteOrdenEmbarqueRow)
             Return rowReporteOrdenEmbarqueRow
@@ -2070,6 +2080,7 @@ Partial Public Class DsReportes
             Me.columnNoContenedor = MyBase.Columns("NoContenedor")
             Me.columnNoLote = MyBase.Columns("NoLote")
             Me.columnHabilitaKilos = MyBase.Columns("HabilitaKilos")
+            Me.columnPlanta = MyBase.Columns("Planta")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2101,6 +2112,8 @@ Partial Public Class DsReportes
             MyBase.Columns.Add(Me.columnNoLote)
             Me.columnHabilitaKilos = New Global.System.Data.DataColumn("HabilitaKilos", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHabilitaKilos)
+            Me.columnPlanta = New Global.System.Data.DataColumn("Planta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPlanta)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12111,6 +12124,21 @@ Partial Public Class DsReportes
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Planta() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableReporteOrdenEmbarque.PlantaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Planta' de la tabla 'ReporteOrdenEmbarque' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableReporteOrdenEmbarque.PlantaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdEmbarqueEncabezadoNull() As Boolean
             Return Me.IsNull(Me.tableReporteOrdenEmbarque.IdEmbarqueEncabezadoColumn)
         End Function
@@ -12263,6 +12291,18 @@ Partial Public Class DsReportes
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetHabilitaKilosNull()
             Me(Me.tableReporteOrdenEmbarque.HabilitaKilosColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPlantaNull() As Boolean
+            Return Me.IsNull(Me.tableReporteOrdenEmbarque.PlantaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPlantaNull()
+            Me(Me.tableReporteOrdenEmbarque.PlantaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -19,4 +19,5 @@ Public Class LiquidacionesPorRomaneaje
     Public PorcentajeMerma As Double
     Public IdEstatus As Integer
     Public Bandera As Boolean
+    Public nombre As String
 End Class

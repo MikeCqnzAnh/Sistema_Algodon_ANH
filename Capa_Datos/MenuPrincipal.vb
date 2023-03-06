@@ -1,7 +1,9 @@
 ﻿Imports Capa_Entidad
 Imports Capa_Operacion
 Imports System.Data.SqlClient
+
 Public Class MenuPrincipal
+
     Public Overridable Sub Consultar(ByRef EntidadMenuPrincipal As Capa_Entidad.MenuPrincipal)
         Dim EntidadMenuPrincipal1 As New Capa_Entidad.MenuPrincipal
         EntidadMenuPrincipal1 = EntidadMenuPrincipal

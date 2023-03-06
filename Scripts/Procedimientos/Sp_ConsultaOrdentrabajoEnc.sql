@@ -1,4 +1,4 @@
-Create Procedure Sp_ConsultaOrdentrabajoEnc
+CREATE Procedure Sp_ConsultaOrdentrabajoEnc
 @IdOrdenTrabajo int
 as
 if @idordentrabajo <> 0 
@@ -16,6 +16,7 @@ ot.IdOrdenTrabajo
 ,ot.IdColonia	
 ,ot.Predio	
 ,ot.IdEstatus	
+,isnull(ot.CheckPepena,0) as CheckPepena
 ,ot.IdUsuarioCreacion	
 ,ot.FechaCreacion	
 ,ot.IdUsuarioActualizacion	
@@ -38,6 +39,7 @@ ot.IdOrdenTrabajo
 ,ot.IdColonia	
 ,ot.Predio	
 ,ot.IdEstatus	
+,isnull(ot.CheckPepena,0) as CheckPepena
 ,ot.IdUsuarioCreacion	
 ,ot.FechaCreacion	
 ,ot.IdUsuarioActualizacion	

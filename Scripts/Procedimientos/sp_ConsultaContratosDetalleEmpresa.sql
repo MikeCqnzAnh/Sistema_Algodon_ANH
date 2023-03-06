@@ -1,5 +1,5 @@
 ALTER Procedure sp_ConsultaContratosDetalleEmpresa
-@IdContratoAlgodon int 
+@IdContratoAlgodon int
 as
 Declare @Lotes VARCHAR(100)
 SELECT @Lotes = COALESCE(@Lotes + ', ', '') + Lote FROM [dbo].[ContratoCompraDetalle] a, [dbo].[Tierras] b,[dbo].[ContratoCompra] c where a.IdLote = b.IdTierra and a.IdContratoAlgodon = c.IdContratoAlgodon and a.IdContratoAlgodon = @IdContratoAlgodon
@@ -7,8 +7,9 @@ select a.IdContratoAlgodon,
 	   b.IdTipoPersona,
 	   b.IdCliente,
        b.Nombre,
-	   b.RfcApoderado,
 	   b.Rfc,
+	   b.ApoderadoFisica,
+	   b.RfcApoderado,
 	   b.CalleFisica,
 	   b.NumeroFisica,
 	   b.ColoniaFisica,

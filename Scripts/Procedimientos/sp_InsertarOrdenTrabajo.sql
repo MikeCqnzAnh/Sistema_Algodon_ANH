@@ -1,4 +1,4 @@
-alter procedure sp_InsertarOrdenTrabajo
+CREATE procedure sp_InsertarOrdenTrabajo
 @IdOrdenTrabajo int output,
 @IdPlanta int,
 @IdProductor int,
@@ -9,6 +9,7 @@ alter procedure sp_InsertarOrdenTrabajo
 @IdColonia int,
 @Predio varchar(30),
 @IdEstatus int,
+@checkpepena bit,
 @IdUsuarioCreacion int,
 @FechaCreacion datetime,
 @IdUsuarioActualizacion int,
@@ -27,6 +28,7 @@ using (select @IdOrdenTrabajo
 			 ,@IdColonia
 			 ,@Predio
 			 ,@IdEstatus
+			 ,@checkpepena
 			 ,@IdUsuarioCreacion
 			 ,@FechaCreacion
 			 ,@IdUsuarioActualizacion
@@ -41,6 +43,7 @@ using (select @IdOrdenTrabajo
 			 ,IdColonia
 			 ,Predio
 			 ,IdEstatus
+			 ,checkpepena
 			 ,IdUsuarioCreacion
 			 ,FechaCreacion
 			 ,IdUsuarioActualizacion
@@ -56,6 +59,7 @@ UPDATE SET IdPlanta = source.IdPlanta,
 		   IdColonia = source.IdColonia,
 		   Predio = source.Predio,
 		   IdEstatus = source.IdEstatus,
+		   checkpepena = source.checkpepena,
 		   IdUsuarioActualizacion = source.IdUsuarioActualizacion,
 		   FechaActualizacion = source.FechaActualizacion		   
 WHEN NOT MATCHED THEN
@@ -68,6 +72,7 @@ INSERT (IdPlanta
 	   ,IdColonia
 	   ,Predio
 	   ,IdEstatus
+	   ,checkpepena
 	   ,IdUsuarioCreacion
 	   ,FechaCreacion
 	   ,IdUsuarioActualizacion
@@ -81,6 +86,7 @@ VALUES (source.IdPlanta
 	   ,source.IdColonia
 	   ,source.Predio
 	   ,source.IdEstatus
+	   ,source.checkpepena
 	   ,source.IdUsuarioCreacion
 	   ,source.FechaCreacion
 	   ,source.IdUsuarioActualizacion

@@ -86,6 +86,7 @@ Partial Class RevisionProduccion
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AprovarRevisionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbPacasFaltantes = New System.Windows.Forms.GroupBox()
         Me.DgvPacasFaltantes = New System.Windows.Forms.DataGridView()
@@ -135,7 +136,7 @@ Partial Class RevisionProduccion
         Me.BtAgregarExcel = New System.Windows.Forms.Button()
         Me.BtImprimir = New System.Windows.Forms.Button()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.AprovarRevisionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ckpepena = New System.Windows.Forms.CheckBox()
         Me.GbDatos.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.GbFolioInicial.SuspendLayout()
@@ -341,6 +342,7 @@ Partial Class RevisionProduccion
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.ckpepena)
         Me.GroupBox3.Controls.Add(Me.Label20)
         Me.GroupBox3.Controls.Add(Me.TbPacasProducidas)
         Me.GroupBox3.Controls.Add(Me.Label16)
@@ -781,6 +783,12 @@ Partial Class RevisionProduccion
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
         Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.ConsultarToolStripMenuItem.Text = "Consultar"
+        '
+        'AprovarRevisionToolStripMenuItem
+        '
+        Me.AprovarRevisionToolStripMenuItem.Name = "AprovarRevisionToolStripMenuItem"
+        Me.AprovarRevisionToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
+        Me.AprovarRevisionToolStripMenuItem.Text = "Aprobar Revision"
         '
         'SalirToolStripMenuItem
         '
@@ -1342,11 +1350,16 @@ Partial Class RevisionProduccion
         Me.NumericUpDown1.TabIndex = 59
         Me.NumericUpDown1.Visible = False
         '
-        'AprovarRevisionToolStripMenuItem
+        'ckpepena
         '
-        Me.AprovarRevisionToolStripMenuItem.Name = "AprovarRevisionToolStripMenuItem"
-        Me.AprovarRevisionToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
-        Me.AprovarRevisionToolStripMenuItem.Text = "Aprovar Revision"
+        Me.ckpepena.AutoSize = True
+        Me.ckpepena.Enabled = False
+        Me.ckpepena.Location = New System.Drawing.Point(432, 37)
+        Me.ckpepena.Name = "ckpepena"
+        Me.ckpepena.Size = New System.Drawing.Size(63, 17)
+        Me.ckpepena.TabIndex = 26
+        Me.ckpepena.Text = "Pepena"
+        Me.ckpepena.UseVisualStyleBackColor = True
         '
         'RevisionProduccion
         '
@@ -1521,4 +1534,5 @@ Partial Class RevisionProduccion
     Friend WithEvents BtEstablecefolio As Button
     Friend WithEvents CkRevisado As CheckBox
     Friend WithEvents AprovarRevisionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ckpepena As CheckBox
 End Class

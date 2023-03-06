@@ -128,7 +128,7 @@ Public Class RepClasificacion
         If TablaExporta.Rows.Count > 0 Then
 
             ' primero verificamos cuantas filas tiene la lista
-            Dim TablaCalculos As Data.DataTable
+            'Dim TablaCalculos As Data.DataTable
             Dim col As Integer = 11 'empezaremos en el libro de excel a partir de la celda 11
             Dim ii As Integer ' for para empezar a recorrer la lista
 

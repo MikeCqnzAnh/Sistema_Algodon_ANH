@@ -30,6 +30,8 @@ Partial Class ContratosAlgodon
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
+        Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.btconsultacontratoventa = New System.Windows.Forms.Button()
         Me.tbdescripcionvta = New System.Windows.Forms.TextBox()
         Me.tbidcontratovta = New System.Windows.Forms.TextBox()
@@ -125,18 +127,16 @@ Partial Class ContratosAlgodon
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
         Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
-        Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        Me.gbventascontrato.SuspendLayout()
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbventascontrato.SuspendLayout()
-        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -228,6 +228,40 @@ Partial Class ContratosAlgodon
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
         '
+        'gbventascontrato
+        '
+        Me.gbventascontrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
+        Me.gbventascontrato.Location = New System.Drawing.Point(400, 200)
+        Me.gbventascontrato.Name = "gbventascontrato"
+        Me.gbventascontrato.Size = New System.Drawing.Size(513, 146)
+        Me.gbventascontrato.TabIndex = 42
+        Me.gbventascontrato.TabStop = False
+        Me.gbventascontrato.Text = "Adendum"
+        Me.gbventascontrato.Visible = False
+        '
+        'DgvCierres
+        '
+        Me.DgvCierres.AllowUserToAddRows = False
+        Me.DgvCierres.AllowUserToDeleteRows = False
+        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
+        Me.DgvCierres.MultiSelect = False
+        Me.DgvCierres.Name = "DgvCierres"
+        Me.DgvCierres.ReadOnly = True
+        Me.DgvCierres.RowHeadersVisible = False
+        Me.DgvCierres.RowHeadersWidth = 40
+        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvCierres.Size = New System.Drawing.Size(507, 127)
+        Me.DgvCierres.TabIndex = 11
+        '
         'btconsultacontratoventa
         '
         Me.btconsultacontratoventa.Location = New System.Drawing.Point(349, 248)
@@ -236,6 +270,7 @@ Partial Class ContratosAlgodon
         Me.btconsultacontratoventa.TabIndex = 10
         Me.btconsultacontratoventa.Text = "..."
         Me.btconsultacontratoventa.UseVisualStyleBackColor = True
+        Me.btconsultacontratoventa.Visible = False
         '
         'tbdescripcionvta
         '
@@ -245,6 +280,7 @@ Partial Class ContratosAlgodon
         Me.tbdescripcionvta.Name = "tbdescripcionvta"
         Me.tbdescripcionvta.Size = New System.Drawing.Size(156, 40)
         Me.tbdescripcionvta.TabIndex = 41
+        Me.tbdescripcionvta.Visible = False
         '
         'tbidcontratovta
         '
@@ -253,6 +289,7 @@ Partial Class ContratosAlgodon
         Me.tbidcontratovta.Name = "tbidcontratovta"
         Me.tbidcontratovta.Size = New System.Drawing.Size(64, 20)
         Me.tbidcontratovta.TabIndex = 40
+        Me.tbidcontratovta.Visible = False
         '
         'Label26
         '
@@ -262,6 +299,7 @@ Partial Class ContratosAlgodon
         Me.Label26.Size = New System.Drawing.Size(93, 13)
         Me.Label26.TabIndex = 39
         Me.Label26.Text = "Contrato de Venta"
+        Me.Label26.Visible = False
         '
         'Panel1
         '
@@ -1154,39 +1192,6 @@ Partial Class ContratosAlgodon
         Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1447, 341)
         Me.DgvContratoAlgodon.TabIndex = 13
         '
-        'gbventascontrato
-        '
-        Me.gbventascontrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
-        Me.gbventascontrato.Location = New System.Drawing.Point(400, 200)
-        Me.gbventascontrato.Name = "gbventascontrato"
-        Me.gbventascontrato.Size = New System.Drawing.Size(513, 146)
-        Me.gbventascontrato.TabIndex = 42
-        Me.gbventascontrato.TabStop = False
-        Me.gbventascontrato.Text = "Adendum"
-        '
-        'DgvCierres
-        '
-        Me.DgvCierres.AllowUserToAddRows = False
-        Me.DgvCierres.AllowUserToDeleteRows = False
-        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
-        Me.DgvCierres.MultiSelect = False
-        Me.DgvCierres.Name = "DgvCierres"
-        Me.DgvCierres.ReadOnly = True
-        Me.DgvCierres.RowHeadersVisible = False
-        Me.DgvCierres.RowHeadersWidth = 40
-        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCierres.Size = New System.Drawing.Size(507, 127)
-        Me.DgvCierres.TabIndex = 11
-        '
         'ContratosAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1205,6 +1210,8 @@ Partial Class ContratosAlgodon
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        Me.gbventascontrato.ResumeLayout(False)
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.GbCastigos.ResumeLayout(False)
         Me.GbCastigos.PerformLayout()
@@ -1215,8 +1222,6 @@ Partial Class ContratosAlgodon
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
         CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbventascontrato.ResumeLayout(False)
-        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

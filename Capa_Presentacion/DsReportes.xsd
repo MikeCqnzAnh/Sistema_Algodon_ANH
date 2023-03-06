@@ -72,6 +72,7 @@
               <xs:element name="NoContenedor" msprop:Generator_ColumnVarNameInTable="columnNoContenedor" msprop:Generator_ColumnPropNameInRow="NoContenedor" msprop:Generator_ColumnPropNameInTable="NoContenedorColumn" msprop:Generator_UserColumnName="NoContenedor" type="xs:string" minOccurs="0" />
               <xs:element name="NoLote" msprop:Generator_ColumnVarNameInTable="columnNoLote" msprop:Generator_ColumnPropNameInRow="NoLote" msprop:Generator_ColumnPropNameInTable="NoLoteColumn" msprop:Generator_UserColumnName="NoLote" type="xs:string" minOccurs="0" />
               <xs:element name="HabilitaKilos" msprop:Generator_ColumnVarNameInTable="columnHabilitaKilos" msprop:Generator_ColumnPropNameInRow="HabilitaKilos" msprop:Generator_ColumnPropNameInTable="HabilitaKilosColumn" msprop:Generator_UserColumnName="HabilitaKilos" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Planta" msprop:Generator_ColumnVarNameInTable="columnPlanta" msprop:Generator_ColumnPropNameInRow="Planta" msprop:Generator_ColumnPropNameInTable="PlantaColumn" msprop:Generator_UserColumnName="Planta" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

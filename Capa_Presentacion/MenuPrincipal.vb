@@ -6,7 +6,6 @@ Imports System.Drawing.Drawing2D
 Imports System.Net
 Imports System.Text.RegularExpressions
 Imports System.IO
-
 Public Class MenuPrincipal
     Dim Sitio, Serie, Token As String
     'Dim PosicionValorBanxico, LongitudValorBanxico As Integer
@@ -15,6 +14,7 @@ Public Class MenuPrincipal
     Dim Version As String
     Dim NombreArchivo As String = "\Version.txt"
     Dim CarpetaOrigen As String = "\\192.168.10.29\Scanner\Miguel\UPDATE"
+
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LeerArchivo()
         If Version > Application.ProductVersion Then

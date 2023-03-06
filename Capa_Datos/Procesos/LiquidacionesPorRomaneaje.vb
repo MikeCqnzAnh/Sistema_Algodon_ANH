@@ -65,6 +65,22 @@ Public Class LiquidacionesPorRomaneaje
                             EntidadLiquidacionesPorRomaneaje1.Bandera = True
                         End If
                     Next
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenporliquidar
+                    sqlcom1 = New SqlCommand("pa_consultaordenporliquidar", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@nombre", EntidadLiquidacionesPorRomaneaje1.nombre))
+                    sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenLiquidada
+                    sqlcom1 = New SqlCommand("pa_consultaliquidaciones", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
+                    sqlcom1.Parameters.Add(New SqlParameter("@nombre", EntidadLiquidacionesPorRomaneaje1.nombre))
+                    sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
             End Select
         Catch ex As Exception
         Finally

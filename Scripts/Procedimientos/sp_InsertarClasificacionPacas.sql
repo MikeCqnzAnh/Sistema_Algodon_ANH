@@ -1,9 +1,9 @@
-alter procedure sp_InsertarClasificacionPacas
+create procedure sp_InsertarClasificacionPacas
 @IdCalculoClasificacion int,
 @IdPaqueteEncabezado int,
 @IdOrdenTrabajo int,
 @IdPlantaOrigen int,
-@Kilos int,
+@Kilos decimal(10,2),
 @LotID int,
 @BaleID bigint ,
 @BaleGroup varchar(5) ,

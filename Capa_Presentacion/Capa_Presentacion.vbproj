@@ -28,7 +28,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.68.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.77.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -248,6 +248,12 @@
     <Compile Include="Comercializacion\Clasificacion\VentaClasificacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPago\CompraRomaneaje.Designer.vb">
+      <DependentUpon>CompraRomaneaje.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\CompraPago\CompraRomaneaje.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Compras\IntegraciondeCompras.Designer.vb">
       <DependentUpon>IntegraciondeCompras.vb</DependentUpon>
     </Compile>
@@ -440,10 +446,28 @@
     <Compile Include="Consultas\ConsultaOrdenEmbarqueSalidas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\ConsultaOrdenLiquidada.Designer.vb">
+      <DependentUpon>ConsultaOrdenLiquidada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenLiquidada.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenPorLiquidar.Designer.vb">
+      <DependentUpon>ConsultaOrdenPorLiquidar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenPorLiquidar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\ConsultaProduccionRevision.Designer.vb">
       <DependentUpon>ConsultaProduccionRevision.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaProduccionRevision.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaReporteModulos.Designer.vb">
+      <DependentUpon>ConsultaReporteModulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaReporteModulos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultarSalidasPacas.Designer.vb">
@@ -471,13 +495,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataGridViewCalendarColumn.vb" />
-    <Compile Include="DsReportes.Designer.vb">
+    <Compile Include="DsReportes1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DsReportes.vb">
-      <DependentUpon>DsReportes.xsd</DependentUpon>
+    <Compile Include="DsReporte_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReporte_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsReporte_1.vb">
+      <DependentUpon>DsReporte_1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
     <Compile Include="CambiarClave.Designer.vb">
@@ -1176,6 +1205,18 @@
       <DependentUpon>RPTInventarioPacas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTRomaneajeporCompr.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTRomaneajeporCompr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RPT\RPTRomaneajePorComprdet.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTRomaneajePorComprdet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTSalidaPacas.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1768,6 +1809,9 @@
       <DependentUpon>VentaClasificacion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\CompraPago\CompraRomaneaje.resx">
+      <DependentUpon>CompraRomaneaje.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Compras\IntegraciondeCompras.resx">
       <DependentUpon>IntegraciondeCompras.vb</DependentUpon>
     </EmbeddedResource>
@@ -1867,11 +1911,20 @@
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueSalidas.resx">
       <DependentUpon>ConsultaOrdenEmbarqueSalidas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenLiquidada.resx">
+      <DependentUpon>ConsultaOrdenLiquidada.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenPorLiquidar.resx">
+      <DependentUpon>ConsultaOrdenPorLiquidar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProduccionRevision.resx">
       <DependentUpon>ConsultaProduccionRevision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaProductorContratoCompras.resx">
       <DependentUpon>ConsultaProductorContratoCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaReporteModulos.resx">
+      <DependentUpon>ConsultaReporteModulos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultarSalidasPacas.resx">
       <DependentUpon>ConsultarSalidasPacas.vb</DependentUpon>
@@ -2186,6 +2239,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTInventarioPacas.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTRomaneajeporCompr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTRomaneajeporCompr.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTRomaneajePorComprdet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTRomaneajePorComprdet.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTSalidaPacas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTSalidaPacas.vb</LastGenOutput>
@@ -2431,19 +2492,32 @@
     <None Include="ALGODON_2VDataSet.xss">
       <DependentUpon>ALGODON_2VDataSet.xsd</DependentUpon>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="app.manifest" />
     <None Include="ClassDiagram1.cd" />
     <None Include="DsReportes.xsc">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
     <None Include="DsReportes.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsReportes.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReportes1.Designer.vb</LastGenOutput>
     </None>
     <None Include="DsReportes.xss">
       <DependentUpon>DsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="DsReporte_1.xsc">
+      <DependentUpon>DsReporte_1.xsd</DependentUpon>
+    </None>
+    <None Include="DsReporte_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReporte_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DsReporte_1.xss">
+      <DependentUpon>DsReporte_1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

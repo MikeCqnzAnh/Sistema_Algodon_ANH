@@ -19,15 +19,20 @@ Public Class Produccion
         GetSerialPortNames()
         LeerArchivoConfiguracion()
         ConsultaParametros()
+        'cargacombousuario(CbOperador)
+        'cargacombousuario(cbencargadoturno)
+        'cargacomboturnos()
         TbIdOrdenTrabajo.Select()
         CheckForIllegalCrossThreadCalls = False
         LbStatus.Text = "CAPTURA AUTOMATICA DESACTIVADA"
         ActualizaEstatusLeerEtiqueta()
+        Timer1.Start()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If SpCapturaAutomatica.IsOpen = False Then
             Limpiar()
             CargarCombos()
+            'cargacombousuario(CbOperador)
             LeerArchivoConfiguracion()
             ConsultaParametros()
             TbIdOrdenTrabajo.Select()
@@ -59,6 +64,22 @@ Public Class Produccion
         Else
             e.Cancel = False
         End If
+    End Sub
+    Private Sub cargacombousuario(ByVal cmb As ComboBox)
+        Dim EntidadUsuarios As New Capa_Entidad.Usuarios
+        Dim NegocioUsuarios As New Capa_Negocio.Usuarios
+        Dim Tabla As New DataTable
+        Try
+            EntidadUsuarios.Consulta = Consulta.ConsultaUsuario
+            NegocioUsuarios.Consultar(EntidadUsuarios)
+            Tabla = EntidadUsuarios.TablaConsulta
+            cmb.DataSource = Tabla
+            cmb.ValueMember = "idusuario"
+            cmb.DisplayMember = "nombre"
+            cmb.SelectedValue = 0
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub GetSerialPortNames()
         ' muestra COM ports disponibles.
@@ -102,12 +123,13 @@ Public Class Produccion
         TbIdOrdenTrabajo.Text = ""
         TbIdOrdenTrabajo.Enabled = True
         TbTotalPacas.Text = ""
+        TbTotalKilos.Text = ""
         CBPlantaDestino.SelectedValue = 1
         CbTipo.SelectedValue = 1
         TbIdProductor.Text = ""
         TbNombreProductor.Text = ""
         CbTurno.SelectedValue = 1
-        CbOperador.SelectedValue = 1
+        'CbOperador.SelectedValue = 1
         TbFolioInicial.Text = ""
         TbFolioCIA.Text = ""
         TbKilos.Text = ""
@@ -146,6 +168,25 @@ Public Class Produccion
         Catch ex As Exception
             MsgBox("Error al abrir el puerto serial: " & ex.Message, MsgBoxStyle.Critical)
         End Try
+    End Sub
+    Private Sub cargacomboturnos()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.Consulta = Consulta.ConsultaTurnos
+        EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+        NegocioProduccion.Consultar(EntidadProduccion)
+        Tabla = EntidadProduccion.TablaConsulta
+        For Each dtrow As DataRow In Tabla.Rows
+            If Now.TimeOfDay >= dtrow("Horaentrada") And Now.TimeOfDay <= dtrow("Horasalida") Then
+                CbTurno.DataSource = Tabla
+                CbTurno.ValueMember = "IdTurnoenc"
+                CbTurno.DisplayMember = "Descripcion"
+                CbTurno.SelectedValue = dtrow("idturnoenc")
+                CbOperador.SelectedValue = dtrow("idresponsableprensa")
+                cbencargadoturno.SelectedValue = dtrow("idresponsableturno")
+            End If
+        Next
     End Sub
     Private Sub CargarCombos()
         '---Planta Origen--
@@ -252,6 +293,7 @@ Public Class Produccion
                         BtCerrarProduccion.Enabled = False
                         TbFolioInicial.Enabled = True
                         TbIdOrdenTrabajo.Enabled = False
+                        ckpepena.Checked = Tabla.Rows(0).Item("checkpepena")
                         If TbIdProduccion.Text <> "" Then
                             Consultar()
                         End If
@@ -843,6 +885,25 @@ Public Class Produccion
         ElseIf TbIdProduccion.Text = "" And TbIdOrdenTrabajo.Text = "" Then
             MsgBox("No se puede abrir produccion sin una orden de trabajo activa", MsgBoxStyle.OkOnly Or MsgBoxStyle.Information, "Aviso")
         End If
+        insertaturno()
+    End Sub
+    Private Sub insertaturno()
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Try
+            EntidadProduccion.idincidencia = 0
+            EntidadProduccion.idturnoenc = CbTurno.SelectedValue
+            EntidadProduccion.IdPlantaOrigen = CbPlantaOrigen.SelectedValue
+            EntidadProduccion.fechaincidencia = dtfechaturno.Value
+            EntidadProduccion.idresponsableturno = cbencargadoturno.SelectedValue
+            EntidadProduccion.idresponsableprensa = CbOperador.SelectedValue
+            EntidadProduccion.FechaCreacion = Now
+            EntidadProduccion.FechaActualizacion = Now
+            EntidadProduccion.hora = Now.TimeOfDay
+            NegocioProduccion.Guardarturno(EntidadProduccion)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
     Private Sub GuardarProduccion()
         Dim EntidadProduccion As New Capa_Entidad.Produccion
@@ -1064,9 +1125,47 @@ Public Class Produccion
 
     Private Sub InformeDiarioDeOperacionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformeDiarioDeOperacionToolStripMenuItem.Click
         If TbIdProduccion.Text <> "" Then
-            Dim incidencias As New IncidenciasProduccion(1, CbPlantaOrigen.SelectedValue)
+            Dim incidencias As New IncidenciasProduccion(CbTurno.SelectedValue, CbPlantaOrigen.SelectedValue)
             incidencias.ShowDialog()
         End If
+    End Sub
+
+    Private Sub TbTotalModulos_TextChanged(sender As Object, e As EventArgs) Handles TbTotalModulos.TextChanged
+
+    End Sub
+
+    Private Sub TbTotalPacas_TextChanged(sender As Object, e As EventArgs) Handles TbTotalPacas.TextChanged
+
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub TbTotalKilos_TextChanged(sender As Object, e As EventArgs) Handles TbTotalKilos.TextChanged
+
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+
+    End Sub
+
+    Private Sub Label25_Click(sender As Object, e As EventArgs) Handles Label25.Click
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        dtfechaturno.Value = Now
+    End Sub
+
+    Private Sub btpacaborra_Click(sender As Object, e As EventArgs) Handles btpacaborra.Click
+        Dim pacaborra As String
+        pacaborra = InputBox("Enviar paca a borra " & TbFolioCIA.Text & " ", "Paca de borra", TbFolioCIA.Text)
+    End Sub
+
+    Private Sub btpacaincendio_Click(sender As Object, e As EventArgs) Handles btpacaincendio.Click
+        Dim pacaincendiada As String
+        pacaincendiada = InputBox("La paca incendiada es " & TbFolioCIA.Text & " ?", "Paca incendiada", TbFolioCIA.Text)
     End Sub
 
     Private Sub ReceiveSerialData_DataReceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SpCapturaAutomatica.DataReceived

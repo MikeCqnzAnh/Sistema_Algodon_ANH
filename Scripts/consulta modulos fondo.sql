@@ -1,5 +1,9 @@
 --Create Procedure Sp_CursorResultadosProduccion
 --as
+declare 
+@fecent date = '01/01/2023',
+@fecsal date = '31/01/2023'
+
 if object_id('tempdb..##TablaTempModul1') is not null
   begin
     drop table ##TablaTempModul1	
@@ -51,21 +55,21 @@ declare OrdenInfo cursor read_only  for select ord.IdOrdenTrabajo
 											  ,(select max(fecha) from ProduccionDetalle where IdOrdenTrabajo = pro.IdOrdenTrabajo) as FechaSalProd
 										from ordentrabajo ord inner join produccion pro on ord.idordentrabajo = pro.idordentrabajo inner join plantas pla on ord.IdPlanta = pla.IdPlanta 
 															  inner join Clientes cli on pro.idcliente = cli.idcliente
-										where ord.idplanta = 1  --and (select min(fecha) from ProduccionDetalle where IdOrdenTrabajo = pro.IdOrdenTrabajo) between '01/11/2021' and '30/11/2021' 
+										--where cast((select min(fecha) from ProduccionDetalle where IdOrdenTrabajo = pro.IdOrdenTrabajo) as date) between @fecent and @fecsal
 										order by ord.idordentrabajo
 open OrdenInfo
 fetch next from ordeninfo into @IdOrdenTrabajo,@IdProductor,@Nombre,@IdPlanta,@Planta,@Predio,@FechaEntProd,@FechaSalProd
 while @@FETCH_STATUS = 0
 begin	
-		set @CantidadModulos = (select COUNT(IdOrdenTrabajo) as CantidadModulos from [dbo].[OrdenTrabajoDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo and a.flagcancelada = 0)
-		set @TotalHueso = (select sum(a.Total) as TotalHueso from [dbo].[OrdenTrabajoDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo and a.flagcancelada = 0)
-		set @TotalPluma = (select SUM(a.Kilos) as TotalPluma from [dbo].[ProduccionDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo)
+		set @CantidadModulos = (select COUNT(IdOrdenTrabajo) as CantidadModulos from [dbo].[OrdenTrabajoDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo and a.flagcancelada = 0 /*and CAST(FechaEntrada AS DATE) between @fecent and @fecsal*/)
+		set @TotalHueso = (select sum(a.Total) as TotalHueso from [dbo].[OrdenTrabajoDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo and a.flagcancelada = 0 /*and CAST(FechaEntrada AS DATE) between @fecent and @fecsal*/)
+		set @TotalPluma = (select SUM(a.Kilos) as TotalPluma from [dbo].[ProduccionDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo /*and CAST(Fecha AS DATE) between @fecent and @fecsal*/)
 		set @PorcentajePluma = ROUND(@TotalPluma/@TotalHueso * 100,0)
 		set @PorcentajeSemilla = ISNULL((select Semilla from [dbo].[Rendimientos] where Pluma = @PorcentajePluma),0)
 		set @TotalSemilla = (@PorcentajeSemilla * @TotalPluma)/ @PorcentajePluma
 		set @PorcentajeMerma = (100 - @PorcentajeSemilla - @PorcentajePluma)
 		set @TotalMerma = (@TotalHueso - @TotalPluma - @TotalSemilla)
-		set @TotalPacas = (select COUNT(foliocia) from [dbo].[ProduccionDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo)
+		set @TotalPacas = (select COUNT(foliocia) from [dbo].[ProduccionDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo /*and CAST(Fecha AS DATE) between @fecent and @fecsal*/)
 
 		Insert into ##TablaTempModul1(IdOrdenTrabajo,IdProductor,Nombre,IdPlanta,Planta,Predio,FechaEntProd,FechaSalProd,CantidadModulos,TotalHueso,TotalPluma,PorcentajePluma,PorcentajeSemilla,TotalSemilla,PorcentajeMerma,TotalMerma,TotalPacas)
 		VALUES (@IdOrdenTrabajo,@IdProductor,@Nombre,@IdPlanta,@Planta,@Predio,@FechaEntProd,@FechaSalProd,@CantidadModulos,@TotalHueso,@TotalPluma,@PorcentajePluma,@PorcentajeSemilla,@TotalSemilla,@PorcentajeMerma,@TotalMerma,@TotalPacas)
@@ -73,12 +77,11 @@ begin
 	fetch next from ordeninfo into @IdOrdenTrabajo,@IdProductor,@Nombre,@IdPlanta,@Planta,@Predio,@FechaEntProd,@FechaSalProd
 end
 close ordeninfo
-deallocate ordeninfo
+deallocate ordeninfo;
 
-go
-select * from ##TablaTempModul1 --where FechaEntProd between '01/11/2021' and '30/11/2021'
+select * from ##TablaTempModul1 where TotalPluma is not null order by fechaentprod; --and CAST(Fechaentprod AS DATE) between @fecent and @fecsal
 
-
+--SELECT * FROM ORDENTRABAJODETALLE WHERE idordentrabajo = 1
 --select IdOrdenTrabajo,count(FolioCIA) from producciondetalle where idplantaorigen = 1 and IdOrdenTrabajo not in(select ord.IdOrdenTrabajo											  
 --										from ordentrabajo ord inner join produccion pro on ord.idordentrabajo = pro.idordentrabajo inner join plantas pla on ord.IdPlanta = pla.IdPlanta 
 --															  left join Clientes cli on pro.idcliente = cli.idcliente
