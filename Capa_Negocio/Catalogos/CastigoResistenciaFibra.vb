@@ -1,4 +1,6 @@
-﻿Public Class CastigoResistenciaFibra
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class CastigoResistenciaFibra
     Public Overridable Sub Guardar(ByRef EntidadCastigoResistenciaFibra As Capa_Entidad.CastigoResistenciaFibra)
         Dim EntidadCastigoResistenciaFibra1 As New Capa_Entidad.CastigoResistenciaFibra
         Dim DatosCastigoResistenciaFibra As New Capa_Datos.CastigoResistenciaFibra

@@ -28,6 +28,9 @@ Partial Class ContratoSemillas
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbMoneda = New System.Windows.Forms.ComboBox()
+        Me.NuCantidad = New System.Windows.Forms.NumericUpDown()
+        Me.NuPrecioTonelada = New System.Windows.Forms.NumericUpDown()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -36,8 +39,6 @@ Partial Class ContratoSemillas
         Me.TbTestigo1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TbPrecioTonelada = New System.Windows.Forms.TextBox()
-        Me.TbCantidad = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CbComprador = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -47,13 +48,18 @@ Partial Class ContratoSemillas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoSemilla = New System.Windows.Forms.TextBox()
         Me.DgvContratoSemillas = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvContratoSemillas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -86,6 +92,9 @@ Partial Class ContratoSemillas
         '
         'GbDatosGenerales
         '
+        Me.GbDatosGenerales.Controls.Add(Me.CbMoneda)
+        Me.GbDatosGenerales.Controls.Add(Me.NuCantidad)
+        Me.GbDatosGenerales.Controls.Add(Me.NuPrecioTonelada)
         Me.GbDatosGenerales.Controls.Add(Me.Label9)
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
         Me.GbDatosGenerales.Controls.Add(Me.Label8)
@@ -94,8 +103,6 @@ Partial Class ContratoSemillas
         Me.GbDatosGenerales.Controls.Add(Me.TbTestigo1)
         Me.GbDatosGenerales.Controls.Add(Me.Label6)
         Me.GbDatosGenerales.Controls.Add(Me.Label5)
-        Me.GbDatosGenerales.Controls.Add(Me.TbPrecioTonelada)
-        Me.GbDatosGenerales.Controls.Add(Me.TbCantidad)
         Me.GbDatosGenerales.Controls.Add(Me.Label4)
         Me.GbDatosGenerales.Controls.Add(Me.CbComprador)
         Me.GbDatosGenerales.Controls.Add(Me.Label3)
@@ -104,12 +111,42 @@ Partial Class ContratoSemillas
         Me.GbDatosGenerales.Controls.Add(Me.TbFolio)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdContratoSemilla)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1170, 185)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1194, 185)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'CbMoneda
+        '
+        Me.CbMoneda.FormattingEnabled = True
+        Me.CbMoneda.Location = New System.Drawing.Point(584, 19)
+        Me.CbMoneda.Name = "CbMoneda"
+        Me.CbMoneda.Size = New System.Drawing.Size(64, 21)
+        Me.CbMoneda.TabIndex = 16
+        '
+        'NuCantidad
+        '
+        Me.NuCantidad.Location = New System.Drawing.Point(117, 125)
+        Me.NuCantidad.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.NuCantidad.Name = "NuCantidad"
+        Me.NuCantidad.Size = New System.Drawing.Size(120, 20)
+        Me.NuCantidad.TabIndex = 15
+        Me.NuCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuCantidad.ThousandsSeparator = True
+        '
+        'NuPrecioTonelada
+        '
+        Me.NuPrecioTonelada.DecimalPlaces = 4
+        Me.NuPrecioTonelada.Location = New System.Drawing.Point(448, 20)
+        Me.NuPrecioTonelada.Maximum = New Decimal(New Integer() {-1304428545, 434162106, 542, 0})
+        Me.NuPrecioTonelada.Name = "NuPrecioTonelada"
+        Me.NuPrecioTonelada.Size = New System.Drawing.Size(120, 20)
+        Me.NuPrecioTonelada.TabIndex = 15
+        Me.NuPrecioTonelada.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.NuPrecioTonelada.ThousandsSeparator = True
         '
         'Label9
         '
@@ -126,7 +163,7 @@ Partial Class ContratoSemillas
         Me.CbEstatus.Location = New System.Drawing.Point(117, 150)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 13
+        Me.CbEstatus.TabIndex = 5
         '
         'Label8
         '
@@ -148,17 +185,19 @@ Partial Class ContratoSemillas
         '
         'TbTestigo2
         '
+        Me.TbTestigo2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTestigo2.Location = New System.Drawing.Point(448, 71)
         Me.TbTestigo2.Name = "TbTestigo2"
         Me.TbTestigo2.Size = New System.Drawing.Size(266, 20)
-        Me.TbTestigo2.TabIndex = 2
+        Me.TbTestigo2.TabIndex = 8
         '
         'TbTestigo1
         '
+        Me.TbTestigo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbTestigo1.Location = New System.Drawing.Point(448, 45)
         Me.TbTestigo1.Name = "TbTestigo1"
         Me.TbTestigo1.Size = New System.Drawing.Size(266, 20)
-        Me.TbTestigo1.TabIndex = 12
+        Me.TbTestigo1.TabIndex = 7
         '
         'Label6
         '
@@ -174,23 +213,9 @@ Partial Class ContratoSemillas
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(6, 127)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 13)
+        Me.Label5.Size = New System.Drawing.Size(77, 13)
         Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Cantidad"
-        '
-        'TbPrecioTonelada
-        '
-        Me.TbPrecioTonelada.Location = New System.Drawing.Point(448, 19)
-        Me.TbPrecioTonelada.Name = "TbPrecioTonelada"
-        Me.TbPrecioTonelada.Size = New System.Drawing.Size(100, 20)
-        Me.TbPrecioTonelada.TabIndex = 9
-        '
-        'TbCantidad
-        '
-        Me.TbCantidad.Location = New System.Drawing.Point(117, 124)
-        Me.TbCantidad.Name = "TbCantidad"
-        Me.TbCantidad.Size = New System.Drawing.Size(121, 20)
-        Me.TbCantidad.TabIndex = 8
+        Me.Label5.Text = "Cantidad (Ton)"
         '
         'Label4
         '
@@ -207,7 +232,7 @@ Partial Class ContratoSemillas
         Me.CbComprador.Location = New System.Drawing.Point(117, 97)
         Me.CbComprador.Name = "CbComprador"
         Me.CbComprador.Size = New System.Drawing.Size(200, 21)
-        Me.CbComprador.TabIndex = 6
+        Me.CbComprador.TabIndex = 3
         '
         'Label3
         '
@@ -223,7 +248,7 @@ Partial Class ContratoSemillas
         Me.DtpFecha.Location = New System.Drawing.Point(117, 71)
         Me.DtpFecha.Name = "DtpFecha"
         Me.DtpFecha.Size = New System.Drawing.Size(200, 20)
-        Me.DtpFecha.TabIndex = 4
+        Me.DtpFecha.TabIndex = 2
         '
         'Label2
         '
@@ -239,7 +264,7 @@ Partial Class ContratoSemillas
         Me.TbFolio.Location = New System.Drawing.Point(117, 45)
         Me.TbFolio.Name = "TbFolio"
         Me.TbFolio.Size = New System.Drawing.Size(200, 20)
-        Me.TbFolio.TabIndex = 2
+        Me.TbFolio.TabIndex = 1
         '
         'Label1
         '
@@ -267,34 +292,48 @@ Partial Class ContratoSemillas
         Me.DgvContratoSemillas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvContratoSemillas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvContratoSemillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvContratoSemillas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvContratoSemillas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoSemillas.Location = New System.Drawing.Point(12, 218)
+        Me.DgvContratoSemillas.Location = New System.Drawing.Point(0, 0)
         Me.DgvContratoSemillas.MultiSelect = False
         Me.DgvContratoSemillas.Name = "DgvContratoSemillas"
         Me.DgvContratoSemillas.ReadOnly = True
         Me.DgvContratoSemillas.RowHeadersVisible = False
         Me.DgvContratoSemillas.RowHeadersWidth = 40
         Me.DgvContratoSemillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoSemillas.Size = New System.Drawing.Size(1170, 340)
-        Me.DgvContratoSemillas.TabIndex = 14
+        Me.DgvContratoSemillas.Size = New System.Drawing.Size(1194, 365)
+        Me.DgvContratoSemillas.TabIndex = 0
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.DgvContratoSemillas)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 209)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1194, 365)
+        Me.Panel1.TabIndex = 15
         '
         'ContratoSemillas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1194, 574)
-        Me.Controls.Add(Me.DgvContratoSemillas)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "ContratoSemillas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Contrato de Semillas"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        CType(Me.NuCantidad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NuPrecioTonelada, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvContratoSemillas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -314,8 +353,6 @@ Partial Class ContratoSemillas
     Friend WithEvents TbIdContratoSemilla As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents TbPrecioTonelada As System.Windows.Forms.TextBox
-    Friend WithEvents TbCantidad As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents CbComprador As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -325,4 +362,8 @@ Partial Class ContratoSemillas
     Friend WithEvents DgvContratoSemillas As DataGridView
     Friend WithEvents Label9 As Label
     Friend WithEvents CbEstatus As ComboBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents NuCantidad As NumericUpDown
+    Friend WithEvents NuPrecioTonelada As NumericUpDown
+    Friend WithEvents CbMoneda As ComboBox
 End Class

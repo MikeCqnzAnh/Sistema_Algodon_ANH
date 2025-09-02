@@ -22,6 +22,7 @@ Partial Class LiquidacionesPorRomaneaje
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LiquidacionesPorRomaneaje))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +46,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbPlanta = New System.Windows.Forms.ComboBox()
         Me.GbResumen = New System.Windows.Forms.GroupBox()
+        Me.TbCantPacas = New System.Windows.Forms.TextBox()
+        Me.TbcantModulos = New System.Windows.Forms.TextBox()
         Me.TbTotalBoletas = New System.Windows.Forms.TextBox()
         Me.LbTotalBoletas = New System.Windows.Forms.Label()
         Me.ChClaseMicros = New System.Windows.Forms.CheckBox()
@@ -62,6 +65,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TbNumBorregos = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TbPorcentajeMerma = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -75,20 +80,31 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbComentarios = New System.Windows.Forms.GroupBox()
         Me.GbModulos = New System.Windows.Forms.GroupBox()
         Me.DgvModulos = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DgvPacas = New System.Windows.Forms.DataGridView()
+        Me.GbPacas = New System.Windows.Forms.GroupBox()
+        Me.PDgvs = New System.Windows.Forms.Panel()
+        Me.btexcelpacas = New System.Windows.Forms.Button()
+        Me.btexcelmodulos = New System.Windows.Forms.Button()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbResumen.SuspendLayout()
         Me.GbComentarios.SuspendLayout()
         Me.GbModulos.SuspendLayout()
         CType(Me.DgvModulos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbPacas.SuspendLayout()
+        Me.PDgvs.SuspendLayout()
         Me.SuspendLayout()
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImprimirToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1400, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1581, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -100,8 +116,8 @@ Partial Class LiquidacionesPorRomaneaje
         'GuardarToolStripMenuItem
         '
         Me.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem"
-        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.GuardarToolStripMenuItem.Text = "Guardar"
+        Me.GuardarToolStripMenuItem.Size = New System.Drawing.Size(122, 20)
+        Me.GuardarToolStripMenuItem.Text = "Generar liquidacion"
         '
         'ConsultarToolStripMenuItem
         '
@@ -143,9 +159,10 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbDatosGenerales.Controls.Add(Me.TbIdOrden)
         Me.GbDatosGenerales.Controls.Add(Me.Label1)
         Me.GbDatosGenerales.Controls.Add(Me.CbPlanta)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Left
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(429, 220)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(534, 504)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -239,7 +256,7 @@ Partial Class LiquidacionesPorRomaneaje
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Ord. Prod."
+        Me.Label2.Text = "Ord. Trab."
         '
         'TbIdLiquidacion
         '
@@ -276,6 +293,8 @@ Partial Class LiquidacionesPorRomaneaje
         '
         'GbResumen
         '
+        Me.GbResumen.Controls.Add(Me.TbCantPacas)
+        Me.GbResumen.Controls.Add(Me.TbcantModulos)
         Me.GbResumen.Controls.Add(Me.TbTotalBoletas)
         Me.GbResumen.Controls.Add(Me.LbTotalBoletas)
         Me.GbResumen.Controls.Add(Me.ChClaseMicros)
@@ -293,6 +312,8 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbResumen.Controls.Add(Me.Label14)
         Me.GbResumen.Controls.Add(Me.TbNumBorregos)
         Me.GbResumen.Controls.Add(Me.Label13)
+        Me.GbResumen.Controls.Add(Me.Label21)
+        Me.GbResumen.Controls.Add(Me.Label11)
         Me.GbResumen.Controls.Add(Me.Label9)
         Me.GbResumen.Controls.Add(Me.TbPorcentajeMerma)
         Me.GbResumen.Controls.Add(Me.Label8)
@@ -302,17 +323,34 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbResumen.Controls.Add(Me.TbTotalMerma)
         Me.GbResumen.Controls.Add(Me.TbTotalPluma)
         Me.GbResumen.Controls.Add(Me.TbTotalSemilla)
-        Me.GbResumen.Location = New System.Drawing.Point(447, 27)
+        Me.GbResumen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GbResumen.Location = New System.Drawing.Point(534, 0)
         Me.GbResumen.Name = "GbResumen"
-        Me.GbResumen.Size = New System.Drawing.Size(408, 220)
+        Me.GbResumen.Size = New System.Drawing.Size(474, 504)
         Me.GbResumen.TabIndex = 2
         Me.GbResumen.TabStop = False
         Me.GbResumen.Text = "Resumen"
         '
+        'TbCantPacas
+        '
+        Me.TbCantPacas.Enabled = False
+        Me.TbCantPacas.Location = New System.Drawing.Point(116, 237)
+        Me.TbCantPacas.Name = "TbCantPacas"
+        Me.TbCantPacas.Size = New System.Drawing.Size(100, 20)
+        Me.TbCantPacas.TabIndex = 21
+        '
+        'TbcantModulos
+        '
+        Me.TbcantModulos.Enabled = False
+        Me.TbcantModulos.Location = New System.Drawing.Point(116, 211)
+        Me.TbcantModulos.Name = "TbcantModulos"
+        Me.TbcantModulos.Size = New System.Drawing.Size(100, 20)
+        Me.TbcantModulos.TabIndex = 20
+        '
         'TbTotalBoletas
         '
         Me.TbTotalBoletas.Enabled = False
-        Me.TbTotalBoletas.Location = New System.Drawing.Point(100, 98)
+        Me.TbTotalBoletas.Location = New System.Drawing.Point(116, 98)
         Me.TbTotalBoletas.Name = "TbTotalBoletas"
         Me.TbTotalBoletas.Size = New System.Drawing.Size(100, 20)
         Me.TbTotalBoletas.TabIndex = 19
@@ -330,7 +368,7 @@ Partial Class LiquidacionesPorRomaneaje
         'ChClaseMicros
         '
         Me.ChClaseMicros.AutoSize = True
-        Me.ChClaseMicros.Location = New System.Drawing.Point(11, 183)
+        Me.ChClaseMicros.Location = New System.Drawing.Point(6, 178)
         Me.ChClaseMicros.Name = "ChClaseMicros"
         Me.ChClaseMicros.Size = New System.Drawing.Size(186, 17)
         Me.ChClaseMicros.TabIndex = 17
@@ -340,7 +378,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(293, 130)
+        Me.Label16.Location = New System.Drawing.Point(338, 130)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(31, 13)
         Me.Label16.TabIndex = 13
@@ -349,7 +387,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(379, 130)
+        Me.Label20.Location = New System.Drawing.Point(424, 130)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(15, 13)
         Me.Label20.TabIndex = 16
@@ -358,7 +396,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(379, 104)
+        Me.Label19.Location = New System.Drawing.Point(424, 104)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(15, 13)
         Me.Label19.TabIndex = 16
@@ -367,7 +405,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeTotal
         '
         Me.TbPorcentajeTotal.Enabled = False
-        Me.TbPorcentajeTotal.Location = New System.Drawing.Point(330, 127)
+        Me.TbPorcentajeTotal.Location = New System.Drawing.Point(375, 127)
         Me.TbPorcentajeTotal.Name = "TbPorcentajeTotal"
         Me.TbPorcentajeTotal.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeTotal.TabIndex = 9
@@ -385,7 +423,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(379, 78)
+        Me.Label18.Location = New System.Drawing.Point(424, 78)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(15, 13)
         Me.Label18.TabIndex = 15
@@ -394,16 +432,16 @@ Partial Class LiquidacionesPorRomaneaje
         'TbTotalHueso
         '
         Me.TbTotalHueso.Enabled = False
-        Me.TbTotalHueso.Location = New System.Drawing.Point(264, 23)
+        Me.TbTotalHueso.Location = New System.Drawing.Point(280, 23)
         Me.TbTotalHueso.Name = "TbTotalHueso"
-        Me.TbTotalHueso.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalHueso.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalHueso.TabIndex = 3
         Me.TbTotalHueso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(379, 52)
+        Me.Label17.Location = New System.Drawing.Point(424, 52)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(15, 13)
         Me.Label17.TabIndex = 14
@@ -412,7 +450,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbNumPacas
         '
         Me.TbNumPacas.Enabled = False
-        Me.TbNumPacas.Location = New System.Drawing.Point(100, 20)
+        Me.TbNumPacas.Location = New System.Drawing.Point(116, 20)
         Me.TbNumPacas.Name = "TbNumPacas"
         Me.TbNumPacas.Size = New System.Drawing.Size(100, 20)
         Me.TbNumPacas.TabIndex = 4
@@ -421,7 +459,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(219, 104)
+        Me.Label15.Location = New System.Drawing.Point(235, 104)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(39, 13)
         Me.Label15.TabIndex = 12
@@ -439,7 +477,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(219, 78)
+        Me.Label14.Location = New System.Drawing.Point(235, 78)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(40, 13)
         Me.Label14.TabIndex = 11
@@ -448,7 +486,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbNumBorregos
         '
         Me.TbNumBorregos.Enabled = False
-        Me.TbNumBorregos.Location = New System.Drawing.Point(100, 46)
+        Me.TbNumBorregos.Location = New System.Drawing.Point(116, 46)
         Me.TbNumBorregos.Name = "TbNumBorregos"
         Me.TbNumBorregos.Size = New System.Drawing.Size(100, 20)
         Me.TbNumBorregos.TabIndex = 5
@@ -457,11 +495,29 @@ Partial Class LiquidacionesPorRomaneaje
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(219, 52)
+        Me.Label13.Location = New System.Drawing.Point(235, 52)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(36, 13)
         Me.Label13.TabIndex = 10
         Me.Label13.Text = "Pluma"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(3, 214)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(107, 13)
+        Me.Label21.TabIndex = 9
+        Me.Label21.Text = "Modulos sin Revision"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(3, 240)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(98, 13)
+        Me.Label11.TabIndex = 9
+        Me.Label11.Text = "Pacas sin Clasificar"
         '
         'Label9
         '
@@ -475,7 +531,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeMerma
         '
         Me.TbPorcentajeMerma.Enabled = False
-        Me.TbPorcentajeMerma.Location = New System.Drawing.Point(330, 101)
+        Me.TbPorcentajeMerma.Location = New System.Drawing.Point(375, 101)
         Me.TbPorcentajeMerma.Name = "TbPorcentajeMerma"
         Me.TbPorcentajeMerma.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeMerma.TabIndex = 8
@@ -484,7 +540,7 @@ Partial Class LiquidacionesPorRomaneaje
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(219, 26)
+        Me.Label8.Location = New System.Drawing.Point(235, 26)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(38, 13)
         Me.Label8.TabIndex = 8
@@ -493,7 +549,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajeSemilla
         '
         Me.TbPorcentajeSemilla.Enabled = False
-        Me.TbPorcentajeSemilla.Location = New System.Drawing.Point(330, 75)
+        Me.TbPorcentajeSemilla.Location = New System.Drawing.Point(375, 75)
         Me.TbPorcentajeSemilla.Name = "TbPorcentajeSemilla"
         Me.TbPorcentajeSemilla.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajeSemilla.TabIndex = 7
@@ -502,7 +558,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbBorregosPluma
         '
         Me.TbBorregosPluma.Enabled = False
-        Me.TbBorregosPluma.Location = New System.Drawing.Point(100, 72)
+        Me.TbBorregosPluma.Location = New System.Drawing.Point(116, 72)
         Me.TbBorregosPluma.Name = "TbBorregosPluma"
         Me.TbBorregosPluma.Size = New System.Drawing.Size(100, 20)
         Me.TbBorregosPluma.TabIndex = 7
@@ -511,7 +567,7 @@ Partial Class LiquidacionesPorRomaneaje
         'TbPorcentajePluma
         '
         Me.TbPorcentajePluma.Enabled = False
-        Me.TbPorcentajePluma.Location = New System.Drawing.Point(330, 49)
+        Me.TbPorcentajePluma.Location = New System.Drawing.Point(375, 49)
         Me.TbPorcentajePluma.Name = "TbPorcentajePluma"
         Me.TbPorcentajePluma.Size = New System.Drawing.Size(43, 20)
         Me.TbPorcentajePluma.TabIndex = 6
@@ -520,44 +576,46 @@ Partial Class LiquidacionesPorRomaneaje
         'TbTotalMerma
         '
         Me.TbTotalMerma.Enabled = False
-        Me.TbTotalMerma.Location = New System.Drawing.Point(264, 101)
+        Me.TbTotalMerma.Location = New System.Drawing.Point(280, 101)
         Me.TbTotalMerma.Name = "TbTotalMerma"
-        Me.TbTotalMerma.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalMerma.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalMerma.TabIndex = 5
         Me.TbTotalMerma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbTotalPluma
         '
         Me.TbTotalPluma.Enabled = False
-        Me.TbTotalPluma.Location = New System.Drawing.Point(264, 49)
+        Me.TbTotalPluma.Location = New System.Drawing.Point(280, 49)
         Me.TbTotalPluma.Name = "TbTotalPluma"
-        Me.TbTotalPluma.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalPluma.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalPluma.TabIndex = 3
         Me.TbTotalPluma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbTotalSemilla
         '
         Me.TbTotalSemilla.Enabled = False
-        Me.TbTotalSemilla.Location = New System.Drawing.Point(264, 75)
+        Me.TbTotalSemilla.Location = New System.Drawing.Point(280, 75)
         Me.TbTotalSemilla.Name = "TbTotalSemilla"
-        Me.TbTotalSemilla.Size = New System.Drawing.Size(60, 20)
+        Me.TbTotalSemilla.Size = New System.Drawing.Size(89, 20)
         Me.TbTotalSemilla.TabIndex = 4
         Me.TbTotalSemilla.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TbComentarios
         '
-        Me.TbComentarios.Location = New System.Drawing.Point(9, 19)
+        Me.TbComentarios.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TbComentarios.Location = New System.Drawing.Point(3, 16)
         Me.TbComentarios.Multiline = True
         Me.TbComentarios.Name = "TbComentarios"
-        Me.TbComentarios.Size = New System.Drawing.Size(828, 215)
+        Me.TbComentarios.Size = New System.Drawing.Size(1002, 165)
         Me.TbComentarios.TabIndex = 3
         '
         'GbComentarios
         '
         Me.GbComentarios.Controls.Add(Me.TbComentarios)
-        Me.GbComentarios.Location = New System.Drawing.Point(12, 253)
+        Me.GbComentarios.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GbComentarios.Location = New System.Drawing.Point(0, 504)
         Me.GbComentarios.Name = "GbComentarios"
-        Me.GbComentarios.Size = New System.Drawing.Size(843, 252)
+        Me.GbComentarios.Size = New System.Drawing.Size(1008, 184)
         Me.GbComentarios.TabIndex = 4
         Me.GbComentarios.TabStop = False
         Me.GbComentarios.Text = "Comentarios"
@@ -565,9 +623,11 @@ Partial Class LiquidacionesPorRomaneaje
         'GbModulos
         '
         Me.GbModulos.Controls.Add(Me.DgvModulos)
-        Me.GbModulos.Location = New System.Drawing.Point(861, 27)
+        Me.GbModulos.Controls.Add(Me.btexcelmodulos)
+        Me.GbModulos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GbModulos.Location = New System.Drawing.Point(0, 0)
         Me.GbModulos.Name = "GbModulos"
-        Me.GbModulos.Size = New System.Drawing.Size(530, 478)
+        Me.GbModulos.Size = New System.Drawing.Size(573, 362)
         Me.GbModulos.TabIndex = 5
         Me.GbModulos.TabStop = False
         Me.GbModulos.Text = "Modulos"
@@ -581,31 +641,112 @@ Partial Class LiquidacionesPorRomaneaje
         Me.DgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvModulos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvModulos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvModulos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvModulos.Location = New System.Drawing.Point(6, 19)
+        Me.DgvModulos.Location = New System.Drawing.Point(3, 16)
         Me.DgvModulos.MultiSelect = False
         Me.DgvModulos.Name = "DgvModulos"
         Me.DgvModulos.ReadOnly = True
         Me.DgvModulos.RowHeadersVisible = False
         Me.DgvModulos.RowHeadersWidth = 40
         Me.DgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvModulos.Size = New System.Drawing.Size(518, 453)
+        Me.DgvModulos.Size = New System.Drawing.Size(535, 343)
         Me.DgvModulos.TabIndex = 30
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.GbResumen)
+        Me.Panel1.Controls.Add(Me.GbDatosGenerales)
+        Me.Panel1.Controls.Add(Me.GbComentarios)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 24)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1008, 688)
+        Me.Panel1.TabIndex = 6
+        '
+        'DgvPacas
+        '
+        Me.DgvPacas.AllowUserToAddRows = False
+        Me.DgvPacas.AllowUserToDeleteRows = False
+        Me.DgvPacas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvPacas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvPacas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvPacas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvPacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPacas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvPacas.Location = New System.Drawing.Point(3, 16)
+        Me.DgvPacas.MultiSelect = False
+        Me.DgvPacas.Name = "DgvPacas"
+        Me.DgvPacas.ReadOnly = True
+        Me.DgvPacas.RowHeadersVisible = False
+        Me.DgvPacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DgvPacas.Size = New System.Drawing.Size(535, 307)
+        Me.DgvPacas.TabIndex = 31
+        '
+        'GbPacas
+        '
+        Me.GbPacas.Controls.Add(Me.DgvPacas)
+        Me.GbPacas.Controls.Add(Me.btexcelpacas)
+        Me.GbPacas.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GbPacas.Location = New System.Drawing.Point(0, 362)
+        Me.GbPacas.Name = "GbPacas"
+        Me.GbPacas.Size = New System.Drawing.Size(573, 326)
+        Me.GbPacas.TabIndex = 32
+        Me.GbPacas.TabStop = False
+        Me.GbPacas.Text = "Pacas"
+        '
+        'PDgvs
+        '
+        Me.PDgvs.Controls.Add(Me.GbModulos)
+        Me.PDgvs.Controls.Add(Me.GbPacas)
+        Me.PDgvs.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PDgvs.Location = New System.Drawing.Point(1008, 24)
+        Me.PDgvs.Name = "PDgvs"
+        Me.PDgvs.Size = New System.Drawing.Size(573, 688)
+        Me.PDgvs.TabIndex = 31
+        '
+        'btexcelpacas
+        '
+        Me.btexcelpacas.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.btexcelpacas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btexcelpacas.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btexcelpacas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btexcelpacas.Location = New System.Drawing.Point(538, 16)
+        Me.btexcelpacas.MaximumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.MinimumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.Name = "btexcelpacas"
+        Me.btexcelpacas.Size = New System.Drawing.Size(32, 32)
+        Me.btexcelpacas.TabIndex = 22
+        Me.btexcelpacas.UseVisualStyleBackColor = True
+        '
+        'btexcelmodulos
+        '
+        Me.btexcelmodulos.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.excel
+        Me.btexcelmodulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btexcelmodulos.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btexcelmodulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btexcelmodulos.Location = New System.Drawing.Point(538, 16)
+        Me.btexcelmodulos.MaximumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.MinimumSize = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.Name = "btexcelmodulos"
+        Me.btexcelmodulos.Size = New System.Drawing.Size(32, 32)
+        Me.btexcelmodulos.TabIndex = 23
+        Me.btexcelmodulos.UseVisualStyleBackColor = True
         '
         'LiquidacionesPorRomaneaje
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1400, 517)
-        Me.Controls.Add(Me.GbModulos)
-        Me.Controls.Add(Me.GbComentarios)
-        Me.Controls.Add(Me.GbResumen)
-        Me.Controls.Add(Me.GbDatosGenerales)
+        Me.ClientSize = New System.Drawing.Size(1581, 712)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PDgvs)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "LiquidacionesPorRomaneaje"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Liquidaciones Por Romaneaje"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
@@ -616,6 +757,10 @@ Partial Class LiquidacionesPorRomaneaje
         Me.GbComentarios.PerformLayout()
         Me.GbModulos.ResumeLayout(False)
         CType(Me.DgvModulos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.DgvPacas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GbPacas.ResumeLayout(False)
+        Me.PDgvs.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -674,4 +819,14 @@ Partial Class LiquidacionesPorRomaneaje
     Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbTotalBoletas As TextBox
     Friend WithEvents LbTotalBoletas As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents DgvPacas As DataGridView
+    Friend WithEvents GbPacas As GroupBox
+    Friend WithEvents PDgvs As Panel
+    Friend WithEvents TbCantPacas As TextBox
+    Friend WithEvents TbcantModulos As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents btexcelmodulos As Button
+    Friend WithEvents btexcelpacas As Button
 End Class

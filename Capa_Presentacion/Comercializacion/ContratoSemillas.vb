@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ContratoSemillas
     Private Sub ContratoSemillas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LLenarCombos()
@@ -17,9 +19,9 @@ Public Class ContratoSemillas
         EntidadContratoSemillas.Folio = TbFolio.Text
         EntidadContratoSemillas.Fecha = DtpFecha.Value
         EntidadContratoSemillas.IdComprador = CbComprador.SelectedValue
-        EntidadContratoSemillas.Cantidad = TbCantidad.Text
+        EntidadContratoSemillas.Cantidad = NuCantidad.Value
         EntidadContratoSemillas.IdEstatus = CbEstatus.SelectedValue
-        EntidadContratoSemillas.PrecioTonelada = TbPrecioTonelada.Text
+        EntidadContratoSemillas.PrecioTonelada = NuPrecioTonelada.Value
         EntidadContratoSemillas.Testigo1 = TbTestigo1.Text
         EntidadContratoSemillas.Testigo2 = TbTestigo2.Text
         EntidadContratoSemillas.IdUsuarioCreacion = 1
@@ -43,9 +45,9 @@ Public Class ContratoSemillas
         TbFolio.Text = ""
         DtpFecha.Value = Now
         CbComprador.SelectedValue = 1
-        TbCantidad.Text = ""
+        NuCantidad.Value = 0
         CbEstatus.SelectedValue = 1
-        TbPrecioTonelada.Text = ""
+        NuPrecioTonelada.Value = 0
         TbTestigo1.Text = ""
         TbTestigo2.Text = ""
     End Sub
@@ -88,7 +90,7 @@ Public Class ContratoSemillas
         DgvContratoSemillas.DataSource = EntidadContratoSemillas.TablaConsulta
     End Sub
 
-    Private Sub DgvContratoSemillas_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvContratoSemillas.CellContentDoubleClick
+    Private Sub DgvContratoSemillas_CellContentDoubleClick(sender As Object, e As MouseEventArgs) Handles DgvContratoSemillas.DoubleClick
         Dim EntidadContratoSemillas As New Capa_Entidad.ContratoSemillas
         Dim NegocioContratoSemillas As New Capa_Negocio.ContratoSemillas
         Dim TablaDetalle As New DataTable
@@ -103,8 +105,8 @@ Public Class ContratoSemillas
         DtpFecha.Value = TablaDetalle.Rows(0).Item("Fecha")
         CbComprador.SelectedValue = TablaDetalle.Rows(0).Item("IdComprador")
         CbEstatus.SelectedValue = TablaDetalle.Rows(0).Item("IdEstatus")
-        TbCantidad.Text = TablaDetalle.Rows(0).Item("Cantidad")
-        TbPrecioTonelada.Text = TablaDetalle.Rows(0).Item("PrecioTonelada")
+        NuCantidad.Value = TablaDetalle.Rows(0).Item("Cantidad")
+        NuPrecioTonelada.Value = TablaDetalle.Rows(0).Item("PrecioTonelada")
         TbTestigo1.Text = TablaDetalle.Rows(0).Item("Testigo1")
         TbTestigo2.Text = TablaDetalle.Rows(0).Item("Testigo2")
         'InhabilitarBotones()

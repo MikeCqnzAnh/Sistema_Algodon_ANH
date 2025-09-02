@@ -39,6 +39,7 @@ Partial Class RegimenHidrico
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -67,7 +68,7 @@ Partial Class RegimenHidrico
         'TbIdRegimen
         '
         Me.TbIdRegimen.Enabled = False
-        Me.TbIdRegimen.Location = New System.Drawing.Point(97, 27)
+        Me.TbIdRegimen.Location = New System.Drawing.Point(95, 39)
         Me.TbIdRegimen.Name = "TbIdRegimen"
         Me.TbIdRegimen.Size = New System.Drawing.Size(100, 20)
         Me.TbIdRegimen.TabIndex = 1
@@ -75,7 +76,7 @@ Partial Class RegimenHidrico
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(97, 115)
+        Me.CbEstatus.Location = New System.Drawing.Point(95, 127)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 2
@@ -104,7 +105,7 @@ Partial Class RegimenHidrico
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 30)
+        Me.Label1.Location = New System.Drawing.Point(12, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(18, 13)
         Me.Label1.TabIndex = 19
@@ -113,7 +114,7 @@ Partial Class RegimenHidrico
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 75)
+        Me.Label2.Location = New System.Drawing.Point(12, 87)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 19
@@ -122,7 +123,7 @@ Partial Class RegimenHidrico
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(14, 118)
+        Me.Label3.Location = New System.Drawing.Point(12, 130)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(42, 13)
         Me.Label3.TabIndex = 19
@@ -130,7 +131,7 @@ Partial Class RegimenHidrico
         '
         'TbDescripcion
         '
-        Me.TbDescripcion.Location = New System.Drawing.Point(97, 72)
+        Me.TbDescripcion.Location = New System.Drawing.Point(95, 84)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(121, 20)
         Me.TbDescripcion.TabIndex = 1

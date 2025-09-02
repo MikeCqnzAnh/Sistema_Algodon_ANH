@@ -118,16 +118,112 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BusquedaUsuario1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BusquedaUsuario1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICONO CALCULA COTTON-31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Black Icon Package Icon 28" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Black Icon Package Icon 28.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="light_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-31 32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-31 32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-33.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clienteadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\clienteadd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BusquedaUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusquedaUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="light_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BusquedaUsuario1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BusquedaUsuario1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attachment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Iconos\png\attachment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\quit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\quit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Iconos\png\play-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_yellow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-34.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Iconos\png\back-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-09.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BusquedaUsuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BusquedaUsuario1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Iconos\png\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-351" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-351.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-341" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-341.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-37" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-37.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\report_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICONO CALCULA COTTON-07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICONO CALCULA COTTON-07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

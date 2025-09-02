@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class CastigoResistenciaFibra
     Public Overridable Sub Upsert(ByRef EntidadCastigoResistenciaFibra As Capa_Entidad.CastigoResistenciaFibra)
         Dim EntidadCastigoResistenciaFibra1 As New Capa_Entidad.CastigoResistenciaFibra
@@ -7,20 +9,29 @@ Public Class CastigoResistenciaFibra
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("sp_InsertarRangoFibra", cnn)
+            cmdGuardar = New SqlCommand("sp_InsertaResistenciaEncabezado", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdLargoFibra", EntidadCastigoResistenciaFibra.IdCastigoResistenciaFibra))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Rango1", EntidadCastigoResistenciaFibra.Rango1))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Rango2", EntidadCastigoResistenciaFibra.Rango2))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Castigo", EntidadCastigoResistenciaFibra.Castigo))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadCastigoResistenciaFibra.IdEstatus))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadCastigoResistenciaFibra.IdUsuarioCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadCastigoResistenciaFibra.FechaCreacion))
-            cmdGuardar.Parameters("@IdLargoFibra").Direction = ParameterDirection.InputOutput
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCastigoResistenciaFibra1.IdResistenciaEncabezado))
+            cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadCastigoResistenciaFibra1.Descripcion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@ModoComercializacion", EntidadCastigoResistenciaFibra1.IdModoComercializacion))
+            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadCastigoResistenciaFibra1.IdEstatus))
+            cmdGuardar.Parameters("@IdModoEncabezado").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
-            If EntidadCastigoResistenciaFibra1.IdCastigoResistenciaFibra = 0 Then
-                EntidadCastigoResistenciaFibra1.IdCastigoResistenciaFibra = cmdGuardar.Parameters("@IdLargoFibra").Value
+            If EntidadCastigoResistenciaFibra1.IdResistenciaEncabezado = 0 Then
+                EntidadCastigoResistenciaFibra1.IdResistenciaEncabezado = cmdGuardar.Parameters("@IdModoEncabezado").Value
             End If
+            For Each MiTableRow As DataRow In EntidadCastigoResistenciaFibra1.TablaModosDetalle.Rows
+                cmdGuardar.CommandText = "sp_InsertaResistenciaDetalle"
+                cmdGuardar.CommandType = CommandType.StoredProcedure
+                cmdGuardar.Parameters.Clear()
+                cmdGuardar.Parameters.Add(New SqlParameter("@IdModoDetalle", MiTableRow("IdModoDetalle")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@IdModoEncabezado", EntidadCastigoResistenciaFibra1.IdResistenciaEncabezado))
+                cmdGuardar.Parameters.Add(New SqlParameter("@Rango1", MiTableRow("Rango1")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@Rango2", MiTableRow("Rango2")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@Castigo", MiTableRow("Castigo")))
+                cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", MiTableRow("IdEstatus")))
+                cmdGuardar.ExecuteNonQuery()
+            Next
         Catch ex As Exception
         Finally
             cnn.Close()
@@ -39,11 +50,15 @@ Public Class CastigoResistenciaFibra
             cnn.Open()
             Select Case EntidadCastigoResistenciaFibra1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
-                    sqldat1 = New SqlDataAdapter("sp_ConsultaLargoFibra", cnn)
+                    sqlcom1 = New SqlCommand("Sp_ConsultaResistenciaDetalle", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdResistenciaEncabezado", EntidadCastigoResistenciaFibra1.IdResistenciaEncabezado))
                     sqldat1.Fill(EntidadCastigoResistenciaFibra1.TablaConsulta)
-                    'Case Capa_Operacion.Configuracion.Consulta.ConsultaEstado
-                    '    sqldat1 = New SqlDataAdapter("sp_ConsultaEstados", cnn)
-                    '    sqldat1.Fill(EntidadCompradores1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaEncabezado
+                    sqldat1 = New SqlDataAdapter("Sp_ConsultaResistenciaEncabezado", cnn)
+                    sqldat1.Fill(EntidadCastigoResistenciaFibra1.TablaConsulta)
                     'Case Capa_Operacion.Configuracion.Consulta.ConsultaMunicipio
                     '    sqlcom1 = New SqlCommand("sp_ConsultaMunicipios", cnn)
                     '    sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -53,6 +68,7 @@ Public Class CastigoResistenciaFibra
                     '    sqldat1.Fill(EntidadCompradores1.TablaConsulta)
             End Select
         Catch ex As Exception
+            MsgBox(ex)
         Finally
             cnn.Close()
             EntidadCastigoResistenciaFibra = EntidadCastigoResistenciaFibra1

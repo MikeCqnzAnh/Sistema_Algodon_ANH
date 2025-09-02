@@ -1,21 +1,31 @@
-﻿Imports Capa_Operacion.Configuracion
+﻿Imports Capa_Entidad
+Imports Capa_Negocio
+Imports Capa_Operacion
+Imports Capa_Operacion.Configuracion
 Public Class CastigoLargoFibra
+    Private TablaDetalles As New DataTable()
+    Private TablaEquivalente As New DataTable()
     Private Sub CastigoLargoFibra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
         limpiarCampos()
+        AgregaCamposTablaDetalles()
+        AgregaCamposTablaEquivalente()
     End Sub
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         limpiarCampos()
         CargarCombos()
     End Sub
     Private Sub limpiarCampos()
-        TbIdCastigoLargoFibra.Text = ""
-        TbRango1.Text = ""
-        TbRango2.Text = ""
-        TbColorGrade.Text = ""
-        TbCastigo.Text = ""
-        CbEstatus.SelectedValue = 1
-        ConsultaRendimientos()
+        TbIdModoLargoFibraEncabezado.Text = ""
+        TbDescripcion.Text = ""
+        CbTipoContrato.SelectedIndex = -1
+        CbEstatus.SelectedIndex = 0
+        DgvEncabezado.DataSource = ""
+        'dgvmododet.DataSource = ""
+        'DgvEquivalente.DataSource = ""
+        DgvEquivalente.Columns.Clear()
+        dgvmododet.Columns.Clear()
+        ConsultaModosLargoFibra()
     End Sub
     Private Sub CargarCombos()
         '---------------------------COMBO ESTATUS
@@ -35,33 +45,260 @@ Public Class CastigoLargoFibra
         CbEstatus.ValueMember = "Id"
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedValue = 1
+        '-------------------------COMBO TIPO CONTRATO
+        Dim dt1 As DataTable = New DataTable("Tabla")
+        dt1.Columns.Add("Id")
+        dt1.Columns.Add("Descripcion")
+        Dim dr1 As DataRow
+        dr1 = dt1.NewRow()
+        dr1("Id") = "1"
+        dr1("Descripcion") = "Compra"
+        dt1.Rows.Add(dr1)
+        dr1 = dt1.NewRow()
+        dr1("Id") = "2"
+        dr1("Descripcion") = "Venta"
+        dt1.Rows.Add(dr1)
+        CbTipoContrato.DataSource = dt1
+        CbTipoContrato.ValueMember = "Id"
+        CbTipoContrato.DisplayMember = "Descripcion"
+        CbTipoContrato.SelectedIndex = -1
+    End Sub
+    Private Sub ConsultaModosLargoFibra()
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        Dim Tabla As New DataTable
+        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaEncabezado
+        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+        DgvEncabezado.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+        PropiedadesDgvEncabezado()
+    End Sub
+    Private Sub ConsultaModosDetalle()
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        Dim Tabla As New DataTable
+        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaDetallada
+        EntidadCastigoLargoFibra.IdModoEncabezado = Val(TbIdModoLargoFibraEncabezado.Text)
+        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+        dgvmododet.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+        PropiedadesDgvDetalles()
+    End Sub
+    Private Sub ConsultaModosEquivalenteDetalle()
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        Dim Tabla As New DataTable
+        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaEquivalente
+        EntidadCastigoLargoFibra.IdModoEncabezado = Val(TbIdModoLargoFibraEncabezado.Text)
+        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+        DgvEquivalente.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+        PropiedadesDgvEquivalente()
+    End Sub
+    Private Sub AgregaCamposTablaDetalles()
+        TablaDetalles.Columns.Clear()
+        TablaDetalles.Columns.Add(New DataColumn("IdModoDetalle", Type.GetType("System.Int32")))
+        TablaDetalles.Columns.Add(New DataColumn("IdModoEncabezado", Type.GetType("System.Int32")))
+        TablaDetalles.Columns.Add(New DataColumn("Rango1", Type.GetType("System.Decimal")))
+        TablaDetalles.Columns.Add(New DataColumn("Rango2", Type.GetType("System.Decimal")))
+        TablaDetalles.Columns.Add(New DataColumn("ColorGrade", Type.GetType("System.String")))
+        TablaDetalles.Columns.Add(New DataColumn("Castigo", Type.GetType("System.Decimal")))
+        TablaDetalles.Columns.Add(New DataColumn("IdEstatus", Type.GetType("System.Int32")))
+        TablaDetalles.Columns.Add(New DataColumn("Seleccionar", Type.GetType("System.Boolean")))
+    End Sub
+    Private Sub AgregaCamposTablaEquivalente()
+        TablaEquivalente.Columns.Clear()
+        TablaEquivalente.Columns.Add(New DataColumn("IdModoDetalle", Type.GetType("System.Int32")))
+        TablaEquivalente.Columns.Add(New DataColumn("IdModoEncabezado", Type.GetType("System.Int32")))
+        TablaEquivalente.Columns.Add(New DataColumn("ModoComercializacion", Type.GetType("System.Int32")))
+        TablaEquivalente.Columns.Add(New DataColumn("Rango1", Type.GetType("System.Decimal")))
+        TablaEquivalente.Columns.Add(New DataColumn("Rango2", Type.GetType("System.Decimal")))
+        TablaEquivalente.Columns.Add(New DataColumn("LenghtNDS", Type.GetType("System.Int32")))
+        TablaEquivalente.Columns.Add(New DataColumn("Seleccionar", Type.GetType("System.Boolean")))
+    End Sub
+    Private Sub PropiedadesDgvEncabezado()
+        DgvEncabezado.Columns("ModoComercializacion").Visible = False
+        DgvEncabezado.Columns("idestatus").Visible = False
+        DgvEncabezado.Columns("estatus").HeaderText = "Estatus"
+    End Sub
+    Private Sub PropiedadesDgvDetalles()
+        dgvmododet.Columns("IdModoDetalle").Visible = False
+        dgvmododet.Columns("IdModoEncabezado").Visible = False
+        'dgvmododet.Columns("ColorGrade").Visible = False
+        'dgvmododet.Columns("IdEstatus").Visible = False
+
+    End Sub
+    Private Sub PropiedadesDgvEquivalente()
+        If DgvEquivalente.Rows.Count > 0 Then
+            If DgvEquivalente.Columns("Sel") Is Nothing Then
+                Dim colSel As New DataGridViewCheckBoxColumn
+                colSel.Name = "Sel"
+                colSel.HeaderText = "Seleccionar"
+                DgvEquivalente.Columns.Insert(6, colSel)
+            End If
+            DgvEquivalente.Columns("IdLargoFibraDetalle").Visible = False
+            DgvEquivalente.Columns("IdModoEncabezado").Visible = False
+            DgvEquivalente.Columns("ModoComercializacion").Visible = False
+        End If
+    End Sub
+    Private Sub AgregarATablaDetalle()
+        Dim index As Integer
+        Dim rengloninsertar As DataRow
+        TablaDetalles.Clear()
+        dgvmododet.EndEdit()
+        Try
+            For Each row As DataGridViewRow In dgvmododet.Rows
+                index = Convert.ToUInt64(row.Index)
+                If dgvmododet.Rows(index).Cells("Rango1").Value IsNot Nothing Or dgvmododet.Rows(index).Cells("Rango2").Value IsNot Nothing Then
+                    rengloninsertar = TablaDetalles.NewRow()
+                    rengloninsertar("IdModoDetalle") = IIf(dgvmododet.Rows(index).Cells("IdModoDetalle").Value Is Nothing, 0, dgvmododet.Rows(index).Cells("IdModoDetalle").Value)
+                    rengloninsertar("IdModoEncabezado") = Val(dgvmododet.Text)
+                    rengloninsertar("Rango1") = dgvmododet.Rows(index).Cells("Rango1").Value
+                    rengloninsertar("Rango2") = dgvmododet.Rows(index).Cells("Rango2").Value
+                    rengloninsertar("ColorGrade") = 0
+                    rengloninsertar("Castigo") = dgvmododet.Rows(index).Cells("Castigo").Value
+                    rengloninsertar("IdEstatus") = 1
+                    TablaDetalles.Rows.Add(rengloninsertar)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub AgregarATablaEquivalente()
+        Dim index As Integer
+        Dim rengloninsertar As DataRow
+        TablaEquivalente.Clear()
+        DgvEquivalente.EndEdit()
+        Try
+            For Each row As DataGridViewRow In DgvEquivalente.Rows
+                index = Convert.ToUInt64(row.Index)
+                If DgvEquivalente.Rows(index).Cells("Rango1").Value IsNot Nothing Or DgvEquivalente.Rows(index).Cells("Rango2").Value IsNot Nothing Then
+                    rengloninsertar = TablaEquivalente.NewRow()
+                    rengloninsertar("IdModoDetalle") = IIf(DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value Is Nothing, 0, DgvEquivalente.Rows(index).Cells("IdLargoFibraDetalle").Value)
+                    rengloninsertar("IdModoEncabezado") = Val(DgvEquivalente.Text)
+                    rengloninsertar("ModoComercializacion") = CbTipoContrato.SelectedValue
+                    rengloninsertar("Rango1") = DgvEquivalente.Rows(index).Cells("Rango1").Value
+                    rengloninsertar("Rango2") = DgvEquivalente.Rows(index).Cells("Rango2").Value
+                    rengloninsertar("LenghtNDS") = DgvEquivalente.Rows(index).Cells("LenghtNDS").Value
+                    TablaEquivalente.Rows.Add(rengloninsertar)
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+        If TbDescripcion.Text = "" Or CbTipoContrato.SelectedValue = "" Then
+            MsgBox("No se permite guardar con campos vacios.")
+        Else
+            Guardar()
+        End If
+    End Sub
+    Private Sub Guardar()
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        'AgregarATablaDetalle()
+        'AgregarATablaEquivalente()
+        EntidadCastigoLargoFibra.Guarda = Configuracion.Guardar.GuardarEncabezado
+        EntidadCastigoLargoFibra.IdModoEncabezado = IIf(TbIdModoLargoFibraEncabezado.Text = "", 0, TbIdModoLargoFibraEncabezado.Text)
+        EntidadCastigoLargoFibra.Descripcion = TbDescripcion.Text
+        EntidadCastigoLargoFibra.IdModoComercializacion = CbTipoContrato.SelectedValue
+        EntidadCastigoLargoFibra.IdEstatus = CbEstatus.SelectedValue
+        'EntidadCastigoLargoFibra.TablaModosDetalle = TablaDetalles
+        'EntidadCastigoLargoFibra.TablaModosEquivalente = TablaEquivalente
+        NegocioCastigoLargoFibra.Guardar(EntidadCastigoLargoFibra)
+        TbIdModoLargoFibraEncabezado.Text = EntidadCastigoLargoFibra.IdModoEncabezado
+        MsgBox("Realizado Correctamente")
+        DgvEquivalente.Columns.Clear()
+        dgvmododet.Columns.Clear()
+        ConsultaModosLargoFibra()
+        'ConsultaModosDetalleparametro(TbIdModoLargoFibraEncabezado.Text)
+        'ConsultaModosEquivalenteDetalleparametro(TbIdModoLargoFibraEncabezado.Text)
+    End Sub
+    Private Sub guardardetalle()
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+
+        For Each row As DataGridViewRow In dgvmododet.Rows
+            EntidadCastigoLargoFibra.Guarda = Configuracion.Guardar.GuardarDetalle
+            EntidadCastigoLargoFibra.IdModoDetalle = If(String.IsNullOrEmpty(row.Cells("idmododetalle").Value.ToString()), 0, Convert.ToInt32(row.Cells("idmododetalle").Value))
+            EntidadCastigoLargoFibra.IdModoEncabezado = Convert.ToInt32(TbIdModoLargoFibraEncabezado.Text)
+            EntidadCastigoLargoFibra.Rango1 = Convert.ToDecimal(row.Cells("rango1").Value)
+            EntidadCastigoLargoFibra.Rango2 = Convert.ToDecimal(row.Cells("rango2").Value)
+            EntidadCastigoLargoFibra.LenghtNDS = Convert.ToInt32(row.Cells("LenghtNDS").Value)
+            EntidadCastigoLargoFibra.Castigo = Convert.ToDecimal(row.Cells("castigo").Value)
+
+            NegocioCastigoLargoFibra.Guardar(EntidadCastigoLargoFibra)
+        Next
+
+    End Sub
+    Private Sub ConsultaModosDetalleparametro(ByVal Id As Integer)
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        Dim Tabla As New DataTable
+        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaDetallada
+        EntidadCastigoLargoFibra.IdModoEncabezado = Id
+        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+        dgvmododet.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+        PropiedadesDgvDetalles()
+    End Sub
+    Private Sub ConsultaModosEquivalenteDetalleparametro(ByVal Id As Integer)
+        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+        Dim Tabla As New DataTable
+        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaEquivalente
+        EntidadCastigoLargoFibra.IdModoEncabezado = Id
+        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+        DgvEquivalente.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+        PropiedadesDgvEquivalente()
+    End Sub
+    'Private Sub ConsultaRendimientos()
+    '    Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
+    '    Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
+    '    Dim Tabla As New DataTable
+    '    EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaDetallada
+    '    NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
+    '    DgvLargoDetalle.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+    'End Sub
+    Private Sub DgvEncabezado_DoubleClick(sender As Object, e As EventArgs) Handles DgvEncabezado.DoubleClick
+        If DgvEncabezado.DataSource Is Nothing Then
+            MsgBox("No hay registros disponibles")
+        Else
+            Dim index As Integer
+            index = DgvEncabezado.CurrentCell.RowIndex
+            TbIdModoLargoFibraEncabezado.Text = DgvEncabezado.Rows(index).Cells("IdModoEncabezado").Value
+            TbDescripcion.Text = DgvEncabezado.Rows(index).Cells("Descripcion").Value
+            CbTipoContrato.SelectedValue = DgvEncabezado.Rows(index).Cells("ModoComercializacion").Value
+            CbEstatus.SelectedValue = DgvEncabezado.Rows(index).Cells("IdEstatus").Value
+            dgvmododet.Columns.Clear()
+            DgvEquivalente.Columns.Clear()
+            ConsultaModosDetalle()
+            'ConsultaModosEquivalenteDetalle()
+        End If
+    End Sub
+    Private Sub CargarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem.Click
+        dgvmododet.Columns.Clear()
+        importarexceltablacastigos(dgvmododet)
+        PropiedadesDgvDetalles()
+    End Sub
+    Private Sub CargarExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CargarExcelToolStripMenuItem1.Click
+        DgvEquivalente.Columns.Clear()
+        importarexceltablacastequiv(DgvEquivalente)
+        PropiedadesDgvEquivalente()
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
 
-    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
-        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
-        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
-        EntidadCastigoLargoFibra.IdCastigoLargoFibra = IIf(TbIdCastigoLargoFibra.Text = "", 0, TbIdCastigoLargoFibra.Text)
-        EntidadCastigoLargoFibra.Rango1 = TbRango1.Text
-        EntidadCastigoLargoFibra.Rango2 = TbRango2.Text
-        EntidadCastigoLargoFibra.ColorGrade = TbColorGrade.Text
-        EntidadCastigoLargoFibra.Castigo = TbCastigo.Text
-        EntidadCastigoLargoFibra.IdEstatus = CbEstatus.SelectedValue
-        EntidadCastigoLargoFibra.IdUsuarioCreacion = 1
-        EntidadCastigoLargoFibra.FechaCreacion = Now
-        NegocioCastigoLargoFibra.Guardar(EntidadCastigoLargoFibra)
-        TbIdCastigoLargoFibra.Text = EntidadCastigoLargoFibra.IdCastigoLargoFibra
-        MsgBox("Realizado Correctamente")
-        ConsultaRendimientos()
+    Private Sub ExportarAExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarAExcelToolStripMenuItem.Click
+        If dgvmododet.Rows.Count > 0 Then
+            ExportExcel(dgvmododet)
+        End If
     End Sub
-    Private Sub ConsultaRendimientos()
-        Dim EntidadCastigoLargoFibra As New Capa_Entidad.CastigoLargoFibra
-        Dim NegocioCastigoLargoFibra As New Capa_Negocio.CastigoLargoFibra
-        Dim Tabla As New DataTable
-        EntidadCastigoLargoFibra.Consulta = Consulta.ConsultaDetallada
-        NegocioCastigoLargoFibra.Consultar(EntidadCastigoLargoFibra)
-        DgvCastigoLargoFibra.DataSource = EntidadCastigoLargoFibra.TablaConsulta
+
+    Private Sub ExportarAExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExportarAExcelToolStripMenuItem1.Click
+        If DgvEquivalente.Rows.Count > 0 Then
+            ExportExcel(DgvEquivalente)
+        End If
     End Sub
 End Class

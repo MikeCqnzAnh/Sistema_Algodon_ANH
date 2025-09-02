@@ -1,4 +1,4 @@
-alter procedure sp_InsertarComprador
+Alter procedure sp_InsertarComprador
 @IdComprador int output,
 @Nombre varchar(100),
 @Rfc varchar(20),
@@ -15,8 +15,30 @@ as
 begin
 set nocount on
 merge [dbo].[Compradores] as target
-using (select @IdComprador,@Nombre,@Rfc,@Curp,@Domicilio,@IdEstado,@IdMunicipio,@Telefono,@Correo,@IdUsuarioCreacion,@FechaCreacion,@IdEstatus) AS SOURCE 
-(IdComprador,Nombre,Rfc,Curp,Domicilio,IdEstado,IdMunicipio,Telefono,Correo,IdUsuarioCreacion,FechaCreacion,IdEstatus)
+using (select @IdComprador
+			 ,@Nombre
+			 ,@Rfc
+			 ,@Curp
+			 ,@Domicilio
+			 ,@IdEstado
+			 ,@IdMunicipio
+			 ,@Telefono
+			 ,@Correo
+			 ,@IdUsuarioCreacion
+			 ,@FechaCreacion
+			 ,@IdEstatus) AS SOURCE (
+			  IdComprador
+			 ,Nombre
+			 ,Rfc
+			 ,Curp
+			 ,Domicilio
+			 ,IdEstado
+			 ,IdMunicipio
+			 ,Telefono
+			 ,Correo
+			 ,IdUsuarioCreacion
+			 ,FechaCreacion
+			 ,IdEstatus)
 ON (target.IdComprador = SOURCE.IdComprador)
 WHEN MATCHED THEN
 UPDATE SET Nombre = Source.Nombre,
@@ -31,8 +53,28 @@ UPDATE SET Nombre = Source.Nombre,
 		   FechaCreacion = source.FechaCreacion,
 		   IdEstatus = source.IdEstatus
 WHEN NOT MATCHED THEN
-		  INSERT (Nombre,Rfc,Curp,Domicilio,IdEstado,IdMunicipio,Telefono,Correo,IdUsuarioCreacion,FechaCreacion,IdEstatus)
-          VALUES (source.Nombre,source.Rfc,source.Curp,source.Domicilio,source.IdEstado,source.IdMunicipio,source.Telefono,source.Correo,source.IdUsuarioCreacion,source.FechaCreacion,source.IdEstatus);
+		  INSERT (Nombre
+				 ,Rfc
+				 ,Curp
+				 ,Domicilio
+				 ,IdEstado
+				 ,IdMunicipio
+				 ,Telefono
+				 ,Correo
+				 ,IdUsuarioCreacion
+				 ,FechaCreacion
+				 ,IdEstatus)
+          VALUES (source.Nombre
+				 ,source.Rfc
+				 ,source.Curp
+				 ,source.Domicilio
+				 ,source.IdEstado
+				 ,source.IdMunicipio
+				 ,source.Telefono
+				 ,source.Correo
+				 ,source.IdUsuarioCreacion
+				 ,source.FechaCreacion
+				 ,source.IdEstatus);
 		  SET @IdComprador = SCOPE_IDENTITY()
 		  END
 RETURN @IdComprador

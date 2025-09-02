@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Colonias
     Private Sub Colonias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
@@ -63,5 +65,27 @@ Public Class Colonias
         EntidadColonias.Consulta = Consulta.ConsultaDetallada
         NegocioColonias.Consultar(EntidadColonias)
         DgvCompradores.DataSource = EntidadColonias.TablaConsulta
+    End Sub
+
+    Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf e.KeyChar.IsSeparator(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TbNoPacas_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbNoPacas.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

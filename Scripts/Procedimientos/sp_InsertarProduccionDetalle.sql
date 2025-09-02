@@ -3,7 +3,7 @@ alter procedure sp_InsertarProduccionDetalle
 @IdProduccion int,
 @IdOrdenTrabajo int,
 @IdPlantaOrigen int,
-@FolioCIA int,
+@FolioCIA bigint,
 @Tipo varchar(15),
 @Kilos float,
 @BandExiste bit,
@@ -108,7 +108,7 @@ ResistenciaFibra) ON (target.IdProduccionDetalle = source.IdProduccionDetalle)
 WHEN MATCHED THEN
 UPDATE SET 
 Tipo = source.Tipo,
-Kilos = source.Kilos,
+Kilos = round(source.Kilos,0,0),
 BandExiste = source.BandExiste,
 IdEstatus = source.IdEstatus,
 Fecha = source.Fecha
@@ -152,7 +152,7 @@ source.IdOrdenTrabajo,
 source.IdPlantaOrigen,
 source.FolioCIA,
 source.Tipo,
-source.Kilos,
+round(source.Kilos,0,0),
 source.BandExiste,
 source.IdTurno,
 source.IdEstatus,

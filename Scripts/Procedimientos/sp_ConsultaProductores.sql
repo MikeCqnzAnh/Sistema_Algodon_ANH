@@ -1,27 +1,22 @@
-ALTER PROCEDURE sp_ConsultaProductores
---declare
+CREATE PROCEDURE sp_ConsultaProductores
 @Nombre varchar(100)
 AS
 IF @Nombre = ''
 BEGIN
 SELECT a.IdCliente,
-	   a.Nombre,
-	   b.Descripcion as Asociacion
-FROM [dbo].[Clientes] a,
-     [dbo].[Asociaciones] b
+	   a.Nombre
+FROM [dbo].[Clientes] a
 WHERE a.IdEstatus = 1
-and   a.IdCuentaDe = b.IdAsociacion
+order by a.Nombre
 END
 ELSE
 BEGIN
 SELECT a.IdCliente,
-	   a.Nombre,
-	   b.Descripcion as Asociacion
-FROM [dbo].[Clientes] a,
-     [dbo].[Asociaciones] b
+	   a.Nombre
+FROM [dbo].[Clientes] a
 WHERE a.IdEstatus = 1
-and   a.IdCuentaDe = b.IdAsociacion
 and   a.Nombre like '%'+@Nombre+'%'
+order by a.Nombre
 END
 
 

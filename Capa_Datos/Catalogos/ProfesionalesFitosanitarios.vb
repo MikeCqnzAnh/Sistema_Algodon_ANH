@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class ProfesionalesFitosanitarios
     Public Overridable Sub Upsert(ByRef EntidadProfesionalesFitosanitarios As Capa_Entidad.ProfesionalesFitosanitarios)
         Dim EntidadProfesionalesFitosanitarios1 As New Capa_Entidad.ProfesionalesFitosanitarios
@@ -30,7 +32,7 @@ Public Class ProfesionalesFitosanitarios
         Dim EntidadProfesionalesFitosanitarios1 = New Capa_Entidad.ProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1 = EntidadProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

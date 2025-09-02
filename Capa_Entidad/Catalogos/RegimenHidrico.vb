@@ -1,4 +1,5 @@
-﻿Public Class RegimenHidrico
+﻿Imports Capa_Operacion
+Public Class RegimenHidrico
     Inherits Tarjeta
     Public IdRegimen As Integer
     Public Descripcion As String

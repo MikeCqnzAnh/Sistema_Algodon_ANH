@@ -1,9 +1,18 @@
 ﻿Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class LiquidacionesPorRomaneaje
     Public TablaCombos As New DataTable
     Public TablaComparacion As New DataTable
     Public Bandera As Boolean
+    Private Sub LiquidacionesPorRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TablaComparacion.Columns.Clear()
+        TablaComparacion.Columns.Add(New DataColumn("IdBoleta", System.Type.GetType("System.Int32")))
+        LlenarCombos()
+        Limpiar()
+        TbIdOrden.Select()
+    End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Close()
     End Sub
@@ -60,17 +69,22 @@ Public Class LiquidacionesPorRomaneaje
         TbPorcentajeSemilla.Text = ""
         TbTotalSemilla.Text = ""
         TbPorcentajeTotal.Text = ""
+        TbcantModulos.Text = ""
+        TbCantPacas.Text = ""
         TbComentarios.Text = ""
         DgvModulos.DataSource = ""
+        DgvPacas.DataSource = ""
         TbTotalBoletas.Text = ""
-        ChClaseMicros.Checked = False
+        ChClaseMicros.Checked = True
+        TbIdOrden.Enabled = True
+        TbIdOrden.Select()
     End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click, ToolStripMenuItem1.Click
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
         Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
         Dim Tabla As New DataTable
         ConsultaOrdenTrabajo.ShowDialog()
-        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = ConsultaOrdenTrabajo.Id
+        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = ConsultaOrdenTrabajo.IdConsulta
         EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaOrden
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
@@ -95,28 +109,59 @@ Public Class LiquidacionesPorRomaneaje
         TbPorcentajeTotal.Text = Tabla.Rows(0).Item("PorcentajePluma") + Tabla.Rows(0).Item("PorcentajeSemilla") + Tabla.Rows(0).Item("PorcentajeMerma")
         ConsultarModulos()
     End Sub
+    Private Sub ConsultaPacas()
+        Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
+        Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
+        Try
+            EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = val(TbIdOrden.Text)
+            EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaPaca
+            NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+            DgvPacas.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+            PropiedadesDgvPacas()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub ConsultarModulos()
         Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
         Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
         Dim Tabla As New DataTable
-        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = TbIdOrden.Text
-        EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaDetallada
-        NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
-        DgvModulos.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
-        PropiedadesDgvModulos()
+        Try
+            EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = TbIdOrden.Text
+            EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaDetallada
+            NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+            DgvModulos.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+            PropiedadesDgvModulos()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub registrossincheck()
+        Dim CantidadModulos As New Integer
+        Dim CantidadPacas As New Integer
+        For Each Fila As DataGridViewRow In DgvModulos.Rows
+
+            If Fila.Cells("FlagRevisada").Value = False Then
+                CantidadModulos += 1
+            End If
+        Next
+        For Each Fila As DataGridViewRow In DgvPacas.Rows
+
+            If Fila.Cells("Sel").Value = False Then
+                CantidadPacas += 1
+            End If
+        Next
+        TbcantModulos.Text = CantidadModulos
+        TbCantPacas.Text = CantidadPacas
+    End Sub
+    Private Sub PropiedadesDgvPacas()
+        DgvPacas.Columns("IdProduccion").HeaderText = "ID Prod"
+        DgvPacas.Columns("BaleID").HeaderText = "Etiqueta"
     End Sub
     Private Sub PropiedadesDgvModulos()
         DgvModulos.Columns("IdOrdenTrabajo").Visible = False
         DgvModulos.Columns("IdPlanta").Visible = False
     End Sub
-    Private Sub LiquidacionesPorRomaneaje_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TablaComparacion.Columns.Clear()
-        TablaComparacion.Columns.Add(New DataColumn("IdBoleta", System.Type.GetType("System.Int32")))
-        LlenarCombos()
-        Limpiar()
-        TbIdOrden.Focus()
-    End Sub
-
     Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
         If TbIdOrden.Text = "" Or DgvModulos.RowCount = 0 Then
             MsgBox("Por favor, abrir una orden de trabajo", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
@@ -128,16 +173,37 @@ Public Class LiquidacionesPorRomaneaje
                     Exit Sub
                 End If
             Next
-            VerificarBoletasTerminadas()
-            If Bandera = False Then
-                MsgBox("Revisar las pacas y los pesos, registros incompletos, o no se encuentran registros para esta orden", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            If VerificaPacasSinClasificar(TbIdOrden.Text) = True Then
+                MsgBox("Aun existen pacas sin clasificar en la orden No " & TbIdOrden.Text & " revise con clasificacion para continuar con la liquidacion.", MsgBoxStyle.Exclamation, "Aun existen pacas sin clasificar.")
                 Exit Sub
-            Else
-                Guardar()
             End If
+            Guardar()
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, IdUsuario, Usuario)
+            'VerificarBoletasTerminadas()
+            'If Bandera = False Then
+            '    MsgBox("Revisar las pacas y los pesos, registros incompletos, o no se encuentran registros para esta orden", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            '    Exit Sub
+            'Else
+
+            'End If
         End If
     End Sub
-
+    Private Function VerificaPacasSinClasificar(ByVal Idordentrabajo As Integer) As Boolean
+        Dim EntidadLiquidacionesPorRomaneaje As New Capa_Entidad.LiquidacionesPorRomaneaje
+        Dim NegocioLiquidacionesPorRomaneaje As New Capa_Negocio.LiquidacionesPorRomaneaje
+        Dim Tabla As New DataTable
+        Dim resultado As Boolean = False
+        EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = Idordentrabajo
+        EntidadLiquidacionesPorRomaneaje.Consulta = Consulta.ConsultaPasasSinClase
+        NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
+        Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
+        If Tabla.Rows(0).Item("Contar") > 0 Then
+            resultado = True
+        Else
+            resultado = False
+        End If
+        Return resultado
+    End Function
     Private Sub TbIdOrden_Enter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TbIdOrden.KeyDown
         Select Case e.KeyData
             Case Keys.Enter
@@ -163,8 +229,11 @@ Public Class LiquidacionesPorRomaneaje
                         DtFechaLiquidacion.Value = Tabla.Rows(0).Item("Fecha")
                         TbComentarios.Text = Tabla.Rows(0).Item("Comentarios")
                         ConsultarModulos()
+                        ConsultaPacas()
+                        registrossincheck()
                         CalculosResumen()
                         TbTotalBoletas.Text = CInt(DgvModulos.RowCount)
+                        TbIdOrden.Enabled = False
                     End If
                 Else
                     MsgBox("Ingrese el ID de la orden de trabajo...")
@@ -184,21 +253,32 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Tabla = EntidadLiquidacionesPorRomaneaje.TablaConsulta
-        TbTotalHueso.Text = Format(Tabla.Rows(0).Item("TotalHueso"), "##,##00.00")
-        TbTotalPluma.Text = Format(Tabla.Rows(0).Item("TotalPluma"), "##,##00.00")
-        TbPorcentajePluma.Text = Tabla.Rows(0).Item("PorcentajePluma")
-        TbPorcentajeSemilla.Text = Tabla.Rows(0).Item("PorcentajeSemilla")
-        TbTotalSemilla.Text = Format(Tabla.Rows(0).Item("TotalSemilla"), "##,##00.00")
-        TbPorcentajeMerma.Text = Tabla.Rows(0).Item("PorcentajeMerma")
-        TbTotalMerma.Text = Format(Tabla.Rows(0).Item("TotalMerma"), "##,##00.00")
-        TbPorcentajeTotal.Text = CInt((CInt(TbPorcentajeMerma.Text) + CInt(TbPorcentajePluma.Text) + CInt(TbPorcentajeSemilla.Text)))
-        TbNumPacas.Text = Tabla.Rows(0).Item("TotalPacas")
-        TbNumBorregos.Text = Tabla.Rows(0).Item("TotalBorregos")
-        TbBorregosPluma.Text = Format(Tabla.Rows(0).Item("TotalPlumaBorregos"), "##,##00.00")
+        Try
+            TbTotalHueso.Text = Format(Tabla.Rows(0).Item("TotalHueso"), "##,##00.00")
+            TbTotalPluma.Text = Format(Tabla.Rows(0).Item("TotalPluma"), "##,##00.00")
+            TbPorcentajePluma.Text = Tabla.Rows(0).Item("PorcentajePluma")
+            TbPorcentajeSemilla.Text = Tabla.Rows(0).Item("PorcentajeSemilla")
+            TbTotalSemilla.Text = Format(Tabla.Rows(0).Item("TotalSemilla"), "##,##00.00")
+            TbPorcentajeMerma.Text = Tabla.Rows(0).Item("PorcentajeMerma")
+            TbTotalMerma.Text = Format(Tabla.Rows(0).Item("TotalMerma"), "##,##00.00")
+            TbPorcentajeTotal.Text = CInt((CInt(TbPorcentajeMerma.Text) + CInt(TbPorcentajePluma.Text) + CInt(TbPorcentajeSemilla.Text)))
+            TbNumPacas.Text = Tabla.Rows(0).Item("TotalPacas")
+            TbNumBorregos.Text = Tabla.Rows(0).Item("TotalBorregos")
+            TbBorregosPluma.Text = Format(Tabla.Rows(0).Item("TotalPlumaBorregos"), "##,##00.00")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub ImprimirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirToolStripMenuItem.Click
-
+        If TbIdOrden.Text <> "" And TbIdLiquidacion.Text <> "" Then
+            Dim ReporteLiquidacionRomaneaje As New RepLiquidacionRomaneaje(TbIdOrden.Text, ChClaseMicros.CheckState)
+            ReporteLiquidacionRomaneaje.ShowDialog()
+        Else
+            MessageBox.Show("No hay contrato seleccionado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+        TbIdOrden.Select()
     End Sub
 
     Private Sub Guardar()
@@ -246,5 +326,13 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje.IdOrdenTrabajo = CInt(TbIdOrden.Text)
         NegocioLiquidacionesPorRomaneaje.Consultar(EntidadLiquidacionesPorRomaneaje)
         Bandera = EntidadLiquidacionesPorRomaneaje.Bandera
+    End Sub
+
+    Private Sub btexcelmodulos_Click(sender As Object, e As EventArgs) Handles btexcelmodulos.Click
+        ExportExcel(DgvModulos)
+    End Sub
+
+    Private Sub btexcelpacas_Click(sender As Object, e As EventArgs) Handles btexcelpacas.Click
+        ExportExcel(DgvPacas)
     End Sub
 End Class

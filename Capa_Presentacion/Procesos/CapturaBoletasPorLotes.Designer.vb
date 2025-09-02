@@ -23,20 +23,22 @@ Partial Class CapturaBoletasPorLotes
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CapturaBoletasPorLotes))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGenerales = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.LbStatus = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbPuertosSeriales = New System.Windows.Forms.ComboBox()
         Me.BtAutomatico = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        'Me.DgvModulos = New System.Windows.Forms.DataGridView()
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
+        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -45,10 +47,11 @@ Partial Class CapturaBoletasPorLotes
         '
         'MSMenu
         '
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.IncidenciasToolStripMenuItem, Me.EntradasExtraordinariasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1205, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1157, 24)
         Me.MSMenu.TabIndex = 0
         '
         'NuevoToolStripMenuItem
@@ -71,6 +74,7 @@ Partial Class CapturaBoletasPorLotes
         '
         'GbGenerales
         '
+        Me.GbGenerales.Controls.Add(Me.Label2)
         Me.GbGenerales.Controls.Add(Me.LbStatus)
         Me.GbGenerales.Controls.Add(Me.Label1)
         Me.GbGenerales.Controls.Add(Me.CbPuertosSeriales)
@@ -78,17 +82,26 @@ Partial Class CapturaBoletasPorLotes
         Me.GbGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbGenerales.Name = "GbGenerales"
-        Me.GbGenerales.Size = New System.Drawing.Size(1205, 102)
+        Me.GbGenerales.Size = New System.Drawing.Size(1157, 102)
         Me.GbGenerales.TabIndex = 30
         Me.GbGenerales.TabStop = False
         Me.GbGenerales.Text = "Datos Generales"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(3, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.TabIndex = 65
+        Me.Label2.Text = "Puerto Serial"
         '
         'LbStatus
         '
         Me.LbStatus.AutoSize = True
         Me.LbStatus.Dock = System.Windows.Forms.DockStyle.Right
         Me.LbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbStatus.Location = New System.Drawing.Point(1117, 16)
+        Me.LbStatus.Location = New System.Drawing.Point(1069, 16)
         Me.LbStatus.Name = "LbStatus"
         Me.LbStatus.Size = New System.Drawing.Size(85, 29)
         Me.LbStatus.TabIndex = 64
@@ -105,14 +118,14 @@ Partial Class CapturaBoletasPorLotes
         'CbPuertosSeriales
         '
         Me.CbPuertosSeriales.FormattingEnabled = True
-        Me.CbPuertosSeriales.Location = New System.Drawing.Point(6, 19)
+        Me.CbPuertosSeriales.Location = New System.Drawing.Point(6, 37)
         Me.CbPuertosSeriales.Name = "CbPuertosSeriales"
-        Me.CbPuertosSeriales.Size = New System.Drawing.Size(121, 21)
+        Me.CbPuertosSeriales.Size = New System.Drawing.Size(157, 21)
         Me.CbPuertosSeriales.TabIndex = 62
         '
         'BtAutomatico
         '
-        Me.BtAutomatico.Location = New System.Drawing.Point(133, 19)
+        Me.BtAutomatico.Location = New System.Drawing.Point(169, 37)
         Me.BtAutomatico.Name = "BtAutomatico"
         Me.BtAutomatico.Size = New System.Drawing.Size(147, 50)
         Me.BtAutomatico.TabIndex = 61
@@ -125,7 +138,7 @@ Partial Class CapturaBoletasPorLotes
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 126)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1205, 592)
+        Me.GroupBox2.Size = New System.Drawing.Size(1157, 581)
         Me.GroupBox2.TabIndex = 31
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Informacion"
@@ -147,7 +160,7 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos.RowHeadersVisible = False
         Me.DgvModulos.RowHeadersWidth = 40
         Me.DgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvModulos.Size = New System.Drawing.Size(1199, 573)
+        Me.DgvModulos.Size = New System.Drawing.Size(1151, 562)
         Me.DgvModulos.TabIndex = 30
         '
         'TiActualizaDgvModulos
@@ -157,14 +170,22 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
+        'EntradasExtraordinariasToolStripMenuItem
+        '
+        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
+        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
+        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
+        '
         'CapturaBoletasPorLotes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1205, 718)
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(1157, 707)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GbGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "CapturaBoletasPorLotes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -194,6 +215,8 @@ Partial Class CapturaBoletasPorLotes
     Friend WithEvents LbStatus As Label
     Friend WithEvents SpCapturaAuto As IO.Ports.SerialPort
     Friend WithEvents IncidenciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label2 As Label
+    Friend WithEvents EntradasExtraordinariasToolStripMenuItem As ToolStripMenuItem
 
     Public Class DgvPlusCapturaBoletas
         Inherits DataGridView

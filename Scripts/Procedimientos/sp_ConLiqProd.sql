@@ -1,20 +1,23 @@
 alter procedure sp_ConLiqProd
 --declare
-@IdProductor int,
-@TotalPacasComprar int = 0,
+@IdProductor int ,
 @Seleccionar bit = 0 
 as
-select a.IdLiquidacion,
-       b.Nombre as Cliente,
-	   a.Fecha,
-	   a.Comentarios,
-	   a.TotalPacas,
-	   @TotalPacasComprar as PacasComprar,
+select LR.IdLiquidacion,
+	   LR.IdOrdenTrabajo,
+	   lr.TotalHueso,
+	   count(hvid.BaleID)as PacasCantidad,
+	   count(case when hvid.EstatusCompra = 1 then hvid.BaleID end)  as PacasDisponibles,
+	   count(case when hvid.EstatusCompra = 2 then hvid.BaleID end)  as PacasCompradas,
+	   sum(pd.Kilos) as PesoPluma,
+	   lr.TotalSemilla,
 	   @Seleccionar as Seleccionar
-from [dbo].[LiquidacionesPorRomaneaje] a,
-     [dbo].[Clientes] b
-where a.IdCliente = b.IdCliente
-and   a.IdCliente = @IdProductor
-and   a.IdEstatus = 1
-
-
+		from Produccion pr inner join ProduccionDetalle pd 
+		on pr.IdProduccion = pd.IdProduccion left join HviDetalle hvid 
+		on pd.FolioCIA = hvid.BaleID and pd.idordentrabajo = hvid.idordentrabajo left join liquidacionesporromaneaje LR 
+		on hvid.IdOrdenTrabajo = lr.IdOrdenTrabajo inner join Plantas Pl 
+		on pd.IdPlantaOrigen = Pl.IdPlanta
+		where hvid.FlagTerminado = 1 and lr.IdCliente = @IdProductor 
+		group by LR.IdLiquidacion,LR.IdOrdenTrabajo,lr.TotalHueso, lr.TotalSemilla
+		having   count(case when hvid.EstatusCompra = 2 then hvid.BaleID end) < Count(hvid.BaleID)
+		order by LR.IdLiquidacion

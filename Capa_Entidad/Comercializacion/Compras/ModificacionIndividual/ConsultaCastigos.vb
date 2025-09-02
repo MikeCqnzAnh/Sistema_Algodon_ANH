@@ -1,4 +1,5 @@
-﻿Public Class ConsultaCastigos
+﻿Imports Capa_Operacion
+Public Class ConsultaCastigos
     Inherits Tarjeta
     Public IdModalidadCompra As Integer
     Public IdModalidadVenta As Integer

@@ -1,4 +1,6 @@
-﻿Public Class ModalidadesCompra
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ModalidadesCompra
     Public Overridable Sub Guardar(ByRef EntidadModalidadesCompra As Capa_Entidad.ModalidadesCompra)
         Dim EntidadModalidadesCompra1 As New Capa_Entidad.ModalidadesCompra
         Dim DatosModalidadesCompra As New Capa_Datos.ModalidadesCompra

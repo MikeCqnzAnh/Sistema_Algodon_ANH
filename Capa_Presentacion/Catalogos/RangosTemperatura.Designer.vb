@@ -84,9 +84,10 @@ Partial Class RangosTemperatura
         Me.GbDatosGenerales.Controls.Add(Me.TbRangoFinal)
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
         Me.GbDatosGenerales.Controls.Add(Me.TbRangoInicial)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 96)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(978, 96)
         Me.GbDatosGenerales.TabIndex = 16
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -134,15 +135,16 @@ Partial Class RangosTemperatura
         Me.DgvRangos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvRangos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvRangos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvRangos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvRangos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvRangos.Location = New System.Drawing.Point(12, 129)
+        Me.DgvRangos.Location = New System.Drawing.Point(0, 120)
         Me.DgvRangos.MultiSelect = False
         Me.DgvRangos.Name = "DgvRangos"
         Me.DgvRangos.ReadOnly = True
         Me.DgvRangos.RowHeadersVisible = False
         Me.DgvRangos.RowHeadersWidth = 40
         Me.DgvRangos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvRangos.Size = New System.Drawing.Size(957, 266)
+        Me.DgvRangos.Size = New System.Drawing.Size(978, 286)
         Me.DgvRangos.TabIndex = 17
         '
         'NuevoToolStripMenuItem
@@ -165,6 +167,7 @@ Partial Class RangosTemperatura
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"

@@ -41,6 +41,7 @@ Partial Class ProfesionalesFitosanitarios
         '
         'MsMenu
         '
+        Me.MsMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MsMenu.Location = New System.Drawing.Point(0, 0)
         Me.MsMenu.Name = "MsMenu"
@@ -73,9 +74,10 @@ Partial Class ProfesionalesFitosanitarios
         Me.GbDatosGenerales.Controls.Add(Me.CbEstatus)
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.LbDescripcion)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(963, 106)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(987, 106)
         Me.GbDatosGenerales.TabIndex = 17
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -121,7 +123,7 @@ Partial Class ProfesionalesFitosanitarios
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TbDescripcion.Location = New System.Drawing.Point(124, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
-        Me.TbDescripcion.Size = New System.Drawing.Size(149, 20)
+        Me.TbDescripcion.Size = New System.Drawing.Size(173, 20)
         Me.TbDescripcion.TabIndex = 2
         '
         'LbDescripcion
@@ -142,15 +144,16 @@ Partial Class ProfesionalesFitosanitarios
         Me.DgvProfesionales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvProfesionales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvProfesionales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvProfesionales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvProfesionales.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvProfesionales.Location = New System.Drawing.Point(12, 139)
+        Me.DgvProfesionales.Location = New System.Drawing.Point(0, 130)
         Me.DgvProfesionales.MultiSelect = False
         Me.DgvProfesionales.Name = "DgvProfesionales"
         Me.DgvProfesionales.ReadOnly = True
         Me.DgvProfesionales.RowHeadersVisible = False
         Me.DgvProfesionales.RowHeadersWidth = 40
         Me.DgvProfesionales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvProfesionales.Size = New System.Drawing.Size(963, 301)
+        Me.DgvProfesionales.Size = New System.Drawing.Size(987, 322)
         Me.DgvProfesionales.TabIndex = 16
         '
         'ProfesionalesFitosanitarios
@@ -158,8 +161,8 @@ Partial Class ProfesionalesFitosanitarios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 452)
-        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.DgvProfesionales)
+        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MsMenu)
         Me.MainMenuStrip = Me.MsMenu
         Me.Name = "ProfesionalesFitosanitarios"

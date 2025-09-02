@@ -49,6 +49,7 @@ Partial Class ClasificacionPacas
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -140,16 +141,16 @@ Partial Class ClasificacionPacas
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(15, 132)
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 184)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(716, 327)
+        Me.DataGridView1.Size = New System.Drawing.Size(703, 414)
         Me.DataGridView1.TabIndex = 9
         '
-        'ClasidicacionPacas
+        'ClasificacionPacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(743, 487)
+        Me.ClientSize = New System.Drawing.Size(743, 625)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -161,8 +162,8 @@ Partial Class ClasificacionPacas
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.MSMenu)
         Me.MainMenuStrip = Me.MSMenu
-        Me.Name = "ClasidicacionPacas"
-        Me.Text = "Clasidicacion de Pacas"
+        Me.Name = "ClasificacionPacas"
+        Me.Text = "Clasificacion de Pacas"
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

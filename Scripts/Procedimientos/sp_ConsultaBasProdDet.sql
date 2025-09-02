@@ -1,8 +1,11 @@
-alter procedure sp_ConsultaBasProdDet
+Create procedure sp_ConsultaBasProdDet
 --declare
-@IdProduccion int-- = 1
+@IdProduccion int ,
+@IdPlantaOrigen int ,
+@Sel bit = 0
 as
-select [IdProduccionDetalle],
+select @Sel as Sel,
+	   [IdProduccionDetalle],
        [IdProduccion],
 	   [IdOrdenTrabajo],
 	   IdPlantaOrigen,
@@ -13,3 +16,5 @@ select [IdProduccionDetalle],
 from [dbo].[ProduccionDetalle] a
 where a.IdEstatus = 1
 and   a.IdProduccion = @IdProduccion
+and   a.IdPlantaOrigen = @IdPlantaOrigen
+order by a.FolioCIA desc

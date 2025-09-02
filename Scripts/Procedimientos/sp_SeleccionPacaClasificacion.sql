@@ -1,6 +1,6 @@
-create PROC sp_SeleccionPacaClasificacion
+alter Procedure sp_SeleccionPacaClasificacion
 @IdPaquete int,
-@BaleID int,
+@BaleID bigint,
 @Seleccion bit
 as
 update CalculoClasificacion

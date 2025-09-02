@@ -1,4 +1,5 @@
-﻿Public Class Compradores
+﻿Imports Capa_Operacion
+Public Class Compradores
     Inherits Tarjeta
     Public IdComprador As Integer
     Public Nombre As String

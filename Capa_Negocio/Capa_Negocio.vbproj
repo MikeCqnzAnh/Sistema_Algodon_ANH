@@ -43,10 +43,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -72,9 +72,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso.vb" />
+    <Compile Include="Almacenes\InventarioPacas.vb" />
+    <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
+    <Compile Include="Almacenes\SalidaPacas.vb" />
+    <Compile Include="Catalogos\CastigoUniformidad.vb" />
+    <Compile Include="Almacenes\ExistenciaBodegaPacas.vb" />
+    <Compile Include="Catalogos\Almacenes.vb" />
     <Compile Include="Catalogos\Asociaciones.vb" />
     <Compile Include="Catalogos\Camiones.vb" />
     <Compile Include="Catalogos\CastigoLargoFibra.vb" />
+    <Compile Include="Catalogos\CastigoMicros.vb" />
     <Compile Include="Catalogos\CastigoPorQuintal.vb" />
     <Compile Include="Catalogos\CastigoResistenciaFibra.vb" />
     <Compile Include="Catalogos\Clientes.vb" />
@@ -84,6 +92,7 @@
     <Compile Include="Catalogos\IncidenciaOperaciones.vb" />
     <Compile Include="Catalogos\Maquinaria.vb" />
     <Compile Include="Catalogos\ModalidadesCompra.vb" />
+    <Compile Include="Catalogos\ModalidadesVenta.vb" />
     <Compile Include="Catalogos\Plantas.vb" />
     <Compile Include="Catalogos\ProfesionalesFitosanitarios.vb" />
     <Compile Include="Catalogos\Puestos.vb" />
@@ -92,18 +101,30 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Catalogos\UnidadesComercializacion.vb" />
+    <Compile Include="Comercializacion\Compras\IntegraciondeCompras.vb" />
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb" />
+    <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb" />
+    <Compile Include="Configuracion\ConfigMic.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb" />
+    <Compile Include="Configuracion\DatosEmpresa.vb" />
+    <Compile Include="Configuracion\Turnos.vb" />
+    <Compile Include="Utilerias\ProgramarRespaldos.vb" />
+    <Compile Include="Utilerias\Roles.vb" />
+    <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb" />
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacas.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacasContrato.vb" />
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\ConsultaCastigos.vb" />
-    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb" />
+    <Compile Include="Comercializacion\Clasificacion\PaquetesHVI.vb" />
     <Compile Include="Comercializacion\ContratosAlgodon.vb" />
     <Compile Include="Comercializacion\ContratosAlgodonCompradores.vb" />
     <Compile Include="Comercializacion\ContratoSemillas.vb" />
     <Compile Include="Comercializacion\Ventas\VentaPacas.vb" />
     <Compile Include="Comercializacion\Ventas\VentaPacasContrato.vb" />
+    <Compile Include="MenuPrincipal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -125,7 +146,15 @@
     <Compile Include="Procesos\OrdenTrabajo.vb" />
     <Compile Include="Procesos\Produccion.vb" />
     <Compile Include="Reportes\Reportes.vb" />
-    <Compile Include="Utilerias\ConfiguracionParametros.vb" />
+    <Compile Include="Utilerias\Bitacora.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametros.vb" />
+    <Compile Include="Utilerias\CrearEstructura.vb" />
+    <Compile Include="Utilerias\ImportarCatalogos.vb" />
+    <Compile Include="Utilerias\Monedas.vb" />
+    <Compile Include="Utilerias\Respaldos.vb" />
+    <Compile Include="Utilerias\RestaurarRespaldo.vb" />
+    <Compile Include="Utilerias\RutaDocumentos.vb" />
+    <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -159,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administracion\" />
-    <Folder Include="Almacenes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

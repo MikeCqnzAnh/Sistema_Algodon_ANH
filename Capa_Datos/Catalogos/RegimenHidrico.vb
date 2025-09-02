@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class RegimenHidrico
     Public Overridable Sub Upsert(ByRef EntidadRegimenHidrico As Capa_Entidad.RegimenHidrico)
         Dim EntidadRegimenHidrico1 As New Capa_Entidad.RegimenHidrico
@@ -30,7 +32,7 @@ Public Class RegimenHidrico
         Dim EntidadRegimenHidrico1 = New Capa_Entidad.RegimenHidrico
         EntidadRegimenHidrico1 = EntidadRegimenHidrico
         EntidadRegimenHidrico1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

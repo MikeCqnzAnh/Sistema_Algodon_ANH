@@ -1,4 +1,6 @@
-﻿Public Class Colonias
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Colonias
     Public Overridable Sub Guardar(ByRef EntidadColonias As Capa_Entidad.Colonias)
         Dim EntidadColonias1 As New Capa_Entidad.Colonias
         Dim DatosColonias As New Capa_Datos.Colonias

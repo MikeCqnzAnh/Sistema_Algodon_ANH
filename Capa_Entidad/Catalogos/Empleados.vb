@@ -1,4 +1,5 @@
-﻿Public Class Empleados
+﻿Imports Capa_Operacion
+Public Class Empleados
     Inherits Tarjeta
     Public IdEmpleado As Integer
     Public Nombre As String

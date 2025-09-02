@@ -22,6 +22,7 @@ Partial Class Compradores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Compradores))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,6 +57,7 @@ Partial Class Compradores
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -108,9 +110,10 @@ Partial Class Compradores
         Me.GbDatosGenerales.Controls.Add(Me.LbRFC)
         Me.GbDatosGenerales.Controls.Add(Me.LbNombre)
         Me.GbDatosGenerales.Controls.Add(Me.LbID)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(13, 28)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 170)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(982, 170)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -171,6 +174,7 @@ Partial Class Compradores
         '
         'TbCurp
         '
+        Me.TbCurp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbCurp.Location = New System.Drawing.Point(107, 98)
         Me.TbCurp.Name = "TbCurp"
         Me.TbCurp.Size = New System.Drawing.Size(169, 20)
@@ -178,6 +182,7 @@ Partial Class Compradores
         '
         'TbRfc
         '
+        Me.TbRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRfc.Location = New System.Drawing.Point(107, 71)
         Me.TbRfc.Name = "TbRfc"
         Me.TbRfc.Size = New System.Drawing.Size(169, 20)
@@ -185,6 +190,7 @@ Partial Class Compradores
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(107, 44)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(236, 20)
@@ -288,15 +294,16 @@ Partial Class Compradores
         Me.DgvCompradores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvCompradores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvCompradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCompradores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCompradores.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCompradores.Location = New System.Drawing.Point(13, 204)
+        Me.DgvCompradores.Location = New System.Drawing.Point(0, 194)
         Me.DgvCompradores.MultiSelect = False
         Me.DgvCompradores.Name = "DgvCompradores"
         Me.DgvCompradores.ReadOnly = True
         Me.DgvCompradores.RowHeadersVisible = False
         Me.DgvCompradores.RowHeadersWidth = 40
         Me.DgvCompradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCompradores.Size = New System.Drawing.Size(957, 281)
+        Me.DgvCompradores.Size = New System.Drawing.Size(982, 308)
         Me.DgvCompradores.TabIndex = 10
         '
         'Compradores
@@ -307,10 +314,12 @@ Partial Class Compradores
         Me.Controls.Add(Me.DgvCompradores)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Compradores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Compradores"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)

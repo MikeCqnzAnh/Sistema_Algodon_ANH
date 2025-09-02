@@ -22,29 +22,26 @@ Partial Class ConsultaClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.CbTIpoPersona = New System.Windows.Forms.ComboBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaClientes))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvConsultaClientes = New System.Windows.Forms.DataGridView()
         Me.BtBuscar = New System.Windows.Forms.Button()
+        Me.GbParametros = New System.Windows.Forms.GroupBox()
+        Me.TbNombre = New System.Windows.Forms.TextBox()
+        Me.TbIdCliente = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DgvConsultaClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbParametros.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'CbTIpoPersona
-        '
-        Me.CbTIpoPersona.FormattingEnabled = True
-        Me.CbTIpoPersona.Location = New System.Drawing.Point(122, 12)
-        Me.CbTIpoPersona.Name = "CbTIpoPersona"
-        Me.CbTIpoPersona.Size = New System.Drawing.Size(121, 21)
-        Me.CbTIpoPersona.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 13)
+        Me.Label1.Size = New System.Drawing.Size(57, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Tipo Persona"
+        Me.Label1.Text = "Id Cliente :"
         '
         'DgvConsultaClientes
         '
@@ -55,45 +52,92 @@ Partial Class ConsultaClientes
         Me.DgvConsultaClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvConsultaClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvConsultaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvConsultaClientes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvConsultaClientes.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvConsultaClientes.Location = New System.Drawing.Point(12, 48)
+        Me.DgvConsultaClientes.Location = New System.Drawing.Point(0, 100)
         Me.DgvConsultaClientes.MultiSelect = False
         Me.DgvConsultaClientes.Name = "DgvConsultaClientes"
         Me.DgvConsultaClientes.ReadOnly = True
         Me.DgvConsultaClientes.RowHeadersVisible = False
         Me.DgvConsultaClientes.RowHeadersWidth = 40
         Me.DgvConsultaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvConsultaClientes.Size = New System.Drawing.Size(660, 301)
+        Me.DgvConsultaClientes.Size = New System.Drawing.Size(819, 293)
         Me.DgvConsultaClientes.TabIndex = 10
         '
         'BtBuscar
         '
-        Me.BtBuscar.Location = New System.Drawing.Point(249, 12)
+        Me.BtBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtBuscar.Location = New System.Drawing.Point(732, 28)
+        Me.BtBuscar.MaximumSize = New System.Drawing.Size(75, 23)
+        Me.BtBuscar.MinimumSize = New System.Drawing.Size(75, 23)
         Me.BtBuscar.Name = "BtBuscar"
         Me.BtBuscar.Size = New System.Drawing.Size(75, 23)
-        Me.BtBuscar.TabIndex = 11
+        Me.BtBuscar.TabIndex = 2
         Me.BtBuscar.Text = "Consultar"
         Me.BtBuscar.UseVisualStyleBackColor = True
+        '
+        'GbParametros
+        '
+        Me.GbParametros.Controls.Add(Me.TbNombre)
+        Me.GbParametros.Controls.Add(Me.TbIdCliente)
+        Me.GbParametros.Controls.Add(Me.BtBuscar)
+        Me.GbParametros.Controls.Add(Me.Label2)
+        Me.GbParametros.Controls.Add(Me.Label1)
+        Me.GbParametros.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbParametros.Location = New System.Drawing.Point(0, 0)
+        Me.GbParametros.Name = "GbParametros"
+        Me.GbParametros.Size = New System.Drawing.Size(819, 100)
+        Me.GbParametros.TabIndex = 0
+        Me.GbParametros.TabStop = False
+        '
+        'TbNombre
+        '
+        Me.TbNombre.Location = New System.Drawing.Point(286, 30)
+        Me.TbNombre.MaxLength = 100
+        Me.TbNombre.Name = "TbNombre"
+        Me.TbNombre.Size = New System.Drawing.Size(440, 20)
+        Me.TbNombre.TabIndex = 1
+        '
+        'TbIdCliente
+        '
+        Me.TbIdCliente.Location = New System.Drawing.Point(75, 30)
+        Me.TbIdCliente.MaxLength = 10
+        Me.TbIdCliente.Name = "TbIdCliente"
+        Me.TbIdCliente.Size = New System.Drawing.Size(100, 20)
+        Me.TbIdCliente.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(230, 33)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(50, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Nombre :"
         '
         'ConsultaClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 361)
-        Me.Controls.Add(Me.BtBuscar)
+        Me.ClientSize = New System.Drawing.Size(819, 393)
         Me.Controls.Add(Me.DgvConsultaClientes)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.CbTIpoPersona)
+        Me.Controls.Add(Me.GbParametros)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(835, 432)
         Me.Name = "ConsultaClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta de Clientes"
         CType(Me.DgvConsultaClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GbParametros.ResumeLayout(False)
+        Me.GbParametros.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents CbTIpoPersona As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents DgvConsultaClientes As DataGridView
     Friend WithEvents BtBuscar As Button
+    Friend WithEvents GbParametros As GroupBox
+    Friend WithEvents TbIdCliente As TextBox
+    Friend WithEvents TbNombre As TextBox
+    Friend WithEvents Label2 As Label
 End Class

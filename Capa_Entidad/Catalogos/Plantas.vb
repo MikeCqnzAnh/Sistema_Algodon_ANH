@@ -1,4 +1,5 @@
-﻿Public Class Plantas
+﻿Imports Capa_Operacion
+Public Class Plantas
     Inherits Tarjeta
     Public IdPlanta As Integer
     Public Descripcion As String

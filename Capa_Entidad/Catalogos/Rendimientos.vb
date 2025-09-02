@@ -1,4 +1,5 @@
-﻿Public Class Rendimientos
+﻿Imports Capa_Operacion
+Public Class Rendimientos
     Inherits Tarjeta
     Public IdRendimiento As Integer
     Public Pluma As Integer

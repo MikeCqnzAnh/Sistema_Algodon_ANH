@@ -1,0 +1,1 @@
+select * from CalculoClasificacion 	 WHERE BaleID = 145376 AND IdVentaEnc = 2;

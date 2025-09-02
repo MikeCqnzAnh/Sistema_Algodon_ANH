@@ -80,8 +80,61 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\C
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojAssemblyReference.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CoreCompileInputs.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CopyComplete
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.cache
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.AssemblyReference.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CoreCompileInputs.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.Up2Date

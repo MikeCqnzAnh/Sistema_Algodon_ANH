@@ -22,6 +22,7 @@ Partial Class Colonias
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Colonias))
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CbEstatus = New System.Windows.Forms.ComboBox()
@@ -51,9 +52,10 @@ Partial Class Colonias
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.TbIdColonia)
         Me.GbDatosGenerales.Controls.Add(Me.LbID)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(13, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 125)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(984, 125)
         Me.GbDatosGenerales.TabIndex = 0
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -126,6 +128,7 @@ Partial Class Colonias
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -160,15 +163,16 @@ Partial Class Colonias
         Me.DgvCompradores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvCompradores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvCompradores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCompradores.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCompradores.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCompradores.Location = New System.Drawing.Point(13, 158)
+        Me.DgvCompradores.Location = New System.Drawing.Point(0, 149)
         Me.DgvCompradores.MultiSelect = False
         Me.DgvCompradores.Name = "DgvCompradores"
         Me.DgvCompradores.ReadOnly = True
         Me.DgvCompradores.RowHeadersVisible = False
         Me.DgvCompradores.RowHeadersWidth = 40
         Me.DgvCompradores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCompradores.Size = New System.Drawing.Size(957, 266)
+        Me.DgvCompradores.Size = New System.Drawing.Size(984, 295)
         Me.DgvCompradores.TabIndex = 11
         '
         'Colonias
@@ -179,6 +183,7 @@ Partial Class Colonias
         Me.Controls.Add(Me.DgvCompradores)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Colonias"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

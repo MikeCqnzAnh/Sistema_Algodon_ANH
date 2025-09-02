@@ -2,18 +2,18 @@ CREATE PROCEDURE sp_ConsultaCompradores
 --declare
 @Nombre varchar(100)
 AS
-IF @Nombre = ''
-BEGIN
-SELECT a.IdComprador,
-	   a.Nombre	   
-FROM [dbo].[Compradores] a
-WHERE a.IdEstatus = 1
-END
-ELSE
-BEGIN
-SELECT a.IdComprador,
-	   a.Nombre	
-FROM [dbo].[Compradores] a   
-WHERE a.IdEstatus = 1
-and   a.Nombre like '%'+@Nombre+'%'
-END
+if @Nombre = ''
+	begin
+		select IdComprador,
+			   Nombre 
+		from Compradores
+		where IdEstatus = 1
+	end
+else
+	begin
+		select IdComprador,
+			   Nombre 
+		from Compradores
+		where IdEstatus = 1
+		and   Nombre like '%'+@Nombre+'%'
+	end

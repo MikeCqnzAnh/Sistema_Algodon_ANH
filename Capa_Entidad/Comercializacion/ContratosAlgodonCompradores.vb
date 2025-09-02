@@ -1,13 +1,19 @@
-﻿Public Class ContratosAlgodonCompradores
+﻿Imports Capa_Operacion
+Public Class ContratosAlgodonCompradores
     Inherits Tarjeta
     Public IdContratoAlgodon As Integer
     Public IdComprador As Integer
     Public Pacas As Integer
+    Public PacasDisponibles As Integer
+    Public PacasVendidas As Integer
+    Public PacasDispContComp As Integer
     Public PrecioQuintal As Double
+    Public IdUnidadPeso As Integer
+    Public ValorConversion As Double
     Public Puntos As Double
     Public FechaLiquidacion As DateTime
     Public Presidente As String
-    Public IdModalidadCompra As Integer
+    Public IdModalidadVenta As Integer
     Public Temporada As String
     Public PrecioSM As Double
     Public PrecioMP As Double
@@ -20,4 +26,31 @@
     Public PrecioGO As Double
     Public PrecioO As Double
     Public IdEstatus As Integer
+    Public IdParametroContrato As Integer
+    Public CheckMicros As Boolean
+    Public IdModoMicros As Integer
+    Public CheckLargo As Boolean
+    Public IdModoLargoFibra As Integer
+    Public CheckResistencia As Boolean
+    Public IdModoResistencia As Integer
+    Public CheckUniformidad As Boolean
+    Public IdModoUniformidad As Integer
+    Public CheckBark As Boolean
+    Public IdModoBark As Integer
+    Public CheckBarkLevel1 As Boolean
+    Public CheckBarkLevel2 As Boolean
+    Public CheckPrep As Boolean
+    Public IdModoPrep As Integer
+    Public CheckPrepLevel1 As Boolean
+    Public CheckPrepLevel2 As Boolean
+    Public CheckOther As Boolean
+    Public IdModoOther As Integer
+    Public CheckOtherLevel1 As Boolean
+    Public CheckOtherLevel2 As Boolean
+    Public CheckPlastic As Boolean
+    Public IdModoPlastic As Integer
+    Public CheckPlasticLevel1 As Boolean
+    Public CheckPlasticLevel2 As Boolean
+    Public EstatusPesoNeto As Boolean
+    Public KilosNeto As Double
 End Class

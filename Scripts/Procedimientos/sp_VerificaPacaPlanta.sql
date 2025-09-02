@@ -1,7 +1,14 @@
-create proc sp_VerificaPacaPlanta 
-@FolioCIA int 
+alter proc sp_VerificaPacaPlanta 
+--declare
+@FolioCIA bigint ,
+@IdPlantaOrigen int
 as
-select pd.FolioCIA,pl.Descripcion,pd.IdPlantaOrigen
-from ProduccionDetalle PD inner join Plantas PL 
-on pd.IdPlantaOrigen = pl.IdPlanta
-where FolioCIA = @FolioCIA
+if exists (select BaleID from HVIDetalle where IdPlantaOrigen = @IdPlantaOrigen and BaleID = @FolioCIA)
+	begin
+		Select 1 ExistePacaPlanta,IdPlantaOrigen from HVIDetalle where IdPlantaOrigen = @IdPlantaOrigen and BaleID = @FolioCIA 
+	end
+else
+	begin
+		select 0 ExistePacaPlanta, 0 as IdPlantaOrigen
+	end
+			 

@@ -1,19 +1,60 @@
-﻿Public Class CompraPacasContrato
+﻿Imports Capa_Operacion
+Public Class CompraPacasContrato
     Inherits Tarjeta
-    Public IdCompraContrato As Integer
+    Public IdCompra As Integer
     Public IdContrato As Integer
     Public IdProductor As Integer
+    Public NombreProductor As String
+    Public NombreComprador As String
     Public IdPlanta As Integer
     Public IdModalidadCompra As Integer
-    Public PacasInicio As Integer
-    Public PacasFin As Integer
+    Public FechaCompra As DateTime
+    Public TotalPacas As Integer
+    Public tara As Decimal
+    Public checktara As Boolean
+    Public Observaciones As String
+    Public CastigoUniformidad As Double
+    Public deduccion As Double
+    Public CastigoMicros As Double
+    Public CastigoLargoFibra As Double
+    Public CastigoResistenciaFibra As Double
+    Public CastigoBarkLevel1 As Double
+    Public CastigoBarkLevel2 As Double
+    Public CastigoPrepLevel1 As Double
+    Public CastigoPrepLevel2 As Double
+    Public CastigoOtherLevel1 As Double
+    Public CastigoOtherLevel2 As Double
+    Public CastigoPlasticLevel1 As Double
+    Public CastigoPlasticLevel2 As Double
+    Public IdUnidadPeso As Integer
+    Public ValorConversacion As Double
+    Public Unidad As Integer
+    Public TotalPesosMx As Double
+    Public TotalDlls As Double
+    Public InteresPesosMx As Double
+    Public InteresDlls As Double
     Public PrecioQuintal As Double
+    Public PrecioQuintalBorregos As Double
     Public PrecioDolar As Double
+    Public CastigoDls As Double
+    Public AnticipoDls As Double
+    Public Subtotal As Double
+    Public IdEstatusCompra As Boolean
+    Public PacasInicio As Long
+    Public PacasFin As Long
     Public FacturaVenta As String
-    Public NoPacas As Integer
-    Public InicioPaca As Integer
-    Public FinPaca As Integer
+    Public InicioPaca As Long
+    Public FinPaca As Long
     Public Clase As String
+    Public Micros As Double
+    Public LargoFibra As Double
+    Public ResistenciaFibra As Double
+    Public PacasDisponibles As Integer
+    Public PacasCompradas As Integer
+    Public IdModoEncabezadoUniformidad As Integer
+    Public IdModoEncabezadoLargoFibra As Integer
+    Public IdModoEncabezadoMicros As Integer
+    Public IdModoEncabezadoResistencia As Integer
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

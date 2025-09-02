@@ -22,6 +22,7 @@ Partial Class ConsultaTierras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaTierras))
         Me.BtBuscar = New System.Windows.Forms.Button()
         Me.DgvConsultaTierras = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -83,6 +84,7 @@ Partial Class ConsultaTierras
         Me.Controls.Add(Me.BtBuscar)
         Me.Controls.Add(Me.DgvConsultaTierras)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaTierras"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Consulta Tierras"

@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class RangosTemperatura
     Public Overridable Sub Upsert(ByRef EntidadRangosTemperatura As Capa_Entidad.RangosTemperatura)
         Dim EntidadRangosTemperatura1 As New Capa_Entidad.RangosTemperatura
@@ -32,7 +34,7 @@ Public Class RangosTemperatura
         Dim EntidadRangosTemperatura1 = New Capa_Entidad.RangosTemperatura
         EntidadRangosTemperatura1 = EntidadRangosTemperatura
         EntidadRangosTemperatura1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

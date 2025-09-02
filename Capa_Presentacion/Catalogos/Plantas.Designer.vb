@@ -22,6 +22,7 @@ Partial Class Plantas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Plantas))
         Me.LbID = New System.Windows.Forms.Label()
         Me.TbIdPlanta = New System.Windows.Forms.TextBox()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
@@ -52,6 +53,7 @@ Partial Class Plantas
         '
         'TbIdPlanta
         '
+        Me.TbIdPlanta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbIdPlanta.Enabled = False
         Me.TbIdPlanta.Location = New System.Drawing.Point(124, 19)
         Me.TbIdPlanta.Name = "TbIdPlanta"
@@ -60,6 +62,7 @@ Partial Class Plantas
         '
         'TbDescripcion
         '
+        Me.TbDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbDescripcion.Location = New System.Drawing.Point(124, 45)
         Me.TbDescripcion.Name = "TbDescripcion"
         Me.TbDescripcion.Size = New System.Drawing.Size(149, 20)
@@ -67,6 +70,7 @@ Partial Class Plantas
         '
         'TbRegistro
         '
+        Me.TbRegistro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbRegistro.Location = New System.Drawing.Point(124, 71)
         Me.TbRegistro.Name = "TbRegistro"
         Me.TbRegistro.Size = New System.Drawing.Size(100, 20)
@@ -92,6 +96,7 @@ Partial Class Plantas
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -125,15 +130,16 @@ Partial Class Plantas
         Me.DgvPlantas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvPlantas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvPlantas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvPlantas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvPlantas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvPlantas.Location = New System.Drawing.Point(15, 170)
+        Me.DgvPlantas.Location = New System.Drawing.Point(0, 161)
         Me.DgvPlantas.MultiSelect = False
         Me.DgvPlantas.Name = "DgvPlantas"
         Me.DgvPlantas.ReadOnly = True
         Me.DgvPlantas.RowHeadersVisible = False
         Me.DgvPlantas.RowHeadersWidth = 40
         Me.DgvPlantas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPlantas.Size = New System.Drawing.Size(957, 266)
+        Me.DgvPlantas.Size = New System.Drawing.Size(987, 291)
         Me.DgvPlantas.TabIndex = 12
         '
         'CbEstatus
@@ -163,9 +169,10 @@ Partial Class Plantas
         Me.GbDatosGenerales.Controls.Add(Me.TbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.LbDescripcion)
         Me.GbDatosGenerales.Controls.Add(Me.TbRegistro)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(15, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 137)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(987, 137)
         Me.GbDatosGenerales.TabIndex = 15
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -175,9 +182,10 @@ Partial Class Plantas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 452)
-        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.DgvPlantas)
+        Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Plantas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

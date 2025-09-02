@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("Capa_Presentacion")>
+<Assembly: AssemblyTitle("CalculaCotton")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Microsoft")>
-<Assembly: AssemblyProduct("Capa_Presentacion")>
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2017")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCompany("DevApp")>
+<Assembly: AssemblyProduct("Calculacotton")>
+<Assembly: AssemblyCopyright("Copyright © CalculaCotton")>
+<Assembly: AssemblyTrademark("CalculaCotton")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' mediante el carácter '*', como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.1.68.0")>
+<Assembly: AssemblyFileVersion("1.1.68.0")>

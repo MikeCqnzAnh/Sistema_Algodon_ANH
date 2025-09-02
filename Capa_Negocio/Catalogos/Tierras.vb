@@ -1,4 +1,6 @@
-﻿Public Class Tierras
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Tierras
     Public Overridable Sub Guardar(ByRef EntidadTierras As Capa_Entidad.Tierras)
         Dim EntidadTierras1 As New Capa_Entidad.Tierras
         Dim DatosTierras As New Capa_Datos.Tierras

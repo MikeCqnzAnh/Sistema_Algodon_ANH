@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class CastigosResistenciaFibra
     Public TablaCastigoResistenciaFibra As New DataTable
     Private Sub CastigosResistenciaFibra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -18,27 +20,5 @@ Public Class CastigosResistenciaFibra
         NegocioConsultaCastigos.Consultar(EntidadConsultaCastigos)
         Tabla = EntidadConsultaCastigos.TablaConsulta
         DgvCastigoResistenciaFibra.DataSource = Tabla
-    End Sub
-
-    Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
-        Dim EntidadCompraPacasContrato As New Capa_Entidad.VentaPacasContrato
-        Dim NegocioCompraPacasContrato As New Capa_Negocio.VentaPacasContrato
-        TablaCastigoResistenciaFibra.Clear()
-        Dim TablaRenglonAInsertar As DataRow
-        For Each row As DataGridViewRow In DgvCastigoResistenciaFibra.Rows
-            Dim Index As Integer = Convert.ToUInt64(row.Index)
-            TablaRenglonAInsertar = TablaCastigoResistenciaFibra.NewRow()
-            TablaRenglonAInsertar("IdResistenciaFibra") = DgvCastigoResistenciaFibra.Rows(Index).Cells("IdResistenciaFibra").Value
-            TablaRenglonAInsertar("Rango1") = DgvCastigoResistenciaFibra.Rows(Index).Cells("Rango1").Value
-            TablaRenglonAInsertar("Rango2") = DgvCastigoResistenciaFibra.Rows(Index).Cells("Rango2").Value
-            TablaRenglonAInsertar("castigo") = DgvCastigoResistenciaFibra.Rows(Index).Cells("castigo").Value
-            TablaCastigoResistenciaFibra.Rows.Add(TablaRenglonAInsertar)
-        Next
-        Tabla = TablaCastigoResistenciaFibra
-        Close()
-    End Sub
-
-    Private Sub BtSalir_Click(sender As Object, e As EventArgs) Handles BtSalir.Click
-        Close()
     End Sub
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class ContratosAlgodon
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class ContratosAlgodon
     Public Overridable Sub Guardar(ByRef EntidadContratosAlgodon As Capa_Entidad.ContratosAlgodon)
         Dim EntidadContratosAlgodon1 As New Capa_Entidad.ContratosAlgodon
         Dim DatosContratosAlgodon As New Capa_Datos.ContratosAlgodon

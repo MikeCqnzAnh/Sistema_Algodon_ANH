@@ -1,6 +1,8 @@
-create procedure sp_ConsultaPacasBaleID
+CREATE procedure sp_ConsultaPacasBaleID
 --declare
 @BaleID int,
+@IdPlanta int,
+@LotID int,
 @Clase varchar(5) = ''
 as
 select
@@ -15,4 +17,4 @@ select
 	   a.SCI,
 	   a.IdHviDet
 from [dbo].[HVIDetalle] a    
-where a.BaleID = @BaleID
+where a.BaleID = @BaleID and a.IdPlanta = @IdPlanta and a.LotID = @LotID

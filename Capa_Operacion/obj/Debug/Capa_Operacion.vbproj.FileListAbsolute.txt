@@ -42,9 +42,38 @@ C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Deb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
-C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.Cache
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.exe
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
 C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+C:\Users\MSISTEMAS\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.CoreCompileInputs.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojAssemblyReference.cache
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
+C:\Users\MIKE\Desktop\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.cache
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+F:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.Cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.AssemblyReference.cache
+E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.CoreCompileInputs.cache

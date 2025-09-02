@@ -1,0 +1,15 @@
+Capa_Presentacion/obj
+Capa_Presentacion/bin
+Capa_Operacion/obj
+Capa_Operacion/bin
+Capa_Negocio/obj
+Capa_Negocio/bin
+Capa_Entidad/obj
+Capa_Entidad/bin
+Capa_Datos/obj
+Capa_Datos/bin
+*.suo
+*.user
+*.suo
+_ReSharper.*
+*.sln.cache

@@ -22,20 +22,10 @@ Partial Class CastigosLargoFibra
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.BtAceptar = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CastigosLargoFibra))
         Me.DgvCastigoLargoFibra = New System.Windows.Forms.DataGridView()
-        Me.BtSalir = New System.Windows.Forms.Button()
         CType(Me.DgvCastigoLargoFibra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'BtAceptar
-        '
-        Me.BtAceptar.Location = New System.Drawing.Point(12, 326)
-        Me.BtAceptar.Name = "BtAceptar"
-        Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.BtAceptar.TabIndex = 16
-        Me.BtAceptar.Text = "Aceptar"
-        Me.BtAceptar.UseVisualStyleBackColor = True
         '
         'DgvCastigoLargoFibra
         '
@@ -46,33 +36,24 @@ Partial Class CastigosLargoFibra
         Me.DgvCastigoLargoFibra.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvCastigoLargoFibra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvCastigoLargoFibra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCastigoLargoFibra.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCastigoLargoFibra.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCastigoLargoFibra.Location = New System.Drawing.Point(12, 12)
+        Me.DgvCastigoLargoFibra.Location = New System.Drawing.Point(0, 0)
         Me.DgvCastigoLargoFibra.MultiSelect = False
         Me.DgvCastigoLargoFibra.Name = "DgvCastigoLargoFibra"
         Me.DgvCastigoLargoFibra.RowHeadersVisible = False
         Me.DgvCastigoLargoFibra.RowHeadersWidth = 40
         Me.DgvCastigoLargoFibra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCastigoLargoFibra.Size = New System.Drawing.Size(260, 308)
+        Me.DgvCastigoLargoFibra.Size = New System.Drawing.Size(481, 507)
         Me.DgvCastigoLargoFibra.TabIndex = 15
-        '
-        'BtSalir
-        '
-        Me.BtSalir.Location = New System.Drawing.Point(197, 326)
-        Me.BtSalir.Name = "BtSalir"
-        Me.BtSalir.Size = New System.Drawing.Size(75, 23)
-        Me.BtSalir.TabIndex = 17
-        Me.BtSalir.Text = "Salir"
-        Me.BtSalir.UseVisualStyleBackColor = True
         '
         'CastigosLargoFibra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 361)
-        Me.Controls.Add(Me.BtSalir)
-        Me.Controls.Add(Me.BtAceptar)
+        Me.ClientSize = New System.Drawing.Size(481, 507)
         Me.Controls.Add(Me.DgvCastigoLargoFibra)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "CastigosLargoFibra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CastigosLargoFibra"
@@ -80,8 +61,5 @@ Partial Class CastigosLargoFibra
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents BtAceptar As Button
     Friend WithEvents DgvCastigoLargoFibra As DataGridView
-    Friend WithEvents BtSalir As Button
 End Class

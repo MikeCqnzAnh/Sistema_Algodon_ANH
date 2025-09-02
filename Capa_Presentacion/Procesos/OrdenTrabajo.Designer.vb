@@ -22,6 +22,7 @@ Partial Class OrdenTrabajo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OrdenTrabajo))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,6 +64,7 @@ Partial Class OrdenTrabajo
         Me.CbPlantas = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DgvCapturaLotes = New System.Windows.Forms.DataGridView()
+        Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.GbInformacion.SuspendLayout()
@@ -71,6 +73,7 @@ Partial Class OrdenTrabajo
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -130,14 +133,14 @@ Partial Class OrdenTrabajo
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1215, 172)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1215, 192)
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         '
         'CbEstatus
         '
         Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(490, 96)
+        Me.CbEstatus.Location = New System.Drawing.Point(490, 103)
         Me.CbEstatus.Name = "CbEstatus"
         Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
         Me.CbEstatus.TabIndex = 25
@@ -145,7 +148,7 @@ Partial Class OrdenTrabajo
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(371, 99)
+        Me.Label16.Location = New System.Drawing.Point(371, 106)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(42, 13)
         Me.Label16.TabIndex = 24
@@ -154,7 +157,7 @@ Partial Class OrdenTrabajo
         'TbNoModulos
         '
         Me.TbNoModulos.Enabled = False
-        Me.TbNoModulos.Location = New System.Drawing.Point(490, 123)
+        Me.TbNoModulos.Location = New System.Drawing.Point(490, 130)
         Me.TbNoModulos.Name = "TbNoModulos"
         Me.TbNoModulos.Size = New System.Drawing.Size(121, 20)
         Me.TbNoModulos.TabIndex = 23
@@ -162,7 +165,7 @@ Partial Class OrdenTrabajo
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(371, 126)
+        Me.Label3.Location = New System.Drawing.Point(371, 133)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 22
@@ -187,7 +190,7 @@ Partial Class OrdenTrabajo
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(226, 124)
+        Me.Label14.Location = New System.Drawing.Point(226, 131)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(24, 13)
         Me.Label14.TabIndex = 19
@@ -196,7 +199,7 @@ Partial Class OrdenTrabajo
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(16, 126)
+        Me.Label13.Location = New System.Drawing.Point(16, 133)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(32, 13)
         Me.Label13.TabIndex = 18
@@ -205,7 +208,7 @@ Partial Class OrdenTrabajo
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(16, 98)
+        Me.Label12.Location = New System.Drawing.Point(16, 105)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(44, 13)
         Me.Label12.TabIndex = 17
@@ -213,7 +216,7 @@ Partial Class OrdenTrabajo
         '
         'TbRangoFin
         '
-        Me.TbRangoFin.Location = New System.Drawing.Point(257, 121)
+        Me.TbRangoFin.Location = New System.Drawing.Point(257, 128)
         Me.TbRangoFin.Name = "TbRangoFin"
         Me.TbRangoFin.Size = New System.Drawing.Size(100, 20)
         Me.TbRangoFin.TabIndex = 16
@@ -221,7 +224,7 @@ Partial Class OrdenTrabajo
         'TbRangoInicio
         '
         Me.TbRangoInicio.Enabled = False
-        Me.TbRangoInicio.Location = New System.Drawing.Point(119, 121)
+        Me.TbRangoInicio.Location = New System.Drawing.Point(119, 128)
         Me.TbRangoInicio.Name = "TbRangoInicio"
         Me.TbRangoInicio.Size = New System.Drawing.Size(100, 20)
         Me.TbRangoInicio.TabIndex = 15
@@ -229,24 +232,26 @@ Partial Class OrdenTrabajo
         'TbNombre
         '
         Me.TbNombre.Enabled = False
-        Me.TbNombre.Location = New System.Drawing.Point(119, 95)
+        Me.TbNombre.Location = New System.Drawing.Point(119, 102)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(238, 20)
         Me.TbNombre.TabIndex = 14
         '
         'BtBuscarProductor
         '
-        Me.BtBuscarProductor.Location = New System.Drawing.Point(225, 67)
+        Me.BtBuscarProductor.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.BusquedaUsuario
+        Me.BtBuscarProductor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtBuscarProductor.Location = New System.Drawing.Point(225, 65)
         Me.BtBuscarProductor.Name = "BtBuscarProductor"
-        Me.BtBuscarProductor.Size = New System.Drawing.Size(26, 23)
+        Me.BtBuscarProductor.Size = New System.Drawing.Size(34, 32)
         Me.BtBuscarProductor.TabIndex = 13
-        Me.BtBuscarProductor.Text = "..."
         Me.BtBuscarProductor.UseVisualStyleBackColor = True
         '
         'TbIdProductor
         '
-        Me.TbIdProductor.Location = New System.Drawing.Point(119, 69)
+        Me.TbIdProductor.Location = New System.Drawing.Point(119, 76)
         Me.TbIdProductor.Name = "TbIdProductor"
+        Me.TbIdProductor.ReadOnly = True
         Me.TbIdProductor.Size = New System.Drawing.Size(100, 20)
         Me.TbIdProductor.TabIndex = 12
         '
@@ -282,7 +287,7 @@ Partial Class OrdenTrabajo
         Me.GbInformacion.Dock = System.Windows.Forms.DockStyle.Right
         Me.GbInformacion.Location = New System.Drawing.Point(832, 16)
         Me.GbInformacion.Name = "GbInformacion"
-        Me.GbInformacion.Size = New System.Drawing.Size(380, 153)
+        Me.GbInformacion.Size = New System.Drawing.Size(380, 173)
         Me.GbInformacion.TabIndex = 2
         Me.GbInformacion.TabStop = False
         Me.GbInformacion.Text = "Informacion"
@@ -409,7 +414,7 @@ Partial Class OrdenTrabajo
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 70)
+        Me.Label2.Location = New System.Drawing.Point(16, 77)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 13)
         Me.Label2.TabIndex = 3
@@ -428,9 +433,9 @@ Partial Class OrdenTrabajo
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(16, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(37, 13)
+        Me.Label1.Size = New System.Drawing.Size(76, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Planta"
+        Me.Label1.Text = "Planta Destino"
         '
         'DgvCapturaLotes
         '
@@ -443,14 +448,14 @@ Partial Class OrdenTrabajo
         Me.DgvCapturaLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCapturaLotes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvCapturaLotes.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCapturaLotes.Location = New System.Drawing.Point(0, 196)
+        Me.DgvCapturaLotes.Location = New System.Drawing.Point(0, 216)
         Me.DgvCapturaLotes.MultiSelect = False
         Me.DgvCapturaLotes.Name = "DgvCapturaLotes"
         Me.DgvCapturaLotes.ReadOnly = True
         Me.DgvCapturaLotes.RowHeadersVisible = False
         Me.DgvCapturaLotes.RowHeadersWidth = 40
         Me.DgvCapturaLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1215, 378)
+        Me.DgvCapturaLotes.Size = New System.Drawing.Size(1215, 358)
         Me.DgvCapturaLotes.TabIndex = 14
         '
         'OrdenTrabajo
@@ -461,6 +466,7 @@ Partial Class OrdenTrabajo
         Me.Controls.Add(Me.DgvCapturaLotes)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "OrdenTrabajo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -519,4 +525,5 @@ Partial Class OrdenTrabajo
     Friend WithEvents Label3 As Label
     Friend WithEvents CbEstatus As ComboBox
     Friend WithEvents Label16 As Label
+    Friend WithEvents FontDialog1 As FontDialog
 End Class

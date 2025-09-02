@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Plantas
     Private Sub Plantas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()

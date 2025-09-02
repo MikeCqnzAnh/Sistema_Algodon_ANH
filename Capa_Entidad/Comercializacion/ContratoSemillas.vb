@@ -1,4 +1,5 @@
-﻿Public Class ContratoSemillas
+﻿Imports Capa_Operacion
+Public Class ContratoSemillas
     Inherits Tarjeta
     Public IdContratoSemilla As Integer
     Public Folio As String

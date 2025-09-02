@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class ConsultaCastigos
     Public Overridable Sub Consultar(ByRef EntidadConsultaCastigos As Capa_Entidad.ConsultaCastigos)
         Dim EntidadConsultaCastigos1 As New Capa_Entidad.ConsultaCastigos
@@ -17,6 +19,9 @@ Public Class ConsultaCastigos
                     sqldat1 = New SqlDataAdapter("sp_ConCasLarFib", cnn)
                     sqldat1.Fill(EntidadConsultaCastigos1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaMicros
+                    sqldat1 = New SqlDataAdapter("sp_ConCasMicros", cnn)
+                    sqldat1.Fill(EntidadConsultaCastigos1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidad
                     sqldat1 = New SqlDataAdapter("sp_ConCasMicros", cnn)
                     sqldat1.Fill(EntidadConsultaCastigos1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModalidadCompra

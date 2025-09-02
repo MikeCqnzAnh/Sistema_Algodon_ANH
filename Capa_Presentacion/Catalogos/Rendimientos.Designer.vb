@@ -43,6 +43,7 @@ Partial Class Rendimientos
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -160,16 +161,16 @@ Partial Class Rendimientos
         Me.DgvRendimientos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvRendimientos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvRendimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvRendimientos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.DgvRendimientos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvRendimientos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvRendimientos.Location = New System.Drawing.Point(0, 174)
+        Me.DgvRendimientos.Location = New System.Drawing.Point(0, 150)
         Me.DgvRendimientos.MultiSelect = False
         Me.DgvRendimientos.Name = "DgvRendimientos"
         Me.DgvRendimientos.ReadOnly = True
         Me.DgvRendimientos.RowHeadersVisible = False
         Me.DgvRendimientos.RowHeadersWidth = 40
         Me.DgvRendimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvRendimientos.Size = New System.Drawing.Size(525, 270)
+        Me.DgvRendimientos.Size = New System.Drawing.Size(525, 294)
         Me.DgvRendimientos.TabIndex = 17
         '
         'Rendimientos

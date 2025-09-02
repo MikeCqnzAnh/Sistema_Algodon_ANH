@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Asociaciones
     Private Sub Asociaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarCombos()
@@ -18,14 +20,23 @@ Public Class Asociaciones
             MsgBox("Verificar los campos vacios")
             Exit Sub
         End If
-        EntidadAsociaciones.IdAsociacion = IIf(TbIdAsociacion.Text = "", 0, TbIdAsociacion.Text)
-        EntidadAsociaciones.Descripcion = TbDescripcion.Text
-        EntidadAsociaciones.IdEstatus = CbEstatus.SelectedValue
-        EntidadAsociaciones.IdUsuarioCreacion = 1
-        EntidadAsociaciones.FechaCreacion = Now
-        NegocioAsociaciones.Guardar(EntidadAsociaciones)
-        TbIdAsociacion.Text = EntidadAsociaciones.IdAsociacion
-        Consultar()
+        Try
+            EntidadAsociaciones.IdAsociacion = IIf(TbIdAsociacion.Text = "", 0, TbIdAsociacion.Text)
+            EntidadAsociaciones.Descripcion = TbDescripcion.Text
+            EntidadAsociaciones.IdEstatus = CbEstatus.SelectedValue
+            EntidadAsociaciones.IdUsuarioCreacion = 1
+            EntidadAsociaciones.FechaCreacion = Now
+            NegocioAsociaciones.Guardar(EntidadAsociaciones)
+            TbIdAsociacion.Text = EntidadAsociaciones.IdAsociacion
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, GuardarToolStripMenuItem.Text, TbIdAsociacion.Text, TbDescripcion.Text)
+            MsgBox("El registro se ha guardado con exito!")
+            Consultar()
+        End Try
+
+
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -77,15 +88,20 @@ Public Class Asociaciones
             MsgBox("Por favor, seleccione un registro", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
             Exit Sub
         End If
-        EntidadAsociaciones.Eliminar = Eliminar.EliminarREgistro
-        EntidadAsociaciones.IdAsociacion = TbIdAsociacion.Text
-        NegocioAsociaciones.Eliminar(EntidadAsociaciones)
-        Consultar()
-        Limpiar()
-        MsgBox("Registro eliminado con éxito", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+        Try
+            EntidadAsociaciones.Eliminar = Eliminar.EliminarRegistro
+            EntidadAsociaciones.IdAsociacion = TbIdAsociacion.Text
+            NegocioAsociaciones.Eliminar(EntidadAsociaciones)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            GeneraRegistroBitacora(Me.Text.Clone.ToString, EliminarToolStripMenuItem.Text, TbIdAsociacion.Text, TbDescripcion.Text)
+            MsgBox("Registro eliminado con éxito", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Aviso")
+            Consultar()
+            Limpiar()
+        End Try
     End Sub
-
-    Private Sub DgvAsociaciones_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvAsociaciones.CellContentDoubleClick
+    Private Sub DgvAsociaciones_DoubleClick(sender As Object, e As EventArgs) Handles DgvAsociaciones.DoubleClick
         If DgvAsociaciones.DataSource Is Nothing Then
             MsgBox("No hay registros disponibles")
         Else
@@ -96,10 +112,19 @@ Public Class Asociaciones
             CbEstatus.SelectedValue = DgvAsociaciones.Rows(index).Cells("IdEstatus").Value
         End If
     End Sub
-
     Private Sub FormatoGridview()
         DgvAsociaciones.Columns("IdAsociacion").HeaderText = "ID"
         DgvAsociaciones.Columns("Descripcion").HeaderText = "Asociación"
         DgvAsociaciones.Columns("IdEstatus").HeaderText = "Estatus"
+    End Sub
+
+    Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

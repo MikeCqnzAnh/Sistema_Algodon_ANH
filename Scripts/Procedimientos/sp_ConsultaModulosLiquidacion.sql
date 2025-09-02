@@ -1,4 +1,4 @@
-CREATE procedure [dbo].[sp_ConsultaModulosLiquidacion]
+alter procedure [dbo].[sp_ConsultaModulosLiquidacion]
 @IdOrdenTrabajo as int
 as
 select bo.IdOrdenTrabajo, 
@@ -7,7 +7,8 @@ select bo.IdOrdenTrabajo,
 	   Bo.Bruto, 
 	   Bo.Tara, 
 	   Bo.Total, 
-	   Bo.FechaOrden, 
+	   Bo.FechaEntrada,
+	   Bo.FechaSalida, 
 	   bo.FlagRevisada 
 from [dbo].[OrdenTrabajoDetalle] Bo inner join [dbo].[Clientes] Cl  on Bo.IdProductor = Cl.IdCliente
 where bo.IdOrdenTrabajo = @IdOrdenTrabajo and   bo.FlagCancelada = 0

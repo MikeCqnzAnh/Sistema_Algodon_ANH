@@ -1,4 +1,5 @@
-﻿Public Class Asociaciones
+﻿Imports Capa_Operacion
+Public Class Asociaciones
     Inherits Tarjeta
     Public IdAsociacion As Integer
     Public Descripcion As String

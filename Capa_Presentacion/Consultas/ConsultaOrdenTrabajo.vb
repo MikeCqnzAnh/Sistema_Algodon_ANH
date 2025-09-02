@@ -1,15 +1,18 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class ConsultaOrdenTrabajo
-    Public Property Id() As Integer
+    Private _IdConsulta As Integer
+    Public Property IdConsulta() As Integer
         Get
-            Return _Id
+            Return _IdConsulta
         End Get
         Set(value As Integer)
-            _Id = value
+            _IdConsulta = value
         End Set
     End Property
     Private Sub ConsultaOrdenTrabajo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TbOrden.Focus()
+        TbOrden.Select()
         Limpiar()
     End Sub
     Private Sub ConsultaOrdenTrabajo()
@@ -22,26 +25,55 @@ Public Class ConsultaOrdenTrabajo
         DgvConsultaOrden.DataSource = EntidadLiquidacionesPorRomaneaje.TablaConsulta
         PropiedadesDgv()
     End Sub
-    Private Sub PropiedadesDgv()
-        DgvConsultaOrden.Columns("IdPlantaOrigen").Visible = False
-        DgvConsultaOrden.Columns("TotalHueso").Visible = False
-        DgvConsultaOrden.Columns("Pluma").Visible = False
-        DgvConsultaOrden.Columns("IdCliente").Visible = False
-        DgvConsultaOrden.Columns("IdPorCuenta").Visible = False
+    Private Sub Consultar()
+        Dim EntidadOrdenTrabajo As New Capa_Entidad.OrdenTrabajo
+        Dim NegocioOrdenTrabajo As New Capa_Negocio.OrdenTrabajo
+        Dim Tabla As New DataTable
+        Try
+            EntidadOrdenTrabajo.Consulta = Consulta.ConsultaOrdenEmbarqueEncabezado
+            EntidadOrdenTrabajo.IdOrdenTrabajo = Val(TbOrden.Text)
+            NegocioOrdenTrabajo.Consultar(EntidadOrdenTrabajo)
+            DgvConsultaOrden.DataSource = EntidadOrdenTrabajo.TablaConsulta
+            PropiedadesDgv()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
-    Private Sub DgvConsultaOrden_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvConsultaOrden.CellContentDoubleClick
-        Dim EntidadConsultaOrdenTrabajo As New Capa_Entidad.LiquidacionesPorRomaneaje
-        Dim NegocioConsultaOrdenTrabajo As New Capa_Negocio.LiquidacionesPorRomaneaje
-        Dim index As Integer
-        index = DgvConsultaOrden.CurrentRow.Index
-        _Id = DgvConsultaOrden.Rows(index).Cells("IdOrdenTrabajo").Value.ToString()
-        Close()
+    Private Sub PropiedadesDgv()
+        DgvConsultaOrden.Columns("IdPlanta").Visible = False
+        DgvConsultaOrden.Columns("IdProductor").Visible = False
+        DgvConsultaOrden.Columns("PesoModulos").Visible = False
+        DgvConsultaOrden.Columns("IdVariedadAlgodon").Visible = False
+        DgvConsultaOrden.Columns("IdEstatus").Visible = False
+        DgvConsultaOrden.Columns("IdColonia").Visible = False
+        DgvConsultaOrden.Columns("IdUsuarioCreacion").Visible = False
+        DgvConsultaOrden.Columns("IdUsuarioActualizacion").Visible = False
+        DgvConsultaOrden.Columns("FechaActualizacion").Visible = False
+    End Sub
+    Private Sub DgvConsultaOrden_DoubleClick(sender As Object, e As EventArgs) Handles DgvConsultaOrden.DoubleClick
+        If DgvConsultaOrden.DataSource Is Nothing Then
+            MsgBox("No hay registros disponibles.")
+        Else
+            Dim index As Integer
+            index = DgvConsultaOrden.CurrentRow.Index
+            _IdConsulta = DgvConsultaOrden.Rows(index).Cells("IdOrdenTrabajo").Value
+            Close()
+        End If
     End Sub
     Private Sub Limpiar()
         TbOrden.Text = ""
+        _IdConsulta = 0
         DgvConsultaOrden.DataSource = Nothing
     End Sub
+
     Private Sub BtAceptar_Click(sender As Object, e As EventArgs) Handles BtAceptar.Click
-        ConsultaOrdenTrabajo()
+        'ConsultaOrdenTrabajo()
+        Consultar()
+    End Sub
+
+    Private Sub TbOrden_KeyDown(sender As Object, e As KeyEventArgs) Handles TbOrden.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Consultar()
+        End If
     End Sub
 End Class

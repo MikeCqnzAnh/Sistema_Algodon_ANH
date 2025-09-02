@@ -1,4 +1,5 @@
-﻿Public Class VariedadesAlgodon
+﻿Imports Capa_Operacion
+Public Class VariedadesAlgodon
     Inherits Tarjeta
     Public IdVariedadAlgodon As Integer
     Public Descripcion As String

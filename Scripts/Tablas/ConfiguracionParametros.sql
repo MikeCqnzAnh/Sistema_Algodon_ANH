@@ -1,20 +1,37 @@
-create table ConfiguracionParametros
-(
-IdConfiguracion int identity(1,1) primary key,
-NombrePC varchar(30),
-DireccionIP varchar(15),
-NombrePuerto varchar(6),
-InicialModulo int,
-NoCaracterModulo int,
-InicialTransporte int,
-NoCaracterTransporte int,
-InicialBoletasBruto int,
-NoCaracterBoletasBruto int,
-InicialBoletasTara int,
-NoCaracterBoletasTara int,
-InicialBoletasNeto int,
-NoCaracterBoletasNeto int,
-InicialPacas int,
-NoCaracteresPacas int,
-BaseDeDatos varchar
-)
+CREATE TABLE [dbo].[ConfiguracionParametros](
+	 [IdConfiguracion] [int] IDENTITY(1,1) NOT NULL
+	,[NombrePC] [varchar](30) NULL
+	,[DireccionIP] [varchar](15) NULL
+	,[NombrePuerto] [varchar](6) NULL
+	,[IndicadorID]	[varchar](10)
+	,[IndicadorModulo] [varchar](5)
+	,[IndicadorEntrada]	[varchar](10)
+	,[IndicadorSalida]	[varchar](10)
+	,[IndicadorBruto]	[varchar](10)
+	,[IndicadorTara]	[varchar](10)
+	,[IndicadorNeto]	[varchar](10)
+	,[IndicadorPacasBruto]	[varchar](10)
+	,[IndicadorPacasTara]	[varchar](10)
+	,[IndicadorPacasNeto]	[varchar](10)
+	,[PosicionID]	[int]
+	,[PosicionModulo] [int]
+	,[PosicionEntrada]	[int]
+	,[PosicionSalida]	[int]
+	,[PosicionBruto]	[int]
+	,[PosicionTara]	[int]
+	,[PosicionNeto]	[int]
+	,[PacasPosicionBruto]	[int]
+	,[PacasPosicionTara]	[int]
+	,[PacasPosicionNeto]	[int]
+	,[CaracterID]	[int]
+	,[CaracterModulo] [int]
+	,[CaracterEntrada]	[int]
+	,[CaracterSalida]	[int]
+	,[CaracterBruto]	[int]
+	,[CaracterTara]	[int]
+	,[CaracterNeto]	[int]
+	,[PacasCaracterBruto]	[int]
+	,[PacasCaracterTara]	[int]
+	,[PacasCaracterNeto]	[int]
+	,[PesoMinimoPaca] [int]
+	)

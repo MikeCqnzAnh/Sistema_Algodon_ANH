@@ -44,7 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,11 +66,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso.vb" />
+    <Compile Include="Almacenes\ExistenciaBodegaPacas.vb" />
+    <Compile Include="Almacenes\InventarioPacas.vb" />
+    <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
+    <Compile Include="Almacenes\SalidaPacas.vb" />
+    <Compile Include="Catalogos\CastigoMicros.vb" />
+    <Compile Include="Catalogos\Almacenes.vb" />
     <Compile Include="Catalogos\Asociaciones.vb" />
     <Compile Include="Catalogos\Camiones.vb" />
     <Compile Include="Catalogos\CastigoLargoFibra.vb" />
     <Compile Include="Catalogos\CastigoPorQuintal.vb" />
     <Compile Include="Catalogos\CastigoResistenciaFibra.vb" />
+    <Compile Include="Catalogos\CastigoUniformidad.vb" />
     <Compile Include="Catalogos\Clientes.vb" />
     <Compile Include="Catalogos\Colonias.vb" />
     <Compile Include="Catalogos\Compradores.vb" />
@@ -75,6 +86,7 @@
     <Compile Include="Catalogos\IncidenciaOperaciones.vb" />
     <Compile Include="Catalogos\Maquinaria.vb" />
     <Compile Include="Catalogos\ModalidadesCompra.vb" />
+    <Compile Include="Catalogos\ModalidadesVenta.vb" />
     <Compile Include="Catalogos\Plantas.vb" />
     <Compile Include="Catalogos\ProfesionalesFitosanitarios.vb" />
     <Compile Include="Catalogos\Puestos.vb" />
@@ -82,18 +94,30 @@
     <Compile Include="Catalogos\Rendimientos.vb" />
     <Compile Include="Catalogos\Tierras.vb" />
     <Compile Include="Catalogos\TiposIncidencias.vb" />
+    <Compile Include="Catalogos\UnidadesComercializacion.vb" />
+    <Compile Include="Comercializacion\Compras\IntegraciondeCompras.vb" />
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb" />
+    <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb" />
+    <Compile Include="Configuracion\ConfigMic.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb" />
+    <Compile Include="Configuracion\DatosEmpresa.vb" />
+    <Compile Include="Configuracion\Turnos.vb" />
+    <Compile Include="Utilerias\ProgramarRespaldos.vb" />
+    <Compile Include="Utilerias\Roles.vb" />
+    <Compile Include="Utilerias\Usuarios.vb" />
     <Compile Include="Catalogos\VariedadesAlgodon.vb" />
     <Compile Include="Comercializacion\Clasificacion\ClasificacionVentaPaquetes.vb" />
-    <Compile Include="Comercializacion\Compras\ClasificacionPacasExcel.vb" />
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionPacasExcel.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacas.vb" />
     <Compile Include="Comercializacion\Compras\CompraPacasContrato.vb" />
     <Compile Include="Comercializacion\Compras\ModificacionIndividual\ConsultaCastigos.vb" />
-    <Compile Include="Comercializacion\Compras\PaquetesHVI.vb" />
+    <Compile Include="Comercializacion\Clasificacion\PaquetesHVI.vb" />
     <Compile Include="Comercializacion\ContratosAlgodon.vb" />
     <Compile Include="Comercializacion\ContratosAlgodonCompradores.vb" />
     <Compile Include="Comercializacion\ContratoSemillas.vb" />
     <Compile Include="Comercializacion\Ventas\VentaPacasContrato.vb" />
     <Compile Include="Conexion.vb" />
+    <Compile Include="MenuPrincipal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -116,7 +140,15 @@
     <Compile Include="Procesos\OrdenTrabajo.vb" />
     <Compile Include="Procesos\Produccion.vb" />
     <Compile Include="Reportes\Reportes.vb" />
-    <Compile Include="Utilerias\ConfiguracionParametros.vb" />
+    <Compile Include="Utilerias\Bitacora.vb" />
+    <Compile Include="Configuracion\ConfiguracionParametros.vb" />
+    <Compile Include="Utilerias\CrearEstructura.vb" />
+    <Compile Include="Utilerias\ImportarCatalogos.vb" />
+    <Compile Include="Utilerias\Monedas.vb" />
+    <Compile Include="Utilerias\Respaldos.vb" />
+    <Compile Include="Utilerias\RestaurarRespaldo.vb" />
+    <Compile Include="Utilerias\RutaDocumentos.vb" />
+    <Compile Include="Utilerias\SeleccionaConexion.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -144,13 +176,41 @@
       <Name>Capa_Entidad</Name>
     </ProjectReference>
     <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
-      <Project>{474d9897-44a4-4125-80d5-a579dd360e5c}</Project>
+      <Project>{3a1e6801-5527-4d29-b798-24ce9afa623f}</Project>
       <Name>Capa_Operacion</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administracion\" />
-    <Folder Include="Almacenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

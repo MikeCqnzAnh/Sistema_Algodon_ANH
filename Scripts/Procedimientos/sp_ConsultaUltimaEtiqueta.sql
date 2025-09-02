@@ -1,16 +1,16 @@
-CREATE procedure sp_ConsultaUltimaEtiqueta  
+alter procedure sp_ConsultaUltimaEtiqueta  
 --declare   
-@Etiqueta int,  
+@Etiqueta bigint,  
 @IdPlantaOrigen int  
 as  
 declare  
-@Secuencia int = (select secuencia + 1   
+@Secuencia bigint = (select secuencia + 1   
 				  from [FolioEtiqueta]   
 				  where idplantaorigen = @IdPlantaOrigen)   
   
 if not exists (select idplantaorigen   
 			   from [FolioEtiqueta]   
-			   where IdplantaOrigen = @IdPlantaOrigen )  
+			   where IdplantaOrigen = @IdPlantaOrigen )  and @IdPlantaOrigen > 0
 begin  
   INSERT INTO [FolioEtiqueta] (Etiqueta,Secuencia,IdPlantaOrigen,Observacion)   
   values (@Etiqueta,@Etiqueta+1,@IdPlantaOrigen,'')  

@@ -22,6 +22,7 @@ Partial Class ConsultaTierrasChecks
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaTierrasChecks))
         Me.BtBuscar = New System.Windows.Forms.Button()
         Me.DgvConsultaTierrasChecks = New System.Windows.Forms.DataGridView()
         Me.BtAceptar = New System.Windows.Forms.Button()
@@ -49,6 +50,7 @@ Partial Class ConsultaTierrasChecks
         Me.DgvConsultaTierrasChecks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvConsultaTierrasChecks.Location = New System.Drawing.Point(12, 12)
         Me.DgvConsultaTierrasChecks.Name = "DgvConsultaTierrasChecks"
+        Me.DgvConsultaTierrasChecks.ReadOnly = True
         Me.DgvConsultaTierrasChecks.RowHeadersVisible = False
         Me.DgvConsultaTierrasChecks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvConsultaTierrasChecks.ShowEditingIcon = False
@@ -72,6 +74,7 @@ Partial Class ConsultaTierrasChecks
         Me.Controls.Add(Me.BtAceptar)
         Me.Controls.Add(Me.DgvConsultaTierrasChecks)
         Me.Controls.Add(Me.BtBuscar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaTierrasChecks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta Tierras"

@@ -1,10 +1,11 @@
-CREATE procedure [dbo].[sp_ConsultaModulos]
+alter procedure sp_ConsultaModulos
 as
 select 
 	   Bo.IdBoleta,
 	   Bo.IdPlanta, 
 	   Bo.NoTransporte,
-	   Bo.FechaOrden, 
+	   isnull(Bo.FechaEntrada,0) as FechaEntrada,
+	   isnull(Bo.FechaSalida,0) as FechaSalida, 
 	   Bo.Bruto, 
 	   Bo.Tara, 
 	   Bo.Total, 
@@ -13,3 +14,4 @@ select
 	   bo.FlagCancelada, 
 	   bo.FlagRevisada 
 from [dbo].[OrdenTrabajoDetalle] Bo inner join [dbo].[Clientes] Cl  on Bo.IdProductor = Cl.IdCliente
+order by FechaEntrada desc

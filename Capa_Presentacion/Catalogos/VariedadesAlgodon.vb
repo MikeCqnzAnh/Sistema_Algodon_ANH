@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class VariedadesAlgodon
     Private Sub VariedadesAlgodon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
@@ -55,5 +57,9 @@ Public Class VariedadesAlgodon
 
     Private Sub DgvProfesionales_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvVariedadesAlgodon.CellContentClick
 
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        limpiar()
     End Sub
 End Class

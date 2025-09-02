@@ -1,4 +1,5 @@
-﻿Public Class Camiones
+﻿Imports Capa_Operacion
+Public Class Camiones
     Inherits Tarjeta
     Public IdCamion As Integer
     Public Descripcion As String

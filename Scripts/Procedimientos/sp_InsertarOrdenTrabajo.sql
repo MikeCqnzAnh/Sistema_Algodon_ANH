@@ -17,7 +17,34 @@ as
 begin
 set nocount on
 merge [dbo].[OrdenTrabajo] as target
-using (select @IdOrdenTrabajo,@IdPlanta,@IdProductor,@RangoInicio,@RangoFin,@NumeroModulos,@IdVariedadAlgodon,@IdColonia,@Predio,@IdEstatus,@IdUsuarioCreacion,@FechaCreacion,@IdUsuarioActualizacion,@FechaActualizacion) as source (IdOrdenTrabajo,IdPlanta,IdProductor,RangoInicio,RangoFin,NumeroModulos,IdVariedadAlgodon,IdColonia,Predio,IdEstatus,IdUsuarioCreacion,FechaCreacion,IdUsuarioActualizacion,FechaActualizacion)
+using (select @IdOrdenTrabajo
+			 ,@IdPlanta
+			 ,@IdProductor
+			 ,@RangoInicio
+			 ,@RangoFin
+			 ,@NumeroModulos
+			 ,@IdVariedadAlgodon
+			 ,@IdColonia
+			 ,@Predio
+			 ,@IdEstatus
+			 ,@IdUsuarioCreacion
+			 ,@FechaCreacion
+			 ,@IdUsuarioActualizacion
+			 ,@FechaActualizacion) as source 
+			 (IdOrdenTrabajo
+			 ,IdPlanta
+			 ,IdProductor
+			 ,RangoInicio
+			 ,RangoFin
+			 ,NumeroModulos
+			 ,IdVariedadAlgodon
+			 ,IdColonia
+			 ,Predio
+			 ,IdEstatus
+			 ,IdUsuarioCreacion
+			 ,FechaCreacion
+			 ,IdUsuarioActualizacion
+			 ,FechaActualizacion)
 ON (target.IdOrdenTrabajo = source.IdOrdenTrabajo)
 WHEN MATCHED THEN
 UPDATE SET IdPlanta = source.IdPlanta,
@@ -29,11 +56,35 @@ UPDATE SET IdPlanta = source.IdPlanta,
 		   IdColonia = source.IdColonia,
 		   Predio = source.Predio,
 		   IdEstatus = source.IdEstatus,
-		   IdUsuarioCreacion = source.IdUsuarioCreacion,
-		   FechaCreacion = source.FechaCreacion		   
+		   IdUsuarioActualizacion = source.IdUsuarioActualizacion,
+		   FechaActualizacion = source.FechaActualizacion		   
 WHEN NOT MATCHED THEN
-INSERT (IdPlanta,IdProductor,RangoInicio,RangoFin,NumeroModulos,IdVariedadAlgodon,IdColonia,Predio,IdEstatus,IdUsuarioCreacion,FechaCreacion,IdUsuarioActualizacion,FechaActualizacion)
-VALUES (source.IdPlanta,source.IdProductor,source.RangoInicio,source.RangoFin,source.NumeroModulos,source.IdVariedadAlgodon,source.IdColonia,source.Predio,source.IdEstatus,source.IdUsuarioCreacion,source.FechaCreacion,source.IdUsuarioActualizacion,source.FechaActualizacion);
+INSERT (IdPlanta
+	   ,IdProductor
+	   ,RangoInicio
+	   ,RangoFin
+	   ,NumeroModulos
+	   ,IdVariedadAlgodon
+	   ,IdColonia
+	   ,Predio
+	   ,IdEstatus
+	   ,IdUsuarioCreacion
+	   ,FechaCreacion
+	   ,IdUsuarioActualizacion
+	   ,FechaActualizacion)
+VALUES (source.IdPlanta
+	   ,source.IdProductor
+	   ,source.RangoInicio
+	   ,source.RangoFin
+	   ,source.NumeroModulos
+	   ,source.IdVariedadAlgodon
+	   ,source.IdColonia
+	   ,source.Predio
+	   ,source.IdEstatus
+	   ,source.IdUsuarioCreacion
+	   ,source.FechaCreacion
+	   ,source.IdUsuarioActualizacion
+	   ,source.FechaActualizacion);
 SET @IdOrdenTrabajo = SCOPE_IDENTITY()
 END
 RETURN @IdOrdenTrabajo

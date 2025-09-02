@@ -1,4 +1,4 @@
-﻿
+﻿Imports Capa_Operacion
 Public Class Produccion
     Inherits Tarjeta
     '---------------------------------Produccion
@@ -9,7 +9,9 @@ Public Class Produccion
     Public IdCliente As Integer
     Public Fecha As Date
     Public IdEstatus As Integer
-    Public FolioInicial As Integer
+    Public FolioInicial As Long
+    Public NumeroRegistro As Integer
+    Public PesoElegir As Boolean
 
     Public TotalHueso As Double
     Public Pacas As Integer
@@ -22,12 +24,14 @@ Public Class Produccion
     Public PorcentajePluma As Double
     Public PorcentajeSemilla As Double
     Public PorcentajeMerma As Double
+    Public NombreProductor As String
 
     '---------------------------------Produccion Detalle
     Public IdProduccionDetalle As Integer
     Public Tipo As String
-    Public Kilos As Double
-    Public FolioCIA As Integer
+    Public Kilos As Decimal
+    Public FolioCIA As Long
+    Public BaleID As Long
     Public BandExiste As Boolean
     Public IdTurno As Integer
     Public IdBaja As Integer
@@ -46,11 +50,13 @@ Public Class Produccion
     Public ClaveClasificacionCpa As Double
     Public ClaveClasificacionVta As Double
     Public FechaClasificacion As Date
-    Public Libras As Double
+    Public Libras As Decimal
+    Public Quintales As Decimal
     Public ClaveCertificado As Integer
     Public ClaveContratoAlgodon As Integer
     Public ClaveContratoAlgodon2 As Integer
     Public ClavePaqueteHVI As Integer
     Public LargoFibra As Double
     Public ResistenciaFibra As Double
+    Public LeerEtiqueta As Boolean
 End Class

@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class IncidenciaOperaciones
     Public Overridable Sub Upsert(ByRef EntidadIncidenciaOperaciones As Capa_Entidad.IncidenciaOperaciones)
         Dim EntidadIncidenciaOperaciones1 As New Capa_Entidad.IncidenciaOperaciones
@@ -31,7 +33,7 @@ Public Class IncidenciaOperaciones
         Dim EntidadIncidenciaOperaciones1 = New Capa_Entidad.IncidenciaOperaciones
         EntidadIncidenciaOperaciones1 = EntidadIncidenciaOperaciones
         EntidadIncidenciaOperaciones1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

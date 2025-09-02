@@ -1,4 +1,6 @@
 ﻿Imports Capa_Operacion.Configuracion
+Imports Capa_Entidad
+Imports Capa_Negocio
 Public Class Maquinaria
     Private Sub Maquinaria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarCombos()
@@ -60,5 +62,15 @@ Public Class Maquinaria
         CbEstatus.ValueMember = "Id"
         CbEstatus.DisplayMember = "Descripcion"
         CbEstatus.SelectedValue = 1
+    End Sub
+
+    Private Sub TbDescripcion_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TbDescripcion.KeyPress
+        If Char.IsLetter(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 End Class

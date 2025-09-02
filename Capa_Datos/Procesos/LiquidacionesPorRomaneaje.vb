@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Capa_Entidad
+Imports Capa_Operacion
 Public Class LiquidacionesPorRomaneaje
     Public Overridable Sub Consultar(ByRef EntidadLiquidacionesPorRomaneaje As Capa_Entidad.LiquidacionesPorRomaneaje)
         Dim EntidadLiquidacionesPorRomaneaje1 As New Capa_Entidad.LiquidacionesPorRomaneaje
@@ -20,6 +22,13 @@ Public Class LiquidacionesPorRomaneaje
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPasasSinClase
+                    sqlcom1 = New SqlCommand("Sp_ConsultaPacasSinClaseLiq", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
                     sqlcom1 = New SqlCommand("sp_ConsultaModulosLiquidacion", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -34,6 +43,13 @@ Public Class LiquidacionesPorRomaneaje
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaPaca
+                    sqlcom1 = New SqlCommand("Pa_ConsultaPacasSinClasificar", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
+                    sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPorId
                     sqlcom1 = New SqlCommand("sp_ConsultaCheckBoleta", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
@@ -42,7 +58,7 @@ Public Class LiquidacionesPorRomaneaje
                     sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadLiquidacionesPorRomaneaje1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadLiquidacionesPorRomaneaje1.TablaConsulta)
                     For Each MiTableRow2 As DataRow In EntidadLiquidacionesPorRomaneaje1.TablaConsulta.Rows
-                        If CStr(MiTableRow2.Item("FlagTerminado")) = False Then
+                        If CStr(MiTableRow2.Item("FlagTerminadoventa")) = False Then
                             EntidadLiquidacionesPorRomaneaje1.Bandera = False
                             Exit Select
                         Else

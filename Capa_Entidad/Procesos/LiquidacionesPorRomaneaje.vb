@@ -1,4 +1,5 @@
-﻿Public Class LiquidacionesPorRomaneaje
+﻿Imports Capa_Operacion
+Public Class LiquidacionesPorRomaneaje
     Inherits Tarjeta
     Public IdLiquidacion As Integer
     Public IdOrdenTrabajo As Integer

@@ -1,4 +1,6 @@
-﻿Public Class RegimenHidrico
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class RegimenHidrico
     Public Overridable Sub Guardar(ByRef EntidadRegimenHidrico As Capa_Entidad.RegimenHidrico)
         Dim EntidadRegimenHidrico1 As New Capa_Entidad.RegimenHidrico
         Dim DatosRegimenHidrico As New Capa_Datos.RegimenHidrico

@@ -22,11 +22,13 @@ Partial Class Empleados
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Empleados))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.CbPuesto = New System.Windows.Forms.ComboBox()
         Me.LbID = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdEmpleado = New System.Windows.Forms.TextBox()
@@ -35,7 +37,6 @@ Partial Class Empleados
         Me.TbNombre = New System.Windows.Forms.TextBox()
         Me.LbNombre = New System.Windows.Forms.Label()
         Me.DgvEmpleados = New System.Windows.Forms.DataGridView()
-        Me.CbPuesto = New System.Windows.Forms.ComboBox()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         CType(Me.DgvEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,6 +44,7 @@ Partial Class Empleados
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -77,12 +79,21 @@ Partial Class Empleados
         Me.GbDatosGenerales.Controls.Add(Me.LbRegistro)
         Me.GbDatosGenerales.Controls.Add(Me.TbNombre)
         Me.GbDatosGenerales.Controls.Add(Me.LbNombre)
-        Me.GbDatosGenerales.Location = New System.Drawing.Point(12, 27)
+        Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(957, 137)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(979, 137)
         Me.GbDatosGenerales.TabIndex = 16
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'CbPuesto
+        '
+        Me.CbPuesto.FormattingEnabled = True
+        Me.CbPuesto.Location = New System.Drawing.Point(124, 71)
+        Me.CbPuesto.Name = "CbPuesto"
+        Me.CbPuesto.Size = New System.Drawing.Size(186, 21)
+        Me.CbPuesto.TabIndex = 15
         '
         'LbID
         '
@@ -129,6 +140,7 @@ Partial Class Empleados
         '
         'TbNombre
         '
+        Me.TbNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbNombre.Location = New System.Drawing.Point(124, 45)
         Me.TbNombre.Name = "TbNombre"
         Me.TbNombre.Size = New System.Drawing.Size(303, 20)
@@ -152,24 +164,17 @@ Partial Class Empleados
         Me.DgvEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DgvEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvEmpleados.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvEmpleados.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvEmpleados.Location = New System.Drawing.Point(12, 170)
+        Me.DgvEmpleados.Location = New System.Drawing.Point(0, 161)
         Me.DgvEmpleados.MultiSelect = False
         Me.DgvEmpleados.Name = "DgvEmpleados"
         Me.DgvEmpleados.ReadOnly = True
         Me.DgvEmpleados.RowHeadersVisible = False
         Me.DgvEmpleados.RowHeadersWidth = 40
         Me.DgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvEmpleados.Size = New System.Drawing.Size(957, 266)
+        Me.DgvEmpleados.Size = New System.Drawing.Size(979, 292)
         Me.DgvEmpleados.TabIndex = 17
-        '
-        'CbPuesto
-        '
-        Me.CbPuesto.FormattingEnabled = True
-        Me.CbPuesto.Location = New System.Drawing.Point(124, 71)
-        Me.CbPuesto.Name = "CbPuesto"
-        Me.CbPuesto.Size = New System.Drawing.Size(186, 21)
-        Me.CbPuesto.TabIndex = 15
         '
         'Empleados
         '
@@ -179,6 +184,7 @@ Partial Class Empleados
         Me.Controls.Add(Me.DgvEmpleados)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "Empleados"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

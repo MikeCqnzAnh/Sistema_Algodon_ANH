@@ -1,4 +1,5 @@
-﻿Public Class ProfesionalesFitosanitarios
+﻿Imports Capa_Operacion
+Public Class ProfesionalesFitosanitarios
     Inherits Tarjeta
     Public IdProfesionales As Integer
     Public Descripcion As String

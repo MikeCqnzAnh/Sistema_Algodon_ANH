@@ -22,6 +22,7 @@ Partial Class ConsultaCompradores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsultaCompradores))
         Me.BtSalir = New System.Windows.Forms.Button()
         Me.BtAceptar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -32,7 +33,7 @@ Partial Class ConsultaCompradores
         '
         'BtSalir
         '
-        Me.BtSalir.Location = New System.Drawing.Point(352, 14)
+        Me.BtSalir.Location = New System.Drawing.Point(490, 14)
         Me.BtSalir.Name = "BtSalir"
         Me.BtSalir.Size = New System.Drawing.Size(75, 23)
         Me.BtSalir.TabIndex = 20
@@ -41,7 +42,7 @@ Partial Class ConsultaCompradores
         '
         'BtAceptar
         '
-        Me.BtAceptar.Location = New System.Drawing.Point(271, 13)
+        Me.BtAceptar.Location = New System.Drawing.Point(409, 14)
         Me.BtAceptar.Name = "BtAceptar"
         Me.BtAceptar.Size = New System.Drawing.Size(75, 23)
         Me.BtAceptar.TabIndex = 19
@@ -61,7 +62,7 @@ Partial Class ConsultaCompradores
         '
         Me.TbNombre.Location = New System.Drawing.Point(65, 16)
         Me.TbNombre.Name = "TbNombre"
-        Me.TbNombre.Size = New System.Drawing.Size(200, 20)
+        Me.TbNombre.Size = New System.Drawing.Size(338, 20)
         Me.TbNombre.TabIndex = 17
         '
         'DgvConsultaCompradores
@@ -94,6 +95,7 @@ Partial Class ConsultaCompradores
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TbNombre)
         Me.Controls.Add(Me.DgvConsultaCompradores)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConsultaCompradores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Consulta de Compradores"

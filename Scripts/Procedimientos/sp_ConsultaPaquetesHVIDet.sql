@@ -1,8 +1,10 @@
-create procedure sp_ConsultaPaquetesHVIDet
+alter procedure sp_ConsultaPaquetesHVIDet
 --declare
-@IdPaquete int-- = 2
+@IdPaquete int
 as
-select a.LotID,
+select a.IdHviEnc,
+	   a.IdPlantaOrigen,
+	   a.LotID,
        a.BaleID,
 	   a.BaleGroup,
 	   a.Operator,
@@ -27,6 +29,9 @@ select a.LotID,
 	   a.TrashID,
 	   a.SCI,
 	   a.Nep,
-	   a.UV
+	   a.UV,
+	   a.EstatusCompra,
+	   case  when a.estatuscompra = 1 then 'Disponible' else 'Comprada' end as EstatusPaca
 from dbo.HVIDetalle a
-where a.LotID = @IdPaquete
+where a.LotID = @IdPaquete 
+order by a.BaleID

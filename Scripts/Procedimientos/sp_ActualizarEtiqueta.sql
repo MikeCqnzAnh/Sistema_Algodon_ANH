@@ -1,6 +1,6 @@
-create procedure sp_ActualizarEtiqueta
+alter procedure sp_ActualizarEtiqueta
 @IdPlantaOrigen int,
-@EtiquetaActual int
+@EtiquetaActual bigint
 as
 UPDATE [dbo].[FolioEtiqueta] 
 SET    Secuencia = @EtiquetaActual

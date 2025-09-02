@@ -1,17 +1,15 @@
 CREATE procedure sp_ConsultaOrdenTrabajo
 --declare
-@IdOrdenTrabajo int --= 2
+@IdOrdenTrabajo int 
 as
 Declare @Modulos VARCHAR(MAX) = '' 
 SELECT @Modulos =  @Modulos +'-' + convert(varchar(10),a.IdBoleta) from [dbo].[OrdenTrabajoDetalle] a where a.IdOrdenTrabajo = @IdOrdenTrabajo
 SET @Modulos = SUBSTRING(@Modulos,2,LEN(@Modulos))
 --SELECT @Modulos as 'Modulos'
-select a.IdPlanta as IdPlantaElabora,
-       b.IdCliente,
-	   b.Nombre,
+select otr.IdPlanta as IdplantaOrigen,
+	   cli.IdCliente,
+	   Cli.Nombre,
 	   @Modulos as Modulos,
-	   a.NumeroModulos
-from [dbo].[OrdenTrabajo] a,
-     [dbo].[Clientes] b	
-where a.IdOrdenTrabajo = @IdOrdenTrabajo
-and   a.IdProductor = b.IdCliente
+	   otr.NumeroModulos	
+from OrdenTrabajo OTR inner join Clientes Cli on otr.IdProductor = Cli.IdCliente
+where OTR.IdOrdenTrabajo = @IdOrdenTrabajo					

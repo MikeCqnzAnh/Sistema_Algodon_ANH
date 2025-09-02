@@ -1,9 +1,11 @@
-CREATE procedure [dbo].[sp_InsertarClasificacionPacas]
+alter procedure sp_InsertarClasificacionPacas
 @IdCalculoClasificacion int,
 @IdPaqueteEncabezado int,
-@IdHviDetalle int,
 @IdOrdenTrabajo int,
-@BaleID int ,
+@IdPlantaOrigen int,
+@Kilos int,
+@LotID int,
+@BaleID bigint ,
 @BaleGroup varchar(5) ,
 @Operator varchar(25) ,
 @Date datetime ,
@@ -29,15 +31,17 @@ CREATE procedure [dbo].[sp_InsertarClasificacionPacas]
 @Nep int ,
 @UV float ,
 @FlagTerminado bit,
-@EstatusCompra int
+@EstatusVenta int
 as 
 begin 
 set nocount on
 merge [dbo].[CalculoClasificacion] as target
   using (select @IdCalculoClasificacion,
 				@IdPaqueteEncabezado,
-				@IdHviDetalle,
 				@IdOrdenTrabajo,
+				@IdPlantaOrigen,
+				@Kilos,
+				@LotID,
 				@BaleID  ,
 				@BaleGroup  ,
 				@Operator ,
@@ -64,12 +68,14 @@ merge [dbo].[CalculoClasificacion] as target
 				@Nep  ,
 				@UV  ,
 				@FlagTerminado,
-				@EstatusCompra) 
+				@EstatusVenta) 
 								AS SOURCE 
 			   (IdCalculoClasificacion,
 				IdPaqueteEncabezado,
-				IdHviDetalle,
 				IdOrdenTrabajo,
+				IdPlantaOrigen,
+				Kilos,
+				LotID,
 				BaleID  ,
 				BaleGroup  ,
 				Operator ,
@@ -96,10 +102,11 @@ merge [dbo].[CalculoClasificacion] as target
 				Nep  ,
 				UV  ,
 				FlagTerminado,
-				EstatusCompra)
-ON (target.BaleId = SOURCE.BaleId)
+				EstatusVenta)
+ON (target.BaleId = SOURCE.BaleId and target.IdPaqueteEncabezado = SOURCE.IdPaqueteEncabezado and target.IdPlantaOrigen = SOURCE.IdPlantaOrigen)
 WHEN MATCHED THEN
-UPDATE SET 
+UPDATE SET		kilos = source.Kilos,
+				lotid = source.lotid,
 				BaleGroup  = source.BaleGroup ,
 				Operator = source.Operator ,
 				[Date]  = source.[Date] ,
@@ -124,13 +131,13 @@ UPDATE SET
 				SCI  = source.SCI ,
 				Nep  = source.Nep ,
 				UV  = source.UV ,
-				FlagTerminado = source.FlagTerminado ,
-				EstatusCompra = source.EstatusCompra
-
+				FlagTerminado = 1 
 WHEN NOT MATCHED THEN
 INSERT (IdPaqueteEncabezado
-		,IdHviDetalle
 		,IdOrdenTrabajo
+		,IdPlantaOrigen
+		,Kilos
+		,LotID
 		,BaleId
 		,BaleGroup
 		,Operator
@@ -157,11 +164,13 @@ INSERT (IdPaqueteEncabezado
 		,Nep
 		,UV
 		,flagterminado
-		,EstatusCompra)
+		,EstatusVenta)
         VALUES 
 		(source.IdPaqueteEncabezado
-		,source.IdHviDetalle
 		,source.IdOrdenTrabajo
+		,source.IdPlantaOrigen
+		,source.Kilos
+		,source.LotID
 		,source.BaleId
 		,source.BaleGroup
 		,source.Operator
@@ -187,6 +196,6 @@ INSERT (IdPaqueteEncabezado
 		,source.SCI
 		,source.Nep
 		,source.UV
-		,source.flagterminado
-		,source.EstatusCompra);		
+		,1
+		,source.EstatusVenta);		
 END

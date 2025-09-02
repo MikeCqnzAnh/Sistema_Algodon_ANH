@@ -1,4 +1,6 @@
-﻿Public Class VariedadesAlgodon
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class VariedadesAlgodon
     Public Overridable Sub Guardar(ByRef EntidadVariedadesAlgodon As Capa_Entidad.VariedadesAlgodon)
         Dim EntidadVariedadesAlgodon1 As New Capa_Entidad.VariedadesAlgodon
         Dim DatosVariedadesAlgodon As New Capa_Datos.VariedadesAlgodon

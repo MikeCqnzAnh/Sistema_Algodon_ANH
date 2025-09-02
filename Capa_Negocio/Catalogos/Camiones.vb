@@ -1,4 +1,6 @@
-﻿Public Class Camiones
+﻿Imports Capa_Entidad
+Imports Capa_Datos
+Public Class Camiones
     Public Overridable Sub Guardar(ByRef EntidadCamiones As Capa_Entidad.Camiones)
         Dim EntidadCamiones1 As New Capa_Entidad.Camiones
         Dim DatosCamiones As New Capa_Datos.Camiones

@@ -1,4 +1,6 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class Maquinaria
     Public Overridable Sub Upsert(ByRef EntidadMaquinaria As Capa_Entidad.Maquinaria)
         Dim EntidadMaquinaria1 As New Capa_Entidad.Maquinaria
@@ -30,7 +32,7 @@ Public Class Maquinaria
         Dim EntidadMaquinaria1 = New Capa_Entidad.Maquinaria
         EntidadMaquinaria1 = EntidadMaquinaria
         EntidadMaquinaria1.TablaConsulta = New DataTable
-        Dim sqlcom1 As SqlCommand
+        'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try

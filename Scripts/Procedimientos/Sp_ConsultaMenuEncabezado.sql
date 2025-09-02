@@ -1,0 +1,3 @@
+Create Procedure Sp_ConsultaMenuEncabezado
+as
+select idmenuencabezado,nombre from MenuEncabezado

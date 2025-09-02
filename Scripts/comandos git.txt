@@ -1,0 +1,55 @@
+COMANDOS 
+
+head //Es el indicador de en que rama estamos ubicados en el proyecto
+
+git init 				 //marca inicio del proyecto
+git stratus 				 //El estado del proyecto, que se agrego, que falta por agregar 
+git add 				 //agregar archivos listos usar '.' para agregar todos o 'nombre de archivo' para especificar
+git commit -m "Mensaje para identificar" //Confirmar cambios
+
+git fetch origin 		// sube cambios a rama origin/master
+git merge origin/master 	//pasa cambios de rama origin/master a master
+
+git clone "enlace de proyecto"	//descargar un proyecto nuestro pc  
+git remote add origin "Enlace" 	//vincular repositorio local con repositorio en github
+git remote -v 			// Ver lo que acabamos de copiar
+git remote remove origin 	//quitar vinculo de proyecto 
+git push origin "rama" 		// Sube los proyectos a github
+git log 			//Muestra lista de los cambios confirmados con commit
+git log > "archivo.txt" 	//envia el log a un archivo de texto
+
+git tag -a "version" -m "Version 0.1 de proyecto" 	//tags anotadas para mas informacion 
+git tag -a v0.1 -m "Version 0.1 de proyecto" codigo sha //tag para mas informacion especifica a un commit
+git push origin "version de tag" 			// subir tag a githug
+git push origin --tags 					//sube a githud todos los tags pendientes
+
+git config --global user.name "Nombre" 			//Nombre de usuario para identificar autor de cambios
+git config --global user.email "Correo" 		//Correo de autor 
+git config --global color.ui true 			//configurar colores del codigo
+git config --global --list 				//ver lista de configuraciones
+
+git reset --soft 		//elimina commit sin tocar el codigo
+git reset --mixed 		//
+git reset -hard 		//elimina commit y elimina el codigo de ese commit
+
+git checkout 'nombre rama' ó 'codigo sha de commit //Cambia de rama o regresas a commit ejecutados anteriores
+git checkout -b 'nombre rama'  			   //creamos nueva rama y nos movemos a ella
+git branch 					   //ver ramas
+git branch 'Nombre de rama' 			   //Crea rama
+git branch -a 					   //muestra ramas ocultas
+git branch -D 'Nombre de rama'                     //Elimina rama
+git merge 'Rama a absorber' 			   //Fusiona ramas
+
+fast-forward //hace la fucion y se hace cuando se trabaja con archivos diferentes
+Manual Merge //antes de hacer la fusion tiene que pasar por nosotros, normalmente ocurre cuando se tabaja en los mismos archivos o lineas de codigo
+
+Gitignore no funciona
+Dando primeros pasos con git había unos ficheros que me añadía al proyecto y que quería ignorarlos. De ahí que quisiera añadirlos al fichero .gitignore.
+
+Pero no funcionaba porque ya había realizado commits en los que incluía estos ficheros. Tenía que borrar la caché de todos los ficheros de git y después generar ignorando los ficheros que no queremos con los siguientes comandos:
+
+git rm -r --cached .
+git add .
+git commit -m “.gitignore funciona”
+
+

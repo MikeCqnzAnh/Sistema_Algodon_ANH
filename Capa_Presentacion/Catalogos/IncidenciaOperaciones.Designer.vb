@@ -27,6 +27,8 @@ Partial Class IncidenciaOperaciones
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CbEstatus = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TbDescripcion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -34,8 +36,6 @@ Partial Class IncidenciaOperaciones
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdIncidencia = New System.Windows.Forms.TextBox()
         Me.DgvIncidencia = New System.Windows.Forms.DataGridView()
-        Me.CbEstatus = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         CType(Me.DgvIncidencia, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,6 +43,7 @@ Partial Class IncidenciaOperaciones
         '
         'MSMenu
         '
+        Me.MSMenu.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
@@ -83,6 +84,23 @@ Partial Class IncidenciaOperaciones
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 115)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Estatus"
+        '
+        'CbEstatus
+        '
+        Me.CbEstatus.FormattingEnabled = True
+        Me.CbEstatus.Location = New System.Drawing.Point(115, 112)
+        Me.CbEstatus.Name = "CbEstatus"
+        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
+        Me.CbEstatus.TabIndex = 6
         '
         'Label3
         '
@@ -154,23 +172,6 @@ Partial Class IncidenciaOperaciones
         Me.DgvIncidencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DgvIncidencia.Size = New System.Drawing.Size(957, 266)
         Me.DgvIncidencia.TabIndex = 13
-        '
-        'CbEstatus
-        '
-        Me.CbEstatus.FormattingEnabled = True
-        Me.CbEstatus.Location = New System.Drawing.Point(115, 112)
-        Me.CbEstatus.Name = "CbEstatus"
-        Me.CbEstatus.Size = New System.Drawing.Size(121, 21)
-        Me.CbEstatus.TabIndex = 6
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 115)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Estatus"
         '
         'IncidenciaOperaciones
         '

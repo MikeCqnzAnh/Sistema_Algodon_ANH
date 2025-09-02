@@ -1,9 +1,12 @@
-﻿Imports System.Data.SqlClient
+﻿Imports Capa_Entidad
+Imports Capa_Operacion
+Imports System.Data.SqlClient
 Public Class CapturaBoletasPorLotes
     Public Overridable Sub Consultar(ByRef EntidadCapturaBoletasPorLotes As Capa_Entidad.CapturaBoletasPorLotes)
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1 = EntidadCapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1.TablaConsulta = New DataTable
+        Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
@@ -11,6 +14,13 @@ Public Class CapturaBoletasPorLotes
             Select Case EntidadCapturaBoletasPorLotes1.Consulta
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaDetallada
                     sqldat1 = New SqlDataAdapter("sp_ConsultaModulos", cnn)
+                    sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaExterna
+                    sqlcom1 = New SqlCommand("sp_ConsultaModulosExterno", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", EntidadCapturaBoletasPorLotes1.IdOrdenTrabajo))
                     sqldat1.Fill(EntidadCapturaBoletasPorLotes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModulosEntradas
                     sqldat1 = New SqlDataAdapter("sp_ConsultaModulosSinTara", cnn)
@@ -35,6 +45,9 @@ Public Class CapturaBoletasPorLotes
             cmdGuardar = New SqlCommand("sp_ActualizaBoletaPeso", cnn)
             cmdGuardar.CommandType = CommandType.StoredProcedure
             cmdGuardar.Parameters.Add(New SqlParameter("@Idboleta", EntidadCapturaBoletasPorLotes1.Idboleta))
+            cmdGuardar.Parameters.Add(New SqlParameter("@NoTransporte", EntidadCapturaBoletasPorLotes1.NoTransporte))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaEntrada", EntidadCapturaBoletasPorLotes1.FechaEntrada))
+            cmdGuardar.Parameters.Add(New SqlParameter("@FechaSalida", EntidadCapturaBoletasPorLotes1.FechaSalida))
             cmdGuardar.Parameters.Add(New SqlParameter("@Bruto", EntidadCapturaBoletasPorLotes1.Bruto))
             cmdGuardar.Parameters.Add(New SqlParameter("@Tara", EntidadCapturaBoletasPorLotes1.Tara))
             cmdGuardar.Parameters.Add(New SqlParameter("@Total", EntidadCapturaBoletasPorLotes1.Neto))
@@ -42,6 +55,7 @@ Public Class CapturaBoletasPorLotes
             cmdGuardar.Parameters.Add(New SqlParameter("@FlagCancelada", EntidadCapturaBoletasPorLotes1.FlagCancelada))
             cmdGuardar.ExecuteNonQuery()
         Catch ex As Exception
+            MsgBox(ex.Message)
         Finally
             cnn.Close()
             EntidadCapturaBoletasPorLotes = EntidadCapturaBoletasPorLotes1

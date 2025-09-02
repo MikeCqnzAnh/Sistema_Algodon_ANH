@@ -1,4 +1,4 @@
-alter procedure sp_ConsultaProdPorPorOrden
+CREATE procedure sp_ConsultaProdPorPorOrden
 --declare
 @IdOrdenTrabajo int --= 1
 as
@@ -9,7 +9,7 @@ select a.IdProduccion,
 	   a.Tipo,
 	   b.IdCliente,
 	   b.Nombre,
-	   c.FolioInicial
+	   c.Secuencia
 from [dbo].[Produccion] a,
      [dbo].[Clientes] b,
 	 [dbo].[FolioEtiqueta] c

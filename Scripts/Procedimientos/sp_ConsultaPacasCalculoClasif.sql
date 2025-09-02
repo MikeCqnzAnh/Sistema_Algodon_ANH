@@ -1,7 +1,10 @@
-CREATE procedure sp_ConsultaPacasCalculoClasif
+Create procedure sp_ConsultaPacasCalculoClasif
 @IdPaquete int 
 as
-select 	 a.[BaleID]
+select   
+		 a.[IdPlantaOrigen]
+		,a.[LotID]
+		,a.[BaleID]
 		,a.[BaleGroup]
 		,a.[Operator]
 		,a.[Date]
@@ -27,8 +30,8 @@ select 	 a.[BaleID]
 		,a.[Nep]
 		,a.[UV]
 		,a.FlagTerminado
-		,a.IdHviDetalle
+		,a.IdVentaEnc
 		,a.IdOrdenTrabajo
 from [dbo].[CalculoClasificacion] a
-where a.IdPaqueteEncabezado = @IdPaquete
+where a.IdPaqueteEncabezado = @IdPaquete 
 order by a.BaleId asc
