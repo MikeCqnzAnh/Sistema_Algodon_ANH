@@ -38,7 +38,24 @@
 
     End Sub
     Private Sub formatodgv()
-
+        dgvconsulta.Columns("idplanta").Visible = False
+        dgvconsulta.Columns("tara").Visible = False
+        dgvconsulta.Columns("checktara").Visible = False
+        dgvconsulta.Columns("castigomic").Visible = False
+        dgvconsulta.Columns("castigoresistencia").Visible = False
+        dgvconsulta.Columns("castigouhml").Visible = False
+        dgvconsulta.Columns("castigoui").Visible = False
+        dgvconsulta.Columns("fechaactualizacion").Visible = False
+        dgvconsulta.Columns("idestatus").Visible = False
+        dgvconsulta.Columns("idcompra").HeaderText = "ID Compra"
+        dgvconsulta.Columns("idproductor").HeaderText = "ID Productor"
+        dgvconsulta.Columns("idcontrato").HeaderText = "ID Contrato"
+        dgvconsulta.Columns("totalpacas").HeaderText = "Pacas"
+        dgvconsulta.Columns("Subtotal").HeaderText = "SubTotal"
+        dgvconsulta.Columns("deduccion").HeaderText = "Deduccion"
+        dgvconsulta.Columns("Totalprecio").HeaderText = "Total"
+        dgvconsulta.Columns("fechacreacion").HeaderText = "Creacion"
+        dgvconsulta.Columns("estatus").HeaderText = "Estatus"
     End Sub
 
     Private Sub tbbusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbbusqueda.TextChanged

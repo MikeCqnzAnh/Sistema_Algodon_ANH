@@ -357,7 +357,7 @@ Public Class CompraPacasPorContrato
                             If ckactivatara.Checked = True Then
                                 Dim factor As Decimal = CDec(Math.Pow(10, 4))
                                 Dim tara As Decimal = nutara.Value
-                                Dim taralb As Decimal = tara * Convert.ToDecimal(TbValorConversion.Text)
+                                Dim taralb As Decimal = tara * 2.2046
                                 Dim libras, kilos, quintales As Decimal
 
                                 kilos = CDec(rowView("kilos")) - tara
