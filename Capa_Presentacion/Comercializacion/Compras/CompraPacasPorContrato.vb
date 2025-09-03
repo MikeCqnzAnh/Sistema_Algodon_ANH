@@ -1,5 +1,6 @@
 ﻿'Imports Microsoft.Office.Interop.Excel
 
+Imports System.Runtime.InteropServices
 Imports System.ServiceModel.Dispatcher
 Imports System.Web.UI.WebControls
 Imports Capa_Operacion
@@ -105,6 +106,31 @@ Public Class CompraPacasPorContrato
     Private Sub consultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles consultarToolStripMenuItem.Click
         Dim _consultacompra As New FConsultaCompra
         _consultacompra.ShowDialog()
+        If _consultacompra._idcompra > 0 Then
+            limpiar()
+            TbIdCompraPaca.Text = _consultacompra._idcompra
+            TbIdProductor.Text = _consultacompra._idproductor
+            TbNombreProductor.Text = _consultacompra._nombreproductor
+            TbIdContrato.Text = _consultacompra._idcontrato
+            nutotalpacas.Value = _consultacompra._totalpacas
+            nutara.Value = _consultacompra._tara
+            ckactivatara.Checked = _consultacompra._checktara
+            nusubtotal.Value = _consultacompra._subtotal
+            nucastigomic.Value = _consultacompra._castigomicros
+            nucastigostr.Value = _consultacompra._castigostrength
+            nucastigouhml.Value = _consultacompra._castigouhml
+            nucastigouni.Value = _consultacompra._castigoui
+            nutotaldeduccion.Value = _consultacompra._deduccion
+            nutotal.Value = _consultacompra._totalprecio
+            DtFechaCompra.Value = _consultacompra._fechacreacion
+            DtFechaActualizacion.Value = _consultacompra._fechaactualizacion
+            cbestatus.SelectedValue = _consultacompra._idestatus
+            consultadatosproductor()
+            seleccionacontrato()
+            cargadatagrid()
+            cargadatacompra()
+            gbcontratos.Enabled = False
+        End If
     End Sub
 
     Private Sub CbModalidadCompra_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CbModalidadCompra.SelectionChangeCommitted
@@ -157,6 +183,30 @@ Public Class CompraPacasPorContrato
         End Try
 
     End Sub
+    Private Sub seleccionacontrato()
+        Try
+
+            ' Iterar por todas las filas para desmarcar las demás
+            For Each row As DataGridViewRow In dgvcontratos.Rows
+                ' Exceptuar la fila actual
+                If row.Cells("idcontratoalgodon").Value = Convert.ToInt32(TbIdContrato.Text) Then
+                    row.Cells("Seleccionar").Value = True
+                End If
+            Next
+            ' Cambiar el valor de la celda actual
+            'Dim currentCell = dgvcontratos.Rows(e.RowIndex).Cells("Seleccionar")
+            'currentCell.Value = Not Convert.ToBoolean(currentCell.Value)
+            'If currentCell.Value = True Then
+
+            obtenercontrato()
+                consultapreciosclase()
+                ConsultaParametrosCompra()
+            'End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Private Sub limpiar()
         TbIdCompraPaca.Clear()
         TbIdContrato.Clear()
@@ -185,7 +235,13 @@ Public Class CompraPacasPorContrato
         nucastigouni.Value = 0
         nusubtotal.Value = 0
         nutotaldeduccion.Value = 0
+        nutotalpacas.Value = 0
         nutotal.Value = 0
+        nutara.Value = 0
+        ckactivatara.Checked = False
+        cbunidadpeso.SelectedValue = 0
+        cbestatus.SelectedIndex = -1
+        TbValorConversion.Text = ""
         dgvcontratos.DataSource = ""
         dgvprecioclase.DataSource = ""
         dtorigen.Clear()
@@ -732,13 +788,25 @@ Public Class CompraPacasPorContrato
     End Sub
 
     Private Sub guardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles guardarToolStripMenuItem.Click
-        calculopacas()
-        guardarenc()
-        guardadet()
+        If Not String.IsNullOrEmpty(TbIdProductor.Text) And Not String.IsNullOrEmpty(TbIdContrato.Text) Then
+            Try
+                calculopacas()
+                guardarenc()
+                guardadet(dtdestino, IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text))
+                guardadet(dtorigen, 0)
+                actualizacontrato()
+                MessageBox.Show("Guardado con exito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show("Error " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        Else
+            MessageBox.Show("No se puede continuar con datos sin capturar, revise si hay productor seleccionado, precio capturado y un perfil de compra para continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
     Private Sub guardarenc()
         Dim ecatalogos As New Capa_Entidad.CompraPacasContrato
         Dim ncatalogos As New Capa_Negocio.CompraPacasContrato
+        If cbestatus.SelectedIndex = -1 Then cbestatus.SelectedValue = 1
         ecatalogos.Guarda = Guardar.GuardaCompraenc
         ecatalogos.IdCompra = IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text)
         ecatalogos.IdPlanta = CbPlanta.SelectedValue
@@ -746,7 +814,7 @@ Public Class CompraPacasPorContrato
         ecatalogos.IdContrato = TbIdContrato.Text
         ecatalogos.tara = nutara.Value
         ecatalogos.checktara = ckactivatara.Checked
-        ecatalogos.TotalPacas = nutotalpacas.Value
+        ecatalogos.TotalPacas = destinoView.Count
         ecatalogos.Subtotal = nusubtotal.Value
         ecatalogos.CastigoMicros = nucastigomic.Value
         ecatalogos.CastigoResistenciaFibra = nucastigostr.Value
@@ -760,9 +828,50 @@ Public Class CompraPacasPorContrato
         ncatalogos.Guardar(ecatalogos)
         TbIdCompraPaca.Text = ecatalogos.IdCompra.ToString
     End Sub
-    Private Sub guardadet()
+    Private Sub guardadet(ByRef dt As DataTable, ByRef id As Integer)
+        Dim ecatalogos As New Capa_Entidad.CompraPacasContrato
+        Dim ncatalogos As New Capa_Negocio.CompraPacasContrato
+        For Each row As DataRow In dt.Rows
+            ecatalogos.Guarda = Guardar.Guardacompradet
+            ecatalogos.idproducciondetalle = row("idproducciondetalle")
+            ecatalogos.IdCompra = id
+            ecatalogos.baleid = row("baleid")
+            ecatalogos.kilos = row("kiloscompra")
+            ecatalogos.libras = row("librascompra")
+            ecatalogos.quintales = row("quintalescompra")
+            ecatalogos.preciodlscompra = row("PrecioDlscompra")
+            ecatalogos.precioclasecompra = row("precioclasecompra")
+            ecatalogos.CastigoMicros = row("CastigoMicCpa")
+            ecatalogos.CastigoLargoFibra = row("CastigoLargoFibraCpa")
+            ecatalogos.CastigoResistenciaFibra = row("CastigoResistenciaFibraCpa")
+            ecatalogos.CastigoUniformidad = row("castigouicompra")
+            ncatalogos.Guardar(ecatalogos)
+        Next
+    End Sub
+    Private Sub actualizacontrato()
+        Dim econtrato As New Capa_Entidad.CompraPacasContrato
+        Dim ncontrato As New Capa_Negocio.CompraPacasContrato
+        For Each row As DataGridViewRow In dgvcontratos.Rows
+            If row.Cells("idcontratoalgodon").Value = Convert.ToInt32(TbIdContrato.Text) Then
+                econtrato.Actualiza = Actualiza.ActualizaContratoCompra
+                econtrato.IdContrato = row.Cells("idcontratoalgodon").Value
+                econtrato.PacasDisponibles = row.Cells("pacasdisponibles").Value
+                econtrato.PacasCompradas = row.Cells("pacascompradas").Value
+                ncontrato.Actualizar(econtrato)
+            End If
+        Next
+    End Sub
+    Private Sub ckactivatara_CheckedChanged(sender As Object, e As EventArgs) Handles ckactivatara.CheckedChanged
+        If ckactivatara.Checked = True Then
+            nutara.Enabled = True
+            nutara.Select()
+        Else
+            nutara.Enabled = False
+            nutara.Value = 0
+        End If
 
     End Sub
+
     Private Function consultacastigouni(valorunidad As Decimal, parametro As Decimal) As Decimal
         Dim castigo As Decimal = 0D
 
@@ -1314,6 +1423,33 @@ Public Class CompraPacasPorContrato
                 Dim nuevasFilas As Integer = Math.Min(RegistrosPorCarga, origenView.Count - registrosCargadosOrigen)
                 registrosCargadosOrigen += nuevasFilas
                 dataGridViewOrigen.RowCount += nuevasFilas
+            End If
+
+        End If
+    End Sub
+    Private Sub cargadatacompra()
+        Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+        Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        EntidadCompraPacasContrato.Consulta = Consulta.ConsultaPacaComprada
+        EntidadCompraPacasContrato.IdCompra = TbIdCompraPaca.Text
+        NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
+        dtdestino = EntidadCompraPacasContrato.TablaConsulta
+        If dtdestino.Rows.Count > 0 Then
+
+            'origenView = New DataView(dtorigen)
+            'dtdestino = New DataTable()
+            'dtdestino = dtorigen.Clone()
+            destinoView = New DataView(dtdestino)
+
+            'AddHandler dataGridViewOrigen.CellValueNeeded, AddressOf dataGridViewOrigen_CellValueNeeded
+            'AddHandler dataGridViewOrigen.CellValuePushed, AddressOf dataGridViewOrigen_CellValuePushed
+            AddHandler dataGridViewDestino.CellValueNeeded, AddressOf dataGridViewDestino_CellValueNeeded
+            AddHandler dataGridViewDestino.CellValuePushed, AddressOf dataGridViewDestino_CellValuePushed
+
+            If registrosCargadosDestino <= destinoView.Count Then
+                Dim nuevasFilas As Integer = Math.Min(RegistrosPorCarga, destinoView.Count - registrosCargadosDestino)
+                registrosCargadosDestino += nuevasFilas
+                dataGridViewDestino.RowCount += nuevasFilas
             End If
 
         End If

@@ -9,12 +9,13 @@ Public Class FConsultaProductorContratoCompra
     Private Sub ConsultaProductores()
         Dim EntidadCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
         Dim NegocioCompraPacasContrato As New Capa_Negocio.CompraPacasContrato
+        Dim dt As New DataTable
         EntidadCompraPacasContrato.Consulta = Consulta.ConsultaProductores
         EntidadCompraPacasContrato.NombreProductor = tbnombre.Text
         NegocioCompraPacasContrato.Consultar(EntidadCompraPacasContrato)
-        Tabla = EntidadCompraPacasContrato.TablaConsulta
+        dt = EntidadCompraPacasContrato.TablaConsulta
         dgvconsulta.Columns.Clear()
-        dgvconsulta.DataSource = Tabla
+        dgvconsulta.DataSource = dt
         formatodgv()
         dgvconsulta.ClearSelection()
     End Sub

@@ -98,3 +98,17 @@ E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad
 E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.AssemblyReference.cache
 E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.CoreCompileInputs.cache
 E:\Personal extra\ESCRITORIO EXTERNO\Desarrollo\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Ent.95CB6C88.Up2Date
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.AssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.Resources.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.GenerateResource.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.CoreCompileInputs.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Ent.95CB6C88.Up2Date
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.pdb

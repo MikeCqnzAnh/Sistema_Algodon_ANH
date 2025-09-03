@@ -1,6 +1,7 @@
 ﻿Imports Capa_Operacion
 Public Class CompraPacasContrato
     Inherits Tarjeta
+    Public idproducciondetalle As Integer
     Public IdCompra As Integer
     Public IdContrato As Integer
     Public IdProductor As Integer
@@ -9,6 +10,12 @@ Public Class CompraPacasContrato
     Public IdPlanta As Integer
     Public IdModalidadCompra As Integer
     Public FechaCompra As DateTime
+    Public baleid As Long
+    Public kilos As Decimal
+    Public libras As Decimal
+    Public quintales As Decimal
+    Public preciodlscompra As Decimal
+    Public precioclasecompra As Decimal
     Public TotalPacas As Integer
     Public tara As Decimal
     Public checktara As Boolean
@@ -55,6 +62,7 @@ Public Class CompraPacasContrato
     Public IdModoEncabezadoLargoFibra As Integer
     Public IdModoEncabezadoMicros As Integer
     Public IdModoEncabezadoResistencia As Integer
+    Public busqueda As String
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

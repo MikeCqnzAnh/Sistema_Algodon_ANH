@@ -22,13 +22,13 @@ Partial Class FConsultaCompra
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FConsultaCompra))
         Me.groupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvconsulta = New System.Windows.Forms.DataGridView()
         Me.groupBox1 = New System.Windows.Forms.GroupBox()
-        Me.tbnombre = New System.Windows.Forms.TextBox()
+        Me.tbbusqueda = New System.Windows.Forms.TextBox()
         Me.label1 = New System.Windows.Forms.Label()
         Me.groupBox2.SuspendLayout()
         CType(Me.dgvconsulta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,24 +56,24 @@ Partial Class FConsultaCompra
         Me.dgvconsulta.BackgroundColor = System.Drawing.Color.White
         Me.dgvconsulta.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvconsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvconsulta.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvconsulta.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvconsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.Padding = New System.Windows.Forms.Padding(5)
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvconsulta.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvconsulta.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvconsulta.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvconsulta.Location = New System.Drawing.Point(3, 16)
         Me.dgvconsulta.MultiSelect = False
@@ -86,7 +86,7 @@ Partial Class FConsultaCompra
         '
         'groupBox1
         '
-        Me.groupBox1.Controls.Add(Me.tbnombre)
+        Me.groupBox1.Controls.Add(Me.tbbusqueda)
         Me.groupBox1.Controls.Add(Me.label1)
         Me.groupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.groupBox1.Location = New System.Drawing.Point(0, 0)
@@ -95,13 +95,13 @@ Partial Class FConsultaCompra
         Me.groupBox1.TabIndex = 9
         Me.groupBox1.TabStop = False
         '
-        'tbnombre
+        'tbbusqueda
         '
-        Me.tbnombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.tbnombre.Location = New System.Drawing.Point(70, 36)
-        Me.tbnombre.Name = "tbnombre"
-        Me.tbnombre.Size = New System.Drawing.Size(379, 20)
-        Me.tbnombre.TabIndex = 1
+        Me.tbbusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.tbbusqueda.Location = New System.Drawing.Point(70, 36)
+        Me.tbbusqueda.Name = "tbbusqueda"
+        Me.tbbusqueda.Size = New System.Drawing.Size(379, 20)
+        Me.tbbusqueda.TabIndex = 1
         '
         'label1
         '
@@ -135,6 +135,6 @@ Partial Class FConsultaCompra
     Private WithEvents groupBox2 As GroupBox
     Private WithEvents dgvconsulta As DataGridView
     Private WithEvents groupBox1 As GroupBox
-    Private WithEvents tbnombre As TextBox
+    Private WithEvents tbbusqueda As TextBox
     Private WithEvents label1 As Label
 End Class

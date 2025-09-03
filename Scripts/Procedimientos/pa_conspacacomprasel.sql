@@ -1,5 +1,5 @@
-alter procedure pa_conspacacompradis
-@idproductor int,
+alter procedure pa_conspacacomprasel
+@idcompra int,
 @seleccionar bit = 0
 as
 select IdProduccionDetalle,
@@ -33,5 +33,6 @@ select IdProduccionDetalle,
 	   isnull(CastigoUICompra,0) as CastigoUICompra,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
-where pd.IdCompraenc = 0 and pd.LotID is not null AND pe.IdCliente = @idproductor
+				   inner join comprapacasenc cenc on pd.IdCompraenc = cenc.idcompra
+where pd.IdCompraenc = @idcompra
 order by pd.BaleID

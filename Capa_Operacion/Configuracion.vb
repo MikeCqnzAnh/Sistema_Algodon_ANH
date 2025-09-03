@@ -241,6 +241,7 @@
         ActualizarPacaLarbajar = 18
         ActualizarPacaUnibajar = 19
         ActualizarParametros = 20
+        ActualizaContratoCompra = 21
     End Enum
     Public Enum Importa
         ImportaTabla = 1

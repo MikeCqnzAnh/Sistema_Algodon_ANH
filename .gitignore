@@ -13,3 +13,4 @@ Capa_Datos/bin
 *.suo
 _ReSharper.*
 *.sln.cache
+*.vsidx
