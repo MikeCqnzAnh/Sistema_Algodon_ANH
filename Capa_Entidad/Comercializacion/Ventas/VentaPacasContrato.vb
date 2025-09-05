@@ -1,7 +1,11 @@
 ﻿Imports Capa_Operacion
 Public Class VentaPacasContrato
     Inherits Tarjeta
-    Public IdVenta As String
+    Public IdVenta As Integer
+    Public IdModoEncabezadoMicros As Integer
+    Public IdModoEncabezadoLargoFibra As Integer
+    Public IdModoEncabezadoResistencia As Integer
+    Public IdModoEncabezadoUniformidad As Integer
     Public IdContrato As Integer
     Public IdComprador As Integer
     Public IdProductor As Integer
@@ -14,6 +18,7 @@ Public Class VentaPacasContrato
     Public CastigoMicros As Decimal
     Public CastigoLargoFibra As Decimal
     Public CastigoResistenciaFibra As Decimal
+    Public CastigoUniformidad As Decimal
     Public CastigoUI As Decimal
     Public CastigoBarkLevel1 As Decimal
     Public CastigoBarkLevel2 As Decimal
@@ -23,6 +28,7 @@ Public Class VentaPacasContrato
     Public CastigoOtherLevel2 As Decimal
     Public CastigoPlasticLevel1 As Decimal
     Public CastigoPlasticLevel2 As Decimal
+    Public deduccion As Decimal
     Public IdUnidadPeso As Integer
     Public ValorConversion As Decimal
     Public Unidad As Integer
@@ -30,6 +36,7 @@ Public Class VentaPacasContrato
     Public InteresDlls As Decimal
     Public PrecioQuintal As Decimal
     Public PrecioQuintalBorregos As Decimal
+    Public idproducciondetalle As Integer
     Public SubTotal As Decimal
     Public CastigoDls As Decimal
     Public AnticipoDls As Decimal
@@ -41,7 +48,10 @@ Public Class VentaPacasContrato
     Public TipoCambio As Decimal
     Public PrecioMxn As Decimal
     Public Kilos As Decimal
+    Public libras As Decimal
     Public Quintales As Decimal
+    Public preciodlsVenta As Decimal
+    Public precioclaseVenta As Decimal
     Public FacturaVenta As String
     Public TotalDlls As Decimal
     Public TotalPesosMx As Decimal
@@ -68,7 +78,9 @@ Public Class VentaPacasContrato
     Public valorn As Decimal
     Public rango1 As Decimal
     Public rango2 As Decimal
-
+    Public tara As Decimal
+    Public checktara As Boolean
+    Public busqueda As String
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

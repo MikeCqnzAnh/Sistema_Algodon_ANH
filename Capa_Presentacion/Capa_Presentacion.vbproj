@@ -338,6 +338,12 @@
     <Compile Include="Comercializacion\Ventas\PreliquidacionVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacasPorContrato.Designer.vb">
+      <DependentUpon>VentaPacasPorContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Ventas\VentaPacasPorContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Configuracion\ConfigLar.Designer.vb">
       <DependentUpon>ConfigLar.vb</DependentUpon>
     </Compile>
@@ -504,6 +510,18 @@
       <DependentUpon>FConsultaProductorContratoCompra.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\FConsultaProductorContratoCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FConsultaProductorContratoVenta.Designer.vb">
+      <DependentUpon>FConsultaProductorContratoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FConsultaProductorContratoVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\FConsultaVenta.Designer.vb">
+      <DependentUpon>FConsultaVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\FConsultaVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataGridViewCalendarColumn.vb" />
@@ -1893,6 +1911,9 @@
     <EmbeddedResource Include="Comercializacion\Ventas\PreliquidacionVenta.resx">
       <DependentUpon>PreliquidacionVenta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Ventas\VentaPacasPorContrato.resx">
+      <DependentUpon>VentaPacasPorContrato.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\ConfigLar.resx">
       <DependentUpon>ConfigLar.vb</DependentUpon>
     </EmbeddedResource>
@@ -1985,6 +2006,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FConsultaProductorContratoCompra.resx">
       <DependentUpon>FConsultaProductorContratoCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FConsultaProductorContratoVenta.resx">
+      <DependentUpon>FConsultaProductorContratoVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\FConsultaVenta.resx">
+      <DependentUpon>FConsultaVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\CargaPacasExternas.resx">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>

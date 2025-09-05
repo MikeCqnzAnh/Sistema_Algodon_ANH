@@ -232,6 +232,9 @@ Public Class Produccion
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaModoCompra
                     sqldat1 = New SqlDataAdapter("sp_LlenaComboModalidadesCompra", cnn)
                     sqldat1.Fill(EntidadProduccion1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaModoVenta
+                    sqldat1 = New SqlDataAdapter("sp_LlenaComboModalidadesVenta", cnn)
+                    sqldat1.Fill(EntidadProduccion1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
                     sqlcom1 = New SqlCommand("sp_ConsultaBasProdDet", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

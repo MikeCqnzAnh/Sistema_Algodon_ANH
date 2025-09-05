@@ -1,7 +1,7 @@
-create procedure pa_insertacompraenc
-@idcompra int output,
+create procedure pa_insertaventaenc
+@idventa int output,
 @idplanta int,
-@idproductor int,
+@idcomprador int,
 @idcontrato int,
 @tara decimal(6,2),
 @checktara bit,
@@ -19,10 +19,10 @@ create procedure pa_insertacompraenc
 as
 begin
 	set nocount on 
-	merge comprapacasenc as target
-	using (select @idcompra,
+	merge ventapacasenc as target
+	using (select @idventa,
 				  @idplanta,
-				  @idproductor,
+				  @idcomprador,
 				  @idcontrato,
 				  @tara,
 				  @checktara,
@@ -37,9 +37,9 @@ begin
 				  @fechacreacion,
 				  @fechaactualizacion,
 				  @idestatus)
-	as source (idcompra,
+	as source (idventa,
 				  idplanta,
-				  idproductor,
+				  idcomprador,
 				  idcontrato,
 				  tara,
 				  checktara,
@@ -54,10 +54,10 @@ begin
 				  fechacreacion,
 				  fechaactualizacion,
 				  idestatus)
-	on (target.idcompra = source.idcompra)
+	on (target.idventa = source.idventa)
 	when matched then
 	update set idplanta = source.idplanta,
-			   idproductor = source.idproductor,
+			   idcomprador = source.idcomprador,
 			   idcontrato = source.idcontrato,
 			   tara = source.tara,
 			   checktara = source.checktara,
@@ -73,7 +73,7 @@ begin
 			   idestatus = source.idestatus
 	when not matched then
 	insert (idplanta,
-				  idproductor,
+				  idcomprador,
 				  idcontrato,
 				  tara,
 				  checktara,
@@ -89,7 +89,7 @@ begin
 				  fechaactualizacion,
 				  idestatus)
 	values (source.idplanta,
-				  source.idproductor,
+				  source.idcomprador,
 				  source.idcontrato,
 				  source.tara,
 				  source.checktara,
@@ -104,5 +104,5 @@ begin
 				  source.fechacreacion,
 				  source.fechaactualizacion,
 				  source.idestatus);
-	set @idcompra = SCOPE_IDENTITY();
+	set @idventa = SCOPE_IDENTITY();
 end

@@ -31,8 +31,8 @@ Partial Class FConsultaProductorContratoCompra
         Me.tbnombre = New System.Windows.Forms.TextBox()
         Me.label1 = New System.Windows.Forms.Label()
         Me.ptop = New System.Windows.Forms.Panel()
-        Me.btcerrar = New Bunifu.Framework.UI.BunifuImageButton()
         Me.label5 = New System.Windows.Forms.Label()
+        Me.btcerrar = New Bunifu.Framework.UI.BunifuImageButton()
         Me.pictureBox9 = New System.Windows.Forms.PictureBox()
         Me.groupBox2.SuspendLayout()
         CType(Me.dgvconsulta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,6 +132,16 @@ Partial Class FConsultaProductorContratoCompra
         Me.ptop.TabIndex = 7
         Me.ptop.Visible = False
         '
+        'label5
+        '
+        Me.label5.AutoSize = True
+        Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label5.Location = New System.Drawing.Point(39, 4)
+        Me.label5.Name = "label5"
+        Me.label5.Size = New System.Drawing.Size(89, 18)
+        Me.label5.TabIndex = 0
+        Me.label5.Text = "CONSULTA"
+        '
         'btcerrar
         '
         Me.btcerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -147,16 +157,6 @@ Partial Class FConsultaProductorContratoCompra
         Me.btcerrar.TabIndex = 22
         Me.btcerrar.TabStop = False
         Me.btcerrar.Zoom = 15
-        '
-        'label5
-        '
-        Me.label5.AutoSize = True
-        Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label5.Location = New System.Drawing.Point(39, 4)
-        Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(89, 18)
-        Me.label5.TabIndex = 0
-        Me.label5.Text = "CONSULTA"
         '
         'pictureBox9
         '

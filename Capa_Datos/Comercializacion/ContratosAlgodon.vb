@@ -145,14 +145,26 @@ Public Class ContratosAlgodon
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaMicrosCompraCmb
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboMicrosCompra", cnn)
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaMicrosVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboMicrosVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaLargoFibraCompraCmb
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboLargoFibraCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaLargoFibraVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboLargoFibraVenta", cnn)
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaResistenciaCompraCmb
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboResistenciaCompra", cnn)
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaResistenciaVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboResistenciaVenta", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidadCompraCmb
                     sqldat1 = New SqlDataAdapter("Sp_LlenaComboUniformidadCompra", cnn)
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaUniformidadVentaCmb
+                    sqldat1 = New SqlDataAdapter("Sp_LlenaComboUniformidadVenta", cnn)
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaCastigoMatExtCompra
                     sqldat1 = New SqlDataAdapter("Sp_LLenaCombosExMatCompra", cnn)
@@ -163,6 +175,13 @@ Public Class ContratosAlgodon
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdContratoCompra", EntidadContratosAlgodon1.IdContratoAlgodon))
+                    sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaParametrosContratoVenta
+                    sqlcom1 = New SqlCommand("Sp_ConsultaParametrosContratoVenta", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@IdContratoVenta", EntidadContratosAlgodon1.IdContratoAlgodon))
                     sqldat1.Fill(EntidadContratosAlgodon1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaContratovta
                     sqlcom1 = New SqlCommand("pa_consultacontratoventa", cnn)

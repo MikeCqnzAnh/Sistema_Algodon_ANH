@@ -589,6 +589,11 @@ Public Class MenuPrincipal
         compracontrato.ShowDialog()
     End Sub
 
+    Private Sub VentaDePacasPorContratoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles VentaDePacasPorContratoToolStripMenuItem1.Click
+        Dim ventacontrato As New VentaPacasPorContrato
+        ventacontrato.ShowDialog()
+    End Sub
+
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub

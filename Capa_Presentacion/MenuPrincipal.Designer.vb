@@ -201,6 +201,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.VentaDePacasPorContratoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -593,7 +594,7 @@ Partial Class MenuPrincipal
         '
         'VentasToolStripMenuItem
         '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDePacasPorContratoToolStripMenuItem, Me.PreliquidacionACompradorToolStripMenuItem, Me.VentaDePacasToolStripMenuItem})
+        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDePacasPorContratoToolStripMenuItem, Me.VentaDePacasPorContratoToolStripMenuItem1, Me.PreliquidacionACompradorToolStripMenuItem, Me.VentaDePacasToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
         Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(280, 22)
         Me.VentasToolStripMenuItem.Tag = "43,26"
@@ -1490,6 +1491,13 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
+        'VentaDePacasPorContratoToolStripMenuItem1
+        '
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Name = "VentaDePacasPorContratoToolStripMenuItem1"
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Size = New System.Drawing.Size(238, 22)
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Tag = "0,0"
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Text = "Venta de Pacas Por Contrato"
+        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1695,4 +1703,5 @@ Partial Class MenuPrincipal
     Friend WithEvents TurnosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CompraDePacasPorContratoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentaDePacasPorContratoToolStripMenuItem1 As ToolStripMenuItem
 End Class

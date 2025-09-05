@@ -67,6 +67,8 @@
         GuardarVentaRecalculo = 15
         GuardaCompraenc = 16
         Guardacompradet = 17
+        GuardaVentaenc = 18
+        GuardaVentadet = 19
     End Enum
     Public Enum Consulta
         ConsultaEstado = 1
@@ -213,6 +215,8 @@
         consultaperfiluhml = 140
         consultaperfilres = 141
         consultaperfilui = 142
+        consultapacasinVenta = 143
+        ConsultaVenta = 144
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1
@@ -242,6 +246,7 @@
         ActualizarPacaUnibajar = 19
         ActualizarParametros = 20
         ActualizaContratoCompra = 21
+        ActualizaContratoVenta = 22
     End Enum
     Public Enum Importa
         ImportaTabla = 1
