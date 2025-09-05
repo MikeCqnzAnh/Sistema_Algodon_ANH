@@ -1,6 +1,6 @@
-create Procedure [dbo].[Sp_ConsultaDatosEmpresa]
+CREATE Procedure Sp_ConsultaDatosEmpresa
 as
-SELECT [IdDatosEmpresa]
+SELECT top 1 [IdDatosEmpresa]
       ,[RazonSocial]
       ,[RFCEmpresa]
       ,[RepresentanteLegal]
@@ -18,4 +18,5 @@ SELECT [IdDatosEmpresa]
       ,[Estado]
       ,[Municipio]
       ,[LugarExpedicion]
+	  ,[logoempresa]
   FROM [dbo].[DatosEmpresa]

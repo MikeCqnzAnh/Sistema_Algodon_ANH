@@ -52,6 +52,11 @@ Partial Class CompraPacasPorContrato
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tbpacaseleccionadadisp = New System.Windows.Forms.ToolStripTextBox()
         Me.panel6 = New System.Windows.Forms.Panel()
+        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltroreiniciar = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltros = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btdesmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tbcantidadsel1 = New System.Windows.Forms.TextBox()
         Me.tppacaseleccionada = New System.Windows.Forms.TabPage()
         Me.dataGridViewDestino = New System.Windows.Forms.DataGridView()
@@ -60,12 +65,6 @@ Partial Class CompraPacasPorContrato
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tspacasseleccionadas = New System.Windows.Forms.ToolStripTextBox()
         Me.panel9 = New System.Windows.Forms.Panel()
-        Me.tbcantidadsel2 = New System.Windows.Forms.TextBox()
-        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltroreiniciar = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltros = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btdesmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btpreliquidacion = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btcalcula = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btfiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
@@ -73,64 +72,65 @@ Partial Class CompraPacasPorContrato
         Me.btdesmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btregresarseleccion = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.tbcantidadsel2 = New System.Windows.Forms.TextBox()
         Me.Panelgeneral = New System.Windows.Forms.Panel()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TbNombreProductor = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.DtFechaCompra = New System.Windows.Forms.DateTimePicker()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.CbPlanta = New System.Windows.Forms.ComboBox()
-        Me.TbIdContrato = New System.Windows.Forms.TextBox()
-        Me.TbIdProductor = New System.Windows.Forms.TextBox()
-        Me.TbIdCompraPaca = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.CbModalidadCompra = New System.Windows.Forms.ComboBox()
-        Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
-        Me.btconsultaclientes = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.nuPrecioQuintal = New System.Windows.Forms.NumericUpDown()
-        Me.nuPuntos = New System.Windows.Forms.NumericUpDown()
-        Me.nuNoPacas = New System.Windows.Forms.NumericUpDown()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cbestatus = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ckactivatara = New System.Windows.Forms.CheckBox()
-        Me.nutara = New System.Windows.Forms.NumericUpDown()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.cbunidadpeso = New System.Windows.Forms.ComboBox()
-        Me.TbValorConversion = New System.Windows.Forms.TextBox()
-        Me.nutotalpacas = New System.Windows.Forms.NumericUpDown()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.nutotalpacas = New System.Windows.Forms.NumericUpDown()
+        Me.TbValorConversion = New System.Windows.Forms.TextBox()
+        Me.cbunidadpeso = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.nutara = New System.Windows.Forms.NumericUpDown()
+        Me.ckactivatara = New System.Windows.Forms.CheckBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cbestatus = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.nuNoPacas = New System.Windows.Forms.NumericUpDown()
+        Me.nuPuntos = New System.Windows.Forms.NumericUpDown()
+        Me.nuPrecioQuintal = New System.Windows.Forms.NumericUpDown()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btconsultaclientes = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
+        Me.CbModalidadCompra = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TbIdCompraPaca = New System.Windows.Forms.TextBox()
+        Me.TbIdProductor = New System.Windows.Forms.TextBox()
+        Me.TbIdContrato = New System.Windows.Forms.TextBox()
+        Me.CbPlanta = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.DtFechaCompra = New System.Windows.Forms.DateTimePicker()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TbNombreProductor = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.gbpreciosclase = New System.Windows.Forms.GroupBox()
         Me.dgvprecioclase = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.panel4 = New System.Windows.Forms.Panel()
-        Me.label26 = New System.Windows.Forms.Label()
-        Me.nusubtotal = New System.Windows.Forms.NumericUpDown()
-        Me.panel5 = New System.Windows.Forms.Panel()
-        Me.label27 = New System.Windows.Forms.Label()
-        Me.nutotal = New System.Windows.Forms.NumericUpDown()
-        Me.nutotaldeduccion = New System.Windows.Forms.NumericUpDown()
-        Me.label8 = New System.Windows.Forms.Label()
         Me.tcdeduccion = New System.Windows.Forms.TabControl()
         Me.tpdeducciones = New System.Windows.Forms.TabPage()
-        Me.CkLargo = New System.Windows.Forms.CheckBox()
-        Me.cbperfilmicros = New System.Windows.Forms.ComboBox()
-        Me.CkRes = New System.Windows.Forms.CheckBox()
-        Me.nucastigomic = New System.Windows.Forms.NumericUpDown()
-        Me.CkUni = New System.Windows.Forms.CheckBox()
-        Me.nucastigostr = New System.Windows.Forms.NumericUpDown()
-        Me.cbperfiluhml = New System.Windows.Forms.ComboBox()
-        Me.nucastigouni = New System.Windows.Forms.NumericUpDown()
-        Me.cbperfilstrength = New System.Windows.Forms.ComboBox()
-        Me.nucastigouhml = New System.Windows.Forms.NumericUpDown()
-        Me.cbperfilui = New System.Windows.Forms.ComboBox()
         Me.ckMicros = New System.Windows.Forms.CheckBox()
+        Me.cbperfilui = New System.Windows.Forms.ComboBox()
+        Me.nucastigouhml = New System.Windows.Forms.NumericUpDown()
+        Me.cbperfilstrength = New System.Windows.Forms.ComboBox()
+        Me.nucastigouni = New System.Windows.Forms.NumericUpDown()
+        Me.cbperfiluhml = New System.Windows.Forms.ComboBox()
+        Me.nucastigostr = New System.Windows.Forms.NumericUpDown()
+        Me.CkUni = New System.Windows.Forms.CheckBox()
+        Me.nucastigomic = New System.Windows.Forms.NumericUpDown()
+        Me.CkRes = New System.Windows.Forms.CheckBox()
+        Me.cbperfilmicros = New System.Windows.Forms.ComboBox()
+        Me.CkLargo = New System.Windows.Forms.CheckBox()
+        Me.panel5 = New System.Windows.Forms.Panel()
+        Me.label8 = New System.Windows.Forms.Label()
+        Me.nutotaldeduccion = New System.Windows.Forms.NumericUpDown()
+        Me.nutotal = New System.Windows.Forms.NumericUpDown()
+        Me.label27 = New System.Windows.Forms.Label()
+        Me.panel4 = New System.Windows.Forms.Panel()
+        Me.nusubtotal = New System.Windows.Forms.NumericUpDown()
+        Me.label26 = New System.Windows.Forms.Label()
         Me.gbcontratos = New System.Windows.Forms.GroupBox()
         Me.dgvcontratos = New System.Windows.Forms.DataGridView()
         Me.Paneltop = New System.Windows.Forms.Panel()
@@ -141,15 +141,15 @@ Partial Class CompraPacasPorContrato
         CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tsdisponibles.SuspendLayout()
         Me.panel6.SuspendLayout()
-        Me.tppacaseleccionada.SuspendLayout()
-        CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.toolStrip1.SuspendLayout()
-        Me.panel9.SuspendLayout()
         CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tppacaseleccionada.SuspendLayout()
+        CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.toolStrip1.SuspendLayout()
+        Me.panel9.SuspendLayout()
         CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,26 +158,26 @@ Partial Class CompraPacasPorContrato
         CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panelgeneral.SuspendLayout()
-        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nutara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nutara, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbpreciosclase.SuspendLayout()
         CType(Me.dgvprecioclase, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.panel4.SuspendLayout()
-        CType(Me.nusubtotal, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panel5.SuspendLayout()
-        CType(Me.nutotal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nutotaldeduccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tcdeduccion.SuspendLayout()
         Me.tpdeducciones.SuspendLayout()
-        CType(Me.nucastigomic, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nucastigostr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nucastigouni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nucastigouhml, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nucastigouni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nucastigostr, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nucastigomic, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panel5.SuspendLayout()
+        CType(Me.nutotaldeduccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nutotal, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panel4.SuspendLayout()
+        CType(Me.nusubtotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbcontratos.SuspendLayout()
         CType(Me.dgvcontratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Paneltop.SuspendLayout()
@@ -389,6 +389,81 @@ Partial Class CompraPacasPorContrato
         Me.panel6.Size = New System.Drawing.Size(51, 393)
         Me.panel6.TabIndex = 107
         '
+        'btenviaseleccion
+        '
+        Me.btenviaseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btenviaseleccion.BackColor = System.Drawing.Color.Transparent
+        Me.btenviaseleccion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btenviaseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_36
+        Me.btenviaseleccion.ImageActive = Nothing
+        Me.btenviaseleccion.Location = New System.Drawing.Point(12, 3)
+        Me.btenviaseleccion.Name = "btenviaseleccion"
+        Me.btenviaseleccion.Size = New System.Drawing.Size(30, 30)
+        Me.btenviaseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btenviaseleccion.TabIndex = 124
+        Me.btenviaseleccion.TabStop = False
+        Me.btenviaseleccion.Zoom = 15
+        '
+        'btfiltroreiniciar
+        '
+        Me.btfiltroreiniciar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btfiltroreiniciar.BackColor = System.Drawing.Color.Transparent
+        Me.btfiltroreiniciar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btfiltroreiniciar.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
+        Me.btfiltroreiniciar.ImageActive = Nothing
+        Me.btfiltroreiniciar.Location = New System.Drawing.Point(12, 102)
+        Me.btfiltroreiniciar.Name = "btfiltroreiniciar"
+        Me.btfiltroreiniciar.Size = New System.Drawing.Size(30, 30)
+        Me.btfiltroreiniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btfiltroreiniciar.TabIndex = 123
+        Me.btfiltroreiniciar.TabStop = False
+        Me.btfiltroreiniciar.Zoom = 15
+        '
+        'btfiltros
+        '
+        Me.btfiltros.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btfiltros.BackColor = System.Drawing.Color.Transparent
+        Me.btfiltros.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btfiltros.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
+        Me.btfiltros.ImageActive = Nothing
+        Me.btfiltros.Location = New System.Drawing.Point(12, 55)
+        Me.btfiltros.Name = "btfiltros"
+        Me.btfiltros.Size = New System.Drawing.Size(30, 30)
+        Me.btfiltros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btfiltros.TabIndex = 122
+        Me.btfiltros.TabStop = False
+        Me.btfiltros.Zoom = 15
+        '
+        'btdesmarcarpacas
+        '
+        Me.btdesmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btdesmarcarpacas.BackColor = System.Drawing.Color.Transparent
+        Me.btdesmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btdesmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
+        Me.btdesmarcarpacas.ImageActive = Nothing
+        Me.btdesmarcarpacas.Location = New System.Drawing.Point(12, 228)
+        Me.btdesmarcarpacas.Name = "btdesmarcarpacas"
+        Me.btdesmarcarpacas.Size = New System.Drawing.Size(30, 30)
+        Me.btdesmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btdesmarcarpacas.TabIndex = 121
+        Me.btdesmarcarpacas.TabStop = False
+        Me.btdesmarcarpacas.Zoom = 15
+        '
+        'btmarcarpacas
+        '
+        Me.btmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btmarcarpacas.BackColor = System.Drawing.Color.Transparent
+        Me.btmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
+        Me.btmarcarpacas.ImageActive = Nothing
+        Me.btmarcarpacas.Location = New System.Drawing.Point(12, 166)
+        Me.btmarcarpacas.Name = "btmarcarpacas"
+        Me.btmarcarpacas.Size = New System.Drawing.Size(30, 30)
+        Me.btmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btmarcarpacas.TabIndex = 120
+        Me.btmarcarpacas.TabStop = False
+        Me.btmarcarpacas.Zoom = 15
+        '
         'tbcantidadsel1
         '
         Me.tbcantidadsel1.Location = New System.Drawing.Point(6, 202)
@@ -501,90 +576,6 @@ Partial Class CompraPacasPorContrato
         Me.panel9.Size = New System.Drawing.Size(51, 393)
         Me.panel9.TabIndex = 111
         '
-        'tbcantidadsel2
-        '
-        Me.tbcantidadsel2.Location = New System.Drawing.Point(6, 202)
-        Me.tbcantidadsel2.MaxLength = 5
-        Me.tbcantidadsel2.Name = "tbcantidadsel2"
-        Me.tbcantidadsel2.Size = New System.Drawing.Size(40, 20)
-        Me.tbcantidadsel2.TabIndex = 121
-        Me.tbcantidadsel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'btenviaseleccion
-        '
-        Me.btenviaseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btenviaseleccion.BackColor = System.Drawing.Color.Transparent
-        Me.btenviaseleccion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btenviaseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_36
-        Me.btenviaseleccion.ImageActive = Nothing
-        Me.btenviaseleccion.Location = New System.Drawing.Point(12, 3)
-        Me.btenviaseleccion.Name = "btenviaseleccion"
-        Me.btenviaseleccion.Size = New System.Drawing.Size(30, 30)
-        Me.btenviaseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btenviaseleccion.TabIndex = 124
-        Me.btenviaseleccion.TabStop = False
-        Me.btenviaseleccion.Zoom = 15
-        '
-        'btfiltroreiniciar
-        '
-        Me.btfiltroreiniciar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btfiltroreiniciar.BackColor = System.Drawing.Color.Transparent
-        Me.btfiltroreiniciar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btfiltroreiniciar.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
-        Me.btfiltroreiniciar.ImageActive = Nothing
-        Me.btfiltroreiniciar.Location = New System.Drawing.Point(12, 102)
-        Me.btfiltroreiniciar.Name = "btfiltroreiniciar"
-        Me.btfiltroreiniciar.Size = New System.Drawing.Size(30, 30)
-        Me.btfiltroreiniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btfiltroreiniciar.TabIndex = 123
-        Me.btfiltroreiniciar.TabStop = False
-        Me.btfiltroreiniciar.Zoom = 15
-        '
-        'btfiltros
-        '
-        Me.btfiltros.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btfiltros.BackColor = System.Drawing.Color.Transparent
-        Me.btfiltros.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btfiltros.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
-        Me.btfiltros.ImageActive = Nothing
-        Me.btfiltros.Location = New System.Drawing.Point(12, 55)
-        Me.btfiltros.Name = "btfiltros"
-        Me.btfiltros.Size = New System.Drawing.Size(30, 30)
-        Me.btfiltros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btfiltros.TabIndex = 122
-        Me.btfiltros.TabStop = False
-        Me.btfiltros.Zoom = 15
-        '
-        'btdesmarcarpacas
-        '
-        Me.btdesmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btdesmarcarpacas.BackColor = System.Drawing.Color.Transparent
-        Me.btdesmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btdesmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
-        Me.btdesmarcarpacas.ImageActive = Nothing
-        Me.btdesmarcarpacas.Location = New System.Drawing.Point(12, 228)
-        Me.btdesmarcarpacas.Name = "btdesmarcarpacas"
-        Me.btdesmarcarpacas.Size = New System.Drawing.Size(30, 30)
-        Me.btdesmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btdesmarcarpacas.TabIndex = 121
-        Me.btdesmarcarpacas.TabStop = False
-        Me.btdesmarcarpacas.Zoom = 15
-        '
-        'btmarcarpacas
-        '
-        Me.btmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btmarcarpacas.BackColor = System.Drawing.Color.Transparent
-        Me.btmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
-        Me.btmarcarpacas.ImageActive = Nothing
-        Me.btmarcarpacas.Location = New System.Drawing.Point(12, 166)
-        Me.btmarcarpacas.Name = "btmarcarpacas"
-        Me.btmarcarpacas.Size = New System.Drawing.Size(30, 30)
-        Me.btmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btmarcarpacas.TabIndex = 120
-        Me.btmarcarpacas.TabStop = False
-        Me.btmarcarpacas.Zoom = 15
-        '
         'btpreliquidacion
         '
         Me.btpreliquidacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -690,6 +681,15 @@ Partial Class CompraPacasPorContrato
         Me.btregresarseleccion.TabStop = False
         Me.btregresarseleccion.Zoom = 15
         '
+        'tbcantidadsel2
+        '
+        Me.tbcantidadsel2.Location = New System.Drawing.Point(6, 202)
+        Me.tbcantidadsel2.MaxLength = 5
+        Me.tbcantidadsel2.Name = "tbcantidadsel2"
+        Me.tbcantidadsel2.Size = New System.Drawing.Size(40, 20)
+        Me.tbcantidadsel2.TabIndex = 121
+        Me.tbcantidadsel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Panelgeneral
         '
         Me.Panelgeneral.Controls.Add(Me.Label11)
@@ -730,252 +730,53 @@ Partial Class CompraPacasPorContrato
         Me.Panelgeneral.Size = New System.Drawing.Size(617, 252)
         Me.Panelgeneral.TabIndex = 1
         '
-        'Label14
+        'Label11
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(412, 87)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(37, 13)
-        Me.Label14.TabIndex = 76
-        Me.Label14.Text = "Precio"
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(14, 141)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(92, 13)
+        Me.Label11.TabIndex = 161
+        Me.Label11.Text = "Pacas compradas"
         '
-        'TbNombreProductor
+        'nutotalpacas
         '
-        Me.TbNombreProductor.Enabled = False
-        Me.TbNombreProductor.Location = New System.Drawing.Point(207, 33)
-        Me.TbNombreProductor.Name = "TbNombreProductor"
-        Me.TbNombreProductor.Size = New System.Drawing.Size(367, 20)
-        Me.TbNombreProductor.TabIndex = 72
+        Me.nutotalpacas.Enabled = False
+        Me.nutotalpacas.Location = New System.Drawing.Point(126, 139)
+        Me.nutotalpacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
+        Me.nutotalpacas.Name = "nutotalpacas"
+        Me.nutotalpacas.Size = New System.Drawing.Size(120, 20)
+        Me.nutotalpacas.TabIndex = 160
+        Me.nutotalpacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nutotalpacas.ThousandsSeparator = True
         '
-        'Label5
+        'TbValorConversion
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 36)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(53, 13)
-        Me.Label5.TabIndex = 69
-        Me.Label5.Text = "Productor"
+        Me.TbValorConversion.Location = New System.Drawing.Point(282, 86)
+        Me.TbValorConversion.Name = "TbValorConversion"
+        Me.TbValorConversion.ReadOnly = True
+        Me.TbValorConversion.Size = New System.Drawing.Size(52, 20)
+        Me.TbValorConversion.TabIndex = 159
+        Me.TbValorConversion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Label4
+        'cbunidadpeso
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(410, 169)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(96, 13)
-        Me.Label4.TabIndex = 66
-        Me.Label4.Text = "Fecha de creacion"
+        Me.cbunidadpeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbunidadpeso.Enabled = False
+        Me.cbunidadpeso.FormattingEnabled = True
+        Me.cbunidadpeso.Location = New System.Drawing.Point(126, 86)
+        Me.cbunidadpeso.Name = "cbunidadpeso"
+        Me.cbunidadpeso.Size = New System.Drawing.Size(150, 21)
+        Me.cbunidadpeso.TabIndex = 157
         '
-        'Label25
+        'Label10
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(412, 195)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(70, 13)
-        Me.Label25.TabIndex = 67
-        Me.Label25.Text = "Actualizacion"
-        '
-        'DtFechaCompra
-        '
-        Me.DtFechaCompra.Enabled = False
-        Me.DtFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaCompra.Location = New System.Drawing.Point(512, 165)
-        Me.DtFechaCompra.Name = "DtFechaCompra"
-        Me.DtFechaCompra.Size = New System.Drawing.Size(96, 20)
-        Me.DtFechaCompra.TabIndex = 65
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(412, 62)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 13)
-        Me.Label12.TabIndex = 71
-        Me.Label12.Text = "Id Contrato"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(14, 60)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(110, 13)
-        Me.Label17.TabIndex = 70
-        Me.Label17.Text = "Modalidad de Compra"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(264, 11)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(37, 13)
-        Me.Label2.TabIndex = 64
-        Me.Label2.Text = "Planta"
-        Me.Label2.Visible = False
-        '
-        'CbPlanta
-        '
-        Me.CbPlanta.FormattingEnabled = True
-        Me.CbPlanta.Location = New System.Drawing.Point(329, 7)
-        Me.CbPlanta.Name = "CbPlanta"
-        Me.CbPlanta.Size = New System.Drawing.Size(117, 21)
-        Me.CbPlanta.TabIndex = 63
-        Me.CbPlanta.Visible = False
-        '
-        'TbIdContrato
-        '
-        Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(512, 59)
-        Me.TbIdContrato.Name = "TbIdContrato"
-        Me.TbIdContrato.Size = New System.Drawing.Size(96, 20)
-        Me.TbIdContrato.TabIndex = 68
-        Me.TbIdContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TbIdProductor
-        '
-        Me.TbIdProductor.Enabled = False
-        Me.TbIdProductor.Location = New System.Drawing.Point(126, 33)
-        Me.TbIdProductor.Name = "TbIdProductor"
-        Me.TbIdProductor.Size = New System.Drawing.Size(75, 20)
-        Me.TbIdProductor.TabIndex = 61
-        '
-        'TbIdCompraPaca
-        '
-        Me.TbIdCompraPaca.Enabled = False
-        Me.TbIdCompraPaca.Location = New System.Drawing.Point(126, 7)
-        Me.TbIdCompraPaca.Name = "TbIdCompraPaca"
-        Me.TbIdCompraPaca.Size = New System.Drawing.Size(75, 20)
-        Me.TbIdCompraPaca.TabIndex = 60
-        Me.TbIdCompraPaca.UseWaitCursor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(412, 141)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 13)
-        Me.Label6.TabIndex = 75
-        Me.Label6.Text = "No. Pacas"
-        '
-        'CbModalidadCompra
-        '
-        Me.CbModalidadCompra.Enabled = False
-        Me.CbModalidadCompra.FormattingEnabled = True
-        Me.CbModalidadCompra.Location = New System.Drawing.Point(126, 59)
-        Me.CbModalidadCompra.Name = "CbModalidadCompra"
-        Me.CbModalidadCompra.Size = New System.Drawing.Size(165, 21)
-        Me.CbModalidadCompra.TabIndex = 77
-        '
-        'DtFechaActualizacion
-        '
-        Me.DtFechaActualizacion.Enabled = False
-        Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaActualizacion.Location = New System.Drawing.Point(512, 191)
-        Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
-        Me.DtFechaActualizacion.Size = New System.Drawing.Size(96, 20)
-        Me.DtFechaActualizacion.TabIndex = 79
-        '
-        'btconsultaclientes
-        '
-        Me.btconsultaclientes.BackColor = System.Drawing.Color.Transparent
-        Me.btconsultaclientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btconsultaclientes.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
-        Me.btconsultaclientes.ImageActive = Nothing
-        Me.btconsultaclientes.Location = New System.Drawing.Point(583, 28)
-        Me.btconsultaclientes.Name = "btconsultaclientes"
-        Me.btconsultaclientes.Size = New System.Drawing.Size(25, 25)
-        Me.btconsultaclientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btconsultaclientes.TabIndex = 125
-        Me.btconsultaclientes.TabStop = False
-        Me.btconsultaclientes.Zoom = 15
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(412, 115)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
-        Me.Label3.TabIndex = 127
-        Me.Label3.Text = "Puntos"
-        '
-        'nuPrecioQuintal
-        '
-        Me.nuPrecioQuintal.DecimalPlaces = 2
-        Me.nuPrecioQuintal.Enabled = False
-        Me.nuPrecioQuintal.Location = New System.Drawing.Point(512, 85)
-        Me.nuPrecioQuintal.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
-        Me.nuPrecioQuintal.Minimum = New Decimal(New Integer() {500, 0, 0, -2147483648})
-        Me.nuPrecioQuintal.Name = "nuPrecioQuintal"
-        Me.nuPrecioQuintal.Size = New System.Drawing.Size(96, 20)
-        Me.nuPrecioQuintal.TabIndex = 128
-        Me.nuPrecioQuintal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nuPrecioQuintal.ThousandsSeparator = True
-        '
-        'nuPuntos
-        '
-        Me.nuPuntos.DecimalPlaces = 2
-        Me.nuPuntos.Enabled = False
-        Me.nuPuntos.Location = New System.Drawing.Point(512, 113)
-        Me.nuPuntos.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
-        Me.nuPuntos.Name = "nuPuntos"
-        Me.nuPuntos.Size = New System.Drawing.Size(96, 20)
-        Me.nuPuntos.TabIndex = 129
-        Me.nuPuntos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nuPuntos.ThousandsSeparator = True
-        '
-        'nuNoPacas
-        '
-        Me.nuNoPacas.Enabled = False
-        Me.nuNoPacas.Location = New System.Drawing.Point(512, 139)
-        Me.nuNoPacas.Maximum = New Decimal(New Integer() {-1530494977, 232830, 0, 0})
-        Me.nuNoPacas.Name = "nuNoPacas"
-        Me.nuNoPacas.Size = New System.Drawing.Size(96, 20)
-        Me.nuNoPacas.TabIndex = 130
-        Me.nuNoPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nuNoPacas.ThousandsSeparator = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
-        Me.Label1.TabIndex = 131
-        Me.Label1.Text = "ID Compra"
-        '
-        'cbestatus
-        '
-        Me.cbestatus.Enabled = False
-        Me.cbestatus.FormattingEnabled = True
-        Me.cbestatus.Location = New System.Drawing.Point(125, 165)
-        Me.cbestatus.Name = "cbestatus"
-        Me.cbestatus.Size = New System.Drawing.Size(121, 21)
-        Me.cbestatus.TabIndex = 152
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(13, 168)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 13)
-        Me.Label7.TabIndex = 153
-        Me.Label7.Text = "Estatus"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(14, 116)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(29, 13)
-        Me.Label9.TabIndex = 156
-        Me.Label9.Text = "Tara"
-        '
-        'ckactivatara
-        '
-        Me.ckactivatara.AutoSize = True
-        Me.ckactivatara.Location = New System.Drawing.Point(232, 115)
-        Me.ckactivatara.Name = "ckactivatara"
-        Me.ckactivatara.Size = New System.Drawing.Size(15, 14)
-        Me.ckactivatara.TabIndex = 155
-        Me.ckactivatara.UseVisualStyleBackColor = True
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(14, 89)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(92, 13)
+        Me.Label10.TabIndex = 158
+        Me.Label10.Text = "Unidad P/Compra"
         '
         'nutara
         '
@@ -991,53 +792,252 @@ Partial Class CompraPacasPorContrato
         Me.nutara.ThousandsSeparator = True
         Me.nutara.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
         '
-        'Label10
+        'ckactivatara
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(14, 89)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(92, 13)
-        Me.Label10.TabIndex = 158
-        Me.Label10.Text = "Unidad P/Compra"
+        Me.ckactivatara.AutoSize = True
+        Me.ckactivatara.Location = New System.Drawing.Point(232, 115)
+        Me.ckactivatara.Name = "ckactivatara"
+        Me.ckactivatara.Size = New System.Drawing.Size(15, 14)
+        Me.ckactivatara.TabIndex = 155
+        Me.ckactivatara.UseVisualStyleBackColor = True
         '
-        'cbunidadpeso
+        'Label9
         '
-        Me.cbunidadpeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbunidadpeso.Enabled = False
-        Me.cbunidadpeso.FormattingEnabled = True
-        Me.cbunidadpeso.Location = New System.Drawing.Point(126, 86)
-        Me.cbunidadpeso.Name = "cbunidadpeso"
-        Me.cbunidadpeso.Size = New System.Drawing.Size(150, 21)
-        Me.cbunidadpeso.TabIndex = 157
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(14, 116)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(29, 13)
+        Me.Label9.TabIndex = 156
+        Me.Label9.Text = "Tara"
         '
-        'TbValorConversion
+        'Label7
         '
-        Me.TbValorConversion.Location = New System.Drawing.Point(282, 86)
-        Me.TbValorConversion.Name = "TbValorConversion"
-        Me.TbValorConversion.ReadOnly = True
-        Me.TbValorConversion.Size = New System.Drawing.Size(52, 20)
-        Me.TbValorConversion.TabIndex = 159
-        Me.TbValorConversion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(13, 168)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(42, 13)
+        Me.Label7.TabIndex = 153
+        Me.Label7.Text = "Estatus"
         '
-        'nutotalpacas
+        'cbestatus
         '
-        Me.nutotalpacas.Enabled = False
-        Me.nutotalpacas.Location = New System.Drawing.Point(126, 139)
-        Me.nutotalpacas.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
-        Me.nutotalpacas.Name = "nutotalpacas"
-        Me.nutotalpacas.Size = New System.Drawing.Size(120, 20)
-        Me.nutotalpacas.TabIndex = 160
-        Me.nutotalpacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nutotalpacas.ThousandsSeparator = True
+        Me.cbestatus.Enabled = False
+        Me.cbestatus.FormattingEnabled = True
+        Me.cbestatus.Location = New System.Drawing.Point(125, 165)
+        Me.cbestatus.Name = "cbestatus"
+        Me.cbestatus.Size = New System.Drawing.Size(121, 21)
+        Me.cbestatus.TabIndex = 152
         '
-        'Label11
+        'Label1
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(14, 141)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(92, 13)
-        Me.Label11.TabIndex = 161
-        Me.Label11.Text = "Pacas compradas"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(14, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.TabIndex = 131
+        Me.Label1.Text = "ID Compra"
+        '
+        'nuNoPacas
+        '
+        Me.nuNoPacas.Enabled = False
+        Me.nuNoPacas.Location = New System.Drawing.Point(512, 139)
+        Me.nuNoPacas.Maximum = New Decimal(New Integer() {-1530494977, 232830, 0, 0})
+        Me.nuNoPacas.Name = "nuNoPacas"
+        Me.nuNoPacas.Size = New System.Drawing.Size(96, 20)
+        Me.nuNoPacas.TabIndex = 130
+        Me.nuNoPacas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nuNoPacas.ThousandsSeparator = True
+        '
+        'nuPuntos
+        '
+        Me.nuPuntos.DecimalPlaces = 2
+        Me.nuPuntos.Enabled = False
+        Me.nuPuntos.Location = New System.Drawing.Point(512, 113)
+        Me.nuPuntos.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
+        Me.nuPuntos.Name = "nuPuntos"
+        Me.nuPuntos.Size = New System.Drawing.Size(96, 20)
+        Me.nuPuntos.TabIndex = 129
+        Me.nuPuntos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nuPuntos.ThousandsSeparator = True
+        '
+        'nuPrecioQuintal
+        '
+        Me.nuPrecioQuintal.DecimalPlaces = 2
+        Me.nuPrecioQuintal.Enabled = False
+        Me.nuPrecioQuintal.Location = New System.Drawing.Point(512, 85)
+        Me.nuPrecioQuintal.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
+        Me.nuPrecioQuintal.Minimum = New Decimal(New Integer() {500, 0, 0, -2147483648})
+        Me.nuPrecioQuintal.Name = "nuPrecioQuintal"
+        Me.nuPrecioQuintal.Size = New System.Drawing.Size(96, 20)
+        Me.nuPrecioQuintal.TabIndex = 128
+        Me.nuPrecioQuintal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nuPrecioQuintal.ThousandsSeparator = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(412, 115)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 127
+        Me.Label3.Text = "Puntos"
+        '
+        'btconsultaclientes
+        '
+        Me.btconsultaclientes.BackColor = System.Drawing.Color.Transparent
+        Me.btconsultaclientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btconsultaclientes.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
+        Me.btconsultaclientes.ImageActive = Nothing
+        Me.btconsultaclientes.Location = New System.Drawing.Point(583, 28)
+        Me.btconsultaclientes.Name = "btconsultaclientes"
+        Me.btconsultaclientes.Size = New System.Drawing.Size(25, 25)
+        Me.btconsultaclientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btconsultaclientes.TabIndex = 125
+        Me.btconsultaclientes.TabStop = False
+        Me.btconsultaclientes.Zoom = 15
+        '
+        'DtFechaActualizacion
+        '
+        Me.DtFechaActualizacion.Enabled = False
+        Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaActualizacion.Location = New System.Drawing.Point(512, 191)
+        Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
+        Me.DtFechaActualizacion.Size = New System.Drawing.Size(96, 20)
+        Me.DtFechaActualizacion.TabIndex = 79
+        '
+        'CbModalidadCompra
+        '
+        Me.CbModalidadCompra.Enabled = False
+        Me.CbModalidadCompra.FormattingEnabled = True
+        Me.CbModalidadCompra.Location = New System.Drawing.Point(126, 59)
+        Me.CbModalidadCompra.Name = "CbModalidadCompra"
+        Me.CbModalidadCompra.Size = New System.Drawing.Size(165, 21)
+        Me.CbModalidadCompra.TabIndex = 77
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(412, 141)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(57, 13)
+        Me.Label6.TabIndex = 75
+        Me.Label6.Text = "No. Pacas"
+        '
+        'TbIdCompraPaca
+        '
+        Me.TbIdCompraPaca.Enabled = False
+        Me.TbIdCompraPaca.Location = New System.Drawing.Point(126, 7)
+        Me.TbIdCompraPaca.Name = "TbIdCompraPaca"
+        Me.TbIdCompraPaca.Size = New System.Drawing.Size(75, 20)
+        Me.TbIdCompraPaca.TabIndex = 60
+        Me.TbIdCompraPaca.UseWaitCursor = True
+        '
+        'TbIdProductor
+        '
+        Me.TbIdProductor.Enabled = False
+        Me.TbIdProductor.Location = New System.Drawing.Point(126, 33)
+        Me.TbIdProductor.Name = "TbIdProductor"
+        Me.TbIdProductor.Size = New System.Drawing.Size(75, 20)
+        Me.TbIdProductor.TabIndex = 61
+        '
+        'TbIdContrato
+        '
+        Me.TbIdContrato.Enabled = False
+        Me.TbIdContrato.Location = New System.Drawing.Point(512, 59)
+        Me.TbIdContrato.Name = "TbIdContrato"
+        Me.TbIdContrato.Size = New System.Drawing.Size(96, 20)
+        Me.TbIdContrato.TabIndex = 68
+        Me.TbIdContrato.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CbPlanta
+        '
+        Me.CbPlanta.FormattingEnabled = True
+        Me.CbPlanta.Location = New System.Drawing.Point(329, 7)
+        Me.CbPlanta.Name = "CbPlanta"
+        Me.CbPlanta.Size = New System.Drawing.Size(117, 21)
+        Me.CbPlanta.TabIndex = 63
+        Me.CbPlanta.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(264, 11)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(37, 13)
+        Me.Label2.TabIndex = 64
+        Me.Label2.Text = "Planta"
+        Me.Label2.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(14, 60)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(110, 13)
+        Me.Label17.TabIndex = 70
+        Me.Label17.Text = "Modalidad de Compra"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(412, 62)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(59, 13)
+        Me.Label12.TabIndex = 71
+        Me.Label12.Text = "Id Contrato"
+        '
+        'DtFechaCompra
+        '
+        Me.DtFechaCompra.Enabled = False
+        Me.DtFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DtFechaCompra.Location = New System.Drawing.Point(512, 165)
+        Me.DtFechaCompra.Name = "DtFechaCompra"
+        Me.DtFechaCompra.Size = New System.Drawing.Size(96, 20)
+        Me.DtFechaCompra.TabIndex = 65
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(412, 195)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(70, 13)
+        Me.Label25.TabIndex = 67
+        Me.Label25.Text = "Actualizacion"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(410, 169)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(96, 13)
+        Me.Label4.TabIndex = 66
+        Me.Label4.Text = "Fecha de creacion"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(14, 36)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
+        Me.Label5.TabIndex = 69
+        Me.Label5.Text = "Productor"
+        '
+        'TbNombreProductor
+        '
+        Me.TbNombreProductor.Enabled = False
+        Me.TbNombreProductor.Location = New System.Drawing.Point(207, 33)
+        Me.TbNombreProductor.Name = "TbNombreProductor"
+        Me.TbNombreProductor.Size = New System.Drawing.Size(367, 20)
+        Me.TbNombreProductor.TabIndex = 72
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(412, 87)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(37, 13)
+        Me.Label14.TabIndex = 76
+        Me.Label14.Text = "Precio"
         '
         'gbpreciosclase
         '
@@ -1092,98 +1092,6 @@ Partial Class CompraPacasPorContrato
         Me.Panel1.Size = New System.Drawing.Size(367, 252)
         Me.Panel1.TabIndex = 0
         '
-        'panel4
-        '
-        Me.panel4.Controls.Add(Me.nusubtotal)
-        Me.panel4.Controls.Add(Me.label26)
-        Me.panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panel4.Location = New System.Drawing.Point(0, 0)
-        Me.panel4.Name = "panel4"
-        Me.panel4.Size = New System.Drawing.Size(367, 40)
-        Me.panel4.TabIndex = 15
-        '
-        'label26
-        '
-        Me.label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.label26.AutoSize = True
-        Me.label26.Location = New System.Drawing.Point(205, 9)
-        Me.label26.Name = "label26"
-        Me.label26.Size = New System.Drawing.Size(46, 13)
-        Me.label26.TabIndex = 5
-        Me.label26.Text = "Subtotal"
-        '
-        'nusubtotal
-        '
-        Me.nusubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.nusubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nusubtotal.DecimalPlaces = 4
-        Me.nusubtotal.Enabled = False
-        Me.nusubtotal.Location = New System.Drawing.Point(257, 7)
-        Me.nusubtotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.nusubtotal.Name = "nusubtotal"
-        Me.nusubtotal.Size = New System.Drawing.Size(104, 20)
-        Me.nusubtotal.TabIndex = 12
-        Me.nusubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nusubtotal.ThousandsSeparator = True
-        Me.nusubtotal.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'panel5
-        '
-        Me.panel5.Controls.Add(Me.label8)
-        Me.panel5.Controls.Add(Me.nutotaldeduccion)
-        Me.panel5.Controls.Add(Me.nutotal)
-        Me.panel5.Controls.Add(Me.label27)
-        Me.panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panel5.Location = New System.Drawing.Point(0, 194)
-        Me.panel5.Name = "panel5"
-        Me.panel5.Size = New System.Drawing.Size(367, 58)
-        Me.panel5.TabIndex = 105
-        '
-        'label27
-        '
-        Me.label27.AutoSize = True
-        Me.label27.Location = New System.Drawing.Point(166, 30)
-        Me.label27.Name = "label27"
-        Me.label27.Size = New System.Drawing.Size(31, 13)
-        Me.label27.TabIndex = 13
-        Me.label27.Text = "Total"
-        '
-        'nutotal
-        '
-        Me.nutotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nutotal.DecimalPlaces = 4
-        Me.nutotal.Enabled = False
-        Me.nutotal.Location = New System.Drawing.Point(254, 28)
-        Me.nutotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
-        Me.nutotal.Name = "nutotal"
-        Me.nutotal.Size = New System.Drawing.Size(105, 20)
-        Me.nutotal.TabIndex = 14
-        Me.nutotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nutotal.ThousandsSeparator = True
-        Me.nutotal.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'nutotaldeduccion
-        '
-        Me.nutotaldeduccion.DecimalPlaces = 4
-        Me.nutotaldeduccion.Enabled = False
-        Me.nutotaldeduccion.Location = New System.Drawing.Point(254, 3)
-        Me.nutotaldeduccion.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
-        Me.nutotaldeduccion.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
-        Me.nutotaldeduccion.Name = "nutotaldeduccion"
-        Me.nutotaldeduccion.Size = New System.Drawing.Size(104, 20)
-        Me.nutotaldeduccion.TabIndex = 15
-        Me.nutotaldeduccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nutotaldeduccion.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'label8
-        '
-        Me.label8.AutoSize = True
-        Me.label8.Location = New System.Drawing.Point(166, 5)
-        Me.label8.Name = "label8"
-        Me.label8.Size = New System.Drawing.Size(82, 13)
-        Me.label8.TabIndex = 16
-        Me.label8.Text = "Deduccion total"
-        '
         'tcdeduccion
         '
         Me.tcdeduccion.Controls.Add(Me.tpdeducciones)
@@ -1217,107 +1125,24 @@ Partial Class CompraPacasPorContrato
         Me.tpdeducciones.Text = "Deducciones"
         Me.tpdeducciones.UseVisualStyleBackColor = True
         '
-        'CkLargo
+        'ckMicros
         '
-        Me.CkLargo.AutoSize = True
-        Me.CkLargo.Location = New System.Drawing.Point(6, 62)
-        Me.CkLargo.Name = "CkLargo"
-        Me.CkLargo.Size = New System.Drawing.Size(57, 17)
-        Me.CkLargo.TabIndex = 69
-        Me.CkLargo.Text = "UHML"
-        Me.CkLargo.UseVisualStyleBackColor = True
+        Me.ckMicros.AutoSize = True
+        Me.ckMicros.Location = New System.Drawing.Point(6, 9)
+        Me.ckMicros.Name = "ckMicros"
+        Me.ckMicros.Size = New System.Drawing.Size(43, 17)
+        Me.ckMicros.TabIndex = 68
+        Me.ckMicros.Text = "Mic"
+        Me.ckMicros.UseVisualStyleBackColor = True
         '
-        'cbperfilmicros
+        'cbperfilui
         '
-        Me.cbperfilmicros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbperfilmicros.FormattingEnabled = True
-        Me.cbperfilmicros.Location = New System.Drawing.Point(119, 5)
-        Me.cbperfilmicros.Name = "cbperfilmicros"
-        Me.cbperfilmicros.Size = New System.Drawing.Size(125, 21)
-        Me.cbperfilmicros.TabIndex = 9
-        '
-        'CkRes
-        '
-        Me.CkRes.AutoSize = True
-        Me.CkRes.Location = New System.Drawing.Point(6, 36)
-        Me.CkRes.Name = "CkRes"
-        Me.CkRes.Size = New System.Drawing.Size(66, 17)
-        Me.CkRes.TabIndex = 70
-        Me.CkRes.Text = "Strength"
-        Me.CkRes.UseVisualStyleBackColor = True
-        '
-        'nucastigomic
-        '
-        Me.nucastigomic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nucastigomic.DecimalPlaces = 4
-        Me.nucastigomic.Enabled = False
-        Me.nucastigomic.Location = New System.Drawing.Point(250, 6)
-        Me.nucastigomic.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
-        Me.nucastigomic.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
-        Me.nucastigomic.Name = "nucastigomic"
-        Me.nucastigomic.Size = New System.Drawing.Size(104, 20)
-        Me.nucastigomic.TabIndex = 102
-        Me.nucastigomic.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nucastigomic.ThousandsSeparator = True
-        Me.nucastigomic.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'CkUni
-        '
-        Me.CkUni.AutoSize = True
-        Me.CkUni.Location = New System.Drawing.Point(6, 90)
-        Me.CkUni.Name = "CkUni"
-        Me.CkUni.Size = New System.Drawing.Size(72, 17)
-        Me.CkUni.TabIndex = 71
-        Me.CkUni.Text = "Uniformity"
-        Me.CkUni.UseVisualStyleBackColor = True
-        '
-        'nucastigostr
-        '
-        Me.nucastigostr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nucastigostr.DecimalPlaces = 4
-        Me.nucastigostr.Enabled = False
-        Me.nucastigostr.Location = New System.Drawing.Point(250, 33)
-        Me.nucastigostr.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
-        Me.nucastigostr.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
-        Me.nucastigostr.Name = "nucastigostr"
-        Me.nucastigostr.Size = New System.Drawing.Size(104, 20)
-        Me.nucastigostr.TabIndex = 103
-        Me.nucastigostr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nucastigostr.ThousandsSeparator = True
-        Me.nucastigostr.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'cbperfiluhml
-        '
-        Me.cbperfiluhml.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbperfiluhml.FormattingEnabled = True
-        Me.cbperfiluhml.Location = New System.Drawing.Point(119, 59)
-        Me.cbperfiluhml.Name = "cbperfiluhml"
-        Me.cbperfiluhml.Size = New System.Drawing.Size(125, 21)
-        Me.cbperfiluhml.TabIndex = 10
-        '
-        'nucastigouni
-        '
-        Me.nucastigouni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nucastigouni.DecimalPlaces = 4
-        Me.nucastigouni.Enabled = False
-        Me.nucastigouni.Location = New System.Drawing.Point(250, 88)
-        Me.nucastigouni.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
-        Me.nucastigouni.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
-        Me.nucastigouni.Name = "nucastigouni"
-        Me.nucastigouni.Size = New System.Drawing.Size(104, 20)
-        Me.nucastigouni.TabIndex = 103
-        Me.nucastigouni.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nucastigouni.ThousandsSeparator = True
-        Me.nucastigouni.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        '
-        'cbperfilstrength
-        '
-        Me.cbperfilstrength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbperfilstrength.FormattingEnabled = True
-        Me.cbperfilstrength.Location = New System.Drawing.Point(119, 32)
-        Me.cbperfilstrength.Name = "cbperfilstrength"
-        Me.cbperfilstrength.Size = New System.Drawing.Size(125, 21)
-        Me.cbperfilstrength.TabIndex = 11
+        Me.cbperfilui.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbperfilui.FormattingEnabled = True
+        Me.cbperfilui.Location = New System.Drawing.Point(119, 86)
+        Me.cbperfilui.Name = "cbperfilui"
+        Me.cbperfilui.Size = New System.Drawing.Size(125, 21)
+        Me.cbperfilui.TabIndex = 12
         '
         'nucastigouhml
         '
@@ -1334,24 +1159,199 @@ Partial Class CompraPacasPorContrato
         Me.nucastigouhml.ThousandsSeparator = True
         Me.nucastigouhml.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
         '
-        'cbperfilui
+        'cbperfilstrength
         '
-        Me.cbperfilui.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbperfilui.FormattingEnabled = True
-        Me.cbperfilui.Location = New System.Drawing.Point(119, 86)
-        Me.cbperfilui.Name = "cbperfilui"
-        Me.cbperfilui.Size = New System.Drawing.Size(125, 21)
-        Me.cbperfilui.TabIndex = 12
+        Me.cbperfilstrength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbperfilstrength.FormattingEnabled = True
+        Me.cbperfilstrength.Location = New System.Drawing.Point(119, 32)
+        Me.cbperfilstrength.Name = "cbperfilstrength"
+        Me.cbperfilstrength.Size = New System.Drawing.Size(125, 21)
+        Me.cbperfilstrength.TabIndex = 11
         '
-        'ckMicros
+        'nucastigouni
         '
-        Me.ckMicros.AutoSize = True
-        Me.ckMicros.Location = New System.Drawing.Point(6, 9)
-        Me.ckMicros.Name = "ckMicros"
-        Me.ckMicros.Size = New System.Drawing.Size(43, 17)
-        Me.ckMicros.TabIndex = 68
-        Me.ckMicros.Text = "Mic"
-        Me.ckMicros.UseVisualStyleBackColor = True
+        Me.nucastigouni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.nucastigouni.DecimalPlaces = 4
+        Me.nucastigouni.Enabled = False
+        Me.nucastigouni.Location = New System.Drawing.Point(250, 88)
+        Me.nucastigouni.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.nucastigouni.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
+        Me.nucastigouni.Name = "nucastigouni"
+        Me.nucastigouni.Size = New System.Drawing.Size(104, 20)
+        Me.nucastigouni.TabIndex = 103
+        Me.nucastigouni.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nucastigouni.ThousandsSeparator = True
+        Me.nucastigouni.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'cbperfiluhml
+        '
+        Me.cbperfiluhml.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbperfiluhml.FormattingEnabled = True
+        Me.cbperfiluhml.Location = New System.Drawing.Point(119, 59)
+        Me.cbperfiluhml.Name = "cbperfiluhml"
+        Me.cbperfiluhml.Size = New System.Drawing.Size(125, 21)
+        Me.cbperfiluhml.TabIndex = 10
+        '
+        'nucastigostr
+        '
+        Me.nucastigostr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.nucastigostr.DecimalPlaces = 4
+        Me.nucastigostr.Enabled = False
+        Me.nucastigostr.Location = New System.Drawing.Point(250, 33)
+        Me.nucastigostr.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.nucastigostr.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
+        Me.nucastigostr.Name = "nucastigostr"
+        Me.nucastigostr.Size = New System.Drawing.Size(104, 20)
+        Me.nucastigostr.TabIndex = 103
+        Me.nucastigostr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nucastigostr.ThousandsSeparator = True
+        Me.nucastigostr.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'CkUni
+        '
+        Me.CkUni.AutoSize = True
+        Me.CkUni.Location = New System.Drawing.Point(6, 90)
+        Me.CkUni.Name = "CkUni"
+        Me.CkUni.Size = New System.Drawing.Size(72, 17)
+        Me.CkUni.TabIndex = 71
+        Me.CkUni.Text = "Uniformity"
+        Me.CkUni.UseVisualStyleBackColor = True
+        '
+        'nucastigomic
+        '
+        Me.nucastigomic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.nucastigomic.DecimalPlaces = 4
+        Me.nucastigomic.Enabled = False
+        Me.nucastigomic.Location = New System.Drawing.Point(250, 6)
+        Me.nucastigomic.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.nucastigomic.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
+        Me.nucastigomic.Name = "nucastigomic"
+        Me.nucastigomic.Size = New System.Drawing.Size(104, 20)
+        Me.nucastigomic.TabIndex = 102
+        Me.nucastigomic.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nucastigomic.ThousandsSeparator = True
+        Me.nucastigomic.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'CkRes
+        '
+        Me.CkRes.AutoSize = True
+        Me.CkRes.Location = New System.Drawing.Point(6, 36)
+        Me.CkRes.Name = "CkRes"
+        Me.CkRes.Size = New System.Drawing.Size(66, 17)
+        Me.CkRes.TabIndex = 70
+        Me.CkRes.Text = "Strength"
+        Me.CkRes.UseVisualStyleBackColor = True
+        '
+        'cbperfilmicros
+        '
+        Me.cbperfilmicros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbperfilmicros.FormattingEnabled = True
+        Me.cbperfilmicros.Location = New System.Drawing.Point(119, 5)
+        Me.cbperfilmicros.Name = "cbperfilmicros"
+        Me.cbperfilmicros.Size = New System.Drawing.Size(125, 21)
+        Me.cbperfilmicros.TabIndex = 9
+        '
+        'CkLargo
+        '
+        Me.CkLargo.AutoSize = True
+        Me.CkLargo.Location = New System.Drawing.Point(6, 62)
+        Me.CkLargo.Name = "CkLargo"
+        Me.CkLargo.Size = New System.Drawing.Size(57, 17)
+        Me.CkLargo.TabIndex = 69
+        Me.CkLargo.Text = "UHML"
+        Me.CkLargo.UseVisualStyleBackColor = True
+        '
+        'panel5
+        '
+        Me.panel5.Controls.Add(Me.label8)
+        Me.panel5.Controls.Add(Me.nutotaldeduccion)
+        Me.panel5.Controls.Add(Me.nutotal)
+        Me.panel5.Controls.Add(Me.label27)
+        Me.panel5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.panel5.Location = New System.Drawing.Point(0, 194)
+        Me.panel5.Name = "panel5"
+        Me.panel5.Size = New System.Drawing.Size(367, 58)
+        Me.panel5.TabIndex = 105
+        '
+        'label8
+        '
+        Me.label8.AutoSize = True
+        Me.label8.Location = New System.Drawing.Point(166, 5)
+        Me.label8.Name = "label8"
+        Me.label8.Size = New System.Drawing.Size(82, 13)
+        Me.label8.TabIndex = 16
+        Me.label8.Text = "Deduccion total"
+        '
+        'nutotaldeduccion
+        '
+        Me.nutotaldeduccion.DecimalPlaces = 4
+        Me.nutotaldeduccion.Enabled = False
+        Me.nutotaldeduccion.Location = New System.Drawing.Point(254, 3)
+        Me.nutotaldeduccion.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
+        Me.nutotaldeduccion.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
+        Me.nutotaldeduccion.Name = "nutotaldeduccion"
+        Me.nutotaldeduccion.Size = New System.Drawing.Size(104, 20)
+        Me.nutotaldeduccion.TabIndex = 15
+        Me.nutotaldeduccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nutotaldeduccion.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'nutotal
+        '
+        Me.nutotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.nutotal.DecimalPlaces = 4
+        Me.nutotal.Enabled = False
+        Me.nutotal.Location = New System.Drawing.Point(254, 28)
+        Me.nutotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.nutotal.Name = "nutotal"
+        Me.nutotal.Size = New System.Drawing.Size(105, 20)
+        Me.nutotal.TabIndex = 14
+        Me.nutotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nutotal.ThousandsSeparator = True
+        Me.nutotal.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'label27
+        '
+        Me.label27.AutoSize = True
+        Me.label27.Location = New System.Drawing.Point(166, 30)
+        Me.label27.Name = "label27"
+        Me.label27.Size = New System.Drawing.Size(31, 13)
+        Me.label27.TabIndex = 13
+        Me.label27.Text = "Total"
+        '
+        'panel4
+        '
+        Me.panel4.Controls.Add(Me.nusubtotal)
+        Me.panel4.Controls.Add(Me.label26)
+        Me.panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panel4.Location = New System.Drawing.Point(0, 0)
+        Me.panel4.Name = "panel4"
+        Me.panel4.Size = New System.Drawing.Size(367, 40)
+        Me.panel4.TabIndex = 15
+        '
+        'nusubtotal
+        '
+        Me.nusubtotal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nusubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.nusubtotal.DecimalPlaces = 4
+        Me.nusubtotal.Enabled = False
+        Me.nusubtotal.Location = New System.Drawing.Point(257, 7)
+        Me.nusubtotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
+        Me.nusubtotal.Name = "nusubtotal"
+        Me.nusubtotal.Size = New System.Drawing.Size(104, 20)
+        Me.nusubtotal.TabIndex = 12
+        Me.nusubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.nusubtotal.ThousandsSeparator = True
+        Me.nusubtotal.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        '
+        'label26
+        '
+        Me.label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.label26.AutoSize = True
+        Me.label26.Location = New System.Drawing.Point(205, 9)
+        Me.label26.Name = "label26"
+        Me.label26.Size = New System.Drawing.Size(46, 13)
+        Me.label26.TabIndex = 5
+        Me.label26.Text = "Subtotal"
         '
         'gbcontratos
         '
@@ -1428,6 +1428,11 @@ Partial Class CompraPacasPorContrato
         Me.tsdisponibles.PerformLayout()
         Me.panel6.ResumeLayout(False)
         Me.panel6.PerformLayout()
+        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tppacaseleccionada.ResumeLayout(False)
         Me.tppacaseleccionada.PerformLayout()
         CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1435,11 +1440,6 @@ Partial Class CompraPacasPorContrato
         Me.toolStrip1.PerformLayout()
         Me.panel9.ResumeLayout(False)
         Me.panel9.PerformLayout()
-        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1449,29 +1449,29 @@ Partial Class CompraPacasPorContrato
         CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panelgeneral.ResumeLayout(False)
         Me.Panelgeneral.PerformLayout()
-        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nutara, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nutara, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbpreciosclase.ResumeLayout(False)
         CType(Me.dgvprecioclase, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        Me.panel4.ResumeLayout(False)
-        Me.panel4.PerformLayout()
-        CType(Me.nusubtotal, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.panel5.ResumeLayout(False)
-        Me.panel5.PerformLayout()
-        CType(Me.nutotal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nutotaldeduccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tcdeduccion.ResumeLayout(False)
         Me.tpdeducciones.ResumeLayout(False)
         Me.tpdeducciones.PerformLayout()
-        CType(Me.nucastigomic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nucastigostr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nucastigouni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nucastigouhml, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nucastigouni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nucastigostr, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nucastigomic, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panel5.ResumeLayout(False)
+        Me.panel5.PerformLayout()
+        CType(Me.nutotaldeduccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nutotal, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panel4.ResumeLayout(False)
+        Me.panel4.PerformLayout()
+        CType(Me.nusubtotal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbcontratos.ResumeLayout(False)
         CType(Me.dgvcontratos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Paneltop.ResumeLayout(False)

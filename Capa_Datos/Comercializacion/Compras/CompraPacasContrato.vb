@@ -337,5 +337,33 @@ Public Class CompraPacasContrato
         End Try
 
     End Sub
+    Public Overridable Sub Eliminar(ByRef EntidadCompraPacasContrato As Capa_Entidad.CompraPacasContrato)
+        Dim EntidadCompraPacasContrato1 As New Capa_Entidad.CompraPacasContrato
+        EntidadCompraPacasContrato1 = EntidadCompraPacasContrato
+        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cmdActualizar As SqlCommand
+        Try
+            cnn.Open()
+            Select Case EntidadCompraPacasContrato1.Eliminar
+                Case Capa_Operacion.Configuracion.Eliminar.EliminarPreliquidacioncompra
+                    For Each MiTableRow As DataRow In EntidadCompraPacasContrato1.TablaGeneral.Rows
+                        cmdActualizar = New SqlCommand("Sp_ActualizaEstatusPaca", cnn)
+                        cmdActualizar.CommandType = CommandType.StoredProcedure
+                        cmdActualizar.Parameters.Clear()
+                        cmdActualizar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
+                        cmdActualizar.Parameters.Add(New SqlParameter("@IdCompraEnc", MiTableRow("IdCompraEnc")))
+                        cmdActualizar.Parameters.Add(New SqlParameter("@EstatusVentaUpdate", MiTableRow("EstatusVenta")))
+                        cmdActualizar.ExecuteNonQuery()
+                    Next
+            End Select
+        Catch ex As Exception
+            cnn.Close()
+            MsgBox(ex)
+        Finally
+            cnn.Close()
+            EntidadCompraPacasContrato = EntidadCompraPacasContrato1
+        End Try
+
+    End Sub
 
 End Class

@@ -67,6 +67,14 @@ Public Class DatosEmpresa
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
                     sqldat1 = New SqlDataAdapter("Sp_obtieneNombreInstancia", cnn)
                     sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.consultaproductor
+                    sqlcom1 = New SqlCommand("pa_consultacliente", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idproductor", EntidadDatosEmpresa1.idproductor))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

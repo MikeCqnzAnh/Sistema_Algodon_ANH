@@ -48,6 +48,7 @@
     Public Enum Eliminar
         EliminarRegistro = 1
         EliminaPacaSeleccionada = 2
+        EliminarPreliquidacioncompra = 3
     End Enum
     Public Enum Guardar
         GuardarCompraPacasEnc = 1
@@ -69,6 +70,8 @@
         Guardacompradet = 17
         GuardaVentaenc = 18
         GuardaVentadet = 19
+        GuardarCompraPreliqDet = 20
+        GuardarVentaPreliqdet = 21
     End Enum
     Public Enum Consulta
         ConsultaEstado = 1
@@ -217,6 +220,8 @@
         consultaperfilui = 142
         consultapacasinVenta = 143
         ConsultaVenta = 144
+        consultaproductor = 145
+        consultapreliqcompra = 146
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

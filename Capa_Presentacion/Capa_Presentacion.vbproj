@@ -278,6 +278,12 @@
     <Compile Include="Comercializacion\Compras\PreliquidacionCompra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompraContrato.Designer.vb">
+      <DependentUpon>PreliquidacionCompraContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Comercializacion\Compras\PreliquidacionCompraContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Comercializacion\Ventas\ComparacionVentaVsCliente.Designer.vb">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </Compile>
@@ -1232,6 +1238,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RPT\RPTPreliquidacionCompraenc.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPTPreliquidacionCompraenc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RPT\RPTPreliquidacionVenta.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1881,6 +1893,9 @@
     <EmbeddedResource Include="Comercializacion\Compras\PreliquidacionCompra.resx">
       <DependentUpon>PreliquidacionCompra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Comercializacion\Compras\PreliquidacionCompraContrato.resx">
+      <DependentUpon>PreliquidacionCompraContrato.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Ventas\ComparacionVentaVsCliente.resx">
       <DependentUpon>ComparacionVentaVsCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -2323,6 +2338,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPTPreliquidacionCompra.vb</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RPT\RPTPreliquidacionCompraenc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPTPreliquidacionCompraenc.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RPT\RPTPreliquidacionVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

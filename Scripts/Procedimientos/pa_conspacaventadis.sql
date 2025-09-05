@@ -32,5 +32,5 @@ select IdProduccionDetalle,
 	   isnull(CastigoUIventa,0) as CastigoUIventa,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
-where pd.IdVentaEnc is null and pd.LotID is not null 
+where pd.IdVentaEnc = 0 and pd.LotID is not null 
 order by pd.BaleID

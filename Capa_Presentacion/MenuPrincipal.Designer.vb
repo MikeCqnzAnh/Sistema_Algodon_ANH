@@ -77,6 +77,7 @@ Partial Class MenuPrincipal
         Me.IntegracionDeCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentaDePacasPorContratoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreliquidacionACompradorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -201,7 +202,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.VentaDePacasPorContratoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -537,6 +537,7 @@ Partial Class MenuPrincipal
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Size = New System.Drawing.Size(330, 22)
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Tag = "38,37"
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Text = "Compra de Pacas a Productores (Por Contrato)"
+        Me.CompraDePacasAProductoresPorContratoToolStripMenuItem.Visible = False
         '
         'CompraDePacasPorContratoToolStripMenuItem
         '
@@ -606,6 +607,14 @@ Partial Class MenuPrincipal
         Me.VentaDePacasPorContratoToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.VentaDePacasPorContratoToolStripMenuItem.Tag = "44,43"
         Me.VentaDePacasPorContratoToolStripMenuItem.Text = "Venta de Pacas (Por Contrato)"
+        Me.VentaDePacasPorContratoToolStripMenuItem.Visible = False
+        '
+        'VentaDePacasPorContratoToolStripMenuItem1
+        '
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Name = "VentaDePacasPorContratoToolStripMenuItem1"
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Size = New System.Drawing.Size(238, 22)
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Tag = "0,0"
+        Me.VentaDePacasPorContratoToolStripMenuItem1.Text = "Venta de Pacas Por Contrato"
         '
         'PreliquidacionACompradorToolStripMenuItem
         '
@@ -1490,13 +1499,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
-        '
-        'VentaDePacasPorContratoToolStripMenuItem1
-        '
-        Me.VentaDePacasPorContratoToolStripMenuItem1.Name = "VentaDePacasPorContratoToolStripMenuItem1"
-        Me.VentaDePacasPorContratoToolStripMenuItem1.Size = New System.Drawing.Size(238, 22)
-        Me.VentaDePacasPorContratoToolStripMenuItem1.Tag = "0,0"
-        Me.VentaDePacasPorContratoToolStripMenuItem1.Text = "Venta de Pacas Por Contrato"
         '
         'MenuPrincipal
         '

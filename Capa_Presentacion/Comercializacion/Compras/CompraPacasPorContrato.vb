@@ -904,6 +904,130 @@ Public Class CompraPacasPorContrato
         End If
 
     End Sub
+
+    Private Sub btpreliquidacion_Click(sender As Object, e As EventArgs) Handles btpreliquidacion.Click
+        Dim decimalesDeseados As Integer = 4
+        dtmic.Rows.Clear()
+        dtuhml.Rows.Clear()
+        dtstr.Rows.Clear()
+        dtui.Rows.Clear()
+        dtsfi.Rows.Clear()
+
+        Dim factor As Decimal = CDec(Math.Pow(10, decimalesDeseados))
+        Try
+            Dim eCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
+            Dim nCompraPacasContrato As New Capa_Negocio.CompraPacasContrato()
+
+            eCompraPacasContrato.Eliminar = Eliminar.EliminarPreliquidacioncompra
+            nCompraPacasContrato.Eliminar(eCompraPacasContrato)
+            calculopacas()
+
+            If nuPrecioQuintal.Value > 0 AndAlso dtdestino.Rows.Count > 0 Then
+                Dim dtpreviewenc As New DataTable()
+                dtpreviewenc.Columns.Add("idcliente", GetType(Integer))
+                dtpreviewenc.Columns.Add("idunidad", GetType(Integer))
+                dtpreviewenc.Columns.Add("precio", GetType(Decimal))
+                dtpreviewenc.Columns.Add("puntos", GetType(Decimal))
+                dtpreviewenc.Columns.Add("totalpacas", GetType(Integer))
+                dtpreviewenc.Columns.Add("castigomic", GetType(Decimal))
+                dtpreviewenc.Columns.Add("castigores", GetType(Decimal))
+                dtpreviewenc.Columns.Add("castigouhml", GetType(Decimal))
+                dtpreviewenc.Columns.Add("castigouni", GetType(Decimal))
+                dtpreviewenc.Columns.Add("subtotal", GetType(Decimal))
+                dtpreviewenc.Columns.Add("total", GetType(Decimal))
+                dtpreviewenc.Columns.Add("observaciones", GetType(String))
+
+                Dim addrenglonenc As DataRow = dtpreviewenc.NewRow()
+                addrenglonenc("idcliente") = Convert.ToInt32(TbIdProductor.Text)
+                addrenglonenc("idunidad") = Convert.ToInt32(cbunidadpeso.SelectedValue)
+                addrenglonenc("precio") = nuPrecioQuintal.Value
+                addrenglonenc("puntos") = nuPuntos.Value
+                addrenglonenc("totalpacas") = nutotalpacas.Value
+                addrenglonenc("castigomic") = nucastigomic.Value
+                addrenglonenc("castigores") = nucastigostr.Value
+                addrenglonenc("castigouhml") = nucastigouhml.Value
+                addrenglonenc("castigouni") = nucastigouni.Value
+                addrenglonenc("subtotal") = nusubtotal.Value
+                addrenglonenc("total") = nutotal.Value
+                'addrenglonenc("observaciones") = tbobservaciones.Text
+
+                dtpreviewenc.Rows.Add(addrenglonenc)
+
+                If CInt(cbunidadpeso.SelectedValue) = 1 Then
+                    For Each fila As DataRow In dtdestino.Rows
+                        Dim precioclasegrade As Decimal = precioclase(fila("grade").ToString())
+                        Dim quintales As Decimal = CDec(fila("quintalesventa"))
+                        Dim kilos As Decimal = Convert.ToDecimal(fila("kilosventa"))
+                        Dim libras As Decimal = Convert.ToDecimal(fila("librasventa"))
+
+                        eCompraPacasContrato.Guarda = Guardar.GuardarCompraPreliqDet
+                        eCompraPacasContrato.baleid = CLng(fila("baleid"))
+                        eCompraPacasContrato.idclase = obtidclase(fila("grade").ToString())
+                        eCompraPacasContrato.grade = fila("grade").ToString()
+                        eCompraPacasContrato.kilos = kilos
+                        eCompraPacasContrato.libras = libras
+                        eCompraPacasContrato.quintales = quintales
+                        eCompraPacasContrato.preciodlscompra = Math.Truncate((quintales * precioclasegrade) * factor) / factor
+                        eCompraPacasContrato.precioclasecompra = precioclasegrade
+                        eCompraPacasContrato.CastigoMicros = consultacastigomic(quintales, Math.Truncate(Convert.ToDecimal(fila("mic")) * 100) / 100)
+                        eCompraPacasContrato.CastigoLargoFibra = consultacastigouhml(quintales, Math.Truncate(Convert.ToDecimal(fila("uhml")) * 100) / 100)
+                        eCompraPacasContrato.CastigoResistenciaFibra = consultacastigores(quintales, Math.Truncate(Convert.ToDecimal(fila("strength")) * 100) / 100)
+                        eCompraPacasContrato.CastigoUniformidad = consultacastigouni(quintales, Math.Truncate(Convert.ToDecimal(fila("ui")) * 100) / 100)
+
+                        nCompraPacasContrato.Guardar(eCompraPacasContrato)
+                    Next
+
+                ElseIf CInt(cbunidadpeso.SelectedValue) = 2 Then
+                    For Each fila As DataRow In dtdestino.Rows
+                        Dim precioclasegrade As Decimal = precioclase(fila("grade").ToString()) / 100
+                        Dim kilos As Decimal = Convert.ToDecimal(fila("kilosventa"))
+                        Dim libras As Decimal = Convert.ToDecimal(fila("librasventa"))
+                        Dim quintales As Decimal = Convert.ToDecimal(fila("quintalesventa"))
+
+                        eCompraPacasContrato.Guarda = Guardar.GuardarCompraPreliqDet
+                        eCompraPacasContrato.baleid = CLng(fila("baleid"))
+                        eCompraPacasContrato.idclase = obtidclase(fila("grade").ToString())
+                        eCompraPacasContrato.grade = fila("grade").ToString()
+                        eCompraPacasContrato.kilos = kilos
+                        eCompraPacasContrato.libras = libras
+                        eCompraPacasContrato.quintales = quintales
+                        eCompraPacasContrato.preciodlscompra = Math.Truncate((libras * precioclasegrade) * factor) / factor
+                        eCompraPacasContrato.precioclasecompra = precioclasegrade
+                        eCompraPacasContrato.CastigoMicros = (consultacastigomic(libras, Math.Truncate(Convert.ToDecimal(fila("mic")) * 100) / 100) / 100)
+                        eCompraPacasContrato.CastigoLargoFibra = (consultacastigouhml(libras, Math.Truncate(Convert.ToDecimal(fila("uhml")) * 100) / 100) / 100)
+                        eCompraPacasContrato.CastigoResistenciaFibra = (consultacastigores(libras, Math.Truncate(Convert.ToDecimal(fila("strength")) * 100) / 100) / 100)
+                        eCompraPacasContrato.CastigoUniformidad = (consultacastigouni(libras, Math.Truncate(Convert.ToDecimal(fila("ui")) * 100) / 100) / 100)
+
+                        nCompraPacasContrato.Guardar(eCompraPacasContrato)
+                    Next
+                End If
+
+                Dim _preliquidacion As New FrmPreliquidacionventa(Convert.ToInt32(tbidcliente.Text), dtpreviewenc)
+                _preliquidacion.ShowDialog()
+            Else
+                MessageBox.Show("No hay precio asignado pacas seleccionadas para realizar la Preliquidacion, favor de verificar.", "Falta informacion!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+    Private Function obtidclase(grado As String) As Integer
+        Dim idclase As Integer = 0 ' Asegurar que el tipo es Integer
+
+        For Each fila As DataGridViewRow In dgvprecioclase.Rows
+            If fila.Cells("grade").Value IsNot Nothing AndAlso fila.Cells("grade").Value.ToString() = grado Then
+                If fila.Cells("idclasificacion").Value IsNot Nothing AndAlso
+               Integer.TryParse(fila.Cells("idclasificacion").Value.ToString(), idclase) Then
+                    Exit For ' Rompe el bucle si encuentra una coincidencia
+                End If
+            End If
+        Next
+
+        Return idclase
+    End Function
+
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))
 

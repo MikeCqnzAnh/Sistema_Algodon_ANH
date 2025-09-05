@@ -20,4 +20,7 @@ Public Class DatosEmpresa
     Public Municipio As String
     Public LugarExpedicion As String
     Public logoempresa As Byte()
+    Public idempresa As Integer
+    Public nombreproductor As String
+    Public idproductor As Integer
 End Class

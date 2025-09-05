@@ -15,4 +15,8 @@ Public Class CompraPacasContrato
         Dim DatosCompraPacasContrato As New Capa_Datos.CompraPacasContrato
         DatosCompraPacasContrato.Actualizar(EntidadCompraPacasContrato)
     End Sub
+    Public Overridable Sub Eliminar(ByRef EntidadCompraPacasContrato As Capa_Entidad.CompraPacasContrato)
+        Dim DatosCompraPacasContrato As New Capa_Datos.CompraPacasContrato
+        DatosCompraPacasContrato.Eliminar(EntidadCompraPacasContrato)
+    End Sub
 End Class

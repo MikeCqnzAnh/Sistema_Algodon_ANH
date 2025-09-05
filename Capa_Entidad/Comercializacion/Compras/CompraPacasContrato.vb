@@ -63,6 +63,8 @@ Public Class CompraPacasContrato
     Public IdModoEncabezadoMicros As Integer
     Public IdModoEncabezadoResistencia As Integer
     Public busqueda As String
+    Public idclase As Integer
+    Public grade As String
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable
