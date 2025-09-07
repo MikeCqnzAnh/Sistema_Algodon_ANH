@@ -147,12 +147,10 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.AssemblyReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.Up2Date
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache

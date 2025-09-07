@@ -23,4 +23,5 @@ Public Class DatosEmpresa
     Public idempresa As Integer
     Public nombreproductor As String
     Public idproductor As Integer
+    Public idcompra As Integer
 End Class

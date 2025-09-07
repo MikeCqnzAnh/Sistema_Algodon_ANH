@@ -1,17 +1,15 @@
 ﻿Imports System.IO
 
-Public Class PreliquidacionCompraContrato
-    Private _dtdestino As New DataTable()
-    Private _dtencabezado As New DataTable()
+Public Class LiquidacionCompraContrato
     Private _idcliente As Integer
+    Private _idcompra As Integer
     'Private ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPTPreliqcliente.rpt")
-    Private ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTPreliquidacionCompraenc.rpt")
+    Private ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTLiquidacionCompraEnc.rpt")
 
-    Public Sub New(idcliente As Integer, dtencabezado As DataTable)
+    Public Sub New(idcompra As Integer, idcliente As Integer)
         InitializeComponent()
+        _idcompra = idcompra
         _idcliente = idcliente
-        '_dtdestino = dtdestino
-        _dtencabezado = dtencabezado
     End Sub
 
     Private Sub FrmPreliquidacionventa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -20,7 +18,7 @@ Public Class PreliquidacionCompraContrato
 
     Private Sub consultar()
         'Dim crreport As New RPTPreliqcliente()
-        Dim crreport As New RPTPreliquidacionCompraenc()
+        Dim crreport As New RPTLiquidacionCompraEnc()
 
         Dim eDatosEmpresa As New Capa_Entidad.DatosEmpresa()
         Dim nDatosEmpresa As New Capa_Negocio.DatosEmpresa()
@@ -38,29 +36,29 @@ Public Class PreliquidacionCompraContrato
             tabla1 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla1)
 
-            'eDatosEmpresa.Consulta = Consulta.consultaproductor
-            'eDatosEmpresa.nombreproductor = ""
-            'eDatosEmpresa.idproductor = _idcliente
-            'nDatosEmpresa.Consultar(eDatosEmpresa)
-            'tabla2 = eDatosEmpresa.TablaConsulta
-            'ds.Tables.Add(tabla2)
+            eDatosEmpresa.Consulta = Consulta.consultaproductor
+            eDatosEmpresa.nombreproductor = ""
+            eDatosEmpresa.idproductor = _idcliente
+            nDatosEmpresa.Consultar(eDatosEmpresa)
+            tabla2 = eDatosEmpresa.TablaConsulta
+            ds.Tables.Add(tabla2)
 
-            'eDatosEmpresa.Consulta = Consulta.consultapreliqcompra
-            'nDatosEmpresa.Consultar(eDatosEmpresa)
-            'tabla3 = eDatosEmpresa.TablaConsulta
-            ''tabla3 = _dtdestino.Copy()
-            'ds.Tables.Add(tabla3)
+            eDatosEmpresa.Consulta = Consulta.ConsultaCompraenc
+            eDatosEmpresa.idcompra = _idcompra
+            nDatosEmpresa.Consultar(eDatosEmpresa)
+            tabla3 = eDatosEmpresa.TablaConsulta
+            ds.Tables.Add(tabla3)
 
             'eDatosEmpresa.Consultar = O_Configuracion.Consultar.consultacalculocomprares
             'eDatosEmpresa.idcalculo = _idcalculocompra
             'nDatosEmpresa.Consultar(eDatosEmpresa)
-            tabla4 = _dtencabezado.Copy()
-            ds.Tables.Add(tabla4)
+            'tabla4 = _dtencabezado.Copy()
+            'ds.Tables.Add(tabla4)
 
             crreport.Load(ruta)
             crreport.Database.Tables("DatosEmpresa").SetDataSource(ds.Tables(0))
-            'crreport.Database.Tables("DatosCliente").SetDataSource(ds.Tables(1))
-            ''crreport.Database.Tables("DatosPreliq").SetDataSource(ds.Tables(2))
+            crreport.Database.Tables("DatosProductor").SetDataSource(ds.Tables(1))
+            crreport.Database.Tables("DatosCompraenc").SetDataSource(ds.Tables(2))
             'crreport.Database.Tables("Datospreliqvta").SetDataSource(ds.Tables(2))
             'crreport.Database.Tables("DatosPreliqvtaenc").SetDataSource(ds.Tables(3))
             'crreport.Database.Tables("DatosPacas").SetDataSource(ds.Tables(3))

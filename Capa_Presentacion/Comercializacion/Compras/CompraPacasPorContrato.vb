@@ -918,8 +918,8 @@ Public Class CompraPacasPorContrato
             Dim eCompraPacasContrato As New Capa_Entidad.CompraPacasContrato
             Dim nCompraPacasContrato As New Capa_Negocio.CompraPacasContrato()
 
-            eCompraPacasContrato.Eliminar = Eliminar.EliminarPreliquidacioncompra
-            nCompraPacasContrato.Eliminar(eCompraPacasContrato)
+            'eCompraPacasContrato.Eliminar = Eliminar.EliminarPreliquidacioncompra
+            'nCompraPacasContrato.Eliminar(eCompraPacasContrato)
             calculopacas()
 
             If nuPrecioQuintal.Value > 0 AndAlso dtdestino.Rows.Count > 0 Then
@@ -956,9 +956,9 @@ Public Class CompraPacasPorContrato
                 If CInt(cbunidadpeso.SelectedValue) = 1 Then
                     For Each fila As DataRow In dtdestino.Rows
                         Dim precioclasegrade As Decimal = precioclase(fila("grade").ToString())
-                        Dim quintales As Decimal = CDec(fila("quintalesventa"))
-                        Dim kilos As Decimal = Convert.ToDecimal(fila("kilosventa"))
-                        Dim libras As Decimal = Convert.ToDecimal(fila("librasventa"))
+                        Dim quintales As Decimal = CDec(fila("quintalescompra"))
+                        Dim kilos As Decimal = Convert.ToDecimal(fila("kiloscompra"))
+                        Dim libras As Decimal = Convert.ToDecimal(fila("librascompra"))
 
                         eCompraPacasContrato.Guarda = Guardar.GuardarCompraPreliqDet
                         eCompraPacasContrato.baleid = CLng(fila("baleid"))
@@ -974,15 +974,15 @@ Public Class CompraPacasPorContrato
                         eCompraPacasContrato.CastigoResistenciaFibra = consultacastigores(quintales, Math.Truncate(Convert.ToDecimal(fila("strength")) * 100) / 100)
                         eCompraPacasContrato.CastigoUniformidad = consultacastigouni(quintales, Math.Truncate(Convert.ToDecimal(fila("ui")) * 100) / 100)
 
-                        nCompraPacasContrato.Guardar(eCompraPacasContrato)
+                        'nCompraPacasContrato.Guardar(eCompraPacasContrato)
                     Next
 
                 ElseIf CInt(cbunidadpeso.SelectedValue) = 2 Then
                     For Each fila As DataRow In dtdestino.Rows
                         Dim precioclasegrade As Decimal = precioclase(fila("grade").ToString()) / 100
-                        Dim kilos As Decimal = Convert.ToDecimal(fila("kilosventa"))
-                        Dim libras As Decimal = Convert.ToDecimal(fila("librasventa"))
-                        Dim quintales As Decimal = Convert.ToDecimal(fila("quintalesventa"))
+                        Dim kilos As Decimal = Convert.ToDecimal(fila("kiloscompra"))
+                        Dim libras As Decimal = Convert.ToDecimal(fila("librascompra"))
+                        Dim quintales As Decimal = Convert.ToDecimal(fila("quintalescompra"))
 
                         eCompraPacasContrato.Guarda = Guardar.GuardarCompraPreliqDet
                         eCompraPacasContrato.baleid = CLng(fila("baleid"))
@@ -1002,7 +1002,7 @@ Public Class CompraPacasPorContrato
                     Next
                 End If
 
-                Dim _preliquidacion As New FrmPreliquidacionventa(Convert.ToInt32(tbidcliente.Text), dtpreviewenc)
+                Dim _preliquidacion As New PreliquidacionCompraContrato(Convert.ToInt32(TbIdProductor.Text), dtpreviewenc)
                 _preliquidacion.ShowDialog()
             Else
                 MessageBox.Show("No hay precio asignado pacas seleccionadas para realizar la Preliquidacion, favor de verificar.", "Falta informacion!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1027,6 +1027,11 @@ Public Class CompraPacasPorContrato
 
         Return idclase
     End Function
+
+    Private Sub calculoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles calculoToolStripMenuItem.Click
+        Dim _liquidacion As New LiquidacionCompraContrato(Convert.ToInt32(TbIdCompraPaca.Text), Convert.ToInt32(TbIdProductor.Text))
+        _liquidacion.ShowDialog()
+    End Sub
 
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))

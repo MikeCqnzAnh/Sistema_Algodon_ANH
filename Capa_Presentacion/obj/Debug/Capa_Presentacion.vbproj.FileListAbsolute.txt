@@ -1383,13 +1383,10 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Entidad.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.dll.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Datos.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Datos.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.AssemblyReference.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Acceso.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ExistenciaBodegaPacas.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.InventarioPacas.resources
@@ -1590,8 +1587,9 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SeleccionaConexion.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.VerificaAutorizacion.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Pre.30845BDF.Up2Date
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.VentaPacasPorContrato.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.FConsultaProductorContratoVenta.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.FConsultaVenta.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbprojResolveAssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.PreliquidacionCompraContrato.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.LiquidacionCompraContrato.resources

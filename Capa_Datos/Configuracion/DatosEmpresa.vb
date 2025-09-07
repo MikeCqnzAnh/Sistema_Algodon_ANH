@@ -64,6 +64,14 @@ Public Class DatosEmpresa
                     'sqlcom1.Parameters.Add(New SqlParameter("@IdConfiguracion", EntidadDatosEmpresa1.IdConfiguracion))
                     'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
                     sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDatosEmpresa
+                    sqlcom1 = New SqlCommand("pa_reportedatosempresa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    'sqlcom1.Parameters.Add(New SqlParameter("@IdConfiguracion", EntidadDatosEmpresa1.IdConfiguracion))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
                     sqldat1 = New SqlDataAdapter("Sp_obtieneNombreInstancia", cnn)
                     sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
@@ -72,7 +80,7 @@ Public Class DatosEmpresa
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@idproductor", EntidadDatosEmpresa1.idproductor))
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcliente", EntidadDatosEmpresa1.idproductor))
                     'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
                     sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
             End Select
