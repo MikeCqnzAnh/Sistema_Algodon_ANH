@@ -12,7 +12,7 @@ select sum(PrecioDlscompra) as PrecioDls,
 	   sum(CastigoLargoFibraCpa) as CastigoUhml,
 	   sum(CastigoResistenciaFibraCpa) as CastigoStrength,
 	   sum(CastigoUICompra) as CastigoUI,
-	   count(baleid) as cantidapacas
+	   count(baleid) as cantidadpacas
 from ProduccionDetalle  pd inner join ClasesClasificacion cc on pd.Grade = cc.ClaveCorta
 where IdCompraenc = @idcompra
 group by cc.IdClasificacion, pd.Grade,pd.PrecioClasecompra

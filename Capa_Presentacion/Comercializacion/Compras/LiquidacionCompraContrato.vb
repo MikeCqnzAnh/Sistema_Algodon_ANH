@@ -49,17 +49,17 @@ Public Class LiquidacionCompraContrato
             tabla3 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla3)
 
-            'eDatosEmpresa.Consultar = O_Configuracion.Consultar.consultacalculocomprares
-            'eDatosEmpresa.idcalculo = _idcalculocompra
-            'nDatosEmpresa.Consultar(eDatosEmpresa)
-            'tabla4 = _dtencabezado.Copy()
-            'ds.Tables.Add(tabla4)
+            eDatosEmpresa.Consulta = Consulta.ConsultaCompradet
+            eDatosEmpresa.idcompra = _idcompra
+            nDatosEmpresa.Consultar(eDatosEmpresa)
+            tabla4 = eDatosEmpresa.TablaConsulta
+            ds.Tables.Add(tabla4)
 
             crreport.Load(ruta)
             crreport.Database.Tables("DatosEmpresa").SetDataSource(ds.Tables(0))
             crreport.Database.Tables("DatosProductor").SetDataSource(ds.Tables(1))
             crreport.Database.Tables("DatosCompraenc").SetDataSource(ds.Tables(2))
-            'crreport.Database.Tables("Datospreliqvta").SetDataSource(ds.Tables(2))
+            crreport.Database.Tables("DatosCompradet").SetDataSource(ds.Tables(3))
             'crreport.Database.Tables("DatosPreliqvtaenc").SetDataSource(ds.Tables(3))
             'crreport.Database.Tables("DatosPacas").SetDataSource(ds.Tables(3))
 

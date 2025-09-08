@@ -83,6 +83,23 @@ Public Class DatosEmpresa
                     sqlcom1.Parameters.Add(New SqlParameter("@idcliente", EntidadDatosEmpresa1.idproductor))
                     'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
                     sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompraenc
+                    sqlcom1 = New SqlCommand("pa_reportecompraenc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcompra", EntidadDatosEmpresa1.idcompra))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompradet
+                    sqlcom1 = New SqlCommand("pa_reportecompradet", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcompra", EntidadDatosEmpresa1.idcompra))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)
