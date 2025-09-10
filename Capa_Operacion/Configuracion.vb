@@ -225,6 +225,9 @@
         ConsultaDatosEmpresa = 147
         ConsultaCompraenc = 148
         ConsultaCompradet = 149
+        ConsultaComprador = 150
+        Consultaventaenc = 151
+        Consultaventadet = 152
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

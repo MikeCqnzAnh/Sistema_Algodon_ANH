@@ -1033,6 +1033,82 @@ Public Class CompraPacasPorContrato
         _liquidacion.ShowDialog()
     End Sub
 
+    Private Sub cancelarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cancelarToolStripMenuItem.Click
+        If String.IsNullOrEmpty(TbIdCompraPaca.Text) = False Then
+            Dim resultado As DialogResult = MessageBox.Show("Al cancelar el lote, las pacas pasaran a estar disponibles de nuevo ¿Desea continuar?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+            '    Dim todasLasFilasTienenValor As Boolean = dtdestino.Rows.Count > 0 AndAlso
+            'dtdestino.AsEnumerable().All(Function(row)
+            '                                 Dim valor As Object = row("idlote")
+            '                                 Return valor IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(TryCast(valor, String))
+            '                             End Function)
+
+            'If resultado = DialogResult.Yes AndAlso todasLasFilasTienenValor = False Then
+            If resultado = DialogResult.Yes Then
+                cbestatus.SelectedValue = 0
+                cancelarpacas()
+                calculopacas()
+                guardarenc()
+                guardadet(dtdestino, If(String.IsNullOrEmpty(TbIdCompraPaca.Text), 0, Convert.ToInt32(TbIdCompraPaca.Text.Trim())))
+                guardadet(dtorigen, 0)
+
+                'ElseIf resultado = DialogResult.Yes AndAlso todasLasFilasTienenValor Then
+            ElseIf resultado = DialogResult.Yes Then
+                MessageBox.Show("Existen pacas que ya estan adjuntas a una orden de embarque y no es posible cancelar el lote.", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
+
+            ElseIf resultado = DialogResult.No Then
+                ' No hacer nada
+            End If
+        End If
+
+    End Sub
+    Private Sub cancelarpacas()
+        dataGridViewDestino.EndEdit()
+
+        For Each rowView As DataRowView In destinoView
+            'Dim seleccionado As Boolean = CBool(rowView("seleccionar"))
+            'If seleccionado Then
+            rowView("seleccionar") = False
+            rowView("kiloscompra") = 0
+            rowView("librascompra") = 0
+            rowView("quintalescompra") = 0
+            rowView("PrecioDlscompra") = 0
+            rowView("precioclasecompra") = 0
+            rowView("CastigoMicCpa") = 0
+            rowView("CastigoLargoFibraCpa") = 0
+            rowView("CastigoResistenciaFibraCpa") = 0
+            rowView("castigouicompra") = 0
+
+            Dim rowDestino As DataRow = rowView.Row
+            dtorigen.ImportRow(rowDestino)
+            rowView.Delete()
+            'End If
+        Next
+
+        destinoView.Table.AcceptChanges()
+        origenView = New DataView(dtorigen)
+        destinoView = New DataView(dtdestino)
+
+        origenView.Sort = "Baleid ASC"
+        destinoView.Sort = "Baleid ASC"
+
+        registrosCargadosDestino = 0
+        registrosCargadosOrigen = 0
+
+        dataGridViewOrigen.RowCount = Math.Min(If(registrosCargadosOrigen = 0, RegistrosPorCarga, registrosCargadosOrigen), origenView.Count)
+        dataGridViewDestino.RowCount = Math.Min(If(registrosCargadosDestino = 0, RegistrosPorCarga, registrosCargadosDestino), destinoView.Count)
+
+        'tstotalpacassel.Text = ""
+
+        dataGridViewOrigen.Refresh()
+        dataGridViewDestino.Refresh()
+
+        'nutotalkilos.Value = dtdestino.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("kilos"))
+        nutotalpacas.Value = dtdestino.Rows.Count
+
+        'tabpacas.SelectedIndex = 1
+    End Sub
+
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))
 

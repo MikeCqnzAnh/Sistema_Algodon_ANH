@@ -103,6 +103,7 @@ UPDATE SET
 		Pacas = source.Pacas,
 		pacasCompradas = source.pacascompradas,
 		pacasdisponibles = source.pacasdisponibles,
+		idunidadpeso = source.idunidadpeso,
 		SuperficieComprometida = source.SuperficieComprometida,
 		--Lotes = source.Lotes,
 		--IdContratoVta = source.IdContratoVta,

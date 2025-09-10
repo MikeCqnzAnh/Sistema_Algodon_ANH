@@ -52,6 +52,11 @@ Partial Class CompraPacasPorContrato
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tbpacaseleccionadadisp = New System.Windows.Forms.ToolStripTextBox()
         Me.panel6 = New System.Windows.Forms.Panel()
+        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltroreiniciar = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltros = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btdesmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tbcantidadsel1 = New System.Windows.Forms.TextBox()
         Me.tppacaseleccionada = New System.Windows.Forms.TabPage()
         Me.dataGridViewDestino = New System.Windows.Forms.DataGridView()
@@ -60,6 +65,13 @@ Partial Class CompraPacasPorContrato
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tspacasseleccionadas = New System.Windows.Forms.ToolStripTextBox()
         Me.panel9 = New System.Windows.Forms.Panel()
+        Me.btpreliquidacion = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btcalcula = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btreiniciafiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btdesmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btregresarseleccion = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tbcantidadsel2 = New System.Windows.Forms.TextBox()
         Me.Panelgeneral = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -77,6 +89,7 @@ Partial Class CompraPacasPorContrato
         Me.nuPuntos = New System.Windows.Forms.NumericUpDown()
         Me.nuPrecioQuintal = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btconsultaclientes = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DtFechaActualizacion = New System.Windows.Forms.DateTimePicker()
         Me.CbModalidadCompra = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -121,19 +134,6 @@ Partial Class CompraPacasPorContrato
         Me.gbcontratos = New System.Windows.Forms.GroupBox()
         Me.dgvcontratos = New System.Windows.Forms.DataGridView()
         Me.Paneltop = New System.Windows.Forms.Panel()
-        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltroreiniciar = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltros = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btdesmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btmarcarpacas = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btpreliquidacion = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btcalcula = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btreiniciafiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btdesmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btregresarseleccion = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btconsultaclientes = New Bunifu.Framework.UI.BunifuImageButton()
         Me.mnustrip.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.tabpacas.SuspendLayout()
@@ -141,16 +141,29 @@ Partial Class CompraPacasPorContrato
         CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tsdisponibles.SuspendLayout()
         Me.panel6.SuspendLayout()
+        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tppacaseleccionada.SuspendLayout()
         CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolStrip1.SuspendLayout()
         Me.panel9.SuspendLayout()
+        CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btdesmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panelgeneral.SuspendLayout()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nutara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbpreciosclase.SuspendLayout()
         CType(Me.dgvprecioclase, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -168,19 +181,6 @@ Partial Class CompraPacasPorContrato
         Me.gbcontratos.SuspendLayout()
         CType(Me.dgvcontratos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Paneltop.SuspendLayout()
-        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btdesmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'mnustrip
@@ -228,13 +228,13 @@ Partial Class CompraPacasPorContrato
         'calculoToolStripMenuItem
         '
         Me.calculoToolStripMenuItem.Name = "calculoToolStripMenuItem"
-        Me.calculoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.calculoToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.calculoToolStripMenuItem.Text = "Liquidacion"
         '
         'hviToolStripMenuItem
         '
         Me.hviToolStripMenuItem.Name = "hviToolStripMenuItem"
-        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.hviToolStripMenuItem.Text = "Hvi"
         Me.hviToolStripMenuItem.Visible = False
         '
@@ -389,6 +389,81 @@ Partial Class CompraPacasPorContrato
         Me.panel6.Size = New System.Drawing.Size(51, 393)
         Me.panel6.TabIndex = 107
         '
+        'btenviaseleccion
+        '
+        Me.btenviaseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btenviaseleccion.BackColor = System.Drawing.Color.Transparent
+        Me.btenviaseleccion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btenviaseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_36
+        Me.btenviaseleccion.ImageActive = Nothing
+        Me.btenviaseleccion.Location = New System.Drawing.Point(12, 3)
+        Me.btenviaseleccion.Name = "btenviaseleccion"
+        Me.btenviaseleccion.Size = New System.Drawing.Size(30, 30)
+        Me.btenviaseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btenviaseleccion.TabIndex = 124
+        Me.btenviaseleccion.TabStop = False
+        Me.btenviaseleccion.Zoom = 15
+        '
+        'btfiltroreiniciar
+        '
+        Me.btfiltroreiniciar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btfiltroreiniciar.BackColor = System.Drawing.Color.Transparent
+        Me.btfiltroreiniciar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btfiltroreiniciar.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
+        Me.btfiltroreiniciar.ImageActive = Nothing
+        Me.btfiltroreiniciar.Location = New System.Drawing.Point(12, 102)
+        Me.btfiltroreiniciar.Name = "btfiltroreiniciar"
+        Me.btfiltroreiniciar.Size = New System.Drawing.Size(30, 30)
+        Me.btfiltroreiniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btfiltroreiniciar.TabIndex = 123
+        Me.btfiltroreiniciar.TabStop = False
+        Me.btfiltroreiniciar.Zoom = 15
+        '
+        'btfiltros
+        '
+        Me.btfiltros.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btfiltros.BackColor = System.Drawing.Color.Transparent
+        Me.btfiltros.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btfiltros.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
+        Me.btfiltros.ImageActive = Nothing
+        Me.btfiltros.Location = New System.Drawing.Point(12, 55)
+        Me.btfiltros.Name = "btfiltros"
+        Me.btfiltros.Size = New System.Drawing.Size(30, 30)
+        Me.btfiltros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btfiltros.TabIndex = 122
+        Me.btfiltros.TabStop = False
+        Me.btfiltros.Zoom = 15
+        '
+        'btdesmarcarpacas
+        '
+        Me.btdesmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btdesmarcarpacas.BackColor = System.Drawing.Color.Transparent
+        Me.btdesmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btdesmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
+        Me.btdesmarcarpacas.ImageActive = Nothing
+        Me.btdesmarcarpacas.Location = New System.Drawing.Point(12, 228)
+        Me.btdesmarcarpacas.Name = "btdesmarcarpacas"
+        Me.btdesmarcarpacas.Size = New System.Drawing.Size(30, 30)
+        Me.btdesmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btdesmarcarpacas.TabIndex = 121
+        Me.btdesmarcarpacas.TabStop = False
+        Me.btdesmarcarpacas.Zoom = 15
+        '
+        'btmarcarpacas
+        '
+        Me.btmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btmarcarpacas.BackColor = System.Drawing.Color.Transparent
+        Me.btmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
+        Me.btmarcarpacas.ImageActive = Nothing
+        Me.btmarcarpacas.Location = New System.Drawing.Point(12, 166)
+        Me.btmarcarpacas.Name = "btmarcarpacas"
+        Me.btmarcarpacas.Size = New System.Drawing.Size(30, 30)
+        Me.btmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btmarcarpacas.TabIndex = 120
+        Me.btmarcarpacas.TabStop = False
+        Me.btmarcarpacas.Zoom = 15
+        '
         'tbcantidadsel1
         '
         Me.tbcantidadsel1.Location = New System.Drawing.Point(6, 202)
@@ -500,6 +575,111 @@ Partial Class CompraPacasPorContrato
         Me.panel9.Name = "panel9"
         Me.panel9.Size = New System.Drawing.Size(51, 393)
         Me.panel9.TabIndex = 111
+        '
+        'btpreliquidacion
+        '
+        Me.btpreliquidacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btpreliquidacion.BackColor = System.Drawing.Color.Transparent
+        Me.btpreliquidacion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btpreliquidacion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_07
+        Me.btpreliquidacion.ImageActive = Nothing
+        Me.btpreliquidacion.Location = New System.Drawing.Point(12, 325)
+        Me.btpreliquidacion.Name = "btpreliquidacion"
+        Me.btpreliquidacion.Size = New System.Drawing.Size(30, 30)
+        Me.btpreliquidacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btpreliquidacion.TabIndex = 128
+        Me.btpreliquidacion.TabStop = False
+        Me.btpreliquidacion.Zoom = 15
+        '
+        'btcalcula
+        '
+        Me.btcalcula.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btcalcula.BackColor = System.Drawing.Color.Transparent
+        Me.btcalcula.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btcalcula.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_22
+        Me.btcalcula.ImageActive = Nothing
+        Me.btcalcula.Location = New System.Drawing.Point(12, 280)
+        Me.btcalcula.Name = "btcalcula"
+        Me.btcalcula.Size = New System.Drawing.Size(30, 30)
+        Me.btcalcula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btcalcula.TabIndex = 127
+        Me.btcalcula.TabStop = False
+        Me.btcalcula.Zoom = 15
+        '
+        'btfiltrosel
+        '
+        Me.btfiltrosel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btfiltrosel.BackColor = System.Drawing.Color.Transparent
+        Me.btfiltrosel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btfiltrosel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
+        Me.btfiltrosel.ImageActive = Nothing
+        Me.btfiltrosel.Location = New System.Drawing.Point(12, 55)
+        Me.btfiltrosel.Name = "btfiltrosel"
+        Me.btfiltrosel.Size = New System.Drawing.Size(30, 30)
+        Me.btfiltrosel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btfiltrosel.TabIndex = 125
+        Me.btfiltrosel.TabStop = False
+        Me.btfiltrosel.Zoom = 15
+        '
+        'btreiniciafiltrosel
+        '
+        Me.btreiniciafiltrosel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btreiniciafiltrosel.BackColor = System.Drawing.Color.Transparent
+        Me.btreiniciafiltrosel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btreiniciafiltrosel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
+        Me.btreiniciafiltrosel.ImageActive = Nothing
+        Me.btreiniciafiltrosel.Location = New System.Drawing.Point(12, 102)
+        Me.btreiniciafiltrosel.Name = "btreiniciafiltrosel"
+        Me.btreiniciafiltrosel.Size = New System.Drawing.Size(30, 30)
+        Me.btreiniciafiltrosel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btreiniciafiltrosel.TabIndex = 126
+        Me.btreiniciafiltrosel.TabStop = False
+        Me.btreiniciafiltrosel.Zoom = 15
+        '
+        'btdesmarcasel
+        '
+        Me.btdesmarcasel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btdesmarcasel.BackColor = System.Drawing.Color.Transparent
+        Me.btdesmarcasel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btdesmarcasel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
+        Me.btdesmarcasel.ImageActive = Nothing
+        Me.btdesmarcasel.Location = New System.Drawing.Point(12, 228)
+        Me.btdesmarcasel.Name = "btdesmarcasel"
+        Me.btdesmarcasel.Size = New System.Drawing.Size(30, 30)
+        Me.btdesmarcasel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btdesmarcasel.TabIndex = 124
+        Me.btdesmarcasel.TabStop = False
+        Me.btdesmarcasel.Zoom = 15
+        '
+        'btmarcasel
+        '
+        Me.btmarcasel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btmarcasel.BackColor = System.Drawing.Color.Transparent
+        Me.btmarcasel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btmarcasel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
+        Me.btmarcasel.ImageActive = Nothing
+        Me.btmarcasel.Location = New System.Drawing.Point(12, 166)
+        Me.btmarcasel.Name = "btmarcasel"
+        Me.btmarcasel.Size = New System.Drawing.Size(30, 30)
+        Me.btmarcasel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btmarcasel.TabIndex = 123
+        Me.btmarcasel.TabStop = False
+        Me.btmarcasel.Zoom = 15
+        '
+        'btregresarseleccion
+        '
+        Me.btregresarseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btregresarseleccion.BackColor = System.Drawing.Color.Transparent
+        Me.btregresarseleccion.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btregresarseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_37
+        Me.btregresarseleccion.ImageActive = Nothing
+        Me.btregresarseleccion.Location = New System.Drawing.Point(12, 3)
+        Me.btregresarseleccion.Name = "btregresarseleccion"
+        Me.btregresarseleccion.Size = New System.Drawing.Size(30, 30)
+        Me.btregresarseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btregresarseleccion.TabIndex = 122
+        Me.btregresarseleccion.TabStop = False
+        Me.btregresarseleccion.Zoom = 15
         '
         'tbcantidadsel2
         '
@@ -701,6 +881,20 @@ Partial Class CompraPacasPorContrato
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 127
         Me.Label3.Text = "Puntos"
+        '
+        'btconsultaclientes
+        '
+        Me.btconsultaclientes.BackColor = System.Drawing.Color.Transparent
+        Me.btconsultaclientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btconsultaclientes.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
+        Me.btconsultaclientes.ImageActive = Nothing
+        Me.btconsultaclientes.Location = New System.Drawing.Point(583, 28)
+        Me.btconsultaclientes.Name = "btconsultaclientes"
+        Me.btconsultaclientes.Size = New System.Drawing.Size(25, 25)
+        Me.btconsultaclientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btconsultaclientes.TabIndex = 125
+        Me.btconsultaclientes.TabStop = False
+        Me.btconsultaclientes.Zoom = 15
         '
         'DtFechaActualizacion
         '
@@ -1209,200 +1403,6 @@ Partial Class CompraPacasPorContrato
         Me.Paneltop.Size = New System.Drawing.Size(1527, 252)
         Me.Paneltop.TabIndex = 74
         '
-        'btenviaseleccion
-        '
-        Me.btenviaseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btenviaseleccion.BackColor = System.Drawing.Color.Transparent
-        Me.btenviaseleccion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btenviaseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_36
-        Me.btenviaseleccion.ImageActive = Nothing
-        Me.btenviaseleccion.Location = New System.Drawing.Point(12, 3)
-        Me.btenviaseleccion.Name = "btenviaseleccion"
-        Me.btenviaseleccion.Size = New System.Drawing.Size(30, 30)
-        Me.btenviaseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btenviaseleccion.TabIndex = 124
-        Me.btenviaseleccion.TabStop = False
-        Me.btenviaseleccion.Zoom = 15
-        '
-        'btfiltroreiniciar
-        '
-        Me.btfiltroreiniciar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btfiltroreiniciar.BackColor = System.Drawing.Color.Transparent
-        Me.btfiltroreiniciar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btfiltroreiniciar.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
-        Me.btfiltroreiniciar.ImageActive = Nothing
-        Me.btfiltroreiniciar.Location = New System.Drawing.Point(12, 102)
-        Me.btfiltroreiniciar.Name = "btfiltroreiniciar"
-        Me.btfiltroreiniciar.Size = New System.Drawing.Size(30, 30)
-        Me.btfiltroreiniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btfiltroreiniciar.TabIndex = 123
-        Me.btfiltroreiniciar.TabStop = False
-        Me.btfiltroreiniciar.Zoom = 15
-        '
-        'btfiltros
-        '
-        Me.btfiltros.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btfiltros.BackColor = System.Drawing.Color.Transparent
-        Me.btfiltros.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btfiltros.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
-        Me.btfiltros.ImageActive = Nothing
-        Me.btfiltros.Location = New System.Drawing.Point(12, 55)
-        Me.btfiltros.Name = "btfiltros"
-        Me.btfiltros.Size = New System.Drawing.Size(30, 30)
-        Me.btfiltros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btfiltros.TabIndex = 122
-        Me.btfiltros.TabStop = False
-        Me.btfiltros.Zoom = 15
-        '
-        'btdesmarcarpacas
-        '
-        Me.btdesmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btdesmarcarpacas.BackColor = System.Drawing.Color.Transparent
-        Me.btdesmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btdesmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
-        Me.btdesmarcarpacas.ImageActive = Nothing
-        Me.btdesmarcarpacas.Location = New System.Drawing.Point(12, 228)
-        Me.btdesmarcarpacas.Name = "btdesmarcarpacas"
-        Me.btdesmarcarpacas.Size = New System.Drawing.Size(30, 30)
-        Me.btdesmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btdesmarcarpacas.TabIndex = 121
-        Me.btdesmarcarpacas.TabStop = False
-        Me.btdesmarcarpacas.Zoom = 15
-        '
-        'btmarcarpacas
-        '
-        Me.btmarcarpacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btmarcarpacas.BackColor = System.Drawing.Color.Transparent
-        Me.btmarcarpacas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btmarcarpacas.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
-        Me.btmarcarpacas.ImageActive = Nothing
-        Me.btmarcarpacas.Location = New System.Drawing.Point(12, 166)
-        Me.btmarcarpacas.Name = "btmarcarpacas"
-        Me.btmarcarpacas.Size = New System.Drawing.Size(30, 30)
-        Me.btmarcarpacas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btmarcarpacas.TabIndex = 120
-        Me.btmarcarpacas.TabStop = False
-        Me.btmarcarpacas.Zoom = 15
-        '
-        'btpreliquidacion
-        '
-        Me.btpreliquidacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btpreliquidacion.BackColor = System.Drawing.Color.Transparent
-        Me.btpreliquidacion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btpreliquidacion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_07
-        Me.btpreliquidacion.ImageActive = Nothing
-        Me.btpreliquidacion.Location = New System.Drawing.Point(12, 325)
-        Me.btpreliquidacion.Name = "btpreliquidacion"
-        Me.btpreliquidacion.Size = New System.Drawing.Size(30, 30)
-        Me.btpreliquidacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btpreliquidacion.TabIndex = 128
-        Me.btpreliquidacion.TabStop = False
-        Me.btpreliquidacion.Zoom = 15
-        '
-        'btcalcula
-        '
-        Me.btcalcula.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btcalcula.BackColor = System.Drawing.Color.Transparent
-        Me.btcalcula.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btcalcula.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_22
-        Me.btcalcula.ImageActive = Nothing
-        Me.btcalcula.Location = New System.Drawing.Point(12, 280)
-        Me.btcalcula.Name = "btcalcula"
-        Me.btcalcula.Size = New System.Drawing.Size(30, 30)
-        Me.btcalcula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btcalcula.TabIndex = 127
-        Me.btcalcula.TabStop = False
-        Me.btcalcula.Zoom = 15
-        '
-        'btfiltrosel
-        '
-        Me.btfiltrosel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btfiltrosel.BackColor = System.Drawing.Color.Transparent
-        Me.btfiltrosel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btfiltrosel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_341
-        Me.btfiltrosel.ImageActive = Nothing
-        Me.btfiltrosel.Location = New System.Drawing.Point(12, 55)
-        Me.btfiltrosel.Name = "btfiltrosel"
-        Me.btfiltrosel.Size = New System.Drawing.Size(30, 30)
-        Me.btfiltrosel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btfiltrosel.TabIndex = 125
-        Me.btfiltrosel.TabStop = False
-        Me.btfiltrosel.Zoom = 15
-        '
-        'btreiniciafiltrosel
-        '
-        Me.btreiniciafiltrosel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btreiniciafiltrosel.BackColor = System.Drawing.Color.Transparent
-        Me.btreiniciafiltrosel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btreiniciafiltrosel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_351
-        Me.btreiniciafiltrosel.ImageActive = Nothing
-        Me.btreiniciafiltrosel.Location = New System.Drawing.Point(12, 102)
-        Me.btreiniciafiltrosel.Name = "btreiniciafiltrosel"
-        Me.btreiniciafiltrosel.Size = New System.Drawing.Size(30, 30)
-        Me.btreiniciafiltrosel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btreiniciafiltrosel.TabIndex = 126
-        Me.btreiniciafiltrosel.TabStop = False
-        Me.btreiniciafiltrosel.Zoom = 15
-        '
-        'btdesmarcasel
-        '
-        Me.btdesmarcasel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btdesmarcasel.BackColor = System.Drawing.Color.Transparent
-        Me.btdesmarcasel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btdesmarcasel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_24
-        Me.btdesmarcasel.ImageActive = Nothing
-        Me.btdesmarcasel.Location = New System.Drawing.Point(12, 228)
-        Me.btdesmarcasel.Name = "btdesmarcasel"
-        Me.btdesmarcasel.Size = New System.Drawing.Size(30, 30)
-        Me.btdesmarcasel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btdesmarcasel.TabIndex = 124
-        Me.btdesmarcasel.TabStop = False
-        Me.btdesmarcasel.Zoom = 15
-        '
-        'btmarcasel
-        '
-        Me.btmarcasel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btmarcasel.BackColor = System.Drawing.Color.Transparent
-        Me.btmarcasel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btmarcasel.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_23
-        Me.btmarcasel.ImageActive = Nothing
-        Me.btmarcasel.Location = New System.Drawing.Point(12, 166)
-        Me.btmarcasel.Name = "btmarcasel"
-        Me.btmarcasel.Size = New System.Drawing.Size(30, 30)
-        Me.btmarcasel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btmarcasel.TabIndex = 123
-        Me.btmarcasel.TabStop = False
-        Me.btmarcasel.Zoom = 15
-        '
-        'btregresarseleccion
-        '
-        Me.btregresarseleccion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btregresarseleccion.BackColor = System.Drawing.Color.Transparent
-        Me.btregresarseleccion.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btregresarseleccion.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_37
-        Me.btregresarseleccion.ImageActive = Nothing
-        Me.btregresarseleccion.Location = New System.Drawing.Point(12, 3)
-        Me.btregresarseleccion.Name = "btregresarseleccion"
-        Me.btregresarseleccion.Size = New System.Drawing.Size(30, 30)
-        Me.btregresarseleccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btregresarseleccion.TabIndex = 122
-        Me.btregresarseleccion.TabStop = False
-        Me.btregresarseleccion.Zoom = 15
-        '
-        'btconsultaclientes
-        '
-        Me.btconsultaclientes.BackColor = System.Drawing.Color.Transparent
-        Me.btconsultaclientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btconsultaclientes.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
-        Me.btconsultaclientes.ImageActive = Nothing
-        Me.btconsultaclientes.Location = New System.Drawing.Point(583, 28)
-        Me.btconsultaclientes.Name = "btconsultaclientes"
-        Me.btconsultaclientes.Size = New System.Drawing.Size(25, 25)
-        Me.btconsultaclientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btconsultaclientes.TabIndex = 125
-        Me.btconsultaclientes.TabStop = False
-        Me.btconsultaclientes.Zoom = 15
-        '
         'CompraPacasPorContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1428,6 +1428,11 @@ Partial Class CompraPacasPorContrato
         Me.tsdisponibles.PerformLayout()
         Me.panel6.ResumeLayout(False)
         Me.panel6.PerformLayout()
+        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tppacaseleccionada.ResumeLayout(False)
         Me.tppacaseleccionada.PerformLayout()
         CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1435,6 +1440,13 @@ Partial Class CompraPacasPorContrato
         Me.toolStrip1.PerformLayout()
         Me.panel9.ResumeLayout(False)
         Me.panel9.PerformLayout()
+        CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btdesmarcasel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panelgeneral.ResumeLayout(False)
         Me.Panelgeneral.PerformLayout()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1442,6 +1454,7 @@ Partial Class CompraPacasPorContrato
         CType(Me.nuNoPacas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuPuntos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuPrecioQuintal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbpreciosclase.ResumeLayout(False)
         CType(Me.dgvprecioclase, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -1462,19 +1475,6 @@ Partial Class CompraPacasPorContrato
         Me.gbcontratos.ResumeLayout(False)
         CType(Me.dgvcontratos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Paneltop.ResumeLayout(False)
-        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltroreiniciar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltros, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btdesmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btmarcarpacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btpreliquidacion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btdesmarcasel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btregresarseleccion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btconsultaclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
