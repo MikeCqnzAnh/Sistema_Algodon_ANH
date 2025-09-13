@@ -301,6 +301,7 @@ Public Class ContratosAlgodon
         TbPrecioQuintal.Text = ""
         TbPrecioQuintal.Enabled = True
         TbPuntos.Text = ""
+        TbValorConversion.Text = ""
         DtpFechaLiquidacion.Value = Now
         TbPresidente.Text = ""
         CbModalidad.SelectedValue = 1
@@ -409,6 +410,13 @@ Public Class ContratosAlgodon
         TbPacasCompradas.Text = TablaDetalle.Rows(0).Item("PacasCompradas")
         TbPacasDisponibles.Text = TablaDetalle.Rows(0).Item("PacasDisponibles")
         CbUnidadPeso.SelectedValue = TablaDetalle.Rows(0).Item("Idunidadpeso")
+        If TablaUnidadPeso.Rows.Count > 0 Then
+            For Each Fila As DataRow In TablaUnidadPeso.Rows
+                If Fila.Item("IdUnidadPeso").ToString = CbUnidadPeso.SelectedValue Then
+                    TbValorConversion.Text = Fila.Item("ValorConversion").ToString
+                End If
+            Next
+        End If
         TbSuperficie.Text = TablaDetalle.Rows(0).Item("SuperficieComprometida")
         TbLotes.Text = TablaDetalle.Rows(0).Item("Lotes")
         tbidcontratovta.Text = TablaDetalle.Rows(0).Item("IdContratoVta")

@@ -153,4 +153,6 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.AssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.CoreCompileInputs.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.Up2Date

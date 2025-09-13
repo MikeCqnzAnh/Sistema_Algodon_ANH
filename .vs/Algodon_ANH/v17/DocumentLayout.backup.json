@@ -3,68 +3,24 @@
   "WorkspaceRootPath": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_datos\\acceso.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\acceso.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\ventas\\ventapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\ventas\\ventapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_entidad\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|solutionrelative:capa_entidad\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_datos\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\comercializacion\\ventas\\ventapacascontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\ventas\\ventapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\ventas\\ventapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\consultas\\fconsultaventa.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\consultas\\fconsultaventa.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A1E6801-5527-4D29-B798-24CE9AFA623F}|Capa_Operacion\\Capa_Operacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_operacion\\configuracion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{3A1E6801-5527-4D29-B798-24CE9AFA623F}|Capa_Operacion\\Capa_Operacion.vbproj|solutionrelative:capa_operacion\\configuracion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\consultas\\fconsultaventa.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\consultas\\fconsultaventa.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_datos\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_datos\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_datos\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\comercializacion\\contratosalgodoncompradores.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\consultas\\fconsultaproductorcontratocompra.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\consultas\\fconsultaproductorcontratocompra.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\contratosalgodon.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -79,199 +35,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VentaPacasContrato.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ViewState": "AgIAAA4HAAAAAAAAAAAowCoHAAA6AAAAAAAAAA==",
+              "Title": "Acceso.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Acceso.vb",
+              "RelativeDocumentMoniker": "Capa_Datos\\Acceso.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Acceso.vb",
+              "RelativeToolTip": "Capa_Datos\\Acceso.vb",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T05:02:49.293Z",
+              "WhenOpened": "2025-09-10T20:56:17.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VentaPacasContrato.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasContrato.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T05:02:53.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MenuPrincipal.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\MenuPrincipal.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
-              "RelativeToolTip": "Capa_Presentacion\\MenuPrincipal.vb",
-              "ViewState": "AgIAADsBAAAAAAAAAAAmwFkBAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T05:02:45.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "MenuPrincipal.vb [Dise\u00F1o]",
               "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
               "RelativeDocumentMoniker": "Capa_Presentacion\\MenuPrincipal.vb",
               "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb [Dise\u00F1o]",
               "RelativeToolTip": "Capa_Presentacion\\MenuPrincipal.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T04:53:57.646Z",
+              "WhenOpened": "2025-09-10T20:50:20.799Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VentaPacasContrato.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Entidad\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Entidad\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Entidad\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeToolTip": "Capa_Entidad\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T02:18:14.066Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Configuracion.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Operacion\\Configuracion.vb",
-              "RelativeDocumentMoniker": "Capa_Operacion\\Configuracion.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Operacion\\Configuracion.vb",
-              "RelativeToolTip": "Capa_Operacion\\Configuracion.vb",
-              "ViewState": "AgIAACwAAAAAAAAAAAAIwEgAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T01:14:16.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FConsultaVenta.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaVenta.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Consultas\\FConsultaVenta.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T01:09:57.622Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FConsultaVenta.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Consultas\\FConsultaVenta.vb",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACgAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-05T01:09:33.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
               "Title": "ContratosAlgodon.vb",
               "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\ContratosAlgodon.vb",
               "RelativeDocumentMoniker": "Capa_Datos\\Comercializacion\\ContratosAlgodon.vb",
               "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\ContratosAlgodon.vb",
               "RelativeToolTip": "Capa_Datos\\Comercializacion\\ContratosAlgodon.vb",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAjwMgAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAArwGMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-04T22:09:36.837Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ContratosAlgodonCompradores.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "RelativeDocumentMoniker": "Capa_Datos\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "RelativeToolTip": "Capa_Datos\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "ViewState": "AgIAADEAAAAAAAAAAAAjwE4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-04T21:16:15.883Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ContratosAlgodonCompradores.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-04T21:15:18.957Z",
+              "WhenOpened": "2025-09-10T20:26:26.842Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ContratosAlgodonCompradores.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\ContratosAlgodonCompradores.vb [Dise\u00F1o]",
+              "DocumentIndex": 2,
+              "Title": "ContratosAlgodon.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "ViewState": "AgIAAD0AAAAAAAAAAAArwGEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-04T21:15:11.305Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "VentaPacasContrato.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Datos\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "RelativeToolTip": "Capa_Datos\\Comercializacion\\Ventas\\VentaPacasContrato.vb",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAjwHgAAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-04T21:01:35.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "FConsultaProductorContratoCompra.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaProductorContratoCompra.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Consultas\\FConsultaProductorContratoCompra.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Consultas\\FConsultaProductorContratoCompra.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Consultas\\FConsultaProductorContratoCompra.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-03T16:48:32.716Z",
+              "WhenOpened": "2025-09-10T20:21:41.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "VentaPacasPorContrato.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "ViewState": "AgIAACQDAAAAAAAAAAAlwDIDAAAAAAAAAAAAAA==",
+              "Title": "ContratosAlgodon.vb [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\ContratosAlgodon.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-03T16:45:57.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VentaPacasPorContrato.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\Ventas\\VentaPacasPorContrato.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-03T15:52:05.057Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-10T20:21:38.787Z"
             }
           ]
         }

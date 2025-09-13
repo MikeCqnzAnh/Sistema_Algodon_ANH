@@ -121,9 +121,10 @@ Public Class ImportarCatalogos
     Private Sub ImportarRegistros(ByVal InstanciaOrigen As String, ByVal BaseDedatosOrigen As String, ByVal UsuarioOrigen As String, ByVal PasswordOrigen As String, ByVal InstanciaDestino As String, ByVal BaseDeDatosDestino As String, ByVal UsuarioDestino As String, ByVal PasswordDestino As String)
         Dim EntidadImportarCatalogos As New Capa_Entidad.ImportarCatalogos
         Dim NegocioImportarCatalogos As New Capa_Negocio.ImportarCatalogos
+        DgvTablas.EndEdit()
         Try
             For Each Fila As DataGridViewRow In DgvTablas.Rows
-                If Fila.Cells(1).Value = True And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) = 0 Then
+                If Fila.Cells(1).Value <> Nothing And Fila.Cells(1).Value <> False And ValidaRegistrosTabla(Fila.Cells(0).Value, InstanciaDestino, BaseDeDatosDestino, UsuarioDestino, PasswordDestino) = 0 Then
                     EntidadImportarCatalogos.Campos = GeneraCadenaCampos(Fila.Cells(0).Value)
                     EntidadImportarCatalogos.Table = Fila.Cells(0).Value
                     EntidadImportarCatalogos.InstanciaDestino = InstanciaDestino
@@ -157,7 +158,9 @@ Public Class ImportarCatalogos
         EntidadImportarCatalogos.Consulta = Consulta.ConsultaTablas
         NegocioImportarCatalogos.ConsultarBaseExterna(EntidadImportarCatalogos)
         tabla = EntidadImportarCatalogos.TablaConsulta
-        Resultado = tabla.Rows(0).Item("Registros")
+        If tabla.Rows.Count > 0 Then
+            Resultado = tabla.Rows(0).Item("Registros")
+        End If
         Return Resultado
     End Function
     Private Function GeneraCadenaCampos(ByVal NombreTabla As String)

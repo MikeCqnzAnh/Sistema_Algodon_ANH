@@ -1590,6 +1590,8 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.VentaPacasPorContrato.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.FConsultaProductorContratoVenta.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.FConsultaVenta.resources
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbprojResolveAssemblyReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.PreliquidacionCompraContrato.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.LiquidacionCompraContrato.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.LiquidacionVentaContrato.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.PreliquidacionVentaContrato.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbprojResolveAssemblyReference.cache

@@ -239,6 +239,7 @@ Partial Class MenuPrincipal
         Me.AsociacionesToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.AsociacionesToolStripMenuItem.Tag = "3,1"
         Me.AsociacionesToolStripMenuItem.Text = "Asociaciones"
+        Me.AsociacionesToolStripMenuItem.Visible = False
         '
         'CompradoresToolStripMenuItem
         '
@@ -268,6 +269,7 @@ Partial Class MenuPrincipal
         Me.AlmacenesToolStripMenuItem1.Size = New System.Drawing.Size(270, 22)
         Me.AlmacenesToolStripMenuItem1.Tag = "7,1"
         Me.AlmacenesToolStripMenuItem1.Text = "Almacenes"
+        Me.AlmacenesToolStripMenuItem1.Visible = False
         '
         'PlantasToolStripMenuItem
         '
@@ -282,6 +284,7 @@ Partial Class MenuPrincipal
         Me.TiposDeIncidenciasToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.TiposDeIncidenciasToolStripMenuItem.Tag = "9,1"
         Me.TiposDeIncidenciasToolStripMenuItem.Text = "Tipos de Incidencias"
+        Me.TiposDeIncidenciasToolStripMenuItem.Visible = False
         '
         'IncidenciasDeParoDeOperacionesToolStripMenuItem
         '
@@ -289,6 +292,7 @@ Partial Class MenuPrincipal
         Me.IncidenciasDeParoDeOperacionesToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.IncidenciasDeParoDeOperacionesToolStripMenuItem.Tag = "10,1"
         Me.IncidenciasDeParoDeOperacionesToolStripMenuItem.Text = "Incidencias de Paro de operaciones"
+        Me.IncidenciasDeParoDeOperacionesToolStripMenuItem.Visible = False
         '
         'PuestosToolStripMenuItem
         '
@@ -296,6 +300,7 @@ Partial Class MenuPrincipal
         Me.PuestosToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.PuestosToolStripMenuItem.Tag = "11,1"
         Me.PuestosToolStripMenuItem.Text = "Puestos"
+        Me.PuestosToolStripMenuItem.Visible = False
         '
         'EmpleadosToolStripMenuItem
         '
@@ -303,6 +308,7 @@ Partial Class MenuPrincipal
         Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.EmpleadosToolStripMenuItem.Tag = "12,1"
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
+        Me.EmpleadosToolStripMenuItem.Visible = False
         '
         'MaquinariaToolStripMenuItem
         '
@@ -310,6 +316,7 @@ Partial Class MenuPrincipal
         Me.MaquinariaToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.MaquinariaToolStripMenuItem.Tag = "13,1"
         Me.MaquinariaToolStripMenuItem.Text = "Maquinaria"
+        Me.MaquinariaToolStripMenuItem.Visible = False
         '
         'RangosDeTemperaturaToolStripMenuItem
         '
@@ -317,6 +324,7 @@ Partial Class MenuPrincipal
         Me.RangosDeTemperaturaToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.RangosDeTemperaturaToolStripMenuItem.Tag = "14,1"
         Me.RangosDeTemperaturaToolStripMenuItem.Text = "Rangos de Temperatura"
+        Me.RangosDeTemperaturaToolStripMenuItem.Visible = False
         '
         'ProfesionalesFitosanitariosToolStripMenuItem
         '
@@ -324,6 +332,7 @@ Partial Class MenuPrincipal
         Me.ProfesionalesFitosanitariosToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.ProfesionalesFitosanitariosToolStripMenuItem.Tag = "15,1"
         Me.ProfesionalesFitosanitariosToolStripMenuItem.Text = "Profesionales Fitosanitarios"
+        Me.ProfesionalesFitosanitariosToolStripMenuItem.Visible = False
         '
         'ModalidadesDeComercializacionToolStripMenuItem
         '
@@ -353,6 +362,7 @@ Partial Class MenuPrincipal
         Me.UnidadesDeComercializacionToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.UnidadesDeComercializacionToolStripMenuItem.Tag = "241,1"
         Me.UnidadesDeComercializacionToolStripMenuItem.Text = "Unidades de Comercializacion"
+        Me.UnidadesDeComercializacionToolStripMenuItem.Visible = False
         '
         'TierrasToolStripMenuItem
         '
@@ -389,6 +399,7 @@ Partial Class MenuPrincipal
         Me.CastigosPorMicrosToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.CastigosPorMicrosToolStripMenuItem.Tag = "21,1"
         Me.CastigosPorMicrosToolStripMenuItem.Text = "Castigos por Quintal"
+        Me.CastigosPorMicrosToolStripMenuItem.Visible = False
         '
         'RegímenesHídricosToolStripMenuItem
         '
@@ -431,6 +442,7 @@ Partial Class MenuPrincipal
         Me.CamionesToolStripMenuItem.Size = New System.Drawing.Size(270, 22)
         Me.CamionesToolStripMenuItem.Tag = "25,1"
         Me.CamionesToolStripMenuItem.Text = "Camiones"
+        Me.CamionesToolStripMenuItem.Visible = False
         '
         'ComercializaciónToolStripMenuItem
         '
@@ -468,6 +480,7 @@ Partial Class MenuPrincipal
         Me.ContratosDeSemillaToolStripMenuItem1.Size = New System.Drawing.Size(302, 22)
         Me.ContratosDeSemillaToolStripMenuItem1.Tag = "30,27"
         Me.ContratosDeSemillaToolStripMenuItem1.Text = "Contratos de Semilla"
+        Me.ContratosDeSemillaToolStripMenuItem1.Visible = False
         '
         'ClasificacionToolStripMenuItem
         '
@@ -637,6 +650,7 @@ Partial Class MenuPrincipal
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Size = New System.Drawing.Size(280, 22)
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Tag = "46,26"
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Text = "Asignar Compradores a Paquetes HVI"
+        Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Visible = False
         '
         'ProcesosToolStripMenuItem
         '
@@ -718,6 +732,7 @@ Partial Class MenuPrincipal
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Tag = "56,47"
         Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Text = "Cálculo preeliminar de paro de operaciones"
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Visible = False
         '
         'AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem
         '
@@ -725,6 +740,7 @@ Partial Class MenuPrincipal
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Tag = "57,47"
         Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Text = "Asignación de Personal a un jefe de turno"
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Visible = False
         '
         'CargaPacasExternasToolStripMenuItem
         '
@@ -747,6 +763,7 @@ Partial Class MenuPrincipal
         Me.LotesToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LotesToolStripMenuItem.Tag = "0,0"
         Me.LotesToolStripMenuItem.Text = "Lotes"
+        Me.LotesToolStripMenuItem.Visible = False
         '
         'OrdenDeEmbarquePToolStripMenuItem
         '
@@ -784,6 +801,7 @@ Partial Class MenuPrincipal
         Me.SalidaDeSemillaToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.SalidaDeSemillaToolStripMenuItem.Tag = "60,58"
         Me.SalidaDeSemillaToolStripMenuItem.Text = "Salida de Semilla"
+        Me.SalidaDeSemillaToolStripMenuItem.Visible = False
         '
         'SalidaDePacasDeBorraToolStripMenuItem
         '
@@ -791,6 +809,7 @@ Partial Class MenuPrincipal
         Me.SalidaDePacasDeBorraToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.SalidaDePacasDeBorraToolStripMenuItem.Tag = "61,58"
         Me.SalidaDePacasDeBorraToolStripMenuItem.Text = "Salida de Pacas de Borra"
+        Me.SalidaDePacasDeBorraToolStripMenuItem.Visible = False
         '
         'SalidaDeBasuraToolStripMenuItem
         '
@@ -798,6 +817,7 @@ Partial Class MenuPrincipal
         Me.SalidaDeBasuraToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.SalidaDeBasuraToolStripMenuItem.Tag = "62,58"
         Me.SalidaDeBasuraToolStripMenuItem.Text = "Salida de Basura"
+        Me.SalidaDeBasuraToolStripMenuItem.Visible = False
         '
         'ExistenciaEnBodegaToolStripMenuItem
         '
@@ -805,6 +825,7 @@ Partial Class MenuPrincipal
         Me.ExistenciaEnBodegaToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.ExistenciaEnBodegaToolStripMenuItem.Tag = "63,58"
         Me.ExistenciaEnBodegaToolStripMenuItem.Text = "Existencia en Bodega Pacas"
+        Me.ExistenciaEnBodegaToolStripMenuItem.Visible = False
         '
         'InventarioToolStripMenuItem
         '
@@ -1212,6 +1233,7 @@ Partial Class MenuPrincipal
         Me.BorrarPerfilToolStripMenuItem.Size = New System.Drawing.Size(291, 22)
         Me.BorrarPerfilToolStripMenuItem.Tag = "108,107"
         Me.BorrarPerfilToolStripMenuItem.Text = "Borrar Perfil"
+        Me.BorrarPerfilToolStripMenuItem.Visible = False
         '
         'BorrarPacasToolStripMenuItem
         '
@@ -1219,6 +1241,7 @@ Partial Class MenuPrincipal
         Me.BorrarPacasToolStripMenuItem.Size = New System.Drawing.Size(291, 22)
         Me.BorrarPacasToolStripMenuItem.Tag = "109,107"
         Me.BorrarPacasToolStripMenuItem.Text = "Borrar Pacas"
+        Me.BorrarPacasToolStripMenuItem.Visible = False
         '
         'ToolStripMenuItem1
         '
@@ -1233,6 +1256,7 @@ Partial Class MenuPrincipal
         Me.ActualizacionVentaToolStripMenuItem.Size = New System.Drawing.Size(291, 22)
         Me.ActualizacionVentaToolStripMenuItem.Tag = "247,107"
         Me.ActualizacionVentaToolStripMenuItem.Text = "Actualizacion Venta"
+        Me.ActualizacionVentaToolStripMenuItem.Visible = False
         '
         'CambioDePerfilDePacasToolStripMenuItem
         '
@@ -1240,6 +1264,7 @@ Partial Class MenuPrincipal
         Me.CambioDePerfilDePacasToolStripMenuItem.Size = New System.Drawing.Size(291, 22)
         Me.CambioDePerfilDePacasToolStripMenuItem.Tag = "110,107"
         Me.CambioDePerfilDePacasToolStripMenuItem.Text = "Cambio de Perfil de Pacas"
+        Me.CambioDePerfilDePacasToolStripMenuItem.Visible = False
         '
         'CambioDePerfilDeUnProductorAOtroToolStripMenuItem
         '
@@ -1247,6 +1272,7 @@ Partial Class MenuPrincipal
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Size = New System.Drawing.Size(291, 22)
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Tag = "111,107"
         Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Text = "Cambio de Perfil de un Productor a Otro"
+        Me.CambioDePerfilDeUnProductorAOtroToolStripMenuItem.Visible = False
         '
         'EnvioDeMensajesDeTextoYCorreosAProductoresToolStripMenuItem
         '
@@ -1355,6 +1381,7 @@ Partial Class MenuPrincipal
         Me.TurnosToolStripMenuItem.Size = New System.Drawing.Size(316, 22)
         Me.TurnosToolStripMenuItem.Tag = "0,0"
         Me.TurnosToolStripMenuItem.Text = "Configuracion de Turnos"
+        Me.TurnosToolStripMenuItem.Visible = False
         '
         'ConfiguracionDeParametrosToolStripMenuItem1
         '

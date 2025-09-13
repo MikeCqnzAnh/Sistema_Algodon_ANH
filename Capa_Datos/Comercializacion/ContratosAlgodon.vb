@@ -46,19 +46,19 @@ Public Class ContratosAlgodon
                     cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadContratosAlgodon1.FechaActualizacion))
                     cmdGuardar.Parameters("@IdContratoAlgodon").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
-                    'If EntidadContratosAlgodon1.IdContratoAlgodon = 0 Then
-                    'EntidadContratosAlgodon1.IdContratoAlgodon = cmdGuardar.Parameters("@IdContratoAlgodon").Value
-                    'For Each MiTableRow As DataRow In EntidadContratosAlgodon1.TablaConsulta.Rows
-                    '    cmdGuardar.CommandText = "sp_InsertarContratoCompraDet"
-                    '    cmdGuardar.CommandType = CommandType.StoredProcedure
-                    '        cmdGuardar.Parameters.Clear()
-                    '        cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodonDetalle", 0))
-                    '        cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodon1.IdContratoAlgodon))
-                    '        cmdGuardar.Parameters.Add(New SqlParameter("@IdLote", MiTableRow("IdTierra")))
-                    '        cmdGuardar.Parameters.Add(New SqlParameter("@SuperficieContratada", MiTableRow("SuperficieContratada")))
-                    '        cmdGuardar.ExecuteNonQuery()
-                    '    Next
-                    'End If
+                    If EntidadContratosAlgodon1.IdContratoAlgodon = 0 Then
+                        EntidadContratosAlgodon1.IdContratoAlgodon = cmdGuardar.Parameters("@IdContratoAlgodon").Value
+                        'For Each MiTableRow As DataRow In EntidadContratosAlgodon1.TablaConsulta.Rows
+                        '    cmdGuardar.CommandText = "sp_InsertarContratoCompraDet"
+                        '    cmdGuardar.CommandType = CommandType.StoredProcedure
+                        '        cmdGuardar.Parameters.Clear()
+                        '        cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodonDetalle", 0))
+                        '        cmdGuardar.Parameters.Add(New SqlParameter("@IdContratoAlgodon", EntidadContratosAlgodon1.IdContratoAlgodon))
+                        '        cmdGuardar.Parameters.Add(New SqlParameter("@IdLote", MiTableRow("IdTierra")))
+                        '        cmdGuardar.Parameters.Add(New SqlParameter("@SuperficieContratada", MiTableRow("SuperficieContratada")))
+                        '        cmdGuardar.ExecuteNonQuery()
+                        '    Next
+                    End If
                 Case Configuracion.Guardar.GuardarDetalle
                     cmdGuardar = New SqlCommand("Sp_InsertaParametrosContratoCompra", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure

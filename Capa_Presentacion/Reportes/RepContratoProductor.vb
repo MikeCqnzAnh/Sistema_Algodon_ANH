@@ -22,18 +22,32 @@ Public Class RepContratoProductor
     Private Sub RepContratoProductor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim EntidadReportes As New Capa_Entidad.Reportes
         Dim NegocioReportes As New Capa_Negocio.Reportes
+
+        Dim eDatosEmpresa As New Capa_Entidad.DatosEmpresa()
+        Dim nDatosEmpresa As New Capa_Negocio.DatosEmpresa()
+
         Dim Tabla As New DataTable
+        Dim tabla1 As New DataTable()
         Dim ds As New DataSet
         Dim CrReport As RPTContratoBE = New RPTContratoBE
         Dim Ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTContratoBE.rpt")
+
+        eDatosEmpresa.Consulta = Consulta.ConsultaDatosEmpresa
+        'eDatosEmpresa.idempresa = 1
+        nDatosEmpresa.Consultar(eDatosEmpresa)
+        tabla1 = eDatosEmpresa.TablaConsulta
+        ds.Tables.Add(tabla1)
 
         EntidadReportes.Reporte = Reporte.ReporteContratoCompra
         EntidadReportes.IdContratoAlgodon = IdContratoAlgodon
         NegocioReportes.Consultar(EntidadReportes)
         Tabla = EntidadReportes.TablaConsulta
         ds.Tables.Add(Tabla)
+
+
         CrReport.Load(Ruta)
-        CrReport.SetDataSource(ds.Tables(0))
+        CrReport.Database.Tables("DatosEmpresa").SetDataSource(ds.Tables(0))
+        CrReport.Database.Tables("ContratoCompraEmpresa").SetDataSource(ds.Tables(1))
         CRVContratoProductor.ReportSource = CrReport
     End Sub
 End Class
