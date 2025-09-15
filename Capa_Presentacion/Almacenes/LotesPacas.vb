@@ -18,10 +18,22 @@
             tbidcliente.Text = consultalotes._idcomprador
             tbnombrecliente.Text = consultalotes._nombre
             tbnombrelote.Text = consultalotes._nolote
-
         End If
     End Sub
 
+    Private Sub GuardarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GuardarToolStripMenuItem.Click
+
+    End Sub
+    Private Sub guardarenc()
+        Dim elotespaca As New Capa_Entidad.LotesPacas
+        Dim nlotespaca As New Capa_Negocio.LotesPacas
+
+        elotespaca.Guarda = Guardar.GuardarEncabezado
+        elotespaca.idlote = IIf(tbidlote.Text = "", 0, tbidlote.Text)
+        elotespaca.idcomprador = tbidcliente.Text
+        elotespaca.nolote = tbnombrelote.Text
+
+    End Sub
     Private Sub btconsultaclientes_Click(sender As Object, e As EventArgs) Handles btconsultaclientes.Click
         Dim compradores As New ConsultaCompradores()
         compradores.ShowDialog()
