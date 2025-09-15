@@ -164,6 +164,12 @@
     <Compile Include="Almacenes\InventarioPacas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Almacenes\LotesPacas.Designer.vb">
+      <DependentUpon>LotesPacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\LotesPacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Almacenes\OrdenEmbarquePacas.Designer.vb">
       <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
     </Compile>
@@ -462,6 +468,12 @@
       <DependentUpon>ConsultaLotes.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaLotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaLotesEnc.Designer.vb">
+      <DependentUpon>ConsultaLotesEnc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaLotesEnc.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarque.Designer.vb">
@@ -1779,6 +1791,9 @@
     <EmbeddedResource Include="Almacenes\InventarioPacas.resx">
       <DependentUpon>InventarioPacas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\LotesPacas.resx">
+      <DependentUpon>LotesPacas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\OrdenEmbarquePacas.resx">
       <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -2018,6 +2033,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaLotes.resx">
       <DependentUpon>ConsultaLotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaLotesEnc.resx">
+      <DependentUpon>ConsultaLotesEnc.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarque.resx">
       <DependentUpon>ConsultaOrdenEmbarque.vb</DependentUpon>

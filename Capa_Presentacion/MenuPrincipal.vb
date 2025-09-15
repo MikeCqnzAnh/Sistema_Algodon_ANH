@@ -594,6 +594,11 @@ Public Class MenuPrincipal
         ventacontrato.ShowDialog()
     End Sub
 
+    Private Sub LotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LotesToolStripMenuItem.Click
+        Dim lotespacas As New LotesPacas()
+        lotespacas.ShowDialog()
+    End Sub
+
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub
