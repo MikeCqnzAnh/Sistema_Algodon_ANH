@@ -242,10 +242,10 @@
     <Compile Include="Comercializacion\Clasificacion\AgregaPacasRangos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Comercializacion\Clasificacion\Clasificacion para Venta.Designer.vb">
-      <DependentUpon>Clasificacion para Venta.vb</DependentUpon>
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionparaVenta.Designer.vb">
+      <DependentUpon>ClasificacionparaVenta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Comercializacion\Clasificacion\Clasificacion para Venta.vb">
+    <Compile Include="Comercializacion\Clasificacion\ClasificacionparaVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Comercializacion\Clasificacion\EntradaSalidadeEquipo.Designer.vb">
@@ -1921,8 +1921,8 @@
     <EmbeddedResource Include="Comercializacion\Clasificacion\AgregaPacasRangos.resx">
       <DependentUpon>AgregaPacasRangos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Comercializacion\Clasificacion\Clasificacion para Venta.resx">
-      <DependentUpon>Clasificacion para Venta.vb</DependentUpon>
+    <EmbeddedResource Include="Comercializacion\Clasificacion\ClasificacionparaVenta.resx">
+      <DependentUpon>ClasificacionparaVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\EntradaSalidadeEquipo.resx">
       <DependentUpon>EntradaSalidadeEquipo.vb</DependentUpon>

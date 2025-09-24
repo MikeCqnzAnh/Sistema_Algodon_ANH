@@ -72,6 +72,9 @@
         GuardaVentadet = 19
         GuardarCompraPreliqDet = 20
         GuardarVentaPreliqdet = 21
+        GuardarPqtclaenc = 22
+        GuardarPqtcladet = 23
+
     End Enum
     Public Enum Consulta
         ConsultaEstado = 1

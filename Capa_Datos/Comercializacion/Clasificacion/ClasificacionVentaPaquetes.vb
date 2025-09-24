@@ -20,7 +20,7 @@ Public Class ClasificacionVentaPaquetes
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@NumPaca", EntidadClasificacionVentaPaquetes.NumeroPaca))
+                    sqlcom1.Parameters.Add(New SqlParameter("@baleid", EntidadClasificacionVentaPaquetes.NumeroPaca))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
@@ -223,69 +223,79 @@ Public Class ClasificacionVentaPaquetes
         Dim cmdGuardar As New SqlCommand
         Try
             cnn.Open()
-            cmdGuardar = New SqlCommand("sp_InsertarPaqueteEncabezado", cnn)
-            cmdGuardar.CommandType = CommandType.StoredProcedure
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes1.IdPaquete))
-            cmdGuardar.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes1.LotID))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes1.IdPlanta))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadClasificacionVentaPaquetes1.IdComprador))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdClase", EntidadClasificacionVentaPaquetes1.IdClase))
-            cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadClasificacionVentaPaquetes1.CantidadPacas))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadClasificacionVentaPaquetes1.Descripcion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@Entrega", EntidadClasificacionVentaPaquetes1.Entrega))
-            cmdGuardar.Parameters.Add(New SqlParameter("@chkrevisado", EntidadClasificacionVentaPaquetes1.chkrevisado))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadClasificacionVentaPaquetes1.IdEstatus))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadClasificacionVentaPaquetes1.IdUsuarioCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadClasificacionVentaPaquetes1.FechaCreacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadClasificacionVentaPaquetes1.IdUsuarioActualizacion))
-            cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadClasificacionVentaPaquetes1.FechaActualizacion))
-            cmdGuardar.Parameters("@IdPaquete").Direction = ParameterDirection.InputOutput
-            cmdGuardar.ExecuteNonQuery()
-            If EntidadClasificacionVentaPaquetes1.IdPaquete = 0 Then
-                EntidadClasificacionVentaPaquetes1.IdPaquete = cmdGuardar.Parameters("@IdPaquete").Value
-            End If
-            'If EntidadClasificacionVentaPaquetes1.chkrevisado = True Then
-            For Each MiTableRow As DataRow In EntidadClasificacionVentaPaquetes1.TablaGeneral.Rows
-                cmdGuardar = New SqlCommand("sp_InsertarClasificacionPacas", cnn)
-                cmdGuardar.CommandType = CommandType.StoredProcedure
-                cmdGuardar.Parameters.Clear()
-                cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
-                cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", MiTableRow("IdOrdenTrabajo")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", MiTableRow("IdPlantaOrigen")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Libras", MiTableRow("Libras")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@LotID", MiTableRow("LotID")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Operator", MiTableRow("Operator")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Date", MiTableRow("Date")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Temperature", MiTableRow("Temperature")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Humidity", MiTableRow("Humidity")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Amount", MiTableRow("Amount")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@UHML", MiTableRow("UHML")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@UI", MiTableRow("UI")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Strength", MiTableRow("Strength")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Elongation", MiTableRow("Elongation")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@SFI", MiTableRow("SFI")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Maturity", MiTableRow("Maturity")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Grade", MiTableRow("Grade")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Moist", MiTableRow("Moist")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Mic", MiTableRow("Mic")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Rd", MiTableRow("Rd")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Plusb", MiTableRow("Plusb")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@ColorGrade", MiTableRow("ColorGrade")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@TrashCount", MiTableRow("TrashCount")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@TrashArea", MiTableRow("TrashArea")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@TrashID", MiTableRow("TrashID")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@SCI", MiTableRow("SCI")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@Nep", MiTableRow("Nep")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@UV", MiTableRow("UV")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@FlagTerminadoventa", MiTableRow("FlagTerminado")))
-                cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVenta", MiTableRow("EstatusVenta")))
+            Select Case EntidadClasificacionVentaPaquetes1.Guarda
+                Case Capa_Operacion.Configuracion.Guardar.GuardarPqtclaenc
+                    cmdGuardar = New SqlCommand("sp_InsertarPaqueteEncabezado", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes1.IdPaquete))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@LotID", EntidadClasificacionVentaPaquetes1.LotID))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes1.IdPlanta))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadClasificacionVentaPaquetes1.IdComprador))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdClase", EntidadClasificacionVentaPaquetes1.IdClase))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadClasificacionVentaPaquetes1.CantidadPacas))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Descripcion", EntidadClasificacionVentaPaquetes1.Descripcion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@Entrega", EntidadClasificacionVentaPaquetes1.Entrega))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@chkrevisado", EntidadClasificacionVentaPaquetes1.chkrevisado))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEstatus", EntidadClasificacionVentaPaquetes1.IdEstatus))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioCreacion", EntidadClasificacionVentaPaquetes1.IdUsuarioCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaCreacion", EntidadClasificacionVentaPaquetes1.FechaCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdUsuarioActualizacion", EntidadClasificacionVentaPaquetes1.IdUsuarioActualizacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@FechaActualizacion", EntidadClasificacionVentaPaquetes1.FechaActualizacion))
+                    cmdGuardar.Parameters("@IdPaquete").Direction = ParameterDirection.InputOutput
+                    cmdGuardar.ExecuteNonQuery()
+                    If EntidadClasificacionVentaPaquetes1.IdPaquete = 0 Then
+                        EntidadClasificacionVentaPaquetes1.IdPaquete = cmdGuardar.Parameters("@IdPaquete").Value
+                    End If
+                Case Capa_Operacion.Configuracion.Guardar.GuardarPqtcladet
+                    cmdGuardar = New SqlCommand("pa_actualizapacaclavta", cnn)
+                    cmdGuardar.CommandType = CommandType.StoredProcedure
+                    cmdGuardar.Parameters.Add(New SqlParameter("@idproducciondetalle", EntidadClasificacionVentaPaquetes1.idproducciondetalle))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
+                    cmdGuardar.ExecuteNonQuery()
+            End Select
 
-                cmdGuardar.ExecuteNonQuery()
-            Next
+            'If EntidadClasificacionVentaPaquetes1.chkrevisado = True Then
+            'For Each MiTableRow As DataRow In EntidadClasificacionVentaPaquetes1.TablaGeneral.Rows
+            '    cmdGuardar = New SqlCommand("sp_InsertarClasificacionPacas", cnn)
+            '    cmdGuardar.CommandType = CommandType.StoredProcedure
+            '    cmdGuardar.Parameters.Clear()
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@IdPaqueteEncabezado", EntidadClasificacionVentaPaquetes1.IdPaquete))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@IdOrdenTrabajo", MiTableRow("IdOrdenTrabajo")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlantaOrigen", MiTableRow("IdPlantaOrigen")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Kilos", MiTableRow("Kilos")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Libras", MiTableRow("Libras")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Quintales", MiTableRow("Quintales")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@LotID", MiTableRow("LotID")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", MiTableRow("BaleID")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@BaleGroup", MiTableRow("BaleGroup")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Operator", MiTableRow("Operator")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Date", MiTableRow("Date")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Temperature", MiTableRow("Temperature")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Humidity", MiTableRow("Humidity")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Amount", MiTableRow("Amount")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@UHML", MiTableRow("UHML")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@UI", MiTableRow("UI")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Strength", MiTableRow("Strength")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Elongation", MiTableRow("Elongation")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@SFI", MiTableRow("SFI")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Maturity", MiTableRow("Maturity")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Grade", MiTableRow("Grade")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Moist", MiTableRow("Moist")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Mic", MiTableRow("Mic")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Rd", MiTableRow("Rd")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Plusb", MiTableRow("Plusb")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@ColorGrade", MiTableRow("ColorGrade")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@TrashCount", MiTableRow("TrashCount")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@TrashArea", MiTableRow("TrashArea")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@TrashID", MiTableRow("TrashID")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@SCI", MiTableRow("SCI")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@Nep", MiTableRow("Nep")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@UV", MiTableRow("UV")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@FlagTerminadoventa", MiTableRow("FlagTerminado")))
+            '    cmdGuardar.Parameters.Add(New SqlParameter("@EstatusVenta", MiTableRow("EstatusVenta")))
+
+            '    cmdGuardar.ExecuteNonQuery()
+            'Next
             'End If
         Catch ex As Exception
             cnn.Close()

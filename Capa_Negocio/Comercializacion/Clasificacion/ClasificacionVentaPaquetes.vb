@@ -5,7 +5,7 @@ Public Class ClasificacionVentaPaquetes
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim DatosClasificacionVentaPaquetes As New Capa_Datos.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1 = EntidadClasificacionVentaPaquetes
-        'DatosClasificacionVentaPaquetes.Upsert(EntidadClasificacionVentaPaquetes1)
+        DatosClasificacionVentaPaquetes.Upsert(EntidadClasificacionVentaPaquetes1)
     End Sub
     Public Overridable Sub Consultar(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim DatosClasificacionVentaPaquetes As New Capa_Datos.ClasificacionVentaPaquetes

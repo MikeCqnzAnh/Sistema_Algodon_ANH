@@ -1,37 +1,42 @@
-Create procedure sp_ConsultaPacasCalculoClasif
-@IdPaquete int 
+create procedure sp_ConsultaPacasCalculoClasif
+@IdPaquete int ,
+@seleccionar bit = 0
 as
-select   
-		 a.[IdPlantaOrigen]
-		,a.[LotID]
-		,a.[BaleID]
-		,a.[BaleGroup]
-		,a.[Operator]
-		,a.[Date]
-		,a.[Temperature]
-		,a.[Humidity]
-		,a.[Amount]
-		,a.[UHML]
-		,a.[UI]
-		,a.[Strength]
-		,a.[Elongation]
-		,a.[SFI]
-		,a.[Maturity]
-		,a.[Grade]
-		,a.[Moist]
-		,a.[Mic]
-		,a.[Rd]
-		,a.[Plusb]
-		,a.[ColorGrade]
-		,a.[TrashCount]
-		,a.[TrashArea]
-		,a.[TrashID]
-		,a.[SCI]
-		,a.[Nep]
-		,a.[UV]
-		,a.FlagTerminado
-		,a.IdVentaEnc
-		,a.IdOrdenTrabajo
-from [dbo].[CalculoClasificacion] a
+select @seleccionar as seleccionar,
+	   IdProduccionDetalle,
+	   IdOrdenTrabajo,
+	   IdPlantaOrigen,
+	   IdPaqueteEncabezado,
+	   isnull(IdVentaEnc,0) as idventaenc,
+	   LotID,
+	   BaleID,
+	   BaleGroup,
+	   Operator,
+	   [date],
+	   Temperature,
+	   Humidity,
+	   Amount,
+	   UHML,
+	   UI,
+	   Strength,
+	   Elongation,
+	   SFI,
+	   Maturity,
+	   Grade,
+	   Moist,
+	   Mic,
+	   Rd,
+	   Plusb,
+	   ColorGrade,
+	   TrashCount,
+	   TrashArea,
+	   TrashID,
+	   SCI,
+	   Nep,
+	   UV,
+	   FlagTerminadoCompra,
+	   FlagTerminadoVenta,
+	   EstatusVenta
+from ProduccionDetalle a
 where a.IdPaqueteEncabezado = @IdPaquete 
 order by a.BaleId asc

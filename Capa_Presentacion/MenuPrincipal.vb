@@ -599,6 +599,11 @@ Public Class MenuPrincipal
         lotespacas.ShowDialog()
     End Sub
 
+    Private Sub PaquetesParaVentaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaToolStripMenuItem1.Click
+        Dim clasifvta As New Clasificacion_para_Venta
+        clasifvta.ShowDialog()
+    End Sub
+
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click
         RutaDocumentos.ShowDialog()
     End Sub

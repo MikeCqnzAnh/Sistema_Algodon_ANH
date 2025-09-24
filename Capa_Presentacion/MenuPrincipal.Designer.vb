@@ -202,6 +202,7 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.PaquetesParaVentaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -484,7 +485,7 @@ Partial Class MenuPrincipal
         '
         'ClasificacionToolStripMenuItem
         '
-        Me.ClasificacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaquetesHVIToolStripMenuItem1, Me.PaquetesParaVentaToolStripMenuItem, Me.PaquetesParaVentaPorRangosToolStripMenuItem, Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1, Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1, Me.EntradaYSalidaDeEquipoToolStripMenuItem})
+        Me.ClasificacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PaquetesHVIToolStripMenuItem1, Me.PaquetesParaVentaToolStripMenuItem, Me.PaquetesParaVentaPorRangosToolStripMenuItem, Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1, Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1, Me.EntradaYSalidaDeEquipoToolStripMenuItem, Me.PaquetesParaVentaToolStripMenuItem1})
         Me.ClasificacionToolStripMenuItem.Name = "ClasificacionToolStripMenuItem"
         Me.ClasificacionToolStripMenuItem.Size = New System.Drawing.Size(280, 22)
         Me.ClasificacionToolStripMenuItem.Tag = "31,26"
@@ -1526,6 +1527,13 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
+        'PaquetesParaVentaToolStripMenuItem1
+        '
+        Me.PaquetesParaVentaToolStripMenuItem1.Name = "PaquetesParaVentaToolStripMenuItem1"
+        Me.PaquetesParaVentaToolStripMenuItem1.Size = New System.Drawing.Size(305, 22)
+        Me.PaquetesParaVentaToolStripMenuItem1.Tag = "0,0"
+        Me.PaquetesParaVentaToolStripMenuItem1.Text = "Paquetes para Venta"
+        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1732,4 +1740,5 @@ Partial Class MenuPrincipal
     Friend WithEvents CompraDePacasPorContratoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LotesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentaDePacasPorContratoToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents PaquetesParaVentaToolStripMenuItem1 As ToolStripMenuItem
 End Class

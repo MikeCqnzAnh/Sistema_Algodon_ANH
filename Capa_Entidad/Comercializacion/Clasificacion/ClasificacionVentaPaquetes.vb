@@ -9,6 +9,7 @@ Public Class ClasificacionVentaPaquetes
     Public BaleID As Long
     '------
     Public IdPaquete As Integer
+    Public idproducciondetalle As Integer
     Public IdComprador As Integer
     Public IdPlanta As Integer
     Public IdClase As Integer

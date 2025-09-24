@@ -1,16 +1,15 @@
-create table PaqueteEncabezado (
-IdPaquete int not null primary key identity(1,1),
-FolioID int,
-IdPlanta int,
-idComprador int,
-IdClase int,
-CantidadPacas int,
-Descripcion varchar(20),
-Entrega int,
-chkrevisado bit,
-IdEstatus int,
-IdUsuarioCreacion int,
-FechaCreacion datetime,
-IdUsuarioActualizacion int,
-FechaActualizacion datetime
-)
+CREATE TABLE PaqueteEncabezado(
+	[IdPaquete] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[LotID] [int] NULL unique,
+	[IdPlanta] [int] NULL,
+	[idComprador] [int] NULL,
+	[IdClase] [int] NULL,
+	[CantidadPacas] [int] NULL,
+	[Descripcion] [varchar](20) NULL,
+	[Entrega] [int] NULL,
+	[chkrevisado] [bit] NULL,
+	[IdEstatus] [int] NULL,
+	[IdUsuarioCreacion] [int] NULL,
+	[FechaCreacion] [datetime] NULL,
+	[IdUsuarioActualizacion] [int] NULL,
+	[FechaActualizacion] [datetime] NULL)
