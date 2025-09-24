@@ -62,6 +62,14 @@ Public Class LotesPacas
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@busqueda", EntidadLotesPacas1.busqueda))
                     sqldat1.Fill(EntidadLotesPacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.Consultapacaslotedet
+                    sqlcom1 = New SqlCommand("pa_consultapacaslotedisp", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcomprador", EntidadLotesPacas1.idcomprador))
+                    sqldat1.Fill(EntidadLotesPacas1.TablaConsulta)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)

@@ -76,6 +76,7 @@ Public Class DatosEmpresa
                 EntidadDatosEmpresa.Municipio = TbMunicipio.Text
                 EntidadDatosEmpresa.LugarExpedicion = TbLugarExpedicion.Text
                 EntidadDatosEmpresa.BaseDeDatos = Fila("name")
+                EntidadDatosEmpresa.Bddactual = BaseDeDatos
                 EntidadDatosEmpresa.logoempresa = wmfBytes
                 NegocioDatosEmpresa.Guardar(EntidadDatosEmpresa)
                 TbID.Text = EntidadDatosEmpresa.IdDatosEmpresa

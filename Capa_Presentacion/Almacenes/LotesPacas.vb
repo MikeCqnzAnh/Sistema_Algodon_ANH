@@ -3,13 +3,29 @@
     Private dtorigen, dtdestino As DataTable
     Private Const RegistrosPorCarga = 50
     Private registrosCargadosOrigen As Integer = 0
-    Private resigtrosCargadosDestino As Integer = 0
+    Private registrosCargadosDestino As Integer = 0
     Private ordenAscendenteorigen As Boolean
     Private ordenAscendentedestino As Boolean
     Private Sub LotesPacas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenacombo()
     End Sub
-
+    Private Sub formatodt(dt As DataTable)
+        dt.Columns.Add("idproducciondetalle", GetType(Integer))
+        dt.Columns.Add("idpaqueteencabezado", GetType(Integer))
+        dt.Columns.Add("idplantaorigen", GetType(Integer))
+        dt.Columns.Add("idcompraenc", GetType(Integer))
+        dt.Columns.Add("baleid", GetType(Long))
+        dt.Columns.Add("mic", GetType(Decimal))
+        dt.Columns.Add("strength", GetType(Decimal))
+        dt.Columns.Add("uhml", GetType(Decimal))
+        dt.Columns.Add("ui", GetType(Decimal))
+        dt.Columns.Add("grade", GetType(String))
+        dt.Columns.Add("colorgrade", GetType(String))
+        dt.Columns.Add("trashcount", GetType(Integer))
+        dt.Columns.Add("trasharea", GetType(Decimal))
+        dt.Columns.Add("trashid", GetType(Integer))
+        dt.Columns.Add("Seleccionar", GetType(Boolean))
+    End Sub
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         Dim consultalotes As New ConsultaLotesEnc()
         consultalotes.ShowDialog()

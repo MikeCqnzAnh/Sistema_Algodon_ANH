@@ -58,6 +58,8 @@ Partial Class DatosEmpresa
         Me.TbLugarExpedicion = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.GbNombreEmpresa = New System.Windows.Forms.GroupBox()
+        Me.btcargalogo = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.pblogo = New System.Windows.Forms.PictureBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TbRepresentante = New System.Windows.Forms.TextBox()
@@ -65,14 +67,12 @@ Partial Class DatosEmpresa
         Me.TbRFCRepresentante = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GbDatosEmpresa = New System.Windows.Forms.GroupBox()
-        Me.pblogo = New System.Windows.Forms.PictureBox()
-        Me.btcargalogo = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ofdlogo = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip1.SuspendLayout()
         Me.GbNombreEmpresa.SuspendLayout()
-        Me.GbDatosEmpresa.SuspendLayout()
-        CType(Me.pblogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btcargalogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pblogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbDatosEmpresa.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -379,6 +379,29 @@ Partial Class DatosEmpresa
         Me.GbNombreEmpresa.TabIndex = 0
         Me.GbNombreEmpresa.TabStop = False
         '
+        'btcargalogo
+        '
+        Me.btcargalogo.BackColor = System.Drawing.Color.Transparent
+        Me.btcargalogo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btcargalogo.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
+        Me.btcargalogo.ImageActive = Nothing
+        Me.btcargalogo.Location = New System.Drawing.Point(230, 118)
+        Me.btcargalogo.Name = "btcargalogo"
+        Me.btcargalogo.Size = New System.Drawing.Size(25, 25)
+        Me.btcargalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btcargalogo.TabIndex = 126
+        Me.btcargalogo.TabStop = False
+        Me.btcargalogo.Zoom = 15
+        '
+        'pblogo
+        '
+        Me.pblogo.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.pblogo.Location = New System.Drawing.Point(124, 43)
+        Me.pblogo.Name = "pblogo"
+        Me.pblogo.Size = New System.Drawing.Size(100, 100)
+        Me.pblogo.TabIndex = 5
+        Me.pblogo.TabStop = False
+        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -462,33 +485,10 @@ Partial Class DatosEmpresa
         Me.GbDatosEmpresa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDatosEmpresa.Location = New System.Drawing.Point(0, 295)
         Me.GbDatosEmpresa.Name = "GbDatosEmpresa"
-        Me.GbDatosEmpresa.Size = New System.Drawing.Size(936, 472)
+        Me.GbDatosEmpresa.Size = New System.Drawing.Size(936, 454)
         Me.GbDatosEmpresa.TabIndex = 1
         Me.GbDatosEmpresa.TabStop = False
         Me.GbDatosEmpresa.Text = "Datos de la empresa"
-        '
-        'pblogo
-        '
-        Me.pblogo.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.pblogo.Location = New System.Drawing.Point(124, 43)
-        Me.pblogo.Name = "pblogo"
-        Me.pblogo.Size = New System.Drawing.Size(100, 100)
-        Me.pblogo.TabIndex = 5
-        Me.pblogo.TabStop = False
-        '
-        'btcargalogo
-        '
-        Me.btcargalogo.BackColor = System.Drawing.Color.Transparent
-        Me.btcargalogo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btcargalogo.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
-        Me.btcargalogo.ImageActive = Nothing
-        Me.btcargalogo.Location = New System.Drawing.Point(230, 118)
-        Me.btcargalogo.Name = "btcargalogo"
-        Me.btcargalogo.Size = New System.Drawing.Size(25, 25)
-        Me.btcargalogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btcargalogo.TabIndex = 126
-        Me.btcargalogo.TabStop = False
-        Me.btcargalogo.Zoom = 15
         '
         'ofdlogo
         '
@@ -499,7 +499,7 @@ Partial Class DatosEmpresa
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(936, 767)
+        Me.ClientSize = New System.Drawing.Size(936, 749)
         Me.Controls.Add(Me.GbDatosEmpresa)
         Me.Controls.Add(Me.GbNombreEmpresa)
         Me.Controls.Add(Me.MenuStrip1)
@@ -513,10 +513,10 @@ Partial Class DatosEmpresa
         Me.MenuStrip1.PerformLayout()
         Me.GbNombreEmpresa.ResumeLayout(False)
         Me.GbNombreEmpresa.PerformLayout()
+        CType(Me.btcargalogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pblogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbDatosEmpresa.ResumeLayout(False)
         Me.GbDatosEmpresa.PerformLayout()
-        CType(Me.pblogo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btcargalogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

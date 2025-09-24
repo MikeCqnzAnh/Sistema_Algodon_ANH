@@ -190,7 +190,7 @@ Partial Class CompraPacasPorContrato
         Me.mnustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.nuevoToolStripMenuItem, Me.guardarToolStripMenuItem, Me.cancelarToolStripMenuItem, Me.consultarToolStripMenuItem, Me.reportesToolStripMenuItem, Me.plantillasToolStripMenuItem, Me.eliminarToolStripMenuItem})
         Me.mnustrip.Location = New System.Drawing.Point(0, 0)
         Me.mnustrip.Name = "mnustrip"
-        Me.mnustrip.Size = New System.Drawing.Size(1527, 24)
+        Me.mnustrip.Size = New System.Drawing.Size(1370, 24)
         Me.mnustrip.TabIndex = 73
         Me.mnustrip.Text = "menuStrip1"
         '
@@ -272,7 +272,7 @@ Partial Class CompraPacasPorContrato
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 276)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1527, 432)
+        Me.Panel2.Size = New System.Drawing.Size(1370, 432)
         Me.Panel2.TabIndex = 75
         '
         'tabpacas
@@ -284,7 +284,7 @@ Partial Class CompraPacasPorContrato
         Me.tabpacas.Location = New System.Drawing.Point(0, 0)
         Me.tabpacas.Name = "tabpacas"
         Me.tabpacas.SelectedIndex = 0
-        Me.tabpacas.Size = New System.Drawing.Size(1527, 432)
+        Me.tabpacas.Size = New System.Drawing.Size(1370, 432)
         Me.tabpacas.TabIndex = 107
         '
         'tppacadisponible
@@ -296,7 +296,7 @@ Partial Class CompraPacasPorContrato
         Me.tppacadisponible.Location = New System.Drawing.Point(4, 29)
         Me.tppacadisponible.Name = "tppacadisponible"
         Me.tppacadisponible.Padding = New System.Windows.Forms.Padding(3)
-        Me.tppacadisponible.Size = New System.Drawing.Size(1519, 399)
+        Me.tppacadisponible.Size = New System.Drawing.Size(1362, 399)
         Me.tppacadisponible.TabIndex = 0
         Me.tppacadisponible.Text = "Disponibles"
         Me.tppacadisponible.UseVisualStyleBackColor = True
@@ -344,7 +344,7 @@ Partial Class CompraPacasPorContrato
         Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataGridViewOrigen.RowHeadersVisible = False
         Me.dataGridViewOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1462, 368)
+        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1305, 368)
         Me.dataGridViewOrigen.TabIndex = 1
         '
         'tsdisponibles
@@ -353,7 +353,7 @@ Partial Class CompraPacasPorContrato
         Me.tsdisponibles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lbpacasseleccionadasdisp, Me.toolStripSeparator1, Me.tbpacaseleccionadadisp})
         Me.tsdisponibles.Location = New System.Drawing.Point(3, 371)
         Me.tsdisponibles.Name = "tsdisponibles"
-        Me.tsdisponibles.Size = New System.Drawing.Size(1462, 25)
+        Me.tsdisponibles.Size = New System.Drawing.Size(1305, 25)
         Me.tsdisponibles.TabIndex = 106
         Me.tsdisponibles.Text = "toolStrip1"
         '
@@ -384,7 +384,7 @@ Partial Class CompraPacasPorContrato
         Me.panel6.Controls.Add(Me.btmarcarpacas)
         Me.panel6.Controls.Add(Me.tbcantidadsel1)
         Me.panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panel6.Location = New System.Drawing.Point(1465, 3)
+        Me.panel6.Location = New System.Drawing.Point(1308, 3)
         Me.panel6.Name = "panel6"
         Me.panel6.Size = New System.Drawing.Size(51, 393)
         Me.panel6.TabIndex = 107
@@ -1043,7 +1043,7 @@ Partial Class CompraPacasPorContrato
         '
         Me.gbpreciosclase.Controls.Add(Me.dgvprecioclase)
         Me.gbpreciosclase.Dock = System.Windows.Forms.DockStyle.Right
-        Me.gbpreciosclase.Location = New System.Drawing.Point(1253, 0)
+        Me.gbpreciosclase.Location = New System.Drawing.Point(1096, 0)
         Me.gbpreciosclase.Name = "gbpreciosclase"
         Me.gbpreciosclase.Size = New System.Drawing.Size(274, 252)
         Me.gbpreciosclase.TabIndex = 0
@@ -1359,7 +1359,7 @@ Partial Class CompraPacasPorContrato
         Me.gbcontratos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbcontratos.Location = New System.Drawing.Point(984, 0)
         Me.gbcontratos.Name = "gbcontratos"
-        Me.gbcontratos.Size = New System.Drawing.Size(269, 252)
+        Me.gbcontratos.Size = New System.Drawing.Size(112, 252)
         Me.gbcontratos.TabIndex = 91
         Me.gbcontratos.TabStop = False
         Me.gbcontratos.Text = "Contratos"
@@ -1388,7 +1388,7 @@ Partial Class CompraPacasPorContrato
         Me.dgvcontratos.Name = "dgvcontratos"
         Me.dgvcontratos.RowHeadersVisible = False
         Me.dgvcontratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvcontratos.Size = New System.Drawing.Size(263, 233)
+        Me.dgvcontratos.Size = New System.Drawing.Size(106, 233)
         Me.dgvcontratos.TabIndex = 126
         '
         'Paneltop
@@ -1400,19 +1400,19 @@ Partial Class CompraPacasPorContrato
         Me.Paneltop.Dock = System.Windows.Forms.DockStyle.Top
         Me.Paneltop.Location = New System.Drawing.Point(0, 24)
         Me.Paneltop.Name = "Paneltop"
-        Me.Paneltop.Size = New System.Drawing.Size(1527, 252)
+        Me.Paneltop.Size = New System.Drawing.Size(1370, 252)
         Me.Paneltop.TabIndex = 74
         '
         'CompraPacasPorContrato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1527, 708)
+        Me.ClientSize = New System.Drawing.Size(1370, 708)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Paneltop)
         Me.Controls.Add(Me.mnustrip)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1543, 747)
+        Me.MinimumSize = New System.Drawing.Size(1364, 726)
         Me.Name = "CompraPacasPorContrato"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "COMPRA DE PACAS POR CONTRATO"

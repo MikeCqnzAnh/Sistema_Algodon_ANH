@@ -154,3 +154,19 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Datos.xml
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.dll
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.dll
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Entidad.xml
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.pdb
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\bin\Debug\Capa_Operacion.xml
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.ResolveComReference.cache
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.Resources.resources
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.vbproj.GenerateResource.Cache
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.xml
+C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Datos\obj\Debug\Capa_Datos.pdb
