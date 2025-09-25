@@ -3,5 +3,5 @@ create procedure pa_actualizapacalote
 @idproducciondetalle int
 as
 update ProduccionDetalle
-set IdLote = @idlote
+set IdLote = case when @idlote = 0 then null else @idlote end				
 where IdProduccionDetalle = @idproducciondetalle

@@ -1638,13 +1638,8 @@ Public Class CompraPacasPorContrato
         dtdestino = EntidadCompraPacasContrato.TablaConsulta
         If dtdestino.Rows.Count > 0 Then
 
-            'origenView = New DataView(dtorigen)
-            'dtdestino = New DataTable()
-            'dtdestino = dtorigen.Clone()
             destinoView = New DataView(dtdestino)
 
-            'AddHandler dataGridViewOrigen.CellValueNeeded, AddressOf dataGridViewOrigen_CellValueNeeded
-            'AddHandler dataGridViewOrigen.CellValuePushed, AddressOf dataGridViewOrigen_CellValuePushed
             AddHandler dataGridViewDestino.CellValueNeeded, AddressOf dataGridViewDestino_CellValueNeeded
             AddHandler dataGridViewDestino.CellValuePushed, AddressOf dataGridViewDestino_CellValuePushed
 

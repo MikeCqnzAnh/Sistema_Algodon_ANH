@@ -170,6 +170,12 @@
     <Compile Include="Almacenes\LotesPacas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Almacenes\Ordenembarquelotes.Designer.vb">
+      <DependentUpon>Ordenembarquelotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\Ordenembarquelotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Almacenes\OrdenEmbarquePacas.Designer.vb">
       <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
     </Compile>
@@ -198,6 +204,12 @@
       <DependentUpon>SalidaPacasBorra.vb</DependentUpon>
     </Compile>
     <Compile Include="Almacenes\SalidaPacasBorra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacasOrden.Designer.vb">
+      <DependentUpon>SalidaPacasOrden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\SalidaPacasOrden.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Almacenes\SalidaSemilla.Designer.vb">
@@ -498,6 +510,12 @@
       <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarqueEncabezado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenembarquepacas.Designer.vb">
+      <DependentUpon>ConsultaOrdenembarquepacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\ConsultaOrdenembarquepacas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\ConsultaOrdenEmbarqueSalidas.Designer.vb">
@@ -1800,6 +1818,9 @@
     <EmbeddedResource Include="Almacenes\LotesPacas.resx">
       <DependentUpon>LotesPacas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\Ordenembarquelotes.resx">
+      <DependentUpon>Ordenembarquelotes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\OrdenEmbarquePacas.resx">
       <DependentUpon>OrdenEmbarquePacas.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1816,6 +1837,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaPacasBorra.resx">
       <DependentUpon>SalidaPacasBorra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacenes\SalidaPacasOrden.resx">
+      <DependentUpon>SalidaPacasOrden.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Almacenes\SalidaSemilla.resx">
       <DependentUpon>SalidaSemilla.vb</DependentUpon>
@@ -2054,6 +2078,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueEncabezado.resx">
       <DependentUpon>ConsultaOrdenEmbarqueEncabezado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaOrdenembarquepacas.resx">
+      <DependentUpon>ConsultaOrdenembarquepacas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaOrdenEmbarqueSalidas.resx">
       <DependentUpon>ConsultaOrdenEmbarqueSalidas.vb</DependentUpon>

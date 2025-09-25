@@ -232,6 +232,10 @@
         Consultaventaenc = 151
         Consultaventadet = 152
         Consultapacaslotedet = 153
+        Consultapacasloteseldet = 154
+        Consultapacasembdet = 155
+        consultapacasembseldet = 156
+
     End Enum
     Public Enum LlenaCombo
         LlenaComboCliente = 1

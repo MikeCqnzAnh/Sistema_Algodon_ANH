@@ -94,3 +94,4 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbprojResolveAssemblyReference.cache

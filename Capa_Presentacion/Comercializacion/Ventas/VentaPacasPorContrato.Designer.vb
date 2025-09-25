@@ -1082,7 +1082,6 @@ Partial Class VentaPacasPorContrato
         '
         'tbpacaseleccionadadisp
         '
-        Me.tbpacaseleccionadadisp.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tbpacaseleccionadadisp.Name = "tbpacaseleccionadadisp"
         Me.tbpacaseleccionadadisp.ReadOnly = True
         Me.tbpacaseleccionadadisp.Size = New System.Drawing.Size(100, 25)
@@ -1268,7 +1267,6 @@ Partial Class VentaPacasPorContrato
         '
         'tspacasseleccionadas
         '
-        Me.tspacasseleccionadas.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.tspacasseleccionadas.Name = "tspacasseleccionadas"
         Me.tspacasseleccionadas.ReadOnly = True
         Me.tspacasseleccionadas.Size = New System.Drawing.Size(100, 25)

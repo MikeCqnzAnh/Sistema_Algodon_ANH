@@ -22,5 +22,6 @@ Public Class Tarjeta
     Public Property BaseDeDatos As String
     Public Property BaseDeDatosPerfiles As String
     Public Property Bddactual As String
+    Public Property busqueda As String
 
 End Class

@@ -26,8 +26,18 @@
     End Sub
     Private Sub formatodgv()
         dgvconsulta.Columns("idlote").HeaderText = "ID"
+        dgvconsulta.Columns("nolote").HeaderText = "No Lote"
         dgvconsulta.Columns("nombre").HeaderText = "Nombre"
+        dgvconsulta.Columns("ubicacion").HeaderText = "Ubicacion"
+        dgvconsulta.Columns("observaciones").HeaderText = "Observaciones"
+        dgvconsulta.Columns("totalpacas").HeaderText = "Cantidad"
+        dgvconsulta.Columns("fechacreacion").HeaderText = "Fecha Creacion"
+        dgvconsulta.Columns("estatus").HeaderText = "Estatus"
 
+        dgvconsulta.Columns("idcomprador").Visible = False
+        dgvconsulta.Columns("totalkilos").Visible = False
+        dgvconsulta.Columns("fechaactualizacion").Visible = False
+        dgvconsulta.Columns("idestatus").Visible = False
     End Sub
 
     Private Sub tbbusqueda_TextChanged(sender As Object, e As EventArgs) Handles tbbusqueda.TextChanged

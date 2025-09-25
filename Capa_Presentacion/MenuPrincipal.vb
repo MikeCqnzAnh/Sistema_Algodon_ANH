@@ -543,7 +543,7 @@ Public Class MenuPrincipal
         ConsultaExistencias.ShowDialog()
     End Sub
     Private Sub SalidaPacasOrdenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalidaPacasOrdenToolStripMenuItem.Click
-        Dim ConsultaSalidaPacas As New SalidasPorOrden
+        Dim ConsultaSalidaPacas As New SalidaPacasOrden
         ConsultaSalidaPacas.ShowDialog()
     End Sub
     Private Sub OrdenDeEmbarquePToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarquePToolStripMenuItem.Click
@@ -602,6 +602,11 @@ Public Class MenuPrincipal
     Private Sub PaquetesParaVentaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PaquetesParaVentaToolStripMenuItem1.Click
         Dim clasifvta As New Clasificacion_para_Venta
         clasifvta.ShowDialog()
+    End Sub
+
+    Private Sub OrdenDeEmbarqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarqueToolStripMenuItem.Click
+        Dim embarque As New Ordenembarquelotes
+        embarque.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

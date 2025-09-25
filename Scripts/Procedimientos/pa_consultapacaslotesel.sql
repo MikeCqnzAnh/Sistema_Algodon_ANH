@@ -1,5 +1,5 @@
-create procedure pa_consultapacaslotedisp
-@idcomprador int,
+create procedure pa_consultapacaslotesel
+@idlote int,
 @seleccionar bit = 0
 as
 select pd.IdProduccionDetalle,
@@ -19,5 +19,5 @@ select pd.IdProduccionDetalle,
 	   pd.Kilos,
 	   @seleccionar as seleccionar
 from PaqueteEncabezado pe left join ProduccionDetalle pd on pe.IdPaquete = pd.IdPaqueteEncabezado
-where pd.IdPaqueteEncabezado is not null and pd.IdLote = 0  or pd.idlote is null and pe.IdComprador = @idcomprador
+where pd.IdPaqueteEncabezado is not null and pd.IdLote = @idlote
 order by pd.BaleID

@@ -4,6 +4,7 @@ CREATE procedure pa_conspacaventasel
 as
 select IdProduccionDetalle,
 	   pd.IdProduccion,
+	   pd.IdPaqueteEncabezado,
 	   pd.IdPlantaOrigen,
 	   isnull(IdVentaEnc,0) as IdVentaEnc,
 	   BaleID,

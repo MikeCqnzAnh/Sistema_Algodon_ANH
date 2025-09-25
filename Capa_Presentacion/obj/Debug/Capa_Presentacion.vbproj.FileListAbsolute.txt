@@ -1927,3 +1927,6 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\C
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.xml
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Ordenembarquelotes.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SalidaPacasOrden.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.ConsultaOrdenembarquepacas.resources

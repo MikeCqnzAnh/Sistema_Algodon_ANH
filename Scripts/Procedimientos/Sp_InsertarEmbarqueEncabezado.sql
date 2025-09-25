@@ -1,20 +1,19 @@
-Create Procedure Sp_InsertarEmbarqueEncabezado
+CREATE Procedure Sp_InsertarEmbarqueEncabezado
 @IdEmbarqueEncabezado int output,
 @IdComprador int,
 @NombreChofer varchar(80),
-@PlacaTractoCamion varchar(15),
 @NoLicencia varchar(15),
-@NoLote1 varchar(15),
-@NoLote2 varchar(15),
-@Telefono varchar(13),
-@CantidadCajas int,
-@NoContenedorCaja1 varchar(13),
-@PlacaCaja1 varchar(13),
-@NoContenedorCaja2 varchar(13),
-@PlacaCaja2 varchar(13),
-@CantidadPacas int,
-@Fecha datetime,
-@Observaciones varchar(300)
+@Telefono varchar(17),
+@folio varchar(15),
+@PlacaTractoCamion varchar(15),
+@PlacaCaja varchar(15),
+@destino varchar(80),
+@Observaciones varchar(150),
+@totalpacas int,
+@totalkilos decimal(18,4),
+@idestatus int,
+@fechacreacion datetime,
+@fechaactualizacion datetime
 as
 begin
 set nocount on
@@ -22,83 +21,78 @@ merge EmbarqueEncabezado as target
 using (select @IdEmbarqueEncabezado
 			 ,@IdComprador
 			 ,@NombreChofer
-			 ,@PlacaTractoCamion
-			 ,@NoLicencia
-			 ,@NoLote1
-			 ,@NoLote2
-			 ,@Telefono
-			 ,@CantidadCajas
-			 ,@NoContenedorCaja1
-			 ,@PlacaCaja1
-			 ,@NoContenedorCaja2
-			 ,@PlacaCaja2
-			 ,@CantidadPacas
-			 ,@Fecha
-			 ,@Observaciones)
+			 ,@NoLicencia 
+			 ,@Telefono 
+			 ,@folio 
+			 ,@PlacaTractoCamion 
+			 ,@PlacaCaja 
+			 ,@destino 
+			 ,@Observaciones 
+			 ,@totalpacas 
+			 ,@totalkilos 
+			 ,@idestatus 
+			 ,@fechacreacion 
+			 ,@fechaactualizacion )
 as Source(IdEmbarqueEncabezado
-		,IdComprador
-		,NombreChofer
-		,PlacaTractoCamion
-		,NoLicencia
-		,NoLote1
-		,NoLote2
-		,Telefono
-		,CantidadCajas
-		,NoContenedorCaja1
-		,PlacaCaja1
-		,NoContenedorCaja2
-		,PlacaCaja2
-		,CantidadPacas
-		,Fecha
-		,Observaciones)
+			 ,IdComprador
+			 ,NombreChofer
+			 ,NoLicencia 
+			 ,Telefono 
+			 ,folio 
+			 ,PlacaTractoCamion 
+			 ,PlacaCaja 
+			 ,destino 
+			 ,Observaciones 
+			 ,totalpacas 
+			 ,totalkilos 
+			 ,idestatus 
+			 ,fechacreacion 
+			 ,fechaactualizacion)
 on (target.IdEmbarqueEncabezado = source.IdEmbarqueEncabezado)
 when matched then
 update set IdComprador = source.IdComprador
-		,NombreChofer = source.NombreChofer
-		,PlacaTractoCamion = source.PlacaTractoCamion
-		,NoLicencia = source.NoLicencia
-		,NoLote1 = source.NoLote1
-		,NoLote2 = source.NoLote2
-		,Telefono = source.Telefono
-		,CantidadCajas = source.CantidadCajas
-		,NoContenedorCaja1 = source.NoContenedorCaja1
-		,PlacaCaja1 = source.PlacaCaja1
-		,NoContenedorCaja2 = source.NoContenedorCaja2
-		,PlacaCaja2 = source.PlacaCaja2
-		,CantidadPacas = source.CantidadPacas
-		,Observaciones = source.Observaciones
+			 ,NombreChofer = source.NombreChofer
+			 ,NoLicencia = source.NoLicencia 
+			 ,Telefono = source.Telefono 
+			 ,folio = source.folio 
+			 ,PlacaTractoCamion = source.PlacaTractoCamion 
+			 ,PlacaCaja = source.PlacaCaja 
+			 ,destino = source.destino 
+			 ,Observaciones = source.Observaciones 
+			 ,totalpacas = source.totalpacas 
+			 ,totalkilos = source.totalkilos 
+			 ,idestatus = source.idestatus 
+			 ,fechaactualizacion = source.fechaactualizacion
 when not matched then
 	insert ( IdComprador
-		,NombreChofer
-		,PlacaTractoCamion
-		,NoLicencia
-		,NoLote1
-		,NoLote2
-		,Telefono
-		,CantidadCajas
-		,NoContenedorCaja1
-		,PlacaCaja1
-		,NoContenedorCaja2
-		,PlacaCaja2
-		,CantidadPacas
-		,Fecha
-		,Observaciones)
+			 ,NombreChofer
+			 ,NoLicencia 
+			 ,Telefono 
+			 ,folio 
+			 ,PlacaTractoCamion 
+			 ,PlacaCaja 
+			 ,destino 
+			 ,Observaciones 
+			 ,totalpacas 
+			 ,totalkilos 
+			 ,idestatus 
+			 ,fechacreacion 
+			 ,fechaactualizacion)
 	values
 		(source.IdComprador
-		,source.NombreChofer
-		,source.PlacaTractoCamion
-		,source.NoLicencia
-		,source.NoLote1
-		,source.NoLote2
-		,source.Telefono
-		,source.CantidadCajas
-		,source.NoContenedorCaja1
-		,source.PlacaCaja1
-		,source.NoContenedorCaja2
-		,source.PlacaCaja2
-		,source.CantidadPacas
-		,source.Fecha
-		,source.Observaciones);
+			 ,source.NombreChofer
+			 ,source.NoLicencia 
+			 ,source.Telefono 
+			 ,source.folio 
+			 ,source.PlacaTractoCamion 
+			 ,source.PlacaCaja 
+			 ,source.destino 
+			 ,source.Observaciones 
+			 ,source.totalpacas 
+			 ,source.totalkilos 
+			 ,source.idestatus 
+			 ,source.fechacreacion 
+			 ,source.fechaactualizacion);
 set @IdEmbarqueEncabezado = SCOPE_IDENTITY()
 end 
 return @IdEmbarqueEncabezado

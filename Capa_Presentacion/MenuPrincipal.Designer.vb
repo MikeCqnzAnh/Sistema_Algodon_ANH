@@ -66,6 +66,7 @@ Partial Class MenuPrincipal
         Me.ClasificaciónDePacasConCertificadoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClasificaciónDePacasConArchivoExcelToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EntradaYSalidaDeEquipoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PaquetesParaVentaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompraDePacasAProductoresPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CompraDePacasPorContratoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -96,6 +97,7 @@ Partial Class MenuPrincipal
         Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenDeEmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeEmbarquePToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalidaPacasOrdenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeEmbarquePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -202,7 +204,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.PaquetesParaVentaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -504,6 +505,7 @@ Partial Class MenuPrincipal
         Me.PaquetesParaVentaToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
         Me.PaquetesParaVentaToolStripMenuItem.Tag = "33,31"
         Me.PaquetesParaVentaToolStripMenuItem.Text = "Paquetes Para Venta"
+        Me.PaquetesParaVentaToolStripMenuItem.Visible = False
         '
         'PaquetesParaVentaPorRangosToolStripMenuItem
         '
@@ -536,6 +538,13 @@ Partial Class MenuPrincipal
         Me.EntradaYSalidaDeEquipoToolStripMenuItem.Tag = "0,0"
         Me.EntradaYSalidaDeEquipoToolStripMenuItem.Text = "Entrada y Salida de Equipo"
         Me.EntradaYSalidaDeEquipoToolStripMenuItem.Visible = False
+        '
+        'PaquetesParaVentaToolStripMenuItem1
+        '
+        Me.PaquetesParaVentaToolStripMenuItem1.Name = "PaquetesParaVentaToolStripMenuItem1"
+        Me.PaquetesParaVentaToolStripMenuItem1.Size = New System.Drawing.Size(305, 22)
+        Me.PaquetesParaVentaToolStripMenuItem1.Tag = "0,0"
+        Me.PaquetesParaVentaToolStripMenuItem1.Text = "Paquetes para Venta"
         '
         'ComprasToolStripMenuItem
         '
@@ -752,7 +761,7 @@ Partial Class MenuPrincipal
         '
         'AlmacenesToolStripMenuItem
         '
-        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LotesToolStripMenuItem, Me.OrdenDeEmbarquePToolStripMenuItem, Me.SalidaPacasOrdenToolStripMenuItem, Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem, Me.InventarioToolStripMenuItem})
+        Me.AlmacenesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LotesToolStripMenuItem, Me.OrdenDeEmbarqueToolStripMenuItem, Me.OrdenDeEmbarquePToolStripMenuItem, Me.SalidaPacasOrdenToolStripMenuItem, Me.OrdenDeEmbarquePacasToolStripMenuItem, Me.SalidaDePacasToolStripMenuItem, Me.SalidaDeSemillaToolStripMenuItem, Me.SalidaDePacasDeBorraToolStripMenuItem, Me.SalidaDeBasuraToolStripMenuItem, Me.ExistenciaEnBodegaToolStripMenuItem, Me.InventarioToolStripMenuItem})
         Me.AlmacenesToolStripMenuItem.Name = "AlmacenesToolStripMenuItem"
         Me.AlmacenesToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
         Me.AlmacenesToolStripMenuItem.Tag = "58,0"
@@ -765,12 +774,20 @@ Partial Class MenuPrincipal
         Me.LotesToolStripMenuItem.Tag = "0,0"
         Me.LotesToolStripMenuItem.Text = "Lotes"
         '
+        'OrdenDeEmbarqueToolStripMenuItem
+        '
+        Me.OrdenDeEmbarqueToolStripMenuItem.Name = "OrdenDeEmbarqueToolStripMenuItem"
+        Me.OrdenDeEmbarqueToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
+        Me.OrdenDeEmbarqueToolStripMenuItem.Tag = "0,0"
+        Me.OrdenDeEmbarqueToolStripMenuItem.Text = "Orden de Embarque"
+        '
         'OrdenDeEmbarquePToolStripMenuItem
         '
         Me.OrdenDeEmbarquePToolStripMenuItem.Name = "OrdenDeEmbarquePToolStripMenuItem"
         Me.OrdenDeEmbarquePToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.OrdenDeEmbarquePToolStripMenuItem.Tag = "0,0"
         Me.OrdenDeEmbarquePToolStripMenuItem.Text = "Orden de Embarque p"
+        Me.OrdenDeEmbarquePToolStripMenuItem.Visible = False
         '
         'SalidaPacasOrdenToolStripMenuItem
         '
@@ -1527,13 +1544,6 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
-        'PaquetesParaVentaToolStripMenuItem1
-        '
-        Me.PaquetesParaVentaToolStripMenuItem1.Name = "PaquetesParaVentaToolStripMenuItem1"
-        Me.PaquetesParaVentaToolStripMenuItem1.Size = New System.Drawing.Size(305, 22)
-        Me.PaquetesParaVentaToolStripMenuItem1.Tag = "0,0"
-        Me.PaquetesParaVentaToolStripMenuItem1.Text = "Paquetes para Venta"
-        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1741,4 +1751,5 @@ Partial Class MenuPrincipal
     Friend WithEvents LotesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentaDePacasPorContratoToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PaquetesParaVentaToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents OrdenDeEmbarqueToolStripMenuItem As ToolStripMenuItem
 End Class

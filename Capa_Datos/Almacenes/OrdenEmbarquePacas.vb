@@ -10,25 +10,24 @@ Public Class OrdenEmbarquePacas
         Try
             cnn.Open()
             Select Case EntidadOrdenEmbarquePacas1.Guarda
-                Case Capa_Operacion.Configuracion.Guardar.GuardarEmbarqueEncabezado
+                Case Capa_Operacion.Configuracion.Guardar.GuardarEncabezado
                     cmdGuardar = New SqlCommand("Sp_InsertarEmbarqueEncabezado", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", CInt(EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado)))
                     cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadOrdenEmbarquePacas1.IdComprador))
                     cmdGuardar.Parameters.Add(New SqlParameter("@NombreChofer", EntidadOrdenEmbarquePacas1.NombreChofer))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaTractoCamion", EntidadOrdenEmbarquePacas1.PlacaTractoCamion))
                     cmdGuardar.Parameters.Add(New SqlParameter("@NoLicencia", EntidadOrdenEmbarquePacas1.NoLicencia))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoLote1", EntidadOrdenEmbarquePacas1.NoLote1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoLote2", EntidadOrdenEmbarquePacas1.NoLote2))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Telefono", EntidadOrdenEmbarquePacas1.Telefono))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadCajas", EntidadOrdenEmbarquePacas1.CantidadCajas))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedorCaja1", EntidadOrdenEmbarquePacas1.NoContenedorCaja1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja1", EntidadOrdenEmbarquePacas1.PlacaCaja1))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoContenedorCaja2", EntidadOrdenEmbarquePacas1.NoContenedorCaja2))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja2", EntidadOrdenEmbarquePacas1.PlacaCaja2))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@CantidadPacas", EntidadOrdenEmbarquePacas1.NoPacas))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@Fecha", EntidadOrdenEmbarquePacas1.Fecha))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@folio", EntidadOrdenEmbarquePacas1.folio))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaTractoCamion", EntidadOrdenEmbarquePacas1.PlacaTractoCamion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@PlacaCaja", EntidadOrdenEmbarquePacas1.PlacaCaja))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@destino", EntidadOrdenEmbarquePacas1.destino))
                     cmdGuardar.Parameters.Add(New SqlParameter("@Observaciones", EntidadOrdenEmbarquePacas1.Observaciones))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@totalpacas", EntidadOrdenEmbarquePacas1.totalpacas))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@totalkilos", EntidadOrdenEmbarquePacas1.totalkilos))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@idestatus", EntidadOrdenEmbarquePacas1.idestatus))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@fechacreacion", EntidadOrdenEmbarquePacas1.FechaCreacion))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@fechaactualizacion", EntidadOrdenEmbarquePacas1.FechaActualizacion))
                     cmdGuardar.Parameters("@IdEmbarqueEncabezado").Direction = ParameterDirection.InputOutput
                     cmdGuardar.ExecuteNonQuery()
                     If EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado = 0 Then
@@ -69,17 +68,13 @@ Public Class OrdenEmbarquePacas
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", EntidadOrdenEmbarquePacas1.EstatusEmbarque))
                         cmdGuardar.Parameters.Add(New SqlParameter("@EstatusSalida", EntidadOrdenEmbarquePacas1.EstatusSalida))
                         cmdGuardar.ExecuteNonQuery()
-                    'Next
-                Case Capa_Operacion.Configuracion.Guardar.GuardaPacas
+                'Next
+                Case Capa_Operacion.Configuracion.Guardar.GuardarDetalle
                     cmdGuardar = New SqlCommand("Pa_ActualizaPacasEmbarque", cnn)
                     cmdGuardar.CommandType = CommandType.StoredProcedure
                     cmdGuardar.Parameters.Clear()
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdComprador", EntidadOrdenEmbarquePacas1.IdComprador))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@IdPlanta", EntidadOrdenEmbarquePacas1.IdPlanta))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@BaleID", EntidadOrdenEmbarquePacas1.BaleID))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
-                    cmdGuardar.Parameters.Add(New SqlParameter("@EstatusEmbarque", EntidadOrdenEmbarquePacas1.EstatusEmbarque))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@idproducciondetalle", EntidadOrdenEmbarquePacas1.idproducciondetalle))
+                    cmdGuardar.Parameters.Add(New SqlParameter("@idembarqueencabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     cmdGuardar.ExecuteNonQuery()
             End Select
         Catch ex As Exception
@@ -147,13 +142,20 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaOrdenEmbarqueEncabezado
-                    sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezadoporlote", cnn)
+                    'sqlcom1 = New SqlCommand("Sp_ConsultaOrdenEmbarqueEncabezadoporlote", cnn)
+                    'sqldat1 = New SqlDataAdapter(sqlcom1)
+                    'sqlcom1.CommandType = CommandType.StoredProcedure
+                    'sqlcom1.CommandTimeout = 0
+                    'sqlcom1.Parameters.Clear()
+                    'sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadOrdenEmbarquePacas1.NombreComprador))
+                    'sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
+                    sqlcom1 = New SqlCommand("pa_consultaordenembarquepaca", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)
                     sqlcom1.CommandType = CommandType.StoredProcedure
                     sqlcom1.CommandTimeout = 0
                     sqlcom1.Parameters.Clear()
-                    sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarqueEncabezado", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
-                    sqlcom1.Parameters.Add(New SqlParameter("@NombreComprador", EntidadOrdenEmbarquePacas1.NombreComprador))
+                    sqlcom1.Parameters.Add(New SqlParameter("@busqueda", EntidadOrdenEmbarquePacas1.busqueda))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaPacasEmbarcado
                     sqlcom1 = New SqlCommand("Sp_ConsultaEmbarqueDetallePacas", cnn)
@@ -235,6 +237,22 @@ Public Class OrdenEmbarquePacas
                     sqlcom1.Parameters.Clear()
                     sqlcom1.Parameters.Add(New SqlParameter("@IdEmbarque", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     sqlcom1.Parameters.Add(New SqlParameter("@NoLote", EntidadOrdenEmbarquePacas1.NoLoteInd))
+                    sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.Consultapacasembdet
+                    sqlcom1 = New SqlCommand("pa_consultapacasembarquedis", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcomprador", EntidadOrdenEmbarquePacas1.IdComprador))
+                    sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.consultapacasembseldet
+                    sqlcom1 = New SqlCommand("pa_consultapacasembarquesel", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.CommandTimeout = 0
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idembarque", EntidadOrdenEmbarquePacas1.IdEmbarqueEncabezado))
                     sqldat1.Fill(EntidadOrdenEmbarquePacas1.TablaConsulta)
             End Select
         Catch ex As Exception

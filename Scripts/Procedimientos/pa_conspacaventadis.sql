@@ -1,8 +1,10 @@
-alter procedure pa_conspacaventadis
+create procedure pa_conspacaventadis
+@idcomprador int,
 @seleccionar bit = 0
 as
 select IdProduccionDetalle,
 	   pd.IdProduccion,
+	   pd.IdPaqueteEncabezado,
 	   pd.IdPlantaOrigen,
 	   isnull(IdVentaEnc,0) as IdVentaEnc,
 	   BaleID,
@@ -32,5 +34,6 @@ select IdProduccionDetalle,
 	   isnull(CastigoUIventa,0) as CastigoUIventa,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
-where pd.IdVentaEnc = 0 and pd.LotID is not null 
+				   LEFT JOIN PaqueteEncabezado pq on pd.IdPaqueteEncabezado = pq.IdPaquete
+where pd.IdVentaEnc is null and pd.IdPaqueteEncabezado is not null and pq.idComprador = @idcomprador
 order by pd.BaleID

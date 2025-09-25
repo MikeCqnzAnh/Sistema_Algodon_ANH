@@ -1,6 +1,7 @@
 ﻿Imports Capa_Operacion
 Public Class OrdenEmbarquePacas
     Inherits Tarjeta
+    Public idproducciondetalle As Integer
     Public IdComprador As Integer
     Public IdVentaEnc As Integer
     Public IdEmbarqueEncabezado As Integer
@@ -9,6 +10,8 @@ Public Class OrdenEmbarquePacas
     Public Fecha As DateTime
     Public PlacaTractoCamion As String
     Public NoLicencia As String
+    Public destino As String
+    Public folio As String
     Public NoPacas As Integer
     Public NoLoteInd As String
     Public NoLote1 As String
@@ -26,9 +29,12 @@ Public Class OrdenEmbarquePacas
     Public IdPlanta As Integer
     Public IdEmbarqueDetalle As Integer
     Public IdSalida As Integer
-    Public Kilos As Integer
+    Public Kilos As Decimal
+    Public totalkilos As Decimal
+    Public totalpacas As Integer
     Public EstatusEmbarque As Integer
     Public EstatusSalida As Integer
     Public NombreComprador As String
     Public ObservacionLote As String
+    Public idestatus As Integer
 End Class

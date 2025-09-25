@@ -22,15 +22,14 @@ Partial Class LotesPacas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LotesPacas))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.label6 = New System.Windows.Forms.Label()
@@ -47,7 +46,6 @@ Partial Class LotesPacas
         Me.label20 = New System.Windows.Forms.Label()
         Me.nutotalpacas = New System.Windows.Forms.NumericUpDown()
         Me.label2 = New System.Windows.Forms.Label()
-        Me.btconsultaproveedor = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tbnombreproveedor = New System.Windows.Forms.TextBox()
         Me.tbidcomprador = New System.Windows.Forms.TextBox()
         Me.label19 = New System.Windows.Forms.Label()
@@ -57,14 +55,7 @@ Partial Class LotesPacas
         Me.tppacadisponible = New System.Windows.Forms.TabPage()
         Me.dataGridViewOrigen = New System.Windows.Forms.DataGridView()
         Me.panel6 = New System.Windows.Forms.Panel()
-        Me.btimportaexcel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tbcantidadsel1 = New System.Windows.Forms.TextBox()
-        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltroreiniciardisp = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btfiltrosdisp = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btdesmarcarpacasdisp = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.bteliminarpacas = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.btmarcarpacasdisp = New Bunifu.Framework.UI.BunifuImageButton()
         Me.tsdisponibles = New System.Windows.Forms.ToolStrip()
         Me.lbpacasseleccionadasdisp = New System.Windows.Forms.ToolStripLabel()
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -73,6 +64,18 @@ Partial Class LotesPacas
         Me.dataGridViewDestino = New System.Windows.Forms.DataGridView()
         Me.panel9 = New System.Windows.Forms.Panel()
         Me.tbcantidadsel2 = New System.Windows.Forms.TextBox()
+        Me.toolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.toolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tstotalpacassel = New System.Windows.Forms.ToolStripTextBox()
+        Me.LoteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btimportaexcel = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btenviaseleccion = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltroreiniciardisp = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btfiltrosdisp = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btdesmarcarpacasdisp = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.bteliminarpacas = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.btmarcarpacasdisp = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btcalcula = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btfiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btreiniciafiltrosel = New Bunifu.Framework.UI.BunifuImageButton()
@@ -80,19 +83,20 @@ Partial Class LotesPacas
         Me.bunifuImageButton3 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btmarcasel = New Bunifu.Framework.UI.BunifuImageButton()
         Me.btregresarsel = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.toolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.toolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tstotalpacassel = New System.Windows.Forms.ToolStripTextBox()
+        Me.btconsultaproveedor = New Bunifu.Framework.UI.BunifuImageButton()
         Me.MSMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.nutotalkilos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btconsultaproveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabpacas.SuspendLayout()
         Me.tppacadisponible.SuspendLayout()
         CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panel6.SuspendLayout()
+        Me.tsdisponibles.SuspendLayout()
+        Me.tppacaseleccionada.SuspendLayout()
+        CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panel9.SuspendLayout()
+        Me.toolStrip1.SuspendLayout()
         CType(Me.btimportaexcel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btfiltroreiniciardisp, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,10 +104,6 @@ Partial Class LotesPacas
         CType(Me.btdesmarcarpacasdisp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bteliminarpacas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btmarcarpacasdisp, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tsdisponibles.SuspendLayout()
-        Me.tppacaseleccionada.SuspendLayout()
-        CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panel9.SuspendLayout()
         CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +111,7 @@ Partial Class LotesPacas
         CType(Me.bunifuImageButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btregresarsel, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.toolStrip1.SuspendLayout()
+        CType(Me.btconsultaproveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -143,16 +143,10 @@ Partial Class LotesPacas
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmbarqueToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoteToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
-        '
-        'EmbarqueToolStripMenuItem
-        '
-        Me.EmbarqueToolStripMenuItem.Name = "EmbarqueToolStripMenuItem"
-        Me.EmbarqueToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
-        Me.EmbarqueToolStripMenuItem.Text = "Embarque"
         '
         'SalirToolStripMenuItem
         '
@@ -219,6 +213,7 @@ Partial Class LotesPacas
         Me.nutotalkilos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.nutotalkilos.ThousandsSeparator = True
         Me.nutotalkilos.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.nutotalkilos.Visible = False
         '
         'label5
         '
@@ -228,6 +223,7 @@ Partial Class LotesPacas
         Me.label5.Size = New System.Drawing.Size(29, 13)
         Me.label5.TabIndex = 164
         Me.label5.Text = "Kilos"
+        Me.label5.Visible = False
         '
         'label4
         '
@@ -289,7 +285,7 @@ Partial Class LotesPacas
         'tbobservaciones
         '
         Me.tbobservaciones.Location = New System.Drawing.Point(101, 92)
-        Me.tbobservaciones.MaxLength = 250
+        Me.tbobservaciones.MaxLength = 100
         Me.tbobservaciones.Multiline = True
         Me.tbobservaciones.Name = "tbobservaciones"
         Me.tbobservaciones.Size = New System.Drawing.Size(521, 55)
@@ -325,20 +321,6 @@ Partial Class LotesPacas
         Me.label2.Size = New System.Drawing.Size(79, 13)
         Me.label2.TabIndex = 158
         Me.label2.Text = "Total de Pacas"
-        '
-        'btconsultaproveedor
-        '
-        Me.btconsultaproveedor.BackColor = System.Drawing.Color.Transparent
-        Me.btconsultaproveedor.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btconsultaproveedor.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
-        Me.btconsultaproveedor.ImageActive = Nothing
-        Me.btconsultaproveedor.Location = New System.Drawing.Point(597, 35)
-        Me.btconsultaproveedor.Name = "btconsultaproveedor"
-        Me.btconsultaproveedor.Size = New System.Drawing.Size(25, 25)
-        Me.btconsultaproveedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btconsultaproveedor.TabIndex = 156
-        Me.btconsultaproveedor.TabStop = False
-        Me.btconsultaproveedor.Zoom = 15
         '
         'tbnombreproveedor
         '
@@ -420,15 +402,15 @@ Partial Class LotesPacas
         Me.dataGridViewOrigen.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dataGridViewOrigen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dataGridViewOrigen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle3
         Me.dataGridViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dataGridViewOrigen.Location = New System.Drawing.Point(3, 3)
         Me.dataGridViewOrigen.MultiSelect = False
@@ -455,6 +437,144 @@ Partial Class LotesPacas
         Me.panel6.Size = New System.Drawing.Size(50, 433)
         Me.panel6.TabIndex = 0
         '
+        'tbcantidadsel1
+        '
+        Me.tbcantidadsel1.Location = New System.Drawing.Point(5, 200)
+        Me.tbcantidadsel1.MaxLength = 5
+        Me.tbcantidadsel1.Name = "tbcantidadsel1"
+        Me.tbcantidadsel1.Size = New System.Drawing.Size(40, 20)
+        Me.tbcantidadsel1.TabIndex = 120
+        '
+        'tsdisponibles
+        '
+        Me.tsdisponibles.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tsdisponibles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lbpacasseleccionadasdisp, Me.toolStripSeparator1, Me.tstotalpacasdisp})
+        Me.tsdisponibles.Location = New System.Drawing.Point(3, 436)
+        Me.tsdisponibles.Name = "tsdisponibles"
+        Me.tsdisponibles.Size = New System.Drawing.Size(1168, 25)
+        Me.tsdisponibles.TabIndex = 106
+        Me.tsdisponibles.Text = "toolStrip1"
+        '
+        'lbpacasseleccionadasdisp
+        '
+        Me.lbpacasseleccionadasdisp.Name = "lbpacasseleccionadasdisp"
+        Me.lbpacasseleccionadasdisp.Size = New System.Drawing.Size(114, 22)
+        Me.lbpacasseleccionadasdisp.Text = "Pacas Seleccionadas"
+        '
+        'toolStripSeparator1
+        '
+        Me.toolStripSeparator1.Name = "toolStripSeparator1"
+        Me.toolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'tstotalpacasdisp
+        '
+        Me.tstotalpacasdisp.Name = "tstotalpacasdisp"
+        Me.tstotalpacasdisp.ReadOnly = True
+        Me.tstotalpacasdisp.Size = New System.Drawing.Size(100, 25)
+        '
+        'tppacaseleccionada
+        '
+        Me.tppacaseleccionada.Controls.Add(Me.dataGridViewDestino)
+        Me.tppacaseleccionada.Controls.Add(Me.panel9)
+        Me.tppacaseleccionada.Controls.Add(Me.toolStrip1)
+        Me.tppacaseleccionada.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tppacaseleccionada.Location = New System.Drawing.Point(4, 29)
+        Me.tppacaseleccionada.Name = "tppacaseleccionada"
+        Me.tppacaseleccionada.Padding = New System.Windows.Forms.Padding(3)
+        Me.tppacaseleccionada.Size = New System.Drawing.Size(1174, 464)
+        Me.tppacaseleccionada.TabIndex = 1
+        Me.tppacaseleccionada.Text = "Seleccionadas"
+        Me.tppacaseleccionada.UseVisualStyleBackColor = True
+        '
+        'dataGridViewDestino
+        '
+        Me.dataGridViewDestino.AllowUserToAddRows = False
+        Me.dataGridViewDestino.AllowUserToDeleteRows = False
+        Me.dataGridViewDestino.AllowUserToOrderColumns = True
+        Me.dataGridViewDestino.AllowUserToResizeRows = False
+        Me.dataGridViewDestino.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dataGridViewDestino.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dataGridViewDestino.BackgroundColor = System.Drawing.Color.White
+        Me.dataGridViewDestino.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dataGridViewDestino.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dataGridViewDestino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewDestino.DefaultCellStyle = DataGridViewCellStyle4
+        Me.dataGridViewDestino.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dataGridViewDestino.Location = New System.Drawing.Point(3, 3)
+        Me.dataGridViewDestino.MultiSelect = False
+        Me.dataGridViewDestino.Name = "dataGridViewDestino"
+        Me.dataGridViewDestino.RowHeadersVisible = False
+        Me.dataGridViewDestino.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dataGridViewDestino.Size = New System.Drawing.Size(1119, 433)
+        Me.dataGridViewDestino.TabIndex = 2
+        '
+        'panel9
+        '
+        Me.panel9.BackColor = System.Drawing.SystemColors.Control
+        Me.panel9.Controls.Add(Me.tbcantidadsel2)
+        Me.panel9.Controls.Add(Me.btcalcula)
+        Me.panel9.Controls.Add(Me.btfiltrosel)
+        Me.panel9.Controls.Add(Me.btreiniciafiltrosel)
+        Me.panel9.Controls.Add(Me.btdesmarcasel)
+        Me.panel9.Controls.Add(Me.bunifuImageButton3)
+        Me.panel9.Controls.Add(Me.btmarcasel)
+        Me.panel9.Controls.Add(Me.btregresarsel)
+        Me.panel9.Dock = System.Windows.Forms.DockStyle.Right
+        Me.panel9.Location = New System.Drawing.Point(1122, 3)
+        Me.panel9.Name = "panel9"
+        Me.panel9.Size = New System.Drawing.Size(49, 433)
+        Me.panel9.TabIndex = 111
+        '
+        'tbcantidadsel2
+        '
+        Me.tbcantidadsel2.Location = New System.Drawing.Point(4, 200)
+        Me.tbcantidadsel2.MaxLength = 5
+        Me.tbcantidadsel2.Name = "tbcantidadsel2"
+        Me.tbcantidadsel2.Size = New System.Drawing.Size(40, 20)
+        Me.tbcantidadsel2.TabIndex = 122
+        Me.tbcantidadsel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'toolStrip1
+        '
+        Me.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.toolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripLabel1, Me.toolStripSeparator2, Me.tstotalpacassel})
+        Me.toolStrip1.Location = New System.Drawing.Point(3, 436)
+        Me.toolStrip1.Name = "toolStrip1"
+        Me.toolStrip1.Size = New System.Drawing.Size(1168, 25)
+        Me.toolStrip1.TabIndex = 110
+        Me.toolStrip1.Text = "toolStrip1"
+        '
+        'toolStripLabel1
+        '
+        Me.toolStripLabel1.Name = "toolStripLabel1"
+        Me.toolStripLabel1.Size = New System.Drawing.Size(114, 22)
+        Me.toolStripLabel1.Text = "Pacas Seleccionadas"
+        '
+        'toolStripSeparator2
+        '
+        Me.toolStripSeparator2.Name = "toolStripSeparator2"
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'tstotalpacassel
+        '
+        Me.tstotalpacassel.Name = "tstotalpacassel"
+        Me.tstotalpacassel.ReadOnly = True
+        Me.tstotalpacassel.Size = New System.Drawing.Size(100, 25)
+        '
+        'LoteToolStripMenuItem
+        '
+        Me.LoteToolStripMenuItem.Name = "LoteToolStripMenuItem"
+        Me.LoteToolStripMenuItem.Size = New System.Drawing.Size(97, 22)
+        Me.LoteToolStripMenuItem.Text = "Lote"
+        '
         'btimportaexcel
         '
         Me.btimportaexcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -469,14 +589,6 @@ Partial Class LotesPacas
         Me.btimportaexcel.TabIndex = 67
         Me.btimportaexcel.TabStop = False
         Me.btimportaexcel.Zoom = 15
-        '
-        'tbcantidadsel1
-        '
-        Me.tbcantidadsel1.Location = New System.Drawing.Point(5, 200)
-        Me.tbcantidadsel1.MaxLength = 5
-        Me.tbcantidadsel1.Name = "tbcantidadsel1"
-        Me.tbcantidadsel1.Size = New System.Drawing.Size(40, 20)
-        Me.tbcantidadsel1.TabIndex = 120
         '
         'btenviaseleccion
         '
@@ -568,103 +680,6 @@ Partial Class LotesPacas
         Me.btmarcarpacasdisp.TabIndex = 104
         Me.btmarcarpacasdisp.TabStop = False
         Me.btmarcarpacasdisp.Zoom = 15
-        '
-        'tsdisponibles
-        '
-        Me.tsdisponibles.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.tsdisponibles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lbpacasseleccionadasdisp, Me.toolStripSeparator1, Me.tstotalpacasdisp})
-        Me.tsdisponibles.Location = New System.Drawing.Point(3, 436)
-        Me.tsdisponibles.Name = "tsdisponibles"
-        Me.tsdisponibles.Size = New System.Drawing.Size(1168, 25)
-        Me.tsdisponibles.TabIndex = 106
-        Me.tsdisponibles.Text = "toolStrip1"
-        '
-        'lbpacasseleccionadasdisp
-        '
-        Me.lbpacasseleccionadasdisp.Name = "lbpacasseleccionadasdisp"
-        Me.lbpacasseleccionadasdisp.Size = New System.Drawing.Size(114, 22)
-        Me.lbpacasseleccionadasdisp.Text = "Pacas Seleccionadas"
-        '
-        'toolStripSeparator1
-        '
-        Me.toolStripSeparator1.Name = "toolStripSeparator1"
-        Me.toolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'tstotalpacasdisp
-        '
-        Me.tstotalpacasdisp.Name = "tstotalpacasdisp"
-        Me.tstotalpacasdisp.ReadOnly = True
-        Me.tstotalpacasdisp.Size = New System.Drawing.Size(100, 25)
-        '
-        'tppacaseleccionada
-        '
-        Me.tppacaseleccionada.Controls.Add(Me.dataGridViewDestino)
-        Me.tppacaseleccionada.Controls.Add(Me.panel9)
-        Me.tppacaseleccionada.Controls.Add(Me.toolStrip1)
-        Me.tppacaseleccionada.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tppacaseleccionada.Location = New System.Drawing.Point(4, 29)
-        Me.tppacaseleccionada.Name = "tppacaseleccionada"
-        Me.tppacaseleccionada.Padding = New System.Windows.Forms.Padding(3)
-        Me.tppacaseleccionada.Size = New System.Drawing.Size(1174, 464)
-        Me.tppacaseleccionada.TabIndex = 1
-        Me.tppacaseleccionada.Text = "Seleccionadas"
-        Me.tppacaseleccionada.UseVisualStyleBackColor = True
-        '
-        'dataGridViewDestino
-        '
-        Me.dataGridViewDestino.AllowUserToAddRows = False
-        Me.dataGridViewDestino.AllowUserToDeleteRows = False
-        Me.dataGridViewDestino.AllowUserToOrderColumns = True
-        Me.dataGridViewDestino.AllowUserToResizeRows = False
-        Me.dataGridViewDestino.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dataGridViewDestino.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dataGridViewDestino.BackgroundColor = System.Drawing.Color.White
-        Me.dataGridViewDestino.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dataGridViewDestino.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dataGridViewDestino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5)
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dataGridViewDestino.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dataGridViewDestino.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dataGridViewDestino.Location = New System.Drawing.Point(3, 3)
-        Me.dataGridViewDestino.MultiSelect = False
-        Me.dataGridViewDestino.Name = "dataGridViewDestino"
-        Me.dataGridViewDestino.RowHeadersVisible = False
-        Me.dataGridViewDestino.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewDestino.Size = New System.Drawing.Size(1119, 433)
-        Me.dataGridViewDestino.TabIndex = 2
-        '
-        'panel9
-        '
-        Me.panel9.BackColor = System.Drawing.SystemColors.Control
-        Me.panel9.Controls.Add(Me.tbcantidadsel2)
-        Me.panel9.Controls.Add(Me.btcalcula)
-        Me.panel9.Controls.Add(Me.btfiltrosel)
-        Me.panel9.Controls.Add(Me.btreiniciafiltrosel)
-        Me.panel9.Controls.Add(Me.btdesmarcasel)
-        Me.panel9.Controls.Add(Me.bunifuImageButton3)
-        Me.panel9.Controls.Add(Me.btmarcasel)
-        Me.panel9.Controls.Add(Me.btregresarsel)
-        Me.panel9.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panel9.Location = New System.Drawing.Point(1122, 3)
-        Me.panel9.Name = "panel9"
-        Me.panel9.Size = New System.Drawing.Size(49, 433)
-        Me.panel9.TabIndex = 111
-        '
-        'tbcantidadsel2
-        '
-        Me.tbcantidadsel2.Location = New System.Drawing.Point(4, 200)
-        Me.tbcantidadsel2.MaxLength = 5
-        Me.tbcantidadsel2.Name = "tbcantidadsel2"
-        Me.tbcantidadsel2.Size = New System.Drawing.Size(40, 20)
-        Me.tbcantidadsel2.TabIndex = 122
-        Me.tbcantidadsel2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btcalcula
         '
@@ -773,32 +788,19 @@ Partial Class LotesPacas
         Me.btregresarsel.TabStop = False
         Me.btregresarsel.Zoom = 15
         '
-        'toolStrip1
+        'btconsultaproveedor
         '
-        Me.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.toolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripLabel1, Me.toolStripSeparator2, Me.tstotalpacassel})
-        Me.toolStrip1.Location = New System.Drawing.Point(3, 436)
-        Me.toolStrip1.Name = "toolStrip1"
-        Me.toolStrip1.Size = New System.Drawing.Size(1168, 25)
-        Me.toolStrip1.TabIndex = 110
-        Me.toolStrip1.Text = "toolStrip1"
-        '
-        'toolStripLabel1
-        '
-        Me.toolStripLabel1.Name = "toolStripLabel1"
-        Me.toolStripLabel1.Size = New System.Drawing.Size(114, 22)
-        Me.toolStripLabel1.Text = "Pacas Seleccionadas"
-        '
-        'toolStripSeparator2
-        '
-        Me.toolStripSeparator2.Name = "toolStripSeparator2"
-        Me.toolStripSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'tstotalpacassel
-        '
-        Me.tstotalpacassel.Name = "tstotalpacassel"
-        Me.tstotalpacassel.ReadOnly = True
-        Me.tstotalpacassel.Size = New System.Drawing.Size(100, 25)
+        Me.btconsultaproveedor.BackColor = System.Drawing.Color.Transparent
+        Me.btconsultaproveedor.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btconsultaproveedor.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
+        Me.btconsultaproveedor.ImageActive = Nothing
+        Me.btconsultaproveedor.Location = New System.Drawing.Point(597, 35)
+        Me.btconsultaproveedor.Name = "btconsultaproveedor"
+        Me.btconsultaproveedor.Size = New System.Drawing.Size(25, 25)
+        Me.btconsultaproveedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btconsultaproveedor.TabIndex = 156
+        Me.btconsultaproveedor.TabStop = False
+        Me.btconsultaproveedor.Zoom = 15
         '
         'LotesPacas
         '
@@ -818,20 +820,12 @@ Partial Class LotesPacas
         Me.Panel1.PerformLayout()
         CType(Me.nutotalkilos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nutotalpacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btconsultaproveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabpacas.ResumeLayout(False)
         Me.tppacadisponible.ResumeLayout(False)
         Me.tppacadisponible.PerformLayout()
         CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel6.ResumeLayout(False)
         Me.panel6.PerformLayout()
-        CType(Me.btimportaexcel, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltroreiniciardisp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btfiltrosdisp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btdesmarcarpacasdisp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bteliminarpacas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btmarcarpacasdisp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tsdisponibles.ResumeLayout(False)
         Me.tsdisponibles.PerformLayout()
         Me.tppacaseleccionada.ResumeLayout(False)
@@ -839,6 +833,15 @@ Partial Class LotesPacas
         CType(Me.dataGridViewDestino, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel9.ResumeLayout(False)
         Me.panel9.PerformLayout()
+        Me.toolStrip1.ResumeLayout(False)
+        Me.toolStrip1.PerformLayout()
+        CType(Me.btimportaexcel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btenviaseleccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltroreiniciardisp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btfiltrosdisp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btdesmarcarpacasdisp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bteliminarpacas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btmarcarpacasdisp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btcalcula, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btfiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btreiniciafiltrosel, System.ComponentModel.ISupportInitialize).EndInit()
@@ -846,8 +849,7 @@ Partial Class LotesPacas
         CType(Me.bunifuImageButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btmarcasel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btregresarsel, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.toolStrip1.ResumeLayout(False)
-        Me.toolStrip1.PerformLayout()
+        CType(Me.btconsultaproveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -858,7 +860,6 @@ Partial Class LotesPacas
     Friend WithEvents GuardarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EmbarqueToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
     Private WithEvents label6 As Label
@@ -912,4 +913,5 @@ Partial Class LotesPacas
     Private WithEvents toolStripLabel1 As ToolStripLabel
     Private WithEvents toolStripSeparator2 As ToolStripSeparator
     Private WithEvents tstotalpacassel As ToolStripTextBox
+    Friend WithEvents LoteToolStripMenuItem As ToolStripMenuItem
 End Class

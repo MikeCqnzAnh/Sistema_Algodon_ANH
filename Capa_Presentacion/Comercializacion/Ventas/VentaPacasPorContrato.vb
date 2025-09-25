@@ -67,6 +67,7 @@ Public Class VentaPacasPorContrato
     Private Sub formatodatatable(dt As DataTable)
         dt.Columns.Add("idproducciondetalle", GetType(Integer))
         dt.Columns.Add("idproduccion", GetType(Integer))
+        dt.Columns.Add("idpaquete", GetType(Integer))
         dt.Columns.Add("idplantaorigen", GetType(Integer))
         dt.Columns.Add("idVentaenc", GetType(Integer))
         dt.Columns.Add("baleid", GetType(Long))
@@ -393,7 +394,7 @@ Public Class VentaPacasPorContrato
 
                     dataGridViewOrigen.Refresh()
                     dataGridViewDestino.Refresh()
-                    'nutotalpacas.Value = dtdestino.Rows.Count
+                    nutotalpacas.Value = dtdestino.Rows.Count
                     tabpacas.SelectedIndex = 1
                 Else
                     Dim diferenciapacas As Integer = (Convert.ToInt32(tbpacaseleccionadadisp.Text) + vendidas) - cantidadcontrato
@@ -523,7 +524,7 @@ Public Class VentaPacasPorContrato
             dataGridViewDestino.Refresh()
 
             ' nutotalkilos.Value = dtdestino.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("kilos"))
-            'nutotalpacas.Value = dtdestino.Rows.Count
+            nutotalpacas.Value = dtdestino.Rows.Count
             ' tabpacas.SelectedIndex = 1
         End If
     End Sub
@@ -946,6 +947,7 @@ Public Class VentaPacasPorContrato
 
         Dim newColIdProduccionDet As New DataGridViewTextBoxColumn()
         Dim newColIdProduccion As New DataGridViewTextBoxColumn()
+        Dim newColIdPaquete As New DataGridViewTextBoxColumn()
         Dim newColidgin = New DataGridViewTextBoxColumn()
         'Dim newColidlote = New DataGridViewTextBoxColumn()
         Dim newColidcalculo = New DataGridViewTextBoxColumn()
@@ -988,6 +990,11 @@ Public Class VentaPacasPorContrato
         newColIdProduccion.Name = "IdProduccion"
         newColIdProduccion.Visible = False
         dgv.Columns.Add(newColIdProduccion)
+
+        newColIdPaquete.HeaderText = "IdPaquete"
+        newColIdPaquete.Name = "idpaqueteencabezado"
+        newColIdPaquete.Visible = False
+        dgv.Columns.Add(newColIdPaquete)
 
         newColidgin.HeaderText = "idplantaorigen"
         newColidgin.Name = "idplantaorigen"
@@ -1155,6 +1162,7 @@ Public Class VentaPacasPorContrato
 
         Dim newColIdProduccionDet As New DataGridViewTextBoxColumn()
         Dim newColIdProduccion As New DataGridViewTextBoxColumn()
+        Dim newColIdPaquete As New DataGridViewTextBoxColumn()
         Dim newColidgin = New DataGridViewTextBoxColumn()
         'Dim newColidlote = New DataGridViewTextBoxColumn()
         Dim newColidcalculo = New DataGridViewTextBoxColumn()
@@ -1197,6 +1205,11 @@ Public Class VentaPacasPorContrato
         newColIdProduccion.Name = "IdProduccion"
         newColIdProduccion.Visible = False
         dgv.Columns.Add(newColIdProduccion)
+
+        newColIdPaquete.HeaderText = "IdPaquete"
+        newColIdPaquete.Name = "idpaqueteencabezado"
+        newColIdPaquete.Visible = False
+        dgv.Columns.Add(newColIdPaquete)
 
         newColidgin.HeaderText = "idplantaorigen"
         newColidgin.Name = "idplantaorigen"
@@ -1398,6 +1411,7 @@ Public Class VentaPacasPorContrato
         Dim EntidadVentaPacasContrato As New Capa_Entidad.VentaPacasContrato
         Dim NegocioVentaPacasContrato As New Capa_Negocio.VentaPacasContrato
         EntidadVentaPacasContrato.Consulta = Consulta.consultapacasinVenta
+        EntidadVentaPacasContrato.IdComprador = TbIdProductor.Text
         NegocioVentaPacasContrato.Consultar(EntidadVentaPacasContrato)
         dtorigen = EntidadVentaPacasContrato.TablaConsulta
         If dtorigen.Rows.Count > 0 Then
