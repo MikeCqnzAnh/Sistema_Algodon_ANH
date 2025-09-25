@@ -1,310 +1,42 @@
-alter Procedure Pa_ConsultaPacasporlote
-@IdComprador int,
-@Nolote varchar(15),
-@IdPlanta int,
-@SinComprador bit,
-@SinLote bit,
-@Sel bit = 0
-as
-if @IdComprador = 0 and @Nolote = '' and @IdPlanta = 0 and @SinComprador = 0 and @SinLote = 0
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @IdComprador = 0 and @Nolote = '' and @IdPlanta = 0 and @SinComprador = 1 and @SinLote = 0
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where co.Nombre is null
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @IdComprador = 0 and @Nolote = '' and @IdPlanta > 0 and @SinComprador = 1 and @SinLote = 0
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where co.Nombre is null and cc.idplantaorigen = @IdPlanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @IdComprador = 0 and @Nolote = '' and @IdPlanta > 0 and @SinComprador = 0 and @SinLote = 1
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.NoLote is null and cc.idplantaorigen = @IdPlanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @IdComprador = 0 and @Nolote = '' and @IdPlanta = 0 and @SinComprador = 0 and @SinLote = 1
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.Nolote is null
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-
-else if @IdComprador = 0 and @Nolote = '' and @IdPlanta > 0
-begin
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.idplantaorigen = @idplanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @idcomprador > 0 and @Nolote= '' and @IdPlanta = 0
-begin 
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and vp.idcomprador = @idcomprador
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @idcomprador > 0 and @Nolote= '' and @IdPlanta > 0
-begin 
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and vp.idcomprador = @idcomprador and cc.idplantaorigen = @idplanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-end
-else if @idcomprador = 0 and @Nolote<> '' and @IdPlanta = 0
-begin 
-	if @Nolote <> 'SIN LOTE'
-	begin 
-		select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote = @Nolote
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-	end
-	else 
-	begin
-		select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote is null
-	end
-end
-else if @idcomprador > 0 and @Nolote<> '' and @IdPlanta = 0
-begin 
-	if @NoLote <> 'SIN LOTE'
-	BEGIN
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote = @Nolote and vp.idcomprador = @idcomprador
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-	END
-	ELSE
-	BEGIN
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote IS NULL and vp.idcomprador = @idcomprador
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-	END
-end
-else if @idcomprador > 0 and @Nolote<> '' and @IdPlanta > 0
-begin 
-	if @NoLote <> 'SIN LOTE'
-	BEGIN
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote = @Nolote and vp.idcomprador = @idcomprador and cc.idplantaorigen = @idplanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-	END
-	ELSE
-	BEGIN
-	select isnull(vp.IdComprador,0) as IdComprador
-		  ,ISNULL(co.Nombre,'SIN COMPRADOR') as Comprador
-		  ,isnull(cc.Nolote,'SIN LOTE') AS NoLote
-		  ,pl.Descripcion as Planta
-		  ,cc.BaleID
-		  ,cast(isnull(pcv.kilosneto,0)+cc.Kilos as decimal(18,2)) as KilosBruto 
-		  ,cast(isnull(pcv.kilosneto,0) as decimal(18,2)) as KilosTara
-		  ,cc.Kilos as KilosNeto
-		  ,ISNULL(cc.IdEmbarqueEncabezado, 0) as IdEmbarque
-		  ,isnull(estatusEmbarque,0) as EstatusEmbarque
-		  ,ISNULL(cc.IdSalidaEncabezado,0) as IdSalida
-		  ,ISNULL(cc.EstatusSalida,0) as EstatusSalida
-	from ventapacas vp right join calculoclasificacion cc on vp.IdVenta = cc.IdVentaEnc
-					   left join Compradores co on vp.IdComprador=co.IdComprador
-					   left join parametroscontratoventa pcv on pcv.IdContratoVenta = vp.IdContratoAlgodon
-					   left join plantas pl on cc.idplantaorigen = pl.idplanta
-	where cc.baleid is not null and cc.Nolote IS NULL and vp.idcomprador = @idcomprador and cc.idplantaorigen = @idplanta
-	order by cc.NoLote,co.nombre,cc.IdEmbarqueEncabezado,cc.IdSalidaEncabezado
-	END
-end
+CREATE PROCEDURE Pa_ConsultaPacasporlote
+    @IdComprador INT,
+    @Nolote VARCHAR(15),
+    @IdPlanta INT,
+    @SinComprador BIT,
+    @SinLote BIT,
+    @Sel BIT = 0
+AS
+BEGIN
+    SELECT 
+        ISNULL(pe.idComprador,0) AS idcomprador,
+        ISNULL(co.Nombre,'SIN COMPRADOR') AS Nombre,
+        ISNULL(lc.Nolote,'SIN LOTE') AS NoLote,
+        pl.Descripcion AS Planta,
+        pd.BaleID,
+        pd.Kilos AS kilosneto,
+        ISNULL(pd.kilosventa,0) AS kilosventa,
+        ISNULL(pd.IdPaqueteEncabezado,0) AS IdPaquete,
+        ISNULL(pd.IdVentaEnc,0) AS IdVenta,
+        ISNULL(pd.IdLote,0) AS IdLote,	   
+        ISNULL(pd.IdEmbarqueEncabezado,0) AS IdEmbarque,
+        ISNULL(pd.IdSalidaEncabezado,0) AS IdSalida
+    FROM ProduccionDetalle pd
+    LEFT JOIN PaqueteEncabezado pe ON pd.IdPaqueteEncabezado = pe.IdPaquete
+    LEFT JOIN Compradores co ON pe.idComprador = co.IdComprador
+    LEFT JOIN Lotesenc lc ON pd.IdLote = lc.idlote
+    LEFT JOIN Plantas pl ON pd.IdPlantaOrigen = pl.IdPlanta
+    WHERE 
+        (@IdComprador = 0 OR pe.idComprador = @IdComprador)
+        AND (@IdPlanta = 0 OR pd.IdPlantaOrigen = @IdPlanta)
+        AND (
+             (@Nolote = '' AND @SinLote = 0) 
+             OR (lc.Nolote = @Nolote AND @Nolote <> '' AND @Nolote <> 'SIN LOTE')
+             OR (lc.Nolote IS NULL AND @SinLote = 1)
+        )
+        AND (
+             (@SinComprador = 0) 
+             OR (co.Nombre IS NULL AND @SinComprador = 1)
+        )
+    ORDER BY lc.NoLote, co.Nombre, pd.IdEmbarqueEncabezado, pd.IdSalidaEncabezado;
+END
+GO
