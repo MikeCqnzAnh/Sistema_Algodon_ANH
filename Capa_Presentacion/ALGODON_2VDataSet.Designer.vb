@@ -3362,44 +3362,6 @@ Partial Public Class ALGODON_2VDataSet
         
         Private columnLotes As Global.System.Data.DataColumn
         
-        Private columnIdDatosEmpresa As Global.System.Data.DataColumn
-        
-        Private columnRazonSocial As Global.System.Data.DataColumn
-        
-        Private columnRfcEmpresa As Global.System.Data.DataColumn
-        
-        Private columnRepresentanteLegal As Global.System.Data.DataColumn
-        
-        Private columnRfcRepresentante As Global.System.Data.DataColumn
-        
-        Private columnCalle As Global.System.Data.DataColumn
-        
-        Private columnNumExt As Global.System.Data.DataColumn
-        
-        Private columnColonia As Global.System.Data.DataColumn
-        
-        Private columnCodigoPostal As Global.System.Data.DataColumn
-        
-        Private columnEstado As Global.System.Data.DataColumn
-        
-        Private columnMunicipio As Global.System.Data.DataColumn
-        
-        Private columnCalleMoral As Global.System.Data.DataColumn
-        
-        Private columnNumeroMoral As Global.System.Data.DataColumn
-        
-        Private columnColoniaMoral As Global.System.Data.DataColumn
-        
-        Private columnIdTipoPersona As Global.System.Data.DataColumn
-        
-        Private columnLugarExpedicion As Global.System.Data.DataColumn
-        
-        Private columnCalleFisica As Global.System.Data.DataColumn
-        
-        Private columnNumeroFisica As Global.System.Data.DataColumn
-        
-        Private columnColoniaFisica As Global.System.Data.DataColumn
-        
         Private columnIdConfiguracion As Global.System.Data.DataColumn
         
         Private columnParamDia1 As Global.System.Data.DataColumn
@@ -3421,8 +3383,6 @@ Partial Public Class ALGODON_2VDataSet
         Private columnParamPesomin As Global.System.Data.DataColumn
         
         Private columnTemporadaAnual As Global.System.Data.DataColumn
-        
-        Private columnlogoempresa As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3645,158 +3605,6 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdDatosEmpresaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIdDatosEmpresa
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RazonSocialColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRazonSocial
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RfcEmpresaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRfcEmpresa
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RepresentanteLegalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRepresentanteLegal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RfcRepresentanteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRfcRepresentante
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CalleColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCalle
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NumExtColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNumExt
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ColoniaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnColonia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CodigoPostalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCodigoPostal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property EstadoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEstado
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property MunicipioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMunicipio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CalleMoralColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCalleMoral
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NumeroMoralColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNumeroMoral
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ColoniaMoralColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnColoniaMoral
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdTipoPersonaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIdTipoPersona
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LugarExpedicionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLugarExpedicion
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CalleFisicaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCalleFisica
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NumeroFisicaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNumeroFisica
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ColoniaFisicaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnColoniaFisica
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property IdConfiguracionColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIdConfiguracion
@@ -3884,14 +3692,6 @@ Partial Public Class ALGODON_2VDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property logoempresaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnlogoempresa
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3952,25 +3752,6 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal PrecioO As Double,  _
                     ByVal Nombre As String,  _
                     ByVal Lotes As String,  _
-                    ByVal IdDatosEmpresa As Integer,  _
-                    ByVal RazonSocial As String,  _
-                    ByVal RfcEmpresa As String,  _
-                    ByVal RepresentanteLegal As String,  _
-                    ByVal RfcRepresentante As String,  _
-                    ByVal Calle As String,  _
-                    ByVal NumExt As String,  _
-                    ByVal Colonia As String,  _
-                    ByVal CodigoPostal As String,  _
-                    ByVal Estado As String,  _
-                    ByVal Municipio As String,  _
-                    ByVal CalleMoral As String,  _
-                    ByVal NumeroMoral As String,  _
-                    ByVal ColoniaMoral As String,  _
-                    ByVal IdTipoPersona As Integer,  _
-                    ByVal LugarExpedicion As String,  _
-                    ByVal CalleFisica As String,  _
-                    ByVal NumeroFisica As String,  _
-                    ByVal ColoniaFisica As String,  _
                     ByVal IdConfiguracion As Long,  _
                     ByVal ParamDia1 As Long,  _
                     ByVal ParamMes1 As String,  _
@@ -3981,10 +3762,9 @@ Partial Public Class ALGODON_2VDataSet
                     ByVal ParamPromPesomin As Long,  _
                     ByVal ParamPromPesomax As Long,  _
                     ByVal ParamPesomin As Long,  _
-                    ByVal TemporadaAnual As Long,  _
-                    ByVal logoempresa() As Byte) As ContratoCompraEmpresaRow
+                    ByVal TemporadaAnual As Long) As ContratoCompraEmpresaRow
             Dim rowContratoCompraEmpresaRow As ContratoCompraEmpresaRow = CType(Me.NewRow,ContratoCompraEmpresaRow)
-            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdDatosEmpresa, RazonSocial, RfcEmpresa, RepresentanteLegal, RfcRepresentante, Calle, NumExt, Colonia, CodigoPostal, Estado, Municipio, CalleMoral, NumeroMoral, ColoniaMoral, IdTipoPersona, LugarExpedicion, CalleFisica, NumeroFisica, ColoniaFisica, IdConfiguracion, ParamDia1, ParamMes1, ParamTemp1, ParamMes2, ParamTemp2, ParamMes3, ParamPromPesomin, ParamPromPesomax, ParamPesomin, TemporadaAnual, logoempresa}
+            Dim columnValuesArray() As Object = New Object() {IdContratoAlgodon, IdProductor, RFC, Pacas, SuperficieComprometida, PrecioQuintal, Puntos, FechaLiquidacion, Presidente, IdModalidad, Temporada, PrecioSM, PrecioMP, PrecioM, PrecioSLMP, PrecioSLM, PrecioLMP, PrecioLM, PrecioSGO, PrecioGO, PrecioO, Nombre, Lotes, IdConfiguracion, ParamDia1, ParamMes1, ParamTemp1, ParamMes2, ParamTemp2, ParamMes3, ParamPromPesomin, ParamPromPesomax, ParamPesomin, TemporadaAnual}
             rowContratoCompraEmpresaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowContratoCompraEmpresaRow)
             Return rowContratoCompraEmpresaRow
@@ -4030,25 +3810,6 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnPrecioO = MyBase.Columns("PrecioO")
             Me.columnNombre = MyBase.Columns("Nombre")
             Me.columnLotes = MyBase.Columns("Lotes")
-            Me.columnIdDatosEmpresa = MyBase.Columns("IdDatosEmpresa")
-            Me.columnRazonSocial = MyBase.Columns("RazonSocial")
-            Me.columnRfcEmpresa = MyBase.Columns("RfcEmpresa")
-            Me.columnRepresentanteLegal = MyBase.Columns("RepresentanteLegal")
-            Me.columnRfcRepresentante = MyBase.Columns("RfcRepresentante")
-            Me.columnCalle = MyBase.Columns("Calle")
-            Me.columnNumExt = MyBase.Columns("NumExt")
-            Me.columnColonia = MyBase.Columns("Colonia")
-            Me.columnCodigoPostal = MyBase.Columns("CodigoPostal")
-            Me.columnEstado = MyBase.Columns("Estado")
-            Me.columnMunicipio = MyBase.Columns("Municipio")
-            Me.columnCalleMoral = MyBase.Columns("CalleMoral")
-            Me.columnNumeroMoral = MyBase.Columns("NumeroMoral")
-            Me.columnColoniaMoral = MyBase.Columns("ColoniaMoral")
-            Me.columnIdTipoPersona = MyBase.Columns("IdTipoPersona")
-            Me.columnLugarExpedicion = MyBase.Columns("LugarExpedicion")
-            Me.columnCalleFisica = MyBase.Columns("CalleFisica")
-            Me.columnNumeroFisica = MyBase.Columns("NumeroFisica")
-            Me.columnColoniaFisica = MyBase.Columns("ColoniaFisica")
             Me.columnIdConfiguracion = MyBase.Columns("IdConfiguracion")
             Me.columnParamDia1 = MyBase.Columns("ParamDia1")
             Me.columnParamMes1 = MyBase.Columns("ParamMes1")
@@ -4060,7 +3821,6 @@ Partial Public Class ALGODON_2VDataSet
             Me.columnParamPromPesomax = MyBase.Columns("ParamPromPesomax")
             Me.columnParamPesomin = MyBase.Columns("ParamPesomin")
             Me.columnTemporadaAnual = MyBase.Columns("TemporadaAnual")
-            Me.columnlogoempresa = MyBase.Columns("logoempresa")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4112,44 +3872,6 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnNombre)
             Me.columnLotes = New Global.System.Data.DataColumn("Lotes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLotes)
-            Me.columnIdDatosEmpresa = New Global.System.Data.DataColumn("IdDatosEmpresa", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIdDatosEmpresa)
-            Me.columnRazonSocial = New Global.System.Data.DataColumn("RazonSocial", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRazonSocial)
-            Me.columnRfcEmpresa = New Global.System.Data.DataColumn("RfcEmpresa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRfcEmpresa)
-            Me.columnRepresentanteLegal = New Global.System.Data.DataColumn("RepresentanteLegal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRepresentanteLegal)
-            Me.columnRfcRepresentante = New Global.System.Data.DataColumn("RfcRepresentante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRfcRepresentante)
-            Me.columnCalle = New Global.System.Data.DataColumn("Calle", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCalle)
-            Me.columnNumExt = New Global.System.Data.DataColumn("NumExt", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNumExt)
-            Me.columnColonia = New Global.System.Data.DataColumn("Colonia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnColonia)
-            Me.columnCodigoPostal = New Global.System.Data.DataColumn("CodigoPostal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCodigoPostal)
-            Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEstado)
-            Me.columnMunicipio = New Global.System.Data.DataColumn("Municipio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMunicipio)
-            Me.columnCalleMoral = New Global.System.Data.DataColumn("CalleMoral", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCalleMoral)
-            Me.columnNumeroMoral = New Global.System.Data.DataColumn("NumeroMoral", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNumeroMoral)
-            Me.columnColoniaMoral = New Global.System.Data.DataColumn("ColoniaMoral", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnColoniaMoral)
-            Me.columnIdTipoPersona = New Global.System.Data.DataColumn("IdTipoPersona", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIdTipoPersona)
-            Me.columnLugarExpedicion = New Global.System.Data.DataColumn("LugarExpedicion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLugarExpedicion)
-            Me.columnCalleFisica = New Global.System.Data.DataColumn("CalleFisica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCalleFisica)
-            Me.columnNumeroFisica = New Global.System.Data.DataColumn("NumeroFisica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNumeroFisica)
-            Me.columnColoniaFisica = New Global.System.Data.DataColumn("ColoniaFisica", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnColoniaFisica)
             Me.columnIdConfiguracion = New Global.System.Data.DataColumn("IdConfiguracion", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIdConfiguracion)
             Me.columnParamDia1 = New Global.System.Data.DataColumn("ParamDia1", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
@@ -4172,8 +3894,6 @@ Partial Public Class ALGODON_2VDataSet
             MyBase.Columns.Add(Me.columnParamPesomin)
             Me.columnTemporadaAnual = New Global.System.Data.DataColumn("TemporadaAnual", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTemporadaAnual)
-            Me.columnlogoempresa = New Global.System.Data.DataColumn("logoempresa", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnlogoempresa)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13399,306 +13119,6 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IdDatosEmpresa() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.IdDatosEmpresaColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdDatosEmpresa' de la tabla 'ContratoCompraEmpresa' es DB"& _ 
-                            "Null.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.IdDatosEmpresaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RazonSocial() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.RazonSocialColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RazonSocial' de la tabla 'ContratoCompraEmpresa' es DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.RazonSocialColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RfcEmpresa() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.RfcEmpresaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RfcEmpresa' de la tabla 'ContratoCompraEmpresa' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.RfcEmpresaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RepresentanteLegal() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.RepresentanteLegalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RepresentanteLegal' de la tabla 'ContratoCompraEmpresa' e"& _ 
-                            "s DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.RepresentanteLegalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RfcRepresentante() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.RfcRepresentanteColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'RfcRepresentante' de la tabla 'ContratoCompraEmpresa' es "& _ 
-                            "DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.RfcRepresentanteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Calle() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.CalleColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Calle' de la tabla 'ContratoCompraEmpresa' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.CalleColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NumExt() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.NumExtColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NumExt' de la tabla 'ContratoCompraEmpresa' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.NumExtColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Colonia() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.ColoniaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Colonia' de la tabla 'ContratoCompraEmpresa' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.ColoniaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CodigoPostal() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.CodigoPostalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CodigoPostal' de la tabla 'ContratoCompraEmpresa' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.CodigoPostalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Estado() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.EstadoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estado' de la tabla 'ContratoCompraEmpresa' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.EstadoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Municipio() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.MunicipioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Municipio' de la tabla 'ContratoCompraEmpresa' es DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.MunicipioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CalleMoral() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.CalleMoralColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CalleMoral' de la tabla 'ContratoCompraEmpresa' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.CalleMoralColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NumeroMoral() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.NumeroMoralColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NumeroMoral' de la tabla 'ContratoCompraEmpresa' es DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.NumeroMoralColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ColoniaMoral() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.ColoniaMoralColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ColoniaMoral' de la tabla 'ContratoCompraEmpresa' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.ColoniaMoralColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IdTipoPersona() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.IdTipoPersonaColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IdTipoPersona' de la tabla 'ContratoCompraEmpresa' es DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.IdTipoPersonaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LugarExpedicion() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.LugarExpedicionColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'LugarExpedicion' de la tabla 'ContratoCompraEmpresa' es D"& _ 
-                            "BNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.LugarExpedicionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CalleFisica() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.CalleFisicaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CalleFisica' de la tabla 'ContratoCompraEmpresa' es DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.CalleFisicaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NumeroFisica() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.NumeroFisicaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'NumeroFisica' de la tabla 'ContratoCompraEmpresa' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.NumeroFisicaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ColoniaFisica() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.ColoniaFisicaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ColoniaFisica' de la tabla 'ContratoCompraEmpresa' es DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.ColoniaFisicaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property IdConfiguracion() As Long
             Get
                 Try 
@@ -13870,22 +13290,6 @@ Partial Public Class ALGODON_2VDataSet
             End Get
             Set
                 Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property logoempresa() As Byte()
-            Get
-                Try 
-                    Return CType(Me(Me.tableContratoCompraEmpresa.logoempresaColumn),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'logoempresa' de la tabla 'ContratoCompraEmpresa' es DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableContratoCompraEmpresa.logoempresaColumn) = value
             End Set
         End Property
         
@@ -14167,234 +13571,6 @@ Partial Public Class ALGODON_2VDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsIdDatosEmpresaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.IdDatosEmpresaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetIdDatosEmpresaNull()
-            Me(Me.tableContratoCompraEmpresa.IdDatosEmpresaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRazonSocialNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.RazonSocialColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRazonSocialNull()
-            Me(Me.tableContratoCompraEmpresa.RazonSocialColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRfcEmpresaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.RfcEmpresaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRfcEmpresaNull()
-            Me(Me.tableContratoCompraEmpresa.RfcEmpresaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRepresentanteLegalNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.RepresentanteLegalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRepresentanteLegalNull()
-            Me(Me.tableContratoCompraEmpresa.RepresentanteLegalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRfcRepresentanteNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.RfcRepresentanteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRfcRepresentanteNull()
-            Me(Me.tableContratoCompraEmpresa.RfcRepresentanteColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCalleNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.CalleColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCalleNull()
-            Me(Me.tableContratoCompraEmpresa.CalleColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNumExtNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.NumExtColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNumExtNull()
-            Me(Me.tableContratoCompraEmpresa.NumExtColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsColoniaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.ColoniaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetColoniaNull()
-            Me(Me.tableContratoCompraEmpresa.ColoniaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCodigoPostalNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.CodigoPostalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCodigoPostalNull()
-            Me(Me.tableContratoCompraEmpresa.CodigoPostalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsEstadoNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.EstadoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetEstadoNull()
-            Me(Me.tableContratoCompraEmpresa.EstadoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsMunicipioNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.MunicipioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetMunicipioNull()
-            Me(Me.tableContratoCompraEmpresa.MunicipioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCalleMoralNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.CalleMoralColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCalleMoralNull()
-            Me(Me.tableContratoCompraEmpresa.CalleMoralColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNumeroMoralNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.NumeroMoralColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNumeroMoralNull()
-            Me(Me.tableContratoCompraEmpresa.NumeroMoralColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsColoniaMoralNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.ColoniaMoralColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetColoniaMoralNull()
-            Me(Me.tableContratoCompraEmpresa.ColoniaMoralColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsIdTipoPersonaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.IdTipoPersonaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetIdTipoPersonaNull()
-            Me(Me.tableContratoCompraEmpresa.IdTipoPersonaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsLugarExpedicionNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.LugarExpedicionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetLugarExpedicionNull()
-            Me(Me.tableContratoCompraEmpresa.LugarExpedicionColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCalleFisicaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.CalleFisicaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCalleFisicaNull()
-            Me(Me.tableContratoCompraEmpresa.CalleFisicaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNumeroFisicaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.NumeroFisicaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNumeroFisicaNull()
-            Me(Me.tableContratoCompraEmpresa.NumeroFisicaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsColoniaFisicaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.ColoniaFisicaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetColoniaFisicaNull()
-            Me(Me.tableContratoCompraEmpresa.ColoniaFisicaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsIdConfiguracionNull() As Boolean
             Return Me.IsNull(Me.tableContratoCompraEmpresa.IdConfiguracionColumn)
         End Function
@@ -14523,18 +13699,6 @@ Partial Public Class ALGODON_2VDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTemporadaAnualNull()
             Me(Me.tableContratoCompraEmpresa.TemporadaAnualColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IslogoempresaNull() As Boolean
-            Return Me.IsNull(Me.tableContratoCompraEmpresa.logoempresaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetlogoempresaNull()
-            Me(Me.tableContratoCompraEmpresa.logoempresaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

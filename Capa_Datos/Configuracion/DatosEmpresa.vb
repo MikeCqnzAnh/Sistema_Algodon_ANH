@@ -5,8 +5,7 @@ Public Class DatosEmpresa
     Public Overridable Sub Upsert(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa
         EntidadDatosEmpresa1 = EntidadDatosEmpresa
-        DataBase = EntidadDatosEmpresa1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As New SqlConnection(conexionPerfiles)
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -31,7 +30,6 @@ Public Class DatosEmpresa
             cmdGuardar.Parameters.Add(New SqlParameter("@Municipio", EntidadDatosEmpresa1.Municipio))
             cmdGuardar.Parameters.Add(New SqlParameter("@LugarExpedicion", EntidadDatosEmpresa1.LugarExpedicion))
             cmdGuardar.Parameters.Add(New SqlParameter("@logoempresa", EntidadDatosEmpresa1.logoempresa))
-
             cmdGuardar.Parameters("@IdDatosEmpresa").Direction = ParameterDirection.InputOutput
             cmdGuardar.ExecuteNonQuery()
             If EntidadDatosEmpresa1.IdDatosEmpresa = 0 Then
@@ -47,6 +45,71 @@ Public Class DatosEmpresa
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa()
         EntidadDatosEmpresa1 = EntidadDatosEmpresa
         Dim cnn As New SqlConnection(conexionPrincipal)
+        EntidadDatosEmpresa1.TablaConsulta = New DataTable()
+        Dim sqlcom1 As SqlCommand
+        Dim sqldat1 As SqlDataAdapter
+        Try
+            cnn.Open()
+            Select Case EntidadDatosEmpresa1.Consulta
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaBaseDatos
+                    sqldat1 = New SqlDataAdapter("SELECT database_id, name FROM sys.databases where name like '%Algodon%'", cnn)
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaBasica
+                    sqlcom1 = New SqlCommand("Sp_ConsultaDatosEmpresa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    'sqlcom1.Parameters.Add(New SqlParameter("@IdConfiguracion", EntidadDatosEmpresa1.IdConfiguracion))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaDatosEmpresa
+                    sqlcom1 = New SqlCommand("pa_reportedatosempresa", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    'sqlcom1.Parameters.Add(New SqlParameter("@IdConfiguracion", EntidadDatosEmpresa1.IdConfiguracion))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaInstancia
+                    sqldat1 = New SqlDataAdapter("Sp_obtieneNombreInstancia", cnn)
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.consultaproductor
+                    sqlcom1 = New SqlCommand("pa_consultacliente", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcliente", EntidadDatosEmpresa1.idproductor))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompraenc
+                    sqlcom1 = New SqlCommand("pa_reportecompraenc", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcompra", EntidadDatosEmpresa1.idcompra))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.ConsultaCompradet
+                    sqlcom1 = New SqlCommand("pa_reportecompradet", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idcompra", EntidadDatosEmpresa1.idcompra))
+                    'sqlcom1.Parameters.Add(New SqlParameter("@DireccionIP", EntidadDatosEmpresa1.DireccionIP))
+                    sqldat1.Fill(EntidadDatosEmpresa1.TablaConsulta)
+
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            cnn.Close()
+            EntidadDatosEmpresa = EntidadDatosEmpresa1
+        End Try
+    End Sub
+    Public Overridable Sub ConsultarEmpresa(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
+        Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa()
+        EntidadDatosEmpresa1 = EntidadDatosEmpresa
+        Dim cnn As New SqlConnection(conexionPerfiles)
         EntidadDatosEmpresa1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter

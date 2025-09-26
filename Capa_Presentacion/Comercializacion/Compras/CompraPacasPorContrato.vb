@@ -348,7 +348,7 @@ Public Class CompraPacasPorContrato
         dataGridViewOrigen.EndEdit()
         If dataGridViewOrigen.Rows.Count > 0 Then
             If cbestatus.SelectedIndex = 0 Then
-                MessageBox.Show("El estatus de la venta con el ID " & TbIdCompraPaca.Text & " es cancelado, no se permite agregar pacas.", "Venta Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("El estatus de la compra con el ID " & TbIdCompraPaca.Text & " es cancelado, no se permite agregar pacas.", "Compra Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 If (Convert.ToInt32(tbpacaseleccionadadisp.Text) + compradas) <= cantidadcontrato Then
                     For Each rowView As DataRowView In origenView
@@ -396,7 +396,7 @@ Public Class CompraPacasPorContrato
 
                     dataGridViewOrigen.Refresh()
                     dataGridViewDestino.Refresh()
-                    'nutotalpacas.Value = dtdestino.Rows.Count
+                    nutotalpacas.Value = dtdestino.Rows.Count
                     tabpacas.SelectedIndex = 1
                 Else
                     Dim diferenciapacas As Integer = (Convert.ToInt32(tbpacaseleccionadadisp.Text) + compradas) - cantidadcontrato
@@ -526,7 +526,7 @@ Public Class CompraPacasPorContrato
             dataGridViewDestino.Refresh()
 
             ' nutotalkilos.Value = dtdestino.AsEnumerable().Sum(Function(row) row.Field(Of Decimal)("kilos"))
-            'nutotalpacas.Value = dtdestino.Rows.Count
+            nutotalpacas.Value = dtdestino.Rows.Count
             ' tabpacas.SelectedIndex = 1
         End If
     End Sub
@@ -1029,7 +1029,7 @@ Public Class CompraPacasPorContrato
     End Function
 
     Private Sub calculoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles calculoToolStripMenuItem.Click
-        Dim _liquidacion As New LiquidacionCompraContrato(Convert.ToInt32(TbIdCompraPaca.Text), Convert.ToInt32(TbIdProductor.Text))
+        Dim _liquidacion As New LiquidacionCompraContrato(Convert.ToInt32(TbIdCompraPaca.Text), Convert.ToInt32(TbIdProductor.Text), TbNombreProductor.Text)
         _liquidacion.ShowDialog()
     End Sub
 
@@ -1046,12 +1046,13 @@ Public Class CompraPacasPorContrato
             'If resultado = DialogResult.Yes AndAlso todasLasFilasTienenValor = False Then
             If resultado = DialogResult.Yes Then
                 cbestatus.SelectedValue = 0
+                controlpacascontrato(Convert.ToInt32(tspacasseleccionadas.Text), Convert.ToInt32(TbIdContrato.Text), False)
                 cancelarpacas()
                 calculopacas()
                 guardarenc()
                 guardadet(dtdestino, If(String.IsNullOrEmpty(TbIdCompraPaca.Text), 0, Convert.ToInt32(TbIdCompraPaca.Text.Trim())))
                 guardadet(dtorigen, 0)
-
+                actualizacontrato()
                 'ElseIf resultado = DialogResult.Yes AndAlso todasLasFilasTienenValor Then
             ElseIf resultado = DialogResult.Yes Then
                 MessageBox.Show("Existen pacas que ya estan adjuntas a una orden de embarque y no es posible cancelar el lote.", "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])

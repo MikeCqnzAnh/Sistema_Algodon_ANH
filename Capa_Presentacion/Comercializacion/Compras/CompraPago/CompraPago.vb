@@ -286,7 +286,7 @@ Public Class CompraPago
             asunto = "Compra de pacas con el ID " & TbIdContrato.Text & " a nombre de " & TbNombreProductor.Text & "."
             Mensaje = "Se realizo compra por un total de " & TbTotalPacas.Text & " Pacas con un precio de " & TbPrecioQuintal.Text & " Quintales." & vbCrLf & "Enviado desde SIA."
             Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
-            enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
+            enviarCorreo(Mensaje, asunto, Destinatario)
         End If
     End Sub
 End Class

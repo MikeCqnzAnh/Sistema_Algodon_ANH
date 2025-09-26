@@ -31,7 +31,6 @@ Partial Class Clasificacion_para_Venta
         Me.cancelarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.consultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.reportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.calculoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.hviToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.plantillasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.excelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -113,21 +112,15 @@ Partial Class Clasificacion_para_Venta
         '
         'reportesToolStripMenuItem
         '
-        Me.reportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.calculoToolStripMenuItem, Me.hviToolStripMenuItem})
+        Me.reportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.hviToolStripMenuItem})
         Me.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem"
         Me.reportesToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
         Me.reportesToolStripMenuItem.Text = "Reportes"
         '
-        'calculoToolStripMenuItem
-        '
-        Me.calculoToolStripMenuItem.Name = "calculoToolStripMenuItem"
-        Me.calculoToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
-        Me.calculoToolStripMenuItem.Text = "Calculo"
-        '
         'hviToolStripMenuItem
         '
         Me.hviToolStripMenuItem.Name = "hviToolStripMenuItem"
-        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.hviToolStripMenuItem.Text = "Hvi"
         Me.hviToolStripMenuItem.Visible = False
         '
@@ -540,7 +533,6 @@ Partial Class Clasificacion_para_Venta
     Private WithEvents cancelarToolStripMenuItem As ToolStripMenuItem
     Private WithEvents consultarToolStripMenuItem As ToolStripMenuItem
     Private WithEvents reportesToolStripMenuItem As ToolStripMenuItem
-    Private WithEvents calculoToolStripMenuItem As ToolStripMenuItem
     Private WithEvents hviToolStripMenuItem As ToolStripMenuItem
     Private WithEvents plantillasToolStripMenuItem As ToolStripMenuItem
     Private WithEvents excelToolStripMenuItem As ToolStripMenuItem

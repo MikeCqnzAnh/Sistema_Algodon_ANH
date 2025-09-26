@@ -481,7 +481,7 @@ Partial Class CompraPacasPorContrato
         Me.tppacaseleccionada.Location = New System.Drawing.Point(4, 29)
         Me.tppacaseleccionada.Name = "tppacaseleccionada"
         Me.tppacaseleccionada.Padding = New System.Windows.Forms.Padding(3)
-        Me.tppacaseleccionada.Size = New System.Drawing.Size(1519, 399)
+        Me.tppacaseleccionada.Size = New System.Drawing.Size(1362, 399)
         Me.tppacaseleccionada.TabIndex = 1
         Me.tppacaseleccionada.Text = "Seleccionadas"
         Me.tppacaseleccionada.UseVisualStyleBackColor = True
@@ -529,7 +529,7 @@ Partial Class CompraPacasPorContrato
         Me.dataGridViewDestino.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dataGridViewDestino.RowHeadersVisible = False
         Me.dataGridViewDestino.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewDestino.Size = New System.Drawing.Size(1462, 368)
+        Me.dataGridViewDestino.Size = New System.Drawing.Size(1305, 368)
         Me.dataGridViewDestino.TabIndex = 2
         '
         'toolStrip1
@@ -538,7 +538,7 @@ Partial Class CompraPacasPorContrato
         Me.toolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripLabel1, Me.toolStripSeparator2, Me.tspacasseleccionadas})
         Me.toolStrip1.Location = New System.Drawing.Point(3, 371)
         Me.toolStrip1.Name = "toolStrip1"
-        Me.toolStrip1.Size = New System.Drawing.Size(1462, 25)
+        Me.toolStrip1.Size = New System.Drawing.Size(1305, 25)
         Me.toolStrip1.TabIndex = 110
         Me.toolStrip1.Text = "toolStrip1"
         '
@@ -571,7 +571,7 @@ Partial Class CompraPacasPorContrato
         Me.panel9.Controls.Add(Me.btregresarseleccion)
         Me.panel9.Controls.Add(Me.tbcantidadsel2)
         Me.panel9.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panel9.Location = New System.Drawing.Point(1465, 3)
+        Me.panel9.Location = New System.Drawing.Point(1308, 3)
         Me.panel9.Name = "panel9"
         Me.panel9.Size = New System.Drawing.Size(51, 393)
         Me.panel9.TabIndex = 111

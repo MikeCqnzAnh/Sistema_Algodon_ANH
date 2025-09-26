@@ -902,6 +902,12 @@ Public Class VentaPacasPorContrato
         End If
 
     End Sub
+
+    Private Sub calculoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles calculoToolStripMenuItem.Click
+        Dim _liquidacion As New LiquidacionVentaContrato(Convert.ToInt32(TbIdVentaPaca.Text), Convert.ToInt32(TbIdProductor.Text), TbNombreProductor.Text)
+        _liquidacion.ShowDialog()
+    End Sub
+
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))
 

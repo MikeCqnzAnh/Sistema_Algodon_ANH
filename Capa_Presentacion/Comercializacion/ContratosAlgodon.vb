@@ -537,7 +537,7 @@ Public Class ContratosAlgodon
             asunto = "Contrato de pacas con el ID " & TbIdContratoAlgodon.Text & " Nombre de " & TbProductor.Text & "."
             Mensaje = "Se confirma la siguiente operacion ciclo PV" & TbTemporada.Text & "<br><br>Cliente.- " & TbProductor.Text & "<br>Ref. No.- " & TbIdContratoAlgodon.Text & "<br>Pacas.- " & TbPacas.Text & "<br>Precio Base.- " & IIf(Val(TbPrecioQuintal.Text) = 0, "On Call", Val(TbPrecioQuintal.Text)) & "<br>Descuento.- " & TbPuntos.Text & "<br>Precio base neto.- " & Val(TbPrecioQuintal.Text) - Val(TbPuntos.Text) & "<br><br><br><br>Enviado desde SIA."
             Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
-            enviarCorreo(email, password, Mensaje, asunto, Destinatario, puertosmtp, hostsmtp, ConexionSSL)
+            enviarCorreo(Mensaje, asunto, Destinatario)
         Else
             MsgBox("Seleccione un contrato para enviar por email.", MsgBoxStyle.Information, "Aviso")
         End If

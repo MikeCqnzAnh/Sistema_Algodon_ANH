@@ -13,7 +13,7 @@ create procedure pa_actualizapacascompra
 @castigouniformity float
 as
 update ProduccionDetalle 
-set IdCompraenc = @idcompra,
+set IdCompraenc = case when @idcompra = 0 then null else @idcompra end,
 	kiloscompra = @kilos,
 	librascompra = @libras,
 	quintalescompra = @quintales,

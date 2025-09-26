@@ -359,7 +359,7 @@
         Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
         Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes.Guarda = Guardar.GuardarPqtclaenc
-        EntidadClasificacionVentaPaquetes.IdPaquete = TbIdPaquete.Text
+        EntidadClasificacionVentaPaquetes.IdPaquete = IIf(TbIdPaquete.Text = "", 0, TbIdPaquete.Text)
         EntidadClasificacionVentaPaquetes.LotID = 0
         EntidadClasificacionVentaPaquetes.IdPlanta = CbPlanta.SelectedValue
         EntidadClasificacionVentaPaquetes.IdComprador = TbIdProductor.Text

@@ -39,12 +39,12 @@ Public Class DatosEmpresa
     Private Sub Guardar()
         Dim EntidadDatosEmpresa As New Capa_Entidad.DatosEmpresa
         Dim NegocioDatosEmpresa As New Capa_Negocio.DatosEmpresa
-        Dim tabla As New DataTable
-        Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
-        Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
-        EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
-        NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
-        tabla = EntidadConfiguracionParametros.TablaConsulta
+        'Dim tabla As New DataTable
+        'Dim EntidadConfiguracionParametros As New Capa_Entidad.ConfiguracionParametros
+        'Dim NegocioConfiguracionParametros As New Capa_Negocio.ConfiguracionParametros
+        'EntidadConfiguracionParametros.Consulta = Consulta.ConsultaBaseDatos
+        'NegocioConfiguracionParametros.Consultar(EntidadConfiguracionParametros)
+        'tabla = EntidadConfiguracionParametros.TablaConsulta
         If pblogo.Image Is Nothing Then
             MessageBox.Show("No hay imagen para guardar.")
             Return
@@ -56,8 +56,8 @@ Public Class DatosEmpresa
             ' Dim m As New System.IO.MemoryStream()
             ' pblogo.Image.Save(m, pblogo.Image.RawFormat)
             ' Dim data As Byte() = m.GetBuffer()
-            For Each Fila As DataRow In tabla.Rows
-                EntidadDatosEmpresa.IdDatosEmpresa = IIf(TbID.Text = "", 0, TbID.Text)
+            'For Each Fila As DataRow In tabla.Rows
+            EntidadDatosEmpresa.IdDatosEmpresa = IIf(TbID.Text = "", 0, TbID.Text)
                 EntidadDatosEmpresa.RazonSocial = TbRazonSocial.Text
                 EntidadDatosEmpresa.RfcEmpresa = TbRfc.Text
                 EntidadDatosEmpresa.RepresentanteLegal = TbRepresentante.Text
@@ -74,13 +74,11 @@ Public Class DatosEmpresa
                 EntidadDatosEmpresa.Pais = TbPais.Text
                 EntidadDatosEmpresa.Estado = TbEstado.Text
                 EntidadDatosEmpresa.Municipio = TbMunicipio.Text
-                EntidadDatosEmpresa.LugarExpedicion = TbLugarExpedicion.Text
-                EntidadDatosEmpresa.BaseDeDatos = Fila("name")
-                EntidadDatosEmpresa.Bddactual = BaseDeDatos
-                EntidadDatosEmpresa.logoempresa = wmfBytes
+            EntidadDatosEmpresa.LugarExpedicion = TbLugarExpedicion.Text
+            EntidadDatosEmpresa.logoempresa = wmfBytes
                 NegocioDatosEmpresa.Guardar(EntidadDatosEmpresa)
                 TbID.Text = EntidadDatosEmpresa.IdDatosEmpresa
-            Next
+            'Next
             MsgBox("Realizado Correctamente")
             DesabilitaControles()
         End If
@@ -125,7 +123,7 @@ Public Class DatosEmpresa
         Dim NegocioDatosEmpresa As New Capa_Negocio.DatosEmpresa
         Dim Tabla As New DataTable
         EntidadDatosEmpresa.Consulta = Consulta.ConsultaBasica
-        NegocioDatosEmpresa.Consultar(EntidadDatosEmpresa)
+        NegocioDatosEmpresa.ConsultarEmpresa(EntidadDatosEmpresa)
         Tabla = EntidadDatosEmpresa.TablaConsulta
         If Tabla.Rows.Count = 0 Then
             Exit Sub

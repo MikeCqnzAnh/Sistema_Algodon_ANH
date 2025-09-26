@@ -109,7 +109,7 @@ Public Class ParametrosCorreo
     End Sub
 
     Private Sub btenvia_Click(sender As Object, e As EventArgs) Handles btenvia.Click
-        enviarCorreo(TbEmail.Text, TbPassword.Text, tbmensaje.Text, tbasunto.Text, tbdestinatario.Text, TbPuertosmtp.Text, TbHostsmtp.Text, CkConexionCifrada.CheckState, TbRuta.Text)
+        enviarCorreo(tbmensaje.Text, tbasunto.Text, tbdestinatario.Text, TbRuta.Text)
     End Sub
 
     Private Sub btadjuntar_Click(sender As Object, e As EventArgs) Handles btadjuntar.Click

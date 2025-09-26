@@ -29,12 +29,12 @@ Public Class RepContratoProductor
         Dim Tabla As New DataTable
         Dim tabla1 As New DataTable()
         Dim ds As New DataSet
-        Dim CrReport As RPTContratoBE = New RPTContratoBE
-        Dim Ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTContratoBE.rpt")
+        Dim CrReport As RPTContratoCompra = New RPTContratoCompra
+        Dim Ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTContratoCompra.rpt")
 
         eDatosEmpresa.Consulta = Consulta.ConsultaDatosEmpresa
         'eDatosEmpresa.idempresa = 1
-        nDatosEmpresa.Consultar(eDatosEmpresa)
+        nDatosEmpresa.ConsultarEmpresa(eDatosEmpresa)
         tabla1 = eDatosEmpresa.TablaConsulta
         ds.Tables.Add(tabla1)
 

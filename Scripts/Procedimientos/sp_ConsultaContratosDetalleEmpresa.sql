@@ -1,4 +1,4 @@
-create Procedure sp_ConsultaContratosDetalleEmpresa
+CREATE Procedure sp_ConsultaContratosDetalleEmpresa
 @IdContratoAlgodon int
 as
 Declare @Lotes VARCHAR(100)
@@ -42,24 +42,6 @@ select a.IdContratoAlgodon,
 	   a.PrecioGO,
 	   a.PrecioO,
 	   a.IdEstatus,
-	   d.IdDatosEmpresa,
-	   d.RazonSocial,
-	   d.RFCEmpresa,
-	   d.RepresentanteLegal,
-	   d.RFCRepresentante,
-	   d.Calle,
-	   d.NumExt,
-	   d.EntreCalle1,
-	   d.EntreCalle2,
-	   d.Referencia,
-	   d.Poblacion,
-	   d.Colonia,
-	   d.CodigoPostal,
-	   d.Pais,
-	   d.Estado,
-	   d.Municipio,
-	   d.LugarExpedicion,
-	   d.logoempresa,
 	   e.IdConfiguracion,
 	   e.ParamDia1,
 	   e.ParamMes1,
@@ -73,6 +55,6 @@ select a.IdContratoAlgodon,
 	   e.TemporadaAnual	   
 from [dbo].[ContratoCompra] a inner join [dbo].[Clientes] b on a.IdProductor = b.IdCliente
 							  left join [dbo].[Asociaciones] c	on b.IdCuentaDe = c.IdAsociacion
-    ,[dbo].[DatosEmpresa] d,ConfiguracionParamContratosCompra e
+    ,ConfiguracionParamContratosCompra e
 where a.IdContratoAlgodon = @IdContratoAlgodon
 and   a.IdEstatus = 1

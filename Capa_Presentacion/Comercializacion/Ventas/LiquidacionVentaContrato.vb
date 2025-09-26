@@ -3,13 +3,15 @@
 Public Class LiquidacionVentaContrato
     Private _idcomprador As Integer
     Private _idventa As Integer
+    Private _nombrecomprador As String
     'Private ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPTPreliqcliente.rpt")
     Private ruta As String = Path.Combine(Application.StartupPath & "\Reportes\RPT\RPTLiquidacionVentaEnc.rpt")
 
-    Public Sub New(idventa As Integer, idcomprador As Integer)
+    Public Sub New(idventa As Integer, idcomprador As Integer, nombrecomprador As String)
         InitializeComponent()
         _idventa = idventa
         _idcomprador = idcomprador
+        _nombrecomprador = nombrecomprador
     End Sub
 
     Private Sub FrmPreliquidacionventa_Load(sender As Object, e As EventArgs) Handles MyBase.Load

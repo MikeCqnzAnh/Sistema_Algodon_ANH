@@ -147,7 +147,7 @@ Public Class RepClientes
 
             RutaDeDocumento = ExportToPDF(CrReport, "ReporteClientes" & Now.Minute.ToString & Now.Second.ToString & ".pdf")
             Destinatario = InputBox("Para:", "Complete la direccion de correo del destinatario.")
-            enviarCorreo(email, password, "Archivo enviado desde SIA.", "Reporte Clientes.", Destinatario, puertosmtp, hostsmtp, ConexionSSL, RutaDeDocumento)
+            enviarCorreo("Archivo enviado desde SIA.", "Reporte Clientes.", Destinatario, RutaDeDocumento)
         End If
     End Sub
 End Class

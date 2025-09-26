@@ -50,7 +50,7 @@ Partial Class LiquidacionVentaContrato
         Me.ClientSize = New System.Drawing.Size(1179, 746)
         Me.Controls.Add(Me.CRVReportePreliquidacion)
         Me.Name = "LiquidacionVentaContrato"
-        Me.Text = "LIQUIDACION A CLIENTE"
+        Me.Text = "LIQUIDACION A COMPRADOR"
         Me.ResumeLayout(False)
 
     End Sub

@@ -34,7 +34,7 @@ Public Class PreliquidacionCompraContrato
         Try
             eDatosEmpresa.Consulta = Consulta.ConsultaDatosEmpresa
             'eDatosEmpresa.idempresa = 1
-            nDatosEmpresa.Consultar(eDatosEmpresa)
+            nDatosEmpresa.ConsultarEmpresa(eDatosEmpresa)
             tabla1 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla1)
 

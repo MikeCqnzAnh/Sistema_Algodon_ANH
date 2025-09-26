@@ -1,4 +1,4 @@
-alter procedure pa_conspacacompradis
+create procedure pa_conspacacompradis
 @idproductor int,
 @seleccionar bit = 0
 as
@@ -33,5 +33,5 @@ select IdProduccionDetalle,
 	   isnull(CastigoUICompra,0) as CastigoUICompra,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
-where pd.IdCompraenc = 0 and pd.LotID is not null AND pe.IdCliente = @idproductor
+where pd.IdCompraenc is null and pd.LotID is not null AND pe.IdCliente = @idproductor
 order by pd.BaleID
