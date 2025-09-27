@@ -13971,6 +13971,7 @@ Partial Public Class DsReportes
             MyBase.Columns.Add(Me.columncastigoui)
             Me.columncantidadpacas = New Global.System.Data.DataColumn("cantidadpacas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidadpacas)
+            Me.columnidclasificacion.Caption = "IdClasificacion"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

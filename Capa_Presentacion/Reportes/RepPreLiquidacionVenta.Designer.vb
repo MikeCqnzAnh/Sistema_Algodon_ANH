@@ -43,15 +43,15 @@ Partial Class RepPreLiquidacionVenta
         Me.CRVReportePreliquidacion.TabIndex = 7
         Me.CRVReportePreliquidacion.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'RepLiquidacionVenta
+        'RepPreLiquidacionVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1229, 777)
         Me.Controls.Add(Me.CRVReportePreliquidacion)
-        Me.Name = "RepLiquidacionVenta"
+        Me.Name = "RepPreLiquidacionVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "RepLiquidacionVenta"
+        Me.Text = "Preliquidacion a Comprador"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 

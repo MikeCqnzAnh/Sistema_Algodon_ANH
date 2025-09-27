@@ -54,6 +54,19 @@ Partial Class MenuPrincipal
         Me.CastigosPorMicrosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CastigosPorUniformidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CamionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturaDeLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturaDeBoletasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BoletaPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturaDeProducciónPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChequearEtiquetaDePacaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RevisionDeProduccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LiquidacionesPorRomaneajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComercializaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContratosDeAlgodónConProductoresToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,19 +95,6 @@ Partial Class MenuPrincipal
         Me.PreliquidacionACompradorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDePacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CapturaDeLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CapturaDeBoletasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BoletaPorLotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CapturaDeProducciónPacasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChequearEtiquetaDePacaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RevisionDeProduccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LiquidacionesPorRomaneajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CargaPacasExternasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AlmacenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeEmbarqueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -446,6 +446,103 @@ Partial Class MenuPrincipal
         Me.CamionesToolStripMenuItem.Text = "Camiones"
         Me.CamionesToolStripMenuItem.Visible = False
         '
+        'ProcesosToolStripMenuItem
+        '
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.RevisionDeProduccionToolStripMenuItem, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem, Me.CargaPacasExternasToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
+        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
+        Me.ProcesosToolStripMenuItem.Tag = "47,0"
+        Me.ProcesosToolStripMenuItem.Text = "Procesos"
+        '
+        'CapturaDeLToolStripMenuItem
+        '
+        Me.CapturaDeLToolStripMenuItem.Name = "CapturaDeLToolStripMenuItem"
+        Me.CapturaDeLToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CapturaDeLToolStripMenuItem.Tag = "48,47"
+        Me.CapturaDeLToolStripMenuItem.Text = "Ordenes de Trabajo"
+        '
+        'CapturaDeBoletasToolStripMenuItem
+        '
+        Me.CapturaDeBoletasToolStripMenuItem.Name = "CapturaDeBoletasToolStripMenuItem"
+        Me.CapturaDeBoletasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CapturaDeBoletasToolStripMenuItem.Tag = "49,47"
+        Me.CapturaDeBoletasToolStripMenuItem.Text = "Captura de Boletas"
+        Me.CapturaDeBoletasToolStripMenuItem.Visible = False
+        '
+        'CapturaDeBoletasPorLotesToolStripMenuItem
+        '
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Name = "CapturaDeBoletasPorLotesToolStripMenuItem"
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Tag = "50,47"
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Text = "Captura de Boletas (Por Lotes)"
+        '
+        'BoletaPorLotesToolStripMenuItem
+        '
+        Me.BoletaPorLotesToolStripMenuItem.Name = "BoletaPorLotesToolStripMenuItem"
+        Me.BoletaPorLotesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.BoletaPorLotesToolStripMenuItem.Tag = "51,47"
+        Me.BoletaPorLotesToolStripMenuItem.Text = "Boleta por Lotes"
+        Me.BoletaPorLotesToolStripMenuItem.Visible = False
+        '
+        'CapturaDeProducciónPacasToolStripMenuItem
+        '
+        Me.CapturaDeProducciónPacasToolStripMenuItem.Name = "CapturaDeProducciónPacasToolStripMenuItem"
+        Me.CapturaDeProducciónPacasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CapturaDeProducciónPacasToolStripMenuItem.Tag = "52,47"
+        Me.CapturaDeProducciónPacasToolStripMenuItem.Text = "Captura de Producción (Pacas)"
+        '
+        'CapturaDePacasConTecladoFijoToolStripMenuItem
+        '
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Name = "CapturaDePacasConTecladoFijoToolStripMenuItem"
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Tag = "53,47"
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Text = "Captura de Pacas (Con teclado fijo)"
+        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Visible = False
+        '
+        'ChequearEtiquetaDePacaToolStripMenuItem
+        '
+        Me.ChequearEtiquetaDePacaToolStripMenuItem.Name = "ChequearEtiquetaDePacaToolStripMenuItem"
+        Me.ChequearEtiquetaDePacaToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.ChequearEtiquetaDePacaToolStripMenuItem.Tag = "54,47"
+        Me.ChequearEtiquetaDePacaToolStripMenuItem.Text = "Etiqueta de Paca"
+        '
+        'RevisionDeProduccionToolStripMenuItem
+        '
+        Me.RevisionDeProduccionToolStripMenuItem.Name = "RevisionDeProduccionToolStripMenuItem"
+        Me.RevisionDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.RevisionDeProduccionToolStripMenuItem.Tag = "0,0"
+        Me.RevisionDeProduccionToolStripMenuItem.Text = "Revision de Produccion"
+        '
+        'LiquidacionesPorRomaneajeToolStripMenuItem
+        '
+        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Name = "LiquidacionesPorRomaneajeToolStripMenuItem"
+        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Tag = "55,47"
+        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Text = "Liquidaciones por Romaneaje"
+        '
+        'CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem
+        '
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Name = "CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem"
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Tag = "56,47"
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Text = "Cálculo preeliminar de paro de operaciones"
+        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Visible = False
+        '
+        'AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem
+        '
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Name = "AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem"
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Tag = "57,47"
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Text = "Asignación de Personal a un jefe de turno"
+        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Visible = False
+        '
+        'CargaPacasExternasToolStripMenuItem
+        '
+        Me.CargaPacasExternasToolStripMenuItem.Name = "CargaPacasExternasToolStripMenuItem"
+        Me.CargaPacasExternasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
+        Me.CargaPacasExternasToolStripMenuItem.Tag = "247,47"
+        Me.CargaPacasExternasToolStripMenuItem.Text = "Carga Pacas Externas"
+        '
         'ComercializaciónToolStripMenuItem
         '
         Me.ComercializaciónToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContratosToolStripMenuItem, Me.ClasificacionToolStripMenuItem, Me.ComprasToolStripMenuItem, Me.VentasToolStripMenuItem, Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem})
@@ -661,103 +758,6 @@ Partial Class MenuPrincipal
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Tag = "46,26"
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Text = "Asignar Compradores a Paquetes HVI"
         Me.AsignarCompradoresAPaquetesHVIToolStripMenuItem.Visible = False
-        '
-        'ProcesosToolStripMenuItem
-        '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaDeLToolStripMenuItem, Me.CapturaDeBoletasToolStripMenuItem, Me.CapturaDeBoletasPorLotesToolStripMenuItem, Me.BoletaPorLotesToolStripMenuItem, Me.CapturaDeProducciónPacasToolStripMenuItem, Me.CapturaDePacasConTecladoFijoToolStripMenuItem, Me.ChequearEtiquetaDePacaToolStripMenuItem, Me.RevisionDeProduccionToolStripMenuItem, Me.LiquidacionesPorRomaneajeToolStripMenuItem, Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem, Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem, Me.CargaPacasExternasToolStripMenuItem})
-        Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
-        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.ProcesosToolStripMenuItem.Tag = "47,0"
-        Me.ProcesosToolStripMenuItem.Text = "Procesos"
-        '
-        'CapturaDeLToolStripMenuItem
-        '
-        Me.CapturaDeLToolStripMenuItem.Name = "CapturaDeLToolStripMenuItem"
-        Me.CapturaDeLToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CapturaDeLToolStripMenuItem.Tag = "48,47"
-        Me.CapturaDeLToolStripMenuItem.Text = "Ordenes de Trabajo"
-        '
-        'CapturaDeBoletasToolStripMenuItem
-        '
-        Me.CapturaDeBoletasToolStripMenuItem.Name = "CapturaDeBoletasToolStripMenuItem"
-        Me.CapturaDeBoletasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CapturaDeBoletasToolStripMenuItem.Tag = "49,47"
-        Me.CapturaDeBoletasToolStripMenuItem.Text = "Captura de Boletas"
-        Me.CapturaDeBoletasToolStripMenuItem.Visible = False
-        '
-        'CapturaDeBoletasPorLotesToolStripMenuItem
-        '
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Name = "CapturaDeBoletasPorLotesToolStripMenuItem"
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Tag = "50,47"
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Text = "Captura de Boletas (Por Lotes)"
-        '
-        'BoletaPorLotesToolStripMenuItem
-        '
-        Me.BoletaPorLotesToolStripMenuItem.Name = "BoletaPorLotesToolStripMenuItem"
-        Me.BoletaPorLotesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.BoletaPorLotesToolStripMenuItem.Tag = "51,47"
-        Me.BoletaPorLotesToolStripMenuItem.Text = "Boleta por Lotes"
-        Me.BoletaPorLotesToolStripMenuItem.Visible = False
-        '
-        'CapturaDeProducciónPacasToolStripMenuItem
-        '
-        Me.CapturaDeProducciónPacasToolStripMenuItem.Name = "CapturaDeProducciónPacasToolStripMenuItem"
-        Me.CapturaDeProducciónPacasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CapturaDeProducciónPacasToolStripMenuItem.Tag = "52,47"
-        Me.CapturaDeProducciónPacasToolStripMenuItem.Text = "Captura de Producción (Pacas)"
-        '
-        'CapturaDePacasConTecladoFijoToolStripMenuItem
-        '
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Name = "CapturaDePacasConTecladoFijoToolStripMenuItem"
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Tag = "53,47"
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Text = "Captura de Pacas (Con teclado fijo)"
-        Me.CapturaDePacasConTecladoFijoToolStripMenuItem.Visible = False
-        '
-        'ChequearEtiquetaDePacaToolStripMenuItem
-        '
-        Me.ChequearEtiquetaDePacaToolStripMenuItem.Name = "ChequearEtiquetaDePacaToolStripMenuItem"
-        Me.ChequearEtiquetaDePacaToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.ChequearEtiquetaDePacaToolStripMenuItem.Tag = "54,47"
-        Me.ChequearEtiquetaDePacaToolStripMenuItem.Text = "Etiqueta de Paca"
-        '
-        'RevisionDeProduccionToolStripMenuItem
-        '
-        Me.RevisionDeProduccionToolStripMenuItem.Name = "RevisionDeProduccionToolStripMenuItem"
-        Me.RevisionDeProduccionToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.RevisionDeProduccionToolStripMenuItem.Tag = "0,0"
-        Me.RevisionDeProduccionToolStripMenuItem.Text = "Revision de Produccion"
-        '
-        'LiquidacionesPorRomaneajeToolStripMenuItem
-        '
-        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Name = "LiquidacionesPorRomaneajeToolStripMenuItem"
-        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Tag = "55,47"
-        Me.LiquidacionesPorRomaneajeToolStripMenuItem.Text = "Liquidaciones por Romaneaje"
-        '
-        'CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem
-        '
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Name = "CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem"
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Tag = "56,47"
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Text = "Cálculo preeliminar de paro de operaciones"
-        Me.CálculoPreeliminarDeParoDeOperacionesToolStripMenuItem.Visible = False
-        '
-        'AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem
-        '
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Name = "AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem"
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Tag = "57,47"
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Text = "Asignación de Personal a un jefe de turno"
-        Me.AsignaciónDePersonalAUnJefeDeTurnoToolStripMenuItem.Visible = False
-        '
-        'CargaPacasExternasToolStripMenuItem
-        '
-        Me.CargaPacasExternasToolStripMenuItem.Name = "CargaPacasExternasToolStripMenuItem"
-        Me.CargaPacasExternasToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
-        Me.CargaPacasExternasToolStripMenuItem.Tag = "247,47"
-        Me.CargaPacasExternasToolStripMenuItem.Text = "Carga Pacas Externas"
         '
         'AlmacenesToolStripMenuItem
         '
@@ -1144,6 +1144,7 @@ Partial Class MenuPrincipal
         Me.BoletasMódulosToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.BoletasMódulosToolStripMenuItem.Tag = "90,67"
         Me.BoletasMódulosToolStripMenuItem.Text = "Boletas (Módulos)"
+        Me.BoletasMódulosToolStripMenuItem.Visible = False
         '
         'BoletasConPesoAcumuladoToolStripMenuItem
         '
@@ -1151,6 +1152,7 @@ Partial Class MenuPrincipal
         Me.BoletasConPesoAcumuladoToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.BoletasConPesoAcumuladoToolStripMenuItem.Tag = "91,67"
         Me.BoletasConPesoAcumuladoToolStripMenuItem.Text = "Boletas (Con peso acumulado)"
+        Me.BoletasConPesoAcumuladoToolStripMenuItem.Visible = False
         '
         'EntradaDeAlgodónHuesoToolStripMenuItem
         '
@@ -1158,6 +1160,7 @@ Partial Class MenuPrincipal
         Me.EntradaDeAlgodónHuesoToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.EntradaDeAlgodónHuesoToolStripMenuItem.Tag = "92,67"
         Me.EntradaDeAlgodónHuesoToolStripMenuItem.Text = "Entrada de Algodón Hueso"
+        Me.EntradaDeAlgodónHuesoToolStripMenuItem.Visible = False
         '
         'PacasFaltantesToolStripMenuItem
         '
@@ -1172,6 +1175,7 @@ Partial Class MenuPrincipal
         Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem.Tag = "94,67"
         Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem.Text = "Existencia de Hueso en Patios"
+        Me.ExistenciaDeHuesoEnPatiosToolStripMenuItem.Visible = False
         '
         'ExistenciaDeSemillaEnPatiosToolStripMenuItem
         '
@@ -1179,6 +1183,7 @@ Partial Class MenuPrincipal
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Tag = "95,67"
         Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Text = "Existencia de Semilla en Patios"
+        Me.ExistenciaDeSemillaEnPatiosToolStripMenuItem.Visible = False
         '
         'ExistenciaDePacasToolStripMenuItem
         '
@@ -1193,6 +1198,7 @@ Partial Class MenuPrincipal
         Me.SagarpaToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.SagarpaToolStripMenuItem.Tag = "96,67"
         Me.SagarpaToolStripMenuItem.Text = "Sagarpa"
+        Me.SagarpaToolStripMenuItem.Visible = False
         '
         'ReportesDeEventosPorIncidenciaToolStripMenuItem
         '
@@ -1200,6 +1206,7 @@ Partial Class MenuPrincipal
         Me.ReportesDeEventosPorIncidenciaToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ReportesDeEventosPorIncidenciaToolStripMenuItem.Tag = "101,67"
         Me.ReportesDeEventosPorIncidenciaToolStripMenuItem.Text = "Reportes de Eventos por Incidencia"
+        Me.ReportesDeEventosPorIncidenciaToolStripMenuItem.Visible = False
         '
         'ReporteDiarioDeTrabajoToolStripMenuItem
         '
@@ -1207,6 +1214,7 @@ Partial Class MenuPrincipal
         Me.ReporteDiarioDeTrabajoToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ReporteDiarioDeTrabajoToolStripMenuItem.Tag = "102,67"
         Me.ReporteDiarioDeTrabajoToolStripMenuItem.Text = "Reporte Diario de Trabajo"
+        Me.ReporteDiarioDeTrabajoToolStripMenuItem.Visible = False
         '
         'ReporteDeCertificadosFitosanitariosToolStripMenuItem
         '
@@ -1214,6 +1222,7 @@ Partial Class MenuPrincipal
         Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem.Tag = "103,67"
         Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem.Text = "Reporte de Certificados Fitosanitarios"
+        Me.ReporteDeCertificadosFitosanitariosToolStripMenuItem.Visible = False
         '
         'ReporteDeRomaneajesVsComprasToolStripMenuItem
         '
@@ -1221,6 +1230,7 @@ Partial Class MenuPrincipal
         Me.ReporteDeRomaneajesVsComprasToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ReporteDeRomaneajesVsComprasToolStripMenuItem.Tag = "104,67"
         Me.ReporteDeRomaneajesVsComprasToolStripMenuItem.Text = "Reporte de Romaneajes vs Compras"
+        Me.ReporteDeRomaneajesVsComprasToolStripMenuItem.Visible = False
         '
         'DeModulosAgrupadoPorColoniaToolStripMenuItem
         '
@@ -1228,6 +1238,7 @@ Partial Class MenuPrincipal
         Me.DeModulosAgrupadoPorColoniaToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.DeModulosAgrupadoPorColoniaToolStripMenuItem.Tag = "105,67"
         Me.DeModulosAgrupadoPorColoniaToolStripMenuItem.Text = "Modulos agrupado por Colonia"
+        Me.DeModulosAgrupadoPorColoniaToolStripMenuItem.Visible = False
         '
         'ProductividadDePlantasToolStripMenuItem
         '
@@ -1235,6 +1246,7 @@ Partial Class MenuPrincipal
         Me.ProductividadDePlantasToolStripMenuItem.Size = New System.Drawing.Size(320, 22)
         Me.ProductividadDePlantasToolStripMenuItem.Tag = "106,67"
         Me.ProductividadDePlantasToolStripMenuItem.Text = "Productividad de Plantas"
+        Me.ProductividadDePlantasToolStripMenuItem.Visible = False
         '
         'UtileriasToolStripMenuItem
         '

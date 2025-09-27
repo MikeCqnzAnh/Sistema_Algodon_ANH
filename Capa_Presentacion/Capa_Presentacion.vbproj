@@ -593,6 +593,24 @@
     <Compile Include="DsReportes.vb">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\Filtroembarques.Designer.vb">
+      <DependentUpon>Filtroembarques.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\Filtroembarques.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\Filtroinventarios.Designer.vb">
+      <DependentUpon>Filtroinventarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\Filtroinventarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\Filtropacas.Designer.vb">
+      <DependentUpon>Filtropacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\Filtropacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulos Funciones\BanxicoModulo.vb" />
     <Compile Include="CambiarClave.Designer.vb">
       <DependentUpon>CambiarClave.vb</DependentUpon>
@@ -2125,6 +2143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\FConsultaVenta.resx">
       <DependentUpon>FConsultaVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\Filtroembarques.resx">
+      <DependentUpon>Filtroembarques.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\Filtropacas.resx">
+      <DependentUpon>Filtropacas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\CargaPacasExternas.resx">
       <DependentUpon>CargaPacasExternas.vb</DependentUpon>

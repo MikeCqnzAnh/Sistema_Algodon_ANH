@@ -22,6 +22,9 @@ Public Class DatosEmpresa
     Public logoempresa As Byte()
     Public idempresa As Integer
     Public nombreproductor As String
+    Public nombrecomprador As String
     Public idproductor As Integer
+    Public idcomprador As Integer
     Public idcompra As Integer
+    Public idventa As Integer
 End Class

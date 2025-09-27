@@ -1110,6 +1110,16 @@ Public Class CompraPacasPorContrato
         'tabpacas.SelectedIndex = 1
     End Sub
 
+    Private Sub btfiltros_Click(sender As Object, e As EventArgs) Handles btfiltros.Click
+        Dim filtro As New Filtropacas
+        filtro.ShowDialog()
+    End Sub
+
+    Private Sub btfiltrosel_Click(sender As Object, e As EventArgs) Handles btfiltrosel.Click
+        Dim filtro As New Filtropacas
+        filtro.ShowDialog()
+    End Sub
+
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))
 

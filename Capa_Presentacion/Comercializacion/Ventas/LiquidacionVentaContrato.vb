@@ -34,25 +34,25 @@ Public Class LiquidacionVentaContrato
         Try
             eDatosEmpresa.Consulta = Consulta.ConsultaDatosEmpresa
             'eDatosEmpresa.idempresa = 1
-            nDatosEmpresa.Consultar(eDatosEmpresa)
+            nDatosEmpresa.ConsultarEmpresa(eDatosEmpresa)
             tabla1 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla1)
 
-            eDatosEmpresa.Consulta = Consulta.consultaComprador
-            eDatosEmpresa.nombreproductor = ""
-            eDatosEmpresa.idproductor = _idcomprador
+            eDatosEmpresa.Consulta = Consulta.ConsultaComprador
+            eDatosEmpresa.nombrecomprador = ""
+            eDatosEmpresa.idcomprador = _idcomprador
             nDatosEmpresa.Consultar(eDatosEmpresa)
             tabla2 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla2)
 
-            eDatosEmpresa.Consulta = Consulta.ConsultaVentaenc
-            eDatosEmpresa.idcompra = _idventa
+            eDatosEmpresa.Consulta = Consulta.Consultaventaenc
+            eDatosEmpresa.idventa = _idventa
             nDatosEmpresa.Consultar(eDatosEmpresa)
             tabla3 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla3)
 
-            eDatosEmpresa.Consulta = Consulta.ConsultaVentadet
-            eDatosEmpresa.idcompra = _idventa
+            eDatosEmpresa.Consulta = Consulta.Consultaventadet
+            eDatosEmpresa.idventa = _idventa
             nDatosEmpresa.Consultar(eDatosEmpresa)
             tabla4 = eDatosEmpresa.TablaConsulta
             ds.Tables.Add(tabla4)
