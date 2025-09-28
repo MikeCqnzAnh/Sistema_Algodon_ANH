@@ -26,16 +26,13 @@ Partial Class Filtropacas
         Me.btcancelar = New System.Windows.Forms.Button()
         Me.btaceptar = New System.Windows.Forms.Button()
         Me.label6 = New System.Windows.Forms.Label()
-        Me.nusfir2 = New System.Windows.Forms.NumericUpDown()
         Me.label7 = New System.Windows.Forms.Label()
         Me.lbnolote = New System.Windows.Forms.Label()
-        Me.nusfir1 = New System.Windows.Forms.NumericUpDown()
         Me.label8 = New System.Windows.Forms.Label()
         Me.nuuir2 = New System.Windows.Forms.NumericUpDown()
         Me.cblote = New System.Windows.Forms.ComboBox()
         Me.label9 = New System.Windows.Forms.Label()
         Me.nuuir1 = New System.Windows.Forms.NumericUpDown()
-        Me.label10 = New System.Windows.Forms.Label()
         Me.nuuhmlr2 = New System.Windows.Forms.NumericUpDown()
         Me.numicr1 = New System.Windows.Forms.NumericUpDown()
         Me.nuuhmlr1 = New System.Windows.Forms.NumericUpDown()
@@ -59,8 +56,6 @@ Partial Class Filtropacas
         Me.cbgin = New System.Windows.Forms.ComboBox()
         Me.label5 = New System.Windows.Forms.Label()
         Me.gbrangos.SuspendLayout()
-        CType(Me.nusfir2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nusfir1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuuir2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuuir1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nuuhmlr2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,16 +73,13 @@ Partial Class Filtropacas
         Me.gbrangos.Controls.Add(Me.btcancelar)
         Me.gbrangos.Controls.Add(Me.btaceptar)
         Me.gbrangos.Controls.Add(Me.label6)
-        Me.gbrangos.Controls.Add(Me.nusfir2)
         Me.gbrangos.Controls.Add(Me.label7)
         Me.gbrangos.Controls.Add(Me.lbnolote)
-        Me.gbrangos.Controls.Add(Me.nusfir1)
         Me.gbrangos.Controls.Add(Me.label8)
         Me.gbrangos.Controls.Add(Me.nuuir2)
         Me.gbrangos.Controls.Add(Me.cblote)
         Me.gbrangos.Controls.Add(Me.label9)
         Me.gbrangos.Controls.Add(Me.nuuir1)
-        Me.gbrangos.Controls.Add(Me.label10)
         Me.gbrangos.Controls.Add(Me.nuuhmlr2)
         Me.gbrangos.Controls.Add(Me.numicr1)
         Me.gbrangos.Controls.Add(Me.nuuhmlr1)
@@ -129,16 +121,6 @@ Partial Class Filtropacas
         Me.label6.TabIndex = 6
         Me.label6.Text = "Mic"
         '
-        'nusfir2
-        '
-        Me.nusfir2.DecimalPlaces = 2
-        Me.nusfir2.Location = New System.Drawing.Point(184, 128)
-        Me.nusfir2.Name = "nusfir2"
-        Me.nusfir2.Size = New System.Drawing.Size(72, 20)
-        Me.nusfir2.TabIndex = 9
-        Me.nusfir2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nusfir2.ThousandsSeparator = True
-        '
         'label7
         '
         Me.label7.AutoSize = True
@@ -157,16 +139,6 @@ Partial Class Filtropacas
         Me.lbnolote.TabIndex = 3
         Me.lbnolote.Text = "No Predio"
         Me.lbnolote.Visible = False
-        '
-        'nusfir1
-        '
-        Me.nusfir1.DecimalPlaces = 2
-        Me.nusfir1.Location = New System.Drawing.Point(87, 128)
-        Me.nusfir1.Name = "nusfir1"
-        Me.nusfir1.Size = New System.Drawing.Size(72, 20)
-        Me.nusfir1.TabIndex = 8
-        Me.nusfir1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.nusfir1.ThousandsSeparator = True
         '
         'label8
         '
@@ -216,15 +188,6 @@ Partial Class Filtropacas
         Me.nuuir1.TabIndex = 6
         Me.nuuir1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.nuuir1.ThousandsSeparator = True
-        '
-        'label10
-        '
-        Me.label10.AutoSize = True
-        Me.label10.Location = New System.Drawing.Point(6, 130)
-        Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(23, 13)
-        Me.label10.TabIndex = 15
-        Me.label10.Text = "SFI"
         '
         'nuuhmlr2
         '
@@ -475,8 +438,6 @@ Partial Class Filtropacas
         Me.Text = "Filtros"
         Me.gbrangos.ResumeLayout(False)
         Me.gbrangos.PerformLayout()
-        CType(Me.nusfir2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nusfir1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuuir2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuuir1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nuuhmlr2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -496,16 +457,13 @@ Partial Class Filtropacas
     Private WithEvents btcancelar As Button
     Private WithEvents btaceptar As Button
     Private WithEvents label6 As Label
-    Private WithEvents nusfir2 As NumericUpDown
     Private WithEvents label7 As Label
     Private WithEvents lbnolote As Label
-    Private WithEvents nusfir1 As NumericUpDown
     Private WithEvents label8 As Label
     Private WithEvents nuuir2 As NumericUpDown
     Private WithEvents cblote As ComboBox
     Private WithEvents label9 As Label
     Private WithEvents nuuir1 As NumericUpDown
-    Private WithEvents label10 As Label
     Private WithEvents nuuhmlr2 As NumericUpDown
     Private WithEvents numicr1 As NumericUpDown
     Private WithEvents nuuhmlr1 As NumericUpDown

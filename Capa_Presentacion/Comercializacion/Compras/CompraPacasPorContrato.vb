@@ -1111,13 +1111,203 @@ Public Class CompraPacasPorContrato
     End Sub
 
     Private Sub btfiltros_Click(sender As Object, e As EventArgs) Handles btfiltros.Click
-        Dim filtro As New Filtropacas
-        filtro.ShowDialog()
+        Dim _filtros As New Filtropacas(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text), IIf(TbIdProductor.Text = "", 0, TbIdProductor.Text), False)
+        _filtros.ShowDialog()
+        Try
+            Dim filtro As String = ""
+
+            'If _filtros._idplanta > 0 Then
+            '    If Not String.IsNullOrEmpty(filtro) Then
+            '        filtro &= " and "
+            '    End If
+            '    filtro &= $"idgin = {_filtros._idplanta}"
+            'End If
+
+            If Not String.IsNullOrEmpty(_filtros._grade) Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"grade = '{_filtros._grade}'"
+            End If
+
+            If Not String.IsNullOrEmpty(_filtros._colorgrade) Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"colorgrade = '{_filtros._colorgrade}'"
+            End If
+
+            If Not String.IsNullOrEmpty(_filtros._baleidinicio) AndAlso Not String.IsNullOrEmpty(_filtros._baleidfin) Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"baleid >= {_filtros._baleidinicio.ToString()} AND baleid <= {_filtros._baleidfin.ToString()}"
+            End If
+
+            If _filtros._r1mic >= 0 AndAlso _filtros._r2mic <> 0 Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"mic >= {_filtros._r1mic} and mic <= {_filtros._r2mic}"
+            End If
+
+            If _filtros._r1uhml >= 0 AndAlso _filtros._r2uhml <> 0 Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"uhml >= {_filtros._r1uhml} and uhml <= {_filtros._r2uhml}"
+            End If
+
+            If _filtros._r1strength >= 0 AndAlso _filtros._r2strength <> 0 Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"strength >= {_filtros._r1strength} and strength <= {_filtros._r2strength}"
+            End If
+
+            If _filtros._r1ui >= 0 AndAlso _filtros._r2ui <> 0 Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"ui >= {_filtros._r1ui} and ui <= {_filtros._r2ui}"
+            End If
+            origenView.RowFilter = filtro
+
+            If origenView.Count > 0 Then
+                If origenView.Count < 50 Then
+                    registrosCargadosOrigen = origenView.Count
+                Else
+                    registrosCargadosOrigen = 50
+                End If
+
+                dataGridViewOrigen.RowCount = Math.Min(RegistrosPorCarga, origenView.Count)
+                dataGridViewOrigen.Refresh()
+                registrosCargadosOrigen = dataGridViewOrigen.RowCount
+            Else
+                MessageBox.Show("No hay resultados para los parametros filtrados")
+                origenView.RowFilter = ""
+                ResetFiltro()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+    Private Sub ResetFiltro()
+
+        ' Actualiza el número de filas en los DataGridView
+        'dataGridViewOrigen.RowCount = Math.Min(RegistrosPorCarga, origenView.Count)
+        dataGridViewOrigen.Refresh()
+        'dataGridViewDestino.RowCount = Math.Min(RegistrosPorCarga, destinoView.Count)
+        dataGridViewDestino.Refresh()
+
+        Dim countSelorigen As Integer = origenView.Cast(Of DataRowView)() _
+        .Count(Function(row) CBool(row("Seleccionar")) = True)
+
+        Dim countSeldestino As Integer = destinoView.Cast(Of DataRowView)() _
+        .Count(Function(row) CBool(row("Seleccionar")) = True)
+
+        tbpacaseleccionadadisp.Text = countSelorigen.ToString()
+        tspacasseleccionadas.Text = countSeldestino.ToString()
+
+        AddHandler dataGridViewOrigen.CellValueNeeded, AddressOf dataGridViewOrigen_CellValueNeeded
+        AddHandler dataGridViewOrigen.CellValuePushed, AddressOf dataGridViewOrigen_CellValuePushed
+
+        If registrosCargadosOrigen < origenView.Count Then
+            Dim nuevasFilas As Integer = Math.Min(RegistrosPorCarga, origenView.Count - registrosCargadosOrigen)
+            registrosCargadosOrigen += nuevasFilas
+            dataGridViewOrigen.RowCount += nuevasFilas
+        End If
+
+        AddHandler dataGridViewDestino.CellValueNeeded, AddressOf dataGridViewDestino_CellValueNeeded
+        AddHandler dataGridViewDestino.CellValuePushed, AddressOf dataGridViewDestino_CellValuePushed
+
+        If registrosCargadosDestino < destinoView.Count Then
+            Dim nuevasFilas As Integer = Math.Min(RegistrosPorCarga, destinoView.Count - registrosCargadosDestino)
+            registrosCargadosDestino += nuevasFilas
+            dataGridViewDestino.RowCount += nuevasFilas
+        End If
+
     End Sub
 
     Private Sub btfiltrosel_Click(sender As Object, e As EventArgs) Handles btfiltrosel.Click
-        Dim filtro As New Filtropacas
-        filtro.ShowDialog()
+        Dim _filtros As New Filtropacas(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text), IIf(TbIdProductor.Text = "", 0, TbIdProductor.Text), False)
+        _filtros.ShowDialog()
+        Dim filtro As String = ""
+
+        'If _filtros._idplanta > 0 Then
+        '    If Not String.IsNullOrEmpty(filtro) Then
+        '        filtro &= " and "
+        '    End If
+        '    filtro &= $"idgin = {_filtros._idplanta}"
+        'End If
+
+        If Not String.IsNullOrEmpty(_filtros._grade) Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"grade = '{_filtros._grade}'"
+        End If
+
+        If Not String.IsNullOrEmpty(_filtros._colorgrade) Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"colorgrade = '{_filtros._colorgrade}'"
+        End If
+
+        If Not String.IsNullOrEmpty(_filtros._baleidinicio) AndAlso Not String.IsNullOrEmpty(_filtros._baleidfin) Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"baleid >= {_filtros._baleidinicio.ToString()} AND baleid <= {_filtros._baleidfin.ToString()}"
+        End If
+
+        If _filtros._r1mic >= 0 AndAlso _filtros._r2mic <> 0 Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"mic >= {_filtros._r1mic} and mic <= {_filtros._r2mic}"
+        End If
+
+        If _filtros._r1uhml >= 0 AndAlso _filtros._r2uhml <> 0 Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"uhml >= {_filtros._r1uhml} and uhml <= {_filtros._r2uhml}"
+        End If
+
+        If _filtros._r1strength >= 0 AndAlso _filtros._r2strength <> 0 Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"strength >= {_filtros._r1strength} and strength <= {_filtros._r2strength}"
+        End If
+
+        If _filtros._r1ui >= 0 AndAlso _filtros._r2ui <> 0 Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"ui >= {_filtros._r1ui} and ui <= {_filtros._r2ui}"
+        End If
+
+        destinoView.RowFilter = filtro
+
+        If destinoView.Count > 0 Then
+            If destinoView.Count < 50 Then
+                registrosCargadosDestino = destinoView.Count
+            Else
+                registrosCargadosDestino = 50
+            End If
+
+            dataGridViewDestino.RowCount = Math.Min(RegistrosPorCarga, destinoView.Count)
+            dataGridViewDestino.Refresh()
+            registrosCargadosDestino = dataGridViewDestino.RowCount
+        Else
+            MessageBox.Show("No hay resultados para los parametros filtrados")
+            destinoView.RowFilter = ""
+            ResetFiltro()
+        End If
     End Sub
 
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal

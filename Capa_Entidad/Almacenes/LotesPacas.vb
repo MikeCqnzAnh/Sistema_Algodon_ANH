@@ -8,6 +8,5 @@
     Public observaciones As String
     Public totalpacas As Decimal
     Public totalkilos As Decimal
-    Public busqueda As String
     Public idestatus As Integer
 End Class

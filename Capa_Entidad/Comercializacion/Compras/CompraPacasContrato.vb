@@ -62,7 +62,7 @@ Public Class CompraPacasContrato
     Public IdModoEncabezadoLargoFibra As Integer
     Public IdModoEncabezadoMicros As Integer
     Public IdModoEncabezadoResistencia As Integer
-    Public busqueda As String
+
     Public idclase As Integer
     Public grade As String
     'Tablas de Castigos y modalidad compra

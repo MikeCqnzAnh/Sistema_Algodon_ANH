@@ -104,7 +104,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbProductos.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbProductos.Location = New System.Drawing.Point(0, 24)
         Me.GbProductos.Name = "GbProductos"
-        Me.GbProductos.Size = New System.Drawing.Size(1561, 206)
+        Me.GbProductos.Size = New System.Drawing.Size(1370, 206)
         Me.GbProductos.TabIndex = 0
         Me.GbProductos.TabStop = False
         '
@@ -232,7 +232,7 @@ Partial Class ClasificacionVentaPaquetes
         'BtIgualarClasificacion
         '
         Me.BtIgualarClasificacion.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtIgualarClasificacion.Location = New System.Drawing.Point(1313, 16)
+        Me.BtIgualarClasificacion.Location = New System.Drawing.Point(1122, 16)
         Me.BtIgualarClasificacion.Name = "BtIgualarClasificacion"
         Me.BtIgualarClasificacion.Size = New System.Drawing.Size(126, 187)
         Me.BtIgualarClasificacion.TabIndex = 1
@@ -242,7 +242,7 @@ Partial Class ClasificacionVentaPaquetes
         'BtRevisarClases
         '
         Me.BtRevisarClases.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtRevisarClases.Location = New System.Drawing.Point(1439, 16)
+        Me.BtRevisarClases.Location = New System.Drawing.Point(1248, 16)
         Me.BtRevisarClases.Name = "BtRevisarClases"
         Me.BtRevisarClases.Size = New System.Drawing.Size(119, 187)
         Me.BtRevisarClases.TabIndex = 1
@@ -331,7 +331,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.ImprimirToolStripMenuItem, Me.ExportarToolStripMenuItem, Me.EliminarPacasSeleccionadasToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1561, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1370, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -419,7 +419,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbDgv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GbDgv.Location = New System.Drawing.Point(0, 230)
         Me.GbDgv.Name = "GbDgv"
-        Me.GbDgv.Size = New System.Drawing.Size(1460, 508)
+        Me.GbDgv.Size = New System.Drawing.Size(1269, 508)
         Me.GbDgv.TabIndex = 66
         Me.GbDgv.TabStop = False
         '
@@ -439,7 +439,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.DgvPacasClasificacion1.Name = "DgvPacasClasificacion1"
         Me.DgvPacasClasificacion1.RowHeadersWidth = 40
         Me.DgvPacasClasificacion1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1454, 489)
+        Me.DgvPacasClasificacion1.Size = New System.Drawing.Size(1263, 489)
         Me.DgvPacasClasificacion1.TabIndex = 15
         '
         'Sel
@@ -452,7 +452,7 @@ Partial Class ClasificacionVentaPaquetes
         Me.GbSeleccionarTodasPacas.Controls.Add(Me.BtDeseleccionarTodo)
         Me.GbSeleccionarTodasPacas.Controls.Add(Me.BtSeleccionarTodo)
         Me.GbSeleccionarTodasPacas.Dock = System.Windows.Forms.DockStyle.Right
-        Me.GbSeleccionarTodasPacas.Location = New System.Drawing.Point(1460, 230)
+        Me.GbSeleccionarTodasPacas.Location = New System.Drawing.Point(1269, 230)
         Me.GbSeleccionarTodasPacas.Name = "GbSeleccionarTodasPacas"
         Me.GbSeleccionarTodasPacas.Size = New System.Drawing.Size(101, 508)
         Me.GbSeleccionarTodasPacas.TabIndex = 67
@@ -482,7 +482,7 @@ Partial Class ClasificacionVentaPaquetes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1561, 738)
+        Me.ClientSize = New System.Drawing.Size(1370, 738)
         Me.Controls.Add(Me.GbDgv)
         Me.Controls.Add(Me.GbSeleccionarTodasPacas)
         Me.Controls.Add(Me.GbProductos)

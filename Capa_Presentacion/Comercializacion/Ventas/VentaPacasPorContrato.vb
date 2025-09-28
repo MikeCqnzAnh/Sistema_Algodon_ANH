@@ -909,12 +909,12 @@ Public Class VentaPacasPorContrato
     End Sub
 
     Private Sub btfiltros_Click(sender As Object, e As EventArgs) Handles btfiltros.Click
-        Dim filtro As New Filtropacas
+        Dim filtro As New Filtropacas(IIf(TbIdVentaPaca.Text = "", 0, TbIdVentaPaca.Text), IIf(TbIdProductor.Text, 0, TbIdProductor.Text), False)
         filtro.ShowDialog()
     End Sub
 
     Private Sub btfiltrosel_Click(sender As Object, e As EventArgs) Handles btfiltrosel.Click
-        Dim filtro As New Filtropacas
+        Dim filtro As New Filtropacas(IIf(TbIdVentaPaca.Text = "", 0, TbIdVentaPaca.Text), IIf(TbIdProductor.Text, 0, TbIdProductor.Text), False)
         filtro.ShowDialog()
     End Sub
 

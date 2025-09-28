@@ -80,7 +80,7 @@ Public Class VentaPacasContrato
     Public rango2 As Decimal
     Public tara As Decimal
     Public checktara As Boolean
-    Public busqueda As String
+
     'Tablas de Castigos y modalidad compra
     Public TablaCastigoMicros As DataTable
     Public TablaCastigoLargoFibra As DataTable

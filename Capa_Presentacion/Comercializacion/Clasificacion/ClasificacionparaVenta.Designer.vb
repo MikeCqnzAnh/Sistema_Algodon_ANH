@@ -82,7 +82,7 @@ Partial Class Clasificacion_para_Venta
         Me.mnustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.nuevoToolStripMenuItem, Me.guardarToolStripMenuItem, Me.cancelarToolStripMenuItem, Me.consultarToolStripMenuItem, Me.reportesToolStripMenuItem, Me.plantillasToolStripMenuItem, Me.eliminarToolStripMenuItem})
         Me.mnustrip.Location = New System.Drawing.Point(0, 0)
         Me.mnustrip.Name = "mnustrip"
-        Me.mnustrip.Size = New System.Drawing.Size(1450, 24)
+        Me.mnustrip.Size = New System.Drawing.Size(1370, 24)
         Me.mnustrip.TabIndex = 75
         Me.mnustrip.Text = "menuStrip1"
         '
@@ -120,7 +120,7 @@ Partial Class Clasificacion_para_Venta
         'hviToolStripMenuItem
         '
         Me.hviToolStripMenuItem.Name = "hviToolStripMenuItem"
-        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.hviToolStripMenuItem.Size = New System.Drawing.Size(91, 22)
         Me.hviToolStripMenuItem.Text = "Hvi"
         Me.hviToolStripMenuItem.Visible = False
         '
@@ -179,7 +179,7 @@ Partial Class Clasificacion_para_Venta
         Me.Paneltop.Dock = System.Windows.Forms.DockStyle.Top
         Me.Paneltop.Location = New System.Drawing.Point(0, 24)
         Me.Paneltop.Name = "Paneltop"
-        Me.Paneltop.Size = New System.Drawing.Size(1450, 130)
+        Me.Paneltop.Size = New System.Drawing.Size(1370, 130)
         Me.Paneltop.TabIndex = 76
         '
         'CbClases
@@ -273,7 +273,7 @@ Partial Class Clasificacion_para_Venta
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(1240, 15)
+        Me.Label4.Location = New System.Drawing.Point(1160, 15)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 66
@@ -283,7 +283,7 @@ Partial Class Clasificacion_para_Venta
         '
         Me.Label25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(1242, 41)
+        Me.Label25.Location = New System.Drawing.Point(1162, 41)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(70, 13)
         Me.Label25.TabIndex = 67
@@ -294,7 +294,7 @@ Partial Class Clasificacion_para_Venta
         Me.DtFechaVenta.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DtFechaVenta.Enabled = False
         Me.DtFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaVenta.Location = New System.Drawing.Point(1342, 11)
+        Me.DtFechaVenta.Location = New System.Drawing.Point(1262, 11)
         Me.DtFechaVenta.Name = "DtFechaVenta"
         Me.DtFechaVenta.Size = New System.Drawing.Size(96, 20)
         Me.DtFechaVenta.TabIndex = 65
@@ -390,7 +390,7 @@ Partial Class Clasificacion_para_Venta
         Me.DtFechaActualizacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DtFechaActualizacion.Enabled = False
         Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaActualizacion.Location = New System.Drawing.Point(1342, 37)
+        Me.DtFechaActualizacion.Location = New System.Drawing.Point(1262, 37)
         Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
         Me.DtFechaActualizacion.Size = New System.Drawing.Size(96, 20)
         Me.DtFechaActualizacion.TabIndex = 79
@@ -402,9 +402,9 @@ Partial Class Clasificacion_para_Venta
         Me.panel6.Controls.Add(Me.btdesmarcarpacas)
         Me.panel6.Controls.Add(Me.btmarcarpacas)
         Me.panel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panel6.Location = New System.Drawing.Point(1408, 154)
+        Me.panel6.Location = New System.Drawing.Point(1328, 154)
         Me.panel6.Name = "panel6"
-        Me.panel6.Size = New System.Drawing.Size(42, 602)
+        Me.panel6.Size = New System.Drawing.Size(42, 595)
         Me.panel6.TabIndex = 108
         '
         'btimportaexcel
@@ -495,14 +495,14 @@ Partial Class Clasificacion_para_Venta
         Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataGridViewOrigen.RowHeadersVisible = False
         Me.dataGridViewOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1408, 602)
+        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1328, 595)
         Me.dataGridViewOrigen.TabIndex = 109
         '
         'Clasificacion_para_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1450, 756)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
         Me.Controls.Add(Me.dataGridViewOrigen)
         Me.Controls.Add(Me.panel6)
         Me.Controls.Add(Me.Paneltop)

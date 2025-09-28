@@ -218,7 +218,7 @@ Partial Class VentaPacasContrato
         Me.GbDatosGenerales.Dock = System.Windows.Forms.DockStyle.Top
         Me.GbDatosGenerales.Location = New System.Drawing.Point(0, 24)
         Me.GbDatosGenerales.Name = "GbDatosGenerales"
-        Me.GbDatosGenerales.Size = New System.Drawing.Size(1728, 178)
+        Me.GbDatosGenerales.Size = New System.Drawing.Size(1370, 178)
         Me.GbDatosGenerales.TabIndex = 4
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
@@ -229,7 +229,7 @@ Partial Class VentaPacasContrato
         Me.gbcontratos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gbcontratos.Location = New System.Drawing.Point(1348, 16)
         Me.gbcontratos.Name = "gbcontratos"
-        Me.gbcontratos.Size = New System.Drawing.Size(377, 159)
+        Me.gbcontratos.Size = New System.Drawing.Size(19, 159)
         Me.gbcontratos.TabIndex = 2
         Me.gbcontratos.TabStop = False
         Me.gbcontratos.Text = "Contratos"
@@ -251,7 +251,7 @@ Partial Class VentaPacasContrato
         Me.DgvContratos.RowHeadersVisible = False
         Me.DgvContratos.RowHeadersWidth = 40
         Me.DgvContratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratos.Size = New System.Drawing.Size(371, 140)
+        Me.DgvContratos.Size = New System.Drawing.Size(13, 140)
         Me.DgvContratos.TabIndex = 12
         '
         'GroupBox5
@@ -960,7 +960,7 @@ Partial Class VentaPacasContrato
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GuardarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ComparacionToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1728, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(1370, 24)
         Me.MSMenu.TabIndex = 3
         '
         'NuevoToolStripMenuItem
@@ -1048,7 +1048,7 @@ Partial Class VentaPacasContrato
         Me.GbCompras.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GbCompras.Location = New System.Drawing.Point(0, 557)
         Me.GbCompras.Name = "GbCompras"
-        Me.GbCompras.Size = New System.Drawing.Size(1728, 186)
+        Me.GbCompras.Size = New System.Drawing.Size(1370, 186)
         Me.GbCompras.TabIndex = 5
         Me.GbCompras.TabStop = False
         '
@@ -1060,7 +1060,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox4.Location = New System.Drawing.Point(378, 16)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(1347, 167)
+        Me.GroupBox4.Size = New System.Drawing.Size(989, 167)
         Me.GroupBox4.TabIndex = 2
         Me.GroupBox4.TabStop = False
         '
@@ -1070,7 +1070,7 @@ Partial Class VentaPacasContrato
         Me.DgvAgrupadasClases.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgvAgrupadasClases.Location = New System.Drawing.Point(3, 16)
         Me.DgvAgrupadasClases.Name = "DgvAgrupadasClases"
-        Me.DgvAgrupadasClases.Size = New System.Drawing.Size(585, 148)
+        Me.DgvAgrupadasClases.Size = New System.Drawing.Size(227, 148)
         Me.DgvAgrupadasClases.TabIndex = 3
         '
         'Panel1
@@ -1085,7 +1085,7 @@ Partial Class VentaPacasContrato
         Me.Panel1.Controls.Add(Me.Label19)
         Me.Panel1.Controls.Add(Me.Label18)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(588, 16)
+        Me.Panel1.Location = New System.Drawing.Point(230, 16)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(756, 148)
         Me.Panel1.TabIndex = 4
@@ -1222,7 +1222,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 202)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1728, 355)
+        Me.GroupBox1.Size = New System.Drawing.Size(1370, 355)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         '
@@ -1236,7 +1236,7 @@ Partial Class VentaPacasContrato
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 16)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1722, 336)
+        Me.Panel4.Size = New System.Drawing.Size(1364, 336)
         Me.Panel4.TabIndex = 7
         '
         'TcCompras
@@ -1247,7 +1247,7 @@ Partial Class VentaPacasContrato
         Me.TcCompras.Location = New System.Drawing.Point(0, 0)
         Me.TcCompras.Name = "TcCompras"
         Me.TcCompras.SelectedIndex = 0
-        Me.TcCompras.Size = New System.Drawing.Size(855, 271)
+        Me.TcCompras.Size = New System.Drawing.Size(497, 271)
         Me.TcCompras.TabIndex = 1
         '
         'TP1LiquidacionesAVender
@@ -1258,7 +1258,7 @@ Partial Class VentaPacasContrato
         Me.TP1LiquidacionesAVender.Location = New System.Drawing.Point(4, 22)
         Me.TP1LiquidacionesAVender.Name = "TP1LiquidacionesAVender"
         Me.TP1LiquidacionesAVender.Padding = New System.Windows.Forms.Padding(3)
-        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(847, 245)
+        Me.TP1LiquidacionesAVender.Size = New System.Drawing.Size(489, 245)
         Me.TP1LiquidacionesAVender.TabIndex = 0
         Me.TP1LiquidacionesAVender.Text = "Paquetes a Vender"
         '
@@ -1279,7 +1279,7 @@ Partial Class VentaPacasContrato
         Me.DgvDatosLiquidacion.RowHeadersVisible = False
         Me.DgvDatosLiquidacion.RowHeadersWidth = 40
         Me.DgvDatosLiquidacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(841, 194)
+        Me.DgvDatosLiquidacion.Size = New System.Drawing.Size(483, 194)
         Me.DgvDatosLiquidacion.TabIndex = 13
         '
         'GroupBox3
@@ -1287,7 +1287,7 @@ Partial Class VentaPacasContrato
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(841, 45)
+        Me.GroupBox3.Size = New System.Drawing.Size(483, 45)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         '
@@ -1501,7 +1501,7 @@ Partial Class VentaPacasContrato
         Me.Panel5.Controls.Add(Me.BtSeleccionar2)
         Me.Panel5.Controls.Add(Me.BtSeleccionar)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel5.Location = New System.Drawing.Point(855, 0)
+        Me.Panel5.Location = New System.Drawing.Point(497, 0)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(44, 271)
         Me.Panel5.TabIndex = 3
@@ -1542,7 +1542,7 @@ Partial Class VentaPacasContrato
         Me.TabControl1.Controls.Add(Me.TP2LiquidacionesVendidas)
         Me.TabControl1.Controls.Add(Me.TP4IndividualVendidas)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TabControl1.Location = New System.Drawing.Point(899, 0)
+        Me.TabControl1.Location = New System.Drawing.Point(541, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(823, 271)
@@ -1779,7 +1779,7 @@ Partial Class VentaPacasContrato
         Me.PbCargapacas.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PbCargapacas.Location = New System.Drawing.Point(0, 271)
         Me.PbCargapacas.Name = "PbCargapacas"
-        Me.PbCargapacas.Size = New System.Drawing.Size(1722, 10)
+        Me.PbCargapacas.Size = New System.Drawing.Size(1364, 10)
         Me.PbCargapacas.TabIndex = 14
         '
         'GbCompraActual
@@ -1794,7 +1794,7 @@ Partial Class VentaPacasContrato
         Me.GbCompraActual.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GbCompraActual.Location = New System.Drawing.Point(0, 281)
         Me.GbCompraActual.Name = "GbCompraActual"
-        Me.GbCompraActual.Size = New System.Drawing.Size(1722, 55)
+        Me.GbCompraActual.Size = New System.Drawing.Size(1364, 55)
         Me.GbCompraActual.TabIndex = 2
         Me.GbCompraActual.TabStop = False
         Me.GbCompraActual.Text = "Detalles De Venta"
@@ -1864,13 +1864,13 @@ Partial Class VentaPacasContrato
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1728, 743)
+        Me.ClientSize = New System.Drawing.Size(1370, 743)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GbCompras)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1415, 651)
+        Me.MinimumSize = New System.Drawing.Size(1364, 651)
         Me.Name = "VentaPacasContrato"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Venta de Pacas Por Contrato"

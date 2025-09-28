@@ -24,6 +24,13 @@ Public Class ClasificacionVentaPaquetes
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPlanta", EntidadClasificacionVentaPaquetes.IdPlanta))
                     sqlcom1.Parameters.Add(New SqlParameter("@IdPaquete", EntidadClasificacionVentaPaquetes.IdPaquete))
                     sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
+                Case Capa_Operacion.Configuracion.Consulta.consultacolorgrade
+                    sqlcom1 = New SqlCommand("pa_consultagradosclasif", cnn)
+                    sqldat1 = New SqlDataAdapter(sqlcom1)
+                    sqlcom1.CommandType = CommandType.StoredProcedure
+                    sqlcom1.Parameters.Clear()
+                    sqlcom1.Parameters.Add(New SqlParameter("@idclase", EntidadClasificacionVentaPaquetes.IdClase))
+                    sqldat1.Fill(EntidadClasificacionVentaPaquetes1.TablaConsulta)
                 Case Capa_Operacion.Configuracion.Consulta.ConsultaClasesDetalle
                     sqlcom1 = New SqlCommand("sp_SeleccionClase", cnn)
                     sqldat1 = New SqlDataAdapter(sqlcom1)

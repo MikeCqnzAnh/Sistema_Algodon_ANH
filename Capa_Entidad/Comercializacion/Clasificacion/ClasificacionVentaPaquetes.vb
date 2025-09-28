@@ -23,5 +23,5 @@ Public Class ClasificacionVentaPaquetes
     '------
     Public Rango1 As Integer
     Public Rango2 As Integer
-    Public busqueda As String
+
 End Class

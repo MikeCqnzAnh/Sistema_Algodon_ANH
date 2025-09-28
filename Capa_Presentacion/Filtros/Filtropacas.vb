@@ -38,8 +38,8 @@ Public Class Filtropacas
         cargacombogrados()
     End Sub
     Private Sub btaceptar_Click(sender As Object, e As EventArgs) Handles btaceptar.Click
-        If ValidateRange(numicr1, numicr2) AndAlso ValidateRange(nustrr1, nustrr2) AndAlso ValidateRange(nuuhmlr1, nuuhmlr2) AndAlso ValidateRange(nuuir1, nuuir2) AndAlso ValidateRange(nusfir1, nusfir2) Then
-            _idplanta = Convert.ToInt32(cbgin.SelectedValue)
+        If ValidateRange(numicr1, numicr2) AndAlso ValidateRange(nustrr1, nustrr2) AndAlso ValidateRange(nuuhmlr1, nuuhmlr2) AndAlso ValidateRange(nuuir1, nuuir2) Then
+            '_idplanta = Convert.ToInt32(cbgin.SelectedValue)
             _grade = cbgrade.Text
             _colorgrade = cbcolorgrade.Text
             _predio = tbpredio.Text
@@ -62,69 +62,72 @@ Public Class Filtropacas
     End Sub
 
     Private Sub cargacombozonas()
-        Dim ecatalogos As New E_Catalogos()
-        Dim ncatalogos As New N_Catalogos()
-        ecatalogos.Consultar = O_Configuracion.Consultar.consultacmbzonas
-        ncatalogos.Consultar(ecatalogos)
-        If ecatalogos.TablaConsulta.Rows.Count > 0 Then
-            cbzona.DataSource = ecatalogos.TablaConsulta
-            cbzona.ValueMember = "Idzona"
-            cbzona.DisplayMember = "Descripcion"
-            cbzona.SelectedIndex = -1
-        End If
+        'Dim ecatalogos As New E_Catalogos()
+        'Dim ncatalogos As New N_Catalogos()
+        'ecatalogos.Consultar = Configuracion.Consulta.consultacmbzonas
+        'ncatalogos.Consultar(ecatalogos)
+        'If ecatalogos.TablaConsulta.Rows.Count > 0 Then
+        '    cbzona.DataSource = ecatalogos.TablaConsulta
+        '    cbzona.ValueMember = "Idzona"
+        '    cbzona.DisplayMember = "Descripcion"
+        '    cbzona.SelectedIndex = -1
+        'End If
     End Sub
 
     Private Sub cargacombogins()
-        Dim ecatalogos As New E_Catalogos()
-        Dim ncatalogos As New N_Catalogos()
-        ecatalogos.Consultar = O_Configuracion.Consultar.consultacmbgins
-        ncatalogos.Consultar(ecatalogos)
-        If ecatalogos.TablaConsulta.Rows.Count > 0 Then
-            cbgin.DataSource = ecatalogos.TablaConsulta
-            cbgin.ValueMember = "idgin"
-            cbgin.DisplayMember = "Descripcion"
-            cbgin.SelectedIndex = -1
-        End If
+        Dim EntidadProduccion As New Capa_Entidad.Produccion
+        Dim NegocioProduccion As New Capa_Negocio.Produccion
+        Dim Tabla As New DataTable
+        EntidadProduccion.Consulta = Consulta.ConsultaExterna
+        NegocioProduccion.Consultar(EntidadProduccion)
+        Tabla = EntidadProduccion.TablaConsulta
+        cbgin.DataSource = Tabla
+        cbgin.ValueMember = "IdPlanta"
+        cbgin.DisplayMember = "Descripcion"
+        cbgin.SelectedValue = 0
     End Sub
 
     Private Sub cargacombolotes()
-        If cblote.Visible = True Then
-            Dim elogistica As New E_Logistica()
-            Dim nlogistica As New N_Logistica()
-            elogistica.Consultar = O_Configuracion.Consultar.consultacmblote
-            elogistica.idembarque = _idembarque
-            elogistica.idcliente = _idcliente
-            nlogistica.Consultar(elogistica)
-            If elogistica.TablaConsulta.Rows.Count > 0 Then
-                cblote.DataSource = elogistica.TablaConsulta
-                cblote.ValueMember = "idlote"
-                cblote.DisplayMember = "nolote"
-                cblote.SelectedIndex = -1
-            End If
-        End If
+        'If cblote.Visible = True Then
+        '    Dim elogistica As New E_Logistica()
+        '    Dim nlogistica As New N_Logistica()
+        '    elogistica.Consultar = O_Configuracion.Consultar.consultacmblote
+        '    elogistica.idembarque = _idembarque
+        '    elogistica.idcliente = _idcliente
+        '    nlogistica.Consultar(elogistica)
+        '    If elogistica.TablaConsulta.Rows.Count > 0 Then
+        '        cblote.DataSource = elogistica.TablaConsulta
+        '        cblote.ValueMember = "idlote"
+        '        cblote.DisplayMember = "nolote"
+        '        cblote.SelectedIndex = -1
+        '    End If
+        'End If
     End Sub
 
     Private Sub cargacombogrados()
-        Dim ecatalogos As New E_Catalogos()
-        Dim ncatalogos As New N_Catalogos()
-        ecatalogos.Consultar = O_Configuracion.Consultar.consultaclases
-        ncatalogos.Consultar(ecatalogos)
-        If ecatalogos.TablaConsulta.Rows.Count > 0 Then
-            cbgrade.DataSource = ecatalogos.TablaConsulta
-            cbgrade.ValueMember = "idclasificacion"
-            cbgrade.DisplayMember = "clave"
-            cbgrade.SelectedIndex = -1
-        End If
+        '---Clasificacion--
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        Dim Tabla2 As New DataTable
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.ConsultaClases
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla2 = EntidadClasificacionVentaPaquetes.TablaConsulta
+        cbgrade.DataSource = Tabla2
+        cbgrade.ValueMember = "IdClasificacion"
+        cbgrade.DisplayMember = "ClaveCorta"
+        cbgrade.SelectedValue = 0
     End Sub
 
     Private Sub cargacombocolorgrade()
-        Dim ecatalogos As New E_Catalogos()
-        Dim ncatalogos As New N_Catalogos()
-        ecatalogos.Consultar = Configuracion.Consulta.consultacolorgrade
-        ecatalogos.idclasesenc = Convert.ToInt32(cbgrade.SelectedValue)
-        ncatalogos.Consultar(ecatalogos)
-        If ecatalogos.TablaConsulta.Rows.Count > 0 Then
-            cbcolorgrade.DataSource = ecatalogos.TablaConsulta
+        Dim EntidadClasificacionVentaPaquetes As New Capa_Entidad.ClasificacionVentaPaquetes
+        Dim NegocioClasificacionVentaPaquetes As New Capa_Negocio.ClasificacionVentaPaquetes
+        Dim Tabla2 As New DataTable
+        EntidadClasificacionVentaPaquetes.Consulta = Consulta.consultacolorgrade
+        EntidadClasificacionVentaPaquetes.IdClase = cbgrade.SelectedValue
+        NegocioClasificacionVentaPaquetes.Consultar(EntidadClasificacionVentaPaquetes)
+        Tabla2 = EntidadClasificacionVentaPaquetes.TablaConsulta
+        If Tabla2.Rows.Count > 0 Then
+            cbcolorgrade.DataSource = Tabla2
             cbcolorgrade.ValueMember = "gradocolor"
             cbcolorgrade.DisplayMember = "gradocolor"
             cbcolorgrade.SelectedValue = 0
@@ -167,5 +170,11 @@ Public Class Filtropacas
         'If _predios._idpredio > 0 Then
         '    tbpredio.Text = _predios._descripcion.ToString()
         'End If
+    End Sub
+
+    Private Sub tbbaleidfin_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tbbaleidinicio.KeyPress, tbbaleidfin.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 End Class
