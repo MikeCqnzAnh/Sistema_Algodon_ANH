@@ -1369,7 +1369,7 @@ Partial Class CompraPacasPorContrato
         Me.dgvcontratos.AllowUserToAddRows = False
         Me.dgvcontratos.AllowUserToDeleteRows = False
         Me.dgvcontratos.AllowUserToResizeRows = False
-        Me.dgvcontratos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.dgvcontratos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvcontratos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvcontratos.BackgroundColor = System.Drawing.Color.White
         Me.dgvcontratos.BorderStyle = System.Windows.Forms.BorderStyle.None

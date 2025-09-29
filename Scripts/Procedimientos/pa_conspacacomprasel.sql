@@ -1,17 +1,17 @@
-alter procedure pa_conspacacomprasel
+CREATE procedure pa_conspacacomprasel
 @idcompra int,
 @seleccionar bit = 0
 as
 select IdProduccionDetalle,
 	   pd.IdProduccion,
 	   pd.IdPlantaOrigen,
+	   pl.Descripcion as Planta,
 	   isnull(IdCompraenc,0) as IdCompraenc,
 	   BaleID,
 	   Mic,
 	   UHML,
 	   UI,
 	   Strength,
-	   SFI,
 	   Elongation,
 	   Grade,
 	   ColorGrade,
@@ -34,5 +34,6 @@ select IdProduccionDetalle,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
 				   inner join comprapacasenc cenc on pd.IdCompraenc = cenc.idcompra
+				   inner join Plantas pl on pd.IdPlantaOrigen = pl.IdPlanta
 where pd.IdCompraenc = @idcompra
 order by pd.BaleID

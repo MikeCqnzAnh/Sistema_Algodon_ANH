@@ -284,10 +284,23 @@ Public Class ContratosAlgodon
         Try
             EntidadContratosAlgodon.Consulta = Consulta.ConsultaBasica
             NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
-            DgvContratoAlgodon.DataSource = EntidadContratosAlgodon.TablaConsulta
+            dataGridViewOrigen.DataSource = EntidadContratosAlgodon.TablaConsulta
+            formatodgv()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Private Sub formatodgv()
+        dataGridViewOrigen.Columns("idcontratoalgodon").HeaderText = "ID Contrato"
+        dataGridViewOrigen.Columns("unidadpeso").HeaderText = "Unidad"
+        dataGridViewOrigen.Columns("Pacas").HeaderText = "Contratadas"
+        dataGridViewOrigen.Columns("pacascompradas").HeaderText = "Compradas"
+        dataGridViewOrigen.Columns("pacasdisponibles").HeaderText = "Disponibles"
+        dataGridViewOrigen.Columns("precio").HeaderText = "Precio"
+        dataGridViewOrigen.Columns("fechacreacion").HeaderText = "Fecha"
+
+        dataGridViewOrigen.Columns("idproductor").Visible = False
+        dataGridViewOrigen.Columns("idunidadpeso").Visible = False
     End Sub
     Private Sub Limpiar()
         TbIdContratoAlgodon.Text = ""
@@ -391,14 +404,14 @@ Public Class ContratosAlgodon
             MsgBox("Ingrese precio de quintal o los puntos")
         End If
     End Sub
-    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
+    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles dataGridViewOrigen.DoubleClick
         Dim EntidadContratosAlgodon As New Capa_Entidad.ContratosAlgodon
         Dim NegocioContratosAlgodon As New Capa_Negocio.ContratosAlgodon
         Dim TablaDetalle As New DataTable
         Dim TablaParametros As New DataTable
         Dim index As Integer
-        index = DgvContratoAlgodon.CurrentRow.Index
-        EntidadContratosAlgodon.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value.ToString()
+        index = dataGridViewOrigen.CurrentRow.Index
+        EntidadContratosAlgodon.IdContratoAlgodon = dataGridViewOrigen.Rows(index).Cells("IdContratoAlgodon").Value.ToString()
         EntidadContratosAlgodon.Consulta = Consulta.ConsultaDetallada
         NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
         TablaDetalle = EntidadContratosAlgodon.TablaConsulta
@@ -444,7 +457,7 @@ Public Class ContratosAlgodon
         TbGO.Text = TablaDetalle.Rows(0).Item("PrecioGO")
         TbO.Text = TablaDetalle.Rows(0).Item("PrecioO")
 
-        EntidadContratosAlgodon.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value
+        EntidadContratosAlgodon.IdContratoAlgodon = dataGridViewOrigen.Rows(index).Cells("IdContratoAlgodon").Value
         EntidadContratosAlgodon.Consulta = Consulta.ConsultaParametrosContratoCompra
         NegocioContratosAlgodon.Consultar(EntidadContratosAlgodon)
         TablaParametros = EntidadContratosAlgodon.TablaConsulta

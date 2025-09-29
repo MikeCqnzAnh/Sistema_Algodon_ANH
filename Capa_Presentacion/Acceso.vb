@@ -173,6 +173,7 @@ Public Class Acceso
         ElseIf Tabla.Rows(0).Item("Clave").Equals(Encriptar.Encriptar(TbClave.Text)) = False Then
             MessageBox.Show("La contraseña ingresada no es correcta, verifique de nuevo.", "Aviso")
             TbClave.Text = ""
+            TbClave.Select()
             Resultado = False
         Else
             Resultado = True

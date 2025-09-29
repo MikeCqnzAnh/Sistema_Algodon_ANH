@@ -71,13 +71,13 @@ Public Class CompraPacasPorContrato
         dt.Columns.Add("idproducciondetalle", GetType(Integer))
         dt.Columns.Add("idproduccion", GetType(Integer))
         dt.Columns.Add("idplantaorigen", GetType(Integer))
+        dt.Columns.Add("Planta", GetType(String))
         dt.Columns.Add("idcompraenc", GetType(Integer))
         dt.Columns.Add("baleid", GetType(Long))
         dt.Columns.Add("mic", GetType(Decimal))
         dt.Columns.Add("uhml", GetType(Decimal))
         dt.Columns.Add("ui", GetType(Decimal))
         dt.Columns.Add("strength", GetType(Decimal))
-        dt.Columns.Add("sfi", GetType(Decimal))
         dt.Columns.Add("elongation", GetType(Decimal))
         dt.Columns.Add("grade", GetType(String))
         dt.Columns.Add("colorgrade", GetType(String))
@@ -1111,17 +1111,17 @@ Public Class CompraPacasPorContrato
     End Sub
 
     Private Sub btfiltros_Click(sender As Object, e As EventArgs) Handles btfiltros.Click
-        Dim _filtros As New Filtropacas(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text), IIf(TbIdProductor.Text = "", 0, TbIdProductor.Text), False)
+        Dim _filtros As New Filtropacas(0, 0, False)
         _filtros.ShowDialog()
         Try
             Dim filtro As String = ""
 
-            'If _filtros._idplanta > 0 Then
-            '    If Not String.IsNullOrEmpty(filtro) Then
-            '        filtro &= " and "
-            '    End If
-            '    filtro &= $"idgin = {_filtros._idplanta}"
-            'End If
+            If _filtros._idplanta > 0 Then
+                If Not String.IsNullOrEmpty(filtro) Then
+                    filtro &= " and "
+                End If
+                filtro &= $"idplantaorigen = {_filtros._idplanta}"
+            End If
 
             If Not String.IsNullOrEmpty(_filtros._grade) Then
                 If Not String.IsNullOrEmpty(filtro) Then
@@ -1231,16 +1231,16 @@ Public Class CompraPacasPorContrato
     End Sub
 
     Private Sub btfiltrosel_Click(sender As Object, e As EventArgs) Handles btfiltrosel.Click
-        Dim _filtros As New Filtropacas(IIf(TbIdCompraPaca.Text = "", 0, TbIdCompraPaca.Text), IIf(TbIdProductor.Text = "", 0, TbIdProductor.Text), False)
+        Dim _filtros As New Filtropacas(0, 0, False)
         _filtros.ShowDialog()
         Dim filtro As String = ""
 
-        'If _filtros._idplanta > 0 Then
-        '    If Not String.IsNullOrEmpty(filtro) Then
-        '        filtro &= " and "
-        '    End If
-        '    filtro &= $"idgin = {_filtros._idplanta}"
-        'End If
+        If _filtros._idplanta > 0 Then
+            If Not String.IsNullOrEmpty(filtro) Then
+                filtro &= " and "
+            End If
+            filtro &= $"idplantaorigen = {_filtros._idplanta}"
+        End If
 
         If Not String.IsNullOrEmpty(_filtros._grade) Then
             If Not String.IsNullOrEmpty(filtro) Then
@@ -1310,6 +1310,53 @@ Public Class CompraPacasPorContrato
         End If
     End Sub
 
+    Private Sub btreiniciafiltrosel_Click(sender As Object, e As EventArgs) Handles btreiniciafiltrosel.Click
+        'ResetFiltro()
+        destinoView.RowFilter = ""
+
+        If destinoView.Count > 0 Then
+            If destinoView.Count < 50 Then
+                registrosCargadosDestino = destinoView.Count
+            Else
+                registrosCargadosDestino = 50
+            End If
+
+            dataGridViewDestino.RowCount = Math.Min(RegistrosPorCarga, destinoView.Count)
+            dataGridViewDestino.Refresh()
+            registrosCargadosDestino = dataGridViewDestino.RowCount
+        Else
+            MessageBox.Show("No hay resultados para los parametros filtrados")
+            destinoView.RowFilter = ""
+            'ResetFiltro()
+        End If
+    End Sub
+
+    Private Sub btfiltroreiniciar_Click(sender As Object, e As EventArgs) Handles btfiltroreiniciar.Click
+        'origenView.RowFilter = ""
+        'or puedes usar ResetFiltro()
+
+        origenView.RowFilter = ""
+
+        If origenView.Count > 0 Then
+            If origenView.Count < 50 Then
+                registrosCargadosOrigen = origenView.Count
+            Else
+                registrosCargadosOrigen = 50
+            End If
+
+            dataGridViewOrigen.RowCount = Math.Min(RegistrosPorCarga, origenView.Count)
+            dataGridViewOrigen.Refresh()
+            registrosCargadosOrigen = dataGridViewOrigen.RowCount
+        Else
+            MessageBox.Show("No hay resultados para los parametros filtrados")
+            origenView.RowFilter = ""
+            dataGridViewOrigen.RowCount = Math.Min(RegistrosPorCarga, origenView.Count)
+            dataGridViewOrigen.Refresh()
+            registrosCargadosOrigen = dataGridViewOrigen.RowCount
+            'ResetFiltro()
+        End If
+    End Sub
+
     Private Shared Function BuscarCastigo(dt As DataTable, parametro As Decimal) As Decimal
         Dim fila = dt.AsEnumerable().FirstOrDefault(Function(row) parametro >= row.Field(Of Decimal)("rango1") AndAlso parametro <= row.Field(Of Decimal)("rango2"))
 
@@ -1356,6 +1403,7 @@ Public Class CompraPacasPorContrato
         Dim newColIdProduccionDet As New DataGridViewTextBoxColumn()
         Dim newColIdProduccion As New DataGridViewTextBoxColumn()
         Dim newColidgin = New DataGridViewTextBoxColumn()
+        Dim newcolgin = New DataGridViewTextBoxColumn()
         'Dim newColidlote = New DataGridViewTextBoxColumn()
         Dim newColidcalculo = New DataGridViewTextBoxColumn()
         Dim newColbaleid = New DataGridViewTextBoxColumn()
@@ -1363,7 +1411,6 @@ Public Class CompraPacasPorContrato
         Dim newColuhml = New DataGridViewTextBoxColumn()
         Dim newColui = New DataGridViewTextBoxColumn()
         Dim newColstrength = New DataGridViewTextBoxColumn()
-        Dim newColsfi = New DataGridViewTextBoxColumn()
         Dim newColelongation = New DataGridViewTextBoxColumn()
         Dim newColgrade = New DataGridViewTextBoxColumn()
         Dim newColcolorgrade = New DataGridViewTextBoxColumn()
@@ -1383,9 +1430,6 @@ Public Class CompraPacasPorContrato
         Dim newColcastigouhml = New DataGridViewTextBoxColumn()
         Dim newColcastigores = New DataGridViewTextBoxColumn()
         Dim newColcastigouni = New DataGridViewTextBoxColumn()
-        'Dim newColcastigosfi = New DataGridViewTextBoxColumn()
-        'Dim newColidtemporada = New DataGridViewTextBoxColumn()
-        'Dim newColtemporada = New DataGridViewTextBoxColumn()
         Dim newColSeleccionar = New DataGridViewCheckBoxColumn()
 
         newColIdProduccionDet.HeaderText = "IdProduccionDet"
@@ -1403,10 +1447,10 @@ Public Class CompraPacasPorContrato
         newColidgin.Visible = False
         dgv.Columns.Add(newColidgin)
 
-        'newColidlote.HeaderText = "idlote"
-        'newColidlote.Name = "idlote"
-        'newColidlote.Visible = False
-        'dgv.Columns.Add(newColidlote)
+        newcolgin.HeaderText = "Planta"
+        newcolgin.Name = "Planta"
+        newcolgin.ReadOnly = True
+        dgv.Columns.Add(newcolgin)
 
         newColidcalculo.HeaderText = "ID Compra"
         newColidcalculo.Name = "Idcompraenc"
@@ -1437,11 +1481,6 @@ Public Class CompraPacasPorContrato
         newColstrength.Name = "strength"
         newColstrength.ReadOnly = True
         dgv.Columns.Add(newColstrength)
-
-        newColsfi.HeaderText = "SFI"
-        newColsfi.Name = "sfi"
-        newColsfi.ReadOnly = True
-        dgv.Columns.Add(newColsfi)
 
         newColelongation.HeaderText = "Elongation"
         newColelongation.Name = "elongation"
@@ -1565,14 +1604,13 @@ Public Class CompraPacasPorContrato
         Dim newColIdProduccionDet As New DataGridViewTextBoxColumn()
         Dim newColIdProduccion As New DataGridViewTextBoxColumn()
         Dim newColidgin = New DataGridViewTextBoxColumn()
-        'Dim newColidlote = New DataGridViewTextBoxColumn()
+        Dim newColgin = New DataGridViewTextBoxColumn()
         Dim newColidcalculo = New DataGridViewTextBoxColumn()
         Dim newColbaleid = New DataGridViewTextBoxColumn()
         Dim newColmic = New DataGridViewTextBoxColumn()
         Dim newColuhml = New DataGridViewTextBoxColumn()
         Dim newColui = New DataGridViewTextBoxColumn()
         Dim newColstrength = New DataGridViewTextBoxColumn()
-        Dim newColsfi = New DataGridViewTextBoxColumn()
         Dim newColelongation = New DataGridViewTextBoxColumn()
         Dim newColgrade = New DataGridViewTextBoxColumn()
         Dim newColcolorgrade = New DataGridViewTextBoxColumn()
@@ -1592,9 +1630,6 @@ Public Class CompraPacasPorContrato
         Dim newColcastigouhml = New DataGridViewTextBoxColumn()
         Dim newColcastigores = New DataGridViewTextBoxColumn()
         Dim newColcastigouni = New DataGridViewTextBoxColumn()
-        'Dim newColcastigosfi = New DataGridViewTextBoxColumn()
-        'Dim newColidtemporada = New DataGridViewTextBoxColumn()
-        'Dim newColtemporada = New DataGridViewTextBoxColumn()
         Dim newColSeleccionar = New DataGridViewCheckBoxColumn()
 
         newColIdProduccionDet.HeaderText = "IdProduccionDet"
@@ -1612,10 +1647,10 @@ Public Class CompraPacasPorContrato
         newColidgin.Visible = False
         dgv.Columns.Add(newColidgin)
 
-        'newColidlote.HeaderText = "idlote"
-        'newColidlote.Name = "idlote"
-        'newColidlote.Visible = False
-        'dgv.Columns.Add(newColidlote)
+        newColgin.HeaderText = "Planta"
+        newColgin.Name = "Planta"
+        newColgin.ReadOnly = True
+        dgv.Columns.Add(newColgin)
 
         newColidcalculo.HeaderText = "idcompraenc"
         newColidcalculo.Name = "idcompraenc"
@@ -1646,11 +1681,6 @@ Public Class CompraPacasPorContrato
         newColstrength.Name = "strength"
         newColstrength.ReadOnly = True
         dgv.Columns.Add(newColstrength)
-
-        newColsfi.HeaderText = "SFI"
-        newColsfi.Name = "sfi"
-        newColsfi.ReadOnly = True
-        dgv.Columns.Add(newColsfi)
 
         newColelongation.HeaderText = "Elongation"
         newColelongation.Name = "elongation"
@@ -1860,6 +1890,7 @@ Public Class CompraPacasPorContrato
         dgvcontratos.Columns("PacasCompradas").ReadOnly = True
         dgvcontratos.Columns("PacasCompradas").HeaderText = "Compradas"
         dgvcontratos.Columns("PrecioQuintal").ReadOnly = True
+        dgvcontratos.Columns("PrecioQuintal").HeaderText = "Precio"
         dgvcontratos.Columns("PacasDisponibles").ReadOnly = True
         dgvcontratos.Columns("PacasDisponibles").HeaderText = "Disponibles"
         dgvcontratos.Columns("idunidadpeso").Visible = False

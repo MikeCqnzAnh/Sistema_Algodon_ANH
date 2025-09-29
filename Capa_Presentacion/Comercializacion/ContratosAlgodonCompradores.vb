@@ -382,9 +382,27 @@ Public Class ContratosAlgodonCompradores
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
         Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
         Dim Tabla As New DataTable
-        EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaBasica
-        NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
-        DgvContratoAlgodon.DataSource = EntidadContratosAlgodonCompradores.TablaConsulta
+        Try
+            EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaBasica
+            NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
+            dataGridViewOrigen.DataSource = EntidadContratosAlgodonCompradores.TablaConsulta
+            formatodgv()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+    Private Sub formatodgv()
+        dataGridViewOrigen.Columns("idcontratoalgodon").HeaderText = "ID Contrato"
+        dataGridViewOrigen.Columns("unidadpeso").HeaderText = "Unidad"
+        dataGridViewOrigen.Columns("Pacas").HeaderText = "Contratadas"
+        dataGridViewOrigen.Columns("pacasvendidas").HeaderText = "Vendidas"
+        dataGridViewOrigen.Columns("pacasdisponibles").HeaderText = "Disponibles"
+        dataGridViewOrigen.Columns("precio").HeaderText = "Precio"
+        dataGridViewOrigen.Columns("fechacreacion").HeaderText = "Fecha"
+
+        dataGridViewOrigen.Columns("idcomprador").Visible = False
+        dataGridViewOrigen.Columns("idunidadpeso").Visible = False
     End Sub
     Private Sub HabilitarBotones()
         'BtConsultaLotes.Enabled = True
@@ -406,14 +424,14 @@ Public Class ContratosAlgodonCompradores
             e.KeyChar = ""
         End If
     End Sub
-    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles DgvContratoAlgodon.DoubleClick
+    Private Sub DgvContratoAlgodon_DoubleClick(sender As Object, e As EventArgs) Handles dataGridViewOrigen.DoubleClick
         Dim EntidadContratosAlgodonCompradores As New Capa_Entidad.ContratosAlgodonCompradores
         Dim NegocioContratosAlgodonCompradores As New Capa_Negocio.ContratosAlgodonCompradores
         Dim TablaDetalle As New DataTable
         Dim TablaParametros As New DataTable
         Dim index As Integer
-        index = DgvContratoAlgodon.CurrentRow.Index
-        EntidadContratosAlgodonCompradores.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value
+        index = dataGridViewOrigen.CurrentRow.Index
+        EntidadContratosAlgodonCompradores.IdContratoAlgodon = dataGridViewOrigen.Rows(index).Cells("IdContratoAlgodon").Value
         EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaDetallada
         NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
         TablaDetalle = EntidadContratosAlgodonCompradores.TablaConsulta
@@ -443,7 +461,7 @@ Public Class ContratosAlgodonCompradores
         TbGO.Text = TablaDetalle.Rows(0).Item("PrecioGO")
         TbO.Text = TablaDetalle.Rows(0).Item("PrecioO")
 
-        EntidadContratosAlgodonCompradores.IdContratoAlgodon = DgvContratoAlgodon.Rows(index).Cells("IdContratoAlgodon").Value
+        EntidadContratosAlgodonCompradores.IdContratoAlgodon = dataGridViewOrigen.Rows(index).Cells("IdContratoAlgodon").Value
         EntidadContratosAlgodonCompradores.Consulta = Consulta.ConsultaParametrosContratoVenta
         NegocioContratosAlgodonCompradores.Consultar(EntidadContratosAlgodonCompradores)
         TablaParametros = EntidadContratosAlgodonCompradores.TablaConsulta
@@ -530,14 +548,14 @@ Public Class ContratosAlgodonCompradores
                 ElseIf opc = DialogResult.No Then
                     ckpreciopromedio.Checked = False
 
-                    If DgvContratoAlgodon.Rows.Count > 0 Then
-                        For Each Fila As DataGridViewRow In DgvContratoAlgodon.Rows
+                    If dataGridViewOrigen.Rows.Count > 0 Then
+                        For Each Fila As DataGridViewRow In dataGridViewOrigen.Rows
                             If TbIdContratoAlgodon.Text = Fila.Cells("IdContratoAlgodon").Value Then
                                 TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
                             End If
                         Next
                     Else
-                        For Each Fila As DataGridViewRow In DgvContratoAlgodon.Rows
+                        For Each Fila As DataGridViewRow In dataGridViewOrigen.Rows
                             If TbIdContratoAlgodon.Text = Fila.Cells("IdContratoAlgodon").Value Then
                                 TbPrecioQuintal.Text = Fila.Cells("PrecioQuintal").Value
                             End If

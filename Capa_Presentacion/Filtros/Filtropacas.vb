@@ -1,14 +1,14 @@
 ﻿Imports Capa_Operacion
 
 Public Class Filtropacas
-    Public Property _idplanta As Integer
-    Public Property _idlogistica As Integer
-    Public Property _idcv As Integer
-    Public Property _predio As Integer
+    Public Property _idplanta As String
+    Public Property _idlogistica As String
+    Public Property _idcv As String
+    Public Property _predio As String
     Public Property _grade As String
     Public Property _colorgrade As String
-    Public Property _baleidinicio As Long
-    Public Property _baleidfin As Long
+    Public Property _baleidinicio As String
+    Public Property _baleidfin As String
     Public Property _r1mic As Decimal
     Public Property _r2mic As Decimal
     Public Property _r1strength As Decimal
@@ -38,23 +38,27 @@ Public Class Filtropacas
         cargacombogrados()
     End Sub
     Private Sub btaceptar_Click(sender As Object, e As EventArgs) Handles btaceptar.Click
-        If ValidateRange(numicr1, numicr2) AndAlso ValidateRange(nustrr1, nustrr2) AndAlso ValidateRange(nuuhmlr1, nuuhmlr2) AndAlso ValidateRange(nuuir1, nuuir2) Then
-            '_idplanta = Convert.ToInt32(cbgin.SelectedValue)
-            _grade = cbgrade.Text
-            _colorgrade = cbcolorgrade.Text
-            _predio = tbpredio.Text
-            _baleidinicio = tbbaleidinicio.Text
-            _baleidfin = tbbaleidfin.Text
-            _r1mic = numicr1.Value
-            _r2mic = numicr2.Value
-            _r1strength = nustrr1.Value
-            _r2strength = nustrr2.Value
-            _r1uhml = nuuhmlr1.Value
-            _r2uhml = nuuhmlr2.Value
-            _r1ui = nuuir1.Value
-            _r2ui = nuuir2.Value
-            Me.Close()
-        End If
+        Try
+            If ValidateRange(numicr1, numicr2) AndAlso ValidateRange(nustrr1, nustrr2) AndAlso ValidateRange(nuuhmlr1, nuuhmlr2) AndAlso ValidateRange(nuuir1, nuuir2) Then
+                _idplanta = IIf(cbgin.Text = "", 0, cbgin.SelectedValue)
+                _grade = cbgrade.Text
+                _colorgrade = cbcolorgrade.Text
+                _predio = tbpredio.Text
+                _baleidinicio = tbbaleidinicio.Text
+                _baleidfin = tbbaleidfin.Text
+                _r1mic = numicr1.Value
+                _r2mic = numicr2.Value
+                _r1strength = nustrr1.Value
+                _r2strength = nustrr2.Value
+                _r1uhml = nuuhmlr1.Value
+                _r2uhml = nuuhmlr2.Value
+                _r1ui = nuuir1.Value
+                _r2ui = nuuir2.Value
+                Me.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub btcancelar_Click(sender As Object, e As EventArgs) Handles btcancelar.Click

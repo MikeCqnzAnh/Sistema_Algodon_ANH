@@ -22,6 +22,9 @@ Partial Class ContratosAlgodonCompradores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContratosAlgodonCompradores))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -31,6 +34,8 @@ Partial Class ContratosAlgodonCompradores
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
         Me.ckfix = New System.Windows.Forms.CheckBox()
+        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
+        Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.tbidcomprador = New System.Windows.Forms.TextBox()
         Me.ckpreciopromedio = New System.Windows.Forms.CheckBox()
         Me.NuPesoTara = New System.Windows.Forms.NumericUpDown()
@@ -121,20 +126,18 @@ Partial Class ContratosAlgodonCompradores
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
-        Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.gbventascontrato = New System.Windows.Forms.GroupBox()
-        Me.DgvCierres = New System.Windows.Forms.DataGridView()
+        Me.dataGridViewOrigen = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
+        Me.gbventascontrato.SuspendLayout()
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbParametros.SuspendLayout()
         Me.GbCastigos.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
-        CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbventascontrato.SuspendLayout()
-        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -232,6 +235,41 @@ Partial Class ContratosAlgodonCompradores
         Me.ckfix.TabIndex = 41
         Me.ckfix.Text = "On Call"
         Me.ckfix.UseVisualStyleBackColor = True
+        Me.ckfix.Visible = False
+        '
+        'gbventascontrato
+        '
+        Me.gbventascontrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
+        Me.gbventascontrato.Location = New System.Drawing.Point(473, 150)
+        Me.gbventascontrato.Name = "gbventascontrato"
+        Me.gbventascontrato.Size = New System.Drawing.Size(466, 179)
+        Me.gbventascontrato.TabIndex = 41
+        Me.gbventascontrato.TabStop = False
+        Me.gbventascontrato.Text = "Adendum"
+        Me.gbventascontrato.Visible = False
+        '
+        'DgvCierres
+        '
+        Me.DgvCierres.AllowUserToAddRows = False
+        Me.DgvCierres.AllowUserToDeleteRows = False
+        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
+        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
+        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
+        Me.DgvCierres.MultiSelect = False
+        Me.DgvCierres.Name = "DgvCierres"
+        Me.DgvCierres.ReadOnly = True
+        Me.DgvCierres.RowHeadersVisible = False
+        Me.DgvCierres.RowHeadersWidth = 40
+        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvCierres.Size = New System.Drawing.Size(460, 160)
+        Me.DgvCierres.TabIndex = 11
         '
         'tbidcomprador
         '
@@ -1114,66 +1152,59 @@ Partial Class ContratosAlgodonCompradores
         Me.TbIdContratoAlgodon.Size = New System.Drawing.Size(100, 20)
         Me.TbIdContratoAlgodon.TabIndex = 0
         '
-        'DgvContratoAlgodon
+        'dataGridViewOrigen
         '
-        Me.DgvContratoAlgodon.AllowUserToAddRows = False
-        Me.DgvContratoAlgodon.AllowUserToDeleteRows = False
-        Me.DgvContratoAlgodon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvContratoAlgodon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvContratoAlgodon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvContratoAlgodon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvContratoAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvContratoAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvContratoAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 359)
-        Me.DgvContratoAlgodon.MultiSelect = False
-        Me.DgvContratoAlgodon.Name = "DgvContratoAlgodon"
-        Me.DgvContratoAlgodon.ReadOnly = True
-        Me.DgvContratoAlgodon.RowHeadersVisible = False
-        Me.DgvContratoAlgodon.RowHeadersWidth = 40
-        Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1459, 370)
-        Me.DgvContratoAlgodon.TabIndex = 14
-        '
-        'gbventascontrato
-        '
-        Me.gbventascontrato.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbventascontrato.Controls.Add(Me.DgvCierres)
-        Me.gbventascontrato.Location = New System.Drawing.Point(473, 150)
-        Me.gbventascontrato.Name = "gbventascontrato"
-        Me.gbventascontrato.Size = New System.Drawing.Size(466, 179)
-        Me.gbventascontrato.TabIndex = 41
-        Me.gbventascontrato.TabStop = False
-        Me.gbventascontrato.Text = "Adendum"
-        '
-        'DgvCierres
-        '
-        Me.DgvCierres.AllowUserToAddRows = False
-        Me.DgvCierres.AllowUserToDeleteRows = False
-        Me.DgvCierres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvCierres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvCierres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvCierres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvCierres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvCierres.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvCierres.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvCierres.Location = New System.Drawing.Point(3, 16)
-        Me.DgvCierres.MultiSelect = False
-        Me.DgvCierres.Name = "DgvCierres"
-        Me.DgvCierres.ReadOnly = True
-        Me.DgvCierres.RowHeadersVisible = False
-        Me.DgvCierres.RowHeadersWidth = 40
-        Me.DgvCierres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvCierres.Size = New System.Drawing.Size(460, 160)
-        Me.DgvCierres.TabIndex = 11
+        Me.dataGridViewOrigen.AllowUserToAddRows = False
+        Me.dataGridViewOrigen.AllowUserToDeleteRows = False
+        Me.dataGridViewOrigen.AllowUserToOrderColumns = True
+        Me.dataGridViewOrigen.AllowUserToResizeRows = False
+        Me.dataGridViewOrigen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dataGridViewOrigen.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dataGridViewOrigen.BackgroundColor = System.Drawing.Color.White
+        Me.dataGridViewOrigen.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dataGridViewOrigen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dataGridViewOrigen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dataGridViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dataGridViewOrigen.Location = New System.Drawing.Point(0, 359)
+        Me.dataGridViewOrigen.MultiSelect = False
+        Me.dataGridViewOrigen.Name = "dataGridViewOrigen"
+        Me.dataGridViewOrigen.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dataGridViewOrigen.RowHeadersVisible = False
+        Me.dataGridViewOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1459, 370)
+        Me.dataGridViewOrigen.TabIndex = 15
         '
         'ContratosAlgodonCompradores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1459, 729)
-        Me.Controls.Add(Me.DgvContratoAlgodon)
+        Me.Controls.Add(Me.dataGridViewOrigen)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1186,6 +1217,8 @@ Partial Class ContratosAlgodonCompradores
         Me.MSMenu.PerformLayout()
         Me.GbDatosGenerales.ResumeLayout(False)
         Me.GbDatosGenerales.PerformLayout()
+        Me.gbventascontrato.ResumeLayout(False)
+        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NuPesoTara, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbParametros.ResumeLayout(False)
         Me.GbCastigos.ResumeLayout(False)
@@ -1196,9 +1229,7 @@ Partial Class ContratosAlgodonCompradores
         Me.GroupBox1.PerformLayout()
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
-        CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbventascontrato.ResumeLayout(False)
-        CType(Me.DgvCierres, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1251,7 +1282,6 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents TbIdContratoAlgodon As TextBox
-    Friend WithEvents DgvContratoAlgodon As DataGridView
     Friend WithEvents CbUnidadPeso As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents TbValorConversion As TextBox
@@ -1305,4 +1335,5 @@ Partial Class ContratosAlgodonCompradores
     Friend WithEvents gbventascontrato As GroupBox
     Friend WithEvents DgvCierres As DataGridView
     Friend WithEvents ckfix As CheckBox
+    Private WithEvents dataGridViewOrigen As DataGridView
 End Class

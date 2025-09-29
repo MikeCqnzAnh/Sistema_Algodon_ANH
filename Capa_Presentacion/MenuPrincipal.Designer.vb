@@ -191,6 +191,9 @@ Partial Class MenuPrincipal
         Me.ImportarCatalogosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConexionInicialToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeleccionaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistroDeLicenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TsSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsBarraEstatus = New System.Windows.Forms.StatusStrip()
         Me.SbBdd = New System.Windows.Forms.ToolStripStatusLabel()
@@ -213,7 +216,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.MSMenu.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.MSMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.TsSalir})
+        Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
         Me.MSMenu.Size = New System.Drawing.Size(1308, 24)
@@ -1469,6 +1472,28 @@ Partial Class MenuPrincipal
         Me.SeleccionaToolStripMenuItem.Tag = "126,122"
         Me.SeleccionaToolStripMenuItem.Text = "Selecciona conexion"
         '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistroDeLicenciaToolStripMenuItem, Me.AcercaDeToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.AyudaToolStripMenuItem.Tag = "0,0"
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
+        'RegistroDeLicenciaToolStripMenuItem
+        '
+        Me.RegistroDeLicenciaToolStripMenuItem.Name = "RegistroDeLicenciaToolStripMenuItem"
+        Me.RegistroDeLicenciaToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.RegistroDeLicenciaToolStripMenuItem.Tag = "0,0"
+        Me.RegistroDeLicenciaToolStripMenuItem.Text = "Registro de Licencia"
+        '
+        'AcercaDeToolStripMenuItem
+        '
+        Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.AcercaDeToolStripMenuItem.Tag = "0,0"
+        Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
+        '
         'TsSalir
         '
         Me.TsSalir.Name = "TsSalir"
@@ -1764,4 +1789,7 @@ Partial Class MenuPrincipal
     Friend WithEvents VentaDePacasPorContratoToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents PaquetesParaVentaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents OrdenDeEmbarqueToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AcercaDeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistroDeLicenciaToolStripMenuItem As ToolStripMenuItem
 End Class

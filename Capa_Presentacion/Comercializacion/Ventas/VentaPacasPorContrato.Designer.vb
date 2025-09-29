@@ -22,14 +22,14 @@ Partial Class VentaPacasPorContrato
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.mnustrip = New System.Windows.Forms.MenuStrip()
         Me.nuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.guardarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -281,9 +281,9 @@ Partial Class VentaPacasPorContrato
         '
         Me.gbcontratos.Controls.Add(Me.dgvcontratos)
         Me.gbcontratos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gbcontratos.Location = New System.Drawing.Point(984, 0)
+        Me.gbcontratos.Location = New System.Drawing.Point(878, 0)
         Me.gbcontratos.Name = "gbcontratos"
-        Me.gbcontratos.Size = New System.Drawing.Size(247, 252)
+        Me.gbcontratos.Size = New System.Drawing.Size(353, 252)
         Me.gbcontratos.TabIndex = 91
         Me.gbcontratos.TabStop = False
         Me.gbcontratos.Text = "Contratos"
@@ -297,14 +297,14 @@ Partial Class VentaPacasPorContrato
         Me.dgvcontratos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvcontratos.BackgroundColor = System.Drawing.Color.White
         Me.dgvcontratos.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvcontratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvcontratos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvcontratos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvcontratos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvcontratos.Location = New System.Drawing.Point(3, 16)
@@ -312,7 +312,7 @@ Partial Class VentaPacasPorContrato
         Me.dgvcontratos.Name = "dgvcontratos"
         Me.dgvcontratos.RowHeadersVisible = False
         Me.dgvcontratos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvcontratos.Size = New System.Drawing.Size(241, 233)
+        Me.dgvcontratos.Size = New System.Drawing.Size(347, 233)
         Me.dgvcontratos.TabIndex = 126
         '
         'Panel1
@@ -321,9 +321,9 @@ Partial Class VentaPacasPorContrato
         Me.Panel1.Controls.Add(Me.panel5)
         Me.Panel1.Controls.Add(Me.panel4)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(617, 0)
+        Me.Panel1.Location = New System.Drawing.Point(543, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(367, 252)
+        Me.Panel1.Size = New System.Drawing.Size(335, 252)
         Me.Panel1.TabIndex = 0
         '
         'tcdeduccion
@@ -334,7 +334,7 @@ Partial Class VentaPacasPorContrato
         Me.tcdeduccion.Location = New System.Drawing.Point(0, 40)
         Me.tcdeduccion.Name = "tcdeduccion"
         Me.tcdeduccion.SelectedIndex = 0
-        Me.tcdeduccion.Size = New System.Drawing.Size(367, 154)
+        Me.tcdeduccion.Size = New System.Drawing.Size(335, 154)
         Me.tcdeduccion.TabIndex = 17
         '
         'tpdeducciones
@@ -354,7 +354,7 @@ Partial Class VentaPacasPorContrato
         Me.tpdeducciones.Location = New System.Drawing.Point(4, 22)
         Me.tpdeducciones.Name = "tpdeducciones"
         Me.tpdeducciones.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpdeducciones.Size = New System.Drawing.Size(359, 128)
+        Me.tpdeducciones.Size = New System.Drawing.Size(327, 128)
         Me.tpdeducciones.TabIndex = 0
         Me.tpdeducciones.Text = "Deducciones"
         Me.tpdeducciones.UseVisualStyleBackColor = True
@@ -373,7 +373,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.cbperfilui.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbperfilui.FormattingEnabled = True
-        Me.cbperfilui.Location = New System.Drawing.Point(119, 86)
+        Me.cbperfilui.Location = New System.Drawing.Point(84, 87)
         Me.cbperfilui.Name = "cbperfilui"
         Me.cbperfilui.Size = New System.Drawing.Size(125, 21)
         Me.cbperfilui.TabIndex = 12
@@ -383,7 +383,7 @@ Partial Class VentaPacasPorContrato
         Me.nucastigouhml.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nucastigouhml.DecimalPlaces = 4
         Me.nucastigouhml.Enabled = False
-        Me.nucastigouhml.Location = New System.Drawing.Point(250, 60)
+        Me.nucastigouhml.Location = New System.Drawing.Point(215, 60)
         Me.nucastigouhml.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
         Me.nucastigouhml.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
         Me.nucastigouhml.Name = "nucastigouhml"
@@ -397,7 +397,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.cbperfilstrength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbperfilstrength.FormattingEnabled = True
-        Me.cbperfilstrength.Location = New System.Drawing.Point(119, 32)
+        Me.cbperfilstrength.Location = New System.Drawing.Point(84, 33)
         Me.cbperfilstrength.Name = "cbperfilstrength"
         Me.cbperfilstrength.Size = New System.Drawing.Size(125, 21)
         Me.cbperfilstrength.TabIndex = 11
@@ -407,7 +407,7 @@ Partial Class VentaPacasPorContrato
         Me.nucastigouni.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nucastigouni.DecimalPlaces = 4
         Me.nucastigouni.Enabled = False
-        Me.nucastigouni.Location = New System.Drawing.Point(250, 88)
+        Me.nucastigouni.Location = New System.Drawing.Point(215, 88)
         Me.nucastigouni.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
         Me.nucastigouni.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
         Me.nucastigouni.Name = "nucastigouni"
@@ -421,7 +421,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.cbperfiluhml.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbperfiluhml.FormattingEnabled = True
-        Me.cbperfiluhml.Location = New System.Drawing.Point(119, 59)
+        Me.cbperfiluhml.Location = New System.Drawing.Point(84, 60)
         Me.cbperfiluhml.Name = "cbperfiluhml"
         Me.cbperfiluhml.Size = New System.Drawing.Size(125, 21)
         Me.cbperfiluhml.TabIndex = 10
@@ -431,7 +431,7 @@ Partial Class VentaPacasPorContrato
         Me.nucastigostr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nucastigostr.DecimalPlaces = 4
         Me.nucastigostr.Enabled = False
-        Me.nucastigostr.Location = New System.Drawing.Point(250, 33)
+        Me.nucastigostr.Location = New System.Drawing.Point(215, 33)
         Me.nucastigostr.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
         Me.nucastigostr.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
         Me.nucastigostr.Name = "nucastigostr"
@@ -456,7 +456,7 @@ Partial Class VentaPacasPorContrato
         Me.nucastigomic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nucastigomic.DecimalPlaces = 4
         Me.nucastigomic.Enabled = False
-        Me.nucastigomic.Location = New System.Drawing.Point(250, 6)
+        Me.nucastigomic.Location = New System.Drawing.Point(215, 6)
         Me.nucastigomic.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
         Me.nucastigomic.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
         Me.nucastigomic.Name = "nucastigomic"
@@ -480,7 +480,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.cbperfilmicros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbperfilmicros.FormattingEnabled = True
-        Me.cbperfilmicros.Location = New System.Drawing.Point(119, 5)
+        Me.cbperfilmicros.Location = New System.Drawing.Point(84, 6)
         Me.cbperfilmicros.Name = "cbperfilmicros"
         Me.cbperfilmicros.Size = New System.Drawing.Size(125, 21)
         Me.cbperfilmicros.TabIndex = 9
@@ -504,13 +504,13 @@ Partial Class VentaPacasPorContrato
         Me.panel5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.panel5.Location = New System.Drawing.Point(0, 194)
         Me.panel5.Name = "panel5"
-        Me.panel5.Size = New System.Drawing.Size(367, 58)
+        Me.panel5.Size = New System.Drawing.Size(335, 58)
         Me.panel5.TabIndex = 105
         '
         'label8
         '
         Me.label8.AutoSize = True
-        Me.label8.Location = New System.Drawing.Point(166, 5)
+        Me.label8.Location = New System.Drawing.Point(131, 4)
         Me.label8.Name = "label8"
         Me.label8.Size = New System.Drawing.Size(82, 13)
         Me.label8.TabIndex = 16
@@ -520,7 +520,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.nutotaldeduccion.DecimalPlaces = 4
         Me.nutotaldeduccion.Enabled = False
-        Me.nutotaldeduccion.Location = New System.Drawing.Point(254, 3)
+        Me.nutotaldeduccion.Location = New System.Drawing.Point(219, 2)
         Me.nutotaldeduccion.Maximum = New Decimal(New Integer() {-727379969, 232, 0, 0})
         Me.nutotaldeduccion.Minimum = New Decimal(New Integer() {-727379969, 232, 0, -2147483648})
         Me.nutotaldeduccion.Name = "nutotaldeduccion"
@@ -534,7 +534,7 @@ Partial Class VentaPacasPorContrato
         Me.nutotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nutotal.DecimalPlaces = 4
         Me.nutotal.Enabled = False
-        Me.nutotal.Location = New System.Drawing.Point(254, 28)
+        Me.nutotal.Location = New System.Drawing.Point(219, 27)
         Me.nutotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
         Me.nutotal.Name = "nutotal"
         Me.nutotal.Size = New System.Drawing.Size(105, 20)
@@ -546,7 +546,7 @@ Partial Class VentaPacasPorContrato
         'label27
         '
         Me.label27.AutoSize = True
-        Me.label27.Location = New System.Drawing.Point(166, 30)
+        Me.label27.Location = New System.Drawing.Point(131, 29)
         Me.label27.Name = "label27"
         Me.label27.Size = New System.Drawing.Size(31, 13)
         Me.label27.TabIndex = 13
@@ -559,7 +559,7 @@ Partial Class VentaPacasPorContrato
         Me.panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.panel4.Location = New System.Drawing.Point(0, 0)
         Me.panel4.Name = "panel4"
-        Me.panel4.Size = New System.Drawing.Size(367, 40)
+        Me.panel4.Size = New System.Drawing.Size(335, 40)
         Me.panel4.TabIndex = 15
         '
         'nusubtotal
@@ -568,7 +568,7 @@ Partial Class VentaPacasPorContrato
         Me.nusubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.nusubtotal.DecimalPlaces = 4
         Me.nusubtotal.Enabled = False
-        Me.nusubtotal.Location = New System.Drawing.Point(257, 7)
+        Me.nusubtotal.Location = New System.Drawing.Point(220, 8)
         Me.nusubtotal.Maximum = New Decimal(New Integer() {1874919423, 2328306, 0, 0})
         Me.nusubtotal.Name = "nusubtotal"
         Me.nusubtotal.Size = New System.Drawing.Size(104, 20)
@@ -581,7 +581,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.label26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.label26.AutoSize = True
-        Me.label26.Location = New System.Drawing.Point(205, 9)
+        Me.label26.Location = New System.Drawing.Point(168, 10)
         Me.label26.Name = "label26"
         Me.label26.Size = New System.Drawing.Size(46, 13)
         Me.label26.TabIndex = 5
@@ -607,14 +607,14 @@ Partial Class VentaPacasPorContrato
         Me.dgvprecioclase.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
         Me.dgvprecioclase.BackgroundColor = System.Drawing.Color.White
         Me.dgvprecioclase.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvprecioclase.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvprecioclase.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvprecioclase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvprecioclase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvprecioclase.Enabled = False
@@ -666,7 +666,7 @@ Partial Class VentaPacasPorContrato
         Me.Panelgeneral.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panelgeneral.Location = New System.Drawing.Point(0, 0)
         Me.Panelgeneral.Name = "Panelgeneral"
-        Me.Panelgeneral.Size = New System.Drawing.Size(617, 252)
+        Me.Panelgeneral.Size = New System.Drawing.Size(543, 252)
         Me.Panelgeneral.TabIndex = 1
         '
         'Label11
@@ -779,7 +779,7 @@ Partial Class VentaPacasPorContrato
         'nuNoPacas
         '
         Me.nuNoPacas.Enabled = False
-        Me.nuNoPacas.Location = New System.Drawing.Point(512, 139)
+        Me.nuNoPacas.Location = New System.Drawing.Point(440, 141)
         Me.nuNoPacas.Maximum = New Decimal(New Integer() {-1530494977, 232830, 0, 0})
         Me.nuNoPacas.Name = "nuNoPacas"
         Me.nuNoPacas.Size = New System.Drawing.Size(96, 20)
@@ -791,7 +791,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.nuPuntos.DecimalPlaces = 2
         Me.nuPuntos.Enabled = False
-        Me.nuPuntos.Location = New System.Drawing.Point(512, 113)
+        Me.nuPuntos.Location = New System.Drawing.Point(440, 115)
         Me.nuPuntos.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
         Me.nuPuntos.Name = "nuPuntos"
         Me.nuPuntos.Size = New System.Drawing.Size(96, 20)
@@ -803,7 +803,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.nuPrecioQuintal.DecimalPlaces = 2
         Me.nuPrecioQuintal.Enabled = False
-        Me.nuPrecioQuintal.Location = New System.Drawing.Point(512, 85)
+        Me.nuPrecioQuintal.Location = New System.Drawing.Point(440, 87)
         Me.nuPrecioQuintal.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
         Me.nuPrecioQuintal.Minimum = New Decimal(New Integer() {500, 0, 0, -2147483648})
         Me.nuPrecioQuintal.Name = "nuPrecioQuintal"
@@ -815,7 +815,7 @@ Partial Class VentaPacasPorContrato
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(412, 115)
+        Me.Label3.Location = New System.Drawing.Point(340, 117)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 127
@@ -827,7 +827,7 @@ Partial Class VentaPacasPorContrato
         Me.btconsultaclientes.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btconsultaclientes.Image = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_31_32px
         Me.btconsultaclientes.ImageActive = Nothing
-        Me.btconsultaclientes.Location = New System.Drawing.Point(583, 28)
+        Me.btconsultaclientes.Location = New System.Drawing.Point(511, 28)
         Me.btconsultaclientes.Name = "btconsultaclientes"
         Me.btconsultaclientes.Size = New System.Drawing.Size(25, 25)
         Me.btconsultaclientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -839,7 +839,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.DtFechaActualizacion.Enabled = False
         Me.DtFechaActualizacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaActualizacion.Location = New System.Drawing.Point(512, 191)
+        Me.DtFechaActualizacion.Location = New System.Drawing.Point(440, 193)
         Me.DtFechaActualizacion.Name = "DtFechaActualizacion"
         Me.DtFechaActualizacion.Size = New System.Drawing.Size(96, 20)
         Me.DtFechaActualizacion.TabIndex = 79
@@ -856,7 +856,7 @@ Partial Class VentaPacasPorContrato
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(412, 141)
+        Me.Label6.Location = New System.Drawing.Point(340, 143)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 75
@@ -882,7 +882,7 @@ Partial Class VentaPacasPorContrato
         'TbIdContrato
         '
         Me.TbIdContrato.Enabled = False
-        Me.TbIdContrato.Location = New System.Drawing.Point(512, 59)
+        Me.TbIdContrato.Location = New System.Drawing.Point(440, 61)
         Me.TbIdContrato.Name = "TbIdContrato"
         Me.TbIdContrato.Size = New System.Drawing.Size(96, 20)
         Me.TbIdContrato.TabIndex = 68
@@ -919,7 +919,7 @@ Partial Class VentaPacasPorContrato
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(412, 62)
+        Me.Label12.Location = New System.Drawing.Point(340, 64)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(59, 13)
         Me.Label12.TabIndex = 71
@@ -929,7 +929,7 @@ Partial Class VentaPacasPorContrato
         '
         Me.DtFechaVenta.Enabled = False
         Me.DtFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DtFechaVenta.Location = New System.Drawing.Point(512, 165)
+        Me.DtFechaVenta.Location = New System.Drawing.Point(440, 167)
         Me.DtFechaVenta.Name = "DtFechaVenta"
         Me.DtFechaVenta.Size = New System.Drawing.Size(96, 20)
         Me.DtFechaVenta.TabIndex = 65
@@ -937,7 +937,7 @@ Partial Class VentaPacasPorContrato
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(412, 195)
+        Me.Label25.Location = New System.Drawing.Point(340, 197)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(70, 13)
         Me.Label25.TabIndex = 67
@@ -946,7 +946,7 @@ Partial Class VentaPacasPorContrato
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(410, 169)
+        Me.Label4.Location = New System.Drawing.Point(338, 171)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 66
@@ -966,13 +966,13 @@ Partial Class VentaPacasPorContrato
         Me.TbNombreProductor.Enabled = False
         Me.TbNombreProductor.Location = New System.Drawing.Point(207, 33)
         Me.TbNombreProductor.Name = "TbNombreProductor"
-        Me.TbNombreProductor.Size = New System.Drawing.Size(367, 20)
+        Me.TbNombreProductor.Size = New System.Drawing.Size(298, 20)
         Me.TbNombreProductor.TabIndex = 72
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(412, 87)
+        Me.Label14.Location = New System.Drawing.Point(340, 89)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(37, 13)
         Me.Label14.TabIndex = 76
@@ -1024,36 +1024,36 @@ Partial Class VentaPacasPorContrato
         Me.dataGridViewOrigen.BackgroundColor = System.Drawing.Color.White
         Me.dataGridViewOrigen.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dataGridViewOrigen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewOrigen.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataGridViewOrigen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle15.Padding = New System.Windows.Forms.Padding(5)
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle4.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle4
         Me.dataGridViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dataGridViewOrigen.Location = New System.Drawing.Point(3, 3)
         Me.dataGridViewOrigen.MultiSelect = False
         Me.dataGridViewOrigen.Name = "dataGridViewOrigen"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dataGridViewOrigen.RowHeadersVisible = False
         Me.dataGridViewOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dataGridViewOrigen.Size = New System.Drawing.Size(1440, 400)
@@ -1209,36 +1209,36 @@ Partial Class VentaPacasPorContrato
         Me.dataGridViewDestino.BackgroundColor = System.Drawing.Color.White
         Me.dataGridViewDestino.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dataGridViewDestino.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewDestino.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewDestino.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dataGridViewDestino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle12.Padding = New System.Windows.Forms.Padding(5)
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dataGridViewDestino.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle7.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewDestino.DefaultCellStyle = DataGridViewCellStyle7
         Me.dataGridViewDestino.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dataGridViewDestino.Location = New System.Drawing.Point(3, 3)
         Me.dataGridViewDestino.MultiSelect = False
         Me.dataGridViewDestino.Name = "dataGridViewDestino"
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewDestino.RowHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewDestino.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dataGridViewDestino.RowHeadersVisible = False
         Me.dataGridViewDestino.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dataGridViewDestino.Size = New System.Drawing.Size(1440, 400)

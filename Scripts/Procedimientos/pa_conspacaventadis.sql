@@ -1,4 +1,4 @@
-create procedure pa_conspacaventadis
+CREATE procedure pa_conspacaventadis
 @idcomprador int,
 @seleccionar bit = 0
 as
@@ -6,6 +6,7 @@ select IdProduccionDetalle,
 	   pd.IdProduccion,
 	   pd.IdPaqueteEncabezado,
 	   pd.IdPlantaOrigen,
+	   pl.Descripcion as Planta,
 	   isnull(IdVentaEnc,0) as IdVentaEnc,
 	   BaleID,
 	   Mic,
@@ -35,5 +36,6 @@ select IdProduccionDetalle,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
 				   LEFT JOIN PaqueteEncabezado pq on pd.IdPaqueteEncabezado = pq.IdPaquete
+				   inner join Plantas pl on pd.IdPlantaOrigen = pl.IdPlanta
 where pd.IdVentaEnc is null and pd.IdPaqueteEncabezado is not null and pq.idComprador = @idcomprador
 order by pd.BaleID

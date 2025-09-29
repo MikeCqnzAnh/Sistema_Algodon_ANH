@@ -1352,13 +1352,11 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Entidad.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.CrystalReports.Design.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportSource.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.Shared.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.Windows.Forms.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Datos.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.Web.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -1954,3 +1952,5 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\C
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\AxShockwaveFlashObjects.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Registrolicencia.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Acercade.resources

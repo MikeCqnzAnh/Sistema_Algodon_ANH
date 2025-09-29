@@ -22,6 +22,9 @@ Partial Class ContratosAlgodon
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ContratosAlgodon))
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -30,6 +33,9 @@ Partial Class ContratosAlgodon
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbDatosGenerales = New System.Windows.Forms.GroupBox()
+        Me.TbValorConversion = New System.Windows.Forms.TextBox()
+        Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.gbventascontrato = New System.Windows.Forms.GroupBox()
         Me.DgvCierres = New System.Windows.Forms.DataGridView()
         Me.btconsultacontratoventa = New System.Windows.Forms.Button()
@@ -126,10 +132,7 @@ Partial Class ContratosAlgodon
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TbIdContratoAlgodon = New System.Windows.Forms.TextBox()
-        Me.DgvContratoAlgodon = New System.Windows.Forms.DataGridView()
-        Me.TbValorConversion = New System.Windows.Forms.TextBox()
-        Me.CbUnidadPeso = New System.Windows.Forms.ComboBox()
-        Me.Label27 = New System.Windows.Forms.Label()
+        Me.dataGridViewOrigen = New System.Windows.Forms.DataGridView()
         Me.MSMenu.SuspendLayout()
         Me.GbDatosGenerales.SuspendLayout()
         Me.gbventascontrato.SuspendLayout()
@@ -139,7 +142,7 @@ Partial Class ContratosAlgodon
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GbPrecioQuintal.SuspendLayout()
-        CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSMenu
@@ -233,6 +236,31 @@ Partial Class ContratosAlgodon
         Me.GbDatosGenerales.TabIndex = 1
         Me.GbDatosGenerales.TabStop = False
         Me.GbDatosGenerales.Text = "Datos Generales"
+        '
+        'TbValorConversion
+        '
+        Me.TbValorConversion.Enabled = False
+        Me.TbValorConversion.Location = New System.Drawing.Point(244, 177)
+        Me.TbValorConversion.Name = "TbValorConversion"
+        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
+        Me.TbValorConversion.TabIndex = 44
+        '
+        'CbUnidadPeso
+        '
+        Me.CbUnidadPeso.FormattingEnabled = True
+        Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 176)
+        Me.CbUnidadPeso.Name = "CbUnidadPeso"
+        Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
+        Me.CbUnidadPeso.TabIndex = 43
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(6, 181)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(82, 13)
+        Me.Label27.TabIndex = 45
+        Me.Label27.Text = "Unidad de peso"
         '
         'gbventascontrato
         '
@@ -1177,58 +1205,59 @@ Partial Class ContratosAlgodon
         Me.TbIdContratoAlgodon.Size = New System.Drawing.Size(64, 20)
         Me.TbIdContratoAlgodon.TabIndex = 0
         '
-        'DgvContratoAlgodon
+        'dataGridViewOrigen
         '
-        Me.DgvContratoAlgodon.AllowUserToAddRows = False
-        Me.DgvContratoAlgodon.AllowUserToDeleteRows = False
-        Me.DgvContratoAlgodon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvContratoAlgodon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells
-        Me.DgvContratoAlgodon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
-        Me.DgvContratoAlgodon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DgvContratoAlgodon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvContratoAlgodon.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DgvContratoAlgodon.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.DgvContratoAlgodon.Location = New System.Drawing.Point(0, 373)
-        Me.DgvContratoAlgodon.MultiSelect = False
-        Me.DgvContratoAlgodon.Name = "DgvContratoAlgodon"
-        Me.DgvContratoAlgodon.ReadOnly = True
-        Me.DgvContratoAlgodon.RowHeadersVisible = False
-        Me.DgvContratoAlgodon.RowHeadersWidth = 40
-        Me.DgvContratoAlgodon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvContratoAlgodon.Size = New System.Drawing.Size(1447, 341)
-        Me.DgvContratoAlgodon.TabIndex = 13
-        '
-        'TbValorConversion
-        '
-        Me.TbValorConversion.Enabled = False
-        Me.TbValorConversion.Location = New System.Drawing.Point(244, 177)
-        Me.TbValorConversion.Name = "TbValorConversion"
-        Me.TbValorConversion.Size = New System.Drawing.Size(99, 20)
-        Me.TbValorConversion.TabIndex = 44
-        '
-        'CbUnidadPeso
-        '
-        Me.CbUnidadPeso.FormattingEnabled = True
-        Me.CbUnidadPeso.Location = New System.Drawing.Point(117, 176)
-        Me.CbUnidadPeso.Name = "CbUnidadPeso"
-        Me.CbUnidadPeso.Size = New System.Drawing.Size(121, 21)
-        Me.CbUnidadPeso.TabIndex = 43
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(6, 181)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(82, 13)
-        Me.Label27.TabIndex = 45
-        Me.Label27.Text = "Unidad de peso"
+        Me.dataGridViewOrigen.AllowUserToAddRows = False
+        Me.dataGridViewOrigen.AllowUserToDeleteRows = False
+        Me.dataGridViewOrigen.AllowUserToOrderColumns = True
+        Me.dataGridViewOrigen.AllowUserToResizeRows = False
+        Me.dataGridViewOrigen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dataGridViewOrigen.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dataGridViewOrigen.BackgroundColor = System.Drawing.Color.White
+        Me.dataGridViewOrigen.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dataGridViewOrigen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dataGridViewOrigen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(5)
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(99, Byte), Integer), CType(CType(177, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewOrigen.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dataGridViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dataGridViewOrigen.Location = New System.Drawing.Point(0, 373)
+        Me.dataGridViewOrigen.MultiSelect = False
+        Me.dataGridViewOrigen.Name = "dataGridViewOrigen"
+        Me.dataGridViewOrigen.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewOrigen.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dataGridViewOrigen.RowHeadersVisible = False
+        Me.dataGridViewOrigen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dataGridViewOrigen.Size = New System.Drawing.Size(1447, 341)
+        Me.dataGridViewOrigen.TabIndex = 16
         '
         'ContratosAlgodon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1447, 714)
-        Me.Controls.Add(Me.DgvContratoAlgodon)
+        Me.Controls.Add(Me.dataGridViewOrigen)
         Me.Controls.Add(Me.GbDatosGenerales)
         Me.Controls.Add(Me.MSMenu)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1252,7 +1281,7 @@ Partial Class ContratosAlgodon
         Me.GroupBox1.PerformLayout()
         Me.GbPrecioQuintal.ResumeLayout(False)
         Me.GbPrecioQuintal.PerformLayout()
-        CType(Me.DgvContratoAlgodon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dataGridViewOrigen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1313,7 +1342,6 @@ Partial Class ContratosAlgodon
     Friend WithEvents BtGenerar As Button
     Friend WithEvents Label23 As Label
     Friend WithEvents TbO As TextBox
-    Friend WithEvents DgvContratoAlgodon As DataGridView
     Friend WithEvents ImprimirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TbPacasDisponibles As TextBox
     Friend WithEvents TbPacasCompradas As TextBox
@@ -1365,4 +1393,5 @@ Partial Class ContratosAlgodon
     Friend WithEvents TbValorConversion As TextBox
     Friend WithEvents CbUnidadPeso As ComboBox
     Friend WithEvents Label27 As Label
+    Private WithEvents dataGridViewOrigen As DataGridView
 End Class

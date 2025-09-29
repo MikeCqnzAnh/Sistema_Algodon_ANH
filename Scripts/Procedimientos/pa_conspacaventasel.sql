@@ -6,6 +6,7 @@ select IdProduccionDetalle,
 	   pd.IdProduccion,
 	   pd.IdPaqueteEncabezado,
 	   pd.IdPlantaOrigen,
+	   pl.Descripcion as Planta,
 	   isnull(IdVentaEnc,0) as IdVentaEnc,
 	   BaleID,
 	   Mic,
@@ -35,5 +36,6 @@ select IdProduccionDetalle,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
 				   inner join ventapacasenc cenc on pd.IdVentaEnc = cenc.idventa
+				   inner join Plantas pl on pd.IdPlantaOrigen = pl.IdPlanta
 where pd.IdVentaEnc = @idventa
 order by pd.BaleID

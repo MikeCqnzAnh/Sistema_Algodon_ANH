@@ -1,17 +1,17 @@
-create procedure pa_conspacacompradis
+CREATE procedure pa_conspacacompradis
 @idproductor int,
 @seleccionar bit = 0
 as
 select IdProduccionDetalle,
 	   pd.IdProduccion,
 	   pd.IdPlantaOrigen,
+	   pl.Descripcion as Planta,
 	   isnull(IdCompraenc,0) as IdCompraenc,
 	   BaleID,
 	   Mic,
 	   UHML,
 	   UI,
 	   Strength,
-	   SFI,
 	   Elongation,
 	   Grade,
 	   ColorGrade,
@@ -33,5 +33,6 @@ select IdProduccionDetalle,
 	   isnull(CastigoUICompra,0) as CastigoUICompra,
 	   @seleccionar as Seleccionar
 from Produccion pe right join ProduccionDetalle pd on pe.IdProduccion = pd.IdProduccion
+				   inner join Plantas pl on pd.IdPlantaOrigen = pl.IdPlanta
 where pd.IdCompraenc is null and pd.LotID is not null AND pe.IdCliente = @idproductor
 order by pd.BaleID

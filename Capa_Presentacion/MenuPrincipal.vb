@@ -6,6 +6,7 @@ Imports System.Drawing.Drawing2D
 Imports System.Net
 Imports System.Text.RegularExpressions
 Imports System.IO
+Imports System.Net.Http
 
 Public Class MenuPrincipal
     Dim Sitio, Serie, Token As String
@@ -204,6 +205,85 @@ Public Class MenuPrincipal
             e.Cancel = True
         End If
     End Sub
+    Private Async Function validalicenciaAsync() As Task
+        Dim cpuid As String = obtienecpuid()
+        Dim tieneInternet As Boolean = Await conexioninternet()
+        Dim licencia As licenciahelper.Licencia = Nothing
+
+        If tieneInternet Then
+            Dim resultado = Await licenciahelper.VerificarLicenciaAsync(cpuid)
+
+            If resultado IsNot Nothing AndAlso resultado.estado = "encontrada" Then
+                licencia = resultado.licencia
+
+                Select Case licencia.idestatusserial
+                    Case 0
+                        MessageBox.Show("Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 1
+                        MessageBox.Show("Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        controleslicencia(True)
+                    Case 2
+                        MessageBox.Show("Licencia VENCIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        controleslicencia(False)
+                    Case 3
+                        MessageBox.Show("Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        controleslicencia(False)
+                End Select
+
+                ' Guardar la licencia localmente
+                licenciahelper.GuardarLicenciaCifrada(licencia)
+            Else
+                MessageBox.Show("No se pudo validar la licencia en línea. Se intentará usar la licencia local.", "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                validar(licencia)
+
+                ' Aquí podrías validar la licencia local si la online no es válida
+                'If licencia Is Nothing Then
+                '    licencia = LicenciaHelper.LeerLicenciaLocal()
+                'End If
+
+                'If Not LicenciaHelper.LicenciaEsValida(licencia) Then
+                '    MessageBox.Show("La licencia no es válida o ha expirado. Vencida desde la fecha " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia inválida", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+                '    controleslicencia(False)
+                '    Return
+                'Else
+                '    MessageBox.Show("Licencia válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                '    controleslicencia(True)
+                'End If
+            End If
+        Else
+            MessageBox.Show("Sin conexión a internet. Se validará la licencia local.", "Sin conexión", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            validar(licencia)
+        End If
+    End Function
+    Private Function obtienecpuid() As String
+        Try
+            Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+
+            If File.Exists(rutaArchivo) Then
+                Dim licencia = licenciahelper.LeerLicenciaLocal()
+                If Not String.IsNullOrEmpty(licencia?.cpuid) Then
+                    Return licencia.cpuid
+                End If
+            End If
+
+            ' Si no hay archivo o cpuid, se obtiene directamente del sistema
+            Return configseriales.CpuId()
+        Catch
+            Return configseriales.CpuId()
+        End Try
+    End Function
+    Private Async Function conexioninternet() As Task(Of Boolean)
+        Try
+            Using client As New HttpClient()
+                client.Timeout = TimeSpan.FromSeconds(3)
+                Dim response As HttpResponseMessage = Await client.GetAsync("https://www.google.com")
+                Return response.IsSuccessStatusCode
+            End Using
+        Catch
+            Return False
+        End Try
+    End Function
+
     Private Sub AsociacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsociacionesToolStripMenuItem.Click
         Asociaciones.ShowDialog()
     End Sub
@@ -607,6 +687,16 @@ Public Class MenuPrincipal
     Private Sub OrdenDeEmbarqueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenDeEmbarqueToolStripMenuItem.Click
         Dim embarque As New Ordenembarquelotes
         embarque.ShowDialog()
+    End Sub
+
+    Private Sub RegistroDeLicenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeLicenciaToolStripMenuItem.Click
+        Dim licencia As New Registrolicencia
+        licencia.ShowDialog()
+    End Sub
+
+    Private Sub AcercaDeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem.Click
+        Dim acercade As New Acercade
+        acercade.ShowDialog()
     End Sub
 
     Private Sub RutaDeDocumentosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaDeDocumentosToolStripMenuItem.Click

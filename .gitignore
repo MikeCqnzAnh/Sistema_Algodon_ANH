@@ -14,3 +14,5 @@ Capa_Datos/bin
 _ReSharper.*
 *.sln.cache
 *.vsidx
+Capa_Presentacion/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+Capa_Presentacion/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
