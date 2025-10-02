@@ -40,11 +40,12 @@ Public Class SeleccionaConexion
     End Sub
     Private Sub SeleccionaConexion()
         Try
-            Dim EntidadSeleccionaConexion As New Capa_Entidad.SeleccionaConexion
-            Dim NegocioSeleccionaConexion As New Capa_Negocio.SeleccionaConexion
-            EntidadSeleccionaConexion.BaseDeDatos = CbBaseDatos.Text
-            EntidadSeleccionaConexion.Conexion = Conexion.ConexionDataBase
-            NegocioSeleccionaConexion.Conexion(EntidadSeleccionaConexion)
+            LicenciaHelper.actualizabdd(CbBaseDatos.Text.Trim)
+            'Dim EntidadSeleccionaConexion As New Capa_Entidad.SeleccionaConexion
+            'Dim NegocioSeleccionaConexion As New Capa_Negocio.SeleccionaConexion
+            'EntidadSeleccionaConexion.BaseDeDatos = CbBaseDatos.Text
+            'EntidadSeleccionaConexion.Conexion = Conexion.ConexionDataBase
+            'NegocioSeleccionaConexion.Conexion(EntidadSeleccionaConexion)
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

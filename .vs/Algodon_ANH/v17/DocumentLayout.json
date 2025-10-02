@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\filtros\\filtropacas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\filtros\\filtropacas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\ayuda\\acercade.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\ayuda\\acercade.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\filtros\\filtropacas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\filtros\\filtropacas.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\comercializacion\\compras\\comprapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\comercializacion\\compras\\comprapacasporcontrato.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\licenciahelper.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\licenciahelper.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\ccotton_service\\licenciahelper.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|solutionrelative:ccotton_service\\licenciahelper.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\ccotton_service\\ccotton_service.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|solutionrelative:ccotton_service\\ccotton_service.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\ccotton_service\\ccotton_service.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|solutionrelative:ccotton_service\\ccotton_service.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +42,150 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Filtropacas.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAcwHYAAAAAAAAAAAAAAA==",
+              "Title": "Acercade.vb [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Acercade.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Acercade.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Acercade.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Acercade.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-27T00:50:58.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-02T01:10:10.334Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Filtropacas.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Filtros\\Filtropacas.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Filtros\\Filtropacas.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Filtros\\Filtropacas.vb [Dise\u00F1o]",
+              "Title": "Registrolicencia.vb [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-27T00:50:56.64Z",
+              "WhenOpened": "2025-10-01T23:33:31.517Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CompraPacasPorContrato.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Compras\\CompraPacasPorContrato.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Comercializacion\\Compras\\CompraPacasPorContrato.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Comercializacion\\Compras\\CompraPacasPorContrato.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Comercializacion\\Compras\\CompraPacasPorContrato.vb [Dise\u00F1o]",
+              "DocumentIndex": 4,
+              "Title": "licenciahelper.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\licenciahelper.vb",
+              "RelativeDocumentMoniker": "ccotton_service\\licenciahelper.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\licenciahelper.vb",
+              "RelativeToolTip": "ccotton_service\\licenciahelper.vb",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAgwLcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-09-27T00:50:49.767Z",
+              "WhenOpened": "2025-10-01T22:03:17.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ccotton_service.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\ccotton_service.vb",
+              "RelativeDocumentMoniker": "ccotton_service\\ccotton_service.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\ccotton_service.vb",
+              "RelativeToolTip": "ccotton_service\\ccotton_service.vb",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwDIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-10-01T22:02:30.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ccotton_service.vb [Dise\u00F1o]",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\ccotton_service.vb",
+              "RelativeDocumentMoniker": "ccotton_service\\ccotton_service.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\ccotton_service.vb [Dise\u00F1o]",
+              "RelativeToolTip": "ccotton_service\\ccotton_service.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-10-01T22:02:29.543Z",
               "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "c04886d8-4a00-4ead-a58c-ee55163a9dda",
+        "Display": 1,
+        "X": -443,
+        "Y": 239,
+        "Width": 970,
+        "Height": 1045,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "licenciahelper.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\licenciahelper.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\licenciahelper.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\licenciahelper.vb",
+              "RelativeToolTip": "Capa_Presentacion\\licenciahelper.vb",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAlwMwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-10-01T22:09:17.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MenuPrincipal.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\MenuPrincipal.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
+              "RelativeToolTip": "Capa_Presentacion\\MenuPrincipal.vb",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-10-01T22:00:24.163Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "61c1ff2b-0b63-48ba-9bac-a93bd0b9c147",
+        "Display": 1,
+        "X": -11,
+        "Y": 0,
+        "Width": 970,
+        "Height": 545,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Registrolicencia.vb",
+              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAowPUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-10-01T23:33:33.15Z",
+              "EditorCaption": ""
             }
           ]
         }

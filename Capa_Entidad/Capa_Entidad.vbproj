@@ -72,6 +72,7 @@
     <Compile Include="Almacenes\LotesPacas.vb" />
     <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
     <Compile Include="Almacenes\SalidaPacas.vb" />
+    <Compile Include="Ayuda\RegistroLicencia.vb" />
     <Compile Include="Catalogos\Almacenes.vb" />
     <Compile Include="Catalogos\Asociaciones.vb" />
     <Compile Include="Catalogos\Camiones.vb" />

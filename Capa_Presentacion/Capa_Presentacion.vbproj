@@ -100,12 +100,14 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
@@ -403,6 +405,7 @@
     <Compile Include="Comercializacion\Ventas\VentaPacasPorContrato.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="configseriales.vb" />
     <Compile Include="Configuracion\ConfigLar.Designer.vb">
       <DependentUpon>ConfigLar.vb</DependentUpon>
     </Compile>
@@ -2774,6 +2777,7 @@
     </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="app.manifest" />
     <None Include="ClassDiagram1.cd" />
@@ -2863,6 +2867,14 @@
     <None Include="Resources\ICONO CALCULA COTTON-341.png" />
     <None Include="Resources\ICONO CALCULA COTTON-351.png" />
     <None Include="Resources\ICONO CALCULA COTTON-07.png" />
+    <None Include="Resources\Logo Mesa de Trabaj MR Letra 2.png" />
+    <None Include="Resources\Logo Mesa de Trabaj MR Letra.png" />
+    <None Include="Resources\Logo Mesa de Trabajo MR.png" />
+    <None Include="Resources\Logo Mesa de Trabajo MR1.png" />
+    <None Include="Resources\ICONO CALCULACOTTON MR-01.png" />
+    <None Include="Resources\ICONO CALCULACOTTON MR LETRA-01.png" />
+    <None Include="Resources\ICONO CALCULACOTTON MR LETRA-011.png" />
+    <None Include="Resources\ICONO CALCULACOTTON MR-011.png" />
     <Content Include="Resources\logo_cotton.ico" />
     <Content Include="Reportes\RPT\BaseHVI.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

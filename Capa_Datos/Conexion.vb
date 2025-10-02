@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Configuration
+Imports System.IO
 Module Conexion
     Public IpServer As String
     Public UsuarioDB As String
@@ -11,49 +12,58 @@ Module Conexion
     Dim archivo As String = "cnn.ini"
     Dim archivo2 As String = "cnnPerfiles.ini"
     Sub LeerArchivo()
-        Dim leer As New StreamReader(Ruta & archivo)
+        Instancia = ConfigurationManager.AppSettings("instanciabdd")
+        DataBase = ConfigurationManager.AppSettings("basededatos")
+        UsuarioDB = ConfigurationManager.AppSettings("usuariobdd")
+        PasswordDB = ConfigurationManager.AppSettings("passwordbdd")
 
-        Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadLine()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim ArregloCadena() As String = Split(linea, ",")
-                IpServer = ArregloCadena(0)
-                Instancia = ArregloCadena(1)
-                UsuarioDB = ArregloCadena(2)
-                PasswordDB = ArregloCadena(3)
-            End While
+        'Dim leer As New StreamReader(Ruta & archivo)
 
-            leer.Close()
+        'Try
+        '    While leer.Peek <> -1
+        '        Dim linea As String = leer.ReadLine()
+        '        If String.IsNullOrEmpty(linea) Then
+        '            Continue While
+        '        End If
+        '        Dim ArregloCadena() As String = Split(linea, ",")
+        '        IpServer = ArregloCadena(0)
+        '        Instancia = ArregloCadena(1)
+        '        UsuarioDB = ArregloCadena(2)
+        '        PasswordDB = ArregloCadena(3)
+        '    End While
 
-        Catch ex As Exception
-            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
+        '    leer.Close()
+
+        'Catch ex As Exception
+        '    MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        'End Try
     End Sub
     Sub LeerArchivoPerfiles()
-        Dim leer As New StreamReader(Ruta & archivo2)
+        Instancia = ConfigurationManager.AppSettings("instanciabdd")
+        DatabasePerfiles = ConfigurationManager.AppSettings("basededatosPerfiles")
+        UsuarioDB = ConfigurationManager.AppSettings("usuariobdd")
+        PasswordDB = ConfigurationManager.AppSettings("passwordbdd")
+        'Dim leer As New StreamReader(Ruta & archivo2)
 
-        Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadLine()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim ArregloCadena() As String = Split(linea, ",")
-                IpServer = ArregloCadena(0)
-                Instancia = ArregloCadena(1)
-                DatabasePerfiles = ArregloCadena(2)
-                UsuarioDB = ArregloCadena(3)
-                PasswordDB = ArregloCadena(4)
-            End While
+        'Try
+        '    While leer.Peek <> -1
+        '        Dim linea As String = leer.ReadLine()
+        '        If String.IsNullOrEmpty(linea) Then
+        '            Continue While
+        '        End If
+        '        Dim ArregloCadena() As String = Split(linea, ",")
+        '        IpServer = ArregloCadena(0)
+        '        Instancia = ArregloCadena(1)
+        '        DatabasePerfiles = ArregloCadena(2)
+        '        UsuarioDB = ArregloCadena(3)
+        '        PasswordDB = ArregloCadena(4)
+        '    End While
 
-            leer.Close()
+        '    leer.Close()
 
-        Catch ex As Exception
-            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
+        'Catch ex As Exception
+        '    MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        'End Try
     End Sub
     Public Function conexionPrincipal()
         LeerArchivo()
@@ -64,7 +74,7 @@ Module Conexion
         Return ("Data Source = " & Instancia & ";Initial Catalog=" & DatabasePerfiles & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
     End Function
     Public Function conexionMaster()
-        Return ("Data Source = MSISTEMAS;Initial Catalog=master;Persist Security Info=True;User ID=sa;Password=Usuario01")
+        Return ("Data Source = " & Instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
     End Function
     Public Function conexionMasterRestaurar()
         LeerArchivo()
@@ -75,5 +85,11 @@ Module Conexion
     End Function
     Public Function conexionMasterExportarRegistros(ByVal instancia As String, ByVal BaseDeDatos As String, ByVal UsuarioDB As String, ByVal passwordDB As String)
         Return ("Data Source = " & instancia & ";Initial Catalog=" & BaseDeDatos & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & passwordDB & "")
+    End Function
+    Public Function conlc() As String
+        Dim conexion As String = ""
+        'conexion = "Data Source=bo1zxlizydykyidditjf-mysql.services.clever-cloud.com; Port=3306; Database=bo1zxlizydykyidditjf; User Id=ua5unwkrkjqy5j1y; Password=3ZsbKVDCjpc3Smm5MwVR"
+        conexion = "Data Source=localhost;Port=3306;Database=licenciassw;User Id=root;Password=root"
+        Return conexion
     End Function
 End Module

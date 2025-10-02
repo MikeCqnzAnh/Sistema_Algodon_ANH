@@ -33,7 +33,7 @@ Partial Class Acceso
         Me.BtCancelar = New System.Windows.Forms.Button()
         Me.LkCambiarClave = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.CkRecuerda = New System.Windows.Forms.CheckBox()
+        Me.CkRecordarPassword = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
@@ -148,23 +148,23 @@ Partial Class Acceso
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "0.0.0.0"
         '
-        'CkRecuerda
+        'CkRecordarPassword
         '
-        Me.CkRecuerda.AutoSize = True
-        Me.CkRecuerda.BackColor = System.Drawing.SystemColors.Control
-        Me.CkRecuerda.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CkRecuerda.Location = New System.Drawing.Point(75, 234)
-        Me.CkRecuerda.Name = "CkRecuerda"
-        Me.CkRecuerda.Size = New System.Drawing.Size(197, 24)
-        Me.CkRecuerda.TabIndex = 3
-        Me.CkRecuerda.Text = "Recordar contraseña"
-        Me.CkRecuerda.UseVisualStyleBackColor = False
+        Me.CkRecordarPassword.AutoSize = True
+        Me.CkRecordarPassword.BackColor = System.Drawing.SystemColors.Control
+        Me.CkRecordarPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CkRecordarPassword.Location = New System.Drawing.Point(75, 234)
+        Me.CkRecordarPassword.Name = "CkRecordarPassword"
+        Me.CkRecordarPassword.Size = New System.Drawing.Size(197, 24)
+        Me.CkRecordarPassword.TabIndex = 3
+        Me.CkRecordarPassword.Text = "Recordar contraseña"
+        Me.CkRecordarPassword.UseVisualStyleBackColor = False
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.CkRecuerda)
+        Me.Panel1.Controls.Add(Me.CkRecordarPassword)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.LkCambiarClave)
@@ -221,7 +221,7 @@ Partial Class Acceso
     Friend WithEvents BtCancelar As Button
     Friend WithEvents LkCambiarClave As LinkLabel
     Friend WithEvents Label4 As Label
-    Friend WithEvents CkRecuerda As CheckBox
+    Friend WithEvents CkRecordarPassword As CheckBox
     Friend WithEvents Panel1 As Panel
     Private WithEvents PictureBox2 As PictureBox
 End Class

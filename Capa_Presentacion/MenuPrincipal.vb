@@ -1,12 +1,14 @@
-﻿Imports Capa_Operacion.Configuracion
-Imports Capa_Entidad
-Imports Capa_Negocio
+﻿Imports System.Configuration
 Imports System.Data.SqlClient
 Imports System.Drawing.Drawing2D
-Imports System.Net
-Imports System.Text.RegularExpressions
 Imports System.IO
+Imports System.Net
 Imports System.Net.Http
+Imports System.Text.RegularExpressions
+Imports Capa_Entidad
+Imports Capa_Negocio
+Imports Capa_Operacion.Configuracion
+Imports Capa_Presentacion.LicenciaHelper
 
 Public Class MenuPrincipal
     Dim Sitio, Serie, Token As String
@@ -16,7 +18,7 @@ Public Class MenuPrincipal
     Dim Version As String
     Dim NombreArchivo As String = "\Version.txt"
     Dim CarpetaOrigen As String = "c:\UPDATE"
-    Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LeerArchivo()
         If Version > Application.ProductVersion Then
             BuscarActualizacion.ShowDialog()
@@ -24,7 +26,76 @@ Public Class MenuPrincipal
         consultaItems()
         ConsultaParametros()
         TipoUsuario()
+        Await validalicenciaAsync()
+        'ejecutaaccion()
     End Sub
+    Public Async Sub ejecutaaccion()
+        Try
+            'Dim tieneInternet As Boolean = Await conexioninternet()
+            Dim serielencryp As String = obtieneserialencrypt()
+            Dim licencia As LicenciaHelper.Licencia = Nothing
+
+            'If tieneInternet Then
+            Dim resultado = Await LicenciaHelper.consultalic(serielencryp)
+
+            If resultado IsNot Nothing AndAlso resultado.estado = "encontrada" Then
+                licencia = resultado.licencia
+
+                Select Case licencia.idestatusserial
+                    Case 0
+                        'MessageBox.Show("Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Case 1
+                        If licencia.fechavencimientoserial <= licencia.fechaservidor Then
+                            licencia.idestatusserial = 2
+                        End If
+                        'MessageBox.Show("Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        'controleslicencia(True)
+
+                    Case 2
+                        'MessageBox.Show("Licencia VENCIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        'controleslicencia(False)
+                    Case 3
+                        'MessageBox.Show("Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        'controleslicencia(False)
+                End Select
+
+                ' Guardar la licencia localmente
+                LicenciaHelper.GuardarLicenciaCifrada(licencia)
+            Else
+
+            End If
+            'Else
+            ''MessageBox.Show("Sin conexión a internet. Se validará la licencia local.", "Sin conexión", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ''validar(licencia)
+            'End If
+        Catch ex As Exception
+            EventLog.WriteEntry("ccotton_service", "Error en la tarea diaria: " & ex.Message, EventLogEntryType.Error)
+        End Try
+
+    End Sub
+    Private Function obtieneserialencrypt() As String
+        Try
+            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            ConfigurationManager.RefreshSection("AppSettings")
+
+            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+
+            If File.Exists(rutaArchivo) Then
+                Dim licencia = LicenciaHelper.LeerLicenciaLocal()
+                If Not String.IsNullOrEmpty(licencia?.serialencryp) Then
+                    Return licencia.serialencryp
+                Else
+                    Return Nothing
+                End If
+            End If
+
+            ' Si no hay archivo o cpuid, se obtiene directamente del sistema
+            Return ""
+        Catch
+            Return ""
+        End Try
+    End Function
     Private Sub LeerArchivo()
         Dim leer As New StreamReader(CarpetaOrigen & NombreArchivo)
 
@@ -208,10 +279,10 @@ Public Class MenuPrincipal
     Private Async Function validalicenciaAsync() As Task
         Dim cpuid As String = obtienecpuid()
         Dim tieneInternet As Boolean = Await conexioninternet()
-        Dim licencia As licenciahelper.Licencia = Nothing
+        Dim licencia As LicenciaHelper.Licencia = Nothing
 
         If tieneInternet Then
-            Dim resultado = Await licenciahelper.VerificarLicenciaAsync(cpuid)
+            Dim resultado = Await LicenciaHelper.VerificarLicenciaAsync(cpuid)
 
             If resultado IsNot Nothing AndAlso resultado.estado = "encontrada" Then
                 licencia = resultado.licencia
@@ -221,17 +292,17 @@ Public Class MenuPrincipal
                         MessageBox.Show("Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Case 1
                         MessageBox.Show("Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        controleslicencia(True)
+                        'controleslicencia(True)
                     Case 2
                         MessageBox.Show("Licencia VENCIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        controleslicencia(False)
+                        'controleslicencia(False)
                     Case 3
                         MessageBox.Show("Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        controleslicencia(False)
+                        'controleslicencia(False)
                 End Select
 
                 ' Guardar la licencia localmente
-                licenciahelper.GuardarLicenciaCifrada(licencia)
+                LicenciaHelper.GuardarLicenciaCifrada(licencia)
             Else
                 MessageBox.Show("No se pudo validar la licencia en línea. Se intentará usar la licencia local.", "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 validar(licencia)
@@ -257,10 +328,14 @@ Public Class MenuPrincipal
     End Function
     Private Function obtienecpuid() As String
         Try
-            Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            ConfigurationManager.RefreshSection("AppSettings")
+
+            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
 
             If File.Exists(rutaArchivo) Then
-                Dim licencia = licenciahelper.LeerLicenciaLocal()
+                Dim licencia = LicenciaHelper.LeerLicenciaLocal()
                 If Not String.IsNullOrEmpty(licencia?.cpuid) Then
                     Return licencia.cpuid
                 End If
@@ -283,6 +358,25 @@ Public Class MenuPrincipal
             Return False
         End Try
     End Function
+    Private Sub validar(licencia As Licencia)
+        ' Validar licencia local si no fue válida la online
+        If licencia Is Nothing Then
+            licencia = LicenciaHelper.LeerLicenciaLocal()
+        End If
+
+        If Not LicenciaHelper.LicenciaEsValida(licencia) Then
+            MessageBox.Show("La licencia no es válida o ha expirado. Vencida desde la fecha " &
+                        licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"),
+                        "Licencia inválida", MessageBoxButtons.OK, MessageBoxIcon.[Stop])
+            'controleslicencia(False)
+            Return
+        Else
+            MessageBox.Show("Licencia válida hasta: " &
+                        licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"),
+                        "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'controleslicencia(True)
+        End If
+    End Sub
 
     Private Sub AsociacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsociacionesToolStripMenuItem.Click
         Asociaciones.ShowDialog()

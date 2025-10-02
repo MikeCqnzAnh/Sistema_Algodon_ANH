@@ -27,6 +27,7 @@ Partial Class CapturaBoletasPorLotes
         Me.MSMenu = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IncidenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GbGenerales = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -38,7 +39,6 @@ Partial Class CapturaBoletasPorLotes
         Me.DgvModulos = New Capa_Presentacion.CapturaBoletasPorLotes.DgvPlusCapturaBoletas()
         Me.TiActualizaDgvModulos = New System.Windows.Forms.Timer(Me.components)
         Me.SpCapturaAuto = New System.IO.Ports.SerialPort(Me.components)
-        Me.EntradasExtraordinariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MSMenu.SuspendLayout()
         Me.GbGenerales.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -65,6 +65,12 @@ Partial Class CapturaBoletasPorLotes
         Me.IncidenciasToolStripMenuItem.Name = "IncidenciasToolStripMenuItem"
         Me.IncidenciasToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.IncidenciasToolStripMenuItem.Text = "Incidencias"
+        '
+        'EntradasExtraordinariasToolStripMenuItem
+        '
+        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
+        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
+        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
         '
         'SalirToolStripMenuItem
         '
@@ -170,12 +176,6 @@ Partial Class CapturaBoletasPorLotes
         'SpCapturaAuto
         '
         '
-        'EntradasExtraordinariasToolStripMenuItem
-        '
-        Me.EntradasExtraordinariasToolStripMenuItem.Name = "EntradasExtraordinariasToolStripMenuItem"
-        Me.EntradasExtraordinariasToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
-        Me.EntradasExtraordinariasToolStripMenuItem.Text = "Entradas Extraordinarias"
-        '
         'CapturaBoletasPorLotes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -189,7 +189,7 @@ Partial Class CapturaBoletasPorLotes
         Me.MainMenuStrip = Me.MSMenu
         Me.Name = "CapturaBoletasPorLotes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Captura de Boletas Por Lotes"
+        Me.Text = "Captura de Peso a Modulos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MSMenu.ResumeLayout(False)
         Me.MSMenu.PerformLayout()

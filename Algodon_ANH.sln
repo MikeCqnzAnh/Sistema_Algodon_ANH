@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Presentacion", "Capa_Presentacion\Capa_Presentacion.vbproj", "{218AEC58-D674-4C85-9BEB-5B87131EF2C6}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupAlgodon", "SetupAlgodon\SetupAlgodon.vdproj", "{BB4A70AE-F99A-4DD5-8A8F-734C5325DC04}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Capa_Operacion", "Capa_Operacion\Capa_Operacion.vbproj", "{3A1E6801-5527-4D29-B798-24CE9AFA623F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ccotton_service", "ccotton_service\ccotton_service.vbproj", "{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,8 +81,21 @@ Global
 		{3A1E6801-5527-4D29-B798-24CE9AFA623F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A1E6801-5527-4D29-B798-24CE9AFA623F}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{3A1E6801-5527-4D29-B798-24CE9AFA623F}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3C90806-19CF-4E68-8C36-43F4BBCA2EF5}
 	EndGlobalSection
 EndGlobal

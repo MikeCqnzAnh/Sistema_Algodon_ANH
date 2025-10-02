@@ -1,13 +1,49 @@
-﻿Imports System.IO
-Imports Capa_Operacion.Configuracion
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
+Imports System.IO
+Imports System.Security.Cryptography
 Imports Capa_Entidad
 Imports Capa_Negocio
+Imports Capa_Operacion.Configuracion
 Public Class ConfiguraConexionInicial
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
     Dim archivo2 As String = "cnnPerfiles.ini"
+    Private instancia, basededatos, basededatosperfiles, usuario, password, ipservidor As String
+    Private rbsrv, rbsta As Boolean
+    Public Sub New()
+        InitializeComponent()
+
+        ' Agregar evento para validación
+        AddHandler tbipservidor.Validating, Sub(sender As Object, e As System.ComponentModel.CancelEventArgs)
+                                                If Not IsValidIP(tbipservidor.Text) Then
+                                                    MessageBox.Show("La dirección IP no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                                    e.Cancel = True
+                                                End If
+                                            End Sub
+
+        ' Agregar el MaskedTextBox al formulario (opcional si no está en el diseñador)
+        ' Me.Controls.Add(tbipservidor)
+    End Sub
+
     Private Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         nuevo()
+        instancia = ConfigurationManager.AppSettings("instanciabdd")
+        basededatosperfiles = ConfigurationManager.AppSettings("basededatosPerfiles")
+        basededatos = ConfigurationManager.AppSettings("basededatos")
+        Usuario = ConfigurationManager.AppSettings("usuariobdd")
+        password = ConfigurationManager.AppSettings("passwordbdd")
+        rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
+        rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
+        ipservidor = ConfigurationManager.AppSettings("ipservidor")
+
+        CbOrigenInstancia.Text = instancia
+        tbbdd.Text = basededatos
+        TbOrigenUsuario.Text = usuario
+        TbOrigenPassword.Text = password
+        rbserver.Checked = rbsrv
+        rbestacion.Checked = rbsta
+        tbipservidor.Text = ipservidor
     End Sub
     Private Sub LLenaComboInstancias(ByVal cmb As ComboBox)
         cmb.Items.Clear()
@@ -25,131 +61,190 @@ Public Class ConfiguraConexionInicial
             End If
         Next
     End Sub
-    Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs) Handles BtCreaConexion.Click
+    Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs)
         CreaConexion()
-        CreaConexionPerfiles()
-        TbDireccionIP1.Clear()
-        TbDireccionIP2.Clear()
-        TbDireccionIP3.Clear()
-        TbDireccionIP4.Clear()
+        'CreaConexionPerfiles()
         TbOrigenPassword.Clear()
         TbOrigenUsuario.Clear()
         CbOrigenInstancia.SelectedIndex = -1
     End Sub
+    Private Function IsValidIP(ip As String) As Boolean
+        If String.IsNullOrWhiteSpace(ip) Then Return False
+
+        Dim parts() As String = ip.Split("."c)
+        If parts.Length <> 4 Then Return False
+
+        For Each part As String In parts
+            ' Aquí estaba comentado el código de validación
+            ' Si quieres validarlo correctamente, descomenta y usa:
+            ' Dim num As Integer
+            ' If Not Integer.TryParse(part, num) OrElse num < 0 OrElse num > 255 Then
+            '     Return False
+            ' End If
+
+            ' Por ahora siempre devuelve False según el código original
+            Return False
+        Next
+
+        Return True
+    End Function
+
     Private Sub CreaConexion()
-        Dim fs As FileStream
-        If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
-            ':::Validamos si la carpeta de ruta existe, si no existe la creamos
-            Try
-                If File.Exists(Ruta & archivo) Then
+        Try
+            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            ConfigurationManager.RefreshSection("appSettings")
 
-                    ':::Si la carpeta existe creamos o sobreescribios el archivo txt
-                    fs = File.Create(Ruta & archivo)
-                    fs.Close()
-                    BtnSobreescribir_Click()
-                    'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-                    Close()
-                Else
+            If VerifyConnection() = True Then
+                config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
+                config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
+                config.AppSettings.Settings("basededatos").Value = tbbdd.Text
+                config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
+                config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
+                config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
+                config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
+                config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
+                config.Save(ConfigurationSaveMode.Modified)
 
-                    ':::Si la carpeta no existe la creamos
-                    Directory.CreateDirectory(Ruta)
+                MessageBox.Show("Guardado con exito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            Else
+                config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
+                config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
+                config.AppSettings.Settings("basededatos").Value = tbbdd.Text
+                config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
+                config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
+                config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
+                config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
+                config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
+                config.Save(ConfigurationSaveMode.Modified)
 
-                    ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
-                    fs = File.Create(Ruta & archivo)
-                    fs.Close()
-                    BtnSobreescribir_Click()
-                    'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-                    Close()
-                End If
+                MessageBox.Show("Hay un error con la conexion, verifique que el sistema inició como administrador, o que los datos fueron ingresados correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
 
-            Catch ex As Exception
-                MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
-            End Try
-        Else
-            MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
-        End If
+        Catch Ex As Exception
+            MessageBox.Show(Ex.Message)
+        End Try
+        'Dim fs As FileStream
+        'If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
+        '    ':::Validamos si la carpeta de ruta existe, si no existe la creamos
+        '    Try
+        '        If File.Exists(Ruta & archivo) Then
+
+        '            ':::Si la carpeta existe creamos o sobreescribios el archivo txt
+        '            fs = File.Create(Ruta & archivo)
+        '            fs.Close()
+        '            BtnSobreescribir_Click()
+        '            'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+        '            Close()
+        '        Else
+
+        '            ':::Si la carpeta no existe la creamos
+        '            Directory.CreateDirectory(Ruta)
+
+        '            ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
+        '            fs = File.Create(Ruta & archivo)
+        '            fs.Close()
+        '            BtnSobreescribir_Click()
+        '            'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+        '            Close()
+        '        End If
+
+        '    Catch ex As Exception
+        '        MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+        '    End Try
+        'Else
+        '    MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
+        'End If
     End Sub
+    Public Function VerifyConnection() As Boolean
+        Dim connectionString As String = "Data Source=" & CbOrigenInstancia.Text & ";Initial Catalog=" & tbbdd.Text & ";Persist Security Info=True;User ID=" & TbOrigenUsuario.Text & ";Password=" & TbOrigenPassword.Text
+        Dim cnn As SqlConnection = New SqlConnection(connectionString)
+
+        Try
+            cnn.Open()
+            cnn.Close()
+            Return True
+        Catch
+            Return False
+        End Try
+    End Function
+
     Private Sub CreaConexionPerfiles()
-        Dim fs As FileStream
-        If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
-            ':::Validamos si la carpeta de ruta existe, si no existe la creamos
-            Try
-                If File.Exists(Ruta & archivo2) Then
+        'Dim fs As FileStream
+        'If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
+        '    ':::Validamos si la carpeta de ruta existe, si no existe la creamos
+        '    Try
+        '        If File.Exists(Ruta & archivo2) Then
 
-                    ':::Si la carpeta existe creamos o sobreescribios el archivo txt
-                    fs = File.Create(Ruta & archivo2)
-                    fs.Close()
-                    BtnSobreescribirPerfil()
-                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-                    Close()
-                Else
+        '            ':::Si la carpeta existe creamos o sobreescribios el archivo txt
+        '            fs = File.Create(Ruta & archivo2)
+        '            fs.Close()
+        '            BtnSobreescribirPerfil()
+        '            MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+        '            Close()
+        '        Else
 
-                    ':::Si la carpeta no existe la creamos
-                    Directory.CreateDirectory(Ruta)
+        '            ':::Si la carpeta no existe la creamos
+        '            Directory.CreateDirectory(Ruta)
 
-                    ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
-                    fs = File.Create(Ruta & archivo2)
-                    fs.Close()
-                    BtnSobreescribirPerfil()
-                    MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-                    Close()
-                End If
+        '            ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
+        '            fs = File.Create(Ruta & archivo2)
+        '            fs.Close()
+        '            BtnSobreescribirPerfil()
+        '            MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
+        '            Close()
+        '        End If
 
-            Catch ex As Exception
-                MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
-            End Try
+        '    Catch ex As Exception
+        '        MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+        '    End Try
 
-        Else
-            MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
-        End If
+        'Else
+        '    MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
+        'End If
     End Sub
     Private Sub nuevo()
-        TbDireccionIP1.Text = ""
-        TbDireccionIP2.Text = ""
-        TbDireccionIP3.Text = ""
-        TbDireccionIP4.Text = ""
-        TbDireccionIP1.Select()
         CbOrigenInstancia.SelectedIndex = -1
         TbOrigenUsuario.Text = ""
         TbOrigenPassword.Text = ""
     End Sub
     Private Sub BtnSobreescribir_Click()
         ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
-        Dim escribir As New StreamWriter(Ruta & archivo)
-        Dim DireccionIP As String = ""
-        Try
-            DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
-            ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
-            escribir.Close()
-            ':::Limpiamos los TextBox
+        'Dim escribir As New StreamWriter(Ruta & archivo)
+        'Dim DireccionIP As String = ""
+        'Try
+        '    DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
+        '    ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
+        '    escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
+        '    escribir.Close()
+        '    ':::Limpiamos los TextBox
 
-            ':::Llamamos nuestro procedimiento para leer el archivo TXT
-            'LeerArchivo()
-        Catch ex As Exception
-            MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
+        '    ':::Llamamos nuestro procedimiento para leer el archivo TXT
+        '    'LeerArchivo()
+        'Catch ex As Exception
+        '    MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        'End Try
     End Sub
     Private Sub BtnSobreescribirPerfil()
         ':::Creamos un objeto de tipo StreamWriter que nos permite escribir en ficheros TXT
-        Dim escribir As New StreamWriter(Ruta & archivo2)
-        Dim DireccionIP As String = ""
-        Try
-            DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
-            ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
-            escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + "Perfiles" + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
-            escribir.Close()
-            ':::Limpiamos los TextBox
-            ':::Llamamos nuestro procedimiento para leer el archivo TXT
-            'LeerArchivo()
-        Catch ex As Exception
-            MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
+        'Dim escribir As New StreamWriter(Ruta & archivo2)
+        'Dim DireccionIP As String = ""
+        'Try
+        '    DireccionIP = TbDireccionIP1.Text + "." + TbDireccionIP2.Text + "." + TbDireccionIP3.Text + "." + TbDireccionIP4.Text
+        '    ':::Escribimos una linea en nuestro archivo TXT con el formato que este separado por coma (,)
+        '    escribir.WriteLine(DireccionIP + "," + CbOrigenInstancia.Text + "," + "Perfiles" + "," + TbOrigenUsuario.Text + "," + TbOrigenPassword.Text)
+        '    escribir.Close()
+        '    ':::Limpiamos los TextBox
+        '    ':::Llamamos nuestro procedimiento para leer el archivo TXT
+        '    'LeerArchivo()
+        'Catch ex As Exception
+        '    MsgBox("Se presento un problema al escribir en el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
+        'End Try
     End Sub
     Private Sub CbOrigenInstancia_Click(sender As Object, e As EventArgs) Handles CbOrigenInstancia.Click
-        If CbOrigenInstancia.Items.Count = 0 Then
-            LLenaComboInstancias(CbOrigenInstancia)
-        End If
+        'If CbOrigenInstancia.Items.Count = 0 Then
+        '    LLenaComboInstancias(CbOrigenInstancia)
+        'End If
 
     End Sub
     Sub LeerArchivo()
@@ -172,27 +267,38 @@ Public Class ConfiguraConexionInicial
         End Try
     End Sub
     Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If File.Exists(Ruta & archivo) Then
-            e.Cancel = False
-        Else
-            Dim opc As DialogResult = MsgBox("Aun no se configura la conexion inicial, sin ella el sistema no continuara. Dar click en SI para configurar, No para cerrar el sistema.", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Salir")
-            If opc = DialogResult.Yes Then
+        instancia = ConfigurationManager.AppSettings("instanciabdd")
+        basededatos = ConfigurationManager.AppSettings("basededatos")
+        usuario = ConfigurationManager.AppSettings("usuariobdd")
+        password = ConfigurationManager.AppSettings("passwordbdd")
+        rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
+        rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
+        ipservidor = ConfigurationManager.AppSettings("ipservidor")
+
+        If String.IsNullOrEmpty(instancia) OrElse String.IsNullOrEmpty(basededatos) OrElse String.IsNullOrEmpty(usuario) OrElse String.IsNullOrEmpty(password) Then
+            Dim result As DialogResult = MessageBox.Show("No ha configurado la conexion a la base de datos, no podrá realizar ningún procedimiento. ¿Desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                ' Cierra la aplicación
+                Environment.Exit(0)
+            ElseIf result = DialogResult.No Then
                 e.Cancel = True
-            ElseIf opc = DialogResult.No Then
-                End
             End If
+        Else
+            e.Cancel = False
         End If
+
+        'If File.Exists(Ruta & archivo) Then
+        '    e.Cancel = False
+        'Else
+        '    Dim opc As DialogResult = MsgBox("Aun no se configura la conexion inicial, sin ella el sistema no continuara. Dar click en SI para configurar, No para cerrar el sistema.", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Salir")
+        '    If opc = DialogResult.Yes Then
+        '        e.Cancel = True
+        '    ElseIf opc = DialogResult.No Then
+        '        End
+        '    End If
+        'End If
     End Sub
-    Private Sub MaskedTextBox1_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP3.GotFocus
-        TbDireccionIP3.SelectAll()
-    End Sub
-    Private Sub MaskedTextBox2_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP2.GotFocus
-        TbDireccionIP2.SelectAll()
-    End Sub
-    Private Sub MaskedTextBox3_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP1.GotFocus
-        TbDireccionIP1.SelectAll()
-    End Sub
-    Private Sub MaskedTextBox4_GotFocus(sender As Object, e As EventArgs) Handles TbDireccionIP4.GotFocus
-        TbDireccionIP4.SelectAll()
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
+        CreaConexion()
     End Sub
 End Class

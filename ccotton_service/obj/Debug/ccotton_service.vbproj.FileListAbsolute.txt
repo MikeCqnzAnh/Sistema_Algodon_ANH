@@ -1,0 +1,14 @@
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\ccotton_service.exe.config
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\ccotton_service.exe
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\ccotton_service.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\ccotton_service.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\Newtonsoft.Json.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\bin\Debug\Newtonsoft.Json.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.vbproj.AssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.Resources.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.vbproj.GenerateResource.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.vbproj.CoreCompileInputs.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_.E0EA5EA1.Up2Date
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.exe
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_service\obj\Debug\ccotton_service.pdb

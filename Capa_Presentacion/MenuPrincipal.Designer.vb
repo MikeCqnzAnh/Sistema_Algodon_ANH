@@ -477,7 +477,7 @@ Partial Class MenuPrincipal
         Me.CapturaDeBoletasPorLotesToolStripMenuItem.Name = "CapturaDeBoletasPorLotesToolStripMenuItem"
         Me.CapturaDeBoletasPorLotesToolStripMenuItem.Size = New System.Drawing.Size(314, 22)
         Me.CapturaDeBoletasPorLotesToolStripMenuItem.Tag = "50,47"
-        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Text = "Captura de Boletas (Por Lotes)"
+        Me.CapturaDeBoletasPorLotesToolStripMenuItem.Text = "Captura de Peso a Modulos"
         '
         'BoletaPorLotesToolStripMenuItem
         '
@@ -1586,7 +1586,7 @@ Partial Class MenuPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULA_COTTON_29
+        Me.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULACOTTON_MR_LETRA_011
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(1308, 772)
         Me.Controls.Add(Me.SsBarraEstatus)

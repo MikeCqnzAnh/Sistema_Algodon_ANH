@@ -236,6 +236,7 @@
         Consultapacasembdet = 155
         consultapacasembseldet = 156
         consultacolorgrade = 157
+        consultalicencia = 158
 
     End Enum
     Public Enum LlenaCombo

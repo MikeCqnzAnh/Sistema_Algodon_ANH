@@ -1,15 +1,19 @@
-﻿Imports System.Deployment.Application
+﻿Imports System.Configuration
+Imports System.Deployment.Application
 Imports System.Drawing.Drawing2D
-Imports System.Runtime.InteropServices
 Imports System.IO
-Imports Capa_Operacion.Configuracion
+Imports System.Runtime.InteropServices
 Imports Capa_Entidad
 Imports Capa_Negocio
+Imports Capa_Operacion.Configuracion
+Imports Microsoft.SqlServer
 Public Class Acceso
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
+    Private _ckrecuerda, _servidor, _estacion As Boolean
+    Private _nombre, _usuario, _passuser, usuariodb, passworddb, instanciabdd, basededatos As String
     Private Sub Acceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CompruebaConexionInicial()
+        compruebaconexioninicial()
         TbUsuario.Text = My.Settings.user
         If TbUsuario.Text = "" Then
             TbUsuario.Select()
@@ -17,7 +21,7 @@ Public Class Acceso
             TbClave.Select()
         End If
         If My.Settings.CkRecordar = True Then
-            CkRecuerda.Checked = My.Settings.CkRecordar
+            CkRecordarPassword.Checked = My.Settings.CkRecordar
             TbClave.Text = My.Settings.password
         End If
         llenaCombos()
@@ -117,33 +121,79 @@ Public Class Acceso
             Login()
         End If
     End Sub
-    Private Sub CompruebaConexionInicial()
-        Try
-            If File.Exists(Ruta & archivo) Then
-                'compruebaConexionServidor()
-            Else
-                Dim opc As DialogResult = MsgBox("La Conexion inicial no se ha configurado aun y es requerida para continuar, ¿Configurar conexion inicial?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "Aviso")
+    'Private Sub CompruebaConexionInicial()
+    '    Try
+    '        If File.Exists(Ruta & archivo) Then
+    '            'compruebaConexionServidor()
+    '        Else
+    '            Dim opc As DialogResult = MsgBox("La Conexion inicial no se ha configurado aun y es requerida para continuar, ¿Configurar conexion inicial?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "Aviso")
 
-                If opc = DialogResult.Yes Then
-                    ConfiguraConexionInicial.ShowDialog()
-                ElseIf opc = DialogResult.No Then
-                    End
+    '            If opc = DialogResult.Yes Then
+    '                ConfiguraConexionInicial.ShowDialog()
+    '            ElseIf opc = DialogResult.No Then
+    '                End
+    '            End If
+    '        End If
+    '    Catch ex As Exception
+    '        MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+    '    End Try
+    'End Sub
+    Private Sub compruebaconexioninicial()
+        Try
+            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            ConfigurationManager.RefreshSection("AppSettings")
+
+            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+            instanciabdd = config.AppSettings.Settings("instanciabdd").Value.ToString()
+            basededatos = config.AppSettings.Settings("basededatos").Value.ToString()
+            usuariodb = config.AppSettings.Settings("usuariobdd").Value.ToString()
+            passworddb = config.AppSettings.Settings("passwordbdd").Value.ToString()
+            _usuario = config.AppSettings.Settings("usuario").Value.ToString()
+            _passuser = config.AppSettings.Settings("password").Value.ToString()
+            _ckrecuerda = config.AppSettings.Settings("ckrecuerda").Value
+
+            TbUsuario.Text = _usuario
+            TbClave.Text = _passuser
+            CkRecordarPassword.Checked = _ckrecuerda
+
+            If instanciabdd = "" OrElse basededatos = "" OrElse usuariodb = "" OrElse passworddb = "" Then
+                Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                If result = DialogResult.Yes Then
+                    Dim fconexioninicial As New ConfiguraConexionInicial()
+                    fconexioninicial.ShowDialog()
+                Else
+                    Application.Exit()
                 End If
             End If
+
+            If Not File.Exists(rutaArchivo) Then
+                Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?", "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                If result = DialogResult.Yes Then
+                    Dim registrolicencia As New Registrolicencia()
+                    registrolicencia.ShowDialog()
+                Else
+                    Application.Exit()
+                End If
+            End If
+
         Catch ex As Exception
-            MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
+            MessageBox.Show("Error " & ex.Message)
         End Try
     End Sub
+
     Private Sub Login()
         Try
+            LicenciaHelper.actualizabdd(CbBaseDeDatos.Text.Trim)
             If UsuarioRegistrado(TbUsuario.Text) = True Then
-                GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
                 My.Settings.user = TbUsuario.Text
-                If CkRecuerda.Checked = True Then
+                VarGlob.Usuario = TbUsuario.Text
+                GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
+                If CkRecordarPassword.Checked = True Then
                     My.Settings.password = TbClave.Text
-                    My.Settings.CkRecordar = CkRecuerda.Checked
+                    My.Settings.CkRecordar = CkRecordarPassword.Checked
                 Else
-                    My.Settings.CkRecordar = CkRecuerda.Checked
+                    My.Settings.CkRecordar = CkRecordarPassword.Checked
                 End If
                 My.Settings.Save()
                 Me.Hide()
