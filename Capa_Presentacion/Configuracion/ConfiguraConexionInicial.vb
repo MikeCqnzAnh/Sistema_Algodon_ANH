@@ -27,15 +27,26 @@ Public Class ConfiguraConexionInicial
     End Sub
 
     Private Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        nuevo()
-        instancia = ConfigurationManager.AppSettings("instanciabdd")
-        basededatosperfiles = ConfigurationManager.AppSettings("basededatosPerfiles")
-        basededatos = ConfigurationManager.AppSettings("basededatos")
-        Usuario = ConfigurationManager.AppSettings("usuariobdd")
-        password = ConfigurationManager.AppSettings("passwordbdd")
-        rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
-        rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
-        ipservidor = ConfigurationManager.AppSettings("ipservidor")
+        'nuevo()
+        'instancia = ConfigurationManager.AppSettings("instanciabdd")
+        'basededatosperfiles = ConfigurationManager.AppSettings("basededatosPerfiles")
+        'basededatos = ConfigurationManager.AppSettings("basededatos")
+        'Usuario = ConfigurationManager.AppSettings("usuariobdd")
+        'password = ConfigurationManager.AppSettings("passwordbdd")
+        'rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
+        'rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
+        'ipservidor = ConfigurationManager.AppSettings("ipservidor")
+        nuevo()  ' Si tienes alguna inicialización adicional
+
+        ' Leer valores desde My.Settings
+        instancia = My.Settings.instanciabdd
+        basededatosperfiles = My.Settings.basededatosperfiles
+        basededatos = My.Settings.basededatos
+        usuario = My.Settings.usuariobdd
+        password = My.Settings.passwordbdd
+        rbsrv = My.Settings.servidor
+        rbsta = My.Settings.estacion
+        ipservidor = My.Settings.ipservidor
 
         CbOrigenInstancia.Text = instancia
         tbbdd.Text = basededatos
@@ -88,74 +99,82 @@ Public Class ConfiguraConexionInicial
 
         Return True
     End Function
-
     Private Sub CreaConexion()
         Try
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-            ConfigurationManager.RefreshSection("appSettings")
-
+            ' Intentar la conexión primero
             If VerifyConnection() = True Then
-                config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
-                config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
-                config.AppSettings.Settings("basededatos").Value = tbbdd.Text
-                config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
-                config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
-                config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
-                config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
-                config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
-                config.Save(ConfigurationSaveMode.Modified)
+                ' Guardar los valores en My.Settings
+                My.Settings.instanciabdd = CbOrigenInstancia.Text
+                My.Settings.basededatosperfiles = tbbddperfiles.Text
+                My.Settings.basededatos = tbbdd.Text
+                My.Settings.usuariobdd = TbOrigenUsuario.Text
+                My.Settings.passwordbdd = TbOrigenPassword.Text
+                My.Settings.servidor = rbserver.Checked
+                My.Settings.estacion = rbestacion.Checked
+                My.Settings.ipservidor = tbipservidor.Text
 
-                MessageBox.Show("Guardado con exito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                My.Settings.Save() ' Guardar cambios permanentes
+
+                MessageBox.Show("Guardado con éxito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
             Else
-                config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
-                config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
-                config.AppSettings.Settings("basededatos").Value = tbbdd.Text
-                config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
-                config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
-                config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
-                config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
-                config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
-                config.Save(ConfigurationSaveMode.Modified)
+                ' Guardar los valores aunque la conexión falle, para que el usuario no los pierda
+                My.Settings.instanciabdd = CbOrigenInstancia.Text
+                My.Settings.basededatosperfiles = tbbddperfiles.Text
+                My.Settings.basededatos = tbbdd.Text
+                My.Settings.usuariobdd = TbOrigenUsuario.Text
+                My.Settings.passwordbdd = TbOrigenPassword.Text
+                My.Settings.servidor = rbserver.Checked
+                My.Settings.estacion = rbestacion.Checked
+                My.Settings.ipservidor = tbipservidor.Text
 
-                MessageBox.Show("Hay un error con la conexion, verifique que el sistema inició como administrador, o que los datos fueron ingresados correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                My.Settings.Save() ' Guardar cambios permanentes
+
+                MessageBox.Show("Hay un error con la conexión. Verifique que el sistema inició como administrador o que los datos fueron ingresados correctamente.",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
-        Catch Ex As Exception
-            MessageBox.Show(Ex.Message)
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
         End Try
-        'Dim fs As FileStream
-        'If TbDireccionIP1.Text <> "" And TbDireccionIP2.Text <> "" And TbDireccionIP3.Text <> "" And TbDireccionIP4.Text <> "" And CbOrigenInstancia.Text <> "" And TbOrigenPassword.Text <> "" And TbOrigenUsuario.Text <> "" Then
-        '    ':::Validamos si la carpeta de ruta existe, si no existe la creamos
-        '    Try
-        '        If File.Exists(Ruta & archivo) Then
-
-        '            ':::Si la carpeta existe creamos o sobreescribios el archivo txt
-        '            fs = File.Create(Ruta & archivo)
-        '            fs.Close()
-        '            BtnSobreescribir_Click()
-        '            'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-        '            Close()
-        '        Else
-
-        '            ':::Si la carpeta no existe la creamos
-        '            Directory.CreateDirectory(Ruta)
-
-        '            ':::Una vez creada la carpeta creamos o sobreescribios el archivo txt
-        '            fs = File.Create(Ruta & archivo)
-        '            fs.Close()
-        '            BtnSobreescribir_Click()
-        '            'MsgBox("Conexion creada correctamente.", MsgBoxStyle.Information, "")
-        '            Close()
-        '        End If
-
-        '    Catch ex As Exception
-        '        MsgBox("Se presento un problema al momento de crear el archivo: " & ex.Message, MsgBoxStyle.Critical, "")
-        '    End Try
-        'Else
-        '    MsgBox("Todos los campos son requeridos, no es permitido continuar", MsgBoxStyle.Critical, "Aviso")
-        'End If
     End Sub
+
+    'Private Sub CreaConexion()
+    '    Try
+    '        Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+    '        ConfigurationManager.RefreshSection("appSettings")
+
+    '        If VerifyConnection() = True Then
+    '            config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
+    '            config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
+    '            config.AppSettings.Settings("basededatos").Value = tbbdd.Text
+    '            config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
+    '            config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
+    '            config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
+    '            config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
+    '            config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
+    '            config.Save(ConfigurationSaveMode.Modified)
+
+    '            MessageBox.Show("Guardado con exito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    '            Me.Close()
+    '        Else
+    '            config.AppSettings.Settings("instanciabdd").Value = CbOrigenInstancia.Text
+    '            config.AppSettings.Settings("basededatosPerfiles").Value = tbbddperfiles.Text
+    '            config.AppSettings.Settings("basededatos").Value = tbbdd.Text
+    '            config.AppSettings.Settings("usuariobdd").Value = TbOrigenUsuario.Text
+    '            config.AppSettings.Settings("passwordbdd").Value = TbOrigenPassword.Text
+    '            config.AppSettings.Settings("servidor").Value = rbserver.Checked.ToString()
+    '            config.AppSettings.Settings("estacion").Value = rbestacion.Checked.ToString()
+    '            config.AppSettings.Settings("ipservidor").Value = tbipservidor.Text
+    '            config.Save(ConfigurationSaveMode.Modified)
+
+    '            MessageBox.Show("Hay un error con la conexion, verifique que el sistema inició como administrador, o que los datos fueron ingresados correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        End If
+
+    '    Catch Ex As Exception
+    '        MessageBox.Show(Ex.Message)
+    '    End Try
+    'End Sub
     Public Function VerifyConnection() As Boolean
         Dim connectionString As String = "Data Source=" & CbOrigenInstancia.Text & ";Initial Catalog=" & tbbdd.Text & ";Persist Security Info=True;User ID=" & TbOrigenUsuario.Text & ";Password=" & TbOrigenPassword.Text
         Dim cnn As SqlConnection = New SqlConnection(connectionString)
@@ -267,16 +286,21 @@ Public Class ConfiguraConexionInicial
         End Try
     End Sub
     Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        instancia = ConfigurationManager.AppSettings("instanciabdd")
-        basededatos = ConfigurationManager.AppSettings("basededatos")
-        usuario = ConfigurationManager.AppSettings("usuariobdd")
-        password = ConfigurationManager.AppSettings("passwordbdd")
-        rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
-        rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
-        ipservidor = ConfigurationManager.AppSettings("ipservidor")
+        ' Leer valores desde My.Settings
+        instancia = My.Settings.instanciabdd
+        basededatos = My.Settings.basededatos
+        usuario = My.Settings.usuariobdd
+        password = My.Settings.passwordbdd
+        rbsrv = My.Settings.servidor
+        rbsta = My.Settings.estacion
+        ipservidor = My.Settings.ipservidor
 
-        If String.IsNullOrEmpty(instancia) OrElse String.IsNullOrEmpty(basededatos) OrElse String.IsNullOrEmpty(usuario) OrElse String.IsNullOrEmpty(password) Then
-            Dim result As DialogResult = MessageBox.Show("No ha configurado la conexion a la base de datos, no podrá realizar ningún procedimiento. ¿Desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        ' Verificar si la configuración está completa
+        If String.IsNullOrEmpty(instancia) OrElse String.IsNullOrEmpty(basededatos) _
+           OrElse String.IsNullOrEmpty(usuario) OrElse String.IsNullOrEmpty(password) Then
+
+            Dim result As DialogResult = MessageBox.Show("No ha configurado la conexión a la base de datos, no podrá realizar ningún procedimiento. ¿Desea salir?",
+                                                         "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
                 ' Cierra la aplicación
                 Environment.Exit(0)
@@ -286,16 +310,24 @@ Public Class ConfiguraConexionInicial
         Else
             e.Cancel = False
         End If
+        'instancia = ConfigurationManager.AppSettings("instanciabdd")
+        'basededatos = ConfigurationManager.AppSettings("basededatos")
+        'usuario = ConfigurationManager.AppSettings("usuariobdd")
+        'password = ConfigurationManager.AppSettings("passwordbdd")
+        'rbsrv = Convert.ToBoolean(ConfigurationManager.AppSettings("servidor"))
+        'rbsta = Convert.ToBoolean(ConfigurationManager.AppSettings("estacion"))
+        'ipservidor = ConfigurationManager.AppSettings("ipservidor")
 
-        'If File.Exists(Ruta & archivo) Then
-        '    e.Cancel = False
-        'Else
-        '    Dim opc As DialogResult = MsgBox("Aun no se configura la conexion inicial, sin ella el sistema no continuara. Dar click en SI para configurar, No para cerrar el sistema.", MsgBoxStyle.Critical + MsgBoxStyle.YesNo, "Salir")
-        '    If opc = DialogResult.Yes Then
+        'If String.IsNullOrEmpty(instancia) OrElse String.IsNullOrEmpty(basededatos) OrElse String.IsNullOrEmpty(usuario) OrElse String.IsNullOrEmpty(password) Then
+        '    Dim result As DialogResult = MessageBox.Show("No ha configurado la conexion a la base de datos, no podrá realizar ningún procedimiento. ¿Desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        '    If result = DialogResult.Yes Then
+        '        ' Cierra la aplicación
+        '        Environment.Exit(0)
+        '    ElseIf result = DialogResult.No Then
         '        e.Cancel = True
-        '    ElseIf opc = DialogResult.No Then
-        '        End
         '    End If
+        'Else
+        '    e.Cancel = False
         'End If
     End Sub
     Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click

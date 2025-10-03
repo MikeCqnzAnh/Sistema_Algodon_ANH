@@ -140,25 +140,27 @@ Public Class Acceso
     'End Sub
     Private Sub compruebaconexioninicial()
         Try
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-            ConfigurationManager.RefreshSection("AppSettings")
+            ' Leer valores directamente desde My.Settings
+            Dim rutaArchivo As String = My.Settings.RutaLC
+            instanciabdd = My.Settings.instanciabdd
+            basededatos = My.Settings.basededatos
+            usuariodb = My.Settings.usuariobdd
+            passworddb = My.Settings.passwordbdd
+            _usuario = My.Settings.usuario
+            _passuser = My.Settings.password
+            _ckrecuerda = My.Settings.CkRecordar
 
-            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
-            instanciabdd = config.AppSettings.Settings("instanciabdd").Value.ToString()
-            basededatos = config.AppSettings.Settings("basededatos").Value.ToString()
-            usuariodb = config.AppSettings.Settings("usuariobdd").Value.ToString()
-            passworddb = config.AppSettings.Settings("passwordbdd").Value.ToString()
-            _usuario = config.AppSettings.Settings("usuario").Value.ToString()
-            _passuser = config.AppSettings.Settings("password").Value.ToString()
-            _ckrecuerda = config.AppSettings.Settings("ckrecuerda").Value
-
+            ' Actualizar controles
             TbUsuario.Text = _usuario
             TbClave.Text = _passuser
             CkRecordarPassword.Checked = _ckrecuerda
 
-            If instanciabdd = "" OrElse basededatos = "" OrElse usuariodb = "" OrElse passworddb = "" Then
-                Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            ' Verificar si la conexión inicial está configurada
+            If String.IsNullOrEmpty(instanciabdd) OrElse String.IsNullOrEmpty(basededatos) _
+            OrElse String.IsNullOrEmpty(usuariodb) OrElse String.IsNullOrEmpty(passworddb) Then
+
+                Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?",
+                                                        "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then
                     Dim fconexioninicial As New ConfiguraConexionInicial()
                     fconexioninicial.ShowDialog()
@@ -167,8 +169,10 @@ Public Class Acceso
                 End If
             End If
 
+            ' Verificar si la licencia existe
             If Not File.Exists(rutaArchivo) Then
-                Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?", "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?",
+                                                        "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 If result = DialogResult.Yes Then
                     Dim registrolicencia As New Registrolicencia()
                     registrolicencia.ShowDialog()
@@ -181,6 +185,50 @@ Public Class Acceso
             MessageBox.Show("Error " & ex.Message)
         End Try
     End Sub
+
+    'Private Sub compruebaconexioninicial()
+    '    Try
+    '        Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+    '        ConfigurationManager.RefreshSection("AppSettings")
+
+    '        'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+    '        Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+    '        instanciabdd = config.AppSettings.Settings("instanciabdd").Value.ToString()
+    '        basededatos = config.AppSettings.Settings("basededatos").Value.ToString()
+    '        usuariodb = config.AppSettings.Settings("usuariobdd").Value.ToString()
+    '        passworddb = config.AppSettings.Settings("passwordbdd").Value.ToString()
+    '        _usuario = config.AppSettings.Settings("usuario").Value.ToString()
+    '        _passuser = config.AppSettings.Settings("password").Value.ToString()
+    '        _ckrecuerda = config.AppSettings.Settings("ckrecuerda").Value
+
+    '        TbUsuario.Text = _usuario
+    '        TbClave.Text = _passuser
+    '        CkRecordarPassword.Checked = _ckrecuerda
+
+    '        If instanciabdd = "" OrElse basededatos = "" OrElse usuariodb = "" OrElse passworddb = "" Then
+    '            Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+    '            If result = DialogResult.Yes Then
+    '                Dim fconexioninicial As New ConfiguraConexionInicial()
+    '                fconexioninicial.ShowDialog()
+    '            Else
+    '                Application.Exit()
+    '            End If
+    '        End If
+
+    '        If Not File.Exists(rutaArchivo) Then
+    '            Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?", "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+    '            If result = DialogResult.Yes Then
+    '                Dim registrolicencia As New Registrolicencia()
+    '                registrolicencia.ShowDialog()
+    '            Else
+    '                Application.Exit()
+    '            End If
+    '        End If
+
+    '    Catch ex As Exception
+    '        MessageBox.Show("Error " & ex.Message)
+    '    End Try
+    'End Sub
 
     Private Sub Login()
         Try

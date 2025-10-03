@@ -1,5 +1,6 @@
 ﻿Imports System.Configuration
 Imports System.IO
+Imports Capa_Operacion
 Module Conexion
     Public IpServer As String
     Public UsuarioDB As String
@@ -66,19 +67,19 @@ Module Conexion
         'End Try
     End Sub
     Public Function conexionPrincipal()
-        LeerArchivo()
-        Return ("Data Source = " & Instancia & ";Initial Catalog=" & DataBase & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+        'LeerArchivo()
+        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=" & Parametros.BaseDeDatos & ";Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
     End Function
     Public Function conexionPerfiles()
-        LeerArchivoPerfiles()
-        Return ("Data Source = " & Instancia & ";Initial Catalog=" & DatabasePerfiles & ";Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+        'LeerArchivoPerfiles()
+        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=" & Parametros.BaseDeDatosPerfiles & ";Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
     End Function
     Public Function conexionMaster()
-        Return ("Data Source = " & Instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
     End Function
     Public Function conexionMasterRestaurar()
-        LeerArchivo()
-        Return ("Data Source = " & Instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+        'LeerArchivo()
+        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
     End Function
     Public Function conexionMasterExportarEstructura(ByVal instancia As String, ByVal usuario As String, ByVal password As String)
         Return ("Data Source = " & instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & usuario & ";Password=" & password & "")
