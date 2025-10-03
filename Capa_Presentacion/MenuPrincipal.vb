@@ -23,11 +23,9 @@ Public Class MenuPrincipal
         If Version > Application.ProductVersion Then
             BuscarActualizacion.ShowDialog()
         End If
-        consultaItems()
+        Await validalicenciaAsync()
         ConsultaParametros()
         TipoUsuario()
-        Await validalicenciaAsync()
-        'ejecutaaccion()
     End Sub
     Public Async Sub ejecutaaccion()
         Try
@@ -276,11 +274,21 @@ Public Class MenuPrincipal
             e.Cancel = True
         End If
     End Sub
+    Private Sub controlmenu(ByVal scl As Boolean)
+        CatálogosToolStripMenuItem.Enabled = scl
+        ProcesosToolStripMenuItem.Enabled = scl
+        ComercializaciónToolStripMenuItem.Enabled = scl
+        AlmacenesToolStripMenuItem.Enabled = scl
+        AdministraciónToolStripMenuItem.Enabled = scl
+        ReportesToolStripMenuItem.Enabled = scl
+        UtileriasToolStripMenuItem.Enabled = scl
+    End Sub
     Private Async Function validalicenciaAsync() As Task
         Dim cpuid As String = obtienecpuid()
         Dim tieneInternet As Boolean = Await conexioninternet()
         Dim licencia As LicenciaHelper.Licencia = Nothing
-
+        Dim mensaje As String = ""
+        consultaItems()
         If tieneInternet Then
             Dim resultado = Await LicenciaHelper.VerificarLicenciaAsync(cpuid)
 
@@ -289,23 +297,42 @@ Public Class MenuPrincipal
 
                 Select Case licencia.idestatusserial
                     Case 0
-                        MessageBox.Show("Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        'MessageBox.Show("Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        mensaje = "Licencia INACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MMMM/yyyy")
+                        controlmenu(False)
                     Case 1
-                        MessageBox.Show("Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        'MessageBox.Show("Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         'controleslicencia(True)
+                        Dim fecha1 As Date = Date.Parse(licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"))
+                        Dim fecha2 As Date = Date.Parse(licencia.fechaservidor?.ToString("dd/MM/yyyy"))
+                        Dim dias As Long = DateDiff(DateInterval.Day, fecha2, fecha1)
+                        If dias <= 7 Then
+                            mensaje = "Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MMMM/yyyy") & " Proxima a vencer. Faltan " & dias & " dias."
+                        Else
+                            mensaje = "Licencia ACTIVA. Válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MMMM/yyyy")
+                        End If
+                        controlmenu(True)
                     Case 2
-                        MessageBox.Show("Licencia VENCIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        'controleslicencia(False)
+
+                        Dim fecha1 As Date = Date.Parse(licencia.fechavencimientoserial)
+                        Dim fecha2 As Date = Date.Parse(licencia.fechaservidor)
+                        Dim dias As Long = DateDiff(DateInterval.Day, fecha1, fecha2)
+                        If dias <= 3 Then
+                            mensaje = "Licencia VENCIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MMMM/yyyy") & ". Si no se Activa en " & 3 - dias & " dias, el sistema se inactivara, favor de comunicarse con su proveedor del servicio."
+                        End If
+                        controlmenu(True)
                     Case 3
-                        MessageBox.Show("Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        'MessageBox.Show("Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"), "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         'controleslicencia(False)
+                        mensaje = "Licencia SUSPENDIDA desde: " & licencia.fechavencimientoserial?.ToString("dd/MMMM/yyyy")
+                        controlmenu(False)
                 End Select
 
                 ' Guardar la licencia localmente
                 LicenciaHelper.GuardarLicenciaCifrada(licencia)
             Else
                 MessageBox.Show("No se pudo validar la licencia en línea. Se intentará usar la licencia local.", "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                validar(licencia)
+                mensaje = validar(licencia)
 
                 ' Aquí podrías validar la licencia local si la online no es válida
                 'If licencia Is Nothing Then
@@ -323,8 +350,10 @@ Public Class MenuPrincipal
             End If
         Else
             MessageBox.Show("Sin conexión a internet. Se validará la licencia local.", "Sin conexión", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            validar(licencia)
+            mensaje = validar(licencia)
         End If
+        lbestatus.Text = mensaje
+
     End Function
     Private Function obtienecpuid() As String
         Try
@@ -358,25 +387,22 @@ Public Class MenuPrincipal
             Return False
         End Try
     End Function
-    Private Sub validar(licencia As Licencia)
+    Private Function validar(licencia As Licencia) As String
+        Dim mensaje As String = ""
         ' Validar licencia local si no fue válida la online
         If licencia Is Nothing Then
             licencia = LicenciaHelper.LeerLicenciaLocal()
         End If
 
         If Not LicenciaHelper.LicenciaEsValida(licencia) Then
-            MessageBox.Show("La licencia no es válida o ha expirado. Vencida desde la fecha " &
-                        licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"),
-                        "Licencia inválida", MessageBoxButtons.OK, MessageBoxIcon.[Stop])
+            mensaje = "La licencia no es válida o ha expirado. Vencida desde la fecha " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy")
             'controleslicencia(False)
-            Return
         Else
-            MessageBox.Show("Licencia válida hasta: " &
-                        licencia.fechavencimientoserial?.ToString("dd/MM/yyyy"),
-                        "Licencia", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            mensaje = "Licencia válida hasta: " & licencia.fechavencimientoserial?.ToString("dd/MM/yyyy")
             'controleslicencia(True)
         End If
-    End Sub
+        Return mensaje
+    End Function
 
     Private Sub AsociacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsociacionesToolStripMenuItem.Click
         Asociaciones.ShowDialog()

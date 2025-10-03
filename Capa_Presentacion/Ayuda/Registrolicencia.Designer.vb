@@ -306,7 +306,7 @@ Partial Class Registrolicencia
         Me.btactivar.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(137, Byte), Integer))
         Me.btactivar.OnHoverTextColor = System.Drawing.Color.White
         Me.btactivar.selected = False
-        Me.btactivar.Size = New System.Drawing.Size(177, 37)
+        Me.btactivar.Size = New System.Drawing.Size(244, 37)
         Me.btactivar.TabIndex = 116
         Me.btactivar.Text = "ACTIVAR LICENCIA"
         Me.btactivar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

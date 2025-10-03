@@ -204,9 +204,10 @@ Partial Class MenuPrincipal
         Me.SbNombreUsuario = New System.Windows.Forms.ToolStripStatusLabel()
         Me.SbUsuario = New System.Windows.Forms.ToolStripStatusLabel()
         Me.SbIdUsuario = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TsPrecioDolar = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lbestatus = New System.Windows.Forms.Label()
         Me.MSMenu.SuspendLayout()
         Me.SsBarraEstatus.SuspendLayout()
         Me.SuspendLayout()
@@ -219,7 +220,7 @@ Partial Class MenuPrincipal
         Me.MSMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CatálogosToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.ComercializaciónToolStripMenuItem, Me.AlmacenesToolStripMenuItem, Me.AdministraciónToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.TsSalir})
         Me.MSMenu.Location = New System.Drawing.Point(0, 0)
         Me.MSMenu.Name = "MSMenu"
-        Me.MSMenu.Size = New System.Drawing.Size(1308, 24)
+        Me.MSMenu.Size = New System.Drawing.Size(965, 24)
         Me.MSMenu.TabIndex = 0
         Me.MSMenu.Text = "MenuStrip1"
         '
@@ -1447,21 +1448,21 @@ Partial Class MenuPrincipal
         'CrearEstructuraToolStripMenuItem
         '
         Me.CrearEstructuraToolStripMenuItem.Name = "CrearEstructuraToolStripMenuItem"
-        Me.CrearEstructuraToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.CrearEstructuraToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CrearEstructuraToolStripMenuItem.Tag = "127,125"
         Me.CrearEstructuraToolStripMenuItem.Text = "Crear estructura"
         '
         'ImportarCatalogosToolStripMenuItem1
         '
         Me.ImportarCatalogosToolStripMenuItem1.Name = "ImportarCatalogosToolStripMenuItem1"
-        Me.ImportarCatalogosToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.ImportarCatalogosToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ImportarCatalogosToolStripMenuItem1.Tag = "128,125"
         Me.ImportarCatalogosToolStripMenuItem1.Text = "Importar catalogos"
         '
         'ConexionInicialToolStripMenuItem1
         '
         Me.ConexionInicialToolStripMenuItem1.Name = "ConexionInicialToolStripMenuItem1"
-        Me.ConexionInicialToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.ConexionInicialToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.ConexionInicialToolStripMenuItem1.Tag = "129,125"
         Me.ConexionInicialToolStripMenuItem1.Text = "Conexion inicial"
         '
@@ -1504,12 +1505,12 @@ Partial Class MenuPrincipal
         '
         Me.SsBarraEstatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.SsBarraEstatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
-        Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel3, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
-        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 750)
+        Me.SsBarraEstatus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SbBdd, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel1, Me.SbTipoUsuario, Me.TsSeparador, Me.SbNombreUsuario, Me.SbUsuario, Me.SbIdUsuario, Me.ToolStripStatusLabel4, Me.TsPrecioDolar, Me.ToolStripStatusLabel5})
+        Me.SsBarraEstatus.Location = New System.Drawing.Point(0, 529)
         Me.SsBarraEstatus.Name = "SsBarraEstatus"
         Me.SsBarraEstatus.Padding = New System.Windows.Forms.Padding(16, 0, 1, 0)
         Me.SsBarraEstatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.SsBarraEstatus.Size = New System.Drawing.Size(1308, 22)
+        Me.SsBarraEstatus.Size = New System.Drawing.Size(965, 22)
         Me.SsBarraEstatus.TabIndex = 4
         Me.SsBarraEstatus.Text = " "
         '
@@ -1563,12 +1564,6 @@ Partial Class MenuPrincipal
         Me.SbIdUsuario.Text = "idUsuario"
         Me.SbIdUsuario.Visible = False
         '
-        'ToolStripStatusLabel3
-        '
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(181, 17)
-        Me.ToolStripStatusLabel3.Text = "|                                                        |"
-        '
         'TsPrecioDolar
         '
         Me.TsPrecioDolar.Name = "TsPrecioDolar"
@@ -1581,6 +1576,20 @@ Partial Class MenuPrincipal
         Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(119, 17)
         Me.ToolStripStatusLabel5.Text = "$ : TIPO DE CAMBIO"
         '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(91, 17)
+        Me.ToolStripStatusLabel4.Text = "|                          |"
+        '
+        'lbestatus
+        '
+        Me.lbestatus.AutoSize = True
+        Me.lbestatus.Location = New System.Drawing.Point(12, 43)
+        Me.lbestatus.Name = "lbestatus"
+        Me.lbestatus.Size = New System.Drawing.Size(0, 15)
+        Me.lbestatus.TabIndex = 1
+        '
         'MenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1588,7 +1597,8 @@ Partial Class MenuPrincipal
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.Capa_Presentacion.My.Resources.Resources.ICONO_CALCULACOTTON_MR_LETRA_011
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(1308, 772)
+        Me.ClientSize = New System.Drawing.Size(965, 551)
+        Me.Controls.Add(Me.lbestatus)
         Me.Controls.Add(Me.SsBarraEstatus)
         Me.Controls.Add(Me.MSMenu)
         Me.DoubleBuffered = True
@@ -1726,7 +1736,6 @@ Partial Class MenuPrincipal
     Friend WithEvents SbNombreUsuario As ToolStripStatusLabel
     Friend WithEvents SbUsuario As ToolStripStatusLabel
     Friend WithEvents SbIdUsuario As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents TsPrecioDolar As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
     Friend WithEvents MonedasToolStripMenuItem As ToolStripMenuItem
@@ -1792,4 +1801,6 @@ Partial Class MenuPrincipal
     Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcercaDeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistroDeLicenciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents lbestatus As Label
 End Class
