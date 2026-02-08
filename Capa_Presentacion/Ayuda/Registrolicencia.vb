@@ -5,7 +5,7 @@ Imports Newtonsoft.Json
 
 Public Class Registrolicencia
     Inherits Form
-
+    Shared parametros As Parametros
     Public Sub New()
         InitializeComponent()
     End Sub
@@ -174,12 +174,15 @@ Public Class Registrolicencia
 
     Private Sub obtenerlicencia()
         Try
-            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-            ConfigurationManager.RefreshSection("AppSettings")
+            parametros = Parametros.Cargar
 
-            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+            Dim rutaArchivo As String
+            Dim servidor As Boolean = parametros.Servidor
+            If servidor Then
+                rutaArchivo = parametros.RutaLc.ToString()
+            Else
+                rutaArchivo = Path.Combine($"\\{parametros.IpServidor}", "Calcula Cotton\licencia_cifrada.dat")
+            End If
             If Not File.Exists(rutaArchivo) Then Return
 
             Dim jsonEnvoltura As String = File.ReadAllText(rutaArchivo)
@@ -272,12 +275,14 @@ Public Class Registrolicencia
     End Sub
 
     Private Sub FrmRegistrolicencia_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-        Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-        ConfigurationManager.RefreshSection("AppSettings")
-
-        'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-        Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+        parametros = Parametros.Cargar
+        Dim rutaArchivo As String
+        Dim servidor As Boolean = parametros.Servidor
+        If servidor Then
+            rutaArchivo = parametros.RutaLc.ToString()
+        Else
+            rutaArchivo = Path.Combine($"\\{parametros.IpServidor}", "Calcula Cotton\licencia_cifrada.dat")
+        End If
         If Not File.Exists(rutaArchivo) Then
             Dim result As DialogResult = MessageBox.Show("El Sistema aun no cuenta con una licencia activa, desea salir?", "Licencia sin activar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
             If result = DialogResult.Yes Then

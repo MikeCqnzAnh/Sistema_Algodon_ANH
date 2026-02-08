@@ -304,6 +304,10 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_N
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo_log.ldf
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
@@ -313,6 +317,7 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\MySql.Data.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Google.Protobuf.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\stdole.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.pdb
@@ -322,16 +327,11 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\MySql.Data.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Google.Protobuf.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.AssemblyReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.Resources.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Neg.E79A89D6.Up2Date
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbprojResolveAssemblyReference.cache

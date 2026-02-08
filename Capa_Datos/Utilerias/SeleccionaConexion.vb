@@ -6,7 +6,7 @@ Public Class SeleccionaConexion
     Public Overridable Sub Conexion(ByRef EntidadSeleccionaConexion As Capa_Entidad.SeleccionaConexion)
         Dim EntidadSeleccionaConexion1 As New Capa_Entidad.SeleccionaConexion()
         EntidadSeleccionaConexion1 = EntidadSeleccionaConexion
-        DataBase = EntidadSeleccionaConexion1.BaseDeDatos
+        'DataBase = EntidadSeleccionaConexion1.BaseDeDatos
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
             cnn.Open()

@@ -7,9 +7,11 @@ Imports System.Text
 Imports System.Threading.Tasks
 Imports System.Windows.Forms
 Imports Newtonsoft.Json
+Imports Capa_Operacion
 
 Public NotInheritable Class LicenciaHelper
-
+    Shared parametros As Parametros
+    Shared apikey As String = "zM4yl7mEVEaG3YXg9ad9kJt"
     Public Class LicenciaResponse
         Public Property estado As String                ' Solo se usa en la respuesta de API
         Public Property licencia As Licencia            ' Solo se usa en la respuesta de API
@@ -31,8 +33,8 @@ Public NotInheritable Class LicenciaHelper
         Public Property licencia As String
         Public Property cpuid As String
         Public Property serialencryp As String
-        Public Property idperiodo As Integer
         Public Property periodo As String
+        Public Property idperiodo As Integer
         Public Property cantidad As Integer
         Public Property fechaactivacionserial As DateTime?
         Public Property fechavencimientoserial As DateTime?
@@ -51,11 +53,13 @@ Public NotInheritable Class LicenciaHelper
     Private Shared ReadOnly IV As String = "9sG7YxVpA4zLq2Xe"                   ' 16 chars ✔
 
     Public Shared Async Function VerificarLicenciaAsync(cpuid As String) As Task(Of LicenciaResponse)
-        'Dim url As String = $"https://api-ccotton.onrender.com/licencia/{cpuid}"
-        Dim url As String = $"http://localhost:5000/licencia/cpuid/{cpuid}"
+        Dim url As String = $"http://147.93.191.170/licencia/cpuid/{cpuid}"
+        'Dim url As String = $"http://localhost:5000/licencia/cpuid/{cpuid}"
         System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
 
         Using client As New HttpClient()
+            client.DefaultRequestHeaders.Clear()
+            client.DefaultRequestHeaders.Add("Authorization", apikey)
             Try
                 Dim response As HttpResponseMessage = Await client.GetAsync(url)
                 If response.IsSuccessStatusCode Then
@@ -70,38 +74,48 @@ Public NotInheritable Class LicenciaHelper
     End Function
     Public Shared Async Function ActualizarLicenciaAsync(licencia As Licencia) As Task(Of Boolean)
         Using client As New HttpClient()
-            Dim url = $"http://localhost:5000/actualizar_licencia"
+            Dim url = $"http://147.93.191.170/actualizar_licencia"
+            'Dim url = $"http://localhost:5000/actualizar_licencia"
+            client.DefaultRequestHeaders.Clear()
+            client.DefaultRequestHeaders.Add("Authorization", apikey)
+            Try
+                ' Construir el JSON con los campos que requiere la API
+                Dim body As New Dictionary(Of String, Object) From {
+                    {"cpuid", licencia.cpuid},
+                    {"nombrecliente", licencia.nombrerazonsocial},
+                    {"emailcliente", licencia.email},
+                    {"nombrecontacto", licencia.nombrecontacto},
+                    {"telefonocontacto", licencia.telfonocontacto},
+                    {"idestatusserial", licencia.idestatusserial},
+                    {"fechavencimiento", licencia.fechavencimientoserial?.ToString("yyyy-MM-dd")},
+                    {"serialencryp", licencia.serialencryp}
+                }
 
-            ' Construir el JSON con los campos que requiere la API
-            Dim body As New Dictionary(Of String, Object) From {
-                {"cpuid", licencia.cpuid},
-                {"nombrecliente", licencia.nombrerazonsocial},
-                {"emailcliente", licencia.email},
-                {"nombrecontacto", licencia.nombrecontacto},
-                {"telefonocontacto", licencia.telfonocontacto},
-                {"idestatusserial", licencia.idestatusserial},
-                {"fechavencimiento", licencia.fechavencimientoserial?.ToString("yyyy-MM-dd")},
-                {"serialencryp", licencia.serialencryp}
-            }
+                Dim json As String = JsonConvert.SerializeObject(body)
+                Dim content As New StringContent(json, Encoding.UTF8, "application/json")
 
-            Dim json As String = JsonConvert.SerializeObject(body)
-            Dim content As New StringContent(json, Encoding.UTF8, "application/json")
+                Dim response = Await client.PutAsync(url, content)
 
-            Dim response = Await client.PutAsync(url, content)
+                If response.IsSuccessStatusCode Then
+                    Return True
+                Else
+                    Dim errorMsg = Await response.Content.ReadAsStringAsync()
+                    Throw New Exception($"Error al actualizar licencia: {response.StatusCode} - {errorMsg}")
+                End If
+            Catch ex As Exception
 
-            If response.IsSuccessStatusCode Then
-                Return True
-            Else
-                Dim errorMsg = Await response.Content.ReadAsStringAsync()
-                Throw New Exception($"Error al actualizar licencia: {response.StatusCode} - {errorMsg}")
-            End If
+            End Try
+
         End Using
     End Function
     Public Shared Async Function consultalic(serialencypt As String) As Task(Of LicenciaResponse)
-        Dim url As String = $"http://localhost:5000/licencia/serial/{serialencypt}"
+        'Dim url As String = $"http://localhost:5000/licencia/serial/{serialencypt}"
+        Dim url As String = $"http://147.93.191.170/licencia/serial/{serialencypt}"
         System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
 
         Using client As New HttpClient()
+            client.DefaultRequestHeaders.Clear()
+            client.DefaultRequestHeaders.Add("Authorization", apikey)
             Try
                 Dim response As HttpResponseMessage = Await client.GetAsync(url)
                 If response.IsSuccessStatusCode Then
@@ -129,6 +143,7 @@ Public NotInheritable Class LicenciaHelper
     End Function
     Public Shared Sub actualizabdd(bdd As String)
         Try
+            parametros = Parametros.Cargar()
             Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
             ConfigurationManager.RefreshSection("appSettings")
 
@@ -139,10 +154,13 @@ Public NotInheritable Class LicenciaHelper
         End Try
     End Sub
     Public Shared Async Function datoslicencia(serialorig As String) As Task(Of LicenciaResponse)
-        Dim url As String = $"http://localhost:5000/licencia_info/{serialorig}"
+        'Dim url As String = $"http://localhost:5000/licencia_info/{serialorig}"
+        Dim url As String = $"http://147.93.191.170/licencia_info/{serialorig}"
         System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
 
         Using client As New HttpClient()
+            client.DefaultRequestHeaders.Clear()
+            client.DefaultRequestHeaders.Add("Authorization", apikey)
             Try
                 Dim response As HttpResponseMessage = Await client.GetAsync(url)
                 If response.IsSuccessStatusCode Then
@@ -211,12 +229,13 @@ Public NotInheritable Class LicenciaHelper
     End Function
 
     Public Shared Sub GuardarLicenciaCifrada(licencia As Licencia)
-        Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-        ConfigurationManager.RefreshSection("AppSettings")
+        'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+        'ConfigurationManager.RefreshSection("AppSettings")
 
 
         'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-        Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+        Parametros.Cargar()
+        Dim rutaArchivo As String = parametros.RutaLc.ToString()
         Dim directorio As String = Path.GetDirectoryName(rutaArchivo)
         If Not Directory.Exists(directorio) Then
             Directory.CreateDirectory(directorio)
@@ -236,11 +255,11 @@ Public NotInheritable Class LicenciaHelper
     Public Shared Function LeerLicenciaLocal() As Licencia
         Try
             'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-            ConfigurationManager.RefreshSection("AppSettings")
-
+            'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            'ConfigurationManager.RefreshSection("AppSettings")
+            parametros = Parametros.Cargar
             'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
-            Dim rutaArchivo As String = config.AppSettings.Settings("RutaLc").Value.ToString()
+            Dim rutaArchivo As String = parametros.RutaLc.ToString()
             If Not File.Exists(rutaArchivo) Then Return Nothing
 
             Dim jsonEnvoltura As String = File.ReadAllText(rutaArchivo)
@@ -255,7 +274,28 @@ Public NotInheritable Class LicenciaHelper
             Return Nothing
         End Try
     End Function
+    Public Shared Function leerlicenciaestacion() As Licencia
+        Try
+            'Dim rutaArchivo As String = Path.Combine(Application.StartupPath, "licencia_cifrada.dat")
+            'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            'ConfigurationManager.RefreshSection("AppSettings")
+            parametros = Parametros.Cargar
+            Dim rutaArchivo As String = Path.Combine($"\\{parametros.IpServidor}", "Calcula Cotton\licencia_cifrada.dat")
+            'Dim rutaArchivo As String = parametros.RutaLc.ToString()
+            If Not File.Exists(rutaArchivo) Then Return Nothing
 
+            Dim jsonEnvoltura As String = File.ReadAllText(rutaArchivo)
+            Dim objetoCifrado = JsonConvert.DeserializeObject(Of LicenciaCifrada)(jsonEnvoltura)
+
+            If String.IsNullOrWhiteSpace(objetoCifrado?.datos) Then Return Nothing
+
+            Dim jsonDesencriptado As String = Desencriptar(objetoCifrado.datos)
+            Return JsonConvert.DeserializeObject(Of Licencia)(jsonDesencriptado)
+        Catch ex As Exception
+            MessageBox.Show("Error al leer o desencriptar licencia: " & ex.Message)
+            Return Nothing
+        End Try
+    End Function
     Public Shared Function LicenciaEsValida(licencia As Licencia) As Boolean
         If licencia Is Nothing Then Return False
         If licencia.idestatusserial <> 1 Then Return False

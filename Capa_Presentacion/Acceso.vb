@@ -5,26 +5,31 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 Imports Capa_Entidad
 Imports Capa_Negocio
+Imports Capa_Operacion
 Imports Capa_Operacion.Configuracion
 Imports Microsoft.SqlServer
 Public Class Acceso
+    Private parametros As Parametros
     Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
     Dim archivo As String = "cnn.ini"
     Private _ckrecuerda, _servidor, _estacion As Boolean
     Private _nombre, _usuario, _passuser, usuariodb, passworddb, instanciabdd, basededatos As String
     Private Sub Acceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        parametros = Parametros.Cargar()
         compruebaconexioninicial()
-        TbUsuario.Text = My.Settings.user
+        TbUsuario.Text = parametros.Usuario
+
         If TbUsuario.Text = "" Then
             TbUsuario.Select()
         Else
             TbClave.Select()
         End If
-        If My.Settings.CkRecordar = True Then
-            CkRecordarPassword.Checked = My.Settings.CkRecordar
-            TbClave.Text = My.Settings.password
+        If parametros.CkRecuerda = True Then
+            CkRecordarPassword.Checked = parametros.CkRecuerda
+            TbClave.Text = parametros.Password
         End If
         llenaCombos()
+        CbBaseDeDatos.SelectedValue = parametros.ultimabdd
         Versionapp()
     End Sub
 #Region "Drag Form - Arrastrar/ mover Formulario"
@@ -141,26 +146,27 @@ Public Class Acceso
     Private Sub compruebaconexioninicial()
         Try
             ' Leer valores directamente desde My.Settings
-            Dim rutaArchivo As String = My.Settings.RutaLC
-            instanciabdd = My.Settings.instanciabdd
-            basededatos = My.Settings.basededatos
-            usuariodb = My.Settings.usuariobdd
-            passworddb = My.Settings.passwordbdd
-            _usuario = My.Settings.usuario
-            _passuser = My.Settings.password
-            _ckrecuerda = My.Settings.CkRecordar
+            Dim rutaArchivo As String = parametros.RutaLc
+            Dim rutalicencia As String = Path.Combine($"\\{parametros.IpServidor}", "Calcula Cotton\licencia_cifrada.dat")
+            Dim servidor As Boolean = parametros.Servidor
+            instanciabdd = parametros.InstanciaBDD
+            basededatos = parametros.BaseDeDatos
+            usuariodb = parametros.UsuarioBDD
+            passworddb = parametros.PasswordBDD
+            _usuario = parametros.Usuario
+            _passuser = parametros.Password
+            _ckrecuerda = parametros.CkRecuerda
 
             ' Actualizar controles
-            TbUsuario.Text = _usuario
-            TbClave.Text = _passuser
-            CkRecordarPassword.Checked = _ckrecuerda
+            'TbUsuario.Text = _usuario
+            'TbClave.Text = _passuser
+            'CkRecordarPassword.Checked = _ckrecuerda
 
             ' Verificar si la conexión inicial está configurada
             If String.IsNullOrEmpty(instanciabdd) OrElse String.IsNullOrEmpty(basededatos) _
             OrElse String.IsNullOrEmpty(usuariodb) OrElse String.IsNullOrEmpty(passworddb) Then
 
-                Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?",
-                                                        "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then
                     Dim fconexioninicial As New ConfiguraConexionInicial()
                     fconexioninicial.ShowDialog()
@@ -170,17 +176,18 @@ Public Class Acceso
             End If
 
             ' Verificar si la licencia existe
-            If Not File.Exists(rutaArchivo) Then
-                Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?",
-                                                        "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If Not File.Exists(rutaArchivo) And servidor Then
+                Dim result As DialogResult = MessageBox.Show("El sistema no ha sido activado aun. ¿Desea activarlo ahora?", "Activar Licencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 If result = DialogResult.Yes Then
                     Dim registrolicencia As New Registrolicencia()
                     registrolicencia.ShowDialog()
                 Else
                     Application.Exit()
                 End If
+            ElseIf Not File.Exists(rutalicencia) And servidor = False Then
+                Dim result As DialogResult = MessageBox.Show("La licencia no se ha configurado en el servidor, verificar primero antes de continuar.", "Error al validar Servidor.", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Application.Exit()
             End If
-
         Catch ex As Exception
             MessageBox.Show("Error " & ex.Message)
         End Try
@@ -232,18 +239,20 @@ Public Class Acceso
 
     Private Sub Login()
         Try
+            parametros = Parametros.Cargar()
             LicenciaHelper.actualizabdd(CbBaseDeDatos.Text.Trim)
             If UsuarioRegistrado(TbUsuario.Text) = True Then
-                My.Settings.user = TbUsuario.Text
+                parametros.Usuario = TbUsuario.Text
                 VarGlob.Usuario = TbUsuario.Text
                 GeneraRegistroBitacora(Me.Text.Clone.ToString, BtAccesar.Text)
+                parametros.ultimabdd = CbBaseDeDatos.SelectedValue
                 If CkRecordarPassword.Checked = True Then
-                    My.Settings.password = TbClave.Text
-                    My.Settings.CkRecordar = CkRecordarPassword.Checked
+                    parametros.Password = TbClave.Text
+                    parametros.CkRecuerda = CkRecordarPassword.Checked
                 Else
-                    My.Settings.CkRecordar = CkRecordarPassword.Checked
+                    parametros.CkRecuerda = CkRecordarPassword.Checked
                 End If
-                My.Settings.Save()
+                parametros.Guardar()
                 Me.Hide()
                 MenuPrincipal.ShowDialog()
             End If
@@ -279,7 +288,7 @@ Public Class Acceso
         If Tabla.Rows(0).Item("Validacion") = 1 Then
             _BaseDeDatos = CbBaseDeDatos.Text
             _IdUsuario = Tabla.Rows(0).Item("IdUsuario")
-            _Usuario = Tabla.Rows(0).Item("Usuario")
+            _usuario = Tabla.Rows(0).Item("Usuario")
             _IdTipoUsuario = Tabla.Rows(0).Item("Tipo")
             _TipoUsuario = Tabla.Rows(0).Item("Descripcion")
         End If

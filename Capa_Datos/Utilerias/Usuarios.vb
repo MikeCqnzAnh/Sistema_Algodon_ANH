@@ -86,7 +86,7 @@ Public Class Usuarios
         Dim EntidadUsuarios1 = New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
         EntidadUsuarios1.TablaConsulta = New DataTable
-        DataBase = EntidadUsuarios1.BaseDeDatos
+        'DataBase = EntidadUsuarios1.BaseDeDatos
         Dim cnn As New SqlConnection(conexionPrincipal)
         Try
             cnn.Open()

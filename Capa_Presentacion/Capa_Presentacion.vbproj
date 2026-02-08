@@ -1887,6 +1887,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ayuda\Acercade.resx">
       <DependentUpon>Acercade.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ayuda\Registrolicencia.resx">
       <DependentUpon>Registrolicencia.vb</DependentUpon>
@@ -1988,6 +1989,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\AgregaPacasRangos.resx">
       <DependentUpon>AgregaPacasRangos.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Comercializacion\Clasificacion\ClasificacionparaVenta.resx">
       <DependentUpon>ClasificacionparaVenta.vb</DependentUpon>
@@ -2573,6 +2575,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\ActualizacionVenta.resx">
       <DependentUpon>ActualizacionVenta.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilerias\BuscarActualizacion.resx">
       <DependentUpon>BuscarActualizacion.vb</DependentUpon>

@@ -1601,6 +1601,10 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\C
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\AxShockwaveFlashObjects.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ALGODONDEMO.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ALGODONDEMO_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\PerfilesDemo.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\PerfilesDemo_log.ldf
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\BaseHVI.mdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\RPTAgrupadoPorClase.rpt
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\RPTCastigoPorRangos.rpt
@@ -1695,6 +1699,7 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\RPTVenta.vb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\RPTVentaDetalleCastigos.vb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Reportes\RPT\RPTVentaHVI.vb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\App.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.exe.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.exe
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.pdb
@@ -1730,7 +1735,6 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Entidad.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.dll.config
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Newtonsoft.Json.xml
@@ -1738,7 +1742,6 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Datos.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\MySql.Data.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Google.Protobuf.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.AssemblyReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Interop.Shell32.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Acceso.resources
@@ -1958,14 +1961,7 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.SeleccionaConexion.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.VerificaAutorizacion.resources
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Pre.30845BDF.Up2Date
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe.config
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\App.config
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ALGODONDEMO.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\ALGODONDEMO_log.ldf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\PerfilesDemo.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\PerfilesDemo_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbprojResolveAssemblyReference.cache

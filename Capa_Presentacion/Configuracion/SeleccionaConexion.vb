@@ -4,8 +4,11 @@ Imports Capa_Operacion.Configuracion
 Imports Capa_Entidad
 Imports Capa_Negocio
 Imports System.IO.Ports
+Imports Capa_Operacion
 Public Class SeleccionaConexion
+    Dim parametros As Parametros
     Private Sub SeleccionaConexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        parametros = Parametros.Cargar()
         llenaCombos()
         ConsultaInstancia()
     End Sub
@@ -40,16 +43,19 @@ Public Class SeleccionaConexion
     End Sub
     Private Sub SeleccionaConexion()
         Try
-            LicenciaHelper.actualizabdd(CbBaseDatos.Text.Trim)
+            Parametros.BaseDeDatos = CbBaseDatos.Text.Trim
+            'LicenciaHelper.actualizabdd(CbBaseDatos.Text.Trim)
             'Dim EntidadSeleccionaConexion As New Capa_Entidad.SeleccionaConexion
             'Dim NegocioSeleccionaConexion As New Capa_Negocio.SeleccionaConexion
             'EntidadSeleccionaConexion.BaseDeDatos = CbBaseDatos.Text
             'EntidadSeleccionaConexion.Conexion = Conexion.ConexionDataBase
             'NegocioSeleccionaConexion.Conexion(EntidadSeleccionaConexion)
+            parametros.Guardar()
+            MsgBox("Base de datos actualizada con exito.", MsgBoxStyle.Information, "Aviso")
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            MsgBox("Base de datos actualizada con exito.", MsgBoxStyle.Information, "Aviso")
+
         End Try
     End Sub
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click

@@ -2,84 +2,21 @@
 Imports System.IO
 Imports Capa_Operacion
 Module Conexion
-    Public IpServer As String
-    Public UsuarioDB As String
-    Public PasswordDB As String
-    Public Instancia As String
-    Public DataBase As String
-    Public DatabasePerfiles As String
-    Public ccnppl As String
-    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
-    Dim archivo As String = "cnn.ini"
-    Dim archivo2 As String = "cnnPerfiles.ini"
-    Sub LeerArchivo()
-        Instancia = ConfigurationManager.AppSettings("instanciabdd")
-        DataBase = ConfigurationManager.AppSettings("basededatos")
-        UsuarioDB = ConfigurationManager.AppSettings("usuariobdd")
-        PasswordDB = ConfigurationManager.AppSettings("passwordbdd")
-
-        'Dim leer As New StreamReader(Ruta & archivo)
-
-        'Try
-        '    While leer.Peek <> -1
-        '        Dim linea As String = leer.ReadLine()
-        '        If String.IsNullOrEmpty(linea) Then
-        '            Continue While
-        '        End If
-        '        Dim ArregloCadena() As String = Split(linea, ",")
-        '        IpServer = ArregloCadena(0)
-        '        Instancia = ArregloCadena(1)
-        '        UsuarioDB = ArregloCadena(2)
-        '        PasswordDB = ArregloCadena(3)
-        '    End While
-
-        '    leer.Close()
-
-        'Catch ex As Exception
-        '    MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        'End Try
-    End Sub
-    Sub LeerArchivoPerfiles()
-        Instancia = ConfigurationManager.AppSettings("instanciabdd")
-        DatabasePerfiles = ConfigurationManager.AppSettings("basededatosPerfiles")
-        UsuarioDB = ConfigurationManager.AppSettings("usuariobdd")
-        PasswordDB = ConfigurationManager.AppSettings("passwordbdd")
-        'Dim leer As New StreamReader(Ruta & archivo2)
-
-        'Try
-        '    While leer.Peek <> -1
-        '        Dim linea As String = leer.ReadLine()
-        '        If String.IsNullOrEmpty(linea) Then
-        '            Continue While
-        '        End If
-        '        Dim ArregloCadena() As String = Split(linea, ",")
-        '        IpServer = ArregloCadena(0)
-        '        Instancia = ArregloCadena(1)
-        '        DatabasePerfiles = ArregloCadena(2)
-        '        UsuarioDB = ArregloCadena(3)
-        '        PasswordDB = ArregloCadena(4)
-        '    End While
-
-        '    leer.Close()
-
-        'Catch ex As Exception
-        '    MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        'End Try
-    End Sub
+    Private parametros As Parametros
     Public Function conexionPrincipal()
-        'LeerArchivo()
-        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=" & Parametros.BaseDeDatos & ";Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
+        parametros = Parametros.Cargar()
+        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatos & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
     End Function
     Public Function conexionPerfiles()
         'LeerArchivoPerfiles()
-        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=" & Parametros.BaseDeDatosPerfiles & ";Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
+        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatosPerfiles & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
     End Function
     Public Function conexionMaster()
-        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & Parametros.UsuarioBDD & ";Password=" & Parametros.UsuarioBDD & "")
+        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
     End Function
     Public Function conexionMasterRestaurar()
         'LeerArchivo()
-        Return ("Data Source = " & Parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & UsuarioDB & ";Password=" & PasswordDB & "")
+        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
     End Function
     Public Function conexionMasterExportarEstructura(ByVal instancia As String, ByVal usuario As String, ByVal password As String)
         Return ("Data Source = " & instancia & ";Initial Catalog=master;Persist Security Info=True;User ID=" & usuario & ";Password=" & password & "")

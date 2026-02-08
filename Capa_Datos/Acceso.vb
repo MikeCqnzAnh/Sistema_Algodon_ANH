@@ -44,7 +44,7 @@ Public Class Acceso
         Dim EntidadAcceso1 As New Capa_Entidad.Acceso
         EntidadAcceso1 = EntidadAcceso
         EntidadAcceso1.TablaConsulta = New DataTable
-        If EntidadAcceso1.BaseDeDatos <> Nothing Then DataBase = EntidadAcceso1.BaseDeDatos
+        'If EntidadAcceso1.BaseDeDatos <> Nothing Then DataBase = EntidadAcceso1.BaseDeDatos
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         'Dim cnn As New SqlConnection(conexionPrincipal)
@@ -96,7 +96,7 @@ Public Class Acceso
         Dim EntidadAcceso1 As New Capa_Entidad.Acceso
         EntidadAcceso1 = EntidadAcceso
         EntidadAcceso1.TablaConsulta = New DataTable
-        DataBase = EntidadAcceso1.BaseDeDatos
+        'DataBase = EntidadAcceso1.BaseDeDatos
         Dim cmdGuardar As SqlCommand
         'Dim cnn As New SqlConnection(conexionPrincipal)
         Dim cnn As New SqlConnection(conexionPerfiles)
