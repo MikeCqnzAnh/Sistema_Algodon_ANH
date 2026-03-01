@@ -8,7 +8,7 @@ Public Class ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadClasificacionVentaPaquetes1.Consulta
@@ -152,7 +152,7 @@ Public Class ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadClasificacionVentaPaquetes1.Actualiza
@@ -185,7 +185,7 @@ Public Class ClasificacionVentaPaquetes
     Public Overridable Sub UpsertMatExt(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1 = EntidadClasificacionVentaPaquetes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As New SqlCommand
         Try
             cnn.Open()
@@ -226,7 +226,7 @@ Public Class ClasificacionVentaPaquetes
     Public Overridable Sub Upsert(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1 = EntidadClasificacionVentaPaquetes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As New SqlCommand
         Try
             cnn.Open()
@@ -315,7 +315,7 @@ Public Class ClasificacionVentaPaquetes
     Public Overridable Sub UpsertHvi(ByRef EntidadClasificacionVentaPaquetes As Capa_Entidad.ClasificacionVentaPaquetes)
         Dim EntidadClasificacionVentaPaquetes1 As New Capa_Entidad.ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1 = EntidadClasificacionVentaPaquetes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try
@@ -338,7 +338,7 @@ Public Class ClasificacionVentaPaquetes
         EntidadClasificacionVentaPaquetes1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadClasificacionVentaPaquetes1.Eliminar

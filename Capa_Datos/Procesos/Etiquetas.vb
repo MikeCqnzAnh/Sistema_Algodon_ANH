@@ -8,7 +8,7 @@ Public Class Etiquetas
         EntidadEtiquetas1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadEtiquetas1.Consulta
@@ -47,7 +47,7 @@ Public Class Etiquetas
     Public Overridable Sub Actualizar(ByRef EntidadEtiquetas As Capa_Entidad.Etiquetas)
         Dim EntidadEtiquetas1 As New Capa_Entidad.Etiquetas
         EntidadEtiquetas1 = EntidadEtiquetas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -63,7 +63,7 @@ Public Class Etiquetas
         End Try
         'Dim EntidadEtiquetas1 As New Capa_Entidad.Etiquetas
         'EntidadEtiquetas1 = EntidadEtiquetas
-        'Dim cnn As New SqlConnection(conexionPrincipal)
+        'Dim cnn As SqlConnection = conexionPrincipal()
         'Dim cmdGuardar As SqlCommand
         'Try
         '    cnn.Open()

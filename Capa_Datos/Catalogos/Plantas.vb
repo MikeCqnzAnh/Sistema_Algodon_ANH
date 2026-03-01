@@ -5,7 +5,7 @@ Public Class Plantas
     Public Overridable Sub Upsert(ByRef EntidadPlantas As Capa_Entidad.Plantas)
         Dim EntidadPlantas1 As New Capa_Entidad.Plantas
         EntidadPlantas1 = EntidadPlantas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -35,7 +35,7 @@ Public Class Plantas
         EntidadPlanta1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadPlanta1.Consulta

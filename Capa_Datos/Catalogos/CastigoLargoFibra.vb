@@ -5,7 +5,7 @@ Public Class CastigoLargoFibra
     Public Overridable Sub Upsert(ByRef EntidadCastigoLargoFibra As Capa_Entidad.CastigoLargoFibra)
         Dim EntidadCastigoLargoFibra1 As New Capa_Entidad.CastigoLargoFibra
         EntidadCastigoLargoFibra1 = EntidadCastigoLargoFibra
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -78,7 +78,7 @@ Public Class CastigoLargoFibra
         EntidadCastigoLargoFibra1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadCastigoLargoFibra1.Consulta

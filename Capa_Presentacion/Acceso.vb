@@ -15,21 +15,21 @@ Public Class Acceso
     Private _ckrecuerda, _servidor, _estacion As Boolean
     Private _nombre, _usuario, _passuser, usuariodb, passworddb, instanciabdd, basededatos As String
     Private Sub Acceso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        parametros = Parametros.Cargar()
-        compruebaconexioninicial()
-        TbUsuario.Text = parametros.Usuario
+        'parametros = Parametros.Cargar()
+        'compruebaconexioninicial()
+        'TbUsuario.Text = parametros.Usuario
 
-        If TbUsuario.Text = "" Then
-            TbUsuario.Select()
-        Else
-            TbClave.Select()
-        End If
-        If parametros.CkRecuerda = True Then
-            CkRecordarPassword.Checked = parametros.CkRecuerda
-            TbClave.Text = parametros.Password
-        End If
+        'If TbUsuario.Text = "" Then
+        '    TbUsuario.Select()
+        'Else
+        '    TbClave.Select()
+        'End If
+        'If parametros.CkRecuerda = True Then
+        '    CkRecordarPassword.Checked = parametros.CkRecuerda
+        '    TbClave.Text = parametros.Password
+        'End If
         llenaCombos()
-        CbBaseDeDatos.SelectedValue = parametros.ultimabdd
+        'CbBaseDeDatos.SelectedValue = parametros.ultimabdd
         Versionapp()
     End Sub
 #Region "Drag Form - Arrastrar/ mover Formulario"
@@ -163,8 +163,7 @@ Public Class Acceso
             'CkRecordarPassword.Checked = _ckrecuerda
 
             ' Verificar si la conexión inicial está configurada
-            If String.IsNullOrEmpty(instanciabdd) OrElse String.IsNullOrEmpty(basededatos) _
-            OrElse String.IsNullOrEmpty(usuariodb) OrElse String.IsNullOrEmpty(passworddb) Then
+            If String.IsNullOrEmpty(instanciabdd) OrElse String.IsNullOrEmpty(basededatos) OrElse String.IsNullOrEmpty(usuariodb) OrElse String.IsNullOrEmpty(passworddb) Then
 
                 Dim result As DialogResult = MessageBox.Show("La Conexion inicial no se ha configurado aun. ¿Configurar conexion inicial?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then

@@ -6,7 +6,7 @@ Public Class ImportarCatalogos
     Public Overridable Sub Consultar(ByRef EntidadImportarCatalogos As Capa_Entidad.ImportarCatalogos)
         Dim EntidadImportarCatalogos1 As New Capa_Entidad.ImportarCatalogos()
         EntidadImportarCatalogos1 = EntidadImportarCatalogos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadImportarCatalogos1.TablaConsulta = New DataTable()
         EntidadImportarCatalogos1.TablaGeneral = New DataTable()
         Dim sqlcom1 As SqlCommand

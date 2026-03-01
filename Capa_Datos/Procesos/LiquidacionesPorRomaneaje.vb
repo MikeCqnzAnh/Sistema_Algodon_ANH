@@ -8,7 +8,7 @@ Public Class LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadLiquidacionesPorRomaneaje1.Consulta
@@ -75,7 +75,7 @@ Public Class LiquidacionesPorRomaneaje
     Public Overridable Sub Upsert(ByRef EntidadLiquidacionesPorRomaneaje As Capa_Entidad.LiquidacionesPorRomaneaje)
         Dim EntidadLiquidacionesPorRomaneaje1 As New Capa_Entidad.LiquidacionesPorRomaneaje
         EntidadLiquidacionesPorRomaneaje1 = EntidadLiquidacionesPorRomaneaje
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

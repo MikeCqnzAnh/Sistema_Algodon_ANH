@@ -5,7 +5,7 @@ Public Class OrdenEmbarquePacas
     Public Overridable Sub Upsert(ByRef EntidadOrdenEmbarquePacas As Capa_Entidad.OrdenEmbarquePacas)
         Dim EntidadOrdenEmbarquePacas1 As New Capa_Entidad.OrdenEmbarquePacas
         EntidadOrdenEmbarquePacas1 = EntidadOrdenEmbarquePacas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -89,7 +89,7 @@ Public Class OrdenEmbarquePacas
         Dim EntidadOrdenEmbarquePacas1 = New Capa_Entidad.OrdenEmbarquePacas
         EntidadOrdenEmbarquePacas1 = EntidadOrdenEmbarquePacas
         EntidadOrdenEmbarquePacas1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try
@@ -266,7 +266,7 @@ Public Class OrdenEmbarquePacas
         Dim EntidadOrdenEmbarquePacas1 = New Capa_Entidad.OrdenEmbarquePacas
         EntidadOrdenEmbarquePacas1 = EntidadOrdenEmbarquePacas
         EntidadOrdenEmbarquePacas1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try

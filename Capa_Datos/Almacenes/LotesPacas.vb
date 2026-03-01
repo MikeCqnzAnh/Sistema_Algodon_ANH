@@ -6,7 +6,7 @@ Public Class LotesPacas
     Public Overridable Sub Upsert(ByRef EntidadLotesPacas As Capa_Entidad.LotesPacas)
         Dim EntidadLotesPacas1 As New Capa_Entidad.LotesPacas
         EntidadLotesPacas1 = EntidadLotesPacas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -48,7 +48,7 @@ Public Class LotesPacas
         Dim EntidadLotesPacas1 = New Capa_Entidad.LotesPacas
         EntidadLotesPacas1 = EntidadLotesPacas
         EntidadLotesPacas1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try

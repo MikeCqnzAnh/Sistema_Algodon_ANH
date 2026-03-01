@@ -12,7 +12,7 @@ Public Class CrearEstructura
     Public Overridable Sub Consultar(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
         Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura()
         EntidadCrearEstructura1 = EntidadCrearEstructura
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadCrearEstructura1.TablaConsulta = New DataTable()
         EntidadCrearEstructura1.TablaGeneral = New DataTable()
         Dim sqlcom1 As SqlCommand
@@ -133,7 +133,7 @@ Public Class CrearEstructura
     Public Overridable Sub Upsert(ByRef EntidadCrearEstructura As Capa_Entidad.CrearEstructura)
         Dim EntidadCrearEstructura1 As New Capa_Entidad.CrearEstructura
         EntidadCrearEstructura1 = EntidadCrearEstructura
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

@@ -5,7 +5,7 @@ Public Class CastigoPorQuintal
     Public Overridable Sub Upsert(ByRef EntidadCastigoPorQuintal As Capa_Entidad.CastigoPorQuintal)
         Dim EntidadCastigoPorQuintal1 As New Capa_Entidad.CastigoPorQuintal
         EntidadCastigoPorQuintal1 = EntidadCastigoPorQuintal
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -36,7 +36,7 @@ Public Class CastigoPorQuintal
         EntidadCastigoPorQuintal1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadCastigoPorQuintal1.Consulta

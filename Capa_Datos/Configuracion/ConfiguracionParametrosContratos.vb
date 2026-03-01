@@ -5,7 +5,7 @@ Public Class ConfiguracionParametrosContratos
     Public Overridable Sub Upsert(ByRef EntidadConfiguracionParametrosContratos As Capa_Entidad.ConfiguracionParametrosContratos)
         Dim EntidadConfiguracionParametrosContratos1 As New Capa_Entidad.ConfiguracionParametrosContratos
         EntidadConfiguracionParametrosContratos1 = EntidadConfiguracionParametrosContratos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -40,7 +40,7 @@ Public Class ConfiguracionParametrosContratos
     Public Overridable Sub Consultar(ByRef EntidadConfiguracionParametrosContratos As Capa_Entidad.ConfiguracionParametrosContratos)
         Dim EntidadConfiguracionParametrosContratos1 As New Capa_Entidad.ConfiguracionParametrosContratos()
         EntidadConfiguracionParametrosContratos1 = EntidadConfiguracionParametrosContratos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadConfiguracionParametrosContratos1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter

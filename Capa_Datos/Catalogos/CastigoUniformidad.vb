@@ -5,7 +5,7 @@ Public Class CastigoUniformidad
     Public Overridable Sub Upsert(ByRef EntidadCastigoUniformidad As Capa_Entidad.CastigoUniformidad)
         Dim EntidadCastigoUniformidad1 As New Capa_Entidad.CastigoUniformidad
         EntidadCastigoUniformidad1 = EntidadCastigoUniformidad
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -44,7 +44,7 @@ Public Class CastigoUniformidad
         EntidadCastigoUniformidad1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadCastigoUniformidad1.Consulta

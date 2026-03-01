@@ -5,7 +5,7 @@ Public Class RegimenHidrico
     Public Overridable Sub Upsert(ByRef EntidadRegimenHidrico As Capa_Entidad.RegimenHidrico)
         Dim EntidadRegimenHidrico1 As New Capa_Entidad.RegimenHidrico
         EntidadRegimenHidrico1 = EntidadRegimenHidrico
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -34,7 +34,7 @@ Public Class RegimenHidrico
         EntidadRegimenHidrico1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadRegimenHidrico1.Consulta

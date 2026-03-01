@@ -5,7 +5,7 @@ Public Class RutaDocumentos
     Public Overridable Sub Consultar(ByRef EntidadRutaDocumentos As Capa_Entidad.RutaDocumentos)
         Dim EntidadRutaDocumentos1 As New Capa_Entidad.RutaDocumentos()
         EntidadRutaDocumentos1 = EntidadRutaDocumentos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadRutaDocumentos1.TablaConsulta = New DataTable()
         EntidadRutaDocumentos1.TablaGeneral = New DataTable()
         Dim sqlcom1 As SqlCommand
@@ -28,7 +28,7 @@ Public Class RutaDocumentos
     Public Overridable Sub InsertaRutaDocumentos(ByRef EntidadRutaDocumentos As Capa_Entidad.RutaDocumentos)
         Dim EntidadRutaDocumentos1 As New Capa_Entidad.RutaDocumentos()
         EntidadRutaDocumentos1 = EntidadRutaDocumentos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

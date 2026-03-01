@@ -8,7 +8,7 @@ Public Class CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadCapturaBoletasPorLotes1.Consulta
@@ -38,7 +38,7 @@ Public Class CapturaBoletasPorLotes
     Public Overridable Sub Upsert(ByRef EntidadCapturaBoletasPorLotes As Capa_Entidad.CapturaBoletasPorLotes)
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1 = EntidadCapturaBoletasPorLotes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -65,7 +65,7 @@ Public Class CapturaBoletasPorLotes
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1 = EntidadCapturaBoletasPorLotes
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadCapturaBoletasPorLotes1.TablaConsulta = New DataTable()
         Dim cmdGuardar As SqlCommand
         Try
@@ -92,7 +92,7 @@ Public Class CapturaBoletasPorLotes
     Public Overridable Sub ActualizaPesoOrden(ByRef EntidadCapturaBoletasPorLotes As Capa_Entidad.CapturaBoletasPorLotes)
         Dim EntidadCapturaBoletasPorLotes1 As New Capa_Entidad.CapturaBoletasPorLotes
         EntidadCapturaBoletasPorLotes1 = EntidadCapturaBoletasPorLotes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

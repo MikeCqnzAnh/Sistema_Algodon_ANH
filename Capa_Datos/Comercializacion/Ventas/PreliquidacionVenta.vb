@@ -8,7 +8,7 @@ Public Class PreliquidacionVenta
         EntidadPreliquidacionVenta1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadPreliquidacionVenta1.Consulta

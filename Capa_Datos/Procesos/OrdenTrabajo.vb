@@ -5,7 +5,7 @@ Public Class OrdenTrabajo
     Public Overridable Sub Upsert(ByRef EntidadOrdenTrabajo As Capa_Entidad.OrdenTrabajo)
         Dim EntidadOrdenTrabajo1 As New Capa_Entidad.OrdenTrabajo
         EntidadOrdenTrabajo1 = EntidadOrdenTrabajo
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -67,7 +67,7 @@ Public Class OrdenTrabajo
         EntidadOrdenTrabajo1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadOrdenTrabajo1.Consulta

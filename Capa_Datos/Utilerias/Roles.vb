@@ -10,7 +10,7 @@ Public Class Roles
         EntidadRoles1.TablaOpciones = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Try
             cnn.Open()
             Select Case EntidadRoles1.Consulta
@@ -44,7 +44,7 @@ Public Class Roles
     Public Overridable Sub Upsert(ByRef EntidadRoles As Capa_Entidad.Roles)
         Dim EntidadRoles1 As New Capa_Entidad.Roles
         EntidadRoles1 = EntidadRoles
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

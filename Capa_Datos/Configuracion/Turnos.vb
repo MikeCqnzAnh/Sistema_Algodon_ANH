@@ -6,7 +6,7 @@ Public Class Turnos
     Public Overridable Sub Upsert(ByRef EntidadTurnos As Capa_Entidad.Turnos)
         Dim EntidadTurnos1 As New Capa_Entidad.Turnos
         EntidadTurnos1 = EntidadTurnos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -34,7 +34,7 @@ Public Class Turnos
         EntidadTurnos1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadTurnos1.Consulta

@@ -1,4 +1,6 @@
-﻿Namespace Configuracion
+﻿Imports System.Configuration
+Imports NLog.Internal
+Namespace Configuracion
     Public Enum Reporte
         ReporteClientes = 1
         ReporteContratoCompra = 2
@@ -282,48 +284,108 @@
         AgregaRol = 2
         AgregaRolPredefinido = 3
     End Enum
-    'Namespace Constante
-    '    'para uso en VENTA ==============================================================
-    '    Public Enum TipoVenta
-    '        Credito = 1
-    '        Contado = 2
-    '        Apartado = 3
-    '        Ninguno = 4
-    '    End Enum
-    '    Public Enum DasboardOpcion
-    '        Grafica1 = 1
-    '        Grafica2 = 2
-    '        Grafica3 = 3
-    '        Grafica4 = 4
-    '        Grafica5 = 5
-    '        Grafica6 = 6
-    '    End Enum
-    '    Public Enum TipoEntrega
-    '        DelCliente = 1
-    '        EnMano = 2
-    '        ClientePasa = 3
-    '    End Enum
-    '    Public Enum TipoVentaEstado
-    '        AUTORIZADO = 1
-    '        CANCELADO = 2
-    '        RECHAZADO = 3
-    '        ACTIVO = 4
-    '        LIQUIDADO = 5
-    '        PENDIENTE = 6
-    '    End Enum
-    '    Public Enum Cantidad
-    '        Ninguno = 1
-    '        Agregar = 2
-    '        Quitar = 3
-    '        Descuento = 4
-    '        Cantidad = 5
-    '    End Enum
-    '    '==============================================================================
-    '    Public Class Formato
-    '        Public Shared Miles As String = "#,###,##0.00"
-    '        Public Shared Porcentaje As String = "##0.##%"
-    '        Public Shared FechaCorta As String = "{0:d}"
-    '        Public Shared Moneda As String = "$#,###,##0.00"
-    '    End Class
+    ' ─── Enumeraciones del sistema ───────────────────────────────────────────
+    Public Enum EstatusSerial
+        Inactivo = 0
+        Activo = 1
+        Vencido = 2
+        Inhabilitado = 3
+    End Enum
+
+    Public Enum PeriodoLicencia
+        Prueba = 0
+        Mensual = 1
+        Anual = 2
+        Personalizado = 3
+    End Enum
+
+    Public Enum TipoEquipo
+        Servidor = 0
+        Estacion = 1
+    End Enum
+
+    Public Enum EstatusLogin
+        Exitoso = 0
+        CredencialesErroneas = 1
+        UsuarioBloqueado = 2
+        UsuarioInactivo = 3
+        ErrorSistema = 4
+    End Enum
+
+    ' ─── Constantes del sistema ──────────────────────────────────────────────
+    Public Module Constantes
+        Public Const NOMBRE_SISTEMA As String = "Calcula Cotton"
+        Public Const CARPETA_DATOS As String = "Calcula Cotton"
+        Public Const PUERTO_DISCOVERY As Integer = 45679
+        Public Const MSG_BUSQUEDA As String = "ALGODONANH_DISCOVER"
+        Public Const PREFIJO_RESPUESTA As String = "ALGODONANH_SERVER|"
+        Public Const DIAS_GRACIA As Integer = 3
+        Public Const MAX_INTENTOS_LOGIN As Integer = 5
+        Public Const MINUTOS_BLOQUEO As Integer = 5
+        Public Const TIMEOUT_API_SEG As Integer = 10
+        Public Const TIMEOUT_DISCOVERY_MS As Integer = 3000
+    End Module
+
+    ' ─── Configuración de App.config ─────────────────────────────────────────
+    Public Module AppConfig
+        Public ReadOnly Property Version As String
+            Get
+                Return ObtenerValor("AppVersion", "1.0.0")
+            End Get
+        End Property
+
+        Public ReadOnly Property ApiBaseUrl As String
+            Get
+                Return ObtenerValor("ApiBaseUrl", "http://192.168.100.15:5000/api/v1/")
+            End Get
+        End Property
+
+        Public ReadOnly Property LicenciaApiKey As String
+            Get
+                Return ObtenerValor("LicenciaApiKey", "ccotton-api-2026")
+            End Get
+        End Property
+
+        Public ReadOnly Property LicenciaApiSecret As String
+            Get
+                Return ObtenerValor("LicenciaApiSecret", "CCotton$ApiSecret#2026!MuyLargo")
+            End Get
+        End Property
+
+        Public ReadOnly Property SmtpHost As String
+            Get
+                Return ObtenerValor("SmtpHost", "smtp.gmail.com")
+            End Get
+        End Property
+
+        Public ReadOnly Property SmtpPort As Integer
+            Get
+                Return Integer.Parse(ObtenerValor("SmtpPort", "587"))
+            End Get
+        End Property
+
+        Public ReadOnly Property SmtpUser As String
+            Get
+                Return ObtenerValor("SmtpUser", "tu-correo@gmail.com")
+            End Get
+        End Property
+
+        Public ReadOnly Property SmtpPassword As String
+            Get
+                Return ObtenerValor("SmtpPassword", "tu-password")
+            End Get
+        End Property
+
+        Public ReadOnly Property SmtpUsarSsl As Boolean
+            Get
+                Return Boolean.Parse(ObtenerValor("SmtpUsarSsl", "True"))
+            End Get
+        End Property
+
+        Private Function ObtenerValor(clave As String, valorDefecto As String) As String
+            Dim valor As String = ConfigurationManager.AppSettings(clave)
+            Return If(String.IsNullOrEmpty(valor), valorDefecto, valor)
+        End Function
+    End Module
 End Namespace
 

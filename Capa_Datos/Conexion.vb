@@ -3,15 +3,17 @@ Imports System.IO
 Imports Capa_Operacion
 Module Conexion
     Private parametros As Parametros
-    Public Function conexionPrincipal()
-        parametros = Parametros.Cargar()
-        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatos & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
+    Public Function conexionPrincipal() As Data.SqlClient.SqlConnection
+        'parametros = Parametros.Cargar()
+        'Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatos & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
+        Return CrearConexion()
     End Function
-    Public Function conexionPerfiles()
+    Public Function conexionPerfiles() As Data.SqlClient.SqlConnection
         'LeerArchivoPerfiles()
-        Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatosPerfiles & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
+        'Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=" & parametros.BaseDeDatosPerfiles & ";Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
+        Return CrearConexionPerfiles()
     End Function
-    Public Function conexionMaster()
+    Public Function conexionMaster() 
         Return ("Data Source = " & parametros.InstanciaBDD & ";Initial Catalog=master;Persist Security Info=True;User ID=" & parametros.UsuarioBDD & ";Password=" & parametros.PasswordBDD & "")
     End Function
     Public Function conexionMasterRestaurar()

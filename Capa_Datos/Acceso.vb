@@ -9,8 +9,8 @@ Public Class Acceso
         'DataBase = EntidadAcceso1.BaseDeDatos
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        'Dim cnn As New SqlConnection(conexionPrincipal)
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        'Dim cnn As SqlConnection = conexionPrincipal()
+        Dim cnn As SqlConnection = conexionPrincipal()
 
         Try
             cnn.Open()
@@ -47,8 +47,8 @@ Public Class Acceso
         'If EntidadAcceso1.BaseDeDatos <> Nothing Then DataBase = EntidadAcceso1.BaseDeDatos
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        'Dim cnn As New SqlConnection(conexionPrincipal)
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        'Dim cnn As SqlConnection = conexionPrincipal()
+        Dim cnn As SqlConnection = conexionPerfiles()
 
         Try
             cnn.Open()
@@ -98,8 +98,8 @@ Public Class Acceso
         EntidadAcceso1.TablaConsulta = New DataTable
         'DataBase = EntidadAcceso1.BaseDeDatos
         Dim cmdGuardar As SqlCommand
-        'Dim cnn As New SqlConnection(conexionPrincipal)
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        'Dim cnn As SqlConnection = conexionPrincipal()
+        Dim cnn As SqlConnection = conexionPerfiles()
         Try
             cnn.Open()
             Select Case EntidadAcceso1.Actualiza

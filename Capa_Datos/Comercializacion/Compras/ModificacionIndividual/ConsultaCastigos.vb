@@ -8,7 +8,7 @@ Public Class ConsultaCastigos
         EntidadConsultaCastigos1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadConsultaCastigos1.Consulta

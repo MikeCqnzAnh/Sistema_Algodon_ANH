@@ -7,7 +7,7 @@ Public Class SeleccionaConexion
         Dim EntidadSeleccionaConexion1 As New Capa_Entidad.SeleccionaConexion()
         EntidadSeleccionaConexion1 = EntidadSeleccionaConexion
         'DataBase = EntidadSeleccionaConexion1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadSeleccionaConexion1.Conexion

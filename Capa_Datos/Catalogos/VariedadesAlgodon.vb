@@ -5,7 +5,7 @@ Public Class VariedadesAlgodon
     Public Overridable Sub Upsert(ByRef EntidadVariedadesAlgodon As Capa_Entidad.VariedadesAlgodon)
         Dim EntidadVariedadesAlgodon1 As New Capa_Entidad.VariedadesAlgodon
         EntidadVariedadesAlgodon1 = EntidadVariedadesAlgodon
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -34,7 +34,7 @@ Public Class VariedadesAlgodon
         EntidadVariedadesAlgodon1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadVariedadesAlgodon1.Consulta

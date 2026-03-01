@@ -10,7 +10,7 @@ Public Class Bitacora
     Public Overridable Sub Consultar(ByRef EntidadBitacora As Capa_Entidad.Bitacora)
         Dim EntidadBitacora1 As New Capa_Entidad.Bitacora()
         EntidadBitacora1 = EntidadBitacora
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         EntidadBitacora1.TablaConsulta = New DataTable()
         EntidadBitacora1.TablaGeneral = New DataTable()
         Dim sqlcom1 As SqlCommand
@@ -65,7 +65,7 @@ Public Class Bitacora
     Public Overridable Sub InsertaBitacora(ByRef EntidadBitacora As Capa_Entidad.Bitacora)
         Dim EntidadBitacora1 As New Capa_Entidad.Bitacora()
         EntidadBitacora1 = EntidadBitacora
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

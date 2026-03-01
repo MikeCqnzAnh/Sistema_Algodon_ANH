@@ -9,7 +9,7 @@ Public Class MenuPrincipal
         'DataBase = EntidadMenuPrincipal1.BaseDeDatos
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadMenuPrincipal1.Consulta
@@ -49,7 +49,7 @@ Public Class MenuPrincipal
         Dim EntidadMenuPrincipal1 As New Capa_Entidad.MenuPrincipal()
         EntidadMenuPrincipal1 = EntidadMenuPrincipal
         'DataBase = EntidadMenuPrincipal1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadMenuPrincipal1.TablaConsulta = New DataTable()
         EntidadMenuPrincipal1.TablaGeneral = New DataTable()
         Dim cmdActualizar As SqlCommand

@@ -6,7 +6,7 @@ Public Class Usuarios
         Dim EntidadUsuarios1 As New Capa_Entidad.Usuarios
         EntidadUsuarios1 = EntidadUsuarios
         'DataBase = EntidadUsuarios1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -50,7 +50,7 @@ Public Class Usuarios
         EntidadUsuarios1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Try
             cnn.Open()
             Select Case EntidadUsuarios1.Consulta
@@ -87,7 +87,7 @@ Public Class Usuarios
         EntidadUsuarios1 = EntidadUsuarios
         EntidadUsuarios1.TablaConsulta = New DataTable
         'DataBase = EntidadUsuarios1.BaseDeDatos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
         Catch ex As Exception

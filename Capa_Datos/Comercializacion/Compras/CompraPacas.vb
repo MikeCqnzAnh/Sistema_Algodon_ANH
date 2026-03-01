@@ -5,7 +5,7 @@ Public Class CompraPacas
     Public Overridable Sub Upsert(ByRef EntidadClasificacionPacasExcel As Capa_Entidad.ClasificacionPacasExcel)
         Dim EntidadClasificacionPacasExcel1 As New Capa_Entidad.ClasificacionPacasExcel
         EntidadClasificacionPacasExcel1 = EntidadClasificacionPacasExcel
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As New SqlCommand
         Try
             cnn.Open()
@@ -37,7 +37,7 @@ Public Class CompraPacas
         EntidadCompraPacas1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadCompraPacas1.Consulta

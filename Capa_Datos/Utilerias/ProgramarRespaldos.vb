@@ -6,7 +6,7 @@ Public Class ProgramarRespaldos
     Public Overridable Sub Consultar(ByRef EntidadProgramarRespaldos As Capa_Entidad.ProgramarRespaldos)
         Dim EntidadProgramarRespaldos1 As New Capa_Entidad.ProgramarRespaldos()
         EntidadProgramarRespaldos1 = EntidadProgramarRespaldos
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadProgramarRespaldos1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter

@@ -5,7 +5,7 @@ Public Class Asociaciones
     Public Overridable Sub Upsert(ByRef EntidadAsociaciones As Capa_Entidad.Asociaciones)
         Dim EntidadAsociaciones1 As New Capa_Entidad.Asociaciones
         EntidadAsociaciones1 = EntidadAsociaciones
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -32,7 +32,7 @@ Public Class Asociaciones
         Dim EntidadAsociaciones1 = New Capa_Entidad.Asociaciones
         EntidadAsociaciones1 = EntidadAsociaciones
         EntidadAsociaciones1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadAsociaciones1.Consulta
@@ -52,7 +52,7 @@ Public Class Asociaciones
         EntidadAsociaciones1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadAsociaciones1.Eliminar

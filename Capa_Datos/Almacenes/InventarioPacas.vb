@@ -6,7 +6,7 @@ Public Class InventarioPacas
         Dim EntidadInventarioPacas1 = New Capa_Entidad.InventarioPacas
         EntidadInventarioPacas1 = EntidadInventarioPacas
         EntidadInventarioPacas1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try

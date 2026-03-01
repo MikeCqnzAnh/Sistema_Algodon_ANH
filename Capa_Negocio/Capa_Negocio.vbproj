@@ -10,7 +10,8 @@
     <AssemblyName>Capa_Negocio</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,9 +48,22 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.3.2\lib\net46\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
@@ -76,6 +90,7 @@
     <Compile Include="Almacenes\LotesPacas.vb" />
     <Compile Include="Almacenes\OrdenEmbarquePacas.vb" />
     <Compile Include="Almacenes\SalidaPacas.vb" />
+    <Compile Include="ApiClientes\LicenciaApiCliente.vb" />
     <Compile Include="Ayuda\RegistroLicencia.vb" />
     <Compile Include="Catalogos\CastigoUniformidad.vb" />
     <Compile Include="Almacenes\ExistenciaBodegaPacas.vb" />
@@ -110,6 +125,14 @@
     <Compile Include="Configuracion\ConfiguracionParametrosContratos.vb" />
     <Compile Include="Configuracion\DatosEmpresa.vb" />
     <Compile Include="Configuracion\Turnos.vb" />
+    <Compile Include="HardwareHelper\HardwareHelper.vb" />
+    <Compile Include="Helpers\SessionManager.vb" />
+    <Compile Include="Servicios\AuthServicio.vb" />
+    <Compile Include="Servicios\ConfiguracionServicio.vb" />
+    <Compile Include="Servicios\EmailServicio.vb" />
+    <Compile Include="Servicios\GraciaOfflineServicio.vb" />
+    <Compile Include="Servicios\LicenciaServicio.vb" />
+    <Compile Include="Servicios\NetworkDiscoveryServicio.vb" />
     <Compile Include="Utilerias\ProgramarRespaldos.vb" />
     <Compile Include="Utilerias\Roles.vb" />
     <Compile Include="Utilerias\Usuarios.vb" />
@@ -130,6 +153,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -176,6 +200,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administracion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.vbproj">
@@ -186,12 +217,10 @@
       <Project>{3de26638-6ead-4d20-b52f-3eed4039a544}</Project>
       <Name>Capa_Entidad</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Administracion\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+    <ProjectReference Include="..\Capa_Operacion\Capa_Operacion.vbproj">
+      <Project>{3A1E6801-5527-4D29-B798-24CE9AFA623F}</Project>
+      <Name>Capa_Operacion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

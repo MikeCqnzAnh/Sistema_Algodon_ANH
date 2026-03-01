@@ -5,7 +5,7 @@ Public Class ProfesionalesFitosanitarios
     Public Overridable Sub Upsert(ByRef EntidadProfesionalesFitosanitarios As Capa_Entidad.ProfesionalesFitosanitarios)
         Dim EntidadProfesionalesFitosanitarios1 As New Capa_Entidad.ProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1 = EntidadProfesionalesFitosanitarios
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -34,7 +34,7 @@ Public Class ProfesionalesFitosanitarios
         EntidadProfesionalesFitosanitarios1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadProfesionalesFitosanitarios1.Consulta

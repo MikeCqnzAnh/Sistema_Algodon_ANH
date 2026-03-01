@@ -5,7 +5,7 @@ Public Class DatosEmpresa
     Public Overridable Sub Upsert(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa
         EntidadDatosEmpresa1 = EntidadDatosEmpresa
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -44,7 +44,7 @@ Public Class DatosEmpresa
     Public Overridable Sub Consultar(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa()
         EntidadDatosEmpresa1 = EntidadDatosEmpresa
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadDatosEmpresa1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
@@ -132,7 +132,7 @@ Public Class DatosEmpresa
     Public Overridable Sub ConsultarEmpresa(ByRef EntidadDatosEmpresa As Capa_Entidad.DatosEmpresa)
         Dim EntidadDatosEmpresa1 As New Capa_Entidad.DatosEmpresa()
         EntidadDatosEmpresa1 = EntidadDatosEmpresa
-        Dim cnn As New SqlConnection(conexionPerfiles)
+        Dim cnn As SqlConnection = conexionPerfiles()
         EntidadDatosEmpresa1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter

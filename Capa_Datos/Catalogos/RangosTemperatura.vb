@@ -5,7 +5,7 @@ Public Class RangosTemperatura
     Public Overridable Sub Upsert(ByRef EntidadRangosTemperatura As Capa_Entidad.RangosTemperatura)
         Dim EntidadRangosTemperatura1 As New Capa_Entidad.RangosTemperatura
         EntidadRangosTemperatura1 = EntidadRangosTemperatura
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -36,7 +36,7 @@ Public Class RangosTemperatura
         EntidadRangosTemperatura1.TablaConsulta = New DataTable
         'Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadRangosTemperatura1.Consulta

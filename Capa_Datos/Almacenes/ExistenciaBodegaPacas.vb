@@ -5,7 +5,7 @@ Public Class ExistenciaBodegaPacas
     Public Overridable Sub Upsert(ByRef EntidadExistenciaBodegaPacas As Capa_Entidad.ExistenciaBodegaPacas)
         Dim EntidadExistenciaBodegaPacas1 As New Capa_Entidad.ExistenciaBodegaPacas
         EntidadExistenciaBodegaPacas1 = EntidadExistenciaBodegaPacas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -34,7 +34,7 @@ Public Class ExistenciaBodegaPacas
         Dim EntidadExistenciaBodegaPacas1 = New Capa_Entidad.ExistenciaBodegaPacas
         EntidadExistenciaBodegaPacas1 = EntidadExistenciaBodegaPacas
         EntidadExistenciaBodegaPacas1.TablaConsulta = New DataTable
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
         Try
@@ -82,7 +82,7 @@ Public Class ExistenciaBodegaPacas
     Public Overridable Sub Actualizar(ByRef EntidadExistenciaBodegaPacas As Capa_Entidad.ExistenciaBodegaPacas)
         Dim EntidadExistenciaBodegaPacas1 As New Capa_Entidad.ExistenciaBodegaPacas
         EntidadExistenciaBodegaPacas1 = EntidadExistenciaBodegaPacas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         'Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

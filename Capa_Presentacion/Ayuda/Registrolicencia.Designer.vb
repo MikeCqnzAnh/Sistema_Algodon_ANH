@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Registrolicencia
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class RegistroLicencia
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class Registrolicencia
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Registrolicencia))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistroLicencia))
         Me.panel1 = New System.Windows.Forms.Panel()
         Me.nucantidad = New System.Windows.Forms.NumericUpDown()
         Me.cbestatuslicencia = New System.Windows.Forms.ComboBox()
@@ -61,7 +61,6 @@ Partial Class Registrolicencia
         Me.panel1.Controls.Add(Me.label8)
         Me.panel1.Controls.Add(Me.btlimpiar)
         Me.panel1.Controls.Add(Me.btpegar)
-        Me.panel1.Controls.Add(Me.label4)
         Me.panel1.Controls.Add(Me.cbperiodo)
         Me.panel1.Controls.Add(Me.dtfechavencimiento)
         Me.panel1.Controls.Add(Me.label6)
@@ -184,7 +183,7 @@ Partial Class Registrolicencia
         'label4
         '
         Me.label4.AutoSize = True
-        Me.label4.Location = New System.Drawing.Point(324, 84)
+        Me.label4.Location = New System.Drawing.Point(15, 85)
         Me.label4.Name = "label4"
         Me.label4.Size = New System.Drawing.Size(0, 13)
         Me.label4.TabIndex = 144
@@ -234,6 +233,7 @@ Partial Class Registrolicencia
         Me.groupBox1.Controls.Add(Me.tbtelefono)
         Me.groupBox1.Controls.Add(Me.label2)
         Me.groupBox1.Controls.Add(Me.tbnombrecontacto)
+        Me.groupBox1.Controls.Add(Me.label4)
         Me.groupBox1.Controls.Add(Me.label1)
         Me.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.groupBox1.Location = New System.Drawing.Point(0, 239)
@@ -412,7 +412,7 @@ Partial Class Registrolicencia
         Me.pictureBox1.TabIndex = 148
         Me.pictureBox1.TabStop = False
         '
-        'Registrolicencia
+        'RegistroLicencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -422,7 +422,7 @@ Partial Class Registrolicencia
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(942, 479)
         Me.MinimumSize = New System.Drawing.Size(942, 479)
-        Me.Name = "Registrolicencia"
+        Me.Name = "RegistroLicencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Registro de Licencia"
         Me.panel1.ResumeLayout(False)

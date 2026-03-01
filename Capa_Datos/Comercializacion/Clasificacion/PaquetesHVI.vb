@@ -5,7 +5,7 @@ Public Class PaquetesHVI
     Public Overridable Sub Upsert(ByRef EntidadPaquetesHVI As Capa_Entidad.PaquetesHVI)
         Dim EntidadPaquetesHVI1 As New Capa_Entidad.PaquetesHVI
         EntidadPaquetesHVI1 = EntidadPaquetesHVI
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -149,7 +149,7 @@ Public Class PaquetesHVI
     Public Overridable Sub UpsertIdOrden(ByRef EntidadPaquetesHVI As Capa_Entidad.PaquetesHVI)
         Dim EntidadPaquetesHVI1 As New Capa_Entidad.PaquetesHVI
         EntidadPaquetesHVI1 = EntidadPaquetesHVI
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -171,7 +171,7 @@ Public Class PaquetesHVI
         EntidadPaquetesHVI1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadPaquetesHVI1.Consulta

@@ -1,222 +1,487 @@
-﻿Imports System.Configuration
-Imports System.Data.SqlClient
-Imports System.IO
-Imports System.Security.Cryptography
+﻿Imports System.Drawing
+Imports System.Threading.Tasks
+Imports System.Windows.Forms
 Imports Capa_Entidad
 Imports Capa_Negocio
 Imports Capa_Operacion
-Imports Capa_Operacion.Configuracion
+Imports NLog
+
 Public Class ConfiguraConexionInicial
-    Dim parametros As Parametros
-    Dim Ruta As String = My.Computer.FileSystem.CurrentDirectory & "\cnn\"
-    Dim archivo As String = "cnn.ini"
-    Dim archivo2 As String = "cnnPerfiles.ini"
-    Private instancia, basededatos, basededatosperfiles, usuario, password, ipservidor As String
-    Private rbsrv, rbsta As Boolean
+
+    Private ReadOnly _logger As Logger = LogManager.GetCurrentClassLogger()
+    Private ReadOnly _configServicio As ConfiguracionServicio
+    Private ReadOnly _modoConfiguracion As Boolean
+    Public Property ConfiguracionGuardada As Boolean = False
+
+    ' ─── Constructor por defecto — primera vez ────────────────────────────────
     Public Sub New()
+        Me.New(False)
+    End Sub
+
+    ' ─── Constructor con modo ─────────────────────────────────────────────────
+    Public Sub New(modoConfiguracion As Boolean)
         InitializeComponent()
-
-        ' Agregar evento para validación
-        'AddHandler tbipservidor.Validating, Sub(sender As Object, e As System.ComponentModel.CancelEventArgs)
-        '                                        If Not IsValidIP(tbipservidor.Text) Then
-        '                                            MessageBox.Show("La dirección IP no es válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '                                            e.Cancel = True
-        '                                        End If
-        '                                    End Sub
-
-        ' Agregar el MaskedTextBox al formulario (opcional si no está en el diseñador)
-        ' Me.Controls.Add(tbipservidor)
+        _modoConfiguracion = modoConfiguracion
+        _configServicio = ServiceLocator.Obtener(Of ConfiguracionServicio)()
     End Sub
 
-    Private Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        nuevo()  ' Si tienes alguna inicialización adicional
-        parametros = Parametros.Cargar()
-        CbOrigenInstancia.Text = parametros.InstanciaBDD
-        tbbdd.Text = parametros.BaseDeDatos
-        TbOrigenUsuario.Text = parametros.UsuarioBDD
-        TbOrigenPassword.Text = parametros.PasswordBDD
-        rbserver.Checked = parametros.Servidor
-        rbestacion.Checked = parametros.Estacion
-        tbhostserver.Text = parametros.IpServidor
+    ' ─── Carga inicial ────────────────────────────────────────────────────────
+    Private Async Sub ConfiguraConexionInicial_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If _modoConfiguracion Then
+            Me.Text = "Configuración — Base de datos"
+            btnCancelar.Text = "Cancelar"
+        Else
+            Me.Text = "Configuración inicial — Base de datos"
+            btnCancelar.Text = "Cancelar"
+        End If
+
+        Dim config As ConfiguracionApp = _configServicio.Leer()
+        CargarEnFormulario(If(config, ConfiguracionApp.PorDefecto()))
+        ActualizarVisibilidadIp()
+
+        ' Solo buscar servidor si no hay config previa o sin IP asignada
+        If config Is Nothing OrElse String.IsNullOrEmpty(config.IpServidor) Then
+            Await BuscarServidorEnRedAsync()
+        End If
     End Sub
-    Private Sub LLenaComboInstancias(ByVal cmb As ComboBox)
-        cmb.Items.Clear()
-        Dim tabla As New DataTable
-        Dim EntidadCrearEstructura As New Capa_Entidad.CrearEstructura
-        Dim NegocioCrearEstructura As New Capa_Negocio.CrearEstructura
-        EntidadCrearEstructura.Consulta = Consulta.ConsultaInstancia
-        NegocioCrearEstructura.ConsultarInstancia(EntidadCrearEstructura)
-        tabla = EntidadCrearEstructura.TablaConsulta
-        For Each rowServidor In tabla.Rows
-            If String.IsNullOrEmpty(rowServidor(“InstanceName”).ToString()) Then
-                cmb.Items.Add(rowServidor(“ServerName”).ToString())
+
+    ' ─── Buscar servidor en red ───────────────────────────────────────────────
+    Private Async Function BuscarServidorEnRedAsync() As Task
+        Try
+            MostrarInfo("🔍 Buscando servidor en la red...")
+            SetBotonesHabilitados(False)
+
+            Dim discoveryServicio As New NetworkDiscoveryServicio()
+            Dim resultado As ResultadoDiscovery = Await discoveryServicio.BuscarServidorAsync().ConfigureAwait(False)
+
+            Invoke(Sub()
+                       SetBotonesHabilitados(True)
+
+                       If resultado.Encontrado Then
+                           ' Verificar si el servidor encontrado es este mismo equipo
+                           Dim ipLocal As String =
+                               NetworkDiscoveryServicio.ObtenerIpLocal()
+                           Dim esMismoEquipo As Boolean =
+                               resultado.IpServidor = ipLocal
+
+                           If esMismoEquipo Then
+                               rbServidor.Checked = True
+                               MostrarInfo("✔ Este equipo ya está configurado como servidor.")
+                               Return
+                           End If
+
+                           ' Servidor encontrado en otro equipo — sugerir estación
+                           Dim respuesta As DialogResult = MessageBox.Show(
+                               String.Format(
+                                   "✔ Se encontró un servidor en la red.{0}{0}" &
+                                   "IP del servidor: {1}{0}{0}" &
+                                   "¿Desea configurar este equipo como estación?",
+                                   Environment.NewLine, resultado.IpServidor),
+                               "Servidor encontrado",
+                               MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Information,
+                               MessageBoxDefaultButton.Button1)
+
+                           If respuesta = DialogResult.Yes Then
+                               RbEstacion.Checked = True
+                               txtIpServidor.Text = resultado.IpServidor
+                               ActualizarVisibilidadIp()
+                               MostrarExito(String.Format(
+                                   "✔ Servidor detectado: {0}",
+                                   resultado.IpServidor))
+                           Else
+                               LimpiarMensaje()
+                           End If
+                       Else
+                           MostrarInfo(
+                               "ℹ No se encontró servidor en la red." &
+                               Environment.NewLine &
+                               "Configure este equipo como servidor.")
+                           rbServidor.Checked = True
+                       End If
+                   End Sub)
+
+        Catch ex As Exception
+            _logger.Warn(ex, "Error en búsqueda de servidor.")
+            Invoke(Sub()
+                       SetBotonesHabilitados(True)
+                       LimpiarMensaje()
+                   End Sub)
+        End Try
+    End Function
+
+    ' ─── Habilitar/deshabilitar botones ──────────────────────────────────────
+    Private Sub SetBotonesHabilitados(habilitados As Boolean)
+        btnGuardar.Enabled = habilitados
+        btnProbar.Enabled = habilitados
+        btnCancelar.Enabled = habilitados
+        rbServidor.Enabled = habilitados
+        RbEstacion.Enabled = habilitados
+    End Sub
+
+    ' ─── Radio buttons ────────────────────────────────────────────────────────
+    Private Sub rbServidor_CheckedChanged(
+        sender As Object, e As EventArgs) _
+        Handles rbServidor.CheckedChanged, rbServidor.Click
+        ActualizarVisibilidadIp()
+    End Sub
+
+    Private Sub rbEstacion_CheckedChanged(
+        sender As Object, e As EventArgs) _
+        Handles RbEstacion.CheckedChanged, RbEstacion.Click
+        ActualizarVisibilidadIp()
+    End Sub
+
+    Private Sub ActualizarVisibilidadIp()
+        Dim esEstacion As Boolean = RbEstacion.Checked
+        txtIpServidor.Visible = esEstacion
+        If Not esEstacion Then
+            txtIpServidor.Text = String.Empty
+        End If
+    End Sub
+
+    ' ─── Probar conexión ──────────────────────────────────────────────────────
+    Private Async Sub btnProbar_Click(sender As Object, e As EventArgs) Handles btnProbar.Click
+
+        If Not ValidarCampos() Then Return
+
+        SetCargando(True)
+        MostrarInfo("Probando conexión...")
+
+        Dim config As ConfiguracionApp = ObtenerDesdeFormulario()
+
+        Try
+            Dim conectado As Boolean = Await Task.Run(Function() _configServicio.ProbarConexion(config)).ConfigureAwait(False)
+
+            Invoke(Sub()
+                       SetCargando(False)
+                       If conectado Then
+                           MostrarExito("✔ Conexión exitosa.")
+                       Else
+                           MostrarError("✖ No se pudo conectar. Verifique los datos.")
+                       End If
+                   End Sub)
+
+        Catch ex As Exception
+            _logger.Error(ex, "Error al probar conexión.")
+            Invoke(Sub()
+                       SetCargando(False)
+                       MostrarError("✖ Error al probar la conexión.")
+                   End Sub)
+        End Try
+    End Sub
+
+    ' ─── Guardar configuración ────────────────────────────────────────────────
+    Private Async Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+
+        If Not ValidarCampos() Then Return
+
+        SetCargando(True)
+        Dim config As ConfiguracionApp = ObtenerDesdeFormulario()
+
+        Try
+            ' ════════════════════════════════════════════════════════
+            '  MODO ESTACIÓN
+            ' ════════════════════════════════════════════════════════
+            If config.Estacion Then
+
+                ' 1. Verificar acceso a carpeta compartida del servidor
+                MostrarInfo("Verificando acceso al servidor...")
+
+                Dim accesoRed As Boolean = Await Task.Run(Function() _configServicio.ProbarAccesoRed(config.IpServidor)).ConfigureAwait(False)
+
+                If Not accesoRed Then
+                    Invoke(Sub()
+                               SetCargando(False)
+                               MostrarError(String.Format(
+                                   "✖ No se puede acceder a \\{0}\Algodon ANH\{1}{1}" &
+                                   "Verifique:{1}" &
+                                   "  • Que el servidor esté encendido{1}" &
+                                   "  • Que la carpeta esté compartida{1}" &
+                                   "  • Que la IP sea correcta{1}" &
+                                   "  • Que el servidor tenga lic.dat y server.id",
+                                   config.IpServidor, Environment.NewLine))
+                           End Sub)
+                    Return
+                End If
+
+                ' 2. Verificar conexión a base de datos
+                Invoke(Sub() MostrarInfo(
+                    "Probando conexión a base de datos..."))
+
+                Dim conectadoBD As Boolean = Await Task.Run(Function() _configServicio.ProbarConexion(config)).ConfigureAwait(False)
+
+                If Not conectadoBD Then
+                    Invoke(Sub()
+                               SetCargando(False)
+                               MostrarError(
+                                   "✖ No se pudo conectar a la base de datos." &
+                                   Environment.NewLine &
+                                   "Verifique los parámetros de conexión.")
+                           End Sub)
+                    Return
+                End If
+
+                ' 3. Guardar config.json — sin instalar servicio
+                Dim guardado As Boolean = Await Task.Run(Function() _configServicio.Guardar(config)).ConfigureAwait(False)
+
+                Invoke(Sub()
+                           SetCargando(False)
+                           If guardado Then
+                               ConfiguracionGuardada = True
+                               MessageBox.Show(
+                                   String.Format(
+                                       "✔ Configuración de estación guardada.{0}{0}" &
+                                       "Servidor: {1}{0}" &
+                                       "Base de datos: {2}",
+                                       Environment.NewLine,
+                                       config.IpServidor,
+                                       config.BaseDeDatos),
+                                   "Configuración exitosa",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Information)
+                               Me.DialogResult = DialogResult.OK
+                               Me.Close()
+                           Else
+                               MostrarError("✖ Error al guardar la configuración.")
+                           End If
+                       End Sub)
+
+                ' ════════════════════════════════════════════════════════
+                '  MODO SERVIDOR
+                ' ════════════════════════════════════════════════════════
             Else
-                cmb.Items.Add(rowServidor(“ServerName”) & “\” & rowServidor(“InstanceName”))
+                ' 1. Buscar otros servidores en la red
+                MostrarInfo("Buscando otros servidores en la red...")
+
+                Dim discoveryServicio As New NetworkDiscoveryServicio()
+                Dim otro As ResultadoDiscovery = Await discoveryServicio.BuscarServidorAsync().ConfigureAwait(False)
+
+                ' Solo advertir si el servidor encontrado es un equipo DIFERENTE
+                Dim ipLocalActual As String = NetworkDiscoveryServicio.ObtenerIpLocal()
+                Dim esOtroServidor As Boolean = otro.Encontrado AndAlso otro.IpServidor <> ipLocalActual
+
+                If esOtroServidor Then
+                    Dim continuarComoServidor As Boolean = False
+
+                    Invoke(Sub()
+                               Dim respuesta As DialogResult = MessageBox.Show(
+                                   String.Format(
+                                       "⚠ Ya existe un servidor activo en la red.{0}{0}" &
+                                       "IP del servidor encontrado: {1}{0}{0}" &
+                                       "Solo debe existir UN servidor por red.{0}" &
+                                       "¿Desea configurar este equipo como estación{0}" &
+                                       "apuntando a ese servidor?",
+                                       Environment.NewLine, otro.IpServidor),
+                                   "Servidor ya existe",
+                                   MessageBoxButtons.YesNo,
+                                   MessageBoxIcon.Warning,
+                                   MessageBoxDefaultButton.Button1)
+
+                               If respuesta = DialogResult.Yes Then
+                                   RbEstacion.Checked = True
+                                   txtIpServidor.Text = otro.IpServidor
+                                   ActualizarVisibilidadIp()
+                                   SetCargando(False)
+                                   MostrarInfo(String.Format(
+                                       "✔ Configurado como estación del servidor {0}.{1}" &
+                                       "Complete los datos de BD y presione Guardar.",
+                                       otro.IpServidor, Environment.NewLine))
+                               Else
+                                   continuarComoServidor = True
+                               End If
+                           End Sub)
+
+                    If Not continuarComoServidor Then Return
+                End If
+
+                ' 2. Probar conexión a base de datos
+                Invoke(Sub() MostrarInfo("Probando conexión a base de datos..."))
+
+                Dim conectado As Boolean = Await Task.Run(Function() _configServicio.ProbarConexion(config)).ConfigureAwait(False)
+
+                If Not conectado Then
+                    Invoke(Sub()
+                               SetCargando(False)
+                               MostrarError(
+                                   "✖ No se pudo conectar con los datos ingresados." &
+                                   Environment.NewLine &
+                                   "Verifique los parámetros antes de guardar.")
+                           End Sub)
+                    Return
+                End If
+
+                ' 3. Guardar config.json
+                Invoke(Sub() MostrarInfo("Guardando configuración..."))
+
+                Dim guardadoSrv As Boolean = Await Task.Run(Function() _configServicio.Guardar(config)).ConfigureAwait(False)
+
+                If Not guardadoSrv Then
+                    Invoke(Sub()
+                               SetCargando(False)
+                               MostrarError("✖ Error al guardar la configuración.")
+                           End Sub)
+                    Return
+                End If
+
+                ' 4. Mostrar resultado final — sin servicio Windows
+                Invoke(Sub()
+                           SetCargando(False)
+                           ConfiguracionGuardada = True
+                           MessageBox.Show(
+                               "✔ Configuración guardada correctamente." &
+                               Environment.NewLine & Environment.NewLine &
+                               "El sistema está listo para usarse.",
+                               "Configuración exitosa",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information)
+                           Me.DialogResult = DialogResult.OK
+                           Me.Close()
+                       End Sub)
             End If
-        Next
+
+        Catch ex As Exception
+            _logger.Error(ex, "Error al guardar configuración.")
+            Invoke(Sub()
+                       SetCargando(False)
+                       MostrarError("✖ Error inesperado al guardar.")
+                   End Sub)
+        End Try
     End Sub
-    Private Sub BtnCrearTxt_Click(sender As Object, e As EventArgs)
-        CreaConexion()
-        'CreaConexionPerfiles()
-        TbOrigenPassword.Clear()
-        TbOrigenUsuario.Clear()
-        CbOrigenInstancia.SelectedIndex = -1
+
+    ' ─── Cancelar ─────────────────────────────────────────────────────────────
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+
+        If _modoConfiguracion Then
+            Me.DialogResult = DialogResult.Cancel
+            Me.Close()
+            Return
+        End If
+
+        Dim respuesta As DialogResult = MessageBox.Show(
+            "¿Está seguro que desea cancelar?" &
+            Environment.NewLine & "El sistema se cerrará.",
+            "Cancelar configuración",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning,
+            MessageBoxDefaultButton.Button2)
+
+        If respuesta = DialogResult.Yes Then
+            ConfiguracionGuardada = False
+            Me.DialogResult = DialogResult.Cancel
+            Application.Exit()
+        End If
     End Sub
-    Private Function IsValidIP(ip As String) As Boolean
-        If String.IsNullOrWhiteSpace(ip) Then Return False
 
-        Dim parts() As String = ip.Split("."c)
-        If parts.Length <> 4 Then Return False
+    ' ─── Cargar datos en el formulario ────────────────────────────────────────
+    Private Sub CargarEnFormulario(config As ConfiguracionApp)
+        cbInstancia.Text = If(config.InstanciaBDD, String.Empty)
+        tbbddperfiles.Text = If(config.BaseDeDatosPerfiles, String.Empty)
+        txtBaseDatos.Text = If(config.BaseDeDatos, String.Empty)
+        txtUsuario.Text = If(config.UsuarioBDD, String.Empty)
+        txtPassword.Text = If(config.PasswordBDD, String.Empty)
+        txtIpServidor.Text = If(config.IpServidor, String.Empty)
+        rbServidor.Checked = config.Servidor
+        RbEstacion.Checked = config.Estacion
+    End Sub
 
-        For Each part As String In parts
-            ' Aquí estaba comentado el código de validación
-            ' Si quieres validarlo correctamente, descomenta y usa:
-            ' Dim num As Integer
-            ' If Not Integer.TryParse(part, num) OrElse num < 0 OrElse num > 255 Then
-            '     Return False
-            ' End If
+    ' ─── Obtener datos del formulario ─────────────────────────────────────────
+    Private Function ObtenerDesdeFormulario() As ConfiguracionApp
+        Return New ConfiguracionApp With {
+            .InstanciaBDD = cbInstancia.Text.Trim(),
+            .BaseDeDatosPerfiles = tbbddperfiles.Text.Trim(),
+            .BaseDeDatos = txtBaseDatos.Text.Trim(),
+            .UsuarioBDD = txtUsuario.Text.Trim(),
+            .PasswordBDD = txtPassword.Text,
+            .Servidor = rbServidor.Checked,
+            .Estacion = RbEstacion.Checked,
+            .IpServidor = If(RbEstacion.Checked,
+                               txtIpServidor.Text.Trim(),
+                               String.Empty)
+        }
+    End Function
 
-            ' Por ahora siempre devuelve False según el código original
+    ' ─── Validaciones ─────────────────────────────────────────────────────────
+    Private Function ValidarCampos() As Boolean
+        LimpiarMensaje()
+
+        If String.IsNullOrWhiteSpace(cbInstancia.Text) Then
+            MostrarError("Ingrese la instancia del servidor SQL.")
+            cbInstancia.Focus()
             Return False
-        Next
+        End If
+
+        If String.IsNullOrWhiteSpace(txtBaseDatos.Text) Then
+            MostrarError("Ingrese el nombre de la base de datos.")
+            txtBaseDatos.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtUsuario.Text) Then
+            MostrarError("Ingrese el usuario de la base de datos.")
+            txtUsuario.Focus()
+            Return False
+        End If
+
+        If String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            MostrarError("Ingrese la contraseña de la base de datos.")
+            txtPassword.Focus()
+            Return False
+        End If
+
+        If RbEstacion.Checked AndAlso
+           String.IsNullOrWhiteSpace(txtIpServidor.Text) Then
+            MostrarError("Ingrese la IP del servidor.")
+            txtIpServidor.Focus()
+            Return False
+        End If
 
         Return True
     End Function
-    Private Sub CreaConexion()
-        Try
-            ' Intentar la conexión primero
-            If VerifyConnection() = True Then
-                ' Guardar los valores en My.Settings
-                parametros.InstanciaBDD = CbOrigenInstancia.Text
-                parametros.BaseDeDatosPerfiles = tbbddperfiles.Text
-                parametros.BaseDeDatos = tbbdd.Text
-                parametros.UsuarioBDD = TbOrigenUsuario.Text
-                parametros.PasswordBDD = TbOrigenPassword.Text
-                parametros.Servidor = rbserver.Checked
-                parametros.Estacion = rbestacion.Checked
-                parametros.IpServidor = tbhostserver.Text
-                parametros.Guardar()
-                MessageBox.Show("Guardado con éxito!", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Close()
-            Else
-                ' Guardar los valores aunque la conexión falle, para que el usuario no los pierda
 
-                parametros.InstanciaBDD = CbOrigenInstancia.Text
-                parametros.BaseDeDatosPerfiles = tbbddperfiles.Text
-                parametros.BaseDeDatos = tbbdd.Text
-                parametros.UsuarioBDD = TbOrigenUsuario.Text
-                parametros.PasswordBDD = TbOrigenPassword.Text
-                parametros.Servidor = rbserver.Checked
-                parametros.Estacion = rbestacion.Checked
-                parametros.IpServidor = tbhostserver.Text
-                parametros.Guardar()
-                MessageBox.Show("Hay un error con la conexión. Verifique que el sistema inició como administrador o que los datos fueron ingresados correctamente.",
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
-        End Try
-    End Sub
-    Public Function VerifyConnection() As Boolean
-        Dim connectionString As String = "Data Source=" & CbOrigenInstancia.Text & ";Initial Catalog=" & tbbdd.Text & ";Persist Security Info=True;User ID=" & TbOrigenUsuario.Text & ";Password=" & TbOrigenPassword.Text
-        Dim cnn As SqlConnection = New SqlConnection(connectionString)
-
-        Try
-            cnn.Open()
-            cnn.Close()
-            Return True
-        Catch
-            Return False
-        End Try
-    End Function
-
-    Private Sub CreaConexionPerfiles()
-
-    End Sub
-    Private Sub nuevo()
-        CbOrigenInstancia.SelectedIndex = -1
-        TbOrigenUsuario.Text = ""
-        TbOrigenPassword.Text = ""
-    End Sub
-
-    Private Sub rbserver_CheckedChanged(sender As Object, e As EventArgs) Handles rbserver.CheckedChanged
-        If rbserver.Checked Then
-            tbipservidor.Enabled = False
-            tbhostserver.Enabled = False
+    ' ─── Helpers UI ───────────────────────────────────────────────────────────
+    Private Sub SetCargando(cargando As Boolean)
+        If InvokeRequired Then
+            Invoke(Sub() SetCargando(cargando))
+            Return
         End If
+        btnGuardar.Enabled = Not cargando
+        btnProbar.Enabled = Not cargando
+        btnCancelar.Enabled = Not cargando
+        pbProgreso.Visible = cargando
+        Cursor = If(cargando, Cursors.WaitCursor, Cursors.Default)
     End Sub
 
-    Private Sub rbestacion_CheckedChanged(sender As Object, e As EventArgs) Handles rbestacion.CheckedChanged
-        If rbestacion.Checked Then
-            tbipservidor.Enabled = True
-            tbhostserver.Enabled = True
+    Private Sub MostrarError(msg As String)
+        If InvokeRequired Then
+            Invoke(Sub() MostrarError(msg))
+            Return
         End If
+        lblMensaje.ForeColor = Color.Red
+        lblMensaje.Text = msg
     End Sub
 
-    Private Sub BtnSobreescribir_Click()
-
-    End Sub
-    Private Sub BtnSobreescribirPerfil()
-
-    End Sub
-    Private Sub CbOrigenInstancia_Click(sender As Object, e As EventArgs) Handles CbOrigenInstancia.Click
-
-    End Sub
-    Sub LeerArchivo()
-        Dim leer As New StreamReader(Ruta & archivo)
-
-        Try
-            While leer.Peek <> -1
-                Dim linea As String = leer.ReadLine()
-                If String.IsNullOrEmpty(linea) Then
-                    Continue While
-                End If
-                Dim ArregloCadena() As String = Split(linea, ",")
-
-            End While
-
-            leer.Close()
-
-        Catch ex As Exception
-            MsgBox("Se presento un problema al leer el archivo: " & ex.Message, MsgBoxStyle.Critical, " ")
-        End Try
-    End Sub
-    Private Sub Salir(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        ' Leer valores desde My.Settings
-
-        instancia = parametros.InstanciaBDD
-        basededatos = parametros.BaseDeDatos
-        usuario = parametros.UsuarioBDD
-        password = parametros.PasswordBDD
-        rbsrv = parametros.Servidor
-        rbsta = parametros.Estacion
-        ipservidor = parametros.IpServidor
-
-        ' Verificar si la configuración está completa
-        If String.IsNullOrEmpty(instancia) OrElse String.IsNullOrEmpty(basededatos) _
-           OrElse String.IsNullOrEmpty(usuario) OrElse String.IsNullOrEmpty(password) Then
-
-            Dim result As DialogResult = MessageBox.Show("No ha configurado la conexión a la base de datos, no podrá realizar ningún procedimiento. ¿Desea salir?",
-                                                         "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If result = DialogResult.Yes Then
-                ' Cierra la aplicación
-                Environment.Exit(0)
-            ElseIf result = DialogResult.No Then
-                e.Cancel = True
-            End If
-        Else
-            e.Cancel = False
+    Private Sub MostrarExito(msg As String)
+        If InvokeRequired Then
+            Invoke(Sub() MostrarExito(msg))
+            Return
         End If
+        lblMensaje.ForeColor = Color.Green
+        lblMensaje.Text = msg
     End Sub
-    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
-        If rbserver.Checked Then
-            tbhostserver.Text = ""
+
+    Private Sub MostrarInfo(msg As String)
+        If InvokeRequired Then
+            Invoke(Sub() MostrarInfo(msg))
+            Return
         End If
-        If (rbestacion.Checked And tbhostserver.Text <> "") Or (rbserver.Checked And tbhostserver.Text = "") Then
-            CreaConexion()
-        ElseIf rbestacion.Checked And tbhostserver.Text = "" Then
-            MessageBox.Show("Si esta configurando este equipo como estacion, agregue el host o ip del Servidor para continuar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End If
+        lblMensaje.ForeColor = Color.DodgerBlue
+        lblMensaje.Text = msg
     End Sub
+
+    Private Sub LimpiarMensaje()
+        lblMensaje.Text = String.Empty
+    End Sub
+
 End Class

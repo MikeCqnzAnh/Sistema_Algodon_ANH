@@ -5,7 +5,7 @@ Public Class ContratosAlgodon
     Public Overridable Sub Upsert(ByRef EntidadContratosAlgodon As Capa_Entidad.ContratosAlgodon)
         Dim EntidadContratosAlgodon1 As New Capa_Entidad.ContratosAlgodon
         EntidadContratosAlgodon1 = EntidadContratosAlgodon
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -105,7 +105,7 @@ Public Class ContratosAlgodon
         EntidadContratosAlgodon1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadContratosAlgodon1.Consulta

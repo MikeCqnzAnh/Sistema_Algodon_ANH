@@ -5,7 +5,7 @@ Public Class ConfigMic
     Public Overridable Sub Upsert(ByRef EntidadConfigMic As Capa_Entidad.ConfigMic)
         Dim EntidadConfigMic1 As New Capa_Entidad.ConfigMic
         EntidadConfigMic1 = EntidadConfigMic
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -44,7 +44,7 @@ Public Class ConfigMic
         EntidadConfigMic1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadConfigMic1.Consulta

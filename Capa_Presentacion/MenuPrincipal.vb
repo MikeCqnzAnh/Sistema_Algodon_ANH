@@ -20,14 +20,14 @@ Public Class MenuPrincipal
     Dim Version As String
     Dim NombreArchivo As String = "\Version.txt"
     Dim CarpetaOrigen As String = "c:\UPDATE"
-    Private Async Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         parametros = Parametros.Cargar()
         LeerArchivo()
         If Version > Application.ProductVersion Then
             BuscarActualizacion.ShowDialog()
         End If
         If parametros.Servidor Then
-            Await validalicenciaAsync()
+            'Await validalicenciaAsync()
         ElseIf parametros.Estacion Then
 
         End If
@@ -832,7 +832,7 @@ Public Class MenuPrincipal
     End Sub
 
     Private Sub RegistroDeLicenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistroDeLicenciaToolStripMenuItem.Click
-        Dim licencia As New Registrolicencia
+        Dim licencia As New RegistroLicencia(True)
         licencia.ShowDialog()
     End Sub
 

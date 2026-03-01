@@ -9,7 +9,7 @@ Public Class Reportes
         EntidadReportes1.TablaGeneral = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadReportes1.Reporte
@@ -413,7 +413,7 @@ Public Class Reportes
     Public Overridable Sub Upsert(ByRef EntidadReportes As Capa_Entidad.Reportes)
         Dim EntidadReportes1 As New Capa_Entidad.Reportes
         EntidadReportes1 = EntidadReportes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -434,7 +434,7 @@ Public Class Reportes
         EntidadReportes1.TablaGeneral = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadReportes1.Reporte

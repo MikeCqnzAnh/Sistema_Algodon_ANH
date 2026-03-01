@@ -5,7 +5,7 @@ Public Class VentaPacasContrato
     Public Overridable Sub Upsert(ByRef EntidadVentaPacasContrato As Capa_Entidad.VentaPacasContrato)
         Dim EntidadVentaPacasContrato1 As New Capa_Entidad.VentaPacasContrato
         EntidadVentaPacasContrato1 = EntidadVentaPacasContrato
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -169,7 +169,7 @@ Public Class VentaPacasContrato
     Public Overridable Sub UpsertEnviaVenta(ByRef EntidadVentaPacasContrato As Capa_Entidad.VentaPacasContrato)
         Dim EntidadVentaPacasContrato1 As New Capa_Entidad.VentaPacasContrato
         EntidadVentaPacasContrato1 = EntidadVentaPacasContrato
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -209,7 +209,7 @@ Public Class VentaPacasContrato
         EntidadVentaPacasContrato1.TablaConsulta = New DataTable
         Dim sqlcom1 As New SqlCommand
         Dim sqldat1 As New SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadVentaPacasContrato1.Consulta
@@ -396,7 +396,7 @@ Public Class VentaPacasContrato
     Public Overridable Sub Actualizar(ByRef EntidadCompraPacasContrato As Capa_Entidad.VentaPacasContrato)
         Dim EntidadVentaPacasContrato1 As New Capa_Entidad.VentaPacasContrato
         EntidadVentaPacasContrato1 = EntidadCompraPacasContrato
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdActualizar As SqlCommand
         Try
             cnn.Open()

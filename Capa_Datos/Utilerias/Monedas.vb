@@ -6,7 +6,7 @@ Public Class Monedas
     Public Overridable Sub Consultar(ByRef EntidadMonedas As Capa_Entidad.Monedas)
         Dim EntidadMonedas1 As New Capa_Entidad.Monedas()
         EntidadMonedas1 = EntidadMonedas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadMonedas1.TablaConsulta = New DataTable()
         EntidadMonedas1.TablaGeneral = New DataTable()
         'Dim sqlcom1 As SqlCommand
@@ -54,7 +54,7 @@ Public Class Monedas
     Public Overridable Sub Eliminar(ByRef EntidadMonedas As Capa_Entidad.Monedas)
         Dim EntidadMonedas1 As New Capa_Entidad.Monedas()
         EntidadMonedas1 = EntidadMonedas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadMonedas1.TablaConsulta = New DataTable()
         EntidadMonedas1.TablaGeneral = New DataTable()
         Dim cmdEliminar As SqlCommand
@@ -82,7 +82,7 @@ Public Class Monedas
     Public Overridable Sub Upsert(ByRef EntidadMonedas As Capa_Entidad.Monedas)
         Dim EntidadMonedas1 As New Capa_Entidad.Monedas
         EntidadMonedas1 = EntidadMonedas
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

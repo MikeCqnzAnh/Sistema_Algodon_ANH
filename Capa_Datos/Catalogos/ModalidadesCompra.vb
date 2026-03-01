@@ -5,7 +5,7 @@ Public Class ModalidadesCompra
     Public Overridable Sub Upsert(ByRef EntidadModalidadesCompra As Capa_Entidad.ModalidadesCompra)
         Dim EntidadModalidadesCompra1 As New Capa_Entidad.ModalidadesCompra
         EntidadModalidadesCompra1 = EntidadModalidadesCompra
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -43,7 +43,7 @@ Public Class ModalidadesCompra
         EntidadModalidadesCompra1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadModalidadesCompra1.Consulta

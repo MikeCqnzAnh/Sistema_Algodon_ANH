@@ -5,7 +5,7 @@ Public Class Clientes
     Public Overridable Sub Upsert(ByRef EntidadClientes As Capa_Entidad.Clientes)
         Dim EntidadClientes1 As New Capa_Entidad.Clientes()
         EntidadClientes1 = EntidadClientes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -70,7 +70,7 @@ Public Class Clientes
     Public Overridable Sub Consultar(ByRef EntidadClientes As Capa_Entidad.Clientes)
         Dim EntidadClientes1 As New Capa_Entidad.Clientes()
         EntidadClientes1 = EntidadClientes
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         EntidadClientes1.TablaConsulta = New DataTable()
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter

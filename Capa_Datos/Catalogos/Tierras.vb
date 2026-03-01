@@ -5,7 +5,7 @@ Public Class Tierras
     Public Overridable Sub Upsert(ByRef EntidadTierras As Capa_Entidad.Tierras)
         Dim EntidadTierras1 As New Capa_Entidad.Tierras
         EntidadTierras1 = EntidadTierras
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -47,7 +47,7 @@ Public Class Tierras
         End Try
     End Sub
     Private Sub InsertaTierraDetalle(ByVal IdTierraEncabezado As Integer, ByVal SuperficieRestante As Double)
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             If cnn.State = ConnectionState.Closed Then cnn.Open()
@@ -70,7 +70,7 @@ Public Class Tierras
         EntidadTierras1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadTierras1.Consulta
@@ -104,7 +104,7 @@ Public Class Tierras
     Public Overridable Sub ConsultarCombo(ByRef EntidadTierras As Capa_Entidad.Tierras)
         Dim EntidadTierras1 As New Capa_Entidad.Tierras
         EntidadTierras1 = EntidadTierras
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadTierras1.LlenaCombo

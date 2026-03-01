@@ -5,7 +5,7 @@ Public Class IntegraciondeCompras
     Public Overridable Sub Upsert(ByRef EntidadIntegraciondeCompras As Capa_Entidad.IntegraciondeCompras)
         Dim EntidadIntegraciondeCompras1 As New Capa_Entidad.IntegraciondeCompras
         EntidadIntegraciondeCompras1 = EntidadIntegraciondeCompras
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()
@@ -83,7 +83,7 @@ Public Class IntegraciondeCompras
         EntidadIntegraciondeCompras1.TablaConsulta = New DataTable
         Dim sqlcom1 As SqlCommand
         Dim sqldat1 As SqlDataAdapter
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Try
             cnn.Open()
             Select Case EntidadIntegraciondeCompras1.Consulta
@@ -129,7 +129,7 @@ Public Class IntegraciondeCompras
     Public Overridable Sub Eliminar(ByRef EntidadIntegraciondeCompras As Capa_Entidad.IntegraciondeCompras)
         Dim EntidadIntegraciondeCompras1 As New Capa_Entidad.IntegraciondeCompras
         EntidadIntegraciondeCompras1 = EntidadIntegraciondeCompras
-        Dim cnn As New SqlConnection(conexionPrincipal)
+        Dim cnn As SqlConnection = conexionPrincipal()
         Dim cmdGuardar As SqlCommand
         Try
             cnn.Open()

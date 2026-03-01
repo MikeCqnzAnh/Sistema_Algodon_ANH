@@ -6,12 +6,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{218AEC58-D674-4C85-9BEB-5B87131EF2C6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Capa_Presentacion.My.MyApplication</StartupObject>
+    <StartupObject>Capa_Presentacion.Program</StartupObject>
     <RootNamespace>Capa_Presentacion</RootNamespace>
     <AssemblyName>CalculaCotton</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
@@ -32,6 +32,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,6 +99,9 @@
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.3.2\lib\net46\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -229,6 +233,12 @@
       <DependentUpon>Acercade.vb</DependentUpon>
     </Compile>
     <Compile Include="Ayuda\Acercade.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda\FrmLicencia.Designer.vb">
+      <DependentUpon>FrmLicencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ayuda\FrmLicencia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ayuda\Registrolicencia.Designer.vb">
@@ -831,6 +841,7 @@
     <Compile Include="Procesos\RevisionProduccion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Program.vb" />
     <Compile Include="Reportes\RepCastigoPorRangos.Designer.vb">
       <DependentUpon>RepCastigoPorRangos.vb</DependentUpon>
     </Compile>
@@ -1452,6 +1463,7 @@
     <Compile Include="Configuracion\BanxicoTipo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ServiceLocator.vb" />
     <Compile Include="TriStateTreeView.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -1683,6 +1695,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1888,6 +1901,9 @@
     <EmbeddedResource Include="Ayuda\Acercade.resx">
       <DependentUpon>Acercade.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ayuda\FrmLicencia.resx">
+      <DependentUpon>FrmLicencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ayuda\Registrolicencia.resx">
       <DependentUpon>Registrolicencia.vb</DependentUpon>
