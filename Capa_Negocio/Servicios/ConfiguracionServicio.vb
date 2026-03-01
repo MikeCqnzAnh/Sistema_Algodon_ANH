@@ -88,11 +88,7 @@ Public Class ConfiguracionServicio
                             config.IpServidor, config.InstanciaBDD)),
                     config.InstanciaBDD)
 
-            Dim cadena As String = String.Format(
-                "Server={0};Database={1};User Id={2};Password={3};" &
-                "Connection Timeout=5;",
-                servidor, config.BaseDeDatos,
-                config.UsuarioBDD, password)
+            Dim cadena As String = String.Format("Server={0};Database={1};User Id={2};Password={3};" & "Connection Timeout=5;", servidor, config.BaseDeDatos, config.UsuarioBDD, password)
 
             Using conn = New Data.SqlClient.SqlConnection(cadena)
                 conn.Open()
@@ -105,16 +101,13 @@ Public Class ConfiguracionServicio
 
     Public Function ProbarAccesoRed(ipServidor As String) As Boolean
         Try
-            Dim ruta As String = String.Format(
-                "\\{0}\{1}", ipServidor, Constantes.CARPETA_DATOS)
+            Dim ruta As String = String.Format("\\{0}\{1}", ipServidor, Constantes.CARPETA_DATOS)
             If Not Directory.Exists(ruta) Then Return False
 
-            Dim rutaLic As String = Path.Combine(
-                ruta, "licencia_cifrada.dat")
+            Dim rutaLic As String = Path.Combine(ruta, "licencia_cifrada.dat")
             Dim rutaServerId As String = Path.Combine(ruta, "server.id")
 
-            Return File.Exists(rutaLic) AndAlso
-                   File.Exists(rutaServerId)
+            Return File.Exists(rutaLic) AndAlso File.Exists(rutaServerId)
         Catch
             Return False
         End Try

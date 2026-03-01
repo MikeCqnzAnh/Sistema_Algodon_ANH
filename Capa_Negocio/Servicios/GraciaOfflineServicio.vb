@@ -42,17 +42,14 @@ Public Class GraciaOfflineServicio
         Dim fechaManipulada As Boolean = DetectarManipulacion(local, ahora)
 
         If fechaManipulada Then
-            _logger.Warn("Manipulación de fecha detectada. " &
-                         "Consumiendo día de gracia.")
+            _logger.Warn("Manipulación de fecha detectada. " & "Consumiendo día de gracia.")
             local.DiasOfflineConsumidos += 1
         Else
-            Dim horasTranscurridas As Double =
-                (ahora - local.UltimaFechaRegistrada).TotalHours
+            Dim horasTranscurridas As Double = (ahora - local.UltimaFechaRegistrada).TotalHours
 
             If horasTranscurridas >= 20 Then
                 local.DiasOfflineConsumidos += 1
-                _logger.Info("Día offline consumido. Total: {0}",
-                    local.DiasOfflineConsumidos)
+                _logger.Info("Día offline consumido. Total: {0}", local.DiasOfflineConsumidos)
             End If
         End If
 
@@ -65,8 +62,7 @@ Public Class GraciaOfflineServicio
         _repoLocal.Guardar(local)
 
         ' Calcular días restantes basado en contador
-        Dim diasRestantes As Integer =
-            DIAS_GRACIA_MAXIMO - local.DiasOfflineConsumidos
+        Dim diasRestantes As Integer = DIAS_GRACIA_MAXIMO - local.DiasOfflineConsumidos
 
         If diasRestantes <= 0 Then
             Return ResultadoGraciaOffline.Agotada()

@@ -11,8 +11,7 @@ Public Class LicenciaLocalRepositorio
     Private ReadOnly _logger As Logger =
         LogManager.GetCurrentClassLogger()
 
-    Private Shared ReadOnly RutaLocal As String =
-        ConfiguracionApp.RutaLicencia
+    Private Shared ReadOnly RutaLocal As String = ConfiguracionApp.RutaLicencia
 
     Public Sub New(claveEncriptacion As String)
         _rutaArchivo = RutaLocal
@@ -31,8 +30,7 @@ Public Class LicenciaLocalRepositorio
             Dim contenido As String = File.ReadAllText(_rutaArchivo)
             Dim json As String = SeguridadHelper.DecryptString(contenido, _claveEncriptacion)
 
-            Dim lic As LicenciaLocal =
-                JsonConvert.DeserializeObject(Of LicenciaLocal)(json)
+            Dim lic As LicenciaLocal = JsonConvert.DeserializeObject(Of LicenciaLocal)(json)
             If lic Is Nothing Then Return Nothing
 
             Dim checksumEsperado As String = ComputarChecksum(lic)

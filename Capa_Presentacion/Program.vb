@@ -5,38 +5,38 @@ Imports Capa_Negocio
 Imports Capa_Operacion
 Module Program
 
-        <STAThread>
-        Sub Main()
-            Application.EnableVisualStyles()
-            Application.SetCompatibleTextRenderingDefault(False)
-            ServiceLocator.Configurar()
+    <STAThread>
+    Sub Main()
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(False)
+        ServiceLocator.Configurar()
 
-            If Not VerificarConfiguracion() Then Return
+        If Not VerificarConfiguracion() Then Return
         If Not VerificarLicencia() Then Return
 
         Application.Run(New Acceso())
     End Sub
 
-        ' ─── Verificar configuración ──────────────────────────────────────────
-        Private Function VerificarConfiguracion() As Boolean
-            Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
+    ' ─── Verificar configuración ──────────────────────────────────────────
+    Private Function VerificarConfiguracion() As Boolean
+        Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
 
-            If srv.ExisteConfiguracion() Then Return True
+        If srv.ExisteConfiguracion() Then Return True
 
-            Dim resp = MessageBox.Show(
-                "El sistema aún no está configurado." &
-                Environment.NewLine & Environment.NewLine &
-                "¿Desea configurarlo ahora?",
-                "Configuración inicial",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button1)
+        Dim resp = MessageBox.Show(
+            "El sistema aún no está configurado." &
+            Environment.NewLine & Environment.NewLine &
+            "¿Desea configurarlo ahora?",
+            "Configuración inicial",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning,
+            MessageBoxDefaultButton.Button1)
 
-            If resp = DialogResult.No Then
-                MessageBox.Show("El sistema se cerrará.", "Cerrando",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return False
-            End If
+        If resp = DialogResult.No Then
+            MessageBox.Show("El sistema se cerrará.", "Cerrando",
+                MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return False
+        End If
 
         Using frm = New ConfiguraConexionInicial()
             If frm.ShowDialog() = DialogResult.OK AndAlso
@@ -50,20 +50,20 @@ Module Program
                 Environment.NewLine & "El sistema se cerrará.",
                 "Sin configuración",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End Function
+        Return False
+    End Function
 
-        ' ─── Verificar licencia ───────────────────────────────────────────────
-        Private Function VerificarLicencia() As Boolean
-            Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
-            Dim config As ConfiguracionApp = srv.Leer()
+    ' ─── Verificar licencia ───────────────────────────────────────────────
+    Private Function VerificarLicencia() As Boolean
+        Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
+        Dim config As ConfiguracionApp = srv.Leer()
 
-            If config IsNot Nothing AndAlso config.Estacion Then
-                Return VerificarLicenciaEstacion(config)
-            End If
+        If config IsNot Nothing AndAlso config.Estacion Then
+            Return VerificarLicenciaEstacion(config)
+        End If
 
-            Return VerificarLicenciaServidor()
-        End Function
+        Return VerificarLicenciaServidor()
+    End Function
 
     ' ─── Licencia ESTACIÓN ────────────────────────────────────────────────
     Private Function VerificarLicenciaEstacion(config As ConfiguracionApp) As Boolean
@@ -91,92 +91,92 @@ Module Program
 
     ' ─── Licencia SERVIDOR ────────────────────────────────────────────────
     Private Function VerificarLicenciaServidor() As Boolean
-            Dim licServicio = ServiceLocator.Obtener(Of LicenciaServicio)()
-            Dim serial As String = Nothing
+        Dim licServicio = ServiceLocator.Obtener(Of LicenciaServicio)()
+        Dim serial As String = Nothing
 
-            If licServicio.ExisteArchivoLicencia() Then
-                serial = licServicio.ObtenerSerialDesdeArchivo()
-            End If
+        If licServicio.ExisteArchivoLicencia() Then
+            serial = licServicio.ObtenerSerialDesdeArchivo()
+        End If
 
-            If String.IsNullOrEmpty(serial) Then
-                Dim resp = MessageBox.Show(
-                    "El sistema aún no está activado." &
-                    Environment.NewLine & Environment.NewLine &
-                    "¿Desea activarlo ahora?",
-                    "Sistema no activado",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning,
-                    MessageBoxDefaultButton.Button1)
+        If String.IsNullOrEmpty(serial) Then
+            Dim resp = MessageBox.Show(
+                "El sistema aún no está activado." &
+                Environment.NewLine & Environment.NewLine &
+                "¿Desea activarlo ahora?",
+                "Sistema no activado",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1)
 
-                If resp = DialogResult.No Then
-                    MessageBox.Show("El sistema se cerrará.", "Cerrando",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Return False
-                End If
-
-                Using frm = New Registrolicencia()
-                    If frm.ShowDialog() = DialogResult.OK AndAlso
-                       frm.LicenciaValida Then
-                        Return True
-                    End If
-                End Using
-
-                MessageBox.Show(
-                    "La licencia no fue activada." &
-                    Environment.NewLine & "El sistema se cerrará.",
-                    "Sin licencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            If resp = DialogResult.No Then
+                MessageBox.Show("El sistema se cerrará.", "Cerrando",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return False
             End If
 
+            Using frm = New RegistroLicencia()
+                If frm.ShowDialog() = DialogResult.OK AndAlso
+                   frm.LicenciaValida Then
+                    Return True
+                End If
+            End Using
+
+            MessageBox.Show(
+                "La licencia no fue activada." &
+                Environment.NewLine & "El sistema se cerrará.",
+                "Sin licencia",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return False
+        End If
+
         Dim licencia As LicenciaInfo = licServicio.VerificarLicenciaAsync(serial).GetAwaiter().GetResult()
         Return EvaluarResultadoLicencia(licencia)
-        End Function
+    End Function
 
-        ' ─── Evaluar resultado ────────────────────────────────────────────────
-        Private Function EvaluarResultadoLicencia(
-            licencia As LicenciaInfo) As Boolean
+    ' ─── Evaluar resultado ────────────────────────────────────────────────
+    Private Function EvaluarResultadoLicencia(
+        licencia As LicenciaInfo) As Boolean
 
-            Select Case licencia.Estatus
-                Case EstatusSerial.Activo
+        Select Case licencia.Estatus
+            Case EstatusSerial.Activo
+                Return True
+
+            Case EstatusSerial.Vencido
+                If licencia.EnPeriodoGracia Then
+                    MessageBox.Show(
+                        String.Format(
+                            "⚠ Licencia en período de gracia.{0}{0}{1}",
+                            Environment.NewLine, licencia.Mensaje),
+                        "Aviso de licencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return True
+                End If
+                MessageBox.Show(
+                    "✖ La licencia ha vencido." &
+                    Environment.NewLine &
+                    "Contacte al administrador.",
+                    "Licencia vencida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
 
-                Case EstatusSerial.Vencido
-                    If licencia.EnPeriodoGracia Then
-                        MessageBox.Show(
-                            String.Format(
-                                "⚠ Licencia en período de gracia.{0}{0}{1}",
-                                Environment.NewLine, licencia.Mensaje),
-                            "Aviso de licencia",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Return True
-                    End If
-                    MessageBox.Show(
-                        "✖ La licencia ha vencido." &
-                        Environment.NewLine &
-                        "Contacte al administrador.",
-                        "Licencia vencida",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
+            Case EstatusSerial.Inhabilitado
+                MessageBox.Show(
+                    String.Format(
+                        "✖ La licencia está inhabilitada.{0}{0}{1}",
+                        Environment.NewLine, licencia.Mensaje),
+                    "Licencia inhabilitada",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
 
-                Case EstatusSerial.Inhabilitado
-                    MessageBox.Show(
-                        String.Format(
-                            "✖ La licencia está inhabilitada.{0}{0}{1}",
-                            Environment.NewLine, licencia.Mensaje),
-                        "Licencia inhabilitada",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
+            Case Else
+                MessageBox.Show(
+                    String.Format(
+                        "✖ No se pudo verificar la licencia.{0}{0}{1}",
+                        Environment.NewLine, licencia.Mensaje),
+                    "Error de licencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+        End Select
+    End Function
 
-                Case Else
-                    MessageBox.Show(
-                        String.Format(
-                            "✖ No se pudo verificar la licencia.{0}{0}{1}",
-                            Environment.NewLine, licencia.Mensaje),
-                        "Error de licencia",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
-            End Select
-        End Function
-
-    End Module
+End Module

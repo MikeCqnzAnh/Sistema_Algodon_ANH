@@ -102,10 +102,7 @@ Public Class ConfiguracionApp
 
     Public Shared ReadOnly Property RutaLicencia As String
         Get
-            Return Path.Combine(
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.CommonApplicationData),
-                Constantes.CARPETA_DATOS, "licencia_cifrada.dat")
+            Return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), Constantes.CARPETA_DATOS, "licencia_cifrada.dat")
         End Get
     End Property
 
@@ -113,8 +110,7 @@ Public Class ConfiguracionApp
         If Not Estacion OrElse String.IsNullOrEmpty(IpServidor) Then
             Return RutaLicencia
         End If
-        Return String.Format("\\{0}\{1}\licencia_cifrada.dat",
-            IpServidor, Constantes.CARPETA_DATOS)
+        Return String.Format("\\{0}\{1}\licencia_cifrada.dat", IpServidor, Constantes.CARPETA_DATOS)
     End Function
 
     Public Shared Function PorDefecto() As ConfiguracionApp
