@@ -49,8 +49,7 @@ Public Class LicenciaServicio
     End Function
 
     ' ─── MODO ESTACIÓN ────────────────────────────────────────────────────
-    Private Async Function VerificarComoEstacionAsync(
-        config As ConfiguracionApp) As Task(Of LicenciaInfo)
+    Private Async Function VerificarComoEstacionAsync(config As ConfiguracionApp) As Task(Of LicenciaInfo)
 
         Return Await Task.Run(Function()
                                   Try

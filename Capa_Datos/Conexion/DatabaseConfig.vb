@@ -39,10 +39,7 @@ Public Module DatabaseConfig
             Dim servidor As String
             If config.Estacion AndAlso
                Not String.IsNullOrEmpty(config.IpServidor) Then
-                servidor = If(String.IsNullOrEmpty(config.InstanciaBDD),
-                    config.IpServidor,
-                    String.Format("{0}\{1}",
-                        config.IpServidor, config.InstanciaBDD))
+                servidor = config.InstanciaBDD
             Else
                 servidor = config.InstanciaBDD
             End If
@@ -79,10 +76,7 @@ Public Module DatabaseConfig
             Dim servidor As String
             If config.Estacion AndAlso
                Not String.IsNullOrEmpty(config.IpServidor) Then
-                servidor = If(String.IsNullOrEmpty(config.InstanciaBDD),
-                    config.IpServidor,
-                    String.Format("{0}\{1}",
-                        config.IpServidor, config.InstanciaBDD))
+                servidor = config.InstanciaBDD
             Else
                 servidor = config.InstanciaBDD
             End If

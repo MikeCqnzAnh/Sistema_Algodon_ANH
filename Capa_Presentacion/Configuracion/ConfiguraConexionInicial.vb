@@ -60,10 +60,8 @@ Public Class ConfiguraConexionInicial
 
                        If resultado.Encontrado Then
                            ' Verificar si el servidor encontrado es este mismo equipo
-                           Dim ipLocal As String =
-                               NetworkDiscoveryServicio.ObtenerIpLocal()
-                           Dim esMismoEquipo As Boolean =
-                               resultado.IpServidor = ipLocal
+                           Dim ipLocal As String = NetworkDiscoveryServicio.ObtenerIpLocal()
+                           Dim esMismoEquipo As Boolean = resultado.IpServidor = ipLocal
 
                            If esMismoEquipo Then
                                rbServidor.Checked = True
