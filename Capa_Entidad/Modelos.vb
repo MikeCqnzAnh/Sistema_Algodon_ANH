@@ -56,6 +56,8 @@ Public Class LicenciaInfo
     Public Property Serial As String
     Public Property CpuId As String
     Public Property Estatus As EstatusSerial
+    Public Property Cantidad As Integer
+    Public Property IdPeriodo As Integer
     Public Property Periodo As String
     Public Property FechaVencimiento As DateTime?
     Public Property DiasRestantes As Integer
@@ -206,7 +208,33 @@ Public Class ResultadoLogin
         }
     End Function
 End Class
+Public Class PeriodoItem
+    Public Property Id As Integer
+    Public Property Texto As String
 
+    Public Sub New(id As Integer, texto As String)
+        Me.Id = id
+        Me.Texto = texto
+    End Sub
+
+    Public Overrides Function ToString() As String
+        Return Texto
+    End Function
+End Class
+Public Class ConsultaLicenciaResult
+    Public Property Encontrado As Boolean
+    Public Property Mensaje As String
+    Public Property EstatusInt As Integer
+    Public Property Estatus As String
+    Public Property IdPeriodo As Integer
+    Public Property Periodo As String
+    Public Property Cantidad As Integer
+    Public Property FechaVencimiento As DateTime?
+    Public Property NombreCliente As String
+    Public Property EmailCliente As String
+    Public Property NombreContacto As String
+    Public Property TelefonoContacto As String
+End Class
 Public Class ResultadoDiscovery
     Public Property Encontrado As Boolean
     Public Property IpServidor As String

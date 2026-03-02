@@ -127,3 +127,20 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Entidad.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Capa_Operacion.dll.config
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.AssemblyReference.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.Resources.resources
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.GenerateResource.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.vbproj.CoreCompileInputs.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Ent.95CB6C88.Up2Date
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Entidad\obj\Debug\Capa_Entidad.pdb

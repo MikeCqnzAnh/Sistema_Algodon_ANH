@@ -29,6 +29,8 @@ Public Class LicenciaServicio
     serial As String,
     Optional nombreCliente As String = "",
     Optional emailCliente As String = "",
+    Optional cantidad As Integer = 0,
+    Optional idperiodo As Integer = 0,
     Optional nombreContacto As String = "",
     Optional telefonoContacto As String = "") As Task(Of LicenciaInfo)
 
@@ -42,6 +44,8 @@ Public Class LicenciaServicio
             serial,
             nombreCliente,
             emailCliente,
+            cantidad,
+            idperiodo,
             nombreContacto,
             telefonoContacto).ConfigureAwait(False)
         End If
@@ -165,6 +169,8 @@ Public Class LicenciaServicio
     serial As String,
     nombreCliente As String,
     emailCliente As String,
+    cantidad As Integer,
+    idperiodo As Integer,
     nombreContacto As String,
     telefonoContacto As String) As Task(Of LicenciaInfo)
 
@@ -176,6 +182,8 @@ Public Class LicenciaServicio
             hardwareId,
             nombreCliente,
             emailCliente,
+            cantidad,
+            idperiodo,
             nombreContacto,
             telefonoContacto).ConfigureAwait(False)
 
@@ -227,7 +235,19 @@ Public Class LicenciaServicio
             }
         End Try
     End Function
+    Public Async Function ConsultarSerialAsync(serial As String) As Task(Of ConsultaLicenciaResult)
 
+        Try
+            Return Await _apiClient.ConsultarAsync(serial).ConfigureAwait(False)
+
+        Catch ex As Exception
+            _logger.Warn(ex, "Error al consultar serial.")
+            Return New ConsultaLicenciaResult With {
+            .Encontrado = False,
+            .Mensaje = "Error al consultar el serial."
+        }
+        End Try
+    End Function
     Private Sub GuardarEstadoLocal(serial As String, hardwareId As String, info As LicenciaInfo)
         Try
             Dim ahora As DateTime = DateTime.UtcNow

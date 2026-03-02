@@ -340,3 +340,39 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo_log.ldf
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll.config
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\stdole.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.pdb
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll.config
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.AssemblyReference.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.Resources.resources
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.GenerateResource.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.CoreCompileInputs.cache
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Neg.E79A89D6.Up2Date
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb

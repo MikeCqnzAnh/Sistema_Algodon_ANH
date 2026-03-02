@@ -1,62 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\",
+  "WorkspaceRootPath": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_datos\\repositorios\\licencialocalrepositorio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\repositorios\\licencialocalrepositorio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_presentacion\\configuracion\\configuraconexioninicial.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\configuracion\\configuraconexioninicial.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_negocio\\servicios\\graciaofflineservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\servicios\\graciaofflineservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_entidad\\modelos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|solutionrelative:capa_entidad\\modelos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_negocio\\servicios\\licenciaservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\servicios\\licenciaservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\program.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\program.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_negocio\\servicios\\configuracionservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\servicios\\configuracionservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\acceso.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\acceso.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\ccotton_service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5578976C-0FA7-496E-9D21-63AE7AFC6B0A}|ccotton_service\\ccotton_service.vbproj|solutionrelative:ccotton_service\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|e:\\personal extra\\escritorio\\escritorio externo\\desarrollo\\sia\\sistema_algodon_anh\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_negocio\\apiclientes\\licenciaapicliente.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\apiclientes\\licenciaapicliente.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\ayuda\\registrolicencia.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{218AEC58-D674-4C85-9BEB-5B87131EF2C6}|Capa_Presentacion\\Capa_Presentacion.vbproj|solutionrelative:capa_presentacion\\menuprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_datos\\repositorios\\licencialocalrepositorio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{07C8185B-0838-4052-993F-A6142E682B21}|Capa_Datos\\Capa_Datos.vbproj|solutionrelative:capa_datos\\repositorios\\licencialocalrepositorio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A1E6801-5527-4D29-B798-24CE9AFA623F}|Capa_Operacion\\Capa_Operacion.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_operacion\\parametros.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{3A1E6801-5527-4D29-B798-24CE9AFA623F}|Capa_Operacion\\Capa_Operacion.vbproj|solutionrelative:capa_operacion\\parametros.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_entidad\\modelos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{3DE26638-6EAD-4D20-B52F-3EED4039A544}|Capa_Entidad\\Capa_Entidad.vbproj|solutionrelative:capa_entidad\\modelos.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\capa_negocio\\apiclientes\\licenciaapicliente.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\apiclientes\\licenciaapicliente.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_negocio\\servicios\\licenciaservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\servicios\\licenciaservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|c:\\users\\migue\\onedrive\\documentos\\github\\sistema_algodon_anh\\capa_negocio\\servicios\\configuracionservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{464320C1-9849-4937-B1EB-371F9D531025}|Capa_Negocio\\Capa_Negocio.vbproj|solutionrelative:capa_negocio\\servicios\\configuracionservicio.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,186 +46,126 @@
       "DocumentGroups": [
         {
           "DockedWidth": 191,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GraciaOfflineServicio.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\GraciaOfflineServicio.vb",
-              "RelativeDocumentMoniker": "Capa_Negocio\\Servicios\\GraciaOfflineServicio.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\GraciaOfflineServicio.vb",
-              "RelativeToolTip": "Capa_Negocio\\Servicios\\GraciaOfflineServicio.vb",
-              "ViewState": "AgIAACQAAAAAAAAAAAAWwD0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T20:29:00.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Modelos.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Entidad\\Modelos.vb",
-              "RelativeDocumentMoniker": "Capa_Entidad\\Modelos.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Entidad\\Modelos.vb",
-              "RelativeToolTip": "Capa_Entidad\\Modelos.vb",
-              "ViewState": "AgIAAFsAAAAAAAAAAIA4wHAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T20:26:31.869Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LicenciaLocalRepositorio.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
-              "RelativeDocumentMoniker": "Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
-              "RelativeToolTip": "Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAewBoAAAAIAAAAAAAAAA==",
+              "Title": "ConfiguraConexionInicial.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Configuracion\\ConfiguraConexionInicial.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Configuracion\\ConfiguraConexionInicial.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Configuracion\\ConfiguraConexionInicial.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Capa_Presentacion\\Configuracion\\ConfiguraConexionInicial.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T20:25:37.049Z",
+              "WhenOpened": "2026-03-02T04:17:03.311Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Registrolicencia.vb [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
+              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-03-02T01:52:13.275Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LicenciaServicio.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\LicenciaServicio.vb",
+              "RelativeDocumentMoniker": "Capa_Negocio\\Servicios\\LicenciaServicio.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\LicenciaServicio.vb",
+              "RelativeToolTip": "Capa_Negocio\\Servicios\\LicenciaServicio.vb",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAQwPAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-03-02T01:42:42.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Registrolicencia.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
+              "ViewState": "AgIAAJIBAAAAAAAAAAAQwJsBAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-03-02T01:27:43.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Program.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Program.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Program.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Program.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Program.vb",
-              "ViewState": "AgIAAEgAAAAAAAAAAAASwGEAAAAyAAAAAAAAAA==",
+              "Title": "Parametros.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Operacion\\Parametros.vb",
+              "RelativeDocumentMoniker": "Capa_Operacion\\Parametros.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Operacion\\Parametros.vb",
+              "RelativeToolTip": "Capa_Operacion\\Parametros.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T20:24:11.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.config",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\App.config",
-              "RelativeDocumentMoniker": "ccotton_service\\App.config",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\ccotton_service\\App.config",
-              "RelativeToolTip": "ccotton_service\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-03-01T19:51:54.538Z",
+              "WhenOpened": "2026-03-02T01:27:43.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "App.config",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\App.config",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\App.config",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\App.config",
-              "RelativeToolTip": "Capa_Presentacion\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-03-01T19:51:43.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Acceso.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Acceso.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Acceso.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Acceso.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Acceso.vb",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAnwMcAAABlAAAAAAAAAA==",
+              "Title": "ConfiguracionServicio.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
+              "RelativeDocumentMoniker": "Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
+              "RelativeToolTip": "Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwCgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T19:51:32.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LicenciaServicio.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\LicenciaServicio.vb",
-              "RelativeDocumentMoniker": "Capa_Negocio\\Servicios\\LicenciaServicio.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\LicenciaServicio.vb",
-              "RelativeToolTip": "Capa_Negocio\\Servicios\\LicenciaServicio.vb",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAjwBMBAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T01:41:34.272Z",
+              "WhenOpened": "2026-03-02T01:27:43.236Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ConfiguracionServicio.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
-              "RelativeDocumentMoniker": "Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
-              "RelativeToolTip": "Capa_Negocio\\Servicios\\ConfiguracionServicio.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
+              "Title": "Modelos.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Entidad\\Modelos.vb",
+              "RelativeDocumentMoniker": "Capa_Entidad\\Modelos.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Entidad\\Modelos.vb",
+              "RelativeToolTip": "Capa_Entidad\\Modelos.vb",
+              "ViewState": "AgIAAL4AAAAAAAAAAIAywM8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T00:30:10.792Z",
+              "WhenOpened": "2026-03-02T01:27:43.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MenuPrincipal.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\MenuPrincipal.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
-              "RelativeToolTip": "Capa_Presentacion\\MenuPrincipal.vb",
-              "ViewState": "AgIAAFABAAAAAAAAAAAewHEBAABkAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "LicenciaLocalRepositorio.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
+              "RelativeDocumentMoniker": "Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
+              "RelativeToolTip": "Capa_Datos\\Repositorios\\LicenciaLocalRepositorio.vb",
+              "ViewState": "AgIAAB8AAAAAAAAAAAASwC0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T00:31:55.904Z",
+              "WhenOpened": "2026-03-02T01:24:36.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MenuPrincipal.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\MenuPrincipal.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\MenuPrincipal.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\MenuPrincipal.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-03-01T00:31:51.656Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "LicenciaApiCliente.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
+              "DocumentMoniker": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
               "RelativeDocumentMoniker": "Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
+              "ToolTip": "C:\\Users\\Migue\\OneDrive\\Documentos\\GitHub\\Sistema_Algodon_ANH\\Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
               "RelativeToolTip": "Capa_Negocio\\ApiClientes\\LicenciaApiCliente.vb",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAiwGIAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAADwv24AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-02-28T09:28:27.379Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Registrolicencia.vb",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAswCIAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-02-28T09:25:58.658Z",
+              "WhenOpened": "2026-02-28T09:28:27.379Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Registrolicencia.vb [Dise\u00F1o]",
-              "DocumentMoniker": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "RelativeDocumentMoniker": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb",
-              "ToolTip": "E:\\Personal extra\\Escritorio\\ESCRITORIO EXTERNO\\Desarrollo\\SIA\\Sistema_Algodon_ANH\\Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
-              "RelativeToolTip": "Capa_Presentacion\\Ayuda\\Registrolicencia.vb [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2026-02-28T09:25:55.862Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

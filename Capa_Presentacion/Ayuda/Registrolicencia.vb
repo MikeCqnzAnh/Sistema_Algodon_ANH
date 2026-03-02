@@ -1,5 +1,6 @@
 ﻿' Capa_Presentacion/Formularios/RegistroLicencia.vb
 Imports System.Drawing
+Imports System.ServiceModel.Activation.Configuration
 Imports System.Threading.Tasks
 Imports System.Windows.Forms
 Imports Capa_Entidad
@@ -33,7 +34,7 @@ Public Class RegistroLicencia
 
     ' ─── Carga inicial ────────────────────────────────────────────────────────
     Private Async Sub RegistroLicencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CargarPeriodos()
         ' Detectar modo desde config.json
         Dim config As ConfiguracionApp = _configServicio.Leer()
         _esEstacion = config IsNot Nothing AndAlso config.Estacion
@@ -58,7 +59,29 @@ Public Class RegistroLicencia
             End If
         End If
     End Sub
+    Private Sub CargarPeriodos()
+        cbperiodo.Items.Clear()
+        cbperiodo.DisplayMember = "Texto"
+        cbperiodo.ValueMember = "Id"
 
+        cbperiodo.Items.Add(New PeriodoItem(0, "Días de Prueba"))
+        cbperiodo.Items.Add(New PeriodoItem(1, "Mes"))
+        cbperiodo.Items.Add(New PeriodoItem(2, "Año"))
+
+        cbperiodo.SelectedIndex = 0
+    End Sub
+    Private Sub AsignarPeriodo(idPeriodo As Integer)
+        ' ✅ No limpiar — solo buscar y seleccionar
+        For i As Integer = 0 To cbperiodo.Items.Count - 1
+            Dim item As PeriodoItem =
+            DirectCast(cbperiodo.Items(i), PeriodoItem)
+            If item.Id = idPeriodo Then
+                cbperiodo.SelectedIndex = i
+                Return
+            End If
+        Next
+        cbperiodo.SelectedIndex = 0
+    End Sub
     ' ─── Configurar controles según modo ─────────────────────────────────────
     Private Sub ConfigurarSegunModo(config As ConfiguracionApp)
         If _esEstacion Then
@@ -134,8 +157,7 @@ Public Class RegistroLicencia
     End Function
 
     ' ─── Procesar resultado ESTACIÓN ─────────────────────────────────────────
-    Private Sub ProcesarResultadoEstacion(licencia As LicenciaInfo,
-                                          config As ConfiguracionApp)
+    Private Sub ProcesarResultadoEstacion(licencia As LicenciaInfo, config As ConfiguracionApp)
         MostrarInfoLicencia(licencia)
 
         Select Case licencia.Estatus
@@ -175,10 +197,25 @@ Public Class RegistroLicencia
     End Sub
 
     ' ─── Botón Activar ────────────────────────────────────────────────────────
-    Private Async Sub btactivar_Click(sender As Object, e As EventArgs) Handles btactivar.Click
+    Private Async Sub btactivar_Click(
+    sender As Object, e As EventArgs) Handles btactivar.Click
 
+        ' ✅ Leer TODOS los valores de controles UI AQUÍ
+        ' antes de cualquier Await — todavía estamos en el hilo UI
         Dim serial As String = tblicencia.Text.Trim().ToUpper()
+        Dim nombreCliente As String = tbnombre.Text.Trim()
+        Dim emailCliente As String = tbemail.Text.Trim()
+        Dim nombreContacto As String = tbnombrecontacto.Text.Trim()
+        Dim telefonoContacto As String = tbtelefono.Text.Trim()
+        Dim cantidad As Integer = CInt(nucantidad.Value)
 
+        ' ✅ SelectedValue puede ser Nothing si no hay selección
+        Dim idPeriodo As Integer = 0
+        If cbperiodo.SelectedItem IsNot Nothing Then
+            idPeriodo = DirectCast(cbperiodo.SelectedItem, PeriodoItem).Id
+        End If
+
+        ' ── Validaciones (hilo UI) ────────────────────────────────────────────
         If String.IsNullOrWhiteSpace(serial.Replace("-", "").Trim()) Then
             MostrarError("Ingrese el serial de licencia.")
             tblicencia.Focus()
@@ -197,6 +234,8 @@ Public Class RegistroLicencia
         MostrarInfo("Verificando conexión con el servidor...")
 
         Try
+            ' ── A partir de aquí pueden existir Awaits con ConfigureAwait(False)
+            ' ── ya NO accedemos a ningún control UI directamente
             Dim hayConexion As Boolean = Await _licenciaServicio _
             .HayConexionConServidorAsync() _
             .ConfigureAwait(False)
@@ -216,13 +255,15 @@ Public Class RegistroLicencia
 
             Invoke(Sub() MostrarInfo("Conectado. Verificando licencia..."))
 
-            ' ✅ Leer datos del formulario para enviarlos a Flask
+            ' ✅ Pasar variables locales — NO controles UI
             Await VerificarLicenciaAsync(
             serial,
-            tbnombre.Text.Trim(),
-            tbemail.Text.Trim(),
-            tbnombrecontacto.Text.Trim(),
-            tbtelefono.Text.Trim())
+            nombreCliente,
+            emailCliente,
+            cantidad,
+            idPeriodo,
+            nombreContacto,
+            telefonoContacto)
 
         Catch ex As Exception
             _logger.Error(ex, "Error al verificar conexión.")
@@ -240,6 +281,8 @@ Public Class RegistroLicencia
     serial As String,
     Optional nombreCliente As String = "",
     Optional emailCliente As String = "",
+    Optional cantidad As Integer = 0,
+    Optional idperiodo As Integer = 0,
     Optional nombreContacto As String = "",
     Optional telefonoContacto As String = "") As Task
 
@@ -249,6 +292,8 @@ Public Class RegistroLicencia
                 serial,
                 nombreCliente,
                 emailCliente,
+                cantidad,
+                idperiodo,
                 nombreContacto,
                 telefonoContacto) _
             .ConfigureAwait(False)
@@ -267,13 +312,10 @@ Public Class RegistroLicencia
     End Function
 
     ' ─── Procesar resultado SERVIDOR ─────────────────────────────────────────
-    Private Sub ProcesarResultadoServidor(serial As String,
-                                          licencia As LicenciaInfo)
+    Private Sub ProcesarResultadoServidor(serial As String, licencia As LicenciaInfo)
         Select Case licencia.Estatus
             Case EstatusSerial.Activo
-                MostrarExito(String.Format(
-                    "Licencia activada correctamente.{0}{1}",
-                    Environment.NewLine, licencia.Mensaje))
+                MostrarExito(String.Format("Licencia activada correctamente.{0}{1}", Environment.NewLine, licencia.Mensaje))
                 MostrarInfoLicencia(licencia)
                 LicenciaValida = True
                 tblicencia.ReadOnly = True
@@ -316,12 +358,18 @@ Public Class RegistroLicencia
 
     ' ─── Mostrar info detallada de la licencia ────────────────────────────────
     Private Sub MostrarInfoLicencia(licencia As LicenciaInfo)
+        ' ✅ Garantizar hilo UI
+        If InvokeRequired Then
+            Invoke(Sub() MostrarInfoLicencia(licencia))
+            Return
+        End If
+
         cbestatuslicencia.Enabled = False
         cbperiodo.Enabled = False
         nucantidad.Enabled = False
         dtfechavencimiento.Enabled = False
 
-        ' ─── Estatus ──────────────────────────────────────────────────────────
+        ' ── Estatus ───────────────────────────────────────────────────────────
         cbestatuslicencia.Items.Clear()
         cbestatuslicencia.Items.Add(licencia.Estatus.ToString())
         cbestatuslicencia.SelectedIndex = 0
@@ -333,25 +381,22 @@ Public Class RegistroLicencia
             Case Else : cbestatuslicencia.ForeColor = Color.Gray
         End Select
 
-        ' ─── Período ──────────────────────────────────────────────────────────
-        cbperiodo.Items.Clear()
-        cbperiodo.Items.Add(If(
-        String.IsNullOrEmpty(licencia.Periodo),
-        "Sin información", licencia.Periodo))
-        cbperiodo.SelectedIndex = 0
+        ' ✅ Asignar período — NO llamar CargarPeriodos() aquí
+        AsignarPeriodo(MapearPeriodoAId(licencia.Periodo))
 
-        ' ─── Días restantes ───────────────────────────────────────────────────
+        ' ── Días restantes ────────────────────────────────────────────────────
         nucantidad.Value = If(
-        licencia.DiasRestantes > 0 AndAlso licencia.DiasRestantes < 500,
-        licencia.DiasRestantes, 0)
+        licencia.DiasRestantes > 0 AndAlso
+        licencia.DiasRestantes < 500,
+        CDec(licencia.DiasRestantes), 0D)
 
-        ' ─── Fecha vencimiento ────────────────────────────────────────────────
+        ' ── Fecha vencimiento ─────────────────────────────────────────────────
         If licencia.FechaVencimiento.HasValue Then
-            dtfechavencimiento.Value = licencia.FechaVencimiento.Value.ToLocalTime()
+            dtfechavencimiento.Value =
+            licencia.FechaVencimiento.Value.ToLocalTime()
         End If
 
-        ' ─── Datos del cliente ────────────────────────────────────────────────
-        ' panel1 — campos principales
+        ' ── Datos del cliente ─────────────────────────────────────────────────
         If Not String.IsNullOrEmpty(licencia.NombreCliente) Then
             tbnombre.Text = licencia.NombreCliente
         End If
@@ -360,7 +405,6 @@ Public Class RegistroLicencia
             tbemail.Text = licencia.EmailCliente
         End If
 
-        ' groupBox1 "Contacto" — nombre y teléfono del contacto
         If Not String.IsNullOrEmpty(licencia.NombreContacto) Then
             tbnombrecontacto.Text = licencia.NombreContacto
         End If
@@ -369,11 +413,21 @@ Public Class RegistroLicencia
             tbtelefono.Text = licencia.TelefonoContacto
         End If
     End Sub
+    ' ─── Mapear string periodo → idperiodo ───────────────────────────────────────
+    Private Shared Function MapearPeriodoAId(periodo As String) As Integer
+        If String.IsNullOrEmpty(periodo) Then Return 0
+        Select Case periodo.ToLower().Trim()
+            Case "prueba", "días de prueba", "dias de prueba" : Return 0
+            Case "mensual", "mes" : Return 1
+            Case "anual", "año", "ano" : Return 2
+            Case Else : Return 0
+        End Select
+    End Function
 
     ' ─── Limpiar campos de info ───────────────────────────────────────────────
     Private Sub LimpiarInfoLicencia()
         cbestatuslicencia.Items.Clear()
-        cbperiodo.Items.Clear()
+        cbperiodo.SelectedIndex = -1
         nucantidad.Value = 0
         dtfechavencimiento.Value = DateTime.Now
         tbnombre.Text = String.Empty
@@ -383,26 +437,111 @@ Public Class RegistroLicencia
     End Sub
 
     ' ─── Botón Pegar — pegar serial desde portapapeles ───────────────────────
-    Private Sub btpegar_Click(
-        sender As Object, e As EventArgs) _
-        Handles btpegar.Click
+    Private Async Sub btpegar_Click(sender As Object, e As EventArgs) Handles btpegar.Click
 
         Try
+            ' ── Pegar desde portapapeles ──────────────────────────────────────
             Dim texto As String = Clipboard.GetText().Trim().ToUpper()
-            If Not String.IsNullOrEmpty(texto) Then
-                tblicencia.Text = texto
-                MostrarInfo("Serial pegado desde el portapapeles.")
+
+            If String.IsNullOrEmpty(texto) Then
+                MostrarError("El portapapeles está vacío.")
+                Return
             End If
-        Catch
-            MostrarError("No se pudo leer el portapapeles.")
+
+            tblicencia.Text = texto
+            MostrarInfo("Serial pegado. Consultando información...")
+
+            ' ── Validar formato antes de consultar ───────────────────────────
+            Dim serial As String = tblicencia.Text.Trim().ToUpper()
+
+            If Not ValidarFormatoSerial(serial) Then
+                MostrarAdvertencia("Serial pegado. Verifique el formato XXXX-XXXX-XXXX-XXXX.")
+                Return
+            End If
+
+            ' ── Consultar al API sin activar ──────────────────────────────────
+            SetCargando(True)
+
+            Dim consulta As ConsultaLicenciaResult = Await _licenciaServicio.ConsultarSerialAsync(serial).ConfigureAwait(False)
+
+            Invoke(Sub() CargarCamposDesdeConsulta(consulta))
+
+        Catch ex As Exception
+            _logger.Error(ex, "Error en btpegar_Click.")
+            Invoke(Sub() MostrarError("Error al consultar el serial."))
+        Finally
+            Invoke(Sub() SetCargando(False))
         End Try
+    End Sub
+    ' ─── Cargar controles desde la consulta previa ───────────────────────────────
+    Private Sub CargarCamposDesdeConsulta(consulta As ConsultaLicenciaResult)
+        ' ✅ Garantizar ejecución en hilo UI
+        If InvokeRequired Then
+            Invoke(Sub() CargarCamposDesdeConsulta(consulta))
+            Return
+        End If
+
+        If Not consulta.Encontrado Then
+            MostrarError(String.Format(
+            "Serial no encontrado: {0}", consulta.Mensaje))
+            Return
+        End If
+
+        AsignarPeriodo(consulta.IdPeriodo)
+
+        nucantidad.Value = If(
+        consulta.Cantidad > 0 AndAlso consulta.Cantidad <= 500,
+        CDec(consulta.Cantidad), 0D)
+
+        If consulta.FechaVencimiento.HasValue Then
+            dtfechavencimiento.Value =
+            consulta.FechaVencimiento.Value.ToLocalTime()
+        End If
+
+        If Not String.IsNullOrEmpty(consulta.NombreCliente) Then
+            tbnombre.Text = consulta.NombreCliente
+        End If
+
+        If Not String.IsNullOrEmpty(consulta.EmailCliente) Then
+            tbemail.Text = consulta.EmailCliente
+        End If
+
+        If Not String.IsNullOrEmpty(consulta.NombreContacto) Then
+            tbnombrecontacto.Text = consulta.NombreContacto
+        End If
+
+        If Not String.IsNullOrEmpty(consulta.TelefonoContacto) Then
+            tbtelefono.Text = consulta.TelefonoContacto
+        End If
+
+        Select Case consulta.EstatusInt
+            Case 0
+                MostrarAdvertencia(String.Format(
+                "Serial válido — Período: {0} ({1} días).{2}" &
+                "Fecha estimada de vencimiento: {3}",
+                consulta.Periodo,
+                consulta.Cantidad,
+                Environment.NewLine,
+                If(consulta.FechaVencimiento.HasValue,
+                   consulta.FechaVencimiento.Value _
+                       .ToLocalTime().ToString("dd/MM/yyyy"),
+                   "No calculada")))
+            Case 1
+                MostrarExito(String.Format(
+                "Licencia activa — Vence: {0}",
+                If(consulta.FechaVencimiento.HasValue,
+                   consulta.FechaVencimiento.Value _
+                       .ToLocalTime().ToString("dd/MM/yyyy"),
+                   "Sin vencimiento")))
+            Case 2
+                MostrarAdvertencia("Licencia en período de gracia.")
+            Case 3
+                MostrarError("Serial inhabilitado. Contacte a soporte.")
+        End Select
     End Sub
 
     ' ─── Botón Limpiar ────────────────────────────────────────────────────────
-    Private Sub btlimpiar_Click(
-        sender As Object, e As EventArgs) _
-        Handles btlimpiar.Click
-
+    Private Sub btlimpiar_Click(sender As Object, e As EventArgs) Handles btlimpiar.Click
         tblicencia.Text = String.Empty
         tblicencia.ReadOnly = False
         label4.Text = String.Empty

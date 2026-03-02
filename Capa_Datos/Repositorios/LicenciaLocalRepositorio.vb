@@ -47,8 +47,7 @@ Public Class LicenciaLocalRepositorio
             licencia.Checksum = ComputarChecksum(licencia)
 
             Dim json As String = JsonConvert.SerializeObject(licencia)
-            Dim encrypted As String = SeguridadHelper.EncryptString(
-                json, _claveEncriptacion)
+            Dim encrypted As String = SeguridadHelper.EncryptString(json, _claveEncriptacion)
 
             Dim directorio As String = Path.GetDirectoryName(_rutaArchivo)
             If Not Directory.Exists(directorio) Then

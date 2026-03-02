@@ -43,6 +43,8 @@ Public Class LicenciaApiCliente
                                      hardwareId As String,
                                      nombreCliente As String,
                                      emailCliente As String,
+                                     cantidad As Integer,
+                                         idperiodo As Integer,
                                      nombreContacto As String,
                                      telefonoContacto As String) As Task(Of LicenciaInfo)
         Try
@@ -53,8 +55,11 @@ Public Class LicenciaApiCliente
             .fecha_cliente = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss"),
             .nombre_cliente = nombreCliente,
             .email_cliente = emailCliente,
+            .cantidad = cantidad,
+            .idperiodo = idperiodo,
             .nombre_contacto = nombreContacto,
-            .telefono_contacto = telefonoContacto
+            .telefono_contacto = telefonoContacto,
+            .fechavencimiento = DateTime.UtcNow
         }
 
             Dim json As String = JsonConvert.SerializeObject(body)
@@ -100,6 +105,113 @@ Public Class LicenciaApiCliente
         Catch ex As Exception
             _logger.Error(ex, "Error en LicenciaApiCliente.VerificarAsync")
             Return RespuestaError("Error inesperado.")
+        End Try
+    End Function
+    Public Async Function ConsultarAsync(serial As String) As Task(Of ConsultaLicenciaResult)
+        Try
+            Dim body = New With {
+            .serial_orig = serial.Trim().ToUpper()
+        }
+
+            Dim json As String = JsonConvert.SerializeObject(body)
+            Dim timestamp As String = ObtenerTimestamp()
+            Dim firma As String = GenerarFirma(timestamp)
+
+            Dim request As New HttpRequestMessage(HttpMethod.Post, "licencia/consultar")
+
+            request.Content = New StringContent(json, Encoding.UTF8, "application/json")
+            request.Headers.Add("X-API-Key", _apiKey)
+            request.Headers.Add("X-Timestamp", timestamp)
+            request.Headers.Add("X-Signature", firma)
+
+            Dim response As HttpResponseMessage = Await _httpClient.SendAsync(request).ConfigureAwait(False)
+
+            Dim respuestaJson As String = Await response.Content.ReadAsStringAsync().ConfigureAwait(False)
+
+            System.Diagnostics.Debug.WriteLine("=== CONSULTA SERIAL ===")
+            System.Diagnostics.Debug.WriteLine("Status: " & CInt(response.StatusCode).ToString())
+            System.Diagnostics.Debug.WriteLine("Body: " & respuestaJson)
+            System.Diagnostics.Debug.WriteLine("=======================")
+
+            If Not response.IsSuccessStatusCode Then
+                Return New ConsultaLicenciaResult With {
+                .Encontrado = False,
+                .Mensaje = "Error al consultar serial."
+            }
+            End If
+
+            Return ProcesarConsulta(respuestaJson)
+
+        Catch ex As Exception
+            _logger.Warn(ex, "Error en ConsultarAsync.")
+            Return New ConsultaLicenciaResult With {
+            .Encontrado = False,
+            .Mensaje = "Sin conexión con el servidor."
+        }
+        End Try
+    End Function
+    Private Function ProcesarConsulta(json As String) As ConsultaLicenciaResult
+        Try
+            Dim d = Newtonsoft.Json.Linq.JObject.Parse(json)
+
+            Dim encontrado As Boolean = If(
+            d("encontrado") IsNot Nothing,
+            CBool(d("encontrado")), False)
+
+            If Not encontrado Then
+                Return New ConsultaLicenciaResult With {
+                .encontrado = False,
+                .Mensaje = ObtenerValorToken(d, "mensaje")
+            }
+            End If
+
+            ' ── Fecha vencimiento — real si activo, proyectada si inactivo ────────
+            Dim fechaVenc As DateTime? = Nothing
+
+            Dim clavesFecha As String() = {
+            "fecha_vencimiento",
+            "fecha_vencimiento_proyectada"
+        }
+
+            For Each clave As String In clavesFecha
+                If d(clave) IsNot Nothing AndAlso
+               d(clave).Type <> Newtonsoft.Json.Linq.JTokenType.Null Then
+                    Dim fechaStr As String = d(clave).ToString()
+                    Dim fechaParsed As DateTime
+                    If DateTime.TryParse(fechaStr, fechaParsed) Then
+                        fechaVenc = fechaParsed.ToLocalTime()
+                        Exit For
+                    End If
+                End If
+            Next
+
+            Return New ConsultaLicenciaResult With {
+            .encontrado = True,
+            .Mensaje = ObtenerValorToken(d, "mensaje"),
+            .EstatusInt = If(
+                d("idestatusserial") IsNot Nothing,
+                CInt(d("idestatusserial")), 0),
+            .Estatus = ObtenerValorToken(d, "estatus"),
+            .IdPeriodo = If(
+                d("idperiodo") IsNot Nothing,
+                CInt(d("idperiodo")), 0),
+            .Periodo = ObtenerValorToken(d, "periodo"),
+            .Cantidad = If(
+                d("cantidad") IsNot Nothing,
+                CInt(d("cantidad")), 0),
+            .FechaVencimiento = fechaVenc,
+            .NombreCliente = ObtenerValorToken(d, "nombre_cliente"),
+            .EmailCliente = ObtenerValorToken(d, "email_cliente"),
+            .NombreContacto = ObtenerValorToken(d, "nombre_contacto"),
+            .TelefonoContacto = ObtenerValorToken(d, "telefono_contacto")
+        }
+
+        Catch ex As Exception
+            _logger.Error(ex, "Error al parsear respuesta de consulta.")
+            Return New ConsultaLicenciaResult With {
+            .Encontrado = False,
+            .Mensaje = "Error al procesar respuesta."
+        }
         End Try
     End Function
 
@@ -204,7 +316,7 @@ Public Class LicenciaApiCliente
     Private Shared Function RespuestaError(mensaje As String) As LicenciaInfo
         Return New LicenciaInfo With {
             .Estatus = EstatusSerial.Inhabilitado,
-            .mensaje = mensaje,
+            .Mensaje = mensaje,
             .DiasRestantes = 0,
             .EnPeriodoGracia = False
         }

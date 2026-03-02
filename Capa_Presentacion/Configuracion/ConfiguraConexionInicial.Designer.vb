@@ -93,15 +93,16 @@ Partial Class ConfiguraConexionInicial
         '
         'btnProbar
         '
-        Me.btnProbar.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnProbar.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnProbar.Activecolor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(137, Byte), Integer))
+        Me.btnProbar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnProbar.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.btnProbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnProbar.BorderRadius = 0
+        Me.btnProbar.BorderRadius = 7
         Me.btnProbar.ButtonText = "Probar"
         Me.btnProbar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnProbar.DisabledColor = System.Drawing.Color.Gray
         Me.btnProbar.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnProbar.Iconimage = CType(resources.GetObject("btnProbar.Iconimage"), System.Drawing.Image)
+        Me.btnProbar.Iconimage = Nothing
         Me.btnProbar.Iconimage_right = Nothing
         Me.btnProbar.Iconimage_right_Selected = Nothing
         Me.btnProbar.Iconimage_Selected = Nothing
@@ -112,30 +113,31 @@ Partial Class ConfiguraConexionInicial
         Me.btnProbar.IconVisible = True
         Me.btnProbar.IconZoom = 90.0R
         Me.btnProbar.IsTab = False
-        Me.btnProbar.Location = New System.Drawing.Point(175, 390)
+        Me.btnProbar.Location = New System.Drawing.Point(167, 390)
         Me.btnProbar.Name = "btnProbar"
-        Me.btnProbar.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnProbar.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
+        Me.btnProbar.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.btnProbar.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(137, Byte), Integer))
         Me.btnProbar.OnHoverTextColor = System.Drawing.Color.White
         Me.btnProbar.selected = False
         Me.btnProbar.Size = New System.Drawing.Size(128, 37)
-        Me.btnProbar.TabIndex = 22
+        Me.btnProbar.TabIndex = 9
         Me.btnProbar.Text = "Probar"
-        Me.btnProbar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProbar.Textcolor = System.Drawing.Color.White
-        Me.btnProbar.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProbar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnProbar.Textcolor = System.Drawing.Color.Black
+        Me.btnProbar.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         '
         'btnCancelar
         '
-        Me.btnCancelar.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btnCancelar.Activecolor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(137, Byte), Integer))
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCancelar.BorderRadius = 0
+        Me.btnCancelar.BorderRadius = 7
         Me.btnCancelar.ButtonText = "Cancelar"
         Me.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnCancelar.DisabledColor = System.Drawing.Color.Gray
         Me.btnCancelar.Iconcolor = System.Drawing.Color.Transparent
-        Me.btnCancelar.Iconimage = CType(resources.GetObject("btnCancelar.Iconimage"), System.Drawing.Image)
+        Me.btnCancelar.Iconimage = Nothing
         Me.btnCancelar.Iconimage_right = Nothing
         Me.btnCancelar.Iconimage_right_Selected = Nothing
         Me.btnCancelar.Iconimage_Selected = Nothing
@@ -148,16 +150,16 @@ Partial Class ConfiguraConexionInicial
         Me.btnCancelar.IsTab = False
         Me.btnCancelar.Location = New System.Drawing.Point(9, 390)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.btnCancelar.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
+        Me.btnCancelar.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(209, Byte), Integer), CType(CType(229, Byte), Integer))
+        Me.btnCancelar.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(97, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(137, Byte), Integer))
         Me.btnCancelar.OnHoverTextColor = System.Drawing.Color.White
         Me.btnCancelar.selected = False
         Me.btnCancelar.Size = New System.Drawing.Size(128, 37)
-        Me.btnCancelar.TabIndex = 21
+        Me.btnCancelar.TabIndex = 8
         Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Textcolor = System.Drawing.Color.White
-        Me.btnCancelar.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnCancelar.Textcolor = System.Drawing.Color.Black
+        Me.btnCancelar.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         '
         'tbbddperfiles
         '
@@ -292,7 +294,7 @@ Partial Class ConfiguraConexionInicial
         Me.btnGuardar.OnHoverTextColor = System.Drawing.Color.White
         Me.btnGuardar.selected = False
         Me.btnGuardar.Size = New System.Drawing.Size(173, 37)
-        Me.btnGuardar.TabIndex = 8
+        Me.btnGuardar.TabIndex = 10
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.btnGuardar.Textcolor = System.Drawing.Color.Black
@@ -319,7 +321,7 @@ Partial Class ConfiguraConexionInicial
         Me.cbInstancia.Location = New System.Drawing.Point(143, 70)
         Me.cbInstancia.Name = "cbInstancia"
         Me.cbInstancia.Size = New System.Drawing.Size(287, 21)
-        Me.cbInstancia.TabIndex = 1
+        Me.cbInstancia.TabIndex = 0
         '
         'pictureBox1
         '
