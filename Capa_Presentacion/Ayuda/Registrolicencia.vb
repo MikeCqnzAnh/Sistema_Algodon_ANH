@@ -10,8 +10,7 @@ Imports NLog
 
 Public Class RegistroLicencia
 
-    Private ReadOnly _logger As Logger =
-        LogManager.GetCurrentClassLogger()
+    Private ReadOnly _logger As Logger = LogManager.GetCurrentClassLogger()
     Private ReadOnly _licenciaServicio As LicenciaServicio
     Private ReadOnly _configServicio As ConfiguracionServicio
     Private ReadOnly _modoConsulta As Boolean

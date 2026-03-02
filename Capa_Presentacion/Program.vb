@@ -4,7 +4,7 @@ Imports Capa_Entidad
 Imports Capa_Negocio
 Imports Capa_Operacion
 Module Program
-
+    Private _discoveryService As NetworkDiscoveryServicio
     <STAThread>
     Sub Main()
         Application.EnableVisualStyles()
@@ -13,7 +13,13 @@ Module Program
 
         If Not VerificarConfiguracion() Then Return
         If Not VerificarLicencia() Then Return
-
+        IniciarDiscoveryServidor()
+        AddHandler Application.ApplicationExit, Sub(s, e)
+                                                    If _discoveryService IsNot Nothing Then
+                                                        _discoveryService.Detener()
+                                                        _discoveryService.Dispose()
+                                                    End If
+                                                End Sub
         Application.Run(New Acceso())
     End Sub
 
@@ -33,8 +39,7 @@ Module Program
             MessageBoxDefaultButton.Button1)
 
         If resp = DialogResult.No Then
-            MessageBox.Show("El sistema se cerrará.", "Cerrando",
-                MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("El sistema se cerrará.", "Cerrando", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return False
         End If
 
@@ -45,14 +50,27 @@ Module Program
             End If
         End Using
 
-        MessageBox.Show(
-                "La configuración no fue completada." &
-                Environment.NewLine & "El sistema se cerrará.",
-                "Sin configuración",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        MessageBox.Show("La configuración no fue completada." & Environment.NewLine & "El sistema se cerrará.", "Sin configuración", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Return False
     End Function
+    Private Sub IniciarDiscoveryServidor()
+        Try
+            Dim configServicio As ConfiguracionServicio = ServiceLocator.Obtener(Of ConfiguracionServicio)()
 
+            Dim config As ConfiguracionApp = configServicio.Leer()
+
+            ' Solo iniciar en modo servidor
+            If config Is Nothing OrElse config.Estacion Then Return
+
+            _discoveryService = New NetworkDiscoveryServicio()
+            _discoveryService.IniciarServidor()
+
+        Catch ex As Exception
+            ' No crítico — el sistema funciona sin discovery
+            System.Diagnostics.Debug.WriteLine(
+            "Discovery no disponible: " & ex.Message)
+        End Try
+    End Sub
     ' ─── Verificar licencia ───────────────────────────────────────────────
     Private Function VerificarLicencia() As Boolean
         Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
@@ -135,8 +153,7 @@ Module Program
     End Function
 
     ' ─── Evaluar resultado ────────────────────────────────────────────────
-    Private Function EvaluarResultadoLicencia(
-        licencia As LicenciaInfo) As Boolean
+    Private Function EvaluarResultadoLicencia(licencia As LicenciaInfo) As Boolean
 
         Select Case licencia.Estatus
             Case EstatusSerial.Activo
