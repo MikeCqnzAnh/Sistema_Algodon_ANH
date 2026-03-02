@@ -57,7 +57,7 @@ Public Class LicenciaInfo
     Public Property CpuId As String
     Public Property Estatus As EstatusSerial
     Public Property Cantidad As Integer
-    Public Property IdPeriodo As Integer
+    Public Property IdPeriodo As PeriodoLicencia
     Public Property Periodo As String
     Public Property FechaVencimiento As DateTime?
     Public Property DiasRestantes As Integer
@@ -74,6 +74,15 @@ Public Class LicenciaLocal
     Public Property SerialEncriptado As String
     Public Property UltimaVerificacion As DateTime
     Public Property UltimoEstatus As EstatusSerial
+    Public Property Cantidad As Integer
+    Public Property IdPeriodo As PeriodoLicencia
+    Public Property Periodo As String
+    Public Property FechaVencimiento As DateTime?
+    Public Property DiasRestantes As Integer
+    Public Property NombreCliente As String
+    Public Property EmailCliente As String      ' ✅ nuevo
+    Public Property NombreContacto As String      ' ✅ nuevo
+    Public Property TelefonoContacto As String      ' ✅ nuevo
     Public Property DiasGraciaOffline As Integer
     Public Property DiasOfflineConsumidos As Integer
     Public Property UltimaFechaRegistrada As DateTime

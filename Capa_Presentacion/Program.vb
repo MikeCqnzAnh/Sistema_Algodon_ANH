@@ -92,6 +92,7 @@ Module Program
     ' ─── Licencia SERVIDOR ────────────────────────────────────────────────
     Private Function VerificarLicenciaServidor() As Boolean
         Dim licServicio = ServiceLocator.Obtener(Of LicenciaServicio)()
+        Dim licenciaServicio = ServiceLocator.Obtener(Of LicenciaServicio)()
         Dim serial As String = Nothing
 
         If licServicio.ExisteArchivoLicencia() Then
@@ -128,8 +129,8 @@ Module Program
                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return False
         End If
-
-        Dim licencia As LicenciaInfo = licServicio.VerificarLicenciaAsync(serial).GetAwaiter().GetResult()
+        Dim licloc As LicenciaLocal = licenciaServicio.obtenerlicencialocal()
+        Dim licencia As LicenciaInfo = licServicio.VerificarLicenciaAsync(serial, licloc.NombreCliente, licloc.EmailCliente, licloc.Cantidad, licloc.IdPeriodo, licloc.FechaVencimiento, licloc.NombreContacto, licloc.TelefonoContacto).GetAwaiter().GetResult()
         Return EvaluarResultadoLicencia(licencia)
     End Function
 

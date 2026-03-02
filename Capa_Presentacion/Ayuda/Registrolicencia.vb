@@ -45,13 +45,22 @@ Public Class RegistroLicencia
             ' MODO ESTACIÓN — verificar directamente sin pedir serial
             Await VerificarEstacionAsync(config)
         Else
+            Dim licloc As LicenciaLocal = _licenciaServicio.obtenerlicencialocal()
+
             ' MODO SERVIDOR — cargar serial guardado si existe
             Dim serialGuardado As String = _licenciaServicio.ObtenerSerialDesdeArchivo()
 
             If Not String.IsNullOrEmpty(serialGuardado) Then
+                tbemail.Text = licloc.EmailCliente
+                tbnombre.Text = licloc.NombreCliente
+                nucantidad.Value = licloc.Cantidad
+                AsignarPeriodo(licloc.IdPeriodo)
+                dtfechavencimiento.Value = licloc.FechaVencimiento
+                tbnombrecontacto.Text = licloc.NombreContacto
+                tbtelefono.Text = licloc.TelefonoContacto
                 tblicencia.Text = serialGuardado
                 tblicencia.ReadOnly = True
-                Await VerificarLicenciaAsync(serialGuardado)
+                Await VerificarLicenciaAsync(serialGuardado, tbnombre.Text, tbemail.Text, nucantidad.Value, cbperiodo.SelectedValue, dtfechavencimiento.Value, tbnombrecontacto.Text, tbtelefono.Text)
             Else
                 ' Primera vez — permitir ingresar serial
                 tblicencia.ReadOnly = False
@@ -98,9 +107,7 @@ Public Class RegistroLicencia
             ' Mostrar modo conexión en label4
             label4.AutoSize = True
             label4.ForeColor = Color.DodgerBlue
-            label4.Text = String.Format(
-                "Estación — Servidor: {0}",
-                If(config IsNot Nothing, config.IpServidor, "No configurado"))
+            label4.Text = String.Format("Estación — Servidor: {0}", If(config IsNot Nothing, config.IpServidor, "No configurado"))
 
             btcancelar.Text = If(_modoConsulta, "Cerrar", "Cancelar")
 
@@ -197,8 +204,7 @@ Public Class RegistroLicencia
     End Sub
 
     ' ─── Botón Activar ────────────────────────────────────────────────────────
-    Private Async Sub btactivar_Click(
-    sender As Object, e As EventArgs) Handles btactivar.Click
+    Private Async Sub btactivar_Click(sender As Object, e As EventArgs) Handles btactivar.Click
 
         ' ✅ Leer TODOS los valores de controles UI AQUÍ
         ' antes de cualquier Await — todavía estamos en el hilo UI
@@ -208,6 +214,7 @@ Public Class RegistroLicencia
         Dim nombreContacto As String = tbnombrecontacto.Text.Trim()
         Dim telefonoContacto As String = tbtelefono.Text.Trim()
         Dim cantidad As Integer = CInt(nucantidad.Value)
+        Dim fechavencimiento As DateTime? = DateTime.Now
 
         ' ✅ SelectedValue puede ser Nothing si no hay selección
         Dim idPeriodo As Integer = 0
@@ -236,9 +243,7 @@ Public Class RegistroLicencia
         Try
             ' ── A partir de aquí pueden existir Awaits con ConfigureAwait(False)
             ' ── ya NO accedemos a ningún control UI directamente
-            Dim hayConexion As Boolean = Await _licenciaServicio _
-            .HayConexionConServidorAsync() _
-            .ConfigureAwait(False)
+            Dim hayConexion As Boolean = Await _licenciaServicio.HayConexionConServidorAsync().ConfigureAwait(False)
 
             If Not hayConexion Then
                 Invoke(Sub()
@@ -262,6 +267,7 @@ Public Class RegistroLicencia
             emailCliente,
             cantidad,
             idPeriodo,
+            fechavencimiento,
             nombreContacto,
             telefonoContacto)
 
@@ -283,6 +289,7 @@ Public Class RegistroLicencia
     Optional emailCliente As String = "",
     Optional cantidad As Integer = 0,
     Optional idperiodo As Integer = 0,
+    Optional fechavencimiento As DateTime? = Nothing,
     Optional nombreContacto As String = "",
     Optional telefonoContacto As String = "") As Task
 
@@ -294,6 +301,7 @@ Public Class RegistroLicencia
                 emailCliente,
                 cantidad,
                 idperiodo,
+                fechavencimiento,
                 nombreContacto,
                 telefonoContacto) _
             .ConfigureAwait(False)

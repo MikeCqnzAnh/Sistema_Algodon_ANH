@@ -39,14 +39,7 @@ Public Class LicenciaApiCliente
     End Function
 
     ' ─── Verificar licencia contra Flask API ─────────────────────────────────
-    Public Async Function VerificarAsync(serial As String,
-                                     hardwareId As String,
-                                     nombreCliente As String,
-                                     emailCliente As String,
-                                     cantidad As Integer,
-                                         idperiodo As Integer,
-                                     nombreContacto As String,
-                                     telefonoContacto As String) As Task(Of LicenciaInfo)
+    Public Async Function VerificarAsync(serial As String, hardwareId As String, nombreCliente As String, emailCliente As String, cantidad As Integer, idperiodo As Integer, fechavencimiento As DateTime, nombreContacto As String, telefonoContacto As String) As Task(Of LicenciaInfo)
         Try
             Dim body = New With {
             .serial_orig = serial,
@@ -59,7 +52,7 @@ Public Class LicenciaApiCliente
             .idperiodo = idperiodo,
             .nombre_contacto = nombreContacto,
             .telefono_contacto = telefonoContacto,
-            .fechavencimiento = DateTime.UtcNow
+            .fechavencimiento = fechavencimiento
         }
 
             Dim json As String = JsonConvert.SerializeObject(body)
@@ -76,11 +69,9 @@ Public Class LicenciaApiCliente
             request.Headers.Add("X-Timestamp", timestamp)
             request.Headers.Add("X-Signature", firma)
 
-            Dim response As HttpResponseMessage = Await _httpClient _
-            .SendAsync(request).ConfigureAwait(False)
+            Dim response As HttpResponseMessage = Await _httpClient.SendAsync(request).ConfigureAwait(False)
 
-            Dim respuestaJson As String = Await response.Content _
-            .ReadAsStringAsync().ConfigureAwait(False)
+            Dim respuestaJson As String = Await response.Content.ReadAsStringAsync().ConfigureAwait(False)
 
             System.Diagnostics.Debug.WriteLine("=== RESPUESTA FLASK ===")
             System.Diagnostics.Debug.WriteLine("Status: " & CInt(response.StatusCode).ToString())
@@ -88,10 +79,8 @@ Public Class LicenciaApiCliente
             System.Diagnostics.Debug.WriteLine("=======================")
 
             If Not response.IsSuccessStatusCode Then
-                _logger.Warn("API respondió {0}: {1}",
-                CInt(response.StatusCode), respuestaJson)
-                Return RespuestaError(String.Format(
-                "Error del servidor: {0}", respuestaJson))
+                _logger.Warn("API respondió {0}: {1}", CInt(response.StatusCode), respuestaJson)
+                Return RespuestaError(String.Format("Error del servidor: {0}", respuestaJson))
             End If
 
             Return ProcesarRespuesta(respuestaJson)
@@ -225,9 +214,7 @@ Public Class LicenciaApiCliente
             Dim d = DirectCast(data, Newtonsoft.Json.Linq.JObject)
 
             Dim fechaVenc As DateTime? = Nothing
-            If d("fecha_vencimiento") IsNot Nothing AndAlso
-           d("fecha_vencimiento").Type <>
-           Newtonsoft.Json.Linq.JTokenType.Null Then
+            If d("fecha_vencimiento") IsNot Nothing AndAlso d("fecha_vencimiento").Type <> Newtonsoft.Json.Linq.JTokenType.Null Then
                 Dim fechaStr As String = d("fecha_vencimiento").ToString()
                 Dim fechaParsed As DateTime
                 If DateTime.TryParse(fechaStr, fechaParsed) Then

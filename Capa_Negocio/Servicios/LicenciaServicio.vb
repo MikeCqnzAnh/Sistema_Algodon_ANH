@@ -31,6 +31,7 @@ Public Class LicenciaServicio
     Optional emailCliente As String = "",
     Optional cantidad As Integer = 0,
     Optional idperiodo As Integer = 0,
+    Optional fechavencimiento As DateTime? = Nothing,
     Optional nombreContacto As String = "",
     Optional telefonoContacto As String = "") As Task(Of LicenciaInfo)
 
@@ -40,14 +41,7 @@ Public Class LicenciaServicio
         If config IsNot Nothing AndAlso config.Estacion Then
             resultado = Await VerificarComoEstacionAsync(config).ConfigureAwait(False)
         Else
-            resultado = Await VerificarComoServidorAsync(
-            serial,
-            nombreCliente,
-            emailCliente,
-            cantidad,
-            idperiodo,
-            nombreContacto,
-            telefonoContacto).ConfigureAwait(False)
+            resultado = Await VerificarComoServidorAsync(serial, nombreCliente, emailCliente, cantidad, idperiodo, fechavencimiento, nombreContacto, telefonoContacto).ConfigureAwait(False)
         End If
 
         _cacheActual = resultado
@@ -165,33 +159,18 @@ Public Class LicenciaServicio
     End Function
 
     ' ─── MODO SERVIDOR ────────────────────────────────────────────────────
-    Private Async Function VerificarComoServidorAsync(
-    serial As String,
-    nombreCliente As String,
-    emailCliente As String,
-    cantidad As Integer,
-    idperiodo As Integer,
-    nombreContacto As String,
-    telefonoContacto As String) As Task(Of LicenciaInfo)
+    Private Async Function VerificarComoServidorAsync(serial As String, nombreCliente As String, emailCliente As String, cantidad As Integer, idperiodo As Integer, fechavencimiento As DateTime, nombreContacto As String, telefonoContacto As String) As Task(Of LicenciaInfo)
 
         Dim hardwareId As String = HardwareHelper.ObtenerHardwareId()
         Try
             ' ✅ Pasar todos los campos al ApiCliente
-            Dim resultado As LicenciaInfo = Await _apiClient.VerificarAsync(
-            serial,
-            hardwareId,
-            nombreCliente,
-            emailCliente,
-            cantidad,
-            idperiodo,
-            nombreContacto,
-            telefonoContacto).ConfigureAwait(False)
+            Dim resultado As LicenciaInfo = Await _apiClient.VerificarAsync(serial, hardwareId, nombreCliente, emailCliente, cantidad, idperiodo, fechavencimiento, nombreContacto, telefonoContacto).ConfigureAwait(False)
 
             If resultado Is Nothing Then
                 Return VerificarOfflineServidor()
             End If
 
-            GuardarEstadoLocal(serial, hardwareId, resultado)
+            GuardarEstadoLocal(serial, nombreCliente, emailCliente, cantidad, idperiodo, fechavencimiento, nombreContacto, telefonoContacto, hardwareId, resultado)
             Return resultado
 
         Catch ex As HttpRequestException
@@ -248,11 +227,18 @@ Public Class LicenciaServicio
         }
         End Try
     End Function
-    Private Sub GuardarEstadoLocal(serial As String, hardwareId As String, info As LicenciaInfo)
+    Private Sub GuardarEstadoLocal(serial As String, nombrecliente As String, emailclienta As String, cantidad As Integer, idperiodo As Integer, fechavencimiento As DateTime, nombrecontacto As String, telefonocontacto As String, hardwareId As String, info As LicenciaInfo)
         Try
             Dim ahora As DateTime = DateTime.UtcNow
             _repoLocal.Guardar(New LicenciaLocal With {
                     .SerialEncriptado = SeguridadHelper.EncryptString(serial, hardwareId),
+                    .NombreCliente = nombrecliente,
+                    .EmailCliente = emailclienta,
+                    .Cantidad = cantidad,
+                    .IdPeriodo = idperiodo,
+                    .FechaVencimiento = fechavencimiento,
+                    .NombreContacto = nombrecontacto,
+                    .TelefonoContacto = telefonocontacto,
                     .UltimaVerificacion = ahora,
                     .UltimoEstatus = info.Estatus,
                     .DiasGraciaOffline = Constantes.DIAS_GRACIA,
@@ -276,8 +262,7 @@ Public Class LicenciaServicio
         End Try
     End Sub
 
-    Private Function LeerServerIdDesdeRed(
-        ipServidor As String) As String
+    Private Function LeerServerIdDesdeRed(ipServidor As String) As String
         Try
             Dim ruta As String = String.Format("\\{0}\{1}\server.id", ipServidor, Constantes.CARPETA_DATOS)
             If Not File.Exists(ruta) Then Return Nothing
@@ -291,7 +276,9 @@ Public Class LicenciaServicio
     Public Function ExisteArchivoLicencia() As Boolean
         Return File.Exists(ConfiguracionApp.RutaLicencia)
     End Function
-
+    Public Function obtenerlicencialocal() As LicenciaLocal
+        Return _repoLocal.Leer()
+    End Function
     Public Function ObtenerSerialDesdeArchivo() As String
         Return _repoLocal.ObtenerSerial()
     End Function
