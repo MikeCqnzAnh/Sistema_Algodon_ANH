@@ -1704,7 +1704,6 @@ C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.exe
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.pdb
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\CalculaCotton.xml
-C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Entidad.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Negocio.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Operacion.dll
@@ -1745,7 +1744,6 @@ C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Capa_Datos.xml
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Dapper.xml
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.AssemblyReference.cache
-C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe.config
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Interop.Shell32.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.vbproj.ResolveComReference.cache
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\Capa_Presentacion.Acceso.resources
@@ -2341,3 +2339,5 @@ E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_A
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.xml
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.pdb
 E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe.config
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Presentacion\obj\Debug\CalculaCotton.exe.config
