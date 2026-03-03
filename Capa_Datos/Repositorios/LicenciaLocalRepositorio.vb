@@ -23,12 +23,14 @@ Public Class LicenciaLocalRepositorio
         _rutaArchivo = rutaArchivo
     End Sub
 
-    Public Function Leer() As LicenciaLocal
-        If Not File.Exists(_rutaArchivo) Then Return Nothing
+    Public Function Leer(Optional rutared As String = "", Optional serverid As String = "") As LicenciaLocal
+        Dim ruta As String = If(String.IsNullOrEmpty(rutared), _rutaArchivo, rutared)
+        Dim srvid As String = If(String.IsNullOrEmpty(serverid), _claveEncriptacion, serverid)
+        If Not File.Exists(ruta) Then Return Nothing
 
         Try
-            Dim contenido As String = File.ReadAllText(_rutaArchivo)
-            Dim json As String = SeguridadHelper.DecryptString(contenido, _claveEncriptacion)
+            Dim contenido As String = File.ReadAllText(ruta)
+            Dim json As String = SeguridadHelper.DecryptString(contenido, srvid)
 
             Dim lic As LicenciaLocal = JsonConvert.DeserializeObject(Of LicenciaLocal)(json)
             If lic Is Nothing Then Return Nothing

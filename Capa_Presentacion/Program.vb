@@ -73,7 +73,7 @@ Module Program
     End Sub
     ' ─── Verificar licencia ───────────────────────────────────────────────
     Private Function VerificarLicencia() As Boolean
-        Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)()
+        Dim srv = ServiceLocator.Obtener(Of ConfiguracionServicio)
         Dim config As ConfiguracionApp = srv.Leer()
 
         If config IsNot Nothing AndAlso config.Estacion Then
@@ -103,6 +103,7 @@ Module Program
         End If
 
         Dim licServicio = ServiceLocator.Obtener(Of LicenciaServicio)()
+        Dim licser = licServicio.obtenerlicencialocal(rutaRed)
         Dim licencia As LicenciaInfo = licServicio.VerificarLicenciaAsync(String.Empty).GetAwaiter().GetResult()
         Return EvaluarResultadoLicencia(licencia)
     End Function

@@ -125,15 +125,14 @@ Public Class ConfiguraConexionInicial
         ActualizarVisibilidadIp()
     End Sub
 
-    Private Sub rbEstacion_CheckedChanged(
-        sender As Object, e As EventArgs) _
-        Handles RbEstacion.CheckedChanged, RbEstacion.Click
+    Private Sub rbEstacion_CheckedChanged(sender As Object, e As EventArgs) Handles RbEstacion.CheckedChanged, RbEstacion.Click
         ActualizarVisibilidadIp()
     End Sub
 
     Private Sub ActualizarVisibilidadIp()
         Dim esEstacion As Boolean = RbEstacion.Checked
         txtIpServidor.Visible = esEstacion
+        txtIpServidor.Enabled = esEstacion
         If Not esEstacion Then
             txtIpServidor.Text = String.Empty
         End If

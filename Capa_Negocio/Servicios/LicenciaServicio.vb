@@ -274,8 +274,8 @@ Public Class LicenciaServicio
     Public Function ExisteArchivoLicencia() As Boolean
         Return File.Exists(ConfiguracionApp.RutaLicencia)
     End Function
-    Public Function obtenerlicencialocal() As LicenciaLocal
-        Return _repoLocal.Leer()
+    Public Function obtenerlicencialocal(Optional rutared As String = "") As LicenciaLocal
+        Return _repoLocal.Leer(rutared, LeerServerIdDesdeRed("192.168.100.15"))
     End Function
     Public Function ObtenerSerialDesdeArchivo() As String
         Return _repoLocal.ObtenerSerial()
