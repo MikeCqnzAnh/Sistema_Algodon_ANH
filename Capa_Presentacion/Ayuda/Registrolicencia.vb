@@ -1,4 +1,5 @@
 ﻿' Capa_Presentacion/Formularios/RegistroLicencia.vb
+Imports System.Diagnostics.Contracts
 Imports System.Drawing
 Imports System.ServiceModel.Activation.Configuration
 Imports System.Threading.Tasks
@@ -392,10 +393,7 @@ Public Class RegistroLicencia
         AsignarPeriodo(MapearPeriodoAId(licencia.Periodo))
 
         ' ── Días restantes ────────────────────────────────────────────────────
-        nucantidad.Value = If(
-        licencia.DiasRestantes > 0 AndAlso
-        licencia.DiasRestantes < 500,
-        CDec(licencia.DiasRestantes), 0D)
+        nucantidad.Value = If(licencia.DiasRestantes > 0 AndAlso licencia.DiasRestantes < 500, CDec(licencia.DiasRestantes), 0D)
 
         ' ── Fecha vencimiento ─────────────────────────────────────────────────
         If licencia.FechaVencimiento.HasValue Then
@@ -496,9 +494,7 @@ Public Class RegistroLicencia
 
         AsignarPeriodo(consulta.IdPeriodo)
 
-        nucantidad.Value = If(
-        consulta.Cantidad > 0 AndAlso consulta.Cantidad <= 500,
-        CDec(consulta.Cantidad), 0D)
+        nucantidad.Value = If(consulta.Cantidad > 0 AndAlso consulta.Cantidad <= 500, CDec(consulta.Cantidad), 0D)
 
         If consulta.FechaVencimiento.HasValue Then
             dtfechavencimiento.Value =
@@ -523,15 +519,13 @@ Public Class RegistroLicencia
 
         Select Case consulta.EstatusInt
             Case 0
-                MostrarAdvertencia(String.Format(
-                "Serial válido — Período: {0} ({1} días).{2}" &
-                "Fecha estimada de vencimiento: {3}",
-                consulta.Periodo,
-                consulta.Cantidad,
-                Environment.NewLine,
+                MostrarAdvertencia(String.Format("Serial válido — Período: {0} ({1} {2}).{3}" & "Fecha estimada de vencimiento: {4}",
+                                                 consulta.Periodo,
+                                                 consulta.Cantidad,
+                                                 unidad(consulta.IdPeriodo, consulta.Cantidad),
+                                                 Environment.NewLine,
                 If(consulta.FechaVencimiento.HasValue,
-                   consulta.FechaVencimiento.Value _
-                       .ToLocalTime().ToString("dd/MM/yyyy"),
+                   consulta.FechaVencimiento.Value.ToLocalTime().ToString("dd/MM/yyyy"),
                    "No calculada")))
             Case 1
                 MostrarExito(String.Format(
@@ -546,7 +540,28 @@ Public Class RegistroLicencia
                 MostrarError("Serial inhabilitado. Contacte a soporte.")
         End Select
     End Sub
-
+    Private Function unidad(Id As Integer, cantidad As Integer) As String
+        Select Case Id
+            Case 0
+                If cantidad = 1 Then
+                    Return "día"
+                Else
+                    Return "días"
+                End If
+            Case 1
+                If cantidad = 1 Then
+                    Return "mes"
+                Else
+                    Return "meses"
+                End If
+            Case 2
+                If cantidad = 1 Then
+                    Return "año"
+                Else
+                    Return "años"
+                End If
+        End Select
+    End Function
     ' ─── Botón Limpiar ────────────────────────────────────────────────────────
     Private Sub btlimpiar_Click(sender As Object, e As EventArgs) Handles btlimpiar.Click
         tblicencia.Text = String.Empty

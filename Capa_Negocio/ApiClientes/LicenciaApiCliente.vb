@@ -175,19 +175,13 @@ Public Class LicenciaApiCliente
             Next
 
             Return New ConsultaLicenciaResult With {
-            .encontrado = True,
+            .Encontrado = True,
             .Mensaje = ObtenerValorToken(d, "mensaje"),
-            .EstatusInt = If(
-                d("idestatusserial") IsNot Nothing,
-                CInt(d("idestatusserial")), 0),
+            .EstatusInt = If(d("idestatusserial") IsNot Nothing, CInt(d("idestatusserial")), 0),
             .Estatus = ObtenerValorToken(d, "estatus"),
-            .IdPeriodo = If(
-                d("idperiodo") IsNot Nothing,
-                CInt(d("idperiodo")), 0),
+            .IdPeriodo = If(d("idperiodo") IsNot Nothing, CInt(d("idperiodo")), 0),
             .Periodo = ObtenerValorToken(d, "periodo"),
-            .Cantidad = If(
-                d("cantidad") IsNot Nothing,
-                CInt(d("cantidad")), 0),
+            .Cantidad = If(d("cantidad") IsNot Nothing, CInt(d("cantidad")), 0),
             .FechaVencimiento = fechaVenc,
             .NombreCliente = ObtenerValorToken(d, "nombre_cliente"),
             .EmailCliente = ObtenerValorToken(d, "email_cliente"),
@@ -250,15 +244,10 @@ Public Class LicenciaApiCliente
     End Function
 
     ' ─── Helper — obtener valor de token sin ?. ni ?? ────────────────────────────
-    Private Shared Function ObtenerValorToken(
-    d As Newtonsoft.Json.Linq.JObject,
-    clave As String) As String
-
-        If d(clave) Is Nothing OrElse
-       d(clave).Type = Newtonsoft.Json.Linq.JTokenType.Null Then
+    Private Shared Function ObtenerValorToken(d As Newtonsoft.Json.Linq.JObject, clave As String) As String
+        If d(clave) Is Nothing OrElse d(clave).Type = Newtonsoft.Json.Linq.JTokenType.Null Then
             Return String.Empty
         End If
-
         Return d(clave).ToString()
     End Function
 

@@ -86,22 +86,6 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll.config
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Newtonsoft.Json.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\NLog.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Newtonsoft.Json.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\NLog.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.AssemblyReference.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Ope.3F017683.Up2Date
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll.config
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
@@ -118,3 +102,19 @@ C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll.config
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Capa_Operacion.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Newtonsoft.Json.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\NLog.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\Newtonsoft.Json.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\bin\Debug\NLog.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.AssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.Resources.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.GenerateResource.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.vbproj.CoreCompileInputs.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Ope.3F017683.Up2Date
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Operacion\obj\Debug\Capa_Operacion.pdb

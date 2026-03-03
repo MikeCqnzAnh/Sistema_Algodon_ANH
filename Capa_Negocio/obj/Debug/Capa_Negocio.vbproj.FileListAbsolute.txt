@@ -304,42 +304,6 @@ C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_N
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
 C:\Users\DELL\Documents\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo_log.ldf
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll.config
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\stdole.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.pdb
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll.config
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.AssemblyReference.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.Resources.resources
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.GenerateResource.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.CoreCompileInputs.cache
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Neg.E79A89D6.Up2Date
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
-E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
@@ -376,3 +340,39 @@ C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\D
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
 C:\Users\Migue\OneDrive\Documentos\GitHub\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ALGODONDEMO_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo.mdf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\PerfilesDemo_log.ldf
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll.config
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Negocio.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\ShockwaveFlashObjects.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\stdole.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Datos.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Entidad.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.pdb
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Capa_Operacion.dll.config
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Newtonsoft.Json.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\NLog.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\System.CodeDom.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\bin\Debug\Dapper.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.AssemblyReference.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.Resources.resources
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.GenerateResource.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.vbproj.CoreCompileInputs.cache
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Neg.E79A89D6.Up2Date
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.dll
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.xml
+E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\Capa_Negocio\obj\Debug\Capa_Negocio.pdb

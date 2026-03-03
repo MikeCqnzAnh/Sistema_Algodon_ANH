@@ -187,8 +187,7 @@ Public Class LicenciaServicio
             Dim graciaServicio = New GraciaOfflineServicio(HardwareHelper.ObtenerHardwareId())
             Dim resultado As ResultadoGraciaOffline = graciaServicio.Evaluar()
 
-            If resultado.SinDatosLocales OrElse
-               Not resultado.Permitido Then
+            If resultado.SinDatosLocales OrElse Not resultado.Permitido Then
                 Return New LicenciaInfo With {
                     .Estatus = EstatusSerial.Inhabilitado,
                     .Mensaje = resultado.Mensaje

@@ -49,6 +49,7 @@ Public Class GraciaOfflineServicio
 
             If horasTranscurridas >= 20 Then
                 local.DiasOfflineConsumidos += 1
+                local.UltimoEstatus = 3
                 _logger.Info("Día offline consumido. Total: {0}", local.DiasOfflineConsumidos)
             End If
         End If
@@ -57,7 +58,9 @@ Public Class GraciaOfflineServicio
         If ahora > local.UltimaFechaRegistrada Then
             local.UltimaFechaRegistrada = ahora
         End If
-
+        If local.DiasRestantes = 0 Then
+            local.UltimoEstatus = 3
+        End If
         ' Guardar estado actualizado
         _repoLocal.Guardar(local)
 
@@ -72,8 +75,7 @@ Public Class GraciaOfflineServicio
     End Function
 
     ' ─── Detectar si la fecha fue manipulada ─────────────────────────────────
-    Private Function DetectarManipulacion(local As LicenciaLocal,
-                                          ahora As DateTime) As Boolean
+    Private Function DetectarManipulacion(local As LicenciaLocal, ahora As DateTime) As Boolean
         ' Fecha actual ANTERIOR a la última registrada
         ' el usuario retrocedió el reloj
         If ahora < local.UltimaFechaRegistrada Then
