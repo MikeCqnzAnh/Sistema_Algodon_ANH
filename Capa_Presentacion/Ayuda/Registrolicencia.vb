@@ -42,6 +42,18 @@ Public Class RegistroLicencia
         ConfigurarSegunModo(config)
 
         If _esEstacion Then
+            Dim rutaRed As String = config.ObtenerRutaLicenciaRed()
+            Dim licsrv As LicenciaLocal = _licenciaServicio.obtenerlicencialocal(rutaRed, config.IpServidor)
+            If Not String.IsNullOrEmpty(licsrv.SerialEncriptado) Then
+                tbemail.Text = licsrv.EmailCliente
+                tbnombre.Text = licsrv.NombreCliente
+                nucantidad.Value = licsrv.Cantidad
+                AsignarPeriodo(licsrv.IdPeriodo)
+                dtfechavencimiento.Value = licsrv.FechaVencimiento
+                tbnombrecontacto.Text = licsrv.NombreContacto
+                tbtelefono.Text = licsrv.TelefonoContacto
+                tblicencia.ReadOnly = True
+            End If
             ' MODO ESTACIÓN — verificar directamente sin pedir serial
             Await VerificarEstacionAsync(config)
         Else
@@ -103,7 +115,16 @@ Public Class RegistroLicencia
             btpegar.Visible = False
             btlimpiar.Visible = False
             btactivar.Visible = False
+            label5.Visible = False
+            nucantidad.Visible = False
+            cbperiodo.Visible = False
+            dtfechavencimiento.Visible = False
+            label6.Visible = False
 
+            tbnombre.ReadOnly = True
+            tbemail.ReadOnly = True
+            tbnombrecontacto.ReadOnly = True
+            tbtelefono.ReadOnly = True
             ' Mostrar modo conexión en label4
             label4.AutoSize = True
             label4.ForeColor = Color.DodgerBlue
@@ -135,16 +156,13 @@ Public Class RegistroLicencia
     End Sub
 
     ' ─── Verificación ESTACIÓN ────────────────────────────────────────────────
-    Private Async Function VerificarEstacionAsync(
-        config As ConfiguracionApp) As Task
+    Private Async Function VerificarEstacionAsync(config As ConfiguracionApp) As Task
 
         SetCargando(True)
         MostrarInfo("Verificando licencia desde el servidor...")
 
         Try
-            _licenciaActual = Await _licenciaServicio _
-                .VerificarLicenciaAsync(String.Empty) _
-                .ConfigureAwait(False)
+            _licenciaActual = Await _licenciaServicio.VerificarLicenciaAsync(String.Empty).ConfigureAwait(False)
 
             Invoke(Sub()
                        SetCargando(False)
