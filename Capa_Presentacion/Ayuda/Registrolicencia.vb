@@ -44,7 +44,7 @@ Public Class RegistroLicencia
         If _esEstacion Then
             Dim rutaRed As String = config.ObtenerRutaLicenciaRed()
             Dim licsrv As LicenciaLocal = _licenciaServicio.obtenerlicencialocal(rutaRed, config.IpServidor)
-            If Not String.IsNullOrEmpty(licsrv.SerialEncriptado) Then
+            If licsrv IsNot Nothing Then
                 tbemail.Text = licsrv.EmailCliente
                 tbnombre.Text = licsrv.NombreCliente
                 nucantidad.Value = licsrv.Cantidad

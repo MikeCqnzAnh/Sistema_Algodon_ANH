@@ -95,7 +95,8 @@ Module Program
                         "Verifique:{0}" &
                         "  • Que el servidor esté encendido{0}" &
                         "  • Que la carpeta esté compartida{0}" &
-                        "  • Que el servidor tenga la licencia activada",
+                        "  • Que el servidor tenga la licencia activada{0}" &
+                        "  • Que la red no este teniendo problemas.",
                         Environment.NewLine, rutaRed),
                     "Licencia no encontrada",
                     MessageBoxButtons.OK, MessageBoxIcon.Error)
