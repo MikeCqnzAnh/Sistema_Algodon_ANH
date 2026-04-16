@@ -336,21 +336,21 @@ Namespace Configuracion
 
         Public ReadOnly Property ApiBaseUrl As String
             Get
-                'Return ObtenerValor("ApiBaseUrl", "http://192.168.100.15:5000/api/v1/")
+                Return ObtenerValor("ApiBaseUrl", "http://192.168.100.15:5000/api/v1/")
                 'Return ObtenerValor("ApiBaseUrl", "http://100.112.236.15:5000/api/v1/")
-                Return ObtenerValor("ApiBaseUrl", "http://localhost:5000/api/v1/")
+                'Return ObtenerValor("ApiBaseUrl", "http://localhost:5000/api/v1/")
             End Get
         End Property
 
         Public ReadOnly Property LicenciaApiKey As String
             Get
-                Return ObtenerValor("LicenciaApiKey", "ccotton-api-2026")
+                Return ObtenerValor("LicenciaApiKey", "ccotton_software_2026_key_segura")
             End Get
         End Property
 
         Public ReadOnly Property LicenciaApiSecret As String
             Get
-                Return ObtenerValor("LicenciaApiSecret", "CCotton$ApiSecret#2026!MuyLargo")
+                Return ObtenerValor("LicenciaApiSecret", "CCotton$ApiSecret2026!MuyLargo")
             End Get
         End Property
 

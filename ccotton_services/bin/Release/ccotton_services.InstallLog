@@ -1,0 +1,9 @@
+﻿Desinstalando ensamblado 'E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_services\bin\Release\ccotton_services.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   assemblypath = E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_services\bin\Release\ccotton_services.exe
+   logfile = E:\Personal extra\Escritorio\ESCRITORIO EXTERNO\Desarrollo\SIA\Sistema_Algodon_ANH\ccotton_services\bin\Release\ccotton_services.InstallLog
+Quitando el origen de EventLog ccotton_services.
+Se está quitando el servicio ccotton_services del sistema...
+El servicio ccotton_services se ha quitado correctamente del sistema.
+Intento de detener el servicio ccotton_services.

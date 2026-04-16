@@ -47,8 +47,8 @@ Public Class RegistroLicencia
             If licsrv IsNot Nothing Then
                 tbemail.Text = licsrv.EmailCliente
                 tbnombre.Text = licsrv.NombreCliente
-                nucantidad.Value = licsrv.Cantidad
                 AsignarPeriodo(licsrv.IdPeriodo)
+                nucantidad.Value = licsrv.Cantidad
                 dtfechavencimiento.Value = licsrv.FechaVencimiento
                 tbnombrecontacto.Text = licsrv.NombreContacto
                 tbtelefono.Text = licsrv.TelefonoContacto
@@ -65,8 +65,8 @@ Public Class RegistroLicencia
             If Not String.IsNullOrEmpty(serialGuardado) Then
                 tbemail.Text = licloc.EmailCliente
                 tbnombre.Text = licloc.NombreCliente
-                nucantidad.Value = licloc.Cantidad
                 AsignarPeriodo(licloc.IdPeriodo)
+                nucantidad.Value = licloc.Cantidad
                 dtfechavencimiento.Value = licloc.FechaVencimiento
                 tbnombrecontacto.Text = licloc.NombreContacto
                 tbtelefono.Text = licloc.TelefonoContacto
@@ -411,7 +411,7 @@ Public Class RegistroLicencia
         AsignarPeriodo(MapearPeriodoAId(licencia.Periodo))
 
         ' ── Días restantes ────────────────────────────────────────────────────
-        nucantidad.Value = If(licencia.DiasRestantes > 0 AndAlso licencia.DiasRestantes < 500, CDec(licencia.DiasRestantes), 0D)
+        'nucantidad.Value = If(licencia.DiasRestantes > 0 AndAlso licencia.DiasRestantes < 500, CDec(licencia.DiasRestantes), 0D)
 
         ' ── Fecha vencimiento ─────────────────────────────────────────────────
         If licencia.FechaVencimiento.HasValue Then
@@ -461,7 +461,6 @@ Public Class RegistroLicencia
 
     ' ─── Botón Pegar — pegar serial desde portapapeles ───────────────────────
     Private Async Sub btpegar_Click(sender As Object, e As EventArgs) Handles btpegar.Click
-
         Try
             ' ── Pegar desde portapapeles ──────────────────────────────────────
             Dim texto As String = Clipboard.GetText().Trim().ToUpper()

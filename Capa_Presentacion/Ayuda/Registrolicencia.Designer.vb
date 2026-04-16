@@ -29,7 +29,6 @@ Partial Class RegistroLicencia
         Me.label8 = New System.Windows.Forms.Label()
         Me.btlimpiar = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.btpegar = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.label4 = New System.Windows.Forms.Label()
         Me.cbperiodo = New System.Windows.Forms.ComboBox()
         Me.dtfechavencimiento = New System.Windows.Forms.DateTimePicker()
         Me.label6 = New System.Windows.Forms.Label()
@@ -40,6 +39,7 @@ Partial Class RegistroLicencia
         Me.tbtelefono = New System.Windows.Forms.MaskedTextBox()
         Me.label2 = New System.Windows.Forms.Label()
         Me.tbnombrecontacto = New System.Windows.Forms.TextBox()
+        Me.label4 = New System.Windows.Forms.Label()
         Me.label1 = New System.Windows.Forms.Label()
         Me.tblicencia = New System.Windows.Forms.MaskedTextBox()
         Me.label21 = New System.Windows.Forms.Label()
@@ -179,14 +179,6 @@ Partial Class RegistroLicencia
         Me.btpegar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.btpegar.Textcolor = System.Drawing.Color.Black
         Me.btpegar.TextFont = New System.Drawing.Font("Poppins Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
-        'label4
-        '
-        Me.label4.AutoSize = True
-        Me.label4.Location = New System.Drawing.Point(15, 85)
-        Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(0, 13)
-        Me.label4.TabIndex = 144
         '
         'cbperiodo
         '
@@ -337,6 +329,14 @@ Partial Class RegistroLicencia
         Me.tbnombrecontacto.Name = "tbnombrecontacto"
         Me.tbnombrecontacto.Size = New System.Drawing.Size(413, 20)
         Me.tbnombrecontacto.TabIndex = 0
+        '
+        'label4
+        '
+        Me.label4.AutoSize = True
+        Me.label4.Location = New System.Drawing.Point(15, 85)
+        Me.label4.Name = "label4"
+        Me.label4.Size = New System.Drawing.Size(0, 13)
+        Me.label4.TabIndex = 144
         '
         'label1
         '

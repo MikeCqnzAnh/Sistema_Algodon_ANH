@@ -149,19 +149,12 @@ Public Class NetworkDiscoveryServicio
     ' ─── Obtener IP local del equipo ──────────────────────────────────────────
     Public Shared Function ObtenerIpLocal() As String
         Try
-            Using socket As New Socket(
-                AddressFamily.InterNetwork,
-                SocketType.Dgram, 0)
-
-                socket.Connect("8.8.8.8", 65530)
-                Dim endPoint As IPEndPoint =
-                    TryCast(socket.LocalEndPoint, IPEndPoint)
-
-                Return If(endPoint IsNot Nothing,
-                    endPoint.Address.ToString(),
-                    "127.0.0.1")
-            End Using
-
+            For Each ip In Dns.GetHostAddresses(Dns.GetHostName())
+                If ip.AddressFamily = Sockets.AddressFamily.InterNetwork AndAlso
+               Not IPAddress.IsLoopback(ip) Then
+                    Return ip.ToString()
+                End If
+            Next
         Catch
             Return "127.0.0.1"
         End Try

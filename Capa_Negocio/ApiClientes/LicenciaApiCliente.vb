@@ -29,9 +29,17 @@ Public Class LicenciaApiCliente
     End Sub
 
     ' ─── Verificar conectividad con la API ───────────────────────────────────
+    'Public Async Function VerificarConectividadAsync() As Task(Of Boolean)
+    '    Try
+    '        Dim response As HttpResponseMessage = Await _httpClient.GetAsync("ping").ConfigureAwait(False)
+    '        Return response.IsSuccessStatusCode
+    '    Catch
+    '        Return False
+    '    End Try
+    'End Function
     Public Async Function VerificarConectividadAsync() As Task(Of Boolean)
         Try
-            Dim response As HttpResponseMessage = Await _httpClient.GetAsync("ping").ConfigureAwait(False)
+            Dim response As HttpResponseMessage = Await _httpClient.GetAsync("licencias/ping").ConfigureAwait(False)
             Return response.IsSuccessStatusCode
         Catch
             Return False
@@ -63,7 +71,7 @@ Public Class LicenciaApiCliente
             System.Diagnostics.Debug.WriteLine("Body: " & json)
             System.Diagnostics.Debug.WriteLine("=======================")
 
-            Dim request As New HttpRequestMessage(HttpMethod.Post, "licencia/verificar")
+            Dim request As New HttpRequestMessage(HttpMethod.Post, "licencias/verificar")
             request.Content = New StringContent(json, Encoding.UTF8, "application/json")
             request.Headers.Add("X-API-Key", _apiKey)
             request.Headers.Add("X-Timestamp", timestamp)
@@ -99,14 +107,14 @@ Public Class LicenciaApiCliente
     Public Async Function ConsultarAsync(serial As String) As Task(Of ConsultaLicenciaResult)
         Try
             Dim body = New With {
-            .serial_orig = serial.Trim().ToUpper()
+            .serial = serial.Trim().ToUpper()
         }
 
             Dim json As String = JsonConvert.SerializeObject(body)
             Dim timestamp As String = ObtenerTimestamp()
             Dim firma As String = GenerarFirma(timestamp)
 
-            Dim request As New HttpRequestMessage(HttpMethod.Post, "licencia/consultar")
+            Dim request As New HttpRequestMessage(HttpMethod.Post, "licencias/consultar")
 
             request.Content = New StringContent(json, Encoding.UTF8, "application/json")
             request.Headers.Add("X-API-Key", _apiKey)
@@ -231,6 +239,7 @@ Public Class LicenciaApiCliente
                 CBool(d("en_periodo_gracia")), False),
             .FechaVencimiento = fechaVenc,
             .Periodo = ObtenerValorToken(d, "periodo"),
+            .Cantidad = ObtenerValorToken(d, "cantidad"),
             .NombreCliente = ObtenerValorToken(d, "nombre_cliente"),
             .EmailCliente = ObtenerValorToken(d, "email_cliente"),     ' ✅ nuevo
             .NombreContacto = ObtenerValorToken(d, "nombre_contacto"),   ' ✅ nuevo
